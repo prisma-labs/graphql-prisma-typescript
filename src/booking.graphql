@@ -1,6 +1,5 @@
 mutation addPaymentMethod {
   addPaymentMethod(
-    type: VISA
     cardNumber: "4242424242424242"
     expiresOnMonth: "12"
     expiresOnYear: "2020"

@@ -4,6 +4,17 @@ type Query {
   topReservations: [Reservation!]!
   featuredDestinations: [Neighbourhood!]!
   experiencesByCity(cities: [String!]!): [ExperiencesByCity!]!
+  viewer: Viewer
+}
+
+type Viewer {
+  bookings: [Booking!]!
+}
+
+type Mutation {
+  signup(email: String!, password: String!, name: String!): User!
+  login(email: String!, password: String!): User!
+  addPaymentMethod(cardNumber: String!, expiresOnMonth: Int!, expiresOnYear: Int!, securityCode: String!, firstName: String!, lastName: String!, postalCode: String!, country: String!): PaymentAccount!
 }
 
 type ExperiencesByCity {
@@ -90,4 +101,242 @@ type ExperienceCategory {
   experience: Experience
 }
 
+type User {
+  bookings: [Booking!]
+  createdAt: DateTime!
+  email: String!
+  firstName: String!
+  hostingExperiences: [Experience!]
+  id: ID!
+  isSuperHost: Boolean!
+  lastName: String!
+  location: Location!
+  notifications: [Notification!]
+  ownedPlaces: [Place!]
+  paymentAccount: [PaymentAccount!]
+  phone: String!
+  profilePicture: Picture
+  receivedMessages: [Message!]
+  responseRate: Float
+  responseTime: Int
+  sentMessages: [Message!]
+  updatedAt: DateTime!
+}
+
+type PaymentAccount {
+  id: ID!
+  createdAt: DateTime!
+  type: PAYMENT_PROVIDER
+  user: User!
+  payments: [Payment!]!
+  paypal: PaypalInformation
+  creditcard: CreditCardInformation
+}
+
+type Place {
+  id: ID! @isUnique
+  name: String
+  size: PLACE_SIZES
+  shortDescription: String!
+  description: String!
+  slug: String!
+  maxGuests: Int!
+  numBedrooms: Int!
+  numBeds: Int!
+  numBaths: Int!
+  reviews: [Review!]!
+  amenities: Amenities!
+  host: User!
+  pricing: Pricing!
+  location: Location!
+  views: PlaceViews!
+  guestRequirements: GuestRequirements
+  policies: Policies
+  houseRules: HouseRules
+  bookings: [Booking!]!
+  pictures: [Picture!]
+  popularity: Int!
+}
+
+type Booking {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  bookee: User!
+  place: Place!
+  startDate: DateTime!
+  endDate: DateTime!
+  payment: Payment!
+}
+
+type Notification {
+  createdAt: DateTime!
+  id: ID!
+  link: String!
+  readDate: DateTime!
+  type: NOTIFICATION_TYPE
+  user: User!
+}
+
+type Payment {
+  booking: Booking!
+  createdAt: DateTime!
+  id: ID!
+  paymentMethod: PaymentAccount!
+  serviceFee: Float!
+}
+
+type PaypalInformation {
+  createdAt: DateTime!
+  email: String!
+  id: ID!
+  paymentAccount: PaymentAccount!
+}
+
+type CreditCardInformation {
+  cardNumber: String!
+  country: String!
+  createdAt: DateTime!
+  expiresOnMonth: Int!
+  expiresOnYear: Int!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  paymentAccount: PaymentAccount
+  postalCode: String!
+  securityCode: String!
+}
+
+type Message {
+  createdAt: DateTime!
+  deliveredAt: DateTime!
+  id: ID!
+  readAt: DateTime!
+}
+
+type Pricing {
+  averageMonthly: Int!
+  averageWeekly: Int!
+  basePrice: Int!
+  cleaningFee: Int
+  currency: CURRENCY
+  extraGuests: Int
+  id: ID!
+  monthlyDiscount: Int
+  perNight: Int!
+  securityDeposit: Int
+  smartPricing: Boolean!
+  weekendPricing: Int
+  weeklyDiscount: Int
+}
+
+type PlaceViews {
+  id: ID!
+  lastWeek: Int!
+}
+
+type GuestRequirements {
+  govIssuedId: Boolean!
+  guestTripInformation: Boolean!
+  id: ID!
+  recommendationsFromOtherHosts: Boolean!
+}
+
+type Policies {
+  checkInEndTime: Float!
+  checkInStartTime: Float!
+  checkoutTime: Float!
+  createdAt: DateTime!
+  id: ID!
+  updatedAt: DateTime!
+}
+
+type HouseRules {
+  additionalRules: String
+  createdAt: DateTime!
+  id: ID!
+  partiesAndEventsAllowed: Boolean
+  petsAllowed: Boolean
+  smokingAllowed: Boolean
+  suitableForChildren: Boolean
+  suitableForInfants: Boolean
+  updatedAt: DateTime!
+}
+
+type Amenities {
+  airConditioning: Boolean!
+  babyBath: Boolean!
+  babyMonitor: Boolean!
+  babysitterRecommendations: Boolean!
+  bathtub: Boolean!
+  breakfast: Boolean!
+  buzzerWirelessIntercom: Boolean!
+  cableTv: Boolean!
+  changingTable: Boolean!
+  childrensBooksAndToys: Boolean!
+  childrensDinnerware: Boolean!
+  crib: Boolean!
+  doorman: Boolean!
+  dryer: Boolean!
+  elevator: Boolean!
+  essentials: Boolean!
+  familyKidFriendly: Boolean!
+  freeParkingOnPremises: Boolean!
+  freeParkingOnStreet: Boolean!
+  gym: Boolean!
+  hairDryer: Boolean!
+  hangers: Boolean!
+  heating: Boolean!
+  hotTub: Boolean!
+  id: ID!
+  indoorFireplace: Boolean!
+  internet: Boolean!
+  iron: Boolean!
+  kitchen: Boolean!
+  laptopFriendlyWorkspace: Boolean!
+  paidParkingOffPremises: Boolean!
+  petsAllowed: Boolean!
+  pool: Boolean!
+  privateEntrance: Boolean!
+  shampoo: Boolean!
+  smokingAllowed: Boolean!
+  suitableForEvents: Boolean!
+  tv: Boolean!
+  washer: Boolean!
+  wheelchairAccessible: Boolean!
+  wirelessInternet: Boolean!
+}
+
 scalar DateTime
+
+enum PAYMENT_PROVIDER {
+  PAYPAL
+  CREDIT_CARD
+}
+
+enum PLACE_SIZES {
+  ENTIRE_HOUSE
+  ENTIRE_APARTMENT
+  ENTIRE_EARTH_HOUSE
+  ENTIRE_CABIN
+  ENTIRE_VILLA
+  ENTIRE_PLACE
+  ENTIRE_BOAT
+  PRIVATE_ROOM
+}
+
+enum NOTIFICATION_TYPE {
+  OFFER
+  INSTANT_BOOK
+  RESPONSIVENESS
+  NEW_AMENITIES
+  HOUSE_RULES
+}
+
+enum CURRENCY {
+  CAD
+  CHF
+  EUR
+  JPY
+  USD
+  ZAR
+}

@@ -279,9 +279,14 @@ type PaypalInformation @model {
 type CreditCardInformation @model {
   id: ID! @isUnique
   createdAt: DateTime!
-  number: String!
-  expire: String!
-  name: String!
+  cardNumber: String!
+  expiresOnMonth: Int!
+  expiresOnYear: Int!
+  securityCode: String!
+  firstName: String!
+  lastName: String!
+  postalCode: String!
+  country: String!
   paymentAccount: PaymentAccount @relation(name: "CreditCardInformation")
 }
 
