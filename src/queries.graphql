@@ -1,0 +1,77 @@
+
+## possible queries
+{
+  experiences {
+    ...ExperienceFragment
+  }
+
+  topHomes {
+    id
+    size
+    numBeds
+    slug
+    pricing {
+      perNight
+    }
+    host {
+      isSuperHost
+    }
+    images(first: 1) {
+      url(width: 180 height: 270)
+    }
+    numReviews
+    avgRating
+  }
+
+  topReservations {
+    id
+    slug
+    title
+    avgPricePerPerson
+    pictures(first: 1) {
+      url(width: 340 height: 227)
+    }
+    title
+  }
+
+  featuredDestinations {
+    name
+    homePreview {
+      url(width: 180 height: 270)
+    }
+    slug
+  }
+
+  cityExperiences: experiencesByCity(cities: [
+  "New York",
+  "Barcelona",
+  "Paris",
+  "Tokyo",
+  "Los Angeles",
+  "Lisbon",
+  "San Francisco",
+  "Sydney",
+  "London",
+  "Rome"
+]) {
+  city {
+    name
+  }
+  experiences {
+    ...ExperienceFragment
+  }
+}
+}
+
+fragment ExperienceFragment on Experience {
+  id
+  title
+  category {
+    mainColor
+    name
+  }
+  slug
+  numRatings
+  avgRating
+  pricePerPerson
+}

@@ -1,0 +1,21 @@
+{
+  "name": "airbnb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --ext ts --exec node ./node_modules/ts-node/dist/bin.js src/index.ts"
+  },
+  "dependencies": {
+    "apollo-link-http": "^1.2.0",
+    "graphql-remote": "^0.1.1",
+    "graphql-tag": "^2.5.0",
+    "graphql-yoga": "^0.1.1",
+    "node-fetch": "^1.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.6.1"
+  }
+}

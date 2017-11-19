@@ -1,0 +1,93 @@
+type Query {
+  topExperiences: [Experience!]!
+  topHomes: [Home!]!
+  topReservations: [Reservation!]!
+  featuredDestinations: [Neighbourhood!]!
+  experiencesByCity(cities: [String!]!): [ExperiencesByCity!]!
+}
+
+type ExperiencesByCity {
+  experiences: [Experience!]!
+  city: City!
+}
+
+type Home {
+  id: ID!
+  name: String
+  description: String!
+  numRatings: Int!
+  avgRating: Float!
+  pictures(first: Int): [Picture!]!
+}
+
+type Reservation {
+  id: ID!
+  title: String!
+  avgPricePerPerson: Int!
+  pictures: [Picture!]!
+  location: Location!
+  isCurated: Boolean!
+  slug: String!
+  popularity: Int!
+}
+
+type Experience {
+  id: ID!
+  category: ExperienceCategory
+  title: String!
+  location: Location!
+  pricePerPerson: Int!
+  reviews: [Review!]!
+  preview: Picture!
+  popularity: Int!
+}
+
+type Review {
+  accuracy: Int!
+  checkIn: Int!
+  cleanliness: Int!
+  communication: Int!
+  createdAt: DateTime!
+  id: ID!
+  location: Int!
+  stars: Int!
+  text: String!
+  value: Int!
+}
+
+type Neighbourhood {
+  id: ID!
+  name: String!
+  slug: String!
+  homePreview: Picture
+  city: City!
+  featured: Boolean!
+  popularity: Int!
+}
+
+type Location {
+  id: ID!
+  lat: Float!
+  lng: Float!
+  address: String
+  directions: String
+}
+
+type Picture {
+  id: ID!
+  url: String!
+}
+
+type City {
+  id: ID!
+  name: String!
+}
+
+type ExperienceCategory {
+  id: ID! @isUnique
+  mainColor: String!
+  name: String!
+  experience: Experience
+}
+
+scalar DateTime

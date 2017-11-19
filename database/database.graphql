@@ -1,0 +1,330 @@
+type User @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  firstName: String!
+  lastName: String!
+  email: String! @isUnique
+  isSuperHost: Boolean! @defaultValue(value: "false")
+  ownedPlaces: [Place!]! @relation (name: "PlaceOwner")
+  location: Location! @relation (name: "UserLocation")
+  responseRate: Float
+  responseTime: Int
+  bookings: [Booking!]! @relation(name: "Bookee")
+  paymentAccount: [PaymentAccount!]! @relation(name: "UserPaymentAccounts")
+  phone: String!
+  sentMessages: [Message!]! @relation(name: "SentMessages")
+  receivedMessages: [Message!]! @relation(name: "ReceivedMessages")
+  notifications: [Notification!]! @relation(name: "Notifications")
+  profilePicture: Picture @relation(name: "ProfilePicture")
+  hostingExperiences: [Experience!]! @relation(name: "ExperienceHost")
+}
+
+type Place @model {
+  id: ID! @isUnique
+  name: String
+  size: PLACE_SIZES
+  shortDescription: String!
+  description: String!
+  slug: String!
+  maxGuests: Int!
+  numBedrooms: Int!
+  numBeds: Int!
+  numBaths: Int!
+  reviews: [Review!]! @relation (name: "PlaceReviews")
+  amenities: Amenities! @relation (name: "PlaceAmenities")
+  host: User! @relation (name: "PlaceOwner")
+  pricing: Pricing! @relation (name: "PlacePrice")
+  location: Location! @relation (name: "PlaceLocation")
+  views: PlaceViews! @relation (name: "PlaceViews")
+  guestRequirements: GuestRequirements @relation (name: "GuestRequirements")
+  policies: Policies @relation (name: "Policies")
+  houseRules: HouseRules @relation (name: "HouseRules")
+  bookings: [Booking!]! @relation (name: "PlaceBooking")
+  pictures: [Picture!]! @relation (name: "PlacePictures")
+  popularity: Int!
+}
+
+type Pricing @model {
+  id: ID! @isUnique
+  place: Place! @relation (name: "PlacePrice")
+  monthlyDiscount: Int
+  weeklyDiscount: Int
+  perNight: Int!
+  smartPricing: Boolean! @defaultValue(value: "false")
+  basePrice: Int!
+  averageWeekly: Int!
+  averageMonthly: Int!
+  cleaningFee: Int
+  securityDeposit: Int
+  extraGuests: Int
+  weekendPricing: Int
+  currency: CURRENCY
+}
+
+enum CURRENCY {
+  CAD
+  CHF
+  EUR
+  JPY
+  USD
+  ZAR
+}
+
+type GuestRequirements @model {
+  id: ID! @isUnique
+  govIssuedId: Boolean! @defaultValue (value: "false")
+  recommendationsFromOtherHosts: Boolean! @defaultValue (value: "false")
+  guestTripInformation: Boolean! @defaultValue (value: "false")
+  place: Place! @relation (name: "GuestRequirements")
+}
+
+type Policies @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  checkInStartTime: Float!
+  checkInEndTime: Float!
+  checkoutTime: Float!
+  place: Place! @relation (name: "Policies")
+}
+
+type HouseRules @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  suitableForChildren: Boolean
+  suitableForInfants: Boolean
+  petsAllowed: Boolean
+  smokingAllowed: Boolean
+  partiesAndEventsAllowed: Boolean
+  additionalRules: String
+  place: Place! @relation (name: "HouseRules")
+}
+
+type PlaceViews @model {
+  id: ID! @isUnique
+  lastWeek: Int!
+  place: Place! @relation (name: "PlaceViews")
+}
+
+type Location @model {
+  id: ID! @isUnique
+  lat: Float!
+  lng: Float!
+  neighbourHood: Neighbourhood @relation (name: "Neighbourhood")
+  user: User @relation (name: "UserLocation")
+  place: Place @relation (name: "PlaceLocation")
+  address: String
+  directions: String
+  experience: Experience @relation (name: "ExperienceLocation")
+  restaurant: Restaurant @relation (name: "RestaurantLocation")
+}
+
+type Neighbourhood @model {
+  id: ID! @isUnique
+  locations: [Location!]! @relation (name: "Neighbourhood")
+  name: String!
+  slug: String!
+  homePreview: Picture @relation (name: "HomePreview")
+  city: City! @relation (name: "CityNeighbourhood")
+  featured: Boolean!
+  popularity: Int!
+}
+
+type City @model {
+  id: ID! @isUnique
+  name: String!
+  neighbourhoods: [Neighbourhood!]! @relation(name: "CityNeighbourhood")
+}
+
+# later with @file directive
+type Picture @model {
+  id: ID! @isUnique
+  url: String!
+  neighbourHood: Neighbourhood @relation (name: "HomePreview")
+  user: User @relation(name: "ProfilePicture")
+  experience: Experience @relation(name: "ExperiencePreview")
+  place: Place @relation(name: "PlacePictures")
+  reservation: Restaurant @relation(name: "RestaurantPicture")
+  # url(width: Int height: Int): String!
+}
+
+type Experience @model {
+  id: ID! @isUnique
+  category: ExperienceCategory @relation (name: "ExperienceCategory")
+  title: String!
+  host: User! @relation(name: "ExperienceHost")
+  location: Location! @relation(name: "ExperienceLocation")
+  pricePerPerson: Int!
+  reviews: [Review!]! @relation(name: "ExperienceReviews")
+  preview: Picture! @relation(name: "ExperiencePreview")
+  popularity: Int!
+}
+
+type ExperienceCategory @model {
+  id: ID! @isUnique
+  mainColor: String! @defaultValue(value: "#123456")
+  name: String!
+  experience: Experience @relation(name: "ExperienceCategory")
+}
+
+type Amenities @model {
+  id: ID! @isUnique
+  place: Place!  @relation (name: "PlaceAmenities")
+  elevator: Boolean! @defaultValue(value: "false")
+  petsAllowed: Boolean! @defaultValue(value: "false")
+  internet: Boolean! @defaultValue(value: "false")
+  kitchen: Boolean! @defaultValue(value: "false")
+  wirelessInternet: Boolean! @defaultValue(value: "false")
+  familyKidFriendly: Boolean! @defaultValue(value: "false")
+  freeParkingOnPremises: Boolean! @defaultValue(value: "false")
+  hotTub: Boolean! @defaultValue(value: "false")
+  pool: Boolean! @defaultValue(value: "false")
+  smokingAllowed: Boolean! @defaultValue(value: "false")
+  wheelchairAccessible: Boolean! @defaultValue(value: "false")
+  breakfast: Boolean! @defaultValue(value: "false")
+  cableTv: Boolean! @defaultValue(value: "false")
+  suitableForEvents: Boolean! @defaultValue(value: "false")
+  dryer: Boolean! @defaultValue(value: "false")
+  washer: Boolean! @defaultValue(value: "false")
+  indoorFireplace: Boolean! @defaultValue(value: "false")
+  tv: Boolean! @defaultValue(value: "false")
+  heating: Boolean! @defaultValue(value: "false")
+  hangers: Boolean! @defaultValue(value: "false")
+  iron: Boolean! @defaultValue(value: "false")
+  hairDryer: Boolean! @defaultValue(value: "false")
+  doorman: Boolean! @defaultValue(value: "false")
+  paidParkingOffPremises: Boolean! @defaultValue(value: "false")
+  freeParkingOnStreet: Boolean! @defaultValue(value: "false")
+  gym: Boolean! @defaultValue(value: "false")
+  airConditioning: Boolean! @defaultValue(value: "false")
+  shampoo: Boolean! @defaultValue(value: "false")
+  essentials: Boolean! @defaultValue(value: "false")
+  laptopFriendlyWorkspace: Boolean! @defaultValue(value: "false")
+  privateEntrance: Boolean! @defaultValue(value: "false")
+  buzzerWirelessIntercom: Boolean! @defaultValue(value: "false")
+  babyBath: Boolean! @defaultValue(value: "false")
+  babyMonitor: Boolean! @defaultValue(value: "false")
+  babysitterRecommendations: Boolean! @defaultValue(value: "false")
+  bathtub: Boolean! @defaultValue(value: "false")
+  changingTable: Boolean! @defaultValue(value: "false")
+  childrensBooksAndToys: Boolean! @defaultValue(value: "false")
+  childrensDinnerware: Boolean! @defaultValue(value: "false")
+  crib: Boolean! @defaultValue(value: "false")
+}
+
+
+enum PLACE_SIZES {
+  ENTIRE_HOUSE
+  ENTIRE_APARTMENT
+  ENTIRE_EARTH_HOUSE
+  ENTIRE_CABIN
+  ENTIRE_VILLA
+  ENTIRE_PLACE
+  ENTIRE_BOAT
+  PRIVATE_ROOM
+}
+
+type Review @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  text: String!
+  stars: Int!
+  accuracy: Int!
+  location: Int!
+  checkIn: Int!
+  value: Int!
+  cleanliness: Int!
+  communication: Int!
+  place: Place! @relation (name: "PlaceReviews")
+  experience: Experience @relation (name: "ExperienceReviews")
+}
+
+type Booking @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  bookee: User! @relation (name: "Bookee")
+  place: Place! @relation (name: "PlaceBooking")
+  startDate: DateTime!
+  endDate: DateTime!
+  payment: Payment! @relation (name: "BookingPayment")
+}
+
+type Payment @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  serviceFee: Float!
+  booking: Booking! @relation (name: "BookingPayment")
+  paymentMethod: PaymentAccount! @relation (name: "PaymentAccounts")
+}
+
+type PaymentAccount @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  type: PAYMENT_PROVIDER
+  user: User! @relation(name: "UserPaymentAccounts")
+  payments: [Payment!]! @relation(name: "PaymentAccounts")
+  paypal: PaypalInformation @relation(name: "PaypalInformation")
+  creditcard: CreditCardInformation @relation(name: "CreditCardInformation")
+}
+
+type PaypalInformation @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  email: String!
+  paymentAccount: PaymentAccount! @relation(name: "PaypalInformation")
+}
+
+type CreditCardInformation @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  number: String!
+  expire: String!
+  name: String!
+  paymentAccount: PaymentAccount @relation(name: "CreditCardInformation")
+}
+
+enum PAYMENT_PROVIDER {
+  PAYPAL
+  CREDIT_CARD
+}
+
+type Message @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  from: User! @relation(name: "SentMessages")
+  to: User! @relation(name: "ReceivedMessages")
+  deliveredAt: DateTime!
+  readAt: DateTime!
+}
+
+type Notification @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  type: NOTIFICATION_TYPE
+  user: User! @relation(name: "Notifications")
+  link: String!
+  readDate: DateTime!
+}
+
+enum NOTIFICATION_TYPE {
+  OFFER
+  INSTANT_BOOK
+  RESPONSIVENESS
+  NEW_AMENITIES
+  HOUSE_RULES
+}
+
+type Restaurant @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  title: String!
+  avgPricePerPerson: Int!
+  pictures: [Picture!]! @relation(name: "RestaurantPicture")
+  location: Location! @relation(name: "RestaurantLocation")
+  isCurated: Boolean! @defaultValue(value: "true")
+  slug: String!
+  popularity: Int!
+}
+

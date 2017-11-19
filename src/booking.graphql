@@ -1,0 +1,41 @@
+mutation addPaymentMethod {
+  addPaymentMethod(
+    type: VISA
+    cardNumber: "4242424242424242"
+    expiresOnMonth: "12"
+    expiresOnYear: "2020"
+    securityCode: "232"
+    firstName: "Bob"
+    lastName: "der Meister"
+    postalCode: "12345"
+    country: "Germany"
+  ) {
+    success
+  }
+}
+
+mutation book {
+  book(placeId: "" checkIn: "2017-11-19T11:57:44.828Z" checkOut: "2017-11-20T11:57:44.828Z" numGuests: 2) {
+    success
+  }
+}
+
+query myOverview {
+  me {
+    bookings {
+      id
+      accepted
+      place {
+        name
+        picture
+      }
+    }
+  }
+}
+
+enum methodType {
+  VISA
+  MASTERCARD
+  AMEX
+  DISCOVER
+}
