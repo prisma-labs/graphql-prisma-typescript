@@ -1,3 +1,23 @@
+mutation signup {
+  signup(
+    email: "a25@a.de"
+    firstName: "Tom"
+    lastName: "Hardy"
+    password: "pw"
+    phone: "+1132123123"
+  ) {
+    id
+    token
+  }
+}
+
+mutation signin {
+  login(email: "a25@a.de" password: "pw") {
+    id
+    token
+  }
+}
+
 mutation addPaymentMethod {
   addPaymentMethod(
     cardNumber: "4242424242424242"
