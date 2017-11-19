@@ -1,6 +1,14 @@
 import { GraphQLServer } from 'graphql-yoga'
 import { fetchTypeDefs, RemoteSchema as Remote, collectTypeDefs, GraphcoolLink } from 'graphql-remote'
 import * as fs from 'fs'
+import { account } from './resolvers/Mutation/account'
+import { User } from './resolvers/User'
+import { Home } from './resolvers/Home'
+import { ExperiencesByCity } from './resolvers/ExperiencesByCity'
+import { Viewer } from './resolvers/Viewer'
+import { homepage } from './resolvers/Query/homepage'
+import { book } from './resolvers/Mutation/book'
+import { addPaymentMethod } from './resolvers/Mutation/addPaymentMethod'
 
 async function run() {
 
@@ -19,11 +27,18 @@ async function run() {
     }
     
     type Viewer {
+      me: User!
       bookings: [Booking!]!
     }
     
     type Mutation {
-      signup(email: String! password: String! name: String!): User!
+      signup(
+        email: String!
+        password: String!
+        firstName: String!
+        lastName: String!
+        phone: String!
+      ): User!
       login(email: String! password: String!): User!
       addPaymentMethod(
         cardNumber: String!
@@ -34,7 +49,17 @@ async function run() {
         lastName: String!
         postalCode: String!
         country: String!
-      ): PaymentAccount!
+      ): User!
+      book(
+        placeId: ID!
+        checkIn: String!
+        checkOut: String!
+        numGuests: Int!
+      ): BookingResult!
+    }
+    
+    type BookingResult {
+      success: Boolean!
     }
     
     type ExperiencesByCity {
@@ -143,6 +168,7 @@ async function run() {
       responseTime: Int
       sentMessages: [Message!]
       updatedAt: DateTime!
+      token: String!
     }
 
     type PaymentAccount {
@@ -333,88 +359,24 @@ async function run() {
 
   const resolvers = {
     Query: {
-      topExperiences: async (parent, args, context, info) => {
-        return context.remote.delegateQuery(
-          'allExperiences',
-          { orderBy: 'popularity_DESC' },
-          context,
-          info,
-        )
-      },
-      topHomes: async (parent, args, context, info) => {
-        return context.remote.delegateQuery(
-          'allPlaces',
-          { orderBy: 'popularity_DESC' },
-          context,
-          info,
-        )
-      },
-      topReservations: async (parent, args, context, info) => {
-        return context.remote.delegateQuery(
-          'allRestaurants',
-          { orderBy: 'popularity_DESC' },
-          context,
-          info,
-        )
-      },
-      featuredDestinations: async (parent, args, context, info) => {
-        return context.remote.delegateQuery(
-          'allNeighbourhoods',
-          { orderBy: 'popularity_DESC', filter: { featured: true } },
-          context,
-          info,
-        )
-      },
-      experiencesByCity: async (parent, args, context, info) => {
-        const result = await context.remote.request(`query ($cities: [String!]!) {
-          allCities(filter: {
-            name_in: $cities
-            neighbourhoods_every: {
-              locations_every: {
-                experience: {
-                  id_gt: "0"
-                }
-              }
-            }
-          }) {
-            id
-          }
-        }`, {cities: args.cities})
-
-        return result.allCities
-      },
+      ...homepage,
+      viewer: () => ({}),
     },
-    ExperiencesByCity: {
-      city: async ({ id }, args, context, info) => {
-        return context.remote.delegateQuery( 'City', { id }, context, info)
-      },
-      experiences: async ({ id }, args, context, info) => {
-        return context.remote.delegateQuery(
-          'allExperiences',
-          { filter: { location: { neighbourHood: { city: { id } } } } },
-          context,
-          info,
-        )
-      },
+    Viewer,
+    ExperiencesByCity,
+    Home,
+    Mutation: {
+      ...account,
+      book,
+      addPaymentMethod,
     },
-    Home: {
-      numRatings: async ({ id }, args, context, info) => {
-        const result = await context.remote.request(`{
-          Place(id: "${id}") {
-            _reviewsMeta {
-              count
-            }
-          }
-        }`)
-        return result.Place._reviewsMeta.count
-      },
-    },
+    User,
   }
 
   const server = new GraphQLServer({
     typeDefs,
     resolvers,
-    context: req => ({ req, remote: new Remote(makeLink()) }),
+    context: req => ({ ...req, remote: new Remote(makeLink()) }),
   })
   server.start(() => console.log('Server is running on localhost:4000'))
 }

@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "apollo-link-http": "^1.2.0",
+    "bcrypt": "^1.0.3",
     "graphql-remote": "^0.1.1",
     "graphql-tag": "^2.5.0",
     "graphql-yoga": "^0.1.1",
+    "jsonwebtoken": "^8.1.0",
     "node-fetch": "^1.7.3"
   },
   "devDependencies": {

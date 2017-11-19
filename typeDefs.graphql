@@ -8,13 +8,19 @@ type Query {
 }
 
 type Viewer {
+  me: User!
   bookings: [Booking!]!
 }
 
 type Mutation {
-  signup(email: String!, password: String!, name: String!): User!
+  signup(email: String!, password: String!, firstName: String!, lastName: String!, phone: String!): User!
   login(email: String!, password: String!): User!
-  addPaymentMethod(cardNumber: String!, expiresOnMonth: Int!, expiresOnYear: Int!, securityCode: String!, firstName: String!, lastName: String!, postalCode: String!, country: String!): PaymentAccount!
+  addPaymentMethod(cardNumber: String!, expiresOnMonth: Int!, expiresOnYear: Int!, securityCode: String!, firstName: String!, lastName: String!, postalCode: String!, country: String!): User!
+  book(placeId: ID!, checkIn: String!, checkOut: String!, numGuests: Int!): BookingResult!
+}
+
+type BookingResult {
+  success: Boolean!
 }
 
 type ExperiencesByCity {
@@ -121,6 +127,7 @@ type User {
   responseTime: Int
   sentMessages: [Message!]
   updatedAt: DateTime!
+  token: String!
 }
 
 type PaymentAccount {

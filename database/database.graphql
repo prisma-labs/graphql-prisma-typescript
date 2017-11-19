@@ -5,9 +5,10 @@ type User @model {
   firstName: String!
   lastName: String!
   email: String! @isUnique
+  password: String! @migrationValue(value: "pw")
   isSuperHost: Boolean! @defaultValue(value: "false")
   ownedPlaces: [Place!]! @relation (name: "PlaceOwner")
-  location: Location! @relation (name: "UserLocation")
+  location: Location @relation (name: "UserLocation")
   responseRate: Float
   responseTime: Int
   bookings: [Booking!]! @relation(name: "Bookee")
@@ -255,6 +256,8 @@ type Payment @model {
   id: ID! @isUnique
   createdAt: DateTime!
   serviceFee: Float!
+  placePrice: Float!
+  totalPrice: Float!
   booking: Booking! @relation (name: "BookingPayment")
   paymentMethod: PaymentAccount! @relation (name: "PaymentAccounts")
 }
