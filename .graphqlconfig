@@ -1,0 +1,26 @@
+{
+  "projects": {
+    "database": {
+      "schemaPath": "schemas/database.graphql",
+      "extensions": {
+        "endpoints": {
+          "default": {
+            "url": "https://api.graph.cool/simple/v1/cja80ky0u23b00144w6zqtdxv",
+            "subscription": "wss://api.graph.cool/simple/v1/cja80ky0u23b00144w6zqtdxv"
+          }
+        }
+      }
+    },
+    "gateway": {
+      "schemaPath": "schemas/gateway.graphql",
+      "extensions": {
+        "endpoints": {
+          "dev": {
+            "url": "http://localhost:4000",
+            "subscription": "ws://localhost:4000"
+          }
+        }
+      }
+    }
+  }
+}

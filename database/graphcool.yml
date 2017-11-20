@@ -1,4 +1,4 @@
-types: ./database.graphql
+types: ./types.graphql
 
 rootTokens:
 - main

@@ -1,22 +1,32 @@
-import { GraphQLServer } from 'graphql-yoga'
-import { fetchTypeDefs, RemoteSchema as Remote, collectTypeDefs, GraphcoolLink } from 'graphql-remote'
-import * as fs from 'fs'
-import { account } from './resolvers/Mutation/account'
-import { User } from './resolvers/User'
-import { Home } from './resolvers/Home'
-import { ExperiencesByCity } from './resolvers/ExperiencesByCity'
-import { Viewer } from './resolvers/Viewer'
-import { homepage } from './resolvers/Query/homepage'
-import { book } from './resolvers/Mutation/book'
-import { addPaymentMethod } from './resolvers/Mutation/addPaymentMethod'
+import { GraphQLServer } from "graphql-yoga";
+import {
+  fetchTypeDefs,
+  Remote,
+  collectTypeDefs,
+  GraphcoolLink
+} from "graphql-remote";
+import * as fs from "fs";
+import { account } from "./resolvers/Mutation/account";
+import { User } from "./resolvers/User";
+import { Home } from "./resolvers/Home";
+import { ExperiencesByCity } from "./resolvers/ExperiencesByCity";
+import { Viewer } from "./resolvers/Viewer";
+import { homepage } from "./resolvers/Query/homepage";
+import { book } from "./resolvers/Mutation/book";
+import { addPaymentMethod } from "./resolvers/Mutation/addPaymentMethod";
 
 async function run() {
+  const makeLink = () =>
+    new GraphcoolLink(
+      process.env.GRAPHCOOL_SERVICE_ID,
+      process.env.GRAPHCOOL_TOKEN
+    );
 
-  const makeLink = () => new GraphcoolLink(process.env.GRAPHCOOL_SERVICE_ID, process.env.GRAPHCOOL_TOKEN)
+  const graphcoolTypeDefs = await fetchTypeDefs(makeLink());
 
-  const graphcoolTypeDefs = await fetchTypeDefs(makeLink())
-
-  const typeDefs = collectTypeDefs(graphcoolTypeDefs, `
+  const typeDefs = collectTypeDefs(
+    graphcoolTypeDefs,
+    `
     type Query {
       topExperiences: [Experience!]!
       topHomes: [Home!]!
@@ -32,6 +42,7 @@ async function run() {
     }
     
     type Mutation {
+
       signup(
         email: String!
         password: String!
@@ -39,7 +50,9 @@ async function run() {
         lastName: String!
         phone: String!
       ): User!
+
       login(email: String! password: String!): User!
+
       addPaymentMethod(
         cardNumber: String!
         expiresOnMonth: Int!
@@ -50,12 +63,14 @@ async function run() {
         postalCode: String!
         country: String!
       ): User!
+
       book(
         placeId: ID!
         checkIn: String!
         checkOut: String!
         numGuests: Int!
       ): BookingResult!
+
     }
     
     type BookingResult {
@@ -146,7 +161,6 @@ async function run() {
       name: String!
       experience: Experience
     }
-    
     
     type User {
       bookings: [Booking!]
@@ -353,14 +367,15 @@ async function run() {
       wheelchairAccessible: Boolean!
       wirelessInternet: Boolean!
     }
-  `)
+  `
+  );
 
-  fs.writeFileSync('./typeDefs.graphql', typeDefs)
+  fs.writeFileSync("./schemas/gateway.graphql", typeDefs);
 
   const resolvers = {
     Query: {
       ...homepage,
-      viewer: () => ({}),
+      viewer: () => ({})
     },
     Viewer,
     ExperiencesByCity,
@@ -368,17 +383,17 @@ async function run() {
     Mutation: {
       ...account,
       book,
-      addPaymentMethod,
+      addPaymentMethod
     },
-    User,
-  }
+    User
+  };
 
   const server = new GraphQLServer({
     typeDefs,
     resolvers,
-    context: req => ({ ...req, remote: new Remote(makeLink()) }),
-  })
-  server.start(() => console.log('Server is running on localhost:4000'))
+    context: req => ({ ...req, remote: new Remote(makeLink()) })
+  });
+  server.start(() => console.log("Server is running on localhost:4000"));
 }
 
-run().catch(console.log.bind(console))
+run().catch(console.log.bind(console));
