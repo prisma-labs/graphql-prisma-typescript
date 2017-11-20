@@ -1,12 +1,12 @@
 {
   "projects": {
     "database": {
-      "schemaPath": "schemas/database.graphql",
+      "schemaPath": "schemas/db-service.graphql",
       "extensions": {
         "endpoints": {
           "default": {
-            "url": "https://api.graph.cool/simple/v1/cja80ky0u23b00144w6zqtdxv",
-            "subscription": "wss://api.graph.cool/simple/v1/cja80ky0u23b00144w6zqtdxv"
+            "url": "https://api.graph.cool/simple/v1/${env:GRAPHCOOL_SERVICE_ID}",
+            "subscription": "wss://api.graph.cool/simple/v1/${env:GRAPHCOOL_SERVICE_ID}"
           }
         }
       }
