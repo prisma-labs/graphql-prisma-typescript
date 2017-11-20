@@ -30,5 +30,28 @@ yarn seed
 ### Booking flow
 Look in `queries/booking.graphql` to see the booking flow.
 
+## Architecture
+
+```
+                          +-----------+    +--------------------------+
+                          |           |    |                          |
+                          |           +----+  Graphcool (GraphQL DB)  |
++--------------------+    |           |    |                          |
+|                    |    |  GraphQL  |    +--------------------------+
+|   GraphQL Client   +----+    API    |
+|                    |    |  Gateway  |    +--------------------------+
++--------------------+    |           |    |                          |
+                          |           +----+     Legacy Rest API      |
+                          |           |    |                          |
+                          +-----------+    +--------------------------+
+```
+
+## Directory structure
+
+* `database`: GraphQL database service definitions (using Graphcool)
+* `queries`: Helpful GraphQL queries and mutations to seed data and demo the app
+* `schemas`: Generated GraphQL schemas of the database service & gateway
+* `src`: Source code of the gateway
+
 ## License
 MIT
