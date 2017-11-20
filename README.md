@@ -21,7 +21,11 @@ yarn start
 ```
 
 ### Seeding some data
-Look in `querie/seed.graphql` to seed some data.
+
+```sh
+# Runs seed mutations in queries/seed.graphql
+yarn seed
+```
 
 ### Booking flow
 Look in `queries/booking.graphql` to see the booking flow.

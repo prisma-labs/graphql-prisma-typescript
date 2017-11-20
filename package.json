@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --ext ts --exec node ./node_modules/ts-node/dist/bin.js src/index.ts"
+    "start": "nodemon --ext ts --exec ./node_modules/.bin/ts-node src/index.ts",
+    "seed": "graphql query queries/seed.graphql --all -p database"
   },
   "dependencies": {
     "apollo-link-http": "^1.2.0",
@@ -16,6 +17,7 @@
     "node-fetch": "^1.7.3"
   },
   "devDependencies": {
+    "graphql-cli": "^2.0.1",
     "nodemon": "^1.12.1",
     "ts-node": "^3.3.0",
     "typescript": "^2.6.1"

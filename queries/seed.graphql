@@ -19,6 +19,7 @@ mutation place {
       lastName: "Miller"
       isSuperHost: true
       phone: "+1123455667"
+      password: "secret"
       location: {
         address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
         directions: "Follow the street to the end, then right"
@@ -89,36 +90,17 @@ mutation place {
 }
 
 mutation experience {
-  mutation {
-    createExperience(
-      popularity: 3
-      pricePerPerson: 33
-      title: "Raise a glass to Prohibition"
-      host: {
-        email: "test2@test.com"
-        firstName: "Kitty"
-        lastName: "Miller"
-        isSuperHost: true
-        phone: "+1123455667"
-        location: {
-          address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
-          directions: "Follow the street to the end, then right"
-          lat: 36.805235
-          lng: 121.7892066
-          neighbourHood: {
-            name: "Monterey Countey"
-            slug: "monterey-countey"
-            featured: true
-            popularity: 1
-            city: {
-              name: "Moss Landing"
-            }
-          }
-        }
-      }
-      preview: {
-        url:  "https://a0.muscache.com/im/pictures/cb14d34d-65cf-401d-ba7f-585ec37b43ef.jpg"
-      }
+  createExperience(
+    popularity: 3
+    pricePerPerson: 33
+    title: "Raise a glass to Prohibition"
+    host: {
+      email: "test2@test.com"
+      firstName: "Kitty"
+      lastName: "Miller"
+      isSuperHost: true
+      phone: "+1123455667"
+      password: "secret"
       location: {
         address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
         directions: "Follow the street to the end, then right"
@@ -134,9 +116,27 @@ mutation experience {
           }
         }
       }
-    ) {
-      id
     }
+    preview: {
+      url:  "https://a0.muscache.com/im/pictures/cb14d34d-65cf-401d-ba7f-585ec37b43ef.jpg"
+    }
+    location: {
+      address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+      directions: "Follow the street to the end, then right"
+      lat: 36.805235
+      lng: 121.7892066
+      neighbourHood: {
+        name: "Monterey Countey"
+        slug: "monterey-countey"
+        featured: true
+        popularity: 1
+        city: {
+          name: "Moss Landing"
+        }
+      }
+    }
+  ) {
+    id
   }
 }
 
