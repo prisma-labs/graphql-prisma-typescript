@@ -1,4 +1,7 @@
 types: ./database.graphql
 
+rootTokens:
+- main
+
 permissions:
   - operation: "*"
