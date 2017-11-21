@@ -1,6 +1,6 @@
-import * as fs from 'fs'
 import { GraphQLServer } from 'graphql-yoga'
 import { Remote, collectTypeDefs, GraphcoolLink } from 'graphql-remote'
+import { loadSchema } from './utils'
 import { account } from './resolvers/Mutation/account'
 import { User } from './resolvers/User'
 import { Home } from './resolvers/Home'
@@ -10,13 +10,11 @@ import { homepage } from './resolvers/Query/homepage'
 import { book } from './resolvers/Mutation/book'
 import { addPaymentMethod } from './resolvers/Mutation/addPaymentMethod'
 
-const graphcoolTypeDefs = fs.readFileSync('./schemas/db-service.graphql', {
-  encoding: 'utf8',
-})
+const graphcoolTypeDefs = loadSchema('./schemas/db-service.graphql')
 
 const typeDefs = collectTypeDefs(
   graphcoolTypeDefs,
-  fs.readFileSync('./src/schema.graphql', { encoding: 'utf8' }),
+  loadSchema('./src/schema.graphql'),
 )
 
 const resolvers = {
