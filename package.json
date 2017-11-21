@@ -6,7 +6,7 @@
     "dev": "nodemon --ext ts --exec ./node_modules/.bin/ts-node src/index.ts",
     "start": "node dist",
     "build": "rm -rf dist && tsc",
-    "deploy": "now --public --dotenv",
+    "deploy": "now --public --dotenv && now alias && now rm --safe airbnb",
     "gen-schemas": "graphql get-schema -p database && graphql get-schema -p gateway",
     "seed": "graphql query queries/seed.graphql --all -p database"
   },
@@ -24,5 +24,8 @@
     "nodemon": "^1.12.1",
     "ts-node": "^3.3.0",
     "typescript": "^2.6.1"
+  },
+  "now": {
+    "alias": "airbnb"
   }
 }

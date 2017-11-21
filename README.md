@@ -4,7 +4,7 @@ This example illustrates the usage of the GraphQL Gateway pattern with graphql.j
 
 **Theme**: This is an example app implementing a minimal version of Airbnb.
 
-## Getting Started ([Hosted demo](https://airbnb-fhsauzpmzb.now.sh))
+## Getting Started ([Hosted demo](https://airbnb.now.sh))
 
 ### Initializing the Graphcool Database Service
 
