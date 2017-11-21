@@ -6,7 +6,7 @@
         "endpoints": {
           "default": {
             "url": "https://api.graph.cool/simple/v1/${env:GRAPHCOOL_SERVICE_ID}",
-            "subscription": "wss://subscription.graph.cool/v1/${env:GRAPHCOOL_SERVICE_ID}"
+            "subscription": "wss://subscriptions.graph.cool/v1/${env:GRAPHCOOL_SERVICE_ID}"
           }
         }
       }
