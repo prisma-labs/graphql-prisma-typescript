@@ -36,7 +36,7 @@ Look in `queries/booking.graphql` to see the booking flow.
 
 * [`graphql-yoga`](https://github.com/graphcool/graphql-yoga): GraphQL HTTP & subscription server
 * [`graphql-remote`](https://github.com/graphcool/graphql-remote): Schema stitching helper library
-* [`graphcool`](https://github.com/graphcool/framework): Graphcool as GraphQL database
+* [`graphcool`](https://github.com/graphcool/framework): GraphQL database
 * [`now`](https://zeit.co/now): Server deployment
 
 ## Architecture
