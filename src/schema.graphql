@@ -13,10 +13,35 @@ type Viewer {
 }
 
 type Mutation {
-  signup(email: String!, password: String!, firstName: String!, lastName: String!, phone: String!): User!
-  login(email: String!, password: String!): User!
-  addPaymentMethod(cardNumber: String!, expiresOnMonth: Int!, expiresOnYear: Int!, securityCode: String!, firstName: String!, lastName: String!, postalCode: String!, country: String!): User!
-  book(placeId: ID!, checkIn: String!, checkOut: String!, numGuests: Int!): BookingResult!
+
+  signup(
+    email: String!
+    password: String!
+    firstName: String!
+    lastName: String!
+    phone: String!
+  ): User!
+
+  login(email: String! password: String!): User!
+
+  addPaymentMethod(
+    cardNumber: String!
+    expiresOnMonth: Int!
+    expiresOnYear: Int!
+    securityCode: String!
+    firstName: String!
+    lastName: String!
+    postalCode: String!
+    country: String!
+  ): User!
+
+  book(
+    placeId: ID!
+    checkIn: String!
+    checkOut: String!
+    numGuests: Int!
+  ): BookingResult!
+
 }
 
 type BookingResult {
@@ -311,39 +336,4 @@ type Amenities {
   washer: Boolean!
   wheelchairAccessible: Boolean!
   wirelessInternet: Boolean!
-}
-
-scalar DateTime
-
-enum PAYMENT_PROVIDER {
-  PAYPAL
-  CREDIT_CARD
-}
-
-enum PLACE_SIZES {
-  ENTIRE_HOUSE
-  ENTIRE_APARTMENT
-  ENTIRE_EARTH_HOUSE
-  ENTIRE_CABIN
-  ENTIRE_VILLA
-  ENTIRE_PLACE
-  ENTIRE_BOAT
-  PRIVATE_ROOM
-}
-
-enum NOTIFICATION_TYPE {
-  OFFER
-  INSTANT_BOOK
-  RESPONSIVENESS
-  NEW_AMENITIES
-  HOUSE_RULES
-}
-
-enum CURRENCY {
-  CAD
-  CHF
-  EUR
-  JPY
-  USD
-  ZAR
 }

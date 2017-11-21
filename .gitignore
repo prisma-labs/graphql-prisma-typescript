@@ -1,4 +1,7 @@
 .envrc
+.env
+dist
+package-lock.json
 node_modules
 .idea
 .graphcoolrc

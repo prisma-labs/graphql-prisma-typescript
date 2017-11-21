@@ -1090,9 +1090,9 @@ graphql-playground-middleware-express@^1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.1.4.tgz#487aaa7333feb8411edd3d6ca361dc08de471e3b"
 
-graphql-remote@^0.1.1:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/graphql-remote/-/graphql-remote-0.1.2.tgz#c6951aadf94d6597f38b83a8cabe7ec064eb521a"
+graphql-remote@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/graphql-remote/-/graphql-remote-0.1.3.tgz#c2566630f3675aadd2dc6505cdd47e7afe9cda5a"
   dependencies:
     apollo-link "^1.0.3"
     apollo-link-http "^1.2.0"
