@@ -1,6 +1,7 @@
 projects:
   database:
     schemaPath: "schemas/db-service.graphql"
+    includes: ["queries/seed.graphql", "src/schema.graphql"]
     extensions:
       endpoints:
         default:
@@ -8,6 +9,7 @@ projects:
           subscription: "wss://subscriptions.graph.cool/v1/${env:GRAPHCOOL_SERVICE_ID}"
   gateway:
     schemaPath: "schemas/gateway.graphql"
+    includes: ["queries/{booking,queries}.graphql"]
     extensions:
       endpoints:
         dev:
