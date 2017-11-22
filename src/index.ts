@@ -1,5 +1,6 @@
 import { GraphQLServer } from 'graphql-yoga'
 import { Remote, collectTypeDefs, GraphcoolLink } from 'graphql-remote'
+import { importSchema } from 'graphql-import'
 import { loadSchema } from './utils'
 import { account } from './resolvers/Mutation/account'
 import { User } from './resolvers/User'
@@ -10,12 +11,14 @@ import { homepage } from './resolvers/Query/homepage'
 import { book } from './resolvers/Mutation/book'
 import { addPaymentMethod } from './resolvers/Mutation/addPaymentMethod'
 
-const graphcoolTypeDefs = loadSchema('./schemas/db-service.graphql')
+// const graphcoolTypeDefs = loadSchema('./schemas/db-service.graphql')
 
-const typeDefs = collectTypeDefs(
-  graphcoolTypeDefs,
-  loadSchema('./src/schema.graphql'),
-)
+// const typeDefs = collectTypeDefs(
+//   graphcoolTypeDefs,
+//   loadSchema('./src/schema.graphql'),
+// )
+
+const typeDefs = importSchema('./src/schema.graphql')
 
 const resolvers = {
   Query: {
@@ -33,6 +36,7 @@ const resolvers = {
   User,
 }
 
+const graphcoolTypeDefs = importSchema('schemas/db-service.graphql')
 const makeLink = () =>
   new GraphcoolLink(
     process.env.GRAPHCOOL_SERVICE_ID,
