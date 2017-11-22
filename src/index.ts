@@ -12,7 +12,6 @@ import { book } from './resolvers/Mutation/book'
 import { addPaymentMethod } from './resolvers/Mutation/addPaymentMethod'
 
 const typeDefs = importSchema('./src/schema.graphql')
-
 const resolvers = {
   Query: {
     ...homepage,
