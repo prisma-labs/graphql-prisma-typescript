@@ -21,6 +21,7 @@
     "node-fetch": "^1.7.3"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.1",
     "graphql-cli": "^2.0.2",
     "nodemon": "^1.12.1",
     "ts-node": "^3.3.0",

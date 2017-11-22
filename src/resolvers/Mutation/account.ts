@@ -39,7 +39,7 @@ export const account = {
         }`,
       { email: args.email },
     )
-    const valid = bcrypt.compare(args.password, User.password)
+    const valid = await bcrypt.compare(args.password, User.password)
     if (!valid) {
       throw new AuthError()
     }
