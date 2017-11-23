@@ -42,9 +42,6 @@ const server = new GraphQLServer({
     ...req,
     remote: new Remote(makeLink(), { typeDefs: graphcoolTypeDefs }),
   }),
-  options: {
-    tracing: true,
-  },
 })
 
 server.start(() => console.log('Server is running on http://localhost:4000'))
