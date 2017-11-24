@@ -10,8 +10,8 @@ This example illustrates the usage of the GraphQL Gateway pattern with graphql.j
 
 ```sh
 cd database
-gc deploy # copy the service id into the `GRAPHCOOL_SERVICE_ID` env var in .env
-gc root-token main # put the root token into the `GRAPHCOOL_TOKEN` env var in .env
+graphcool deploy # copy the service id into the `GRAPHCOOL_SERVICE_ID` env var in .env
+graphcool root-token main # put the root token into the `GRAPHCOOL_TOKEN` env var in .env
 ```
 
 ### Starting the Gateway
