@@ -1,17 +1,16 @@
 projects:
+  server:
+    schemaPath: "schemas/server.graphql"
+    includes: ["queries/{booking,queries}.graphql"]
+    extensions:
+      endpoints:
+        default: "${env:SERVER_ENDPOINT}"
   database:
-    schemaPath: "schemas/db-service.graphql"
+    schemaPath: "schemas/database.graphql"
     includes: ["queries/seed.graphql", "src/schema.graphql"]
     extensions:
       endpoints:
         default:
-          url: "https://api.graph.cool/simple/v1/${env:GRAPHCOOL_SERVICE_ID}"
-          subscription: "wss://subscriptions.graph.cool/v1/${env:GRAPHCOOL_SERVICE_ID}"
-  gateway:
-    schemaPath: "schemas/gateway.graphql"
-    includes: ["queries/{booking,queries}.graphql"]
-    extensions:
-      endpoints:
-        dev:
-          url: "http://localhost:4000"
-          subscription: "ws://localhost:4000"
+          url: "${env:GRAPHCOOL_ENDPOINT}"
+          headers:
+            Authorization: "Bearer ${env:GRAPHCOOL_APIKEY}"

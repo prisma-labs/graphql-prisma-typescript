@@ -1,4 +1,4 @@
-# GraphQL Gateway Example
+# GraphQL Server Example
 
 This example illustrates the usage of the GraphQL Gateway pattern with graphql.js and Graphcool.
 
@@ -14,7 +14,7 @@ graphcool deploy # copy the service id into the `GRAPHCOOL_SERVICE_ID` env var i
 graphcool root-token main # put the root token into the `GRAPHCOOL_TOKEN` env var in .env
 ```
 
-### Starting the Gateway
+### Starting the Server
 
 ```sh
 yarn install
@@ -48,7 +48,7 @@ Look in `queries/booking.graphql` to see the booking flow.
 +--------------------+    |           |    |                          |
 |                    |    |  GraphQL  |    +--------------------------+
 |   GraphQL Client   +----+    API    |
-|                    |    |  Gateway  |    +--------------------------+
+|                    |    |  Server   |    +--------------------------+
 +--------------------+    |           |    |                          |
                           |           +----+     Legacy Rest API      |
                           |           |    |                          |

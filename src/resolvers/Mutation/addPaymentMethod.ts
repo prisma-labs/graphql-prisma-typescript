@@ -1,17 +1,9 @@
-import { getUserId } from '../../utils'
+import { getUserId, Context } from '../../utils'
 
-export async function addPaymentMethod(parent, args, ctx, info) {
+export async function addPaymentMethod(parent, args, ctx: Context, info) {
   const userId = getUserId(ctx)
-  await ctx.remote.request(`mutation addPaymentMethod(
-    $userId: ID!
-    $creditCard: PaymentAccountcreditcardCreditCardInformation
-  ) {
-    createPaymentAccount(userId: $userId creditcard: $creditCard) {
-      id
-    }
-  }`, {...args, userId})
+  await ctx.db.mutation.createPaymentAccount({ creditcard: args, userId })
 
   // TODO: send email to user
-
-  return info.delegateQuery('User', {id: userId}, {}, {}, info)
+  return { success: true }
 }

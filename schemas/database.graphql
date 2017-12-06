@@ -1,5 +1,5 @@
-# source: https://api.graph.cool/simple/v1/cja80ky0u23b00144w6zqtdxv
-# timestamp: Mon Nov 20 2017 11:36:08 GMT+0100 (CET)
+# source: http://localhost:60000/simple/v1/cjav9lyj1000n0166828v6az2
+# timestamp: Wed Dec 06 2017 17:49:52 GMT+0100 (CET)
 
 enum _ModelMutationType {
   CREATED

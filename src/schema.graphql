@@ -1,4 +1,4 @@
-# import PLACE_SIZES, DateTime, PAYMENT_PROVIDER, NOTIFICATION_TYPE, CURRENCY from "../schemas/db-service.graphql"
+# import PLACE_SIZES, DateTime, PAYMENT_PROVIDER, NOTIFICATION_TYPE, CURRENCY from "../schemas/database.graphql"
 
 type Query {
   topExperiences: [Experience!]!
@@ -9,23 +9,15 @@ type Query {
   viewer: Viewer
 }
 
-type Viewer {
-  me: User!
-  bookings: [Booking!]!
-}
-
 type Mutation {
-
   signup(
     email: String!
     password: String!
     firstName: String!
     lastName: String!
     phone: String!
-  ): User!
-
-  login(email: String! password: String!): User!
-
+  ): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
   addPaymentMethod(
     cardNumber: String!
     expiresOnMonth: Int!
@@ -35,18 +27,26 @@ type Mutation {
     lastName: String!
     postalCode: String!
     country: String!
-  ): User!
-
+  ): MutationResult!
   book(
     placeId: ID!
     checkIn: String!
     checkOut: String!
     numGuests: Int!
-  ): BookingResult!
-
+  ): MutationResult!
 }
 
-type BookingResult {
+type Viewer {
+  me: User!
+  bookings: [Booking!]!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type MutationResult {
   success: Boolean!
 }
 

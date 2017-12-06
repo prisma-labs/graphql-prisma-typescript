@@ -1,7 +1,6 @@
-types: ./types.graphql
+types:
+- types.graphql
+- enums.graphql
 
 rootTokens:
-- main
-
-permissions:
-  - operation: "*"
+- apikey

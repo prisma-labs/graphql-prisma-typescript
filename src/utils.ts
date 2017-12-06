@@ -1,8 +1,9 @@
 import * as jwt from 'jsonwebtoken'
-import * as fs from 'fs'
+import { Graphcool } from 'graphcool-binding'
 
-export function loadSchema(path: string): string {
-  return fs.readFileSync(path, { encoding: 'utf8' })
+export interface Context {
+  db: Graphcool
+  request: any
 }
 
 export function getUserId(context) {
@@ -16,13 +17,6 @@ export function getUserId(context) {
   }
 
   throw new AuthError()
-}
-
-export async function authenticated(cb) {
-  return (parent, args, context, info) => {
-    getUserId(context)
-    return cb(parent, args, context, info)
-  }
 }
 
 export class AuthError extends Error {

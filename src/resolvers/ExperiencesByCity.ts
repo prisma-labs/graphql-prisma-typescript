@@ -1,12 +1,13 @@
+import { Context } from '../utils'
+
 export const ExperiencesByCity = {
-  city: async ({ id }, args, context, info) => {
-    return context.remote.delegateQuery( 'City', { id }, context, info)
+  city: async ({ id }, args, ctx: Context, info) => {
+    return ctx.db.query.City({ id }, info)
   },
-  experiences: async ({ id }, args, context, info) => {
-    return context.remote.delegateQuery(
-      'allExperiences',
+
+  experiences: async ({ id }, args, ctx: Context, info) => {
+    return ctx.db.query.allExperiences(
       { filter: { location: { neighbourHood: { city: { id } } } } },
-      context,
       info,
     )
   },
