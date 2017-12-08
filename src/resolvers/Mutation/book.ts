@@ -111,21 +111,22 @@ async function getPaymentAccount(userId: string, ctx: Context) {
 }
 
 async function alreadyBooked(
-  placeId: string,
+  id: string,
   start: string,
   end: string,
   ctx: Context,
 ) {
-  const { Place } = await ctx.db.request(`{
-    Place(id: "${placeId}") {
+  const Place = await ctx.db.query.Place(
+    { id },
+    `{
       bookings(filter: {
         startDate_gte: "${start}"
         startDate_lte: "${end}"
       }) {
         id
       }
-    }
-  }`)
+    }`,
+  )
   return Place.bookings.length > 0
 }
 
