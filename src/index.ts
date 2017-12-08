@@ -14,7 +14,7 @@ const server = new GraphQLServer({
       schema: 'schemas/database.graphql',
       fragmentReplacements,
       endpoint: process.env.GRAPHCOOL_ENDPOINT,
-      secret: process.env.GRAPHCOOL_APIKEY,
+      secret: process.env.GRAPHCOOL_SECRET,
     }),
   }),
   options: { port: 5000 },
