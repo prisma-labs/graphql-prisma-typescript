@@ -1,7 +1,7 @@
 import { GraphQLServer } from 'graphql-yoga'
 import { Graphcool } from 'graphcool-binding'
 import { importSchema } from 'graphql-import'
-import { resolvers } from './resolvers'
+import { resolvers, fragmentReplacements } from './resolvers'
 
 const typeDefs = importSchema('./src/schema.graphql')
 
@@ -12,8 +12,9 @@ const server = new GraphQLServer({
     ...req,
     db: new Graphcool({
       schema: 'schemas/database.graphql',
+      fragmentReplacements,
       endpoint: process.env.GRAPHCOOL_ENDPOINT,
-      apikey: process.env.GRAPHCOOL_APIKEY,
+      secret: process.env.GRAPHCOOL_APIKEY,
     }),
   }),
   options: { port: 5000 },
