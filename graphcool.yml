@@ -1,0 +1,6 @@
+types:
+- database/types.graphql
+- database/enums.graphql
+
+rootTokens:
+- apikey

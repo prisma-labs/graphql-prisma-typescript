@@ -3,7 +3,7 @@ import { Graphcool } from 'graphcool-binding'
 import { importSchema } from 'graphql-import'
 import { resolvers, fragmentReplacements } from './resolvers'
 
-const typeDefs = importSchema('./src/schema.graphql')
+const typeDefs = importSchema('./src/schemas/app.graphql')
 
 const server = new GraphQLServer({
   typeDefs,
@@ -11,7 +11,7 @@ const server = new GraphQLServer({
   context: req => ({
     ...req,
     db: new Graphcool({
-      schema: 'schemas/database.graphql',
+      schema: './src/schemas/generated/database.graphql',
       fragmentReplacements,
       endpoint: process.env.GRAPHCOOL_ENDPOINT,
       secret: process.env.GRAPHCOOL_SECRET,

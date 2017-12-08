@@ -1,13 +1,13 @@
 projects:
-  server:
-    schemaPath: "schemas/server.graphql"
+  app:
+    schemaPath: "src/schemas/app.graphql"
     includes: ["queries/{booking,queries}.graphql"]
     extensions:
       endpoints:
         default: "${env:SERVER_ENDPOINT}"
   database:
-    schemaPath: "schemas/database.graphql"
-    includes: ["queries/seed.graphql", "src/schema.graphql"]
+    schemaPath: "src/schemas/database.graphql"
+    includes: ["database/seed.graphql"]
     extensions:
       endpoints:
         default:
