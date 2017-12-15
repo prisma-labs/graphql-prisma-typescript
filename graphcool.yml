@@ -1,6 +1,8 @@
-types:
-- database/types.graphql
-- database/enums.graphql
+service: airbnb
+stages: 
+  default: dev
+  dev: shared-public-demo
 
-rootTokens:
-- apikey
+datamodel:
+- database/datamodel/types.graphql
+- database/datamodel/enums.graphql
