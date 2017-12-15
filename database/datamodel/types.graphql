@@ -37,10 +37,10 @@ type Place {
   host: User! @relation(name: "PlaceOwner")
   pricing: Pricing! @relation(name: "PlacePrice")
   location: Location! @relation(name: "PlaceLocation")
-  views: PlaceViews! @relation(name: "PlaceViews")
-  guestRequirements: GuestRequirements @relation(name: "GuestRequirements")
-  policies: Policies @relation(name: "Policies")
-  houseRules: HouseRules @relation(name: "HouseRules")
+  views: Views! @relation(name: "PlaceViews")
+  guestRequirements: GuestRequirements @relation(name: "PlaceGuestRequirements")
+  policies: Policies @relation(name: "PlacePolicies")
+  houseRules: HouseRules @relation(name: "PlaceHouseRules")
   bookings: [Booking!]! @relation(name: "PlaceBooking")
   pictures: [Picture!]! @relation(name: "PlacePictures")
   popularity: Int!
@@ -68,7 +68,7 @@ type GuestRequirements {
   govIssuedId: Boolean! @default(value: "false")
   recommendationsFromOtherHosts: Boolean! @default(value: "false")
   guestTripInformation: Boolean! @default(value: "false")
-  place: Place! @relation(name: "GuestRequirements")
+  place: Place! @relation(name: "PlaceGuestRequirements")
 }
 
 type Policies {
@@ -78,7 +78,7 @@ type Policies {
   checkInStartTime: Float!
   checkInEndTime: Float!
   checkoutTime: Float!
-  place: Place! @relation(name: "Policies")
+  place: Place! @relation(name: "PlacePolicies")
 }
 
 type HouseRules {
@@ -91,10 +91,10 @@ type HouseRules {
   smokingAllowed: Boolean
   partiesAndEventsAllowed: Boolean
   additionalRules: String
-  place: Place! @relation(name: "HouseRules")
+  place: Place! @relation(name: "PlaceHouseRules")
 }
 
-type PlaceViews {
+type Views {
   id: ID! @unique
   lastWeek: Int!
   place: Place! @relation(name: "PlaceViews")
@@ -104,7 +104,7 @@ type Location {
   id: ID! @unique
   lat: Float!
   lng: Float!
-  neighbourHood: Neighbourhood @relation(name: "Neighbourhood")
+  neighbourHood: Neighbourhood @relation(name: "NeighbourhoodLocation")
   user: User @relation(name: "UserLocation")
   place: Place @relation(name: "PlaceLocation")
   address: String
@@ -115,7 +115,7 @@ type Location {
 
 type Neighbourhood {
   id: ID! @unique
-  locations: [Location!]! @relation(name: "Neighbourhood")
+  locations: [Location!]! @relation(name: "NeighbourhoodLocation")
   name: String!
   slug: String!
   homePreview: Picture @relation(name: "HomePreview")
@@ -144,7 +144,7 @@ type Picture {
 
 type Experience {
   id: ID! @unique
-  category: ExperienceCategory @relation(name: "ExperienceCategory")
+  category: ExperienceCategory @relation(name: "ExperienceCategories")
   title: String!
   host: User! @relation(name: "ExperienceHost")
   location: Location! @relation(name: "ExperienceLocation")
@@ -158,7 +158,7 @@ type ExperienceCategory {
   id: ID! @unique
   mainColor: String! @default(value: "#123456")
   name: String!
-  experience: Experience @relation(name: "ExperienceCategory")
+  experience: Experience @relation(name: "ExperienceCategories")
 }
 
 type Amenities {
@@ -247,15 +247,15 @@ type PaymentAccount {
   type: PAYMENT_PROVIDER
   user: User! @relation(name: "UserPaymentAccounts")
   payments: [Payment!]! @relation(name: "PaymentAccounts")
-  paypal: PaypalInformation @relation(name: "PaypalInformation")
-  creditcard: CreditCardInformation @relation(name: "CreditCardInformation")
+  paypal: PaypalInformation @relation(name: "AccountPaypalInformation")
+  creditcard: CreditCardInformation @relation(name: "AccountCreditCardInformation")
 }
 
 type PaypalInformation {
   id: ID! @unique
   createdAt: DateTime!
   email: String!
-  paymentAccount: PaymentAccount! @relation(name: "PaypalInformation")
+  paymentAccount: PaymentAccount! @relation(name: "AccountPaypalInformation")
 }
 
 type CreditCardInformation {
@@ -269,7 +269,7 @@ type CreditCardInformation {
   lastName: String!
   postalCode: String!
   country: String!
-  paymentAccount: PaymentAccount @relation(name: "CreditCardInformation")
+  paymentAccount: PaymentAccount @relation(name: "AccountCreditCardInformation")
 }
 
 type Message {
