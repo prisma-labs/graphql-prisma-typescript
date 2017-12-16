@@ -1,7 +1,5 @@
 # GraphQL Server Example
 
-> NOTE: This example currently doesn't work. Expect some fixes shortly.
-
 This example illustrates the usage of the GraphQL Gateway pattern with graphql.js and Graphcool.
 
 **Theme**: This is an example app implementing a minimal version of Airbnb.
