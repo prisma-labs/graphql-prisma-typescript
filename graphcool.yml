@@ -1,4 +1,4 @@
-service: airbnb
+service: example-airbnb
 stages: 
   default: dev
   dev: shared-public-demo
