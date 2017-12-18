@@ -4,11 +4,15 @@
 
 ## Getting Started ([Hosted demo](https://airbnb.now.sh))
 
-### Initializing the Graphcool Database Service
-
 ```sh
-graphcool deploy # copy the service endpoint to the `GRAPHCOOL_ENDPOINT` env var in .env
+# Deploy Graphcool database services
+# ... and copy the service endpoint to the `GRAPHCOOL_ENDPOINT` env var in .env
+graphcool deploy
+
+# Install node dependencies
 yarn install
+
+# Start development server
 yarn start
 # Open http://localhost:5000/
 ```
