@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "graphcool": "^1.0.0-beta1.1.1",
     "graphcool-binding": "^0.2.1",
     "graphql-import": "^0.1.5",
     "graphql-yoga": "^0.3.0",
@@ -21,7 +20,7 @@
   "devDependencies": {
     "@types/bcryptjs": "^2.4.1",
     "dotenv-cli": "^1.4.0",
-    "graphql-cli": "^2.0.11",
+    "graphql-cli": "^2.1.0-beta9",
     "nodemon": "^1.13.3",
     "ts-node": "^4.0.2",
     "typescript": "^2.6.1"

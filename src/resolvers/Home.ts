@@ -4,14 +4,8 @@ export const Home = {
   numRatings: {
     fragment: `fragment NumRatings on Place { id }`,
     resolve: async ({ id }, args, ctx: Context, info) => {
-      const result = await ctx.db.query.Place(
-        { id },
-        `{ _reviewsMeta {
-            count
-          }
-        }`,
-      )
-      return result._reviewsMeta.count
+      const places = await ctx.db.query.places({ where: { id } })
+      return places.length
     },
   },
 }

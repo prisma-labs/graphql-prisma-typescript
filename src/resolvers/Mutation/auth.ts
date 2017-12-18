@@ -16,7 +16,7 @@ export const auth = {
   },
 
   async login(parent, args, ctx: Context, info) {
-    const user = await ctx.db.query.User({ email: args.email })
+    const user = await ctx.db.query.user({ where: { email: args.email } })
     if (!user) {
       throw new Error('No such user found')
     }

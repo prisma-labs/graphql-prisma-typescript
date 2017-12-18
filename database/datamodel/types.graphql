@@ -6,14 +6,15 @@ type User {
   lastName: String!
   email: String! @unique
   password: String!
+  phone: String!
+  responseRate: Float
+  responseTime: Int
+
   isSuperHost: Boolean! @default(value: "false")
   ownedPlaces: [Place!]! @relation(name: "PlaceOwner")
   location: Location @relation(name: "UserLocation")
-  responseRate: Float
-  responseTime: Int
   bookings: [Booking!]! @relation(name: "Bookee")
   paymentAccount: [PaymentAccount!]! @relation(name: "UserPaymentAccounts")
-  phone: String!
   sentMessages: [Message!]! @relation(name: "SentMessages")
   receivedMessages: [Message!]! @relation(name: "ReceivedMessages")
   notifications: [Notification!]! @relation(name: "Notifications")
@@ -248,7 +249,8 @@ type PaymentAccount {
   user: User! @relation(name: "UserPaymentAccounts")
   payments: [Payment!]! @relation(name: "PaymentAccounts")
   paypal: PaypalInformation @relation(name: "AccountPaypalInformation")
-  creditcard: CreditCardInformation @relation(name: "AccountCreditCardInformation")
+  creditcard: CreditCardInformation
+    @relation(name: "AccountCreditCardInformation")
 }
 
 type PaypalInformation {

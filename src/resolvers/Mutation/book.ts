@@ -8,129 +8,75 @@ export async function book(parent, args, ctx: Context, info) {
     throw new Error(`You don't have a payment method yet`)
   }
 
-  if (await alreadyBooked(args.placeId, args.checkIn, args.checkOut, ctx)) {
+  const alreadyBooked = await ctx.db.exists.bookings({
+    place: { id: args.placeId },
+    startDate_gte: args.checkIn,
+    startDate_lte: args.checkOut,
+  })
+  if (alreadyBooked) {
     throw new Error(`The requested time is not free.`)
   }
 
   const days = daysBetween(new Date(args.checkIn), new Date(args.checkOut))
-  const { Place } = await getPlace(args.placeId, ctx)
+  const place = await ctx.db.query.place(
+    { where: { id: args.placeId } },
+    `{ pricing { perNight } }`,
+  )
 
-  const placePrice = days * Place.pricing.perNight
+  const placePrice = days * place.pricing.perNight
   const totalPrice = placePrice * 1.2
   const serviceFee = placePrice * 0.2
 
-  const payment = {
-    placePrice,
-    totalPrice,
-    serviceFee,
-    paymentMethodId: paymentAccount.id,
-  }
-
   // TODO implement real stripe
-  await payWithStripe(payment)
+  await payWithStripe()
 
-  await createBooking(
-    args.checkIn,
-    args.checkOut,
-    userId,
-    args.placeId,
-    payment,
-    ctx,
-  )
+  await ctx.db.mutation.createBooking({
+    data: {
+      startDate: args.checkIn,
+      endDate: args.checkOut,
+      bookee: { connect: { id: userId } },
+      place: { connect: { id: args.placeId } },
+      payment: {
+        create: {
+          placePrice,
+          totalPrice,
+          serviceFee,
+          paymentMethod: { connect: { id: paymentAccount.id } },
+        },
+      },
+    },
+  })
 
   return { success: true }
 }
 
-function payWithStripe(payment: any) {
+function payWithStripe() {
   return Promise.resolve()
 }
 
-function createBooking(
-  startDate: string,
-  endDate: string,
-  bookeeId: string,
-  placeId: string,
-  payment: any,
-  ctx: Context,
-) {
-  return ctx.db.request(
-    `mutation createBooking(
-    $startDate: DateTime!
-    $endDate: DateTime!
-    $bookeeId: ID!
-    $placeId: ID!
-    $payment: BookingpaymentPayment
-  ) {
-    createBooking(
-      startDate: $startDate
-      endDate: $endDate
-      bookeeId: $bookeeId
-      placeId: $placeId
-      payment: $payment
-    ) {
-      id
-    }
-  }`,
-    { startDate, endDate, bookeeId, placeId, payment },
-  )
-}
-
-function getPlace(id: string, ctx: Context) {
-  return ctx.db.request(`{
-    Place(id: "${id}") {
-      id
-      pricing {
-        perNight
-      }
-    }
-  }`)
-}
-
 async function getPaymentAccount(userId: string, ctx: Context) {
-  const { User } = await ctx.db.request(`{
-    User(id: "${userId}") {
-      id
-      paymentAccount {
-        id
-        creditcard {
-          id
-          cardNumber
-          country
-          expiresOnMonth
-          expiresOnYear
-          firstName
-          lastName
-          securityCode
-          postalCode
-        }
-      }
-    }
-  }`)
-
-  return User.paymentAccount[0]
-}
-
-async function alreadyBooked(
-  id: string,
-  start: string,
-  end: string,
-  ctx: Context,
-) {
-  const Place = await ctx.db.query.Place(
-    { id },
+  const paymentAccounts = await ctx.db.query.paymentAccounts(
+    { where: { user: { id: userId } } },
     `{
-      bookings(filter: {
-        startDate_gte: "${start}"
-        startDate_lte: "${end}"
-      }) {
+      id
+      creditcard {
         id
+        cardNumber
+        country
+        expiresOnMonth
+        expiresOnYear
+        firstName
+        lastName
+        securityCode
+        postalCode
       }
     }`,
   )
-  return Place.bookings.length > 0
+
+  return paymentAccounts[0]
 }
 
-function daysBetween(date1, date2) {
+function daysBetween(date1: Date, date2: Date): number {
   // The number of milliseconds in one day
   const ONE_DAY = 1000 * 60 * 60 * 24
 

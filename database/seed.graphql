@@ -1,86 +1,99 @@
 mutation place {
   createPlace(
-    name: "Mushroom Dome Cabin: #1 on airbnb in the world"
-    shortDescription: "With a geodesic dome loft & a large deck in the trees, you'll feel like you're in a tree house in the woods. We are in a quiet yet convenient location. Shaded by Oak and Madrone trees and next to a Redwood grove, you can enjoy the outdoors from the deck. In the summer, it is cool and in the winter you might get to hear the creek running below."
-    description: "The space\\n\\nWe have 10 acres next to land without fences so you will get to enjoy nature: just hang out on the deck, take a hike in the woods, watch the hummingbirds, pet the goats, go to the beach or gaze at the stars - as long as the moon isn't full. ; ) During the summer, if there isn't any nightly fog, we can see the Milky Way here.\\n\\nTo check our availability, click on the \"Request to Book\" link."
-    maxGuests: 3
-    pictures: [{
-      url: "https://a0.muscache.com/im/pictures/140333/3ab8f121_original.jpg?aki_policy=xx_large"
-    }]
-    numBedrooms: 1
-    numBeds: 3
-    numBaths: 1
-    size: ENTIRE_CABIN
-    slug: "mushroom-dome"
-    popularity: 1
-    host: {
-      email: "test@test.com"
-      firstName: "Kitty"
-      lastName: "Miller"
-      isSuperHost: true
-      phone: "+1123455667"
-      password: "secret"
-      location: {
-        address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
-        directions: "Follow the street to the end, then right"
-        lat: 36.805235
-        lng: 121.7892066
-        neighbourHood: {
-          name: "Monterey Countey"
-          slug: "monterey-countey"
-          featured: true
-          popularity: 1
-          city: {
-            name: "Moss Landing"
+    data: {
+      name: "Mushroom Dome Cabin: #1 on airbnb in the world"
+      shortDescription: "With a geodesic dome loft & a large deck in the trees, you'll feel like you're in a tree house in the woods. We are in a quiet yet convenient location. Shaded by Oak and Madrone trees and next to a Redwood grove, you can enjoy the outdoors from the deck. In the summer, it is cool and in the winter you might get to hear the creek running below."
+      description: "The space\\n\\nWe have 10 acres next to land without fences so you will get to enjoy nature: just hang out on the deck, take a hike in the woods, watch the hummingbirds, pet the goats, go to the beach or gaze at the stars - as long as the moon isn't full. ; ) During the summer, if there isn't any nightly fog, we can see the Milky Way here.\\n\\nTo check our availability, click on the \"Request to Book\" link."
+      maxGuests: 3
+      pictures: {
+        create: {
+          url: "https://a0.muscache.com/im/pictures/140333/3ab8f121_original.jpg?aki_policy=xx_large"
+        }
+      }
+      numBedrooms: 1
+      numBeds: 3
+      numBaths: 1
+      size: ENTIRE_CABIN
+      slug: "mushroom-dome"
+      popularity: 1
+      host: {
+        create: {
+          email: "test@test.com"
+          firstName: "Kitty"
+          lastName: "Miller"
+          isSuperHost: true
+          phone: "+1123455667"
+          password: "secret"
+          location: {
+            create: {
+              address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+              directions: "Follow the street to the end, then right"
+              lat: 36.805235
+              lng: 121.7892066
+              neighbourHood: {
+                create: {
+                  name: "Monterey Countey"
+                  slug: "monterey-countey"
+                  featured: true
+                  popularity: 1
+                  city: { create: { name: "Moss Landing" } }
+                }
+              }
+            }
           }
         }
       }
-    }
-    amenities: {
-      airConditioning: false
-      essentials: true
-    }
-    views: {
-      lastWeek: 0
-    }
-    guestRequirements: {
-      recommendationsFromOtherHosts: false
-      guestTripInformation: false
-    }
-    policies: {
-      checkInStartTime: 11.00
-      checkInEndTime: 20.00
-      checkoutTime: 10.00
-    }
-    pricing: {
-      averageMonthly: 1000
-      averageWeekly: 300
-      basePrice: 100
-      cleaningFee: 30
-      extraGuests: 80
-      perNight: 100
-      securityDeposit: 500
-      weeklyDiscount: 50
-      smartPricing: false
-      currency: USD
-    }
-    houseRules: {
-      smokingAllowed: false
-      petsAllowed: true
-      suitableForInfants: false
-    }
-    location: {
-      address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
-      directions: "Follow the street to the end, then right"
-      lat: 36.805235
-      lng: 121.7892066
-      neighbourHood: {
-        name: "Monterey Countey"
-        slug: "monterey-countey"
-        featured: true
-        popularity: 1
-        city: {
-          name: "Moss Landing"
+      amenities: { create: { airConditioning: false, essentials: true } }
+      views: { create: { lastWeek: 0 } }
+      guestRequirements: {
+        create: {
+          recommendationsFromOtherHosts: false
+          guestTripInformation: false
+        }
+      }
+      policies: {
+        create: {
+          checkInStartTime: 11.00
+          checkInEndTime: 20.00
+          checkoutTime: 10.00
+        }
+      }
+      pricing: {
+        create: {
+          averageMonthly: 1000
+          averageWeekly: 300
+          basePrice: 100
+          cleaningFee: 30
+          extraGuests: 80
+          perNight: 100
+          securityDeposit: 500
+          weeklyDiscount: 50
+          smartPricing: false
+          currency: USD
+        }
+      }
+      houseRules: {
+        create: {
+          smokingAllowed: false
+          petsAllowed: true
+          suitableForInfants: false
+        }
+      }
+      location: {
+        create: {
+          address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+          directions: "Follow the street to the end, then right"
+          lat: 36.805235
+          lng: 121.7892066
+          neighbourHood: {
+            create: {
+              name: "Monterey Countey"
+              slug: "monterey-countey"
+              featured: true
+              popularity: 1
+              city: { create: { name: "Moss Landing" } }
+            }
+          }
         }
       }
     }
@@ -91,47 +104,57 @@ mutation place {
 
 mutation experience {
   createExperience(
-    popularity: 3
-    pricePerPerson: 33
-    title: "Raise a glass to Prohibition"
-    host: {
-      email: "test2@test.com"
-      firstName: "Kitty"
-      lastName: "Miller"
-      isSuperHost: true
-      phone: "+1123455667"
-      password: "secret"
-      location: {
-        address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
-        directions: "Follow the street to the end, then right"
-        lat: 36.805235
-        lng: 121.7892066
-        neighbourHood: {
-          name: "Monterey Countey"
-          slug: "monterey-countey"
-          featured: true
-          popularity: 1
-          city: {
-            name: "Moss Landing"
+    data: {
+      popularity: 3
+      pricePerPerson: 33
+      title: "Raise a glass to Prohibition"
+      host: {
+        create: {
+          email: "test2@test.com"
+          firstName: "Kitty"
+          lastName: "Miller"
+          isSuperHost: true
+          phone: "+1123455667"
+          password: "secret"
+          location: {
+            create: {
+              address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+              directions: "Follow the street to the end, then right"
+              lat: 36.805235
+              lng: 121.7892066
+              neighbourHood: {
+                create: {
+                  name: "Monterey Countey"
+                  slug: "monterey-countey"
+                  featured: true
+                  popularity: 1
+                  city: { create: { name: "Moss Landing" } }
+                }
+              }
+            }
           }
         }
       }
-    }
-    preview: {
-      url:  "https://a0.muscache.com/im/pictures/cb14d34d-65cf-401d-ba7f-585ec37b43ef.jpg"
-    }
-    location: {
-      address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
-      directions: "Follow the street to the end, then right"
-      lat: 36.805235
-      lng: 121.7892066
-      neighbourHood: {
-        name: "Monterey Countey"
-        slug: "monterey-countey"
-        featured: true
-        popularity: 1
-        city: {
-          name: "Moss Landing"
+      preview: {
+        create: {
+          url: "https://a0.muscache.com/im/pictures/cb14d34d-65cf-401d-ba7f-585ec37b43ef.jpg"
+        }
+      }
+      location: {
+        create: {
+          address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+          directions: "Follow the street to the end, then right"
+          lat: 36.805235
+          lng: 121.7892066
+          neighbourHood: {
+            create: {
+              name: "Monterey Countey"
+              slug: "monterey-countey"
+              featured: true
+              popularity: 1
+              city: { create: { name: "Moss Landing" } }
+            }
+          }
         }
       }
     }
@@ -142,25 +165,31 @@ mutation experience {
 
 mutation restaurant {
   createRestaurant(
-    title: "Chumley's"
-    pictures: [{
-      url: "https://a0.muscache.com/pictures/a9a1d433-bcde-4601-88a0-5f16871b8548.jpg"
-    }]
-    slug: "chumleys"
-    popularity: 1
-    avgPricePerPerson: 30
-    location: {
-      address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
-      directions: "Follow the street to the end, then right"
-      lat: 36.805235
-      lng: 121.7892066
-      neighbourHood: {
-        name: "Monterey Countey"
-        slug: "monterey-countey"
-        featured: true
-        popularity: 1
-        city: {
-          name: "Moss Landing"
+    data: {
+      title: "Chumley's"
+      pictures: {
+        create: {
+          url: "https://a0.muscache.com/pictures/a9a1d433-bcde-4601-88a0-5f16871b8548.jpg"
+        }
+      }
+      slug: "chumleys"
+      popularity: 1
+      avgPricePerPerson: 30
+      location: {
+        create: {
+          address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+          directions: "Follow the street to the end, then right"
+          lat: 36.805235
+          lng: 121.7892066
+          neighbourHood: {
+            create: {
+              name: "Monterey Countey"
+              slug: "monterey-countey"
+              featured: true
+              popularity: 1
+              city: { create: { name: "Moss Landing" } }
+            }
+          }
         }
       }
     }

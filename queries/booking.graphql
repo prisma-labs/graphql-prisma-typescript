@@ -6,14 +6,18 @@ mutation signup {
     password: "pw"
     phone: "+1132123123"
   ) {
-    id
+    user {
+      id
+    }
     token
   }
 }
 
 mutation signin {
-  login(email: "a25@a.de" password: "pw") {
-    id
+  login(email: "a25@a.de", password: "pw") {
+    user {
+      id
+    }
     token
   }
 }
@@ -21,8 +25,8 @@ mutation signin {
 mutation addPaymentMethod {
   addPaymentMethod(
     cardNumber: "4242424242424242"
-    expiresOnMonth: "12"
-    expiresOnYear: "2020"
+    expiresOnMonth: 12
+    expiresOnYear: 2020
     securityCode: "232"
     firstName: "Bob"
     lastName: "der Meister"
@@ -42,24 +46,4 @@ mutation book {
   ) {
     success
   }
-}
-
-query myOverview {
-  me {
-    bookings {
-      id
-      accepted
-      place {
-        name
-        picture
-      }
-    }
-  }
-}
-
-enum methodType {
-  VISA
-  MASTERCARD
-  AMEX
-  DISCOVER
 }

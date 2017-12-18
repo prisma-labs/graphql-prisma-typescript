@@ -2,27 +2,27 @@ import { Context } from '../../utils'
 
 export const homepage = {
   topExperiences: async (parent, args, ctx: Context, info) => {
-    return ctx.db.query.allExperiences({ orderBy: 'popularity_DESC' }, info)
+    return ctx.db.query.experiences({ orderBy: 'popularity_DESC' }, info)
   },
 
   topHomes: async (parent, args, ctx: Context, info) => {
-    return ctx.db.query.allPlaces({ orderBy: 'popularity_DESC' }, info)
+    return ctx.db.query.places({ orderBy: 'popularity_DESC' }, info)
   },
 
   topReservations: async (parent, args, ctx: Context, info) => {
-    return ctx.db.query.allReservations({ orderBy: 'popularity_DESC' }, info)
+    return ctx.db.query.reservations({ orderBy: 'popularity_DESC' }, info)
   },
 
   featuredDestinations: async (parent, args, ctx: Context, info) => {
-    return ctx.db.query.allNeighbourhoods(
-      { orderBy: 'popularity_DESC', filter: { featured: true } },
+    return ctx.db.query.neighbourhoods(
+      { orderBy: 'popularity_DESC', where: { featured: true } },
       info,
     )
   },
 
   experiencesByCity: async (parent, { cities }, ctx: Context, info) => {
-    return ctx.db.query.allCities({
-      filter: {
+    return ctx.db.query.cities({
+      where: {
         name_in: cities,
         neighbourhoods_every: {
           locations_every: {
