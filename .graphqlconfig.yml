@@ -1,6 +1,6 @@
 projects:
   app:
-    schemaPath: "src/schema.graphql"
+    schemaPath: "src/schema.generated.graphql"
     includes: ["queries/{booking,queries}.graphql"]
     extensions:
       endpoints:
