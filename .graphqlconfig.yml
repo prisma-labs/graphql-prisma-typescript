@@ -1,12 +1,12 @@
 projects:
   app:
-    schemaPath: "src/schema.generated.graphql"
+    schemaPath: "src/schema.graphql"
     includes: ["queries/{booking,queries}.graphql"]
     extensions:
       endpoints:
         default: "http://localhost:5000"
   database:
-    schemaPath: "database/schema.graphql"
+    schemaPath: "database/schema.generated.graphql"
     includes: ["database/seed.graphql"]
     extensions:
       graphcool: graphcool.yml
