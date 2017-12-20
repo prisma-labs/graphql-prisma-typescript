@@ -1,4 +1,4 @@
-import { extractFragmentReplacements, DateTime } from 'graphcool-binding'
+import { extractFragmentReplacements, scalars } from 'graphcool-binding'
 import { auth } from './Mutation/auth'
 import { Home } from './Home'
 import { ExperiencesByCity } from './ExperiencesByCity'
@@ -22,7 +22,7 @@ export const resolvers = {
   ExperiencesByCity,
   Home,
   AuthPayload,
-  DateTime,
+  DateTime: scalars.DateTime,
 }
 
 export const fragmentReplacements = extractFragmentReplacements(resolvers)

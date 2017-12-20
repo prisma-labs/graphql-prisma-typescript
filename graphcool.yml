@@ -1,7 +1,4 @@
 service: example-airbnb
-stages: 
-  default: dev
-  dev: shared-public-demo
 
 datamodel:
 - database/datamodel/types.graphql
