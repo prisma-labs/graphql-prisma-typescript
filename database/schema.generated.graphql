@@ -314,7 +314,7 @@ type Views implements Node {
 
 type AmenitiesConnection {
   pageInfo: PageInfo!
-  edges: [AmenitiesEdge]
+  edges: [AmenitiesEdge!]
 }
 
 input AmenitiesCreateInput {
@@ -497,6 +497,10 @@ enum AmenitiesOrderByInput {
   childrensDinnerware_DESC
   crib_ASC
   crib_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input AmenitiesUpdateInput {
@@ -710,9 +714,13 @@ input AmenitiesWhereUniqueInput {
   id: ID
 }
 
+type BatchPayload {
+  count: Long!
+}
+
 type BookingConnection {
   pageInfo: PageInfo!
-  edges: [BookingEdge]
+  edges: [BookingEdge!]
 }
 
 input BookingCreateInput {
@@ -773,6 +781,8 @@ enum BookingOrderByInput {
   startDate_DESC
   endDate_ASC
   endDate_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 input BookingUpdateInput {
@@ -916,7 +926,7 @@ input BookingWhereUniqueInput {
 
 type CityConnection {
   pageInfo: PageInfo!
-  edges: [CityEdge]
+  edges: [CityEdge!]
 }
 
 input CityCreateInput {
@@ -943,6 +953,10 @@ enum CityOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input CityUpdateInput {
@@ -1016,7 +1030,7 @@ input CityWhereUniqueInput {
 
 type CreditCardInformationConnection {
   pageInfo: PageInfo!
-  edges: [CreditCardInformationEdge]
+  edges: [CreditCardInformationEdge!]
 }
 
 input CreditCardInformationCreateInput {
@@ -1073,6 +1087,8 @@ enum CreditCardInformationOrderByInput {
   postalCode_DESC
   country_ASC
   country_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 input CreditCardInformationUpdateInput {
@@ -1263,7 +1279,7 @@ scalar DateTime
 
 type ExperienceCategoryConnection {
   pageInfo: PageInfo!
-  edges: [ExperienceCategoryEdge]
+  edges: [ExperienceCategoryEdge!]
 }
 
 input ExperienceCategoryCreateInput {
@@ -1294,6 +1310,10 @@ enum ExperienceCategoryOrderByInput {
   mainColor_DESC
   name_ASC
   name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input ExperienceCategoryUpdateInput {
@@ -1381,7 +1401,7 @@ input ExperienceCategoryWhereUniqueInput {
 
 type ExperienceConnection {
   pageInfo: PageInfo!
-  edges: [ExperienceEdge]
+  edges: [ExperienceEdge!]
 }
 
 input ExperienceCreateInput {
@@ -1484,6 +1504,10 @@ enum ExperienceOrderByInput {
   pricePerPerson_DESC
   popularity_ASC
   popularity_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input ExperienceUpdateInput {
@@ -1709,7 +1733,7 @@ input ExperienceWhereUniqueInput {
 
 type GuestRequirementsConnection {
   pageInfo: PageInfo!
-  edges: [GuestRequirementsEdge]
+  edges: [GuestRequirementsEdge!]
 }
 
 input GuestRequirementsCreateInput {
@@ -1744,6 +1768,10 @@ enum GuestRequirementsOrderByInput {
   recommendationsFromOtherHosts_DESC
   guestTripInformation_ASC
   guestTripInformation_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input GuestRequirementsUpdateInput {
@@ -1811,7 +1839,7 @@ input GuestRequirementsWhereUniqueInput {
 
 type HouseRulesConnection {
   pageInfo: PageInfo!
-  edges: [HouseRulesEdge]
+  edges: [HouseRulesEdge!]
 }
 
 input HouseRulesCreateInput {
@@ -1969,7 +1997,7 @@ input HouseRulesWhereUniqueInput {
 
 type LocationConnection {
   pageInfo: PageInfo!
-  edges: [LocationEdge]
+  edges: [LocationEdge!]
 }
 
 input LocationCreateInput {
@@ -2080,6 +2108,10 @@ enum LocationOrderByInput {
   address_DESC
   directions_ASC
   directions_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input LocationUpdateInput {
@@ -2321,9 +2353,11 @@ input LocationWhereUniqueInput {
   id: ID
 }
 
+scalar Long
+
 type MessageConnection {
   pageInfo: PageInfo!
-  edges: [MessageEdge]
+  edges: [MessageEdge!]
 }
 
 input MessageCreateInput {
@@ -2369,6 +2403,8 @@ enum MessageOrderByInput {
   deliveredAt_DESC
   readAt_ASC
   readAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 input MessageUpdateInput {
@@ -2572,12 +2608,58 @@ type Mutation {
   upsertMessage(where: MessageWhereUniqueInput!, create: MessageCreateInput!, update: MessageUpdateInput!): Message!
   upsertNotification(where: NotificationWhereUniqueInput!, create: NotificationCreateInput!, update: NotificationUpdateInput!): Notification!
   upsertRestaurant(where: RestaurantWhereUniqueInput!, create: RestaurantCreateInput!, update: RestaurantUpdateInput!): Restaurant!
+  updateManyUsers(data: UserUpdateInput!, where: UserWhereInput!): BatchPayload!
+  updateManyPlaces(data: PlaceUpdateInput!, where: PlaceWhereInput!): BatchPayload!
+  updateManyPricings(data: PricingUpdateInput!, where: PricingWhereInput!): BatchPayload!
+  updateManyGuestRequirementses(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereInput!): BatchPayload!
+  updateManyPolicieses(data: PoliciesUpdateInput!, where: PoliciesWhereInput!): BatchPayload!
+  updateManyHouseRuleses(data: HouseRulesUpdateInput!, where: HouseRulesWhereInput!): BatchPayload!
+  updateManyViewses(data: ViewsUpdateInput!, where: ViewsWhereInput!): BatchPayload!
+  updateManyLocations(data: LocationUpdateInput!, where: LocationWhereInput!): BatchPayload!
+  updateManyNeighbourhoods(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereInput!): BatchPayload!
+  updateManyCities(data: CityUpdateInput!, where: CityWhereInput!): BatchPayload!
+  updateManyPictures(data: PictureUpdateInput!, where: PictureWhereInput!): BatchPayload!
+  updateManyExperiences(data: ExperienceUpdateInput!, where: ExperienceWhereInput!): BatchPayload!
+  updateManyExperienceCategories(data: ExperienceCategoryUpdateInput!, where: ExperienceCategoryWhereInput!): BatchPayload!
+  updateManyAmenitieses(data: AmenitiesUpdateInput!, where: AmenitiesWhereInput!): BatchPayload!
+  updateManyReviews(data: ReviewUpdateInput!, where: ReviewWhereInput!): BatchPayload!
+  updateManyBookings(data: BookingUpdateInput!, where: BookingWhereInput!): BatchPayload!
+  updateManyPayments(data: PaymentUpdateInput!, where: PaymentWhereInput!): BatchPayload!
+  updateManyPaymentAccounts(data: PaymentAccountUpdateInput!, where: PaymentAccountWhereInput!): BatchPayload!
+  updateManyPaypalInformations(data: PaypalInformationUpdateInput!, where: PaypalInformationWhereInput!): BatchPayload!
+  updateManyCreditCardInformations(data: CreditCardInformationUpdateInput!, where: CreditCardInformationWhereInput!): BatchPayload!
+  updateManyMessages(data: MessageUpdateInput!, where: MessageWhereInput!): BatchPayload!
+  updateManyNotifications(data: NotificationUpdateInput!, where: NotificationWhereInput!): BatchPayload!
+  updateManyRestaurants(data: RestaurantUpdateInput!, where: RestaurantWhereInput!): BatchPayload!
+  deleteManyUsers(where: UserWhereInput!): BatchPayload!
+  deleteManyPlaces(where: PlaceWhereInput!): BatchPayload!
+  deleteManyPricings(where: PricingWhereInput!): BatchPayload!
+  deleteManyGuestRequirementses(where: GuestRequirementsWhereInput!): BatchPayload!
+  deleteManyPolicieses(where: PoliciesWhereInput!): BatchPayload!
+  deleteManyHouseRuleses(where: HouseRulesWhereInput!): BatchPayload!
+  deleteManyViewses(where: ViewsWhereInput!): BatchPayload!
+  deleteManyLocations(where: LocationWhereInput!): BatchPayload!
+  deleteManyNeighbourhoods(where: NeighbourhoodWhereInput!): BatchPayload!
+  deleteManyCities(where: CityWhereInput!): BatchPayload!
+  deleteManyPictures(where: PictureWhereInput!): BatchPayload!
+  deleteManyExperiences(where: ExperienceWhereInput!): BatchPayload!
+  deleteManyExperienceCategories(where: ExperienceCategoryWhereInput!): BatchPayload!
+  deleteManyAmenitieses(where: AmenitiesWhereInput!): BatchPayload!
+  deleteManyReviews(where: ReviewWhereInput!): BatchPayload!
+  deleteManyBookings(where: BookingWhereInput!): BatchPayload!
+  deleteManyPayments(where: PaymentWhereInput!): BatchPayload!
+  deleteManyPaymentAccounts(where: PaymentAccountWhereInput!): BatchPayload!
+  deleteManyPaypalInformations(where: PaypalInformationWhereInput!): BatchPayload!
+  deleteManyCreditCardInformations(where: CreditCardInformationWhereInput!): BatchPayload!
+  deleteManyMessages(where: MessageWhereInput!): BatchPayload!
+  deleteManyNotifications(where: NotificationWhereInput!): BatchPayload!
+  deleteManyRestaurants(where: RestaurantWhereInput!): BatchPayload!
   resetData: Boolean
 }
 
 type NeighbourhoodConnection {
   pageInfo: PageInfo!
-  edges: [NeighbourhoodEdge]
+  edges: [NeighbourhoodEdge!]
 }
 
 input NeighbourhoodCreateInput {
@@ -2648,6 +2730,10 @@ enum NeighbourhoodOrderByInput {
   featured_DESC
   popularity_ASC
   popularity_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input NeighbourhoodUpdateInput {
@@ -2827,7 +2913,7 @@ enum NOTIFICATION_TYPE {
 
 type NotificationConnection {
   pageInfo: PageInfo!
-  edges: [NotificationEdge]
+  edges: [NotificationEdge!]
 }
 
 input NotificationCreateInput {
@@ -2864,6 +2950,8 @@ enum NotificationOrderByInput {
   link_DESC
   readDate_ASC
   readDate_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 input NotificationUpdateInput {
@@ -2971,7 +3059,7 @@ enum PAYMENT_PROVIDER {
 
 type PaymentAccountConnection {
   pageInfo: PageInfo!
-  edges: [PaymentAccountEdge]
+  edges: [PaymentAccountEdge!]
 }
 
 input PaymentAccountCreateInput {
@@ -3042,6 +3130,8 @@ enum PaymentAccountOrderByInput {
   createdAt_DESC
   type_ASC
   type_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 input PaymentAccountUpdateInput {
@@ -3203,7 +3293,7 @@ input PaymentAccountWhereUniqueInput {
 
 type PaymentConnection {
   pageInfo: PageInfo!
-  edges: [PaymentEdge]
+  edges: [PaymentEdge!]
 }
 
 input PaymentCreateInput {
@@ -3254,6 +3344,8 @@ enum PaymentOrderByInput {
   placePrice_DESC
   totalPrice_ASC
   totalPrice_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 input PaymentUpdateInput {
@@ -3377,7 +3469,7 @@ input PaymentWhereUniqueInput {
 
 type PaypalInformationConnection {
   pageInfo: PageInfo!
-  edges: [PaypalInformationEdge]
+  edges: [PaypalInformationEdge!]
 }
 
 input PaypalInformationCreateInput {
@@ -3406,6 +3498,8 @@ enum PaypalInformationOrderByInput {
   createdAt_DESC
   email_ASC
   email_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 input PaypalInformationUpdateInput {
@@ -3485,7 +3579,7 @@ input PaypalInformationWhereUniqueInput {
 
 type PictureConnection {
   pageInfo: PageInfo!
-  edges: [PictureEdge]
+  edges: [PictureEdge!]
 }
 
 input PictureCreateInput {
@@ -3572,6 +3666,10 @@ enum PictureOrderByInput {
   id_DESC
   url_ASC
   url_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input PictureUpdateInput {
@@ -3778,7 +3876,7 @@ enum PLACE_SIZES {
 
 type PlaceConnection {
   pageInfo: PageInfo!
-  edges: [PlaceEdge]
+  edges: [PlaceEdge!]
 }
 
 input PlaceCreateInput {
@@ -4141,6 +4239,10 @@ enum PlaceOrderByInput {
   numBaths_DESC
   popularity_ASC
   popularity_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input PlaceUpdateInput {
@@ -4782,7 +4884,7 @@ input PlaceWhereUniqueInput {
 
 type PoliciesConnection {
   pageInfo: PageInfo!
-  edges: [PoliciesEdge]
+  edges: [PoliciesEdge!]
 }
 
 input PoliciesCreateInput {
@@ -4922,7 +5024,7 @@ input PoliciesWhereUniqueInput {
 
 type PricingConnection {
   pageInfo: PageInfo!
-  edges: [PricingEdge]
+  edges: [PricingEdge!]
 }
 
 input PricingCreateInput {
@@ -4993,6 +5095,10 @@ enum PricingOrderByInput {
   weekendPricing_DESC
   currency_ASC
   currency_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input PricingUpdateInput {
@@ -5231,7 +5337,7 @@ type Query {
 
 type RestaurantConnection {
   pageInfo: PageInfo!
-  edges: [RestaurantEdge]
+  edges: [RestaurantEdge!]
 }
 
 input RestaurantCreateInput {
@@ -5292,6 +5398,8 @@ enum RestaurantOrderByInput {
   slug_DESC
   popularity_ASC
   popularity_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 input RestaurantUpdateInput {
@@ -5445,7 +5553,7 @@ input RestaurantWhereUniqueInput {
 
 type ReviewConnection {
   pageInfo: PageInfo!
-  edges: [ReviewEdge]
+  edges: [ReviewEdge!]
 }
 
 input ReviewCreateInput {
@@ -5521,6 +5629,8 @@ enum ReviewOrderByInput {
   cleanliness_DESC
   communication_ASC
   communication_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 input ReviewUpdateInput {
@@ -5705,7 +5815,7 @@ input ReviewWhereUniqueInput {
 
 type UserConnection {
   pageInfo: PageInfo!
-  edges: [UserEdge]
+  edges: [UserEdge!]
 }
 
 input UserCreateInput {
@@ -6498,7 +6608,7 @@ input UserWhereUniqueInput {
 
 type ViewsConnection {
   pageInfo: PageInfo!
-  edges: [ViewsEdge]
+  edges: [ViewsEdge!]
 }
 
 input ViewsCreateInput {
@@ -6525,6 +6635,10 @@ enum ViewsOrderByInput {
   id_DESC
   lastWeek_ASC
   lastWeek_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 input ViewsUpdateInput {

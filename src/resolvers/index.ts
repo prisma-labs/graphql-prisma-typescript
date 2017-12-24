@@ -4,15 +4,12 @@ import { Home } from './Home'
 import { ExperiencesByCity } from './ExperiencesByCity'
 import { Viewer } from './Viewer'
 import { AuthPayload } from './AuthPayload'
-import { homepage } from './Query/homepage'
+import { Query } from './Query'
 import { book } from './Mutation/book'
 import { addPaymentMethod } from './Mutation/addPaymentMethod'
 
 export const resolvers = {
-  Query: {
-    ...homepage,
-    viewer: () => ({}),
-  },
+  Query,
   Mutation: {
     ...auth,
     book,

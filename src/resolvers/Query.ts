@@ -1,6 +1,8 @@
-import { Context } from '../../utils'
+import { Context } from '../utils'
 
-export const homepage = {
+export const Query = {
+  viewer: () => ({}),
+
   topExperiences: async (parent, args, ctx: Context, info) => {
     return ctx.db.query.experiences({ orderBy: 'popularity_DESC' }, info)
   },
