@@ -4,6 +4,7 @@
     "moduleResolution": "node",
     "module": "commonjs",
     "sourceMap": true,
+    "noUnusedLocals": true,
     "rootDir": "src",
     "outDir": "dist",
     "lib": [
