@@ -11,19 +11,19 @@
     "seed": "dotenv -- graphql query database/seed.graphql --all -p database"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "graphcool-binding": "^0.3.0",
-    "graphql-import": "^0.1.8",
+    "bcryptjs": "2.4.3",
+    "graphcool-binding": "0.3.5",
+    "graphql-import": "0.1.9",
     "graphql-yoga": "0.4.6",
-    "jsonwebtoken": "^8.1.0"
+    "jsonwebtoken": "8.1.0"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.1",
-    "dotenv-cli": "^1.4.0",
-    "graphql-cli": "^2.1.4",
-    "nodemon": "^1.14.3",
-    "ts-node": "^4.1.0",
-    "typescript": "^2.6.1"
+    "@types/bcryptjs": "2.4.1",
+    "dotenv-cli": "1.4.0",
+    "graphql-cli": "2.2.2",
+    "nodemon": "1.14.5",
+    "ts-node": "4.1.0",
+    "typescript": "2.6.2"
   },
   "now": {
     "alias": "airbnb"
