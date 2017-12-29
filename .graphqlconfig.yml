@@ -5,9 +5,8 @@ projects:
     extensions:
       endpoints:
         default: "http://localhost:5000"
-      bundle: src/generated/app.graphql
   database:
-    schemaPath: "database/schema.generated.graphql"
+    schemaPath: "src/generated/database.graphql"
     includes: ["database/seed.graphql"]
     extensions:
       graphcool: graphcool.yml

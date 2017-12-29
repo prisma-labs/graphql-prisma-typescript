@@ -2,10 +2,10 @@
   "name": "graphql-server-example",
   "version": "0.0.0",
   "scripts": {
-    "start": "graphql prepare && dotenv -- nodemon -x ts-node -e ts,graphql src/index.ts",
-    "debug": "graphql prepare && dotenv -- nodemon -x 'ts-node --inspect' -e ts,graphql src/index.ts",
+    "start": "dotenv -- nodemon -x ts-node -e ts,graphql src/index.ts",
+    "debug": "dotenv -- nodemon -x 'ts-node --inspect' -e ts,graphql src/index.ts",
     "playground": "graphql playground",
-    "build": "graphql prepare && rm -rf dist && tsc",
+    "build": "rm -rf dist && tsc",
     "deploy": "now --public --dotenv .env.prod && now alias && now rm --yes --safe graphql-server-example",
     "now-start": "node dist",
     "seed": "dotenv -- graphql query database/seed.graphql --all -p database"
@@ -13,7 +13,7 @@
   "dependencies": {
     "bcryptjs": "2.4.3",
     "graphcool-binding": "0.3.6",
-    "graphql-yoga": "0.5.6",
+    "graphql-yoga": "0.6.0",
     "jsonwebtoken": "8.1.0"
   },
   "devDependencies": {

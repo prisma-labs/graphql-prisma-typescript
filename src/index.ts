@@ -3,7 +3,7 @@ import { Graphcool } from './generated/graphcool'
 import { resolvers, fragmentReplacements } from './resolvers'
 
 const server = new GraphQLServer({
-  typeDefs: './src/generated/app.graphql',
+  typeDefs: './src/schema.graphql',
   resolvers,
   context: req => ({
     ...req,

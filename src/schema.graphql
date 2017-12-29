@@ -1,4 +1,4 @@
-# import PLACE_SIZES, DateTime, PAYMENT_PROVIDER, NOTIFICATION_TYPE, CURRENCY from "../database/schema.generated.graphql"
+# import PLACE_SIZES, DateTime, PAYMENT_PROVIDER, NOTIFICATION_TYPE, CURRENCY from "./generated/database.graphql"
 
 type Query {
   topExperiences: [Experience!]!
