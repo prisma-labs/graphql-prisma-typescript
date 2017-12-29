@@ -12,7 +12,7 @@ export const Query = {
   },
 
   topReservations: async (parent, args, ctx: Context, info) => {
-    return ctx.db.query.reservations({ orderBy: 'popularity_DESC' }, info)
+    return ctx.db.query.restaurants({ orderBy: 'popularity_DESC' }, info)
   },
 
   featuredDestinations: async (parent, args, ctx: Context, info) => {
