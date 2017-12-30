@@ -1,5 +1,7 @@
 service: example-airbnb
 
+secret: ${env:GRAPHCOOL_SECRET}
+
 datamodel:
 - database/datamodel/types.graphql
 - database/datamodel/enums.graphql
