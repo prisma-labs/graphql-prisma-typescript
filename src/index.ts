@@ -7,11 +7,7 @@ const server = new GraphQLServer({
   resolvers,
   context: req => ({
     ...req,
-    db: new Graphcool({
-      fragmentReplacements,
-      endpoint: process.env.GRAPHCOOL_ENDPOINT,
-      secret: process.env.GRAPHCOOL_SECRET,
-    }),
+    db: new Graphcool({ fragmentReplacements }),
   }),
   options: { port: 5000 },
 })

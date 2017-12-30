@@ -7188,42 +7188,42 @@ export interface PaymentAccountCreateOneWithoutPaypalInput {
 }
 
 export interface UserWhereInput {
-  AND?: Array<UserWhereInput>
-  OR?: Array<UserWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<UserWhereInput> | UserWhereInput
+  OR?: Array<UserWhereInput> | UserWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   updatedAt?: DateTime
   updatedAt_not?: DateTime
-  updatedAt_in?: Array<DateTime>
-  updatedAt_not_in?: Array<DateTime>
+  updatedAt_in?: Array<DateTime> | DateTime
+  updatedAt_not_in?: Array<DateTime> | DateTime
   updatedAt_lt?: DateTime
   updatedAt_lte?: DateTime
   updatedAt_gt?: DateTime
   updatedAt_gte?: DateTime
   firstName?: String
   firstName_not?: String
-  firstName_in?: Array<String>
-  firstName_not_in?: Array<String>
+  firstName_in?: Array<String> | String
+  firstName_not_in?: Array<String> | String
   firstName_lt?: String
   firstName_lte?: String
   firstName_gt?: String
@@ -7236,8 +7236,8 @@ export interface UserWhereInput {
   firstName_not_ends_with?: String
   lastName?: String
   lastName_not?: String
-  lastName_in?: Array<String>
-  lastName_not_in?: Array<String>
+  lastName_in?: Array<String> | String
+  lastName_not_in?: Array<String> | String
   lastName_lt?: String
   lastName_lte?: String
   lastName_gt?: String
@@ -7250,8 +7250,8 @@ export interface UserWhereInput {
   lastName_not_ends_with?: String
   email?: String
   email_not?: String
-  email_in?: Array<String>
-  email_not_in?: Array<String>
+  email_in?: Array<String> | String
+  email_not_in?: Array<String> | String
   email_lt?: String
   email_lte?: String
   email_gt?: String
@@ -7264,8 +7264,8 @@ export interface UserWhereInput {
   email_not_ends_with?: String
   password?: String
   password_not?: String
-  password_in?: Array<String>
-  password_not_in?: Array<String>
+  password_in?: Array<String> | String
+  password_not_in?: Array<String> | String
   password_lt?: String
   password_lte?: String
   password_gt?: String
@@ -7278,8 +7278,8 @@ export interface UserWhereInput {
   password_not_ends_with?: String
   phone?: String
   phone_not?: String
-  phone_in?: Array<String>
-  phone_not_in?: Array<String>
+  phone_in?: Array<String> | String
+  phone_not_in?: Array<String> | String
   phone_lt?: String
   phone_lte?: String
   phone_gt?: String
@@ -7292,16 +7292,16 @@ export interface UserWhereInput {
   phone_not_ends_with?: String
   responseRate?: Float
   responseRate_not?: Float
-  responseRate_in?: Array<Float>
-  responseRate_not_in?: Array<Float>
+  responseRate_in?: Array<Float> | Float
+  responseRate_not_in?: Array<Float> | Float
   responseRate_lt?: Float
   responseRate_lte?: Float
   responseRate_gt?: Float
   responseRate_gte?: Float
   responseTime?: Int
   responseTime_not?: Int
-  responseTime_in?: Array<Int>
-  responseTime_not_in?: Array<Int>
+  responseTime_in?: Array<Int> | Int
+  responseTime_not_in?: Array<Int> | Int
   responseTime_lt?: Int
   responseTime_lte?: Int
   responseTime_gt?: Int
@@ -7334,43 +7334,43 @@ export interface UserWhereInput {
 }
 
 export interface ReviewUpdateManyWithoutPlaceInput {
-  create?: Array<ReviewCreateWithoutPlaceInput>
-  connect?: Array<ReviewWhereUniqueInput>
-  disconnect?: Array<ReviewWhereUniqueInput>
-  delete?: Array<ReviewWhereUniqueInput>
-  update?: Array<ReviewUpdateWithoutPlaceInput>
-  upsert?: Array<ReviewUpsertWithoutPlaceInput>
+  create?: Array<ReviewCreateWithoutPlaceInput> | ReviewCreateWithoutPlaceInput
+  connect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
+  disconnect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
+  delete?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
+  update?: Array<ReviewUpdateWithoutPlaceInput> | ReviewUpdateWithoutPlaceInput
+  upsert?: Array<ReviewUpsertWithoutPlaceInput> | ReviewUpsertWithoutPlaceInput
 }
 
 export interface CreditCardInformationWhereInput {
-  AND?: Array<CreditCardInformationWhereInput>
-  OR?: Array<CreditCardInformationWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<CreditCardInformationWhereInput> | CreditCardInformationWhereInput
+  OR?: Array<CreditCardInformationWhereInput> | CreditCardInformationWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   cardNumber?: String
   cardNumber_not?: String
-  cardNumber_in?: Array<String>
-  cardNumber_not_in?: Array<String>
+  cardNumber_in?: Array<String> | String
+  cardNumber_not_in?: Array<String> | String
   cardNumber_lt?: String
   cardNumber_lte?: String
   cardNumber_gt?: String
@@ -7383,24 +7383,24 @@ export interface CreditCardInformationWhereInput {
   cardNumber_not_ends_with?: String
   expiresOnMonth?: Int
   expiresOnMonth_not?: Int
-  expiresOnMonth_in?: Array<Int>
-  expiresOnMonth_not_in?: Array<Int>
+  expiresOnMonth_in?: Array<Int> | Int
+  expiresOnMonth_not_in?: Array<Int> | Int
   expiresOnMonth_lt?: Int
   expiresOnMonth_lte?: Int
   expiresOnMonth_gt?: Int
   expiresOnMonth_gte?: Int
   expiresOnYear?: Int
   expiresOnYear_not?: Int
-  expiresOnYear_in?: Array<Int>
-  expiresOnYear_not_in?: Array<Int>
+  expiresOnYear_in?: Array<Int> | Int
+  expiresOnYear_not_in?: Array<Int> | Int
   expiresOnYear_lt?: Int
   expiresOnYear_lte?: Int
   expiresOnYear_gt?: Int
   expiresOnYear_gte?: Int
   securityCode?: String
   securityCode_not?: String
-  securityCode_in?: Array<String>
-  securityCode_not_in?: Array<String>
+  securityCode_in?: Array<String> | String
+  securityCode_not_in?: Array<String> | String
   securityCode_lt?: String
   securityCode_lte?: String
   securityCode_gt?: String
@@ -7413,8 +7413,8 @@ export interface CreditCardInformationWhereInput {
   securityCode_not_ends_with?: String
   firstName?: String
   firstName_not?: String
-  firstName_in?: Array<String>
-  firstName_not_in?: Array<String>
+  firstName_in?: Array<String> | String
+  firstName_not_in?: Array<String> | String
   firstName_lt?: String
   firstName_lte?: String
   firstName_gt?: String
@@ -7427,8 +7427,8 @@ export interface CreditCardInformationWhereInput {
   firstName_not_ends_with?: String
   lastName?: String
   lastName_not?: String
-  lastName_in?: Array<String>
-  lastName_not_in?: Array<String>
+  lastName_in?: Array<String> | String
+  lastName_not_in?: Array<String> | String
   lastName_lt?: String
   lastName_lte?: String
   lastName_gt?: String
@@ -7441,8 +7441,8 @@ export interface CreditCardInformationWhereInput {
   lastName_not_ends_with?: String
   postalCode?: String
   postalCode_not?: String
-  postalCode_in?: Array<String>
-  postalCode_not_in?: Array<String>
+  postalCode_in?: Array<String> | String
+  postalCode_not_in?: Array<String> | String
   postalCode_lt?: String
   postalCode_lte?: String
   postalCode_gt?: String
@@ -7455,8 +7455,8 @@ export interface CreditCardInformationWhereInput {
   postalCode_not_ends_with?: String
   country?: String
   country_not?: String
-  country_in?: Array<String>
-  country_not_in?: Array<String>
+  country_in?: Array<String> | String
+  country_not_in?: Array<String> | String
   country_lt?: String
   country_lte?: String
   country_gt?: String
@@ -7476,38 +7476,38 @@ export interface ReviewUpdateWithoutPlaceInput {
 }
 
 export interface NotificationWhereInput {
-  AND?: Array<NotificationWhereInput>
-  OR?: Array<NotificationWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<NotificationWhereInput> | NotificationWhereInput
+  OR?: Array<NotificationWhereInput> | NotificationWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   type?: NOTIFICATION_TYPE
   type_not?: NOTIFICATION_TYPE
-  type_in?: Array<NOTIFICATION_TYPE>
-  type_not_in?: Array<NOTIFICATION_TYPE>
+  type_in?: Array<NOTIFICATION_TYPE> | NOTIFICATION_TYPE
+  type_not_in?: Array<NOTIFICATION_TYPE> | NOTIFICATION_TYPE
   link?: String
   link_not?: String
-  link_in?: Array<String>
-  link_not_in?: Array<String>
+  link_in?: Array<String> | String
+  link_not_in?: Array<String> | String
   link_lt?: String
   link_lte?: String
   link_gt?: String
@@ -7520,8 +7520,8 @@ export interface NotificationWhereInput {
   link_not_ends_with?: String
   readDate?: DateTime
   readDate_not?: DateTime
-  readDate_in?: Array<DateTime>
-  readDate_not_in?: Array<DateTime>
+  readDate_in?: Array<DateTime> | DateTime
+  readDate_not_in?: Array<DateTime> | DateTime
   readDate_lt?: DateTime
   readDate_lte?: DateTime
   readDate_gt?: DateTime
@@ -7542,34 +7542,34 @@ export interface ReviewUpdateWithoutPlaceDataInput {
 }
 
 export interface PaymentAccountWhereInput {
-  AND?: Array<PaymentAccountWhereInput>
-  OR?: Array<PaymentAccountWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<PaymentAccountWhereInput> | PaymentAccountWhereInput
+  OR?: Array<PaymentAccountWhereInput> | PaymentAccountWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   type?: PAYMENT_PROVIDER
   type_not?: PAYMENT_PROVIDER
-  type_in?: Array<PAYMENT_PROVIDER>
-  type_not_in?: Array<PAYMENT_PROVIDER>
+  type_in?: Array<PAYMENT_PROVIDER> | PAYMENT_PROVIDER
+  type_not_in?: Array<PAYMENT_PROVIDER> | PAYMENT_PROVIDER
   user?: UserWhereInput
   payments_every?: PaymentWhereInput
   payments_some?: PaymentWhereInput
@@ -7627,42 +7627,42 @@ export interface PlaceCreateWithoutViewsInput {
 }
 
 export interface BookingWhereInput {
-  AND?: Array<BookingWhereInput>
-  OR?: Array<BookingWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<BookingWhereInput> | BookingWhereInput
+  OR?: Array<BookingWhereInput> | BookingWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   startDate?: DateTime
   startDate_not?: DateTime
-  startDate_in?: Array<DateTime>
-  startDate_not_in?: Array<DateTime>
+  startDate_in?: Array<DateTime> | DateTime
+  startDate_not_in?: Array<DateTime> | DateTime
   startDate_lt?: DateTime
   startDate_lte?: DateTime
   startDate_gt?: DateTime
   startDate_gte?: DateTime
   endDate?: DateTime
   endDate_not?: DateTime
-  endDate_in?: Array<DateTime>
-  endDate_not_in?: Array<DateTime>
+  endDate_in?: Array<DateTime> | DateTime
+  endDate_not_in?: Array<DateTime> | DateTime
   endDate_lt?: DateTime
   endDate_lte?: DateTime
   endDate_gt?: DateTime
@@ -7728,34 +7728,34 @@ export interface CityCreateInput {
 }
 
 export interface HouseRulesWhereInput {
-  AND?: Array<HouseRulesWhereInput>
-  OR?: Array<HouseRulesWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<HouseRulesWhereInput> | HouseRulesWhereInput
+  OR?: Array<HouseRulesWhereInput> | HouseRulesWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   updatedAt?: DateTime
   updatedAt_not?: DateTime
-  updatedAt_in?: Array<DateTime>
-  updatedAt_not_in?: Array<DateTime>
+  updatedAt_in?: Array<DateTime> | DateTime
+  updatedAt_not_in?: Array<DateTime> | DateTime
   updatedAt_lt?: DateTime
   updatedAt_lte?: DateTime
   updatedAt_gt?: DateTime
@@ -7772,8 +7772,8 @@ export interface HouseRulesWhereInput {
   partiesAndEventsAllowed_not?: Boolean
   additionalRules?: String
   additionalRules_not?: String
-  additionalRules_in?: Array<String>
-  additionalRules_not_in?: Array<String>
+  additionalRules_in?: Array<String> | String
+  additionalRules_not_in?: Array<String> | String
   additionalRules_lt?: String
   additionalRules_lte?: String
   additionalRules_gt?: String
@@ -7788,8 +7788,8 @@ export interface HouseRulesWhereInput {
 }
 
 export interface NeighbourhoodCreateManyWithoutCityInput {
-  create?: Array<NeighbourhoodCreateWithoutCityInput>
-  connect?: Array<NeighbourhoodWhereUniqueInput>
+  create?: Array<NeighbourhoodCreateWithoutCityInput> | NeighbourhoodCreateWithoutCityInput
+  connect?: Array<NeighbourhoodWhereUniqueInput> | NeighbourhoodWhereUniqueInput
 }
 
 export interface PaymentAccountUpsertWithoutCreditcardInput {
@@ -7870,26 +7870,26 @@ export interface ExperienceCreateOneWithoutCategoryInput {
 }
 
 export interface ViewsWhereInput {
-  AND?: Array<ViewsWhereInput>
-  OR?: Array<ViewsWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<ViewsWhereInput> | ViewsWhereInput
+  OR?: Array<ViewsWhereInput> | ViewsWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   lastWeek?: Int
   lastWeek_not?: Int
-  lastWeek_in?: Array<Int>
-  lastWeek_not_in?: Array<Int>
+  lastWeek_in?: Array<Int> | Int
+  lastWeek_not_in?: Array<Int> | Int
   lastWeek_lt?: Int
   lastWeek_lte?: Int
   lastWeek_gt?: Int
@@ -7957,42 +7957,42 @@ export interface AmenitiesCreateInput {
 }
 
 export interface PricingWhereInput {
-  AND?: Array<PricingWhereInput>
-  OR?: Array<PricingWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<PricingWhereInput> | PricingWhereInput
+  OR?: Array<PricingWhereInput> | PricingWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   monthlyDiscount?: Int
   monthlyDiscount_not?: Int
-  monthlyDiscount_in?: Array<Int>
-  monthlyDiscount_not_in?: Array<Int>
+  monthlyDiscount_in?: Array<Int> | Int
+  monthlyDiscount_not_in?: Array<Int> | Int
   monthlyDiscount_lt?: Int
   monthlyDiscount_lte?: Int
   monthlyDiscount_gt?: Int
   monthlyDiscount_gte?: Int
   weeklyDiscount?: Int
   weeklyDiscount_not?: Int
-  weeklyDiscount_in?: Array<Int>
-  weeklyDiscount_not_in?: Array<Int>
+  weeklyDiscount_in?: Array<Int> | Int
+  weeklyDiscount_not_in?: Array<Int> | Int
   weeklyDiscount_lt?: Int
   weeklyDiscount_lte?: Int
   weeklyDiscount_gt?: Int
   weeklyDiscount_gte?: Int
   perNight?: Int
   perNight_not?: Int
-  perNight_in?: Array<Int>
-  perNight_not_in?: Array<Int>
+  perNight_in?: Array<Int> | Int
+  perNight_not_in?: Array<Int> | Int
   perNight_lt?: Int
   perNight_lte?: Int
   perNight_gt?: Int
@@ -8001,64 +8001,64 @@ export interface PricingWhereInput {
   smartPricing_not?: Boolean
   basePrice?: Int
   basePrice_not?: Int
-  basePrice_in?: Array<Int>
-  basePrice_not_in?: Array<Int>
+  basePrice_in?: Array<Int> | Int
+  basePrice_not_in?: Array<Int> | Int
   basePrice_lt?: Int
   basePrice_lte?: Int
   basePrice_gt?: Int
   basePrice_gte?: Int
   averageWeekly?: Int
   averageWeekly_not?: Int
-  averageWeekly_in?: Array<Int>
-  averageWeekly_not_in?: Array<Int>
+  averageWeekly_in?: Array<Int> | Int
+  averageWeekly_not_in?: Array<Int> | Int
   averageWeekly_lt?: Int
   averageWeekly_lte?: Int
   averageWeekly_gt?: Int
   averageWeekly_gte?: Int
   averageMonthly?: Int
   averageMonthly_not?: Int
-  averageMonthly_in?: Array<Int>
-  averageMonthly_not_in?: Array<Int>
+  averageMonthly_in?: Array<Int> | Int
+  averageMonthly_not_in?: Array<Int> | Int
   averageMonthly_lt?: Int
   averageMonthly_lte?: Int
   averageMonthly_gt?: Int
   averageMonthly_gte?: Int
   cleaningFee?: Int
   cleaningFee_not?: Int
-  cleaningFee_in?: Array<Int>
-  cleaningFee_not_in?: Array<Int>
+  cleaningFee_in?: Array<Int> | Int
+  cleaningFee_not_in?: Array<Int> | Int
   cleaningFee_lt?: Int
   cleaningFee_lte?: Int
   cleaningFee_gt?: Int
   cleaningFee_gte?: Int
   securityDeposit?: Int
   securityDeposit_not?: Int
-  securityDeposit_in?: Array<Int>
-  securityDeposit_not_in?: Array<Int>
+  securityDeposit_in?: Array<Int> | Int
+  securityDeposit_not_in?: Array<Int> | Int
   securityDeposit_lt?: Int
   securityDeposit_lte?: Int
   securityDeposit_gt?: Int
   securityDeposit_gte?: Int
   extraGuests?: Int
   extraGuests_not?: Int
-  extraGuests_in?: Array<Int>
-  extraGuests_not_in?: Array<Int>
+  extraGuests_in?: Array<Int> | Int
+  extraGuests_not_in?: Array<Int> | Int
   extraGuests_lt?: Int
   extraGuests_lte?: Int
   extraGuests_gt?: Int
   extraGuests_gte?: Int
   weekendPricing?: Int
   weekendPricing_not?: Int
-  weekendPricing_in?: Array<Int>
-  weekendPricing_not_in?: Array<Int>
+  weekendPricing_in?: Array<Int> | Int
+  weekendPricing_not_in?: Array<Int> | Int
   weekendPricing_lt?: Int
   weekendPricing_lte?: Int
   weekendPricing_gt?: Int
   weekendPricing_gte?: Int
   currency?: CURRENCY
   currency_not?: CURRENCY
-  currency_in?: Array<CURRENCY>
-  currency_not_in?: Array<CURRENCY>
+  currency_in?: Array<CURRENCY> | CURRENCY
+  currency_not_in?: Array<CURRENCY> | CURRENCY
   place?: PlaceWhereInput
 }
 
@@ -8099,26 +8099,26 @@ export interface PlaceCreateWithoutAmenitiesInput {
 }
 
 export interface CityWhereInput {
-  AND?: Array<CityWhereInput>
-  OR?: Array<CityWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<CityWhereInput> | CityWhereInput
+  OR?: Array<CityWhereInput> | CityWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   name?: String
   name_not?: String
-  name_in?: Array<String>
-  name_not_in?: Array<String>
+  name_in?: Array<String> | String
+  name_not_in?: Array<String> | String
   name_lt?: String
   name_lte?: String
   name_gt?: String
@@ -8148,34 +8148,34 @@ export interface ReviewCreateInput {
 }
 
 export interface RestaurantWhereInput {
-  AND?: Array<RestaurantWhereInput>
-  OR?: Array<RestaurantWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<RestaurantWhereInput> | RestaurantWhereInput
+  OR?: Array<RestaurantWhereInput> | RestaurantWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   title?: String
   title_not?: String
-  title_in?: Array<String>
-  title_not_in?: Array<String>
+  title_in?: Array<String> | String
+  title_not_in?: Array<String> | String
   title_lt?: String
   title_lte?: String
   title_gt?: String
@@ -8188,8 +8188,8 @@ export interface RestaurantWhereInput {
   title_not_ends_with?: String
   avgPricePerPerson?: Int
   avgPricePerPerson_not?: Int
-  avgPricePerPerson_in?: Array<Int>
-  avgPricePerPerson_not_in?: Array<Int>
+  avgPricePerPerson_in?: Array<Int> | Int
+  avgPricePerPerson_not_in?: Array<Int> | Int
   avgPricePerPerson_lt?: Int
   avgPricePerPerson_lte?: Int
   avgPricePerPerson_gt?: Int
@@ -8198,8 +8198,8 @@ export interface RestaurantWhereInput {
   isCurated_not?: Boolean
   slug?: String
   slug_not?: String
-  slug_in?: Array<String>
-  slug_not_in?: Array<String>
+  slug_in?: Array<String> | String
+  slug_not_in?: Array<String> | String
   slug_lt?: String
   slug_lte?: String
   slug_gt?: String
@@ -8212,8 +8212,8 @@ export interface RestaurantWhereInput {
   slug_not_ends_with?: String
   popularity?: Int
   popularity_not?: Int
-  popularity_in?: Array<Int>
-  popularity_not_in?: Array<Int>
+  popularity_in?: Array<Int> | Int
+  popularity_not_in?: Array<Int> | Int
   popularity_lt?: Int
   popularity_lte?: Int
   popularity_gt?: Int
@@ -8233,26 +8233,26 @@ export interface BookingCreateInput {
 }
 
 export interface PictureWhereInput {
-  AND?: Array<PictureWhereInput>
-  OR?: Array<PictureWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<PictureWhereInput> | PictureWhereInput
+  OR?: Array<PictureWhereInput> | PictureWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   url?: String
   url_not?: String
-  url_in?: Array<String>
-  url_not_in?: Array<String>
+  url_in?: Array<String> | String
+  url_not_in?: Array<String> | String
   url_lt?: String
   url_lte?: String
   url_gt?: String
@@ -8279,42 +8279,42 @@ export interface PaymentCreateInput {
 }
 
 export interface LocationWhereInput {
-  AND?: Array<LocationWhereInput>
-  OR?: Array<LocationWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<LocationWhereInput> | LocationWhereInput
+  OR?: Array<LocationWhereInput> | LocationWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   lat?: Float
   lat_not?: Float
-  lat_in?: Array<Float>
-  lat_not_in?: Array<Float>
+  lat_in?: Array<Float> | Float
+  lat_not_in?: Array<Float> | Float
   lat_lt?: Float
   lat_lte?: Float
   lat_gt?: Float
   lat_gte?: Float
   lng?: Float
   lng_not?: Float
-  lng_in?: Array<Float>
-  lng_not_in?: Array<Float>
+  lng_in?: Array<Float> | Float
+  lng_not_in?: Array<Float> | Float
   lng_lt?: Float
   lng_lte?: Float
   lng_gt?: Float
   lng_gte?: Float
   address?: String
   address_not?: String
-  address_in?: Array<String>
-  address_not_in?: Array<String>
+  address_in?: Array<String> | String
+  address_not_in?: Array<String> | String
   address_lt?: String
   address_lte?: String
   address_gt?: String
@@ -8327,8 +8327,8 @@ export interface LocationWhereInput {
   address_not_ends_with?: String
   directions?: String
   directions_not?: String
-  directions_in?: Array<String>
-  directions_not_in?: Array<String>
+  directions_in?: Array<String> | String
+  directions_not_in?: Array<String> | String
   directions_lt?: String
   directions_lte?: String
   directions_gt?: String
@@ -8355,26 +8355,26 @@ export interface PaymentAccountCreateInput {
 }
 
 export interface ExperienceWhereInput {
-  AND?: Array<ExperienceWhereInput>
-  OR?: Array<ExperienceWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<ExperienceWhereInput> | ExperienceWhereInput
+  OR?: Array<ExperienceWhereInput> | ExperienceWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   title?: String
   title_not?: String
-  title_in?: Array<String>
-  title_not_in?: Array<String>
+  title_in?: Array<String> | String
+  title_not_in?: Array<String> | String
   title_lt?: String
   title_lte?: String
   title_gt?: String
@@ -8387,16 +8387,16 @@ export interface ExperienceWhereInput {
   title_not_ends_with?: String
   pricePerPerson?: Int
   pricePerPerson_not?: Int
-  pricePerPerson_in?: Array<Int>
-  pricePerPerson_not_in?: Array<Int>
+  pricePerPerson_in?: Array<Int> | Int
+  pricePerPerson_not_in?: Array<Int> | Int
   pricePerPerson_lt?: Int
   pricePerPerson_lte?: Int
   pricePerPerson_gt?: Int
   pricePerPerson_gte?: Int
   popularity?: Int
   popularity_not?: Int
-  popularity_in?: Array<Int>
-  popularity_not_in?: Array<Int>
+  popularity_in?: Array<Int> | Int
+  popularity_not_in?: Array<Int> | Int
   popularity_lt?: Int
   popularity_lte?: Int
   popularity_gt?: Int
@@ -8416,26 +8416,26 @@ export interface PaypalInformationCreateInput {
 }
 
 export interface PlaceWhereInput {
-  AND?: Array<PlaceWhereInput>
-  OR?: Array<PlaceWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<PlaceWhereInput> | PlaceWhereInput
+  OR?: Array<PlaceWhereInput> | PlaceWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   name?: String
   name_not?: String
-  name_in?: Array<String>
-  name_not_in?: Array<String>
+  name_in?: Array<String> | String
+  name_not_in?: Array<String> | String
   name_lt?: String
   name_lte?: String
   name_gt?: String
@@ -8448,12 +8448,12 @@ export interface PlaceWhereInput {
   name_not_ends_with?: String
   size?: PLACE_SIZES
   size_not?: PLACE_SIZES
-  size_in?: Array<PLACE_SIZES>
-  size_not_in?: Array<PLACE_SIZES>
+  size_in?: Array<PLACE_SIZES> | PLACE_SIZES
+  size_not_in?: Array<PLACE_SIZES> | PLACE_SIZES
   shortDescription?: String
   shortDescription_not?: String
-  shortDescription_in?: Array<String>
-  shortDescription_not_in?: Array<String>
+  shortDescription_in?: Array<String> | String
+  shortDescription_not_in?: Array<String> | String
   shortDescription_lt?: String
   shortDescription_lte?: String
   shortDescription_gt?: String
@@ -8466,8 +8466,8 @@ export interface PlaceWhereInput {
   shortDescription_not_ends_with?: String
   description?: String
   description_not?: String
-  description_in?: Array<String>
-  description_not_in?: Array<String>
+  description_in?: Array<String> | String
+  description_not_in?: Array<String> | String
   description_lt?: String
   description_lte?: String
   description_gt?: String
@@ -8480,8 +8480,8 @@ export interface PlaceWhereInput {
   description_not_ends_with?: String
   slug?: String
   slug_not?: String
-  slug_in?: Array<String>
-  slug_not_in?: Array<String>
+  slug_in?: Array<String> | String
+  slug_not_in?: Array<String> | String
   slug_lt?: String
   slug_lte?: String
   slug_gt?: String
@@ -8494,40 +8494,40 @@ export interface PlaceWhereInput {
   slug_not_ends_with?: String
   maxGuests?: Int
   maxGuests_not?: Int
-  maxGuests_in?: Array<Int>
-  maxGuests_not_in?: Array<Int>
+  maxGuests_in?: Array<Int> | Int
+  maxGuests_not_in?: Array<Int> | Int
   maxGuests_lt?: Int
   maxGuests_lte?: Int
   maxGuests_gt?: Int
   maxGuests_gte?: Int
   numBedrooms?: Int
   numBedrooms_not?: Int
-  numBedrooms_in?: Array<Int>
-  numBedrooms_not_in?: Array<Int>
+  numBedrooms_in?: Array<Int> | Int
+  numBedrooms_not_in?: Array<Int> | Int
   numBedrooms_lt?: Int
   numBedrooms_lte?: Int
   numBedrooms_gt?: Int
   numBedrooms_gte?: Int
   numBeds?: Int
   numBeds_not?: Int
-  numBeds_in?: Array<Int>
-  numBeds_not_in?: Array<Int>
+  numBeds_in?: Array<Int> | Int
+  numBeds_not_in?: Array<Int> | Int
   numBeds_lt?: Int
   numBeds_lte?: Int
   numBeds_gt?: Int
   numBeds_gte?: Int
   numBaths?: Int
   numBaths_not?: Int
-  numBaths_in?: Array<Int>
-  numBaths_not_in?: Array<Int>
+  numBaths_in?: Array<Int> | Int
+  numBaths_not_in?: Array<Int> | Int
   numBaths_lt?: Int
   numBaths_lte?: Int
   numBaths_gt?: Int
   numBaths_gte?: Int
   popularity?: Int
   popularity_not?: Int
-  popularity_in?: Array<Int>
-  popularity_not_in?: Array<Int>
+  popularity_in?: Array<Int> | Int
+  popularity_not_in?: Array<Int> | Int
   popularity_lt?: Int
   popularity_lte?: Int
   popularity_gt?: Int
@@ -8626,7 +8626,7 @@ export interface CreditCardInformationCreateInput {
 }
 
 export interface UserWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
   email?: String
 }
 
@@ -8636,7 +8636,7 @@ export interface PaymentAccountCreateOneWithoutCreditcardInput {
 }
 
 export interface PricingWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface PaymentAccountCreateWithoutCreditcardInput {
@@ -8647,7 +8647,7 @@ export interface PaymentAccountCreateWithoutCreditcardInput {
 }
 
 export interface PoliciesWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface MessageCreateInput {
@@ -8658,7 +8658,7 @@ export interface MessageCreateInput {
 }
 
 export interface ViewsWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface NotificationCreateInput {
@@ -8669,7 +8669,7 @@ export interface NotificationCreateInput {
 }
 
 export interface NeighbourhoodWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface UserCreateOneWithoutNotificationsInput {
@@ -8678,7 +8678,7 @@ export interface UserCreateOneWithoutNotificationsInput {
 }
 
 export interface PictureWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface UserCreateWithoutNotificationsInput {
@@ -8701,7 +8701,7 @@ export interface UserCreateWithoutNotificationsInput {
 }
 
 export interface ExperienceCategoryWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface RestaurantCreateInput {
@@ -8715,7 +8715,7 @@ export interface RestaurantCreateInput {
 }
 
 export interface ReviewWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface UserUpdateInput {
@@ -8739,20 +8739,20 @@ export interface UserUpdateInput {
 }
 
 export interface PaymentWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface PlaceUpdateManyWithoutHostInput {
-  create?: Array<PlaceCreateWithoutHostInput>
-  connect?: Array<PlaceWhereUniqueInput>
-  disconnect?: Array<PlaceWhereUniqueInput>
-  delete?: Array<PlaceWhereUniqueInput>
-  update?: Array<PlaceUpdateWithoutHostInput>
-  upsert?: Array<PlaceUpsertWithoutHostInput>
+  create?: Array<PlaceCreateWithoutHostInput> | PlaceCreateWithoutHostInput
+  connect?: Array<PlaceWhereUniqueInput> | PlaceWhereUniqueInput
+  disconnect?: Array<PlaceWhereUniqueInput> | PlaceWhereUniqueInput
+  delete?: Array<PlaceWhereUniqueInput> | PlaceWhereUniqueInput
+  update?: Array<PlaceUpdateWithoutHostInput> | PlaceUpdateWithoutHostInput
+  upsert?: Array<PlaceUpsertWithoutHostInput> | PlaceUpsertWithoutHostInput
 }
 
 export interface PaypalInformationWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface PlaceUpdateWithoutHostInput {
@@ -8761,7 +8761,7 @@ export interface PlaceUpdateWithoutHostInput {
 }
 
 export interface MessageWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface PlaceUpdateWithoutHostDataInput {
@@ -8788,46 +8788,46 @@ export interface PlaceUpdateWithoutHostDataInput {
 }
 
 export interface RestaurantWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface MessageWhereInput {
-  AND?: Array<MessageWhereInput>
-  OR?: Array<MessageWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<MessageWhereInput> | MessageWhereInput
+  OR?: Array<MessageWhereInput> | MessageWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   deliveredAt?: DateTime
   deliveredAt_not?: DateTime
-  deliveredAt_in?: Array<DateTime>
-  deliveredAt_not_in?: Array<DateTime>
+  deliveredAt_in?: Array<DateTime> | DateTime
+  deliveredAt_not_in?: Array<DateTime> | DateTime
   deliveredAt_lt?: DateTime
   deliveredAt_lte?: DateTime
   deliveredAt_gt?: DateTime
   deliveredAt_gte?: DateTime
   readAt?: DateTime
   readAt_not?: DateTime
-  readAt_in?: Array<DateTime>
-  readAt_not_in?: Array<DateTime>
+  readAt_in?: Array<DateTime> | DateTime
+  readAt_not_in?: Array<DateTime> | DateTime
   readAt_lt?: DateTime
   readAt_lte?: DateTime
   readAt_gt?: DateTime
@@ -8842,34 +8842,34 @@ export interface ExperienceUpdateWithoutCategoryInput {
 }
 
 export interface PaypalInformationWhereInput {
-  AND?: Array<PaypalInformationWhereInput>
-  OR?: Array<PaypalInformationWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<PaypalInformationWhereInput> | PaypalInformationWhereInput
+  OR?: Array<PaypalInformationWhereInput> | PaypalInformationWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   email?: String
   email_not?: String
-  email_in?: Array<String>
-  email_not_in?: Array<String>
+  email_in?: Array<String> | String
+  email_not_in?: Array<String> | String
   email_lt?: String
   email_lte?: String
   email_gt?: String
@@ -8905,50 +8905,50 @@ export interface PictureUpdateInput {
 }
 
 export interface PaymentWhereInput {
-  AND?: Array<PaymentWhereInput>
-  OR?: Array<PaymentWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<PaymentWhereInput> | PaymentWhereInput
+  OR?: Array<PaymentWhereInput> | PaymentWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   serviceFee?: Float
   serviceFee_not?: Float
-  serviceFee_in?: Array<Float>
-  serviceFee_not_in?: Array<Float>
+  serviceFee_in?: Array<Float> | Float
+  serviceFee_not_in?: Array<Float> | Float
   serviceFee_lt?: Float
   serviceFee_lte?: Float
   serviceFee_gt?: Float
   serviceFee_gte?: Float
   placePrice?: Float
   placePrice_not?: Float
-  placePrice_in?: Array<Float>
-  placePrice_not_in?: Array<Float>
+  placePrice_in?: Array<Float> | Float
+  placePrice_not_in?: Array<Float> | Float
   placePrice_lt?: Float
   placePrice_lte?: Float
   placePrice_gt?: Float
   placePrice_gte?: Float
   totalPrice?: Float
   totalPrice_not?: Float
-  totalPrice_in?: Array<Float>
-  totalPrice_not_in?: Array<Float>
+  totalPrice_in?: Array<Float> | Float
+  totalPrice_not_in?: Array<Float> | Float
   totalPrice_lt?: Float
   totalPrice_lte?: Float
   totalPrice_gt?: Float
@@ -8972,12 +8972,12 @@ export interface ExperienceUpdateWithoutReviewsInput {
 }
 
 export interface NeighbourhoodUpdateManyWithoutCityInput {
-  create?: Array<NeighbourhoodCreateWithoutCityInput>
-  connect?: Array<NeighbourhoodWhereUniqueInput>
-  disconnect?: Array<NeighbourhoodWhereUniqueInput>
-  delete?: Array<NeighbourhoodWhereUniqueInput>
-  update?: Array<NeighbourhoodUpdateWithoutCityInput>
-  upsert?: Array<NeighbourhoodUpsertWithoutCityInput>
+  create?: Array<NeighbourhoodCreateWithoutCityInput> | NeighbourhoodCreateWithoutCityInput
+  connect?: Array<NeighbourhoodWhereUniqueInput> | NeighbourhoodWhereUniqueInput
+  disconnect?: Array<NeighbourhoodWhereUniqueInput> | NeighbourhoodWhereUniqueInput
+  delete?: Array<NeighbourhoodWhereUniqueInput> | NeighbourhoodWhereUniqueInput
+  update?: Array<NeighbourhoodUpdateWithoutCityInput> | NeighbourhoodUpdateWithoutCityInput
+  upsert?: Array<NeighbourhoodUpsertWithoutCityInput> | NeighbourhoodUpsertWithoutCityInput
 }
 
 export interface ExperienceUpdateWithoutReviewsDataInput {
@@ -9354,12 +9354,12 @@ export interface PlaceCreateWithoutHostInput {
 }
 
 export interface BookingUpdateManyWithoutBookeeInput {
-  create?: Array<BookingCreateWithoutBookeeInput>
-  connect?: Array<BookingWhereUniqueInput>
-  disconnect?: Array<BookingWhereUniqueInput>
-  delete?: Array<BookingWhereUniqueInput>
-  update?: Array<BookingUpdateWithoutBookeeInput>
-  upsert?: Array<BookingUpsertWithoutBookeeInput>
+  create?: Array<BookingCreateWithoutBookeeInput> | BookingCreateWithoutBookeeInput
+  connect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
+  disconnect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
+  delete?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
+  update?: Array<BookingUpdateWithoutBookeeInput> | BookingUpdateWithoutBookeeInput
+  upsert?: Array<BookingUpsertWithoutBookeeInput> | BookingUpsertWithoutBookeeInput
 }
 
 export interface ReviewCreateWithoutPlaceInput {
@@ -9700,12 +9700,12 @@ export interface PaymentAccountCreateWithoutUserInput {
 }
 
 export interface PaymentAccountUpdateManyWithoutUserInput {
-  create?: Array<PaymentAccountCreateWithoutUserInput>
-  connect?: Array<PaymentAccountWhereUniqueInput>
-  disconnect?: Array<PaymentAccountWhereUniqueInput>
-  delete?: Array<PaymentAccountWhereUniqueInput>
-  update?: Array<PaymentAccountUpdateWithoutUserInput>
-  upsert?: Array<PaymentAccountUpsertWithoutUserInput>
+  create?: Array<PaymentAccountCreateWithoutUserInput> | PaymentAccountCreateWithoutUserInput
+  connect?: Array<PaymentAccountWhereUniqueInput> | PaymentAccountWhereUniqueInput
+  disconnect?: Array<PaymentAccountWhereUniqueInput> | PaymentAccountWhereUniqueInput
+  delete?: Array<PaymentAccountWhereUniqueInput> | PaymentAccountWhereUniqueInput
+  update?: Array<PaymentAccountUpdateWithoutUserInput> | PaymentAccountUpdateWithoutUserInput
+  upsert?: Array<PaymentAccountUpsertWithoutUserInput> | PaymentAccountUpsertWithoutUserInput
 }
 
 export interface PaymentCreateWithoutPaymentMethodInput {
@@ -9754,12 +9754,12 @@ export interface UserCreateWithoutBookingsInput {
 }
 
 export interface PaymentUpdateManyWithoutPaymentMethodInput {
-  create?: Array<PaymentCreateWithoutPaymentMethodInput>
-  connect?: Array<PaymentWhereUniqueInput>
-  disconnect?: Array<PaymentWhereUniqueInput>
-  delete?: Array<PaymentWhereUniqueInput>
-  update?: Array<PaymentUpdateWithoutPaymentMethodInput>
-  upsert?: Array<PaymentUpsertWithoutPaymentMethodInput>
+  create?: Array<PaymentCreateWithoutPaymentMethodInput> | PaymentCreateWithoutPaymentMethodInput
+  connect?: Array<PaymentWhereUniqueInput> | PaymentWhereUniqueInput
+  disconnect?: Array<PaymentWhereUniqueInput> | PaymentWhereUniqueInput
+  delete?: Array<PaymentWhereUniqueInput> | PaymentWhereUniqueInput
+  update?: Array<PaymentUpdateWithoutPaymentMethodInput> | PaymentUpdateWithoutPaymentMethodInput
+  upsert?: Array<PaymentUpsertWithoutPaymentMethodInput> | PaymentUpsertWithoutPaymentMethodInput
 }
 
 export interface MessageCreateWithoutFromInput {
@@ -9932,12 +9932,12 @@ export interface UserCreateWithoutSentMessagesInput {
 }
 
 export interface MessageUpdateManyWithoutFromInput {
-  create?: Array<MessageCreateWithoutFromInput>
-  connect?: Array<MessageWhereUniqueInput>
-  disconnect?: Array<MessageWhereUniqueInput>
-  delete?: Array<MessageWhereUniqueInput>
-  update?: Array<MessageUpdateWithoutFromInput>
-  upsert?: Array<MessageUpsertWithoutFromInput>
+  create?: Array<MessageCreateWithoutFromInput> | MessageCreateWithoutFromInput
+  connect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
+  disconnect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
+  delete?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
+  update?: Array<MessageUpdateWithoutFromInput> | MessageUpdateWithoutFromInput
+  upsert?: Array<MessageUpsertWithoutFromInput> | MessageUpsertWithoutFromInput
 }
 
 export interface ExperienceCreateWithoutHostInput {
@@ -10054,12 +10054,12 @@ export interface GuestRequirementsCreateWithoutPlaceInput {
 }
 
 export interface NotificationUpdateManyWithoutUserInput {
-  create?: Array<NotificationCreateWithoutUserInput>
-  connect?: Array<NotificationWhereUniqueInput>
-  disconnect?: Array<NotificationWhereUniqueInput>
-  delete?: Array<NotificationWhereUniqueInput>
-  update?: Array<NotificationUpdateWithoutUserInput>
-  upsert?: Array<NotificationUpsertWithoutUserInput>
+  create?: Array<NotificationCreateWithoutUserInput> | NotificationCreateWithoutUserInput
+  connect?: Array<NotificationWhereUniqueInput> | NotificationWhereUniqueInput
+  disconnect?: Array<NotificationWhereUniqueInput> | NotificationWhereUniqueInput
+  delete?: Array<NotificationWhereUniqueInput> | NotificationWhereUniqueInput
+  update?: Array<NotificationUpdateWithoutUserInput> | NotificationUpdateWithoutUserInput
+  upsert?: Array<NotificationUpsertWithoutUserInput> | NotificationUpsertWithoutUserInput
 }
 
 export interface PoliciesCreateWithoutPlaceInput {
@@ -10213,12 +10213,12 @@ export interface ExperienceCreateWithoutPreviewInput {
 }
 
 export interface LocationUpdateManyWithoutNeighbourHoodInput {
-  create?: Array<LocationCreateWithoutNeighbourHoodInput>
-  connect?: Array<LocationWhereUniqueInput>
-  disconnect?: Array<LocationWhereUniqueInput>
-  delete?: Array<LocationWhereUniqueInput>
-  update?: Array<LocationUpdateWithoutNeighbourHoodInput>
-  upsert?: Array<LocationUpsertWithoutNeighbourHoodInput>
+  create?: Array<LocationCreateWithoutNeighbourHoodInput> | LocationCreateWithoutNeighbourHoodInput
+  connect?: Array<LocationWhereUniqueInput> | LocationWhereUniqueInput
+  disconnect?: Array<LocationWhereUniqueInput> | LocationWhereUniqueInput
+  delete?: Array<LocationWhereUniqueInput> | LocationWhereUniqueInput
+  update?: Array<LocationUpdateWithoutNeighbourHoodInput> | LocationUpdateWithoutNeighbourHoodInput
+  upsert?: Array<LocationUpsertWithoutNeighbourHoodInput> | LocationUpsertWithoutNeighbourHoodInput
 }
 
 export interface ReviewCreateWithoutExperienceInput {
@@ -10358,12 +10358,12 @@ export interface PlaceCreateWithoutPicturesInput {
 }
 
 export interface MessageUpdateManyWithoutToInput {
-  create?: Array<MessageCreateWithoutToInput>
-  connect?: Array<MessageWhereUniqueInput>
-  disconnect?: Array<MessageWhereUniqueInput>
-  delete?: Array<MessageWhereUniqueInput>
-  update?: Array<MessageUpdateWithoutToInput>
-  upsert?: Array<MessageUpsertWithoutToInput>
+  create?: Array<MessageCreateWithoutToInput> | MessageCreateWithoutToInput
+  connect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
+  disconnect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
+  delete?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
+  update?: Array<MessageUpdateWithoutToInput> | MessageUpdateWithoutToInput
+  upsert?: Array<MessageUpsertWithoutToInput> | MessageUpsertWithoutToInput
 }
 
 export interface RestaurantCreateWithoutPicturesInput {
@@ -10468,12 +10468,12 @@ export interface PricingCreateInput {
 }
 
 export interface ExperienceUpdateManyWithoutHostInput {
-  create?: Array<ExperienceCreateWithoutHostInput>
-  connect?: Array<ExperienceWhereUniqueInput>
-  disconnect?: Array<ExperienceWhereUniqueInput>
-  delete?: Array<ExperienceWhereUniqueInput>
-  update?: Array<ExperienceUpdateWithoutHostInput>
-  upsert?: Array<ExperienceUpsertWithoutHostInput>
+  create?: Array<ExperienceCreateWithoutHostInput> | ExperienceCreateWithoutHostInput
+  connect?: Array<ExperienceWhereUniqueInput> | ExperienceWhereUniqueInput
+  disconnect?: Array<ExperienceWhereUniqueInput> | ExperienceWhereUniqueInput
+  delete?: Array<ExperienceWhereUniqueInput> | ExperienceWhereUniqueInput
+  update?: Array<ExperienceUpdateWithoutHostInput> | ExperienceUpdateWithoutHostInput
+  upsert?: Array<ExperienceUpsertWithoutHostInput> | ExperienceUpsertWithoutHostInput
 }
 
 export interface PlaceCreateWithoutPricingInput {
@@ -10639,22 +10639,22 @@ export interface PlaceUpdateWithoutLocationDataInput {
 }
 
 export interface GuestRequirementsWhereInput {
-  AND?: Array<GuestRequirementsWhereInput>
-  OR?: Array<GuestRequirementsWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<GuestRequirementsWhereInput> | GuestRequirementsWhereInput
+  OR?: Array<GuestRequirementsWhereInput> | GuestRequirementsWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   govIssuedId?: Boolean
   govIssuedId_not?: Boolean
   recommendationsFromOtherHosts?: Boolean
@@ -10745,26 +10745,26 @@ export interface ViewsUpdateOneWithoutPlaceInput {
 }
 
 export interface NeighbourhoodWhereInput {
-  AND?: Array<NeighbourhoodWhereInput>
-  OR?: Array<NeighbourhoodWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<NeighbourhoodWhereInput> | NeighbourhoodWhereInput
+  OR?: Array<NeighbourhoodWhereInput> | NeighbourhoodWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   name?: String
   name_not?: String
-  name_in?: Array<String>
-  name_not_in?: Array<String>
+  name_in?: Array<String> | String
+  name_not_in?: Array<String> | String
   name_lt?: String
   name_lte?: String
   name_gt?: String
@@ -10777,8 +10777,8 @@ export interface NeighbourhoodWhereInput {
   name_not_ends_with?: String
   slug?: String
   slug_not?: String
-  slug_in?: Array<String>
-  slug_not_in?: Array<String>
+  slug_in?: Array<String> | String
+  slug_not_in?: Array<String> | String
   slug_lt?: String
   slug_lte?: String
   slug_gt?: String
@@ -10793,8 +10793,8 @@ export interface NeighbourhoodWhereInput {
   featured_not?: Boolean
   popularity?: Int
   popularity_not?: Int
-  popularity_in?: Array<Int>
-  popularity_not_in?: Array<Int>
+  popularity_in?: Array<Int> | Int
+  popularity_not_in?: Array<Int> | Int
   popularity_lt?: Int
   popularity_lte?: Int
   popularity_gt?: Int
@@ -10812,34 +10812,34 @@ export interface ViewsUpdateWithoutPlaceInput {
 }
 
 export interface ReviewWhereInput {
-  AND?: Array<ReviewWhereInput>
-  OR?: Array<ReviewWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<ReviewWhereInput> | ReviewWhereInput
+  OR?: Array<ReviewWhereInput> | ReviewWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   text?: String
   text_not?: String
-  text_in?: Array<String>
-  text_not_in?: Array<String>
+  text_in?: Array<String> | String
+  text_not_in?: Array<String> | String
   text_lt?: String
   text_lte?: String
   text_gt?: String
@@ -10852,56 +10852,56 @@ export interface ReviewWhereInput {
   text_not_ends_with?: String
   stars?: Int
   stars_not?: Int
-  stars_in?: Array<Int>
-  stars_not_in?: Array<Int>
+  stars_in?: Array<Int> | Int
+  stars_not_in?: Array<Int> | Int
   stars_lt?: Int
   stars_lte?: Int
   stars_gt?: Int
   stars_gte?: Int
   accuracy?: Int
   accuracy_not?: Int
-  accuracy_in?: Array<Int>
-  accuracy_not_in?: Array<Int>
+  accuracy_in?: Array<Int> | Int
+  accuracy_not_in?: Array<Int> | Int
   accuracy_lt?: Int
   accuracy_lte?: Int
   accuracy_gt?: Int
   accuracy_gte?: Int
   location?: Int
   location_not?: Int
-  location_in?: Array<Int>
-  location_not_in?: Array<Int>
+  location_in?: Array<Int> | Int
+  location_not_in?: Array<Int> | Int
   location_lt?: Int
   location_lte?: Int
   location_gt?: Int
   location_gte?: Int
   checkIn?: Int
   checkIn_not?: Int
-  checkIn_in?: Array<Int>
-  checkIn_not_in?: Array<Int>
+  checkIn_in?: Array<Int> | Int
+  checkIn_not_in?: Array<Int> | Int
   checkIn_lt?: Int
   checkIn_lte?: Int
   checkIn_gt?: Int
   checkIn_gte?: Int
   value?: Int
   value_not?: Int
-  value_in?: Array<Int>
-  value_not_in?: Array<Int>
+  value_in?: Array<Int> | Int
+  value_not_in?: Array<Int> | Int
   value_lt?: Int
   value_lte?: Int
   value_gt?: Int
   value_gte?: Int
   cleanliness?: Int
   cleanliness_not?: Int
-  cleanliness_in?: Array<Int>
-  cleanliness_not_in?: Array<Int>
+  cleanliness_in?: Array<Int> | Int
+  cleanliness_not_in?: Array<Int> | Int
   cleanliness_lt?: Int
   cleanliness_lte?: Int
   cleanliness_gt?: Int
   cleanliness_gte?: Int
   communication?: Int
   communication_not?: Int
-  communication_in?: Array<Int>
-  communication_not_in?: Array<Int>
+  communication_in?: Array<Int> | Int
+  communication_not_in?: Array<Int> | Int
   communication_lt?: Int
   communication_lte?: Int
   communication_gt?: Int
@@ -10930,7 +10930,7 @@ export interface ViewsUpsertWithoutPlaceInput {
 }
 
 export interface PlaceWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface GuestRequirementsUpdateOneWithoutPlaceInput {
@@ -10943,7 +10943,7 @@ export interface GuestRequirementsUpdateOneWithoutPlaceInput {
 }
 
 export interface HouseRulesWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface GuestRequirementsUpdateWithoutPlaceInput {
@@ -10952,7 +10952,7 @@ export interface GuestRequirementsUpdateWithoutPlaceInput {
 }
 
 export interface CityWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface GuestRequirementsUpdateWithoutPlaceDataInput {
@@ -10962,7 +10962,7 @@ export interface GuestRequirementsUpdateWithoutPlaceDataInput {
 }
 
 export interface AmenitiesWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface GuestRequirementsUpsertWithoutPlaceInput {
@@ -10972,7 +10972,7 @@ export interface GuestRequirementsUpsertWithoutPlaceInput {
 }
 
 export interface PaymentAccountWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface PoliciesUpdateOneWithoutPlaceInput {
@@ -10985,7 +10985,7 @@ export interface PoliciesUpdateOneWithoutPlaceInput {
 }
 
 export interface NotificationWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface PoliciesUpdateWithoutPlaceInput {
@@ -11103,12 +11103,12 @@ export interface PlaceUpdateOneWithoutPoliciesInput {
 }
 
 export interface BookingUpdateManyWithoutPlaceInput {
-  create?: Array<BookingCreateWithoutPlaceInput>
-  connect?: Array<BookingWhereUniqueInput>
-  disconnect?: Array<BookingWhereUniqueInput>
-  delete?: Array<BookingWhereUniqueInput>
-  update?: Array<BookingUpdateWithoutPlaceInput>
-  upsert?: Array<BookingUpsertWithoutPlaceInput>
+  create?: Array<BookingCreateWithoutPlaceInput> | BookingCreateWithoutPlaceInput
+  connect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
+  disconnect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
+  delete?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
+  update?: Array<BookingUpdateWithoutPlaceInput> | BookingUpdateWithoutPlaceInput
+  upsert?: Array<BookingUpsertWithoutPlaceInput> | BookingUpsertWithoutPlaceInput
 }
 
 export interface PlaceUpdateWithoutGuestRequirementsInput {
@@ -11209,8 +11209,8 @@ export interface PaymentUpdateWithoutBookingDataInput {
 }
 
 export interface ReviewCreateManyWithoutPlaceInput {
-  create?: Array<ReviewCreateWithoutPlaceInput>
-  connect?: Array<ReviewWhereUniqueInput>
+  create?: Array<ReviewCreateWithoutPlaceInput> | ReviewCreateWithoutPlaceInput
+  connect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
 }
 
 export interface PaymentAccountUpdateOneWithoutPaymentsInput {
@@ -11259,8 +11259,8 @@ export interface UserUpdateOneWithoutPaymentAccountInput {
 }
 
 export interface BookingCreateManyWithoutBookeeInput {
-  create?: Array<BookingCreateWithoutBookeeInput>
-  connect?: Array<BookingWhereUniqueInput>
+  create?: Array<BookingCreateWithoutBookeeInput> | BookingCreateWithoutBookeeInput
+  connect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
 }
 
 export interface UserUpdateWithoutPaymentAccountInput {
@@ -11293,8 +11293,8 @@ export interface UserUpdateWithoutPaymentAccountDataInput {
 }
 
 export interface PaymentAccountCreateManyWithoutUserInput {
-  create?: Array<PaymentAccountCreateWithoutUserInput>
-  connect?: Array<PaymentAccountWhereUniqueInput>
+  create?: Array<PaymentAccountCreateWithoutUserInput> | PaymentAccountCreateWithoutUserInput
+  connect?: Array<PaymentAccountWhereUniqueInput> | PaymentAccountWhereUniqueInput
 }
 
 export interface UserUpsertWithoutPaymentAccountInput {
@@ -11318,8 +11318,8 @@ export interface PaypalInformationUpdateOneWithoutPaymentAccountInput {
 }
 
 export interface MessageCreateManyWithoutFromInput {
-  create?: Array<MessageCreateWithoutFromInput>
-  connect?: Array<MessageWhereUniqueInput>
+  create?: Array<MessageCreateWithoutFromInput> | MessageCreateWithoutFromInput
+  connect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
 }
 
 export interface PaypalInformationUpdateWithoutPaymentAccountInput {
@@ -11328,8 +11328,8 @@ export interface PaypalInformationUpdateWithoutPaymentAccountInput {
 }
 
 export interface NotificationCreateManyWithoutUserInput {
-  create?: Array<NotificationCreateWithoutUserInput>
-  connect?: Array<NotificationWhereUniqueInput>
+  create?: Array<NotificationCreateWithoutUserInput> | NotificationCreateWithoutUserInput
+  connect?: Array<NotificationWhereUniqueInput> | NotificationWhereUniqueInput
 }
 
 export interface PaypalInformationUpdateWithoutPaymentAccountDataInput {
@@ -11437,12 +11437,12 @@ export interface UserCreateOneWithoutPaymentAccountInput {
 }
 
 export interface PictureUpdateManyWithoutPlaceInput {
-  create?: Array<PictureCreateWithoutPlaceInput>
-  connect?: Array<PictureWhereUniqueInput>
-  disconnect?: Array<PictureWhereUniqueInput>
-  delete?: Array<PictureWhereUniqueInput>
-  update?: Array<PictureUpdateWithoutPlaceInput>
-  upsert?: Array<PictureUpsertWithoutPlaceInput>
+  create?: Array<PictureCreateWithoutPlaceInput> | PictureCreateWithoutPlaceInput
+  connect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
+  disconnect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
+  delete?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
+  update?: Array<PictureUpdateWithoutPlaceInput> | PictureUpdateWithoutPlaceInput
+  upsert?: Array<PictureUpsertWithoutPlaceInput> | PictureUpsertWithoutPlaceInput
 }
 
 export interface CreditCardInformationCreateOneWithoutPaymentAccountInput {
@@ -11513,17 +11513,17 @@ export interface LocationCreateOneWithoutRestaurantInput {
 }
 
 export interface ReviewUpdateManyWithoutExperienceInput {
-  create?: Array<ReviewCreateWithoutExperienceInput>
-  connect?: Array<ReviewWhereUniqueInput>
-  disconnect?: Array<ReviewWhereUniqueInput>
-  delete?: Array<ReviewWhereUniqueInput>
-  update?: Array<ReviewUpdateWithoutExperienceInput>
-  upsert?: Array<ReviewUpsertWithoutExperienceInput>
+  create?: Array<ReviewCreateWithoutExperienceInput> | ReviewCreateWithoutExperienceInput
+  connect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
+  disconnect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
+  delete?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
+  update?: Array<ReviewUpdateWithoutExperienceInput> | ReviewUpdateWithoutExperienceInput
+  upsert?: Array<ReviewUpsertWithoutExperienceInput> | ReviewUpsertWithoutExperienceInput
 }
 
 export interface PictureCreateManyWithoutReservationInput {
-  create?: Array<PictureCreateWithoutReservationInput>
-  connect?: Array<PictureWhereUniqueInput>
+  create?: Array<PictureCreateWithoutReservationInput> | PictureCreateWithoutReservationInput
+  connect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
 }
 
 export interface ReviewUpdateWithoutExperienceInput {
@@ -11732,7 +11732,7 @@ export interface ExperienceUpdateWithoutLocationInput {
 }
 
 export interface GuestRequirementsWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface ExperienceUpdateWithoutLocationDataInput {
@@ -11746,7 +11746,7 @@ export interface ExperienceUpdateWithoutLocationDataInput {
 }
 
 export interface ExperienceWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface PictureUpdateOneWithoutExperienceInput {
@@ -11759,7 +11759,7 @@ export interface PictureUpdateOneWithoutExperienceInput {
 }
 
 export interface CreditCardInformationWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface PictureUpdateWithoutExperienceInput {
@@ -11915,8 +11915,8 @@ export interface LocationUpdateOneWithoutRestaurantInput {
 }
 
 export interface PaymentCreateManyWithoutPaymentMethodInput {
-  create?: Array<PaymentCreateWithoutPaymentMethodInput>
-  connect?: Array<PaymentWhereUniqueInput>
+  create?: Array<PaymentCreateWithoutPaymentMethodInput> | PaymentCreateWithoutPaymentMethodInput
+  connect?: Array<PaymentWhereUniqueInput> | PaymentWhereUniqueInput
 }
 
 export interface LocationUpdateWithoutRestaurantInput {
@@ -11941,8 +11941,8 @@ export interface LocationUpdateWithoutRestaurantDataInput {
 }
 
 export interface LocationCreateManyWithoutNeighbourHoodInput {
-  create?: Array<LocationCreateWithoutNeighbourHoodInput>
-  connect?: Array<LocationWhereUniqueInput>
+  create?: Array<LocationCreateWithoutNeighbourHoodInput> | LocationCreateWithoutNeighbourHoodInput
+  connect?: Array<LocationWhereUniqueInput> | LocationWhereUniqueInput
 }
 
 export interface LocationUpsertWithoutRestaurantInput {
@@ -11952,8 +11952,8 @@ export interface LocationUpsertWithoutRestaurantInput {
 }
 
 export interface ExperienceCreateManyWithoutHostInput {
-  create?: Array<ExperienceCreateWithoutHostInput>
-  connect?: Array<ExperienceWhereUniqueInput>
+  create?: Array<ExperienceCreateWithoutHostInput> | ExperienceCreateWithoutHostInput
+  connect?: Array<ExperienceWhereUniqueInput> | ExperienceWhereUniqueInput
 }
 
 export interface RestaurantUpsertWithoutPicturesInput {
@@ -11974,8 +11974,8 @@ export interface PictureUpsertWithoutExperienceInput {
 }
 
 export interface BookingCreateManyWithoutPlaceInput {
-  create?: Array<BookingCreateWithoutPlaceInput>
-  connect?: Array<BookingWhereUniqueInput>
+  create?: Array<BookingCreateWithoutPlaceInput> | BookingCreateWithoutPlaceInput
+  connect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
 }
 
 export interface ExperienceUpsertWithoutLocationInput {
@@ -11999,8 +11999,8 @@ export interface RestaurantUpdateOneWithoutLocationInput {
 }
 
 export interface ReviewCreateManyWithoutExperienceInput {
-  create?: Array<ReviewCreateWithoutExperienceInput>
-  connect?: Array<ReviewWhereUniqueInput>
+  create?: Array<ReviewCreateWithoutExperienceInput> | ReviewCreateWithoutExperienceInput
+  connect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
 }
 
 export interface RestaurantUpdateWithoutLocationInput {
@@ -12028,12 +12028,12 @@ export interface RestaurantCreateOneWithoutLocationInput {
 }
 
 export interface PictureUpdateManyWithoutReservationInput {
-  create?: Array<PictureCreateWithoutReservationInput>
-  connect?: Array<PictureWhereUniqueInput>
-  disconnect?: Array<PictureWhereUniqueInput>
-  delete?: Array<PictureWhereUniqueInput>
-  update?: Array<PictureUpdateWithoutReservationInput>
-  upsert?: Array<PictureUpsertWithoutReservationInput>
+  create?: Array<PictureCreateWithoutReservationInput> | PictureCreateWithoutReservationInput
+  connect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
+  disconnect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
+  delete?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
+  update?: Array<PictureUpdateWithoutReservationInput> | PictureUpdateWithoutReservationInput
+  upsert?: Array<PictureUpsertWithoutReservationInput> | PictureUpsertWithoutReservationInput
 }
 
 export interface PlaceCreateOneWithoutPricingInput {
@@ -12065,58 +12065,58 @@ export interface PictureUpdateWithoutReservationDataInput {
 }
 
 export interface PoliciesWhereInput {
-  AND?: Array<PoliciesWhereInput>
-  OR?: Array<PoliciesWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<PoliciesWhereInput> | PoliciesWhereInput
+  OR?: Array<PoliciesWhereInput> | PoliciesWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime>
-  createdAt_not_in?: Array<DateTime>
+  createdAt_in?: Array<DateTime> | DateTime
+  createdAt_not_in?: Array<DateTime> | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   updatedAt?: DateTime
   updatedAt_not?: DateTime
-  updatedAt_in?: Array<DateTime>
-  updatedAt_not_in?: Array<DateTime>
+  updatedAt_in?: Array<DateTime> | DateTime
+  updatedAt_not_in?: Array<DateTime> | DateTime
   updatedAt_lt?: DateTime
   updatedAt_lte?: DateTime
   updatedAt_gt?: DateTime
   updatedAt_gte?: DateTime
   checkInStartTime?: Float
   checkInStartTime_not?: Float
-  checkInStartTime_in?: Array<Float>
-  checkInStartTime_not_in?: Array<Float>
+  checkInStartTime_in?: Array<Float> | Float
+  checkInStartTime_not_in?: Array<Float> | Float
   checkInStartTime_lt?: Float
   checkInStartTime_lte?: Float
   checkInStartTime_gt?: Float
   checkInStartTime_gte?: Float
   checkInEndTime?: Float
   checkInEndTime_not?: Float
-  checkInEndTime_in?: Array<Float>
-  checkInEndTime_not_in?: Array<Float>
+  checkInEndTime_in?: Array<Float> | Float
+  checkInEndTime_not_in?: Array<Float> | Float
   checkInEndTime_lt?: Float
   checkInEndTime_lte?: Float
   checkInEndTime_gt?: Float
   checkInEndTime_gte?: Float
   checkoutTime?: Float
   checkoutTime_not?: Float
-  checkoutTime_in?: Array<Float>
-  checkoutTime_not_in?: Array<Float>
+  checkoutTime_in?: Array<Float> | Float
+  checkoutTime_not_in?: Array<Float> | Float
   checkoutTime_lt?: Float
   checkoutTime_lte?: Float
   checkoutTime_gt?: Float
@@ -12131,22 +12131,22 @@ export interface PictureUpsertWithoutReservationInput {
 }
 
 export interface AmenitiesWhereInput {
-  AND?: Array<AmenitiesWhereInput>
-  OR?: Array<AmenitiesWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<AmenitiesWhereInput> | AmenitiesWhereInput
+  OR?: Array<AmenitiesWhereInput> | AmenitiesWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   elevator?: Boolean
   elevator_not?: Boolean
   petsAllowed?: Boolean
@@ -12249,7 +12249,7 @@ export interface LocationUpsertWithoutPlaceInput {
 }
 
 export interface BookingWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface PlaceUpsertWithoutReviewsInput {
@@ -12403,26 +12403,26 @@ export interface CityUpdateOneWithoutNeighbourhoodsInput {
 }
 
 export interface ExperienceCategoryWhereInput {
-  AND?: Array<ExperienceCategoryWhereInput>
-  OR?: Array<ExperienceCategoryWhereInput>
-  id?: ID
-  id_not?: ID
-  id_in?: Array<ID>
-  id_not_in?: Array<ID>
-  id_lt?: ID
-  id_lte?: ID
-  id_gt?: ID
-  id_gte?: ID
-  id_contains?: ID
-  id_not_contains?: ID
-  id_starts_with?: ID
-  id_not_starts_with?: ID
-  id_ends_with?: ID
-  id_not_ends_with?: ID
+  AND?: Array<ExperienceCategoryWhereInput> | ExperienceCategoryWhereInput
+  OR?: Array<ExperienceCategoryWhereInput> | ExperienceCategoryWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: Array<ID_Input> | ID_Input
+  id_not_in?: Array<ID_Input> | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   mainColor?: String
   mainColor_not?: String
-  mainColor_in?: Array<String>
-  mainColor_not_in?: Array<String>
+  mainColor_in?: Array<String> | String
+  mainColor_not_in?: Array<String> | String
   mainColor_lt?: String
   mainColor_lte?: String
   mainColor_gt?: String
@@ -12435,8 +12435,8 @@ export interface ExperienceCategoryWhereInput {
   mainColor_not_ends_with?: String
   name?: String
   name_not?: String
-  name_in?: Array<String>
-  name_not_in?: Array<String>
+  name_in?: Array<String> | String
+  name_not_in?: Array<String> | String
   name_lt?: String
   name_lte?: String
   name_gt?: String
@@ -12494,8 +12494,8 @@ export interface NeighbourhoodUpsertWithoutHomePreviewInput {
 }
 
 export interface MessageCreateManyWithoutToInput {
-  create?: Array<MessageCreateWithoutToInput>
-  connect?: Array<MessageWhereUniqueInput>
+  create?: Array<MessageCreateWithoutToInput> | MessageCreateWithoutToInput
+  connect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
 }
 
 export interface PictureUpsertWithoutUserInput {
@@ -12505,8 +12505,8 @@ export interface PictureUpsertWithoutUserInput {
 }
 
 export interface PictureCreateManyWithoutPlaceInput {
-  create?: Array<PictureCreateWithoutPlaceInput>
-  connect?: Array<PictureWhereUniqueInput>
+  create?: Array<PictureCreateWithoutPlaceInput> | PictureCreateWithoutPlaceInput
+  connect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
 }
 
 export interface UserUpsertWithoutReceivedMessagesInput {
@@ -12545,12 +12545,12 @@ export interface MessageUpsertWithoutFromInput {
 }
 
 export interface LocationWhereUniqueInput {
-  id?: ID
+  id?: ID_Input
 }
 
 export interface PlaceCreateManyWithoutHostInput {
-  create?: Array<PlaceCreateWithoutHostInput>
-  connect?: Array<PlaceWhereUniqueInput>
+  create?: Array<PlaceCreateWithoutHostInput> | PlaceCreateWithoutHostInput
+  connect?: Array<PlaceWhereUniqueInput> | PlaceWhereUniqueInput
 }
 
 export interface PaymentAccountUpsertWithoutUserInput {
@@ -12607,7 +12607,7 @@ export interface PoliciesCreateOneWithoutPlaceInput {
 }
 
 export interface Node {
-  id: ID
+  id: ID_Output
 }
 
 export interface PoliciesConnection {
@@ -12616,7 +12616,7 @@ export interface PoliciesConnection {
 }
 
 export interface User extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   updatedAt: DateTime
   firstName: String
@@ -12736,7 +12736,7 @@ export interface PaymentConnection {
 }
 
 export interface Location extends Node {
-  id: ID
+  id: ID_Output
   lat: Float
   lng: Float
   neighbourHood?: Neighbourhood
@@ -12779,7 +12779,7 @@ export interface ExperienceConnection {
 }
 
 export interface Place extends Node {
-  id: ID
+  id: ID_Output
   name?: String
   size?: PLACE_SIZES
   shortDescription: String
@@ -12809,7 +12809,7 @@ export interface PictureConnection {
 }
 
 export interface Review extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   text: String
   stars: Int
@@ -12829,7 +12829,7 @@ export interface CityConnection {
 }
 
 export interface Experience extends Node {
-  id: ID
+  id: ID_Output
   category?: ExperienceCategory
   title: String
   host: User
@@ -12846,7 +12846,7 @@ export interface NeighbourhoodConnection {
 }
 
 export interface ExperienceCategory extends Node {
-  id: ID
+  id: ID_Output
   mainColor: String
   name: String
   experience?: Experience
@@ -12858,7 +12858,7 @@ export interface LocationConnection {
 }
 
 export interface Notification extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   type?: NOTIFICATION_TYPE
   user: User
@@ -12872,7 +12872,7 @@ export interface ViewsConnection {
 }
 
 export interface Message extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   from: User
   to: User
@@ -12886,7 +12886,7 @@ export interface HouseRulesConnection {
 }
 
 export interface CreditCardInformation extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   cardNumber: String
   expiresOnMonth: Int
@@ -12904,7 +12904,7 @@ export interface BatchPayload {
 }
 
 export interface PaypalInformation extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   email: String
   paymentAccount: PaymentAccount
@@ -12916,7 +12916,7 @@ export interface NotificationConnection {
 }
 
 export interface PaymentAccount extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   type?: PAYMENT_PROVIDER
   user: User
@@ -12931,7 +12931,7 @@ export interface CreditCardInformationConnection {
 }
 
 export interface Payment extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   serviceFee: Float
   placePrice: Float
@@ -12946,7 +12946,7 @@ export interface PaymentAccountConnection {
 }
 
 export interface Booking extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   bookee: User
   place: Place
@@ -12961,7 +12961,7 @@ export interface ExperienceEdge {
 }
 
 export interface HouseRules extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   updatedAt: DateTime
   suitableForChildren?: Boolean
@@ -12979,7 +12979,7 @@ export interface CityEdge {
 }
 
 export interface Policies extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   updatedAt: DateTime
   checkInStartTime: Float
@@ -12994,7 +12994,7 @@ export interface LocationEdge {
 }
 
 export interface GuestRequirements extends Node {
-  id: ID
+  id: ID_Output
   govIssuedId: Boolean
   recommendationsFromOtherHosts: Boolean
   guestTripInformation: Boolean
@@ -13007,7 +13007,7 @@ export interface HouseRulesEdge {
 }
 
 export interface Views extends Node {
-  id: ID
+  id: ID_Output
   lastWeek: Int
   place: Place
 }
@@ -13018,7 +13018,7 @@ export interface RestaurantConnection {
 }
 
 export interface Pricing extends Node {
-  id: ID
+  id: ID_Output
   place: Place
   monthlyDiscount?: Int
   weeklyDiscount?: Int
@@ -13040,7 +13040,7 @@ export interface PaypalInformationConnection {
 }
 
 export interface Amenities extends Node {
-  id: ID
+  id: ID_Output
   place: Place
   elevator: Boolean
   petsAllowed: Boolean
@@ -13095,7 +13095,7 @@ export interface ViewsEdge {
 }
 
 export interface Neighbourhood extends Node {
-  id: ID
+  id: ID_Output
   locations?: Array<Location>
   name: String
   slug: String
@@ -13106,7 +13106,7 @@ export interface Neighbourhood extends Node {
 }
 
 export interface Picture extends Node {
-  id: ID
+  id: ID_Output
   url: String
   neighbourHood?: Neighbourhood
   user?: User
@@ -13116,7 +13116,7 @@ export interface Picture extends Node {
 }
 
 export interface Restaurant extends Node {
-  id: ID
+  id: ID_Output
   createdAt: DateTime
   title: String
   avgPricePerPerson: Int
@@ -13128,7 +13128,7 @@ export interface Restaurant extends Node {
 }
 
 export interface City extends Node {
-  id: ID
+  id: ID_Output
   name: String
   neighbourhoods?: Array<Neighbourhood>
 }
@@ -13160,7 +13160,8 @@ export type Long = string
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
 */
-export type ID = string | number
+export type ID_Input = string | number
+export type ID_Output = string
 
 /*
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
@@ -13257,7 +13258,7 @@ export type Query = {
   messagesConnection: (args: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<MessageConnection>
   notificationsConnection: (args: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<NotificationConnection>
   restaurantsConnection: (args: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<RestaurantConnection>
-  node: (args: { id: ID }, info?: GraphQLResolveInfo | string) => Promise<Node | null>
+  node: (args: { id: ID_Output }, info?: GraphQLResolveInfo | string) => Promise<Node | null>
 }
 
 export type Mutation = {
