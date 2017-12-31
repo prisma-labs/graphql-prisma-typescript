@@ -5,7 +5,10 @@
 ## Getting Started ([Hosted demo](https://airbnb.now.sh))
 
 ```sh
-# Deploy Graphcool database services
+# Install the beta version of Graphcool 1.0
+npm install -g graphcool@beta
+
+# Deploy Graphcool database services (recommended: Docker)
 # ... and copy the service endpoint to the `GRAPHCOOL_ENDPOINT` env var in .env
 graphcool deploy
 
