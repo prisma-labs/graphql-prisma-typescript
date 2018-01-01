@@ -10,6 +10,6 @@ projects:
     includes: ["database/seed.graphql"]
     extensions:
       graphcool: graphcool.yml
-      binding:
+      prepare-binding:
         output: src/generated/graphcool.ts
         generator: graphcool-ts
