@@ -8,7 +8,7 @@ export async function book(parent, args, ctx: Context, info) {
     throw new Error(`You don't have a payment method yet`)
   }
 
-  const alreadyBooked = await ctx.db.exists.bookings({
+  const alreadyBooked = await ctx.db.exists.Booking({
     place: { id: args.placeId },
     startDate_gte: args.checkIn,
     startDate_lte: args.checkOut,
@@ -22,6 +22,10 @@ export async function book(parent, args, ctx: Context, info) {
     { where: { id: args.placeId } },
     `{ pricing { perNight } }`,
   )
+
+  if (!place) {
+    throw new Error(`No such place found`)
+  }
 
   const placePrice = days * place.pricing.perNight
   const totalPrice = placePrice * 1.2

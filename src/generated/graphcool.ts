@@ -7188,12 +7188,12 @@ export interface PaymentAccountCreateOneWithoutPaypalInput {
 }
 
 export interface UserWhereInput {
-  AND?: Array<UserWhereInput> | UserWhereInput
-  OR?: Array<UserWhereInput> | UserWhereInput
+  AND?: UserWhereInput[] | UserWhereInput
+  OR?: UserWhereInput[] | UserWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -7206,24 +7206,24 @@ export interface UserWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   updatedAt?: DateTime
   updatedAt_not?: DateTime
-  updatedAt_in?: Array<DateTime> | DateTime
-  updatedAt_not_in?: Array<DateTime> | DateTime
+  updatedAt_in?: DateTime[] | DateTime
+  updatedAt_not_in?: DateTime[] | DateTime
   updatedAt_lt?: DateTime
   updatedAt_lte?: DateTime
   updatedAt_gt?: DateTime
   updatedAt_gte?: DateTime
   firstName?: String
   firstName_not?: String
-  firstName_in?: Array<String> | String
-  firstName_not_in?: Array<String> | String
+  firstName_in?: String[] | String
+  firstName_not_in?: String[] | String
   firstName_lt?: String
   firstName_lte?: String
   firstName_gt?: String
@@ -7236,8 +7236,8 @@ export interface UserWhereInput {
   firstName_not_ends_with?: String
   lastName?: String
   lastName_not?: String
-  lastName_in?: Array<String> | String
-  lastName_not_in?: Array<String> | String
+  lastName_in?: String[] | String
+  lastName_not_in?: String[] | String
   lastName_lt?: String
   lastName_lte?: String
   lastName_gt?: String
@@ -7250,8 +7250,8 @@ export interface UserWhereInput {
   lastName_not_ends_with?: String
   email?: String
   email_not?: String
-  email_in?: Array<String> | String
-  email_not_in?: Array<String> | String
+  email_in?: String[] | String
+  email_not_in?: String[] | String
   email_lt?: String
   email_lte?: String
   email_gt?: String
@@ -7264,8 +7264,8 @@ export interface UserWhereInput {
   email_not_ends_with?: String
   password?: String
   password_not?: String
-  password_in?: Array<String> | String
-  password_not_in?: Array<String> | String
+  password_in?: String[] | String
+  password_not_in?: String[] | String
   password_lt?: String
   password_lte?: String
   password_gt?: String
@@ -7278,8 +7278,8 @@ export interface UserWhereInput {
   password_not_ends_with?: String
   phone?: String
   phone_not?: String
-  phone_in?: Array<String> | String
-  phone_not_in?: Array<String> | String
+  phone_in?: String[] | String
+  phone_not_in?: String[] | String
   phone_lt?: String
   phone_lte?: String
   phone_gt?: String
@@ -7292,16 +7292,16 @@ export interface UserWhereInput {
   phone_not_ends_with?: String
   responseRate?: Float
   responseRate_not?: Float
-  responseRate_in?: Array<Float> | Float
-  responseRate_not_in?: Array<Float> | Float
+  responseRate_in?: Float[] | Float
+  responseRate_not_in?: Float[] | Float
   responseRate_lt?: Float
   responseRate_lte?: Float
   responseRate_gt?: Float
   responseRate_gte?: Float
   responseTime?: Int
   responseTime_not?: Int
-  responseTime_in?: Array<Int> | Int
-  responseTime_not_in?: Array<Int> | Int
+  responseTime_in?: Int[] | Int
+  responseTime_not_in?: Int[] | Int
   responseTime_lt?: Int
   responseTime_lte?: Int
   responseTime_gt?: Int
@@ -7334,21 +7334,21 @@ export interface UserWhereInput {
 }
 
 export interface ReviewUpdateManyWithoutPlaceInput {
-  create?: Array<ReviewCreateWithoutPlaceInput> | ReviewCreateWithoutPlaceInput
-  connect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
-  disconnect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
-  delete?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
-  update?: Array<ReviewUpdateWithoutPlaceInput> | ReviewUpdateWithoutPlaceInput
-  upsert?: Array<ReviewUpsertWithoutPlaceInput> | ReviewUpsertWithoutPlaceInput
+  create?: ReviewCreateWithoutPlaceInput[] | ReviewCreateWithoutPlaceInput
+  connect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
+  disconnect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
+  delete?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
+  update?: ReviewUpdateWithoutPlaceInput[] | ReviewUpdateWithoutPlaceInput
+  upsert?: ReviewUpsertWithoutPlaceInput[] | ReviewUpsertWithoutPlaceInput
 }
 
 export interface CreditCardInformationWhereInput {
-  AND?: Array<CreditCardInformationWhereInput> | CreditCardInformationWhereInput
-  OR?: Array<CreditCardInformationWhereInput> | CreditCardInformationWhereInput
+  AND?: CreditCardInformationWhereInput[] | CreditCardInformationWhereInput
+  OR?: CreditCardInformationWhereInput[] | CreditCardInformationWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -7361,16 +7361,16 @@ export interface CreditCardInformationWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   cardNumber?: String
   cardNumber_not?: String
-  cardNumber_in?: Array<String> | String
-  cardNumber_not_in?: Array<String> | String
+  cardNumber_in?: String[] | String
+  cardNumber_not_in?: String[] | String
   cardNumber_lt?: String
   cardNumber_lte?: String
   cardNumber_gt?: String
@@ -7383,24 +7383,24 @@ export interface CreditCardInformationWhereInput {
   cardNumber_not_ends_with?: String
   expiresOnMonth?: Int
   expiresOnMonth_not?: Int
-  expiresOnMonth_in?: Array<Int> | Int
-  expiresOnMonth_not_in?: Array<Int> | Int
+  expiresOnMonth_in?: Int[] | Int
+  expiresOnMonth_not_in?: Int[] | Int
   expiresOnMonth_lt?: Int
   expiresOnMonth_lte?: Int
   expiresOnMonth_gt?: Int
   expiresOnMonth_gte?: Int
   expiresOnYear?: Int
   expiresOnYear_not?: Int
-  expiresOnYear_in?: Array<Int> | Int
-  expiresOnYear_not_in?: Array<Int> | Int
+  expiresOnYear_in?: Int[] | Int
+  expiresOnYear_not_in?: Int[] | Int
   expiresOnYear_lt?: Int
   expiresOnYear_lte?: Int
   expiresOnYear_gt?: Int
   expiresOnYear_gte?: Int
   securityCode?: String
   securityCode_not?: String
-  securityCode_in?: Array<String> | String
-  securityCode_not_in?: Array<String> | String
+  securityCode_in?: String[] | String
+  securityCode_not_in?: String[] | String
   securityCode_lt?: String
   securityCode_lte?: String
   securityCode_gt?: String
@@ -7413,8 +7413,8 @@ export interface CreditCardInformationWhereInput {
   securityCode_not_ends_with?: String
   firstName?: String
   firstName_not?: String
-  firstName_in?: Array<String> | String
-  firstName_not_in?: Array<String> | String
+  firstName_in?: String[] | String
+  firstName_not_in?: String[] | String
   firstName_lt?: String
   firstName_lte?: String
   firstName_gt?: String
@@ -7427,8 +7427,8 @@ export interface CreditCardInformationWhereInput {
   firstName_not_ends_with?: String
   lastName?: String
   lastName_not?: String
-  lastName_in?: Array<String> | String
-  lastName_not_in?: Array<String> | String
+  lastName_in?: String[] | String
+  lastName_not_in?: String[] | String
   lastName_lt?: String
   lastName_lte?: String
   lastName_gt?: String
@@ -7441,8 +7441,8 @@ export interface CreditCardInformationWhereInput {
   lastName_not_ends_with?: String
   postalCode?: String
   postalCode_not?: String
-  postalCode_in?: Array<String> | String
-  postalCode_not_in?: Array<String> | String
+  postalCode_in?: String[] | String
+  postalCode_not_in?: String[] | String
   postalCode_lt?: String
   postalCode_lte?: String
   postalCode_gt?: String
@@ -7455,8 +7455,8 @@ export interface CreditCardInformationWhereInput {
   postalCode_not_ends_with?: String
   country?: String
   country_not?: String
-  country_in?: Array<String> | String
-  country_not_in?: Array<String> | String
+  country_in?: String[] | String
+  country_not_in?: String[] | String
   country_lt?: String
   country_lte?: String
   country_gt?: String
@@ -7476,12 +7476,12 @@ export interface ReviewUpdateWithoutPlaceInput {
 }
 
 export interface NotificationWhereInput {
-  AND?: Array<NotificationWhereInput> | NotificationWhereInput
-  OR?: Array<NotificationWhereInput> | NotificationWhereInput
+  AND?: NotificationWhereInput[] | NotificationWhereInput
+  OR?: NotificationWhereInput[] | NotificationWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -7494,20 +7494,20 @@ export interface NotificationWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   type?: NOTIFICATION_TYPE
   type_not?: NOTIFICATION_TYPE
-  type_in?: Array<NOTIFICATION_TYPE> | NOTIFICATION_TYPE
-  type_not_in?: Array<NOTIFICATION_TYPE> | NOTIFICATION_TYPE
+  type_in?: NOTIFICATION_TYPE[] | NOTIFICATION_TYPE
+  type_not_in?: NOTIFICATION_TYPE[] | NOTIFICATION_TYPE
   link?: String
   link_not?: String
-  link_in?: Array<String> | String
-  link_not_in?: Array<String> | String
+  link_in?: String[] | String
+  link_not_in?: String[] | String
   link_lt?: String
   link_lte?: String
   link_gt?: String
@@ -7520,8 +7520,8 @@ export interface NotificationWhereInput {
   link_not_ends_with?: String
   readDate?: DateTime
   readDate_not?: DateTime
-  readDate_in?: Array<DateTime> | DateTime
-  readDate_not_in?: Array<DateTime> | DateTime
+  readDate_in?: DateTime[] | DateTime
+  readDate_not_in?: DateTime[] | DateTime
   readDate_lt?: DateTime
   readDate_lte?: DateTime
   readDate_gt?: DateTime
@@ -7542,12 +7542,12 @@ export interface ReviewUpdateWithoutPlaceDataInput {
 }
 
 export interface PaymentAccountWhereInput {
-  AND?: Array<PaymentAccountWhereInput> | PaymentAccountWhereInput
-  OR?: Array<PaymentAccountWhereInput> | PaymentAccountWhereInput
+  AND?: PaymentAccountWhereInput[] | PaymentAccountWhereInput
+  OR?: PaymentAccountWhereInput[] | PaymentAccountWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -7560,16 +7560,16 @@ export interface PaymentAccountWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   type?: PAYMENT_PROVIDER
   type_not?: PAYMENT_PROVIDER
-  type_in?: Array<PAYMENT_PROVIDER> | PAYMENT_PROVIDER
-  type_not_in?: Array<PAYMENT_PROVIDER> | PAYMENT_PROVIDER
+  type_in?: PAYMENT_PROVIDER[] | PAYMENT_PROVIDER
+  type_not_in?: PAYMENT_PROVIDER[] | PAYMENT_PROVIDER
   user?: UserWhereInput
   payments_every?: PaymentWhereInput
   payments_some?: PaymentWhereInput
@@ -7627,12 +7627,12 @@ export interface PlaceCreateWithoutViewsInput {
 }
 
 export interface BookingWhereInput {
-  AND?: Array<BookingWhereInput> | BookingWhereInput
-  OR?: Array<BookingWhereInput> | BookingWhereInput
+  AND?: BookingWhereInput[] | BookingWhereInput
+  OR?: BookingWhereInput[] | BookingWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -7645,24 +7645,24 @@ export interface BookingWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   startDate?: DateTime
   startDate_not?: DateTime
-  startDate_in?: Array<DateTime> | DateTime
-  startDate_not_in?: Array<DateTime> | DateTime
+  startDate_in?: DateTime[] | DateTime
+  startDate_not_in?: DateTime[] | DateTime
   startDate_lt?: DateTime
   startDate_lte?: DateTime
   startDate_gt?: DateTime
   startDate_gte?: DateTime
   endDate?: DateTime
   endDate_not?: DateTime
-  endDate_in?: Array<DateTime> | DateTime
-  endDate_not_in?: Array<DateTime> | DateTime
+  endDate_in?: DateTime[] | DateTime
+  endDate_not_in?: DateTime[] | DateTime
   endDate_lt?: DateTime
   endDate_lte?: DateTime
   endDate_gt?: DateTime
@@ -7728,12 +7728,12 @@ export interface CityCreateInput {
 }
 
 export interface HouseRulesWhereInput {
-  AND?: Array<HouseRulesWhereInput> | HouseRulesWhereInput
-  OR?: Array<HouseRulesWhereInput> | HouseRulesWhereInput
+  AND?: HouseRulesWhereInput[] | HouseRulesWhereInput
+  OR?: HouseRulesWhereInput[] | HouseRulesWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -7746,16 +7746,16 @@ export interface HouseRulesWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   updatedAt?: DateTime
   updatedAt_not?: DateTime
-  updatedAt_in?: Array<DateTime> | DateTime
-  updatedAt_not_in?: Array<DateTime> | DateTime
+  updatedAt_in?: DateTime[] | DateTime
+  updatedAt_not_in?: DateTime[] | DateTime
   updatedAt_lt?: DateTime
   updatedAt_lte?: DateTime
   updatedAt_gt?: DateTime
@@ -7772,8 +7772,8 @@ export interface HouseRulesWhereInput {
   partiesAndEventsAllowed_not?: Boolean
   additionalRules?: String
   additionalRules_not?: String
-  additionalRules_in?: Array<String> | String
-  additionalRules_not_in?: Array<String> | String
+  additionalRules_in?: String[] | String
+  additionalRules_not_in?: String[] | String
   additionalRules_lt?: String
   additionalRules_lte?: String
   additionalRules_gt?: String
@@ -7788,8 +7788,8 @@ export interface HouseRulesWhereInput {
 }
 
 export interface NeighbourhoodCreateManyWithoutCityInput {
-  create?: Array<NeighbourhoodCreateWithoutCityInput> | NeighbourhoodCreateWithoutCityInput
-  connect?: Array<NeighbourhoodWhereUniqueInput> | NeighbourhoodWhereUniqueInput
+  create?: NeighbourhoodCreateWithoutCityInput[] | NeighbourhoodCreateWithoutCityInput
+  connect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
 }
 
 export interface PaymentAccountUpsertWithoutCreditcardInput {
@@ -7870,12 +7870,12 @@ export interface ExperienceCreateOneWithoutCategoryInput {
 }
 
 export interface ViewsWhereInput {
-  AND?: Array<ViewsWhereInput> | ViewsWhereInput
-  OR?: Array<ViewsWhereInput> | ViewsWhereInput
+  AND?: ViewsWhereInput[] | ViewsWhereInput
+  OR?: ViewsWhereInput[] | ViewsWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -7888,8 +7888,8 @@ export interface ViewsWhereInput {
   id_not_ends_with?: ID_Input
   lastWeek?: Int
   lastWeek_not?: Int
-  lastWeek_in?: Array<Int> | Int
-  lastWeek_not_in?: Array<Int> | Int
+  lastWeek_in?: Int[] | Int
+  lastWeek_not_in?: Int[] | Int
   lastWeek_lt?: Int
   lastWeek_lte?: Int
   lastWeek_gt?: Int
@@ -7957,12 +7957,12 @@ export interface AmenitiesCreateInput {
 }
 
 export interface PricingWhereInput {
-  AND?: Array<PricingWhereInput> | PricingWhereInput
-  OR?: Array<PricingWhereInput> | PricingWhereInput
+  AND?: PricingWhereInput[] | PricingWhereInput
+  OR?: PricingWhereInput[] | PricingWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -7975,24 +7975,24 @@ export interface PricingWhereInput {
   id_not_ends_with?: ID_Input
   monthlyDiscount?: Int
   monthlyDiscount_not?: Int
-  monthlyDiscount_in?: Array<Int> | Int
-  monthlyDiscount_not_in?: Array<Int> | Int
+  monthlyDiscount_in?: Int[] | Int
+  monthlyDiscount_not_in?: Int[] | Int
   monthlyDiscount_lt?: Int
   monthlyDiscount_lte?: Int
   monthlyDiscount_gt?: Int
   monthlyDiscount_gte?: Int
   weeklyDiscount?: Int
   weeklyDiscount_not?: Int
-  weeklyDiscount_in?: Array<Int> | Int
-  weeklyDiscount_not_in?: Array<Int> | Int
+  weeklyDiscount_in?: Int[] | Int
+  weeklyDiscount_not_in?: Int[] | Int
   weeklyDiscount_lt?: Int
   weeklyDiscount_lte?: Int
   weeklyDiscount_gt?: Int
   weeklyDiscount_gte?: Int
   perNight?: Int
   perNight_not?: Int
-  perNight_in?: Array<Int> | Int
-  perNight_not_in?: Array<Int> | Int
+  perNight_in?: Int[] | Int
+  perNight_not_in?: Int[] | Int
   perNight_lt?: Int
   perNight_lte?: Int
   perNight_gt?: Int
@@ -8001,64 +8001,64 @@ export interface PricingWhereInput {
   smartPricing_not?: Boolean
   basePrice?: Int
   basePrice_not?: Int
-  basePrice_in?: Array<Int> | Int
-  basePrice_not_in?: Array<Int> | Int
+  basePrice_in?: Int[] | Int
+  basePrice_not_in?: Int[] | Int
   basePrice_lt?: Int
   basePrice_lte?: Int
   basePrice_gt?: Int
   basePrice_gte?: Int
   averageWeekly?: Int
   averageWeekly_not?: Int
-  averageWeekly_in?: Array<Int> | Int
-  averageWeekly_not_in?: Array<Int> | Int
+  averageWeekly_in?: Int[] | Int
+  averageWeekly_not_in?: Int[] | Int
   averageWeekly_lt?: Int
   averageWeekly_lte?: Int
   averageWeekly_gt?: Int
   averageWeekly_gte?: Int
   averageMonthly?: Int
   averageMonthly_not?: Int
-  averageMonthly_in?: Array<Int> | Int
-  averageMonthly_not_in?: Array<Int> | Int
+  averageMonthly_in?: Int[] | Int
+  averageMonthly_not_in?: Int[] | Int
   averageMonthly_lt?: Int
   averageMonthly_lte?: Int
   averageMonthly_gt?: Int
   averageMonthly_gte?: Int
   cleaningFee?: Int
   cleaningFee_not?: Int
-  cleaningFee_in?: Array<Int> | Int
-  cleaningFee_not_in?: Array<Int> | Int
+  cleaningFee_in?: Int[] | Int
+  cleaningFee_not_in?: Int[] | Int
   cleaningFee_lt?: Int
   cleaningFee_lte?: Int
   cleaningFee_gt?: Int
   cleaningFee_gte?: Int
   securityDeposit?: Int
   securityDeposit_not?: Int
-  securityDeposit_in?: Array<Int> | Int
-  securityDeposit_not_in?: Array<Int> | Int
+  securityDeposit_in?: Int[] | Int
+  securityDeposit_not_in?: Int[] | Int
   securityDeposit_lt?: Int
   securityDeposit_lte?: Int
   securityDeposit_gt?: Int
   securityDeposit_gte?: Int
   extraGuests?: Int
   extraGuests_not?: Int
-  extraGuests_in?: Array<Int> | Int
-  extraGuests_not_in?: Array<Int> | Int
+  extraGuests_in?: Int[] | Int
+  extraGuests_not_in?: Int[] | Int
   extraGuests_lt?: Int
   extraGuests_lte?: Int
   extraGuests_gt?: Int
   extraGuests_gte?: Int
   weekendPricing?: Int
   weekendPricing_not?: Int
-  weekendPricing_in?: Array<Int> | Int
-  weekendPricing_not_in?: Array<Int> | Int
+  weekendPricing_in?: Int[] | Int
+  weekendPricing_not_in?: Int[] | Int
   weekendPricing_lt?: Int
   weekendPricing_lte?: Int
   weekendPricing_gt?: Int
   weekendPricing_gte?: Int
   currency?: CURRENCY
   currency_not?: CURRENCY
-  currency_in?: Array<CURRENCY> | CURRENCY
-  currency_not_in?: Array<CURRENCY> | CURRENCY
+  currency_in?: CURRENCY[] | CURRENCY
+  currency_not_in?: CURRENCY[] | CURRENCY
   place?: PlaceWhereInput
 }
 
@@ -8099,12 +8099,12 @@ export interface PlaceCreateWithoutAmenitiesInput {
 }
 
 export interface CityWhereInput {
-  AND?: Array<CityWhereInput> | CityWhereInput
-  OR?: Array<CityWhereInput> | CityWhereInput
+  AND?: CityWhereInput[] | CityWhereInput
+  OR?: CityWhereInput[] | CityWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -8117,8 +8117,8 @@ export interface CityWhereInput {
   id_not_ends_with?: ID_Input
   name?: String
   name_not?: String
-  name_in?: Array<String> | String
-  name_not_in?: Array<String> | String
+  name_in?: String[] | String
+  name_not_in?: String[] | String
   name_lt?: String
   name_lte?: String
   name_gt?: String
@@ -8148,12 +8148,12 @@ export interface ReviewCreateInput {
 }
 
 export interface RestaurantWhereInput {
-  AND?: Array<RestaurantWhereInput> | RestaurantWhereInput
-  OR?: Array<RestaurantWhereInput> | RestaurantWhereInput
+  AND?: RestaurantWhereInput[] | RestaurantWhereInput
+  OR?: RestaurantWhereInput[] | RestaurantWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -8166,16 +8166,16 @@ export interface RestaurantWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   title?: String
   title_not?: String
-  title_in?: Array<String> | String
-  title_not_in?: Array<String> | String
+  title_in?: String[] | String
+  title_not_in?: String[] | String
   title_lt?: String
   title_lte?: String
   title_gt?: String
@@ -8188,8 +8188,8 @@ export interface RestaurantWhereInput {
   title_not_ends_with?: String
   avgPricePerPerson?: Int
   avgPricePerPerson_not?: Int
-  avgPricePerPerson_in?: Array<Int> | Int
-  avgPricePerPerson_not_in?: Array<Int> | Int
+  avgPricePerPerson_in?: Int[] | Int
+  avgPricePerPerson_not_in?: Int[] | Int
   avgPricePerPerson_lt?: Int
   avgPricePerPerson_lte?: Int
   avgPricePerPerson_gt?: Int
@@ -8198,8 +8198,8 @@ export interface RestaurantWhereInput {
   isCurated_not?: Boolean
   slug?: String
   slug_not?: String
-  slug_in?: Array<String> | String
-  slug_not_in?: Array<String> | String
+  slug_in?: String[] | String
+  slug_not_in?: String[] | String
   slug_lt?: String
   slug_lte?: String
   slug_gt?: String
@@ -8212,8 +8212,8 @@ export interface RestaurantWhereInput {
   slug_not_ends_with?: String
   popularity?: Int
   popularity_not?: Int
-  popularity_in?: Array<Int> | Int
-  popularity_not_in?: Array<Int> | Int
+  popularity_in?: Int[] | Int
+  popularity_not_in?: Int[] | Int
   popularity_lt?: Int
   popularity_lte?: Int
   popularity_gt?: Int
@@ -8233,12 +8233,12 @@ export interface BookingCreateInput {
 }
 
 export interface PictureWhereInput {
-  AND?: Array<PictureWhereInput> | PictureWhereInput
-  OR?: Array<PictureWhereInput> | PictureWhereInput
+  AND?: PictureWhereInput[] | PictureWhereInput
+  OR?: PictureWhereInput[] | PictureWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -8251,8 +8251,8 @@ export interface PictureWhereInput {
   id_not_ends_with?: ID_Input
   url?: String
   url_not?: String
-  url_in?: Array<String> | String
-  url_not_in?: Array<String> | String
+  url_in?: String[] | String
+  url_not_in?: String[] | String
   url_lt?: String
   url_lte?: String
   url_gt?: String
@@ -8279,12 +8279,12 @@ export interface PaymentCreateInput {
 }
 
 export interface LocationWhereInput {
-  AND?: Array<LocationWhereInput> | LocationWhereInput
-  OR?: Array<LocationWhereInput> | LocationWhereInput
+  AND?: LocationWhereInput[] | LocationWhereInput
+  OR?: LocationWhereInput[] | LocationWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -8297,24 +8297,24 @@ export interface LocationWhereInput {
   id_not_ends_with?: ID_Input
   lat?: Float
   lat_not?: Float
-  lat_in?: Array<Float> | Float
-  lat_not_in?: Array<Float> | Float
+  lat_in?: Float[] | Float
+  lat_not_in?: Float[] | Float
   lat_lt?: Float
   lat_lte?: Float
   lat_gt?: Float
   lat_gte?: Float
   lng?: Float
   lng_not?: Float
-  lng_in?: Array<Float> | Float
-  lng_not_in?: Array<Float> | Float
+  lng_in?: Float[] | Float
+  lng_not_in?: Float[] | Float
   lng_lt?: Float
   lng_lte?: Float
   lng_gt?: Float
   lng_gte?: Float
   address?: String
   address_not?: String
-  address_in?: Array<String> | String
-  address_not_in?: Array<String> | String
+  address_in?: String[] | String
+  address_not_in?: String[] | String
   address_lt?: String
   address_lte?: String
   address_gt?: String
@@ -8327,8 +8327,8 @@ export interface LocationWhereInput {
   address_not_ends_with?: String
   directions?: String
   directions_not?: String
-  directions_in?: Array<String> | String
-  directions_not_in?: Array<String> | String
+  directions_in?: String[] | String
+  directions_not_in?: String[] | String
   directions_lt?: String
   directions_lte?: String
   directions_gt?: String
@@ -8355,12 +8355,12 @@ export interface PaymentAccountCreateInput {
 }
 
 export interface ExperienceWhereInput {
-  AND?: Array<ExperienceWhereInput> | ExperienceWhereInput
-  OR?: Array<ExperienceWhereInput> | ExperienceWhereInput
+  AND?: ExperienceWhereInput[] | ExperienceWhereInput
+  OR?: ExperienceWhereInput[] | ExperienceWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -8373,8 +8373,8 @@ export interface ExperienceWhereInput {
   id_not_ends_with?: ID_Input
   title?: String
   title_not?: String
-  title_in?: Array<String> | String
-  title_not_in?: Array<String> | String
+  title_in?: String[] | String
+  title_not_in?: String[] | String
   title_lt?: String
   title_lte?: String
   title_gt?: String
@@ -8387,16 +8387,16 @@ export interface ExperienceWhereInput {
   title_not_ends_with?: String
   pricePerPerson?: Int
   pricePerPerson_not?: Int
-  pricePerPerson_in?: Array<Int> | Int
-  pricePerPerson_not_in?: Array<Int> | Int
+  pricePerPerson_in?: Int[] | Int
+  pricePerPerson_not_in?: Int[] | Int
   pricePerPerson_lt?: Int
   pricePerPerson_lte?: Int
   pricePerPerson_gt?: Int
   pricePerPerson_gte?: Int
   popularity?: Int
   popularity_not?: Int
-  popularity_in?: Array<Int> | Int
-  popularity_not_in?: Array<Int> | Int
+  popularity_in?: Int[] | Int
+  popularity_not_in?: Int[] | Int
   popularity_lt?: Int
   popularity_lte?: Int
   popularity_gt?: Int
@@ -8416,12 +8416,12 @@ export interface PaypalInformationCreateInput {
 }
 
 export interface PlaceWhereInput {
-  AND?: Array<PlaceWhereInput> | PlaceWhereInput
-  OR?: Array<PlaceWhereInput> | PlaceWhereInput
+  AND?: PlaceWhereInput[] | PlaceWhereInput
+  OR?: PlaceWhereInput[] | PlaceWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -8434,8 +8434,8 @@ export interface PlaceWhereInput {
   id_not_ends_with?: ID_Input
   name?: String
   name_not?: String
-  name_in?: Array<String> | String
-  name_not_in?: Array<String> | String
+  name_in?: String[] | String
+  name_not_in?: String[] | String
   name_lt?: String
   name_lte?: String
   name_gt?: String
@@ -8448,12 +8448,12 @@ export interface PlaceWhereInput {
   name_not_ends_with?: String
   size?: PLACE_SIZES
   size_not?: PLACE_SIZES
-  size_in?: Array<PLACE_SIZES> | PLACE_SIZES
-  size_not_in?: Array<PLACE_SIZES> | PLACE_SIZES
+  size_in?: PLACE_SIZES[] | PLACE_SIZES
+  size_not_in?: PLACE_SIZES[] | PLACE_SIZES
   shortDescription?: String
   shortDescription_not?: String
-  shortDescription_in?: Array<String> | String
-  shortDescription_not_in?: Array<String> | String
+  shortDescription_in?: String[] | String
+  shortDescription_not_in?: String[] | String
   shortDescription_lt?: String
   shortDescription_lte?: String
   shortDescription_gt?: String
@@ -8466,8 +8466,8 @@ export interface PlaceWhereInput {
   shortDescription_not_ends_with?: String
   description?: String
   description_not?: String
-  description_in?: Array<String> | String
-  description_not_in?: Array<String> | String
+  description_in?: String[] | String
+  description_not_in?: String[] | String
   description_lt?: String
   description_lte?: String
   description_gt?: String
@@ -8480,8 +8480,8 @@ export interface PlaceWhereInput {
   description_not_ends_with?: String
   slug?: String
   slug_not?: String
-  slug_in?: Array<String> | String
-  slug_not_in?: Array<String> | String
+  slug_in?: String[] | String
+  slug_not_in?: String[] | String
   slug_lt?: String
   slug_lte?: String
   slug_gt?: String
@@ -8494,40 +8494,40 @@ export interface PlaceWhereInput {
   slug_not_ends_with?: String
   maxGuests?: Int
   maxGuests_not?: Int
-  maxGuests_in?: Array<Int> | Int
-  maxGuests_not_in?: Array<Int> | Int
+  maxGuests_in?: Int[] | Int
+  maxGuests_not_in?: Int[] | Int
   maxGuests_lt?: Int
   maxGuests_lte?: Int
   maxGuests_gt?: Int
   maxGuests_gte?: Int
   numBedrooms?: Int
   numBedrooms_not?: Int
-  numBedrooms_in?: Array<Int> | Int
-  numBedrooms_not_in?: Array<Int> | Int
+  numBedrooms_in?: Int[] | Int
+  numBedrooms_not_in?: Int[] | Int
   numBedrooms_lt?: Int
   numBedrooms_lte?: Int
   numBedrooms_gt?: Int
   numBedrooms_gte?: Int
   numBeds?: Int
   numBeds_not?: Int
-  numBeds_in?: Array<Int> | Int
-  numBeds_not_in?: Array<Int> | Int
+  numBeds_in?: Int[] | Int
+  numBeds_not_in?: Int[] | Int
   numBeds_lt?: Int
   numBeds_lte?: Int
   numBeds_gt?: Int
   numBeds_gte?: Int
   numBaths?: Int
   numBaths_not?: Int
-  numBaths_in?: Array<Int> | Int
-  numBaths_not_in?: Array<Int> | Int
+  numBaths_in?: Int[] | Int
+  numBaths_not_in?: Int[] | Int
   numBaths_lt?: Int
   numBaths_lte?: Int
   numBaths_gt?: Int
   numBaths_gte?: Int
   popularity?: Int
   popularity_not?: Int
-  popularity_in?: Array<Int> | Int
-  popularity_not_in?: Array<Int> | Int
+  popularity_in?: Int[] | Int
+  popularity_not_in?: Int[] | Int
   popularity_lt?: Int
   popularity_lte?: Int
   popularity_gt?: Int
@@ -8743,12 +8743,12 @@ export interface PaymentWhereUniqueInput {
 }
 
 export interface PlaceUpdateManyWithoutHostInput {
-  create?: Array<PlaceCreateWithoutHostInput> | PlaceCreateWithoutHostInput
-  connect?: Array<PlaceWhereUniqueInput> | PlaceWhereUniqueInput
-  disconnect?: Array<PlaceWhereUniqueInput> | PlaceWhereUniqueInput
-  delete?: Array<PlaceWhereUniqueInput> | PlaceWhereUniqueInput
-  update?: Array<PlaceUpdateWithoutHostInput> | PlaceUpdateWithoutHostInput
-  upsert?: Array<PlaceUpsertWithoutHostInput> | PlaceUpsertWithoutHostInput
+  create?: PlaceCreateWithoutHostInput[] | PlaceCreateWithoutHostInput
+  connect?: PlaceWhereUniqueInput[] | PlaceWhereUniqueInput
+  disconnect?: PlaceWhereUniqueInput[] | PlaceWhereUniqueInput
+  delete?: PlaceWhereUniqueInput[] | PlaceWhereUniqueInput
+  update?: PlaceUpdateWithoutHostInput[] | PlaceUpdateWithoutHostInput
+  upsert?: PlaceUpsertWithoutHostInput[] | PlaceUpsertWithoutHostInput
 }
 
 export interface PaypalInformationWhereUniqueInput {
@@ -8792,12 +8792,12 @@ export interface RestaurantWhereUniqueInput {
 }
 
 export interface MessageWhereInput {
-  AND?: Array<MessageWhereInput> | MessageWhereInput
-  OR?: Array<MessageWhereInput> | MessageWhereInput
+  AND?: MessageWhereInput[] | MessageWhereInput
+  OR?: MessageWhereInput[] | MessageWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -8810,24 +8810,24 @@ export interface MessageWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   deliveredAt?: DateTime
   deliveredAt_not?: DateTime
-  deliveredAt_in?: Array<DateTime> | DateTime
-  deliveredAt_not_in?: Array<DateTime> | DateTime
+  deliveredAt_in?: DateTime[] | DateTime
+  deliveredAt_not_in?: DateTime[] | DateTime
   deliveredAt_lt?: DateTime
   deliveredAt_lte?: DateTime
   deliveredAt_gt?: DateTime
   deliveredAt_gte?: DateTime
   readAt?: DateTime
   readAt_not?: DateTime
-  readAt_in?: Array<DateTime> | DateTime
-  readAt_not_in?: Array<DateTime> | DateTime
+  readAt_in?: DateTime[] | DateTime
+  readAt_not_in?: DateTime[] | DateTime
   readAt_lt?: DateTime
   readAt_lte?: DateTime
   readAt_gt?: DateTime
@@ -8842,12 +8842,12 @@ export interface ExperienceUpdateWithoutCategoryInput {
 }
 
 export interface PaypalInformationWhereInput {
-  AND?: Array<PaypalInformationWhereInput> | PaypalInformationWhereInput
-  OR?: Array<PaypalInformationWhereInput> | PaypalInformationWhereInput
+  AND?: PaypalInformationWhereInput[] | PaypalInformationWhereInput
+  OR?: PaypalInformationWhereInput[] | PaypalInformationWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -8860,16 +8860,16 @@ export interface PaypalInformationWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   email?: String
   email_not?: String
-  email_in?: Array<String> | String
-  email_not_in?: Array<String> | String
+  email_in?: String[] | String
+  email_not_in?: String[] | String
   email_lt?: String
   email_lte?: String
   email_gt?: String
@@ -8905,12 +8905,12 @@ export interface PictureUpdateInput {
 }
 
 export interface PaymentWhereInput {
-  AND?: Array<PaymentWhereInput> | PaymentWhereInput
-  OR?: Array<PaymentWhereInput> | PaymentWhereInput
+  AND?: PaymentWhereInput[] | PaymentWhereInput
+  OR?: PaymentWhereInput[] | PaymentWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -8923,32 +8923,32 @@ export interface PaymentWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   serviceFee?: Float
   serviceFee_not?: Float
-  serviceFee_in?: Array<Float> | Float
-  serviceFee_not_in?: Array<Float> | Float
+  serviceFee_in?: Float[] | Float
+  serviceFee_not_in?: Float[] | Float
   serviceFee_lt?: Float
   serviceFee_lte?: Float
   serviceFee_gt?: Float
   serviceFee_gte?: Float
   placePrice?: Float
   placePrice_not?: Float
-  placePrice_in?: Array<Float> | Float
-  placePrice_not_in?: Array<Float> | Float
+  placePrice_in?: Float[] | Float
+  placePrice_not_in?: Float[] | Float
   placePrice_lt?: Float
   placePrice_lte?: Float
   placePrice_gt?: Float
   placePrice_gte?: Float
   totalPrice?: Float
   totalPrice_not?: Float
-  totalPrice_in?: Array<Float> | Float
-  totalPrice_not_in?: Array<Float> | Float
+  totalPrice_in?: Float[] | Float
+  totalPrice_not_in?: Float[] | Float
   totalPrice_lt?: Float
   totalPrice_lte?: Float
   totalPrice_gt?: Float
@@ -8972,12 +8972,12 @@ export interface ExperienceUpdateWithoutReviewsInput {
 }
 
 export interface NeighbourhoodUpdateManyWithoutCityInput {
-  create?: Array<NeighbourhoodCreateWithoutCityInput> | NeighbourhoodCreateWithoutCityInput
-  connect?: Array<NeighbourhoodWhereUniqueInput> | NeighbourhoodWhereUniqueInput
-  disconnect?: Array<NeighbourhoodWhereUniqueInput> | NeighbourhoodWhereUniqueInput
-  delete?: Array<NeighbourhoodWhereUniqueInput> | NeighbourhoodWhereUniqueInput
-  update?: Array<NeighbourhoodUpdateWithoutCityInput> | NeighbourhoodUpdateWithoutCityInput
-  upsert?: Array<NeighbourhoodUpsertWithoutCityInput> | NeighbourhoodUpsertWithoutCityInput
+  create?: NeighbourhoodCreateWithoutCityInput[] | NeighbourhoodCreateWithoutCityInput
+  connect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
+  disconnect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
+  delete?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
+  update?: NeighbourhoodUpdateWithoutCityInput[] | NeighbourhoodUpdateWithoutCityInput
+  upsert?: NeighbourhoodUpsertWithoutCityInput[] | NeighbourhoodUpsertWithoutCityInput
 }
 
 export interface ExperienceUpdateWithoutReviewsDataInput {
@@ -9354,12 +9354,12 @@ export interface PlaceCreateWithoutHostInput {
 }
 
 export interface BookingUpdateManyWithoutBookeeInput {
-  create?: Array<BookingCreateWithoutBookeeInput> | BookingCreateWithoutBookeeInput
-  connect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
-  disconnect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
-  delete?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
-  update?: Array<BookingUpdateWithoutBookeeInput> | BookingUpdateWithoutBookeeInput
-  upsert?: Array<BookingUpsertWithoutBookeeInput> | BookingUpsertWithoutBookeeInput
+  create?: BookingCreateWithoutBookeeInput[] | BookingCreateWithoutBookeeInput
+  connect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
+  disconnect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
+  delete?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
+  update?: BookingUpdateWithoutBookeeInput[] | BookingUpdateWithoutBookeeInput
+  upsert?: BookingUpsertWithoutBookeeInput[] | BookingUpsertWithoutBookeeInput
 }
 
 export interface ReviewCreateWithoutPlaceInput {
@@ -9700,12 +9700,12 @@ export interface PaymentAccountCreateWithoutUserInput {
 }
 
 export interface PaymentAccountUpdateManyWithoutUserInput {
-  create?: Array<PaymentAccountCreateWithoutUserInput> | PaymentAccountCreateWithoutUserInput
-  connect?: Array<PaymentAccountWhereUniqueInput> | PaymentAccountWhereUniqueInput
-  disconnect?: Array<PaymentAccountWhereUniqueInput> | PaymentAccountWhereUniqueInput
-  delete?: Array<PaymentAccountWhereUniqueInput> | PaymentAccountWhereUniqueInput
-  update?: Array<PaymentAccountUpdateWithoutUserInput> | PaymentAccountUpdateWithoutUserInput
-  upsert?: Array<PaymentAccountUpsertWithoutUserInput> | PaymentAccountUpsertWithoutUserInput
+  create?: PaymentAccountCreateWithoutUserInput[] | PaymentAccountCreateWithoutUserInput
+  connect?: PaymentAccountWhereUniqueInput[] | PaymentAccountWhereUniqueInput
+  disconnect?: PaymentAccountWhereUniqueInput[] | PaymentAccountWhereUniqueInput
+  delete?: PaymentAccountWhereUniqueInput[] | PaymentAccountWhereUniqueInput
+  update?: PaymentAccountUpdateWithoutUserInput[] | PaymentAccountUpdateWithoutUserInput
+  upsert?: PaymentAccountUpsertWithoutUserInput[] | PaymentAccountUpsertWithoutUserInput
 }
 
 export interface PaymentCreateWithoutPaymentMethodInput {
@@ -9754,12 +9754,12 @@ export interface UserCreateWithoutBookingsInput {
 }
 
 export interface PaymentUpdateManyWithoutPaymentMethodInput {
-  create?: Array<PaymentCreateWithoutPaymentMethodInput> | PaymentCreateWithoutPaymentMethodInput
-  connect?: Array<PaymentWhereUniqueInput> | PaymentWhereUniqueInput
-  disconnect?: Array<PaymentWhereUniqueInput> | PaymentWhereUniqueInput
-  delete?: Array<PaymentWhereUniqueInput> | PaymentWhereUniqueInput
-  update?: Array<PaymentUpdateWithoutPaymentMethodInput> | PaymentUpdateWithoutPaymentMethodInput
-  upsert?: Array<PaymentUpsertWithoutPaymentMethodInput> | PaymentUpsertWithoutPaymentMethodInput
+  create?: PaymentCreateWithoutPaymentMethodInput[] | PaymentCreateWithoutPaymentMethodInput
+  connect?: PaymentWhereUniqueInput[] | PaymentWhereUniqueInput
+  disconnect?: PaymentWhereUniqueInput[] | PaymentWhereUniqueInput
+  delete?: PaymentWhereUniqueInput[] | PaymentWhereUniqueInput
+  update?: PaymentUpdateWithoutPaymentMethodInput[] | PaymentUpdateWithoutPaymentMethodInput
+  upsert?: PaymentUpsertWithoutPaymentMethodInput[] | PaymentUpsertWithoutPaymentMethodInput
 }
 
 export interface MessageCreateWithoutFromInput {
@@ -9932,12 +9932,12 @@ export interface UserCreateWithoutSentMessagesInput {
 }
 
 export interface MessageUpdateManyWithoutFromInput {
-  create?: Array<MessageCreateWithoutFromInput> | MessageCreateWithoutFromInput
-  connect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
-  disconnect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
-  delete?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
-  update?: Array<MessageUpdateWithoutFromInput> | MessageUpdateWithoutFromInput
-  upsert?: Array<MessageUpsertWithoutFromInput> | MessageUpsertWithoutFromInput
+  create?: MessageCreateWithoutFromInput[] | MessageCreateWithoutFromInput
+  connect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
+  disconnect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
+  delete?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
+  update?: MessageUpdateWithoutFromInput[] | MessageUpdateWithoutFromInput
+  upsert?: MessageUpsertWithoutFromInput[] | MessageUpsertWithoutFromInput
 }
 
 export interface ExperienceCreateWithoutHostInput {
@@ -10054,12 +10054,12 @@ export interface GuestRequirementsCreateWithoutPlaceInput {
 }
 
 export interface NotificationUpdateManyWithoutUserInput {
-  create?: Array<NotificationCreateWithoutUserInput> | NotificationCreateWithoutUserInput
-  connect?: Array<NotificationWhereUniqueInput> | NotificationWhereUniqueInput
-  disconnect?: Array<NotificationWhereUniqueInput> | NotificationWhereUniqueInput
-  delete?: Array<NotificationWhereUniqueInput> | NotificationWhereUniqueInput
-  update?: Array<NotificationUpdateWithoutUserInput> | NotificationUpdateWithoutUserInput
-  upsert?: Array<NotificationUpsertWithoutUserInput> | NotificationUpsertWithoutUserInput
+  create?: NotificationCreateWithoutUserInput[] | NotificationCreateWithoutUserInput
+  connect?: NotificationWhereUniqueInput[] | NotificationWhereUniqueInput
+  disconnect?: NotificationWhereUniqueInput[] | NotificationWhereUniqueInput
+  delete?: NotificationWhereUniqueInput[] | NotificationWhereUniqueInput
+  update?: NotificationUpdateWithoutUserInput[] | NotificationUpdateWithoutUserInput
+  upsert?: NotificationUpsertWithoutUserInput[] | NotificationUpsertWithoutUserInput
 }
 
 export interface PoliciesCreateWithoutPlaceInput {
@@ -10213,12 +10213,12 @@ export interface ExperienceCreateWithoutPreviewInput {
 }
 
 export interface LocationUpdateManyWithoutNeighbourHoodInput {
-  create?: Array<LocationCreateWithoutNeighbourHoodInput> | LocationCreateWithoutNeighbourHoodInput
-  connect?: Array<LocationWhereUniqueInput> | LocationWhereUniqueInput
-  disconnect?: Array<LocationWhereUniqueInput> | LocationWhereUniqueInput
-  delete?: Array<LocationWhereUniqueInput> | LocationWhereUniqueInput
-  update?: Array<LocationUpdateWithoutNeighbourHoodInput> | LocationUpdateWithoutNeighbourHoodInput
-  upsert?: Array<LocationUpsertWithoutNeighbourHoodInput> | LocationUpsertWithoutNeighbourHoodInput
+  create?: LocationCreateWithoutNeighbourHoodInput[] | LocationCreateWithoutNeighbourHoodInput
+  connect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
+  disconnect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
+  delete?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
+  update?: LocationUpdateWithoutNeighbourHoodInput[] | LocationUpdateWithoutNeighbourHoodInput
+  upsert?: LocationUpsertWithoutNeighbourHoodInput[] | LocationUpsertWithoutNeighbourHoodInput
 }
 
 export interface ReviewCreateWithoutExperienceInput {
@@ -10358,12 +10358,12 @@ export interface PlaceCreateWithoutPicturesInput {
 }
 
 export interface MessageUpdateManyWithoutToInput {
-  create?: Array<MessageCreateWithoutToInput> | MessageCreateWithoutToInput
-  connect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
-  disconnect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
-  delete?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
-  update?: Array<MessageUpdateWithoutToInput> | MessageUpdateWithoutToInput
-  upsert?: Array<MessageUpsertWithoutToInput> | MessageUpsertWithoutToInput
+  create?: MessageCreateWithoutToInput[] | MessageCreateWithoutToInput
+  connect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
+  disconnect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
+  delete?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
+  update?: MessageUpdateWithoutToInput[] | MessageUpdateWithoutToInput
+  upsert?: MessageUpsertWithoutToInput[] | MessageUpsertWithoutToInput
 }
 
 export interface RestaurantCreateWithoutPicturesInput {
@@ -10468,12 +10468,12 @@ export interface PricingCreateInput {
 }
 
 export interface ExperienceUpdateManyWithoutHostInput {
-  create?: Array<ExperienceCreateWithoutHostInput> | ExperienceCreateWithoutHostInput
-  connect?: Array<ExperienceWhereUniqueInput> | ExperienceWhereUniqueInput
-  disconnect?: Array<ExperienceWhereUniqueInput> | ExperienceWhereUniqueInput
-  delete?: Array<ExperienceWhereUniqueInput> | ExperienceWhereUniqueInput
-  update?: Array<ExperienceUpdateWithoutHostInput> | ExperienceUpdateWithoutHostInput
-  upsert?: Array<ExperienceUpsertWithoutHostInput> | ExperienceUpsertWithoutHostInput
+  create?: ExperienceCreateWithoutHostInput[] | ExperienceCreateWithoutHostInput
+  connect?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput
+  disconnect?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput
+  delete?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput
+  update?: ExperienceUpdateWithoutHostInput[] | ExperienceUpdateWithoutHostInput
+  upsert?: ExperienceUpsertWithoutHostInput[] | ExperienceUpsertWithoutHostInput
 }
 
 export interface PlaceCreateWithoutPricingInput {
@@ -10639,12 +10639,12 @@ export interface PlaceUpdateWithoutLocationDataInput {
 }
 
 export interface GuestRequirementsWhereInput {
-  AND?: Array<GuestRequirementsWhereInput> | GuestRequirementsWhereInput
-  OR?: Array<GuestRequirementsWhereInput> | GuestRequirementsWhereInput
+  AND?: GuestRequirementsWhereInput[] | GuestRequirementsWhereInput
+  OR?: GuestRequirementsWhereInput[] | GuestRequirementsWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -10745,12 +10745,12 @@ export interface ViewsUpdateOneWithoutPlaceInput {
 }
 
 export interface NeighbourhoodWhereInput {
-  AND?: Array<NeighbourhoodWhereInput> | NeighbourhoodWhereInput
-  OR?: Array<NeighbourhoodWhereInput> | NeighbourhoodWhereInput
+  AND?: NeighbourhoodWhereInput[] | NeighbourhoodWhereInput
+  OR?: NeighbourhoodWhereInput[] | NeighbourhoodWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -10763,8 +10763,8 @@ export interface NeighbourhoodWhereInput {
   id_not_ends_with?: ID_Input
   name?: String
   name_not?: String
-  name_in?: Array<String> | String
-  name_not_in?: Array<String> | String
+  name_in?: String[] | String
+  name_not_in?: String[] | String
   name_lt?: String
   name_lte?: String
   name_gt?: String
@@ -10777,8 +10777,8 @@ export interface NeighbourhoodWhereInput {
   name_not_ends_with?: String
   slug?: String
   slug_not?: String
-  slug_in?: Array<String> | String
-  slug_not_in?: Array<String> | String
+  slug_in?: String[] | String
+  slug_not_in?: String[] | String
   slug_lt?: String
   slug_lte?: String
   slug_gt?: String
@@ -10793,8 +10793,8 @@ export interface NeighbourhoodWhereInput {
   featured_not?: Boolean
   popularity?: Int
   popularity_not?: Int
-  popularity_in?: Array<Int> | Int
-  popularity_not_in?: Array<Int> | Int
+  popularity_in?: Int[] | Int
+  popularity_not_in?: Int[] | Int
   popularity_lt?: Int
   popularity_lte?: Int
   popularity_gt?: Int
@@ -10812,12 +10812,12 @@ export interface ViewsUpdateWithoutPlaceInput {
 }
 
 export interface ReviewWhereInput {
-  AND?: Array<ReviewWhereInput> | ReviewWhereInput
-  OR?: Array<ReviewWhereInput> | ReviewWhereInput
+  AND?: ReviewWhereInput[] | ReviewWhereInput
+  OR?: ReviewWhereInput[] | ReviewWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -10830,16 +10830,16 @@ export interface ReviewWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   text?: String
   text_not?: String
-  text_in?: Array<String> | String
-  text_not_in?: Array<String> | String
+  text_in?: String[] | String
+  text_not_in?: String[] | String
   text_lt?: String
   text_lte?: String
   text_gt?: String
@@ -10852,56 +10852,56 @@ export interface ReviewWhereInput {
   text_not_ends_with?: String
   stars?: Int
   stars_not?: Int
-  stars_in?: Array<Int> | Int
-  stars_not_in?: Array<Int> | Int
+  stars_in?: Int[] | Int
+  stars_not_in?: Int[] | Int
   stars_lt?: Int
   stars_lte?: Int
   stars_gt?: Int
   stars_gte?: Int
   accuracy?: Int
   accuracy_not?: Int
-  accuracy_in?: Array<Int> | Int
-  accuracy_not_in?: Array<Int> | Int
+  accuracy_in?: Int[] | Int
+  accuracy_not_in?: Int[] | Int
   accuracy_lt?: Int
   accuracy_lte?: Int
   accuracy_gt?: Int
   accuracy_gte?: Int
   location?: Int
   location_not?: Int
-  location_in?: Array<Int> | Int
-  location_not_in?: Array<Int> | Int
+  location_in?: Int[] | Int
+  location_not_in?: Int[] | Int
   location_lt?: Int
   location_lte?: Int
   location_gt?: Int
   location_gte?: Int
   checkIn?: Int
   checkIn_not?: Int
-  checkIn_in?: Array<Int> | Int
-  checkIn_not_in?: Array<Int> | Int
+  checkIn_in?: Int[] | Int
+  checkIn_not_in?: Int[] | Int
   checkIn_lt?: Int
   checkIn_lte?: Int
   checkIn_gt?: Int
   checkIn_gte?: Int
   value?: Int
   value_not?: Int
-  value_in?: Array<Int> | Int
-  value_not_in?: Array<Int> | Int
+  value_in?: Int[] | Int
+  value_not_in?: Int[] | Int
   value_lt?: Int
   value_lte?: Int
   value_gt?: Int
   value_gte?: Int
   cleanliness?: Int
   cleanliness_not?: Int
-  cleanliness_in?: Array<Int> | Int
-  cleanliness_not_in?: Array<Int> | Int
+  cleanliness_in?: Int[] | Int
+  cleanliness_not_in?: Int[] | Int
   cleanliness_lt?: Int
   cleanliness_lte?: Int
   cleanliness_gt?: Int
   cleanliness_gte?: Int
   communication?: Int
   communication_not?: Int
-  communication_in?: Array<Int> | Int
-  communication_not_in?: Array<Int> | Int
+  communication_in?: Int[] | Int
+  communication_not_in?: Int[] | Int
   communication_lt?: Int
   communication_lte?: Int
   communication_gt?: Int
@@ -11103,12 +11103,12 @@ export interface PlaceUpdateOneWithoutPoliciesInput {
 }
 
 export interface BookingUpdateManyWithoutPlaceInput {
-  create?: Array<BookingCreateWithoutPlaceInput> | BookingCreateWithoutPlaceInput
-  connect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
-  disconnect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
-  delete?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
-  update?: Array<BookingUpdateWithoutPlaceInput> | BookingUpdateWithoutPlaceInput
-  upsert?: Array<BookingUpsertWithoutPlaceInput> | BookingUpsertWithoutPlaceInput
+  create?: BookingCreateWithoutPlaceInput[] | BookingCreateWithoutPlaceInput
+  connect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
+  disconnect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
+  delete?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
+  update?: BookingUpdateWithoutPlaceInput[] | BookingUpdateWithoutPlaceInput
+  upsert?: BookingUpsertWithoutPlaceInput[] | BookingUpsertWithoutPlaceInput
 }
 
 export interface PlaceUpdateWithoutGuestRequirementsInput {
@@ -11209,8 +11209,8 @@ export interface PaymentUpdateWithoutBookingDataInput {
 }
 
 export interface ReviewCreateManyWithoutPlaceInput {
-  create?: Array<ReviewCreateWithoutPlaceInput> | ReviewCreateWithoutPlaceInput
-  connect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
+  create?: ReviewCreateWithoutPlaceInput[] | ReviewCreateWithoutPlaceInput
+  connect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
 }
 
 export interface PaymentAccountUpdateOneWithoutPaymentsInput {
@@ -11259,8 +11259,8 @@ export interface UserUpdateOneWithoutPaymentAccountInput {
 }
 
 export interface BookingCreateManyWithoutBookeeInput {
-  create?: Array<BookingCreateWithoutBookeeInput> | BookingCreateWithoutBookeeInput
-  connect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
+  create?: BookingCreateWithoutBookeeInput[] | BookingCreateWithoutBookeeInput
+  connect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
 }
 
 export interface UserUpdateWithoutPaymentAccountInput {
@@ -11293,8 +11293,8 @@ export interface UserUpdateWithoutPaymentAccountDataInput {
 }
 
 export interface PaymentAccountCreateManyWithoutUserInput {
-  create?: Array<PaymentAccountCreateWithoutUserInput> | PaymentAccountCreateWithoutUserInput
-  connect?: Array<PaymentAccountWhereUniqueInput> | PaymentAccountWhereUniqueInput
+  create?: PaymentAccountCreateWithoutUserInput[] | PaymentAccountCreateWithoutUserInput
+  connect?: PaymentAccountWhereUniqueInput[] | PaymentAccountWhereUniqueInput
 }
 
 export interface UserUpsertWithoutPaymentAccountInput {
@@ -11318,8 +11318,8 @@ export interface PaypalInformationUpdateOneWithoutPaymentAccountInput {
 }
 
 export interface MessageCreateManyWithoutFromInput {
-  create?: Array<MessageCreateWithoutFromInput> | MessageCreateWithoutFromInput
-  connect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
+  create?: MessageCreateWithoutFromInput[] | MessageCreateWithoutFromInput
+  connect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
 }
 
 export interface PaypalInformationUpdateWithoutPaymentAccountInput {
@@ -11328,8 +11328,8 @@ export interface PaypalInformationUpdateWithoutPaymentAccountInput {
 }
 
 export interface NotificationCreateManyWithoutUserInput {
-  create?: Array<NotificationCreateWithoutUserInput> | NotificationCreateWithoutUserInput
-  connect?: Array<NotificationWhereUniqueInput> | NotificationWhereUniqueInput
+  create?: NotificationCreateWithoutUserInput[] | NotificationCreateWithoutUserInput
+  connect?: NotificationWhereUniqueInput[] | NotificationWhereUniqueInput
 }
 
 export interface PaypalInformationUpdateWithoutPaymentAccountDataInput {
@@ -11437,12 +11437,12 @@ export interface UserCreateOneWithoutPaymentAccountInput {
 }
 
 export interface PictureUpdateManyWithoutPlaceInput {
-  create?: Array<PictureCreateWithoutPlaceInput> | PictureCreateWithoutPlaceInput
-  connect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
-  disconnect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
-  delete?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
-  update?: Array<PictureUpdateWithoutPlaceInput> | PictureUpdateWithoutPlaceInput
-  upsert?: Array<PictureUpsertWithoutPlaceInput> | PictureUpsertWithoutPlaceInput
+  create?: PictureCreateWithoutPlaceInput[] | PictureCreateWithoutPlaceInput
+  connect?: PictureWhereUniqueInput[] | PictureWhereUniqueInput
+  disconnect?: PictureWhereUniqueInput[] | PictureWhereUniqueInput
+  delete?: PictureWhereUniqueInput[] | PictureWhereUniqueInput
+  update?: PictureUpdateWithoutPlaceInput[] | PictureUpdateWithoutPlaceInput
+  upsert?: PictureUpsertWithoutPlaceInput[] | PictureUpsertWithoutPlaceInput
 }
 
 export interface CreditCardInformationCreateOneWithoutPaymentAccountInput {
@@ -11513,17 +11513,17 @@ export interface LocationCreateOneWithoutRestaurantInput {
 }
 
 export interface ReviewUpdateManyWithoutExperienceInput {
-  create?: Array<ReviewCreateWithoutExperienceInput> | ReviewCreateWithoutExperienceInput
-  connect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
-  disconnect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
-  delete?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
-  update?: Array<ReviewUpdateWithoutExperienceInput> | ReviewUpdateWithoutExperienceInput
-  upsert?: Array<ReviewUpsertWithoutExperienceInput> | ReviewUpsertWithoutExperienceInput
+  create?: ReviewCreateWithoutExperienceInput[] | ReviewCreateWithoutExperienceInput
+  connect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
+  disconnect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
+  delete?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
+  update?: ReviewUpdateWithoutExperienceInput[] | ReviewUpdateWithoutExperienceInput
+  upsert?: ReviewUpsertWithoutExperienceInput[] | ReviewUpsertWithoutExperienceInput
 }
 
 export interface PictureCreateManyWithoutReservationInput {
-  create?: Array<PictureCreateWithoutReservationInput> | PictureCreateWithoutReservationInput
-  connect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
+  create?: PictureCreateWithoutReservationInput[] | PictureCreateWithoutReservationInput
+  connect?: PictureWhereUniqueInput[] | PictureWhereUniqueInput
 }
 
 export interface ReviewUpdateWithoutExperienceInput {
@@ -11915,8 +11915,8 @@ export interface LocationUpdateOneWithoutRestaurantInput {
 }
 
 export interface PaymentCreateManyWithoutPaymentMethodInput {
-  create?: Array<PaymentCreateWithoutPaymentMethodInput> | PaymentCreateWithoutPaymentMethodInput
-  connect?: Array<PaymentWhereUniqueInput> | PaymentWhereUniqueInput
+  create?: PaymentCreateWithoutPaymentMethodInput[] | PaymentCreateWithoutPaymentMethodInput
+  connect?: PaymentWhereUniqueInput[] | PaymentWhereUniqueInput
 }
 
 export interface LocationUpdateWithoutRestaurantInput {
@@ -11941,8 +11941,8 @@ export interface LocationUpdateWithoutRestaurantDataInput {
 }
 
 export interface LocationCreateManyWithoutNeighbourHoodInput {
-  create?: Array<LocationCreateWithoutNeighbourHoodInput> | LocationCreateWithoutNeighbourHoodInput
-  connect?: Array<LocationWhereUniqueInput> | LocationWhereUniqueInput
+  create?: LocationCreateWithoutNeighbourHoodInput[] | LocationCreateWithoutNeighbourHoodInput
+  connect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
 }
 
 export interface LocationUpsertWithoutRestaurantInput {
@@ -11952,8 +11952,8 @@ export interface LocationUpsertWithoutRestaurantInput {
 }
 
 export interface ExperienceCreateManyWithoutHostInput {
-  create?: Array<ExperienceCreateWithoutHostInput> | ExperienceCreateWithoutHostInput
-  connect?: Array<ExperienceWhereUniqueInput> | ExperienceWhereUniqueInput
+  create?: ExperienceCreateWithoutHostInput[] | ExperienceCreateWithoutHostInput
+  connect?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput
 }
 
 export interface RestaurantUpsertWithoutPicturesInput {
@@ -11974,8 +11974,8 @@ export interface PictureUpsertWithoutExperienceInput {
 }
 
 export interface BookingCreateManyWithoutPlaceInput {
-  create?: Array<BookingCreateWithoutPlaceInput> | BookingCreateWithoutPlaceInput
-  connect?: Array<BookingWhereUniqueInput> | BookingWhereUniqueInput
+  create?: BookingCreateWithoutPlaceInput[] | BookingCreateWithoutPlaceInput
+  connect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
 }
 
 export interface ExperienceUpsertWithoutLocationInput {
@@ -11999,8 +11999,8 @@ export interface RestaurantUpdateOneWithoutLocationInput {
 }
 
 export interface ReviewCreateManyWithoutExperienceInput {
-  create?: Array<ReviewCreateWithoutExperienceInput> | ReviewCreateWithoutExperienceInput
-  connect?: Array<ReviewWhereUniqueInput> | ReviewWhereUniqueInput
+  create?: ReviewCreateWithoutExperienceInput[] | ReviewCreateWithoutExperienceInput
+  connect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
 }
 
 export interface RestaurantUpdateWithoutLocationInput {
@@ -12028,12 +12028,12 @@ export interface RestaurantCreateOneWithoutLocationInput {
 }
 
 export interface PictureUpdateManyWithoutReservationInput {
-  create?: Array<PictureCreateWithoutReservationInput> | PictureCreateWithoutReservationInput
-  connect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
-  disconnect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
-  delete?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
-  update?: Array<PictureUpdateWithoutReservationInput> | PictureUpdateWithoutReservationInput
-  upsert?: Array<PictureUpsertWithoutReservationInput> | PictureUpsertWithoutReservationInput
+  create?: PictureCreateWithoutReservationInput[] | PictureCreateWithoutReservationInput
+  connect?: PictureWhereUniqueInput[] | PictureWhereUniqueInput
+  disconnect?: PictureWhereUniqueInput[] | PictureWhereUniqueInput
+  delete?: PictureWhereUniqueInput[] | PictureWhereUniqueInput
+  update?: PictureUpdateWithoutReservationInput[] | PictureUpdateWithoutReservationInput
+  upsert?: PictureUpsertWithoutReservationInput[] | PictureUpsertWithoutReservationInput
 }
 
 export interface PlaceCreateOneWithoutPricingInput {
@@ -12065,12 +12065,12 @@ export interface PictureUpdateWithoutReservationDataInput {
 }
 
 export interface PoliciesWhereInput {
-  AND?: Array<PoliciesWhereInput> | PoliciesWhereInput
-  OR?: Array<PoliciesWhereInput> | PoliciesWhereInput
+  AND?: PoliciesWhereInput[] | PoliciesWhereInput
+  OR?: PoliciesWhereInput[] | PoliciesWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -12083,40 +12083,40 @@ export interface PoliciesWhereInput {
   id_not_ends_with?: ID_Input
   createdAt?: DateTime
   createdAt_not?: DateTime
-  createdAt_in?: Array<DateTime> | DateTime
-  createdAt_not_in?: Array<DateTime> | DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
   createdAt_lt?: DateTime
   createdAt_lte?: DateTime
   createdAt_gt?: DateTime
   createdAt_gte?: DateTime
   updatedAt?: DateTime
   updatedAt_not?: DateTime
-  updatedAt_in?: Array<DateTime> | DateTime
-  updatedAt_not_in?: Array<DateTime> | DateTime
+  updatedAt_in?: DateTime[] | DateTime
+  updatedAt_not_in?: DateTime[] | DateTime
   updatedAt_lt?: DateTime
   updatedAt_lte?: DateTime
   updatedAt_gt?: DateTime
   updatedAt_gte?: DateTime
   checkInStartTime?: Float
   checkInStartTime_not?: Float
-  checkInStartTime_in?: Array<Float> | Float
-  checkInStartTime_not_in?: Array<Float> | Float
+  checkInStartTime_in?: Float[] | Float
+  checkInStartTime_not_in?: Float[] | Float
   checkInStartTime_lt?: Float
   checkInStartTime_lte?: Float
   checkInStartTime_gt?: Float
   checkInStartTime_gte?: Float
   checkInEndTime?: Float
   checkInEndTime_not?: Float
-  checkInEndTime_in?: Array<Float> | Float
-  checkInEndTime_not_in?: Array<Float> | Float
+  checkInEndTime_in?: Float[] | Float
+  checkInEndTime_not_in?: Float[] | Float
   checkInEndTime_lt?: Float
   checkInEndTime_lte?: Float
   checkInEndTime_gt?: Float
   checkInEndTime_gte?: Float
   checkoutTime?: Float
   checkoutTime_not?: Float
-  checkoutTime_in?: Array<Float> | Float
-  checkoutTime_not_in?: Array<Float> | Float
+  checkoutTime_in?: Float[] | Float
+  checkoutTime_not_in?: Float[] | Float
   checkoutTime_lt?: Float
   checkoutTime_lte?: Float
   checkoutTime_gt?: Float
@@ -12131,12 +12131,12 @@ export interface PictureUpsertWithoutReservationInput {
 }
 
 export interface AmenitiesWhereInput {
-  AND?: Array<AmenitiesWhereInput> | AmenitiesWhereInput
-  OR?: Array<AmenitiesWhereInput> | AmenitiesWhereInput
+  AND?: AmenitiesWhereInput[] | AmenitiesWhereInput
+  OR?: AmenitiesWhereInput[] | AmenitiesWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -12403,12 +12403,12 @@ export interface CityUpdateOneWithoutNeighbourhoodsInput {
 }
 
 export interface ExperienceCategoryWhereInput {
-  AND?: Array<ExperienceCategoryWhereInput> | ExperienceCategoryWhereInput
-  OR?: Array<ExperienceCategoryWhereInput> | ExperienceCategoryWhereInput
+  AND?: ExperienceCategoryWhereInput[] | ExperienceCategoryWhereInput
+  OR?: ExperienceCategoryWhereInput[] | ExperienceCategoryWhereInput
   id?: ID_Input
   id_not?: ID_Input
-  id_in?: Array<ID_Input> | ID_Input
-  id_not_in?: Array<ID_Input> | ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
   id_lt?: ID_Input
   id_lte?: ID_Input
   id_gt?: ID_Input
@@ -12421,8 +12421,8 @@ export interface ExperienceCategoryWhereInput {
   id_not_ends_with?: ID_Input
   mainColor?: String
   mainColor_not?: String
-  mainColor_in?: Array<String> | String
-  mainColor_not_in?: Array<String> | String
+  mainColor_in?: String[] | String
+  mainColor_not_in?: String[] | String
   mainColor_lt?: String
   mainColor_lte?: String
   mainColor_gt?: String
@@ -12435,8 +12435,8 @@ export interface ExperienceCategoryWhereInput {
   mainColor_not_ends_with?: String
   name?: String
   name_not?: String
-  name_in?: Array<String> | String
-  name_not_in?: Array<String> | String
+  name_in?: String[] | String
+  name_not_in?: String[] | String
   name_lt?: String
   name_lte?: String
   name_gt?: String
@@ -12494,8 +12494,8 @@ export interface NeighbourhoodUpsertWithoutHomePreviewInput {
 }
 
 export interface MessageCreateManyWithoutToInput {
-  create?: Array<MessageCreateWithoutToInput> | MessageCreateWithoutToInput
-  connect?: Array<MessageWhereUniqueInput> | MessageWhereUniqueInput
+  create?: MessageCreateWithoutToInput[] | MessageCreateWithoutToInput
+  connect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
 }
 
 export interface PictureUpsertWithoutUserInput {
@@ -12505,8 +12505,8 @@ export interface PictureUpsertWithoutUserInput {
 }
 
 export interface PictureCreateManyWithoutPlaceInput {
-  create?: Array<PictureCreateWithoutPlaceInput> | PictureCreateWithoutPlaceInput
-  connect?: Array<PictureWhereUniqueInput> | PictureWhereUniqueInput
+  create?: PictureCreateWithoutPlaceInput[] | PictureCreateWithoutPlaceInput
+  connect?: PictureWhereUniqueInput[] | PictureWhereUniqueInput
 }
 
 export interface UserUpsertWithoutReceivedMessagesInput {
@@ -12549,8 +12549,8 @@ export interface LocationWhereUniqueInput {
 }
 
 export interface PlaceCreateManyWithoutHostInput {
-  create?: Array<PlaceCreateWithoutHostInput> | PlaceCreateWithoutHostInput
-  connect?: Array<PlaceWhereUniqueInput> | PlaceWhereUniqueInput
+  create?: PlaceCreateWithoutHostInput[] | PlaceCreateWithoutHostInput
+  connect?: PlaceWhereUniqueInput[] | PlaceWhereUniqueInput
 }
 
 export interface PaymentAccountUpsertWithoutUserInput {
@@ -12612,7 +12612,7 @@ export interface Node {
 
 export interface PoliciesConnection {
   pageInfo: PageInfo
-  edges?: Array<PoliciesEdge>
+  edges?: PoliciesEdge[]
 }
 
 export interface User extends Node {
@@ -12627,15 +12627,15 @@ export interface User extends Node {
   responseRate?: Float
   responseTime?: Int
   isSuperHost: Boolean
-  ownedPlaces?: Array<Place>
+  ownedPlaces?: Place[]
   location?: Location
-  bookings?: Array<Booking>
-  paymentAccount?: Array<PaymentAccount>
-  sentMessages?: Array<Message>
-  receivedMessages?: Array<Message>
-  notifications?: Array<Notification>
+  bookings?: Booking[]
+  paymentAccount?: PaymentAccount[]
+  sentMessages?: Message[]
+  receivedMessages?: Message[]
+  notifications?: Notification[]
   profilePicture?: Picture
-  hostingExperiences?: Array<Experience>
+  hostingExperiences?: Experience[]
 }
 
 export interface GuestRequirementsEdge {
@@ -12650,7 +12650,7 @@ export interface RestaurantEdge {
 
 export interface GuestRequirementsConnection {
   pageInfo: PageInfo
-  edges?: Array<GuestRequirementsEdge>
+  edges?: GuestRequirementsEdge[]
 }
 
 export interface NotificationEdge {
@@ -12670,7 +12670,7 @@ export interface MessageEdge {
 
 export interface PricingConnection {
   pageInfo: PageInfo
-  edges?: Array<PricingEdge>
+  edges?: PricingEdge[]
 }
 
 export interface CreditCardInformationEdge {
@@ -12690,7 +12690,7 @@ export interface PaypalInformationEdge {
 
 export interface PlaceConnection {
   pageInfo: PageInfo
-  edges?: Array<PlaceEdge>
+  edges?: PlaceEdge[]
 }
 
 export interface PaymentAccountEdge {
@@ -12722,7 +12722,7 @@ export interface BookingEdge {
 
 export interface UserConnection {
   pageInfo: PageInfo
-  edges?: Array<UserEdge>
+  edges?: UserEdge[]
 }
 
 export interface ReviewEdge {
@@ -12732,7 +12732,7 @@ export interface ReviewEdge {
 
 export interface PaymentConnection {
   pageInfo: PageInfo
-  edges?: Array<PaymentEdge>
+  edges?: PaymentEdge[]
 }
 
 export interface Location extends Node {
@@ -12750,7 +12750,7 @@ export interface Location extends Node {
 
 export interface BookingConnection {
   pageInfo: PageInfo
-  edges?: Array<BookingEdge>
+  edges?: BookingEdge[]
 }
 
 export interface AmenitiesEdge {
@@ -12760,22 +12760,22 @@ export interface AmenitiesEdge {
 
 export interface ReviewConnection {
   pageInfo: PageInfo
-  edges?: Array<ReviewEdge>
+  edges?: ReviewEdge[]
 }
 
 export interface ExperienceCategoryConnection {
   pageInfo: PageInfo
-  edges?: Array<ExperienceCategoryEdge>
+  edges?: ExperienceCategoryEdge[]
 }
 
 export interface AmenitiesConnection {
   pageInfo: PageInfo
-  edges?: Array<AmenitiesEdge>
+  edges?: AmenitiesEdge[]
 }
 
 export interface ExperienceConnection {
   pageInfo: PageInfo
-  edges?: Array<ExperienceEdge>
+  edges?: ExperienceEdge[]
 }
 
 export interface Place extends Node {
@@ -12789,7 +12789,7 @@ export interface Place extends Node {
   numBedrooms: Int
   numBeds: Int
   numBaths: Int
-  reviews?: Array<Review>
+  reviews?: Review[]
   amenities: Amenities
   host: User
   pricing: Pricing
@@ -12798,14 +12798,14 @@ export interface Place extends Node {
   guestRequirements?: GuestRequirements
   policies?: Policies
   houseRules?: HouseRules
-  bookings?: Array<Booking>
-  pictures?: Array<Picture>
+  bookings?: Booking[]
+  pictures?: Picture[]
   popularity: Int
 }
 
 export interface PictureConnection {
   pageInfo: PageInfo
-  edges?: Array<PictureEdge>
+  edges?: PictureEdge[]
 }
 
 export interface Review extends Node {
@@ -12825,7 +12825,7 @@ export interface Review extends Node {
 
 export interface CityConnection {
   pageInfo: PageInfo
-  edges?: Array<CityEdge>
+  edges?: CityEdge[]
 }
 
 export interface Experience extends Node {
@@ -12835,14 +12835,14 @@ export interface Experience extends Node {
   host: User
   location: Location
   pricePerPerson: Int
-  reviews?: Array<Review>
+  reviews?: Review[]
   preview: Picture
   popularity: Int
 }
 
 export interface NeighbourhoodConnection {
   pageInfo: PageInfo
-  edges?: Array<NeighbourhoodEdge>
+  edges?: NeighbourhoodEdge[]
 }
 
 export interface ExperienceCategory extends Node {
@@ -12854,7 +12854,7 @@ export interface ExperienceCategory extends Node {
 
 export interface LocationConnection {
   pageInfo: PageInfo
-  edges?: Array<LocationEdge>
+  edges?: LocationEdge[]
 }
 
 export interface Notification extends Node {
@@ -12868,7 +12868,7 @@ export interface Notification extends Node {
 
 export interface ViewsConnection {
   pageInfo: PageInfo
-  edges?: Array<ViewsEdge>
+  edges?: ViewsEdge[]
 }
 
 export interface Message extends Node {
@@ -12882,7 +12882,7 @@ export interface Message extends Node {
 
 export interface HouseRulesConnection {
   pageInfo: PageInfo
-  edges?: Array<HouseRulesEdge>
+  edges?: HouseRulesEdge[]
 }
 
 export interface CreditCardInformation extends Node {
@@ -12912,7 +12912,7 @@ export interface PaypalInformation extends Node {
 
 export interface NotificationConnection {
   pageInfo: PageInfo
-  edges?: Array<NotificationEdge>
+  edges?: NotificationEdge[]
 }
 
 export interface PaymentAccount extends Node {
@@ -12920,14 +12920,14 @@ export interface PaymentAccount extends Node {
   createdAt: DateTime
   type?: PAYMENT_PROVIDER
   user: User
-  payments?: Array<Payment>
+  payments?: Payment[]
   paypal?: PaypalInformation
   creditcard?: CreditCardInformation
 }
 
 export interface CreditCardInformationConnection {
   pageInfo: PageInfo
-  edges?: Array<CreditCardInformationEdge>
+  edges?: CreditCardInformationEdge[]
 }
 
 export interface Payment extends Node {
@@ -12942,7 +12942,7 @@ export interface Payment extends Node {
 
 export interface PaymentAccountConnection {
   pageInfo: PageInfo
-  edges?: Array<PaymentAccountEdge>
+  edges?: PaymentAccountEdge[]
 }
 
 export interface Booking extends Node {
@@ -13014,7 +13014,7 @@ export interface Views extends Node {
 
 export interface RestaurantConnection {
   pageInfo: PageInfo
-  edges?: Array<RestaurantEdge>
+  edges?: RestaurantEdge[]
 }
 
 export interface Pricing extends Node {
@@ -13036,7 +13036,7 @@ export interface Pricing extends Node {
 
 export interface PaypalInformationConnection {
   pageInfo: PageInfo
-  edges?: Array<PaypalInformationEdge>
+  edges?: PaypalInformationEdge[]
 }
 
 export interface Amenities extends Node {
@@ -13096,7 +13096,7 @@ export interface ViewsEdge {
 
 export interface Neighbourhood extends Node {
   id: ID_Output
-  locations?: Array<Location>
+  locations?: Location[]
   name: String
   slug: String
   homePreview?: Picture
@@ -13120,7 +13120,7 @@ export interface Restaurant extends Node {
   createdAt: DateTime
   title: String
   avgPricePerPerson: Int
-  pictures?: Array<Picture>
+  pictures?: Picture[]
   location: Location
   isCurated: Boolean
   slug: String
@@ -13130,7 +13130,7 @@ export interface Restaurant extends Node {
 export interface City extends Node {
   id: ID_Output
   name: String
-  neighbourhoods?: Array<Neighbourhood>
+  neighbourhoods?: Neighbourhood[]
 }
 
 export interface PoliciesEdge {
@@ -13150,7 +13150,7 @@ export interface ExperienceCategoryEdge {
 
 export interface MessageConnection {
   pageInfo: PageInfo
-  edges?: Array<MessageEdge>
+  edges?: MessageEdge[]
 }
 
 export type DateTime = string
@@ -13189,29 +13189,29 @@ export interface Schema {
 }
 
 export type Query = {
-  users: (args: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<User>>
-  places: (args: { where?: PlaceWhereInput, orderBy?: PlaceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Place>>
-  pricings: (args: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Pricing>>
-  guestRequirementses: (args: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<GuestRequirements>>
-  policieses: (args: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Policies>>
-  houseRuleses: (args: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<HouseRules>>
-  viewses: (args: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Views>>
-  locations: (args: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Location>>
-  neighbourhoods: (args: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Neighbourhood>>
-  cities: (args: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<City>>
-  pictures: (args: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Picture>>
-  experiences: (args: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Experience>>
-  experienceCategories: (args: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<ExperienceCategory>>
-  amenitieses: (args: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Amenities>>
-  reviews: (args: { where?: ReviewWhereInput, orderBy?: ReviewOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Review>>
-  bookings: (args: { where?: BookingWhereInput, orderBy?: BookingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Booking>>
-  payments: (args: { where?: PaymentWhereInput, orderBy?: PaymentOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Payment>>
-  paymentAccounts: (args: { where?: PaymentAccountWhereInput, orderBy?: PaymentAccountOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<PaymentAccount>>
-  paypalInformations: (args: { where?: PaypalInformationWhereInput, orderBy?: PaypalInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<PaypalInformation>>
-  creditCardInformations: (args: { where?: CreditCardInformationWhereInput, orderBy?: CreditCardInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<CreditCardInformation>>
-  messages: (args: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Message>>
-  notifications: (args: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Notification>>
-  restaurants: (args: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Array<Restaurant>>
+  users: (args: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<User[]>
+  places: (args: { where?: PlaceWhereInput, orderBy?: PlaceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Place[]>
+  pricings: (args: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Pricing[]>
+  guestRequirementses: (args: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<GuestRequirements[]>
+  policieses: (args: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Policies[]>
+  houseRuleses: (args: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<HouseRules[]>
+  viewses: (args: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Views[]>
+  locations: (args: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Location[]>
+  neighbourhoods: (args: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Neighbourhood[]>
+  cities: (args: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<City[]>
+  pictures: (args: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Picture[]>
+  experiences: (args: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Experience[]>
+  experienceCategories: (args: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<ExperienceCategory[]>
+  amenitieses: (args: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Amenities[]>
+  reviews: (args: { where?: ReviewWhereInput, orderBy?: ReviewOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Review[]>
+  bookings: (args: { where?: BookingWhereInput, orderBy?: BookingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Booking[]>
+  payments: (args: { where?: PaymentWhereInput, orderBy?: PaymentOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Payment[]>
+  paymentAccounts: (args: { where?: PaymentAccountWhereInput, orderBy?: PaymentAccountOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<PaymentAccount[]>
+  paypalInformations: (args: { where?: PaypalInformationWhereInput, orderBy?: PaypalInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<PaypalInformation[]>
+  creditCardInformations: (args: { where?: CreditCardInformationWhereInput, orderBy?: CreditCardInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<CreditCardInformation[]>
+  messages: (args: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Message[]>
+  notifications: (args: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Notification[]>
+  restaurants: (args: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string) => Promise<Restaurant[]>
   user: (args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string) => Promise<User | null>
   place: (args: { where: PlaceWhereUniqueInput }, info?: GraphQLResolveInfo | string) => Promise<Place | null>
   pricing: (args: { where: PricingWhereUniqueInput }, info?: GraphQLResolveInfo | string) => Promise<Pricing | null>
@@ -13408,31 +13408,57 @@ export class Graphcool extends BaseGraphcool {
   constructor({ endpoint, secret, fragmentReplacements, debug }: BaseGraphcoolOptions) {
     super({ typeDefs, endpoint, secret, fragmentReplacements, debug });
   }
+
+  exists = {
+    User: (where: UserWhereInput): Promise<boolean> => super.existsDelegate('query', 'users', { where }, {}, '{ id }'),
+    Place: (where: PlaceWhereInput): Promise<boolean> => super.existsDelegate('query', 'places', { where }, {}, '{ id }'),
+    Pricing: (where: PricingWhereInput): Promise<boolean> => super.existsDelegate('query', 'pricings', { where }, {}, '{ id }'),
+    GuestRequirements: (where: GuestRequirementsWhereInput): Promise<boolean> => super.existsDelegate('query', 'guestRequirementses', { where }, {}, '{ id }'),
+    Policies: (where: PoliciesWhereInput): Promise<boolean> => super.existsDelegate('query', 'policieses', { where }, {}, '{ id }'),
+    HouseRules: (where: HouseRulesWhereInput): Promise<boolean> => super.existsDelegate('query', 'houseRuleses', { where }, {}, '{ id }'),
+    Views: (where: ViewsWhereInput): Promise<boolean> => super.existsDelegate('query', 'viewses', { where }, {}, '{ id }'),
+    Location: (where: LocationWhereInput): Promise<boolean> => super.existsDelegate('query', 'locations', { where }, {}, '{ id }'),
+    Neighbourhood: (where: NeighbourhoodWhereInput): Promise<boolean> => super.existsDelegate('query', 'neighbourhoods', { where }, {}, '{ id }'),
+    City: (where: CityWhereInput): Promise<boolean> => super.existsDelegate('query', 'cities', { where }, {}, '{ id }'),
+    Picture: (where: PictureWhereInput): Promise<boolean> => super.existsDelegate('query', 'pictures', { where }, {}, '{ id }'),
+    Experience: (where: ExperienceWhereInput): Promise<boolean> => super.existsDelegate('query', 'experiences', { where }, {}, '{ id }'),
+    ExperienceCategory: (where: ExperienceCategoryWhereInput): Promise<boolean> => super.existsDelegate('query', 'experienceCategories', { where }, {}, '{ id }'),
+    Amenities: (where: AmenitiesWhereInput): Promise<boolean> => super.existsDelegate('query', 'amenitieses', { where }, {}, '{ id }'),
+    Review: (where: ReviewWhereInput): Promise<boolean> => super.existsDelegate('query', 'reviews', { where }, {}, '{ id }'),
+    Booking: (where: BookingWhereInput): Promise<boolean> => super.existsDelegate('query', 'bookings', { where }, {}, '{ id }'),
+    Payment: (where: PaymentWhereInput): Promise<boolean> => super.existsDelegate('query', 'payments', { where }, {}, '{ id }'),
+    PaymentAccount: (where: PaymentAccountWhereInput): Promise<boolean> => super.existsDelegate('query', 'paymentAccounts', { where }, {}, '{ id }'),
+    PaypalInformation: (where: PaypalInformationWhereInput): Promise<boolean> => super.existsDelegate('query', 'paypalInformations', { where }, {}, '{ id }'),
+    CreditCardInformation: (where: CreditCardInformationWhereInput): Promise<boolean> => super.existsDelegate('query', 'creditCardInformations', { where }, {}, '{ id }'),
+    Message: (where: MessageWhereInput): Promise<boolean> => super.existsDelegate('query', 'messages', { where }, {}, '{ id }'),
+    Notification: (where: NotificationWhereInput): Promise<boolean> => super.existsDelegate('query', 'notifications', { where }, {}, '{ id }'),
+    Restaurant: (where: RestaurantWhereInput): Promise<boolean> => super.existsDelegate('query', 'restaurants', { where }, {}, '{ id }')
+  }
   
   query: Query = {
-    users: (args, info): Promise<Array<User>> => super.delegate('query', 'users', args, {}, info),
-    places: (args, info): Promise<Array<Place>> => super.delegate('query', 'places', args, {}, info),
-    pricings: (args, info): Promise<Array<Pricing>> => super.delegate('query', 'pricings', args, {}, info),
-    guestRequirementses: (args, info): Promise<Array<GuestRequirements>> => super.delegate('query', 'guestRequirementses', args, {}, info),
-    policieses: (args, info): Promise<Array<Policies>> => super.delegate('query', 'policieses', args, {}, info),
-    houseRuleses: (args, info): Promise<Array<HouseRules>> => super.delegate('query', 'houseRuleses', args, {}, info),
-    viewses: (args, info): Promise<Array<Views>> => super.delegate('query', 'viewses', args, {}, info),
-    locations: (args, info): Promise<Array<Location>> => super.delegate('query', 'locations', args, {}, info),
-    neighbourhoods: (args, info): Promise<Array<Neighbourhood>> => super.delegate('query', 'neighbourhoods', args, {}, info),
-    cities: (args, info): Promise<Array<City>> => super.delegate('query', 'cities', args, {}, info),
-    pictures: (args, info): Promise<Array<Picture>> => super.delegate('query', 'pictures', args, {}, info),
-    experiences: (args, info): Promise<Array<Experience>> => super.delegate('query', 'experiences', args, {}, info),
-    experienceCategories: (args, info): Promise<Array<ExperienceCategory>> => super.delegate('query', 'experienceCategories', args, {}, info),
-    amenitieses: (args, info): Promise<Array<Amenities>> => super.delegate('query', 'amenitieses', args, {}, info),
-    reviews: (args, info): Promise<Array<Review>> => super.delegate('query', 'reviews', args, {}, info),
-    bookings: (args, info): Promise<Array<Booking>> => super.delegate('query', 'bookings', args, {}, info),
-    payments: (args, info): Promise<Array<Payment>> => super.delegate('query', 'payments', args, {}, info),
-    paymentAccounts: (args, info): Promise<Array<PaymentAccount>> => super.delegate('query', 'paymentAccounts', args, {}, info),
-    paypalInformations: (args, info): Promise<Array<PaypalInformation>> => super.delegate('query', 'paypalInformations', args, {}, info),
-    creditCardInformations: (args, info): Promise<Array<CreditCardInformation>> => super.delegate('query', 'creditCardInformations', args, {}, info),
-    messages: (args, info): Promise<Array<Message>> => super.delegate('query', 'messages', args, {}, info),
-    notifications: (args, info): Promise<Array<Notification>> => super.delegate('query', 'notifications', args, {}, info),
-    restaurants: (args, info): Promise<Array<Restaurant>> => super.delegate('query', 'restaurants', args, {}, info),
+    users: (args, info): Promise<User[]> => super.delegate('query', 'users', args, {}, info),
+    places: (args, info): Promise<Place[]> => super.delegate('query', 'places', args, {}, info),
+    pricings: (args, info): Promise<Pricing[]> => super.delegate('query', 'pricings', args, {}, info),
+    guestRequirementses: (args, info): Promise<GuestRequirements[]> => super.delegate('query', 'guestRequirementses', args, {}, info),
+    policieses: (args, info): Promise<Policies[]> => super.delegate('query', 'policieses', args, {}, info),
+    houseRuleses: (args, info): Promise<HouseRules[]> => super.delegate('query', 'houseRuleses', args, {}, info),
+    viewses: (args, info): Promise<Views[]> => super.delegate('query', 'viewses', args, {}, info),
+    locations: (args, info): Promise<Location[]> => super.delegate('query', 'locations', args, {}, info),
+    neighbourhoods: (args, info): Promise<Neighbourhood[]> => super.delegate('query', 'neighbourhoods', args, {}, info),
+    cities: (args, info): Promise<City[]> => super.delegate('query', 'cities', args, {}, info),
+    pictures: (args, info): Promise<Picture[]> => super.delegate('query', 'pictures', args, {}, info),
+    experiences: (args, info): Promise<Experience[]> => super.delegate('query', 'experiences', args, {}, info),
+    experienceCategories: (args, info): Promise<ExperienceCategory[]> => super.delegate('query', 'experienceCategories', args, {}, info),
+    amenitieses: (args, info): Promise<Amenities[]> => super.delegate('query', 'amenitieses', args, {}, info),
+    reviews: (args, info): Promise<Review[]> => super.delegate('query', 'reviews', args, {}, info),
+    bookings: (args, info): Promise<Booking[]> => super.delegate('query', 'bookings', args, {}, info),
+    payments: (args, info): Promise<Payment[]> => super.delegate('query', 'payments', args, {}, info),
+    paymentAccounts: (args, info): Promise<PaymentAccount[]> => super.delegate('query', 'paymentAccounts', args, {}, info),
+    paypalInformations: (args, info): Promise<PaypalInformation[]> => super.delegate('query', 'paypalInformations', args, {}, info),
+    creditCardInformations: (args, info): Promise<CreditCardInformation[]> => super.delegate('query', 'creditCardInformations', args, {}, info),
+    messages: (args, info): Promise<Message[]> => super.delegate('query', 'messages', args, {}, info),
+    notifications: (args, info): Promise<Notification[]> => super.delegate('query', 'notifications', args, {}, info),
+    restaurants: (args, info): Promise<Restaurant[]> => super.delegate('query', 'restaurants', args, {}, info),
     user: (args, info): Promise<User | null> => super.delegate('query', 'user', args, {}, info),
     place: (args, info): Promise<Place | null> => super.delegate('query', 'place', args, {}, info),
     pricing: (args, info): Promise<Pricing | null> => super.delegate('query', 'pricing', args, {}, info),
