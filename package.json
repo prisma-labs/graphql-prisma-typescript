@@ -4,10 +4,11 @@
   "scripts": {
     "start": "nodemon -x 'ts-node -r dotenv/config' -e ts,graphql src/index.ts",
     "debug": "nodemon -x 'ts-node -r dotenv/config --inspect' -e ts,graphql src/index.ts",
-    "binding": "graphql prepare",
+    "prepare": "graphql prepare",
     "playground": "graphql playground",
-    "build": "rm -rf dist && tsc",
-    "deploy": "now --public --dotenv .env.prod && now alias && now rm --yes --safe graphql-server-example",
+    "build": "rm -rf dist && graphql prepare && tsc",
+    "deploy":
+      "now --public --dotenv .env.prod && now alias && now rm --yes --safe graphql-server-example",
     "now-start": "node dist",
     "seed": "graphql query database/seed.graphql --all -p database"
   },
