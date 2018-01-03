@@ -1,5 +1,8 @@
 service: example-airbnb
 
+cluster: ${env:GRAPHCOOL_CLUSTER}
+stage: ${env:GRAPHCOOL_STAGE}
+
 secret: ${env:GRAPHCOOL_SECRET}
 
 datamodel:
