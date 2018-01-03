@@ -11,15 +11,15 @@ type User {
   responseTime: Int
 
   isSuperHost: Boolean! @default(value: "false")
-  ownedPlaces: [Place!]! @relation(name: "PlaceOwner")
-  location: Location @relation(name: "UserLocation")
-  bookings: [Booking!]! @relation(name: "Bookee")
-  paymentAccount: [PaymentAccount!]! @relation(name: "UserPaymentAccounts")
+  ownedPlaces: [Place!]!
+  location: Location
+  bookings: [Booking!]!
+  paymentAccount: [PaymentAccount!]!
   sentMessages: [Message!]! @relation(name: "SentMessages")
   receivedMessages: [Message!]! @relation(name: "ReceivedMessages")
-  notifications: [Notification!]! @relation(name: "Notifications")
-  profilePicture: Picture @relation(name: "ProfilePicture")
-  hostingExperiences: [Experience!]! @relation(name: "ExperienceHost")
+  notifications: [Notification!]!
+  profilePicture: Picture
+  hostingExperiences: [Experience!]!
 }
 
 type Place {
@@ -33,23 +33,23 @@ type Place {
   numBedrooms: Int!
   numBeds: Int!
   numBaths: Int!
-  reviews: [Review!]! @relation(name: "PlaceReviews")
-  amenities: Amenities! @relation(name: "PlaceAmenities")
-  host: User! @relation(name: "PlaceOwner")
-  pricing: Pricing! @relation(name: "PlacePrice")
-  location: Location! @relation(name: "PlaceLocation")
-  views: Views! @relation(name: "PlaceViews")
-  guestRequirements: GuestRequirements @relation(name: "PlaceGuestRequirements")
-  policies: Policies @relation(name: "PlacePolicies")
-  houseRules: HouseRules @relation(name: "PlaceHouseRules")
-  bookings: [Booking!]! @relation(name: "PlaceBooking")
-  pictures: [Picture!]! @relation(name: "PlacePictures")
+  reviews: [Review!]!
+  amenities: Amenities!
+  host: User!
+  pricing: Pricing!
+  location: Location!
+  views: Views!
+  guestRequirements: GuestRequirements
+  policies: Policies
+  houseRules: HouseRules
+  bookings: [Booking!]!
+  pictures: [Picture!]!
   popularity: Int!
 }
 
 type Pricing {
   id: ID! @unique
-  place: Place! @relation(name: "PlacePrice")
+  place: Place!
   monthlyDiscount: Int
   weeklyDiscount: Int
   perNight: Int!
@@ -69,7 +69,7 @@ type GuestRequirements {
   govIssuedId: Boolean! @default(value: "false")
   recommendationsFromOtherHosts: Boolean! @default(value: "false")
   guestTripInformation: Boolean! @default(value: "false")
-  place: Place! @relation(name: "PlaceGuestRequirements")
+  place: Place!
 }
 
 type Policies {
@@ -79,7 +79,7 @@ type Policies {
   checkInStartTime: Float!
   checkInEndTime: Float!
   checkoutTime: Float!
-  place: Place! @relation(name: "PlacePolicies")
+  place: Place!
 }
 
 type HouseRules {
@@ -92,35 +92,34 @@ type HouseRules {
   smokingAllowed: Boolean
   partiesAndEventsAllowed: Boolean
   additionalRules: String
-  place: Place! @relation(name: "PlaceHouseRules")
 }
 
 type Views {
   id: ID! @unique
   lastWeek: Int!
-  place: Place! @relation(name: "PlaceViews")
+  place: Place!
 }
 
 type Location {
   id: ID! @unique
   lat: Float!
   lng: Float!
-  neighbourHood: Neighbourhood @relation(name: "NeighbourhoodLocation")
-  user: User @relation(name: "UserLocation")
-  place: Place @relation(name: "PlaceLocation")
+  neighbourHood: Neighbourhood
+  user: User
+  place: Place
   address: String
   directions: String
-  experience: Experience @relation(name: "ExperienceLocation")
-  restaurant: Restaurant @relation(name: "RestaurantLocation")
+  experience: Experience
+  restaurant: Restaurant
 }
 
 type Neighbourhood {
   id: ID! @unique
-  locations: [Location!]! @relation(name: "NeighbourhoodLocation")
+  locations: [Location!]!
   name: String!
   slug: String!
-  homePreview: Picture @relation(name: "HomePreview")
-  city: City! @relation(name: "CityNeighbourhood")
+  homePreview: Picture
+  city: City!
   featured: Boolean!
   popularity: Int!
 }
@@ -128,30 +127,22 @@ type Neighbourhood {
 type City {
   id: ID! @unique
   name: String!
-  neighbourhoods: [Neighbourhood!]! @relation(name: "CityNeighbourhood")
+  neighbourhoods: [Neighbourhood!]!
 }
 
-# later with @file directive
 type Picture {
-  id: ID! @unique
   url: String!
-  neighbourHood: Neighbourhood @relation(name: "HomePreview")
-  user: User @relation(name: "ProfilePicture")
-  experience: Experience @relation(name: "ExperiencePreview")
-  place: Place @relation(name: "PlacePictures")
-  reservation: Restaurant @relation(name: "RestaurantPicture")
-  # url(width: Int height: Int): String!
 }
 
 type Experience {
   id: ID! @unique
-  category: ExperienceCategory @relation(name: "ExperienceCategories")
+  category: ExperienceCategory
   title: String!
-  host: User! @relation(name: "ExperienceHost")
-  location: Location! @relation(name: "ExperienceLocation")
+  host: User!
+  location: Location!
   pricePerPerson: Int!
-  reviews: [Review!]! @relation(name: "ExperienceReviews")
-  preview: Picture! @relation(name: "ExperiencePreview")
+  reviews: [Review!]!
+  preview: Picture!
   popularity: Int!
 }
 
@@ -159,12 +150,12 @@ type ExperienceCategory {
   id: ID! @unique
   mainColor: String! @default(value: "#123456")
   name: String!
-  experience: Experience @relation(name: "ExperienceCategories")
+  experience: Experience
 }
 
 type Amenities {
   id: ID! @unique
-  place: Place! @relation(name: "PlaceAmenities")
+  place: Place!
   elevator: Boolean! @default(value: "false")
   petsAllowed: Boolean! @default(value: "false")
   internet: Boolean! @default(value: "false")
@@ -218,18 +209,18 @@ type Review {
   value: Int!
   cleanliness: Int!
   communication: Int!
-  place: Place! @relation(name: "PlaceReviews")
-  experience: Experience @relation(name: "ExperienceReviews")
+  place: Place!
+  experience: Experience
 }
 
 type Booking {
   id: ID! @unique
   createdAt: DateTime!
-  bookee: User! @relation(name: "Bookee")
-  place: Place! @relation(name: "PlaceBooking")
+  bookee: User!
+  place: Place!
   startDate: DateTime!
   endDate: DateTime!
-  payment: Payment! @relation(name: "BookingPayment")
+  payment: Payment!
 }
 
 type Payment {
@@ -238,26 +229,25 @@ type Payment {
   serviceFee: Float!
   placePrice: Float!
   totalPrice: Float!
-  booking: Booking! @relation(name: "BookingPayment")
-  paymentMethod: PaymentAccount! @relation(name: "PaymentAccounts")
+  booking: Booking!
+  paymentMethod: PaymentAccount!
 }
 
 type PaymentAccount {
   id: ID! @unique
   createdAt: DateTime!
   type: PAYMENT_PROVIDER
-  user: User! @relation(name: "UserPaymentAccounts")
-  payments: [Payment!]! @relation(name: "PaymentAccounts")
-  paypal: PaypalInformation @relation(name: "AccountPaypalInformation")
+  user: User!
+  payments: [Payment!]!
+  paypal: PaypalInformation
   creditcard: CreditCardInformation
-    @relation(name: "AccountCreditCardInformation")
 }
 
 type PaypalInformation {
   id: ID! @unique
   createdAt: DateTime!
   email: String!
-  paymentAccount: PaymentAccount! @relation(name: "AccountPaypalInformation")
+  paymentAccount: PaymentAccount!
 }
 
 type CreditCardInformation {
@@ -271,7 +261,7 @@ type CreditCardInformation {
   lastName: String!
   postalCode: String!
   country: String!
-  paymentAccount: PaymentAccount @relation(name: "AccountCreditCardInformation")
+  paymentAccount: PaymentAccount
 }
 
 type Message {
@@ -287,7 +277,7 @@ type Notification {
   id: ID! @unique
   createdAt: DateTime!
   type: NOTIFICATION_TYPE
-  user: User! @relation(name: "Notifications")
+  user: User!
   link: String!
   readDate: DateTime!
 }
@@ -297,8 +287,8 @@ type Restaurant {
   createdAt: DateTime!
   title: String!
   avgPricePerPerson: Int!
-  pictures: [Picture!]! @relation(name: "RestaurantPicture")
-  location: Location! @relation(name: "RestaurantLocation")
+  pictures: [Picture!]!
+  location: Location!
   isCurated: Boolean! @default(value: "true")
   slug: String!
   popularity: Int!

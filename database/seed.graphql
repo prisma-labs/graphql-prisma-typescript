@@ -100,9 +100,7 @@ mutation place {
   ) {
     id
   }
-}
 
-mutation experience {
   createExperience(
     data: {
       popularity: 3
@@ -161,9 +159,7 @@ mutation experience {
   ) {
     id
   }
-}
 
-mutation restaurant {
   createRestaurant(
     data: {
       title: "Chumley's"
