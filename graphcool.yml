@@ -1,7 +1,11 @@
 service: example-airbnb
-
+stage: ${env:GRAPHCOOL_STAGE}
+cluster: ${env:GRAPHCOOL_CLUSTER}
 secret: ${env:GRAPHCOOL_SECRET}
 
 datamodel:
 - database/datamodel/types.graphql
 - database/datamodel/enums.graphql
+
+seed:
+  import: database/seed.graphql
