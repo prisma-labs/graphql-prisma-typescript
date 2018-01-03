@@ -1,5 +1,5 @@
 import { GraphQLServer } from 'graphql-yoga'
-import { Graphcool } from './generated/graphcool'
+import { Graphcool } from 'graphcool-binding'
 import { resolvers, fragmentReplacements } from './resolvers'
 
 const server = new GraphQLServer({
@@ -8,6 +8,7 @@ const server = new GraphQLServer({
   context: req => ({
     ...req,
     db: new Graphcool({
+      typeDefs: 'src/generated/database.graphql',
       fragmentReplacements,
       endpoint: process.env.GRAPHCOOL_ENDPOINT,
       secret: process.env.GRAPHCOOL_SECRET,

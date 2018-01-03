@@ -312,9 +312,15 @@ type Views implements Node {
 # Other Types
 #
 
+enum _ModelMutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
 type AmenitiesConnection {
   pageInfo: PageInfo!
-  edges: [AmenitiesEdge!]
+  edges: [AmenitiesEdge]!
 }
 
 input AmenitiesCreateInput {
@@ -358,7 +364,7 @@ input AmenitiesCreateInput {
   childrensBooksAndToys: Boolean
   childrensDinnerware: Boolean
   crib: Boolean
-  place: PlaceCreateOneWithoutAmenitiesInput
+  place: PlaceCreateOneWithoutAmenitiesInput!
 }
 
 input AmenitiesCreateOneWithoutPlaceInput {
@@ -501,6 +507,181 @@ enum AmenitiesOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type AmenitiesPreviousValues {
+  id: ID!
+  elevator: Boolean!
+  petsAllowed: Boolean!
+  internet: Boolean!
+  kitchen: Boolean!
+  wirelessInternet: Boolean!
+  familyKidFriendly: Boolean!
+  freeParkingOnPremises: Boolean!
+  hotTub: Boolean!
+  pool: Boolean!
+  smokingAllowed: Boolean!
+  wheelchairAccessible: Boolean!
+  breakfast: Boolean!
+  cableTv: Boolean!
+  suitableForEvents: Boolean!
+  dryer: Boolean!
+  washer: Boolean!
+  indoorFireplace: Boolean!
+  tv: Boolean!
+  heating: Boolean!
+  hangers: Boolean!
+  iron: Boolean!
+  hairDryer: Boolean!
+  doorman: Boolean!
+  paidParkingOffPremises: Boolean!
+  freeParkingOnStreet: Boolean!
+  gym: Boolean!
+  airConditioning: Boolean!
+  shampoo: Boolean!
+  essentials: Boolean!
+  laptopFriendlyWorkspace: Boolean!
+  privateEntrance: Boolean!
+  buzzerWirelessIntercom: Boolean!
+  babyBath: Boolean!
+  babyMonitor: Boolean!
+  babysitterRecommendations: Boolean!
+  bathtub: Boolean!
+  changingTable: Boolean!
+  childrensBooksAndToys: Boolean!
+  childrensDinnerware: Boolean!
+  crib: Boolean!
+}
+
+input AmenitiesSubscriptionFilter {
+  AND: [AmenitiesSubscriptionFilter!]
+  OR: [AmenitiesSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AmenitiesSubscriptionFilterNode
+}
+
+input AmenitiesSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  elevator: Boolean
+  elevator_not: Boolean
+  petsAllowed: Boolean
+  petsAllowed_not: Boolean
+  internet: Boolean
+  internet_not: Boolean
+  kitchen: Boolean
+  kitchen_not: Boolean
+  wirelessInternet: Boolean
+  wirelessInternet_not: Boolean
+  familyKidFriendly: Boolean
+  familyKidFriendly_not: Boolean
+  freeParkingOnPremises: Boolean
+  freeParkingOnPremises_not: Boolean
+  hotTub: Boolean
+  hotTub_not: Boolean
+  pool: Boolean
+  pool_not: Boolean
+  smokingAllowed: Boolean
+  smokingAllowed_not: Boolean
+  wheelchairAccessible: Boolean
+  wheelchairAccessible_not: Boolean
+  breakfast: Boolean
+  breakfast_not: Boolean
+  cableTv: Boolean
+  cableTv_not: Boolean
+  suitableForEvents: Boolean
+  suitableForEvents_not: Boolean
+  dryer: Boolean
+  dryer_not: Boolean
+  washer: Boolean
+  washer_not: Boolean
+  indoorFireplace: Boolean
+  indoorFireplace_not: Boolean
+  tv: Boolean
+  tv_not: Boolean
+  heating: Boolean
+  heating_not: Boolean
+  hangers: Boolean
+  hangers_not: Boolean
+  iron: Boolean
+  iron_not: Boolean
+  hairDryer: Boolean
+  hairDryer_not: Boolean
+  doorman: Boolean
+  doorman_not: Boolean
+  paidParkingOffPremises: Boolean
+  paidParkingOffPremises_not: Boolean
+  freeParkingOnStreet: Boolean
+  freeParkingOnStreet_not: Boolean
+  gym: Boolean
+  gym_not: Boolean
+  airConditioning: Boolean
+  airConditioning_not: Boolean
+  shampoo: Boolean
+  shampoo_not: Boolean
+  essentials: Boolean
+  essentials_not: Boolean
+  laptopFriendlyWorkspace: Boolean
+  laptopFriendlyWorkspace_not: Boolean
+  privateEntrance: Boolean
+  privateEntrance_not: Boolean
+  buzzerWirelessIntercom: Boolean
+  buzzerWirelessIntercom_not: Boolean
+  babyBath: Boolean
+  babyBath_not: Boolean
+  babyMonitor: Boolean
+  babyMonitor_not: Boolean
+  babysitterRecommendations: Boolean
+  babysitterRecommendations_not: Boolean
+  bathtub: Boolean
+  bathtub_not: Boolean
+  changingTable: Boolean
+  changingTable_not: Boolean
+  childrensBooksAndToys: Boolean
+  childrensBooksAndToys_not: Boolean
+  childrensDinnerware: Boolean
+  childrensDinnerware_not: Boolean
+  crib: Boolean
+  crib_not: Boolean
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  place: PlaceWhereInput
+}
+
+type AmenitiesSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Amenities
+  updatedFields: [String!]
+  previousValues: AmenitiesPreviousValues
 }
 
 input AmenitiesUpdateInput {
@@ -720,15 +901,15 @@ type BatchPayload {
 
 type BookingConnection {
   pageInfo: PageInfo!
-  edges: [BookingEdge!]
+  edges: [BookingEdge]!
 }
 
 input BookingCreateInput {
   startDate: DateTime!
   endDate: DateTime!
-  bookee: UserCreateOneWithoutBookingsInput
-  place: PlaceCreateOneWithoutBookingsInput
-  payment: PaymentCreateOneWithoutBookingInput
+  bookee: UserCreateOneWithoutBookingsInput!
+  place: PlaceCreateOneWithoutBookingsInput!
+  payment: PaymentCreateOneWithoutBookingInput!
 }
 
 input BookingCreateManyWithoutBookeeInput {
@@ -749,22 +930,22 @@ input BookingCreateOneWithoutPaymentInput {
 input BookingCreateWithoutBookeeInput {
   startDate: DateTime!
   endDate: DateTime!
-  place: PlaceCreateOneWithoutBookingsInput
-  payment: PaymentCreateOneWithoutBookingInput
+  place: PlaceCreateOneWithoutBookingsInput!
+  payment: PaymentCreateOneWithoutBookingInput!
 }
 
 input BookingCreateWithoutPaymentInput {
   startDate: DateTime!
   endDate: DateTime!
-  bookee: UserCreateOneWithoutBookingsInput
-  place: PlaceCreateOneWithoutBookingsInput
+  bookee: UserCreateOneWithoutBookingsInput!
+  place: PlaceCreateOneWithoutBookingsInput!
 }
 
 input BookingCreateWithoutPlaceInput {
   startDate: DateTime!
   endDate: DateTime!
-  bookee: UserCreateOneWithoutBookingsInput
-  payment: PaymentCreateOneWithoutBookingInput
+  bookee: UserCreateOneWithoutBookingsInput!
+  payment: PaymentCreateOneWithoutBookingInput!
 }
 
 type BookingEdge {
@@ -783,6 +964,82 @@ enum BookingOrderByInput {
   endDate_DESC
   updatedAt_ASC
   updatedAt_DESC
+}
+
+type BookingPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  startDate: DateTime!
+  endDate: DateTime!
+}
+
+input BookingSubscriptionFilter {
+  AND: [BookingSubscriptionFilter!]
+  OR: [BookingSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: BookingSubscriptionFilterNode
+}
+
+input BookingSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  startDate: DateTime
+  startDate_not: DateTime
+  startDate_in: [DateTime!]
+  startDate_not_in: [DateTime!]
+  startDate_lt: DateTime
+  startDate_lte: DateTime
+  startDate_gt: DateTime
+  startDate_gte: DateTime
+  endDate: DateTime
+  endDate_not: DateTime
+  endDate_in: [DateTime!]
+  endDate_not_in: [DateTime!]
+  endDate_lt: DateTime
+  endDate_lte: DateTime
+  endDate_gt: DateTime
+  endDate_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  bookee: UserWhereInput
+  place: PlaceWhereInput
+  payment: PaymentWhereInput
+}
+
+type BookingSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Booking
+  updatedFields: [String!]
+  previousValues: BookingPreviousValues
 }
 
 input BookingUpdateInput {
@@ -926,7 +1183,7 @@ input BookingWhereUniqueInput {
 
 type CityConnection {
   pageInfo: PageInfo!
-  edges: [CityEdge!]
+  edges: [CityEdge]!
 }
 
 input CityCreateInput {
@@ -957,6 +1214,78 @@ enum CityOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type CityPreviousValues {
+  id: ID!
+  name: String!
+}
+
+input CitySubscriptionFilter {
+  AND: [CitySubscriptionFilter!]
+  OR: [CitySubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CitySubscriptionFilterNode
+}
+
+input CitySubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  neighbourhoods_every: NeighbourhoodWhereInput
+  neighbourhoods_some: NeighbourhoodWhereInput
+  neighbourhoods_none: NeighbourhoodWhereInput
+}
+
+type CitySubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: City
+  updatedFields: [String!]
+  previousValues: CityPreviousValues
 }
 
 input CityUpdateInput {
@@ -1030,7 +1359,7 @@ input CityWhereUniqueInput {
 
 type CreditCardInformationConnection {
   pageInfo: PageInfo!
-  edges: [CreditCardInformationEdge!]
+  edges: [CreditCardInformationEdge]!
 }
 
 input CreditCardInformationCreateInput {
@@ -1089,6 +1418,170 @@ enum CreditCardInformationOrderByInput {
   country_DESC
   updatedAt_ASC
   updatedAt_DESC
+}
+
+type CreditCardInformationPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  cardNumber: String!
+  expiresOnMonth: Int!
+  expiresOnYear: Int!
+  securityCode: String!
+  firstName: String!
+  lastName: String!
+  postalCode: String!
+  country: String!
+}
+
+input CreditCardInformationSubscriptionFilter {
+  AND: [CreditCardInformationSubscriptionFilter!]
+  OR: [CreditCardInformationSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CreditCardInformationSubscriptionFilterNode
+}
+
+input CreditCardInformationSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  cardNumber: String
+  cardNumber_not: String
+  cardNumber_in: [String!]
+  cardNumber_not_in: [String!]
+  cardNumber_lt: String
+  cardNumber_lte: String
+  cardNumber_gt: String
+  cardNumber_gte: String
+  cardNumber_contains: String
+  cardNumber_not_contains: String
+  cardNumber_starts_with: String
+  cardNumber_not_starts_with: String
+  cardNumber_ends_with: String
+  cardNumber_not_ends_with: String
+  expiresOnMonth: Int
+  expiresOnMonth_not: Int
+  expiresOnMonth_in: [Int!]
+  expiresOnMonth_not_in: [Int!]
+  expiresOnMonth_lt: Int
+  expiresOnMonth_lte: Int
+  expiresOnMonth_gt: Int
+  expiresOnMonth_gte: Int
+  expiresOnYear: Int
+  expiresOnYear_not: Int
+  expiresOnYear_in: [Int!]
+  expiresOnYear_not_in: [Int!]
+  expiresOnYear_lt: Int
+  expiresOnYear_lte: Int
+  expiresOnYear_gt: Int
+  expiresOnYear_gte: Int
+  securityCode: String
+  securityCode_not: String
+  securityCode_in: [String!]
+  securityCode_not_in: [String!]
+  securityCode_lt: String
+  securityCode_lte: String
+  securityCode_gt: String
+  securityCode_gte: String
+  securityCode_contains: String
+  securityCode_not_contains: String
+  securityCode_starts_with: String
+  securityCode_not_starts_with: String
+  securityCode_ends_with: String
+  securityCode_not_ends_with: String
+  firstName: String
+  firstName_not: String
+  firstName_in: [String!]
+  firstName_not_in: [String!]
+  firstName_lt: String
+  firstName_lte: String
+  firstName_gt: String
+  firstName_gte: String
+  firstName_contains: String
+  firstName_not_contains: String
+  firstName_starts_with: String
+  firstName_not_starts_with: String
+  firstName_ends_with: String
+  firstName_not_ends_with: String
+  lastName: String
+  lastName_not: String
+  lastName_in: [String!]
+  lastName_not_in: [String!]
+  lastName_lt: String
+  lastName_lte: String
+  lastName_gt: String
+  lastName_gte: String
+  lastName_contains: String
+  lastName_not_contains: String
+  lastName_starts_with: String
+  lastName_not_starts_with: String
+  lastName_ends_with: String
+  lastName_not_ends_with: String
+  postalCode: String
+  postalCode_not: String
+  postalCode_in: [String!]
+  postalCode_not_in: [String!]
+  postalCode_lt: String
+  postalCode_lte: String
+  postalCode_gt: String
+  postalCode_gte: String
+  postalCode_contains: String
+  postalCode_not_contains: String
+  postalCode_starts_with: String
+  postalCode_not_starts_with: String
+  postalCode_ends_with: String
+  postalCode_not_ends_with: String
+  country: String
+  country_not: String
+  country_in: [String!]
+  country_not_in: [String!]
+  country_lt: String
+  country_lte: String
+  country_gt: String
+  country_gte: String
+  country_contains: String
+  country_not_contains: String
+  country_starts_with: String
+  country_not_starts_with: String
+  country_ends_with: String
+  country_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  paymentAccount: PaymentAccountWhereInput
+}
+
+type CreditCardInformationSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: CreditCardInformation
+  updatedFields: [String!]
+  previousValues: CreditCardInformationPreviousValues
 }
 
 input CreditCardInformationUpdateInput {
@@ -1279,7 +1772,7 @@ scalar DateTime
 
 type ExperienceCategoryConnection {
   pageInfo: PageInfo!
-  edges: [ExperienceCategoryEdge!]
+  edges: [ExperienceCategoryEdge]!
 }
 
 input ExperienceCategoryCreateInput {
@@ -1314,6 +1807,91 @@ enum ExperienceCategoryOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type ExperienceCategoryPreviousValues {
+  id: ID!
+  mainColor: String!
+  name: String!
+}
+
+input ExperienceCategorySubscriptionFilter {
+  AND: [ExperienceCategorySubscriptionFilter!]
+  OR: [ExperienceCategorySubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ExperienceCategorySubscriptionFilterNode
+}
+
+input ExperienceCategorySubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  mainColor: String
+  mainColor_not: String
+  mainColor_in: [String!]
+  mainColor_not_in: [String!]
+  mainColor_lt: String
+  mainColor_lte: String
+  mainColor_gt: String
+  mainColor_gte: String
+  mainColor_contains: String
+  mainColor_not_contains: String
+  mainColor_starts_with: String
+  mainColor_not_starts_with: String
+  mainColor_ends_with: String
+  mainColor_not_ends_with: String
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  experience: ExperienceWhereInput
+}
+
+type ExperienceCategorySubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: ExperienceCategory
+  updatedFields: [String!]
+  previousValues: ExperienceCategoryPreviousValues
 }
 
 input ExperienceCategoryUpdateInput {
@@ -1401,7 +1979,7 @@ input ExperienceCategoryWhereUniqueInput {
 
 type ExperienceConnection {
   pageInfo: PageInfo!
-  edges: [ExperienceEdge!]
+  edges: [ExperienceEdge]!
 }
 
 input ExperienceCreateInput {
@@ -1409,10 +1987,10 @@ input ExperienceCreateInput {
   pricePerPerson: Int!
   popularity: Int!
   category: ExperienceCategoryCreateOneWithoutExperienceInput
-  host: UserCreateOneWithoutHostingExperiencesInput
-  location: LocationCreateOneWithoutExperienceInput
+  host: UserCreateOneWithoutHostingExperiencesInput!
+  location: LocationCreateOneWithoutExperienceInput!
   reviews: ReviewCreateManyWithoutExperienceInput
-  preview: PictureCreateOneWithoutExperienceInput
+  preview: PictureCreateOneWithoutExperienceInput!
 }
 
 input ExperienceCreateManyWithoutHostInput {
@@ -1444,10 +2022,10 @@ input ExperienceCreateWithoutCategoryInput {
   title: String!
   pricePerPerson: Int!
   popularity: Int!
-  host: UserCreateOneWithoutHostingExperiencesInput
-  location: LocationCreateOneWithoutExperienceInput
+  host: UserCreateOneWithoutHostingExperiencesInput!
+  location: LocationCreateOneWithoutExperienceInput!
   reviews: ReviewCreateManyWithoutExperienceInput
-  preview: PictureCreateOneWithoutExperienceInput
+  preview: PictureCreateOneWithoutExperienceInput!
 }
 
 input ExperienceCreateWithoutHostInput {
@@ -1455,9 +2033,9 @@ input ExperienceCreateWithoutHostInput {
   pricePerPerson: Int!
   popularity: Int!
   category: ExperienceCategoryCreateOneWithoutExperienceInput
-  location: LocationCreateOneWithoutExperienceInput
+  location: LocationCreateOneWithoutExperienceInput!
   reviews: ReviewCreateManyWithoutExperienceInput
-  preview: PictureCreateOneWithoutExperienceInput
+  preview: PictureCreateOneWithoutExperienceInput!
 }
 
 input ExperienceCreateWithoutLocationInput {
@@ -1465,9 +2043,9 @@ input ExperienceCreateWithoutLocationInput {
   pricePerPerson: Int!
   popularity: Int!
   category: ExperienceCategoryCreateOneWithoutExperienceInput
-  host: UserCreateOneWithoutHostingExperiencesInput
+  host: UserCreateOneWithoutHostingExperiencesInput!
   reviews: ReviewCreateManyWithoutExperienceInput
-  preview: PictureCreateOneWithoutExperienceInput
+  preview: PictureCreateOneWithoutExperienceInput!
 }
 
 input ExperienceCreateWithoutPreviewInput {
@@ -1475,8 +2053,8 @@ input ExperienceCreateWithoutPreviewInput {
   pricePerPerson: Int!
   popularity: Int!
   category: ExperienceCategoryCreateOneWithoutExperienceInput
-  host: UserCreateOneWithoutHostingExperiencesInput
-  location: LocationCreateOneWithoutExperienceInput
+  host: UserCreateOneWithoutHostingExperiencesInput!
+  location: LocationCreateOneWithoutExperienceInput!
   reviews: ReviewCreateManyWithoutExperienceInput
 }
 
@@ -1485,9 +2063,9 @@ input ExperienceCreateWithoutReviewsInput {
   pricePerPerson: Int!
   popularity: Int!
   category: ExperienceCategoryCreateOneWithoutExperienceInput
-  host: UserCreateOneWithoutHostingExperiencesInput
-  location: LocationCreateOneWithoutExperienceInput
-  preview: PictureCreateOneWithoutExperienceInput
+  host: UserCreateOneWithoutHostingExperiencesInput!
+  location: LocationCreateOneWithoutExperienceInput!
+  preview: PictureCreateOneWithoutExperienceInput!
 }
 
 type ExperienceEdge {
@@ -1508,6 +2086,100 @@ enum ExperienceOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type ExperiencePreviousValues {
+  id: ID!
+  title: String!
+  pricePerPerson: Int!
+  popularity: Int!
+}
+
+input ExperienceSubscriptionFilter {
+  AND: [ExperienceSubscriptionFilter!]
+  OR: [ExperienceSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ExperienceSubscriptionFilterNode
+}
+
+input ExperienceSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  pricePerPerson: Int
+  pricePerPerson_not: Int
+  pricePerPerson_in: [Int!]
+  pricePerPerson_not_in: [Int!]
+  pricePerPerson_lt: Int
+  pricePerPerson_lte: Int
+  pricePerPerson_gt: Int
+  pricePerPerson_gte: Int
+  popularity: Int
+  popularity_not: Int
+  popularity_in: [Int!]
+  popularity_not_in: [Int!]
+  popularity_lt: Int
+  popularity_lte: Int
+  popularity_gt: Int
+  popularity_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  category: ExperienceCategoryWhereInput
+  host: UserWhereInput
+  location: LocationWhereInput
+  reviews_every: ReviewWhereInput
+  reviews_some: ReviewWhereInput
+  reviews_none: ReviewWhereInput
+  preview: PictureWhereInput
+}
+
+type ExperienceSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Experience
+  updatedFields: [String!]
+  previousValues: ExperiencePreviousValues
 }
 
 input ExperienceUpdateInput {
@@ -1733,14 +2405,14 @@ input ExperienceWhereUniqueInput {
 
 type GuestRequirementsConnection {
   pageInfo: PageInfo!
-  edges: [GuestRequirementsEdge!]
+  edges: [GuestRequirementsEdge]!
 }
 
 input GuestRequirementsCreateInput {
   govIssuedId: Boolean
   recommendationsFromOtherHosts: Boolean
   guestTripInformation: Boolean
-  place: PlaceCreateOneWithoutGuestRequirementsInput
+  place: PlaceCreateOneWithoutGuestRequirementsInput!
 }
 
 input GuestRequirementsCreateOneWithoutPlaceInput {
@@ -1772,6 +2444,70 @@ enum GuestRequirementsOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type GuestRequirementsPreviousValues {
+  id: ID!
+  govIssuedId: Boolean!
+  recommendationsFromOtherHosts: Boolean!
+  guestTripInformation: Boolean!
+}
+
+input GuestRequirementsSubscriptionFilter {
+  AND: [GuestRequirementsSubscriptionFilter!]
+  OR: [GuestRequirementsSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: GuestRequirementsSubscriptionFilterNode
+}
+
+input GuestRequirementsSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  govIssuedId: Boolean
+  govIssuedId_not: Boolean
+  recommendationsFromOtherHosts: Boolean
+  recommendationsFromOtherHosts_not: Boolean
+  guestTripInformation: Boolean
+  guestTripInformation_not: Boolean
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  place: PlaceWhereInput
+}
+
+type GuestRequirementsSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: GuestRequirements
+  updatedFields: [String!]
+  previousValues: GuestRequirementsPreviousValues
 }
 
 input GuestRequirementsUpdateInput {
@@ -1839,7 +2575,7 @@ input GuestRequirementsWhereUniqueInput {
 
 type HouseRulesConnection {
   pageInfo: PageInfo!
-  edges: [HouseRulesEdge!]
+  edges: [HouseRulesEdge]!
 }
 
 input HouseRulesCreateInput {
@@ -1849,7 +2585,7 @@ input HouseRulesCreateInput {
   smokingAllowed: Boolean
   partiesAndEventsAllowed: Boolean
   additionalRules: String
-  place: PlaceCreateOneWithoutHouseRulesInput
+  place: PlaceCreateOneWithoutHouseRulesInput!
 }
 
 input HouseRulesCreateOneWithoutPlaceInput {
@@ -1890,6 +2626,93 @@ enum HouseRulesOrderByInput {
   partiesAndEventsAllowed_DESC
   additionalRules_ASC
   additionalRules_DESC
+}
+
+type HouseRulesPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  suitableForChildren: Boolean
+  suitableForInfants: Boolean
+  petsAllowed: Boolean
+  smokingAllowed: Boolean
+  partiesAndEventsAllowed: Boolean
+  additionalRules: String
+}
+
+input HouseRulesSubscriptionFilter {
+  AND: [HouseRulesSubscriptionFilter!]
+  OR: [HouseRulesSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: HouseRulesSubscriptionFilterNode
+}
+
+input HouseRulesSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  suitableForChildren: Boolean
+  suitableForChildren_not: Boolean
+  suitableForInfants: Boolean
+  suitableForInfants_not: Boolean
+  petsAllowed: Boolean
+  petsAllowed_not: Boolean
+  smokingAllowed: Boolean
+  smokingAllowed_not: Boolean
+  partiesAndEventsAllowed: Boolean
+  partiesAndEventsAllowed_not: Boolean
+  additionalRules: String
+  additionalRules_not: String
+  additionalRules_in: [String!]
+  additionalRules_not_in: [String!]
+  additionalRules_lt: String
+  additionalRules_lte: String
+  additionalRules_gt: String
+  additionalRules_gte: String
+  additionalRules_contains: String
+  additionalRules_not_contains: String
+  additionalRules_starts_with: String
+  additionalRules_not_starts_with: String
+  additionalRules_ends_with: String
+  additionalRules_not_ends_with: String
+  place: PlaceWhereInput
+}
+
+type HouseRulesSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: HouseRules
+  updatedFields: [String!]
+  previousValues: HouseRulesPreviousValues
 }
 
 input HouseRulesUpdateInput {
@@ -1997,7 +2820,7 @@ input HouseRulesWhereUniqueInput {
 
 type LocationConnection {
   pageInfo: PageInfo!
-  edges: [LocationEdge!]
+  edges: [LocationEdge]!
 }
 
 input LocationCreateInput {
@@ -2112,6 +2935,113 @@ enum LocationOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type LocationPreviousValues {
+  id: ID!
+  lat: Float!
+  lng: Float!
+  address: String
+  directions: String
+}
+
+input LocationSubscriptionFilter {
+  AND: [LocationSubscriptionFilter!]
+  OR: [LocationSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: LocationSubscriptionFilterNode
+}
+
+input LocationSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  lat: Float
+  lat_not: Float
+  lat_in: [Float!]
+  lat_not_in: [Float!]
+  lat_lt: Float
+  lat_lte: Float
+  lat_gt: Float
+  lat_gte: Float
+  lng: Float
+  lng_not: Float
+  lng_in: [Float!]
+  lng_not_in: [Float!]
+  lng_lt: Float
+  lng_lte: Float
+  lng_gt: Float
+  lng_gte: Float
+  address: String
+  address_not: String
+  address_in: [String!]
+  address_not_in: [String!]
+  address_lt: String
+  address_lte: String
+  address_gt: String
+  address_gte: String
+  address_contains: String
+  address_not_contains: String
+  address_starts_with: String
+  address_not_starts_with: String
+  address_ends_with: String
+  address_not_ends_with: String
+  directions: String
+  directions_not: String
+  directions_in: [String!]
+  directions_not_in: [String!]
+  directions_lt: String
+  directions_lte: String
+  directions_gt: String
+  directions_gte: String
+  directions_contains: String
+  directions_not_contains: String
+  directions_starts_with: String
+  directions_not_starts_with: String
+  directions_ends_with: String
+  directions_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  neighbourHood: NeighbourhoodWhereInput
+  user: UserWhereInput
+  place: PlaceWhereInput
+  experience: ExperienceWhereInput
+  restaurant: RestaurantWhereInput
+}
+
+type LocationSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Location
+  updatedFields: [String!]
+  previousValues: LocationPreviousValues
 }
 
 input LocationUpdateInput {
@@ -2357,14 +3287,14 @@ scalar Long
 
 type MessageConnection {
   pageInfo: PageInfo!
-  edges: [MessageEdge!]
+  edges: [MessageEdge]!
 }
 
 input MessageCreateInput {
   deliveredAt: DateTime!
   readAt: DateTime!
-  from: UserCreateOneWithoutSentMessagesInput
-  to: UserCreateOneWithoutReceivedMessagesInput
+  from: UserCreateOneWithoutSentMessagesInput!
+  to: UserCreateOneWithoutReceivedMessagesInput!
 }
 
 input MessageCreateManyWithoutFromInput {
@@ -2380,13 +3310,13 @@ input MessageCreateManyWithoutToInput {
 input MessageCreateWithoutFromInput {
   deliveredAt: DateTime!
   readAt: DateTime!
-  to: UserCreateOneWithoutReceivedMessagesInput
+  to: UserCreateOneWithoutReceivedMessagesInput!
 }
 
 input MessageCreateWithoutToInput {
   deliveredAt: DateTime!
   readAt: DateTime!
-  from: UserCreateOneWithoutSentMessagesInput
+  from: UserCreateOneWithoutSentMessagesInput!
 }
 
 type MessageEdge {
@@ -2405,6 +3335,81 @@ enum MessageOrderByInput {
   readAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+}
+
+type MessagePreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  deliveredAt: DateTime!
+  readAt: DateTime!
+}
+
+input MessageSubscriptionFilter {
+  AND: [MessageSubscriptionFilter!]
+  OR: [MessageSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: MessageSubscriptionFilterNode
+}
+
+input MessageSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  deliveredAt: DateTime
+  deliveredAt_not: DateTime
+  deliveredAt_in: [DateTime!]
+  deliveredAt_not_in: [DateTime!]
+  deliveredAt_lt: DateTime
+  deliveredAt_lte: DateTime
+  deliveredAt_gt: DateTime
+  deliveredAt_gte: DateTime
+  readAt: DateTime
+  readAt_not: DateTime
+  readAt_in: [DateTime!]
+  readAt_not_in: [DateTime!]
+  readAt_lt: DateTime
+  readAt_lte: DateTime
+  readAt_gt: DateTime
+  readAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  from: UserWhereInput
+  to: UserWhereInput
+}
+
+type MessageSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Message
+  updatedFields: [String!]
+  previousValues: MessagePreviousValues
 }
 
 input MessageUpdateInput {
@@ -2659,7 +3664,7 @@ type Mutation {
 
 type NeighbourhoodConnection {
   pageInfo: PageInfo!
-  edges: [NeighbourhoodEdge!]
+  edges: [NeighbourhoodEdge]!
 }
 
 input NeighbourhoodCreateInput {
@@ -2669,7 +3674,7 @@ input NeighbourhoodCreateInput {
   popularity: Int!
   locations: LocationCreateManyWithoutNeighbourHoodInput
   homePreview: PictureCreateOneWithoutNeighbourHoodInput
-  city: CityCreateOneWithoutNeighbourhoodsInput
+  city: CityCreateOneWithoutNeighbourhoodsInput!
 }
 
 input NeighbourhoodCreateManyWithoutCityInput {
@@ -2702,7 +3707,7 @@ input NeighbourhoodCreateWithoutHomePreviewInput {
   featured: Boolean!
   popularity: Int!
   locations: LocationCreateManyWithoutNeighbourHoodInput
-  city: CityCreateOneWithoutNeighbourhoodsInput
+  city: CityCreateOneWithoutNeighbourhoodsInput!
 }
 
 input NeighbourhoodCreateWithoutLocationsInput {
@@ -2711,7 +3716,7 @@ input NeighbourhoodCreateWithoutLocationsInput {
   featured: Boolean!
   popularity: Int!
   homePreview: PictureCreateOneWithoutNeighbourHoodInput
-  city: CityCreateOneWithoutNeighbourhoodsInput
+  city: CityCreateOneWithoutNeighbourhoodsInput!
 }
 
 type NeighbourhoodEdge {
@@ -2734,6 +3739,107 @@ enum NeighbourhoodOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type NeighbourhoodPreviousValues {
+  id: ID!
+  name: String!
+  slug: String!
+  featured: Boolean!
+  popularity: Int!
+}
+
+input NeighbourhoodSubscriptionFilter {
+  AND: [NeighbourhoodSubscriptionFilter!]
+  OR: [NeighbourhoodSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: NeighbourhoodSubscriptionFilterNode
+}
+
+input NeighbourhoodSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  featured: Boolean
+  featured_not: Boolean
+  popularity: Int
+  popularity_not: Int
+  popularity_in: [Int!]
+  popularity_not_in: [Int!]
+  popularity_lt: Int
+  popularity_lte: Int
+  popularity_gt: Int
+  popularity_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  locations_every: LocationWhereInput
+  locations_some: LocationWhereInput
+  locations_none: LocationWhereInput
+  homePreview: PictureWhereInput
+  city: CityWhereInput
+}
+
+type NeighbourhoodSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Neighbourhood
+  updatedFields: [String!]
+  previousValues: NeighbourhoodPreviousValues
 }
 
 input NeighbourhoodUpdateInput {
@@ -2913,14 +4019,14 @@ enum NOTIFICATION_TYPE {
 
 type NotificationConnection {
   pageInfo: PageInfo!
-  edges: [NotificationEdge!]
+  edges: [NotificationEdge]!
 }
 
 input NotificationCreateInput {
   type: NOTIFICATION_TYPE
   link: String!
   readDate: DateTime!
-  user: UserCreateOneWithoutNotificationsInput
+  user: UserCreateOneWithoutNotificationsInput!
 }
 
 input NotificationCreateManyWithoutUserInput {
@@ -2952,6 +4058,91 @@ enum NotificationOrderByInput {
   readDate_DESC
   updatedAt_ASC
   updatedAt_DESC
+}
+
+type NotificationPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  type: NOTIFICATION_TYPE
+  link: String!
+  readDate: DateTime!
+}
+
+input NotificationSubscriptionFilter {
+  AND: [NotificationSubscriptionFilter!]
+  OR: [NotificationSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: NotificationSubscriptionFilterNode
+}
+
+input NotificationSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  type: NOTIFICATION_TYPE
+  type_not: NOTIFICATION_TYPE
+  type_in: [NOTIFICATION_TYPE!]
+  type_not_in: [NOTIFICATION_TYPE!]
+  link: String
+  link_not: String
+  link_in: [String!]
+  link_not_in: [String!]
+  link_lt: String
+  link_lte: String
+  link_gt: String
+  link_gte: String
+  link_contains: String
+  link_not_contains: String
+  link_starts_with: String
+  link_not_starts_with: String
+  link_ends_with: String
+  link_not_ends_with: String
+  readDate: DateTime
+  readDate_not: DateTime
+  readDate_in: [DateTime!]
+  readDate_not_in: [DateTime!]
+  readDate_lt: DateTime
+  readDate_lte: DateTime
+  readDate_gt: DateTime
+  readDate_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  user: UserWhereInput
+}
+
+type NotificationSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Notification
+  updatedFields: [String!]
+  previousValues: NotificationPreviousValues
 }
 
 input NotificationUpdateInput {
@@ -3059,12 +4250,12 @@ enum PAYMENT_PROVIDER {
 
 type PaymentAccountConnection {
   pageInfo: PageInfo!
-  edges: [PaymentAccountEdge!]
+  edges: [PaymentAccountEdge]!
 }
 
 input PaymentAccountCreateInput {
   type: PAYMENT_PROVIDER
-  user: UserCreateOneWithoutPaymentAccountInput
+  user: UserCreateOneWithoutPaymentAccountInput!
   payments: PaymentCreateManyWithoutPaymentMethodInput
   paypal: PaypalInformationCreateOneWithoutPaymentAccountInput
   creditcard: CreditCardInformationCreateOneWithoutPaymentAccountInput
@@ -3092,21 +4283,21 @@ input PaymentAccountCreateOneWithoutPaypalInput {
 
 input PaymentAccountCreateWithoutCreditcardInput {
   type: PAYMENT_PROVIDER
-  user: UserCreateOneWithoutPaymentAccountInput
+  user: UserCreateOneWithoutPaymentAccountInput!
   payments: PaymentCreateManyWithoutPaymentMethodInput
   paypal: PaypalInformationCreateOneWithoutPaymentAccountInput
 }
 
 input PaymentAccountCreateWithoutPaymentsInput {
   type: PAYMENT_PROVIDER
-  user: UserCreateOneWithoutPaymentAccountInput
+  user: UserCreateOneWithoutPaymentAccountInput!
   paypal: PaypalInformationCreateOneWithoutPaymentAccountInput
   creditcard: CreditCardInformationCreateOneWithoutPaymentAccountInput
 }
 
 input PaymentAccountCreateWithoutPaypalInput {
   type: PAYMENT_PROVIDER
-  user: UserCreateOneWithoutPaymentAccountInput
+  user: UserCreateOneWithoutPaymentAccountInput!
   payments: PaymentCreateManyWithoutPaymentMethodInput
   creditcard: CreditCardInformationCreateOneWithoutPaymentAccountInput
 }
@@ -3132,6 +4323,72 @@ enum PaymentAccountOrderByInput {
   type_DESC
   updatedAt_ASC
   updatedAt_DESC
+}
+
+type PaymentAccountPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  type: PAYMENT_PROVIDER
+}
+
+input PaymentAccountSubscriptionFilter {
+  AND: [PaymentAccountSubscriptionFilter!]
+  OR: [PaymentAccountSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PaymentAccountSubscriptionFilterNode
+}
+
+input PaymentAccountSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  type: PAYMENT_PROVIDER
+  type_not: PAYMENT_PROVIDER
+  type_in: [PAYMENT_PROVIDER!]
+  type_not_in: [PAYMENT_PROVIDER!]
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  user: UserWhereInput
+  payments_every: PaymentWhereInput
+  payments_some: PaymentWhereInput
+  payments_none: PaymentWhereInput
+  paypal: PaypalInformationWhereInput
+  creditcard: CreditCardInformationWhereInput
+}
+
+type PaymentAccountSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: PaymentAccount
+  updatedFields: [String!]
+  previousValues: PaymentAccountPreviousValues
 }
 
 input PaymentAccountUpdateInput {
@@ -3293,15 +4550,15 @@ input PaymentAccountWhereUniqueInput {
 
 type PaymentConnection {
   pageInfo: PageInfo!
-  edges: [PaymentEdge!]
+  edges: [PaymentEdge]!
 }
 
 input PaymentCreateInput {
   serviceFee: Float!
   placePrice: Float!
   totalPrice: Float!
-  booking: BookingCreateOneWithoutPaymentInput
-  paymentMethod: PaymentAccountCreateOneWithoutPaymentsInput
+  booking: BookingCreateOneWithoutPaymentInput!
+  paymentMethod: PaymentAccountCreateOneWithoutPaymentsInput!
 }
 
 input PaymentCreateManyWithoutPaymentMethodInput {
@@ -3318,14 +4575,14 @@ input PaymentCreateWithoutBookingInput {
   serviceFee: Float!
   placePrice: Float!
   totalPrice: Float!
-  paymentMethod: PaymentAccountCreateOneWithoutPaymentsInput
+  paymentMethod: PaymentAccountCreateOneWithoutPaymentsInput!
 }
 
 input PaymentCreateWithoutPaymentMethodInput {
   serviceFee: Float!
   placePrice: Float!
   totalPrice: Float!
-  booking: BookingCreateOneWithoutPaymentInput
+  booking: BookingCreateOneWithoutPaymentInput!
 }
 
 type PaymentEdge {
@@ -3346,6 +4603,90 @@ enum PaymentOrderByInput {
   totalPrice_DESC
   updatedAt_ASC
   updatedAt_DESC
+}
+
+type PaymentPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  serviceFee: Float!
+  placePrice: Float!
+  totalPrice: Float!
+}
+
+input PaymentSubscriptionFilter {
+  AND: [PaymentSubscriptionFilter!]
+  OR: [PaymentSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PaymentSubscriptionFilterNode
+}
+
+input PaymentSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  serviceFee: Float
+  serviceFee_not: Float
+  serviceFee_in: [Float!]
+  serviceFee_not_in: [Float!]
+  serviceFee_lt: Float
+  serviceFee_lte: Float
+  serviceFee_gt: Float
+  serviceFee_gte: Float
+  placePrice: Float
+  placePrice_not: Float
+  placePrice_in: [Float!]
+  placePrice_not_in: [Float!]
+  placePrice_lt: Float
+  placePrice_lte: Float
+  placePrice_gt: Float
+  placePrice_gte: Float
+  totalPrice: Float
+  totalPrice_not: Float
+  totalPrice_in: [Float!]
+  totalPrice_not_in: [Float!]
+  totalPrice_lt: Float
+  totalPrice_lte: Float
+  totalPrice_gt: Float
+  totalPrice_gte: Float
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  booking: BookingWhereInput
+  paymentMethod: PaymentAccountWhereInput
+}
+
+type PaymentSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Payment
+  updatedFields: [String!]
+  previousValues: PaymentPreviousValues
 }
 
 input PaymentUpdateInput {
@@ -3469,12 +4810,12 @@ input PaymentWhereUniqueInput {
 
 type PaypalInformationConnection {
   pageInfo: PageInfo!
-  edges: [PaypalInformationEdge!]
+  edges: [PaypalInformationEdge]!
 }
 
 input PaypalInformationCreateInput {
   email: String!
-  paymentAccount: PaymentAccountCreateOneWithoutPaypalInput
+  paymentAccount: PaymentAccountCreateOneWithoutPaypalInput!
 }
 
 input PaypalInformationCreateOneWithoutPaymentAccountInput {
@@ -3500,6 +4841,77 @@ enum PaypalInformationOrderByInput {
   email_DESC
   updatedAt_ASC
   updatedAt_DESC
+}
+
+type PaypalInformationPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  email: String!
+}
+
+input PaypalInformationSubscriptionFilter {
+  AND: [PaypalInformationSubscriptionFilter!]
+  OR: [PaypalInformationSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PaypalInformationSubscriptionFilterNode
+}
+
+input PaypalInformationSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  paymentAccount: PaymentAccountWhereInput
+}
+
+type PaypalInformationSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: PaypalInformation
+  updatedFields: [String!]
+  previousValues: PaypalInformationPreviousValues
 }
 
 input PaypalInformationUpdateInput {
@@ -3579,7 +4991,7 @@ input PaypalInformationWhereUniqueInput {
 
 type PictureConnection {
   pageInfo: PageInfo!
-  edges: [PictureEdge!]
+  edges: [PictureEdge]!
 }
 
 input PictureCreateInput {
@@ -3670,6 +5082,80 @@ enum PictureOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type PicturePreviousValues {
+  id: ID!
+  url: String!
+}
+
+input PictureSubscriptionFilter {
+  AND: [PictureSubscriptionFilter!]
+  OR: [PictureSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PictureSubscriptionFilterNode
+}
+
+input PictureSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  neighbourHood: NeighbourhoodWhereInput
+  user: UserWhereInput
+  experience: ExperienceWhereInput
+  place: PlaceWhereInput
+  reservation: RestaurantWhereInput
+}
+
+type PictureSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Picture
+  updatedFields: [String!]
+  previousValues: PicturePreviousValues
 }
 
 input PictureUpdateInput {
@@ -3876,7 +5362,7 @@ enum PLACE_SIZES {
 
 type PlaceConnection {
   pageInfo: PageInfo!
-  edges: [PlaceEdge!]
+  edges: [PlaceEdge]!
 }
 
 input PlaceCreateInput {
@@ -3891,11 +5377,11 @@ input PlaceCreateInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  location: LocationCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
@@ -3970,10 +5456,10 @@ input PlaceCreateWithoutAmenitiesInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  location: LocationCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
@@ -3993,11 +5479,11 @@ input PlaceCreateWithoutBookingsInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  location: LocationCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
@@ -4016,11 +5502,11 @@ input PlaceCreateWithoutGuestRequirementsInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  location: LocationCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
   bookings: BookingCreateManyWithoutPlaceInput
@@ -4039,10 +5525,10 @@ input PlaceCreateWithoutHostInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  location: LocationCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
@@ -4062,11 +5548,11 @@ input PlaceCreateWithoutHouseRulesInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  location: LocationCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   bookings: BookingCreateManyWithoutPlaceInput
@@ -4085,10 +5571,10 @@ input PlaceCreateWithoutLocationInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
@@ -4108,11 +5594,11 @@ input PlaceCreateWithoutPicturesInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  location: LocationCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
@@ -4131,11 +5617,11 @@ input PlaceCreateWithoutPoliciesInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  location: LocationCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
   bookings: BookingCreateManyWithoutPlaceInput
@@ -4154,10 +5640,10 @@ input PlaceCreateWithoutPricingInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  location: LocationCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
@@ -4176,11 +5662,11 @@ input PlaceCreateWithoutReviewsInput {
   numBeds: Int!
   numBaths: Int!
   popularity: Int!
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  location: LocationCreateOneWithoutPlaceInput!
+  views: ViewsCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
@@ -4200,10 +5686,10 @@ input PlaceCreateWithoutViewsInput {
   numBaths: Int!
   popularity: Int!
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
+  amenities: AmenitiesCreateOneWithoutPlaceInput!
+  host: UserCreateOneWithoutOwnedPlacesInput!
+  pricing: PricingCreateOneWithoutPlaceInput!
+  location: LocationCreateOneWithoutPlaceInput!
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneWithoutPlaceInput
@@ -4243,6 +5729,187 @@ enum PlaceOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type PlacePreviousValues {
+  id: ID!
+  name: String
+  size: PLACE_SIZES
+  shortDescription: String!
+  description: String!
+  slug: String!
+  maxGuests: Int!
+  numBedrooms: Int!
+  numBeds: Int!
+  numBaths: Int!
+  popularity: Int!
+}
+
+input PlaceSubscriptionFilter {
+  AND: [PlaceSubscriptionFilter!]
+  OR: [PlaceSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PlaceSubscriptionFilterNode
+}
+
+input PlaceSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  size: PLACE_SIZES
+  size_not: PLACE_SIZES
+  size_in: [PLACE_SIZES!]
+  size_not_in: [PLACE_SIZES!]
+  shortDescription: String
+  shortDescription_not: String
+  shortDescription_in: [String!]
+  shortDescription_not_in: [String!]
+  shortDescription_lt: String
+  shortDescription_lte: String
+  shortDescription_gt: String
+  shortDescription_gte: String
+  shortDescription_contains: String
+  shortDescription_not_contains: String
+  shortDescription_starts_with: String
+  shortDescription_not_starts_with: String
+  shortDescription_ends_with: String
+  shortDescription_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  maxGuests: Int
+  maxGuests_not: Int
+  maxGuests_in: [Int!]
+  maxGuests_not_in: [Int!]
+  maxGuests_lt: Int
+  maxGuests_lte: Int
+  maxGuests_gt: Int
+  maxGuests_gte: Int
+  numBedrooms: Int
+  numBedrooms_not: Int
+  numBedrooms_in: [Int!]
+  numBedrooms_not_in: [Int!]
+  numBedrooms_lt: Int
+  numBedrooms_lte: Int
+  numBedrooms_gt: Int
+  numBedrooms_gte: Int
+  numBeds: Int
+  numBeds_not: Int
+  numBeds_in: [Int!]
+  numBeds_not_in: [Int!]
+  numBeds_lt: Int
+  numBeds_lte: Int
+  numBeds_gt: Int
+  numBeds_gte: Int
+  numBaths: Int
+  numBaths_not: Int
+  numBaths_in: [Int!]
+  numBaths_not_in: [Int!]
+  numBaths_lt: Int
+  numBaths_lte: Int
+  numBaths_gt: Int
+  numBaths_gte: Int
+  popularity: Int
+  popularity_not: Int
+  popularity_in: [Int!]
+  popularity_not_in: [Int!]
+  popularity_lt: Int
+  popularity_lte: Int
+  popularity_gt: Int
+  popularity_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  reviews_every: ReviewWhereInput
+  reviews_some: ReviewWhereInput
+  reviews_none: ReviewWhereInput
+  amenities: AmenitiesWhereInput
+  host: UserWhereInput
+  pricing: PricingWhereInput
+  location: LocationWhereInput
+  views: ViewsWhereInput
+  guestRequirements: GuestRequirementsWhereInput
+  policies: PoliciesWhereInput
+  houseRules: HouseRulesWhereInput
+  bookings_every: BookingWhereInput
+  bookings_some: BookingWhereInput
+  bookings_none: BookingWhereInput
+  pictures_every: PictureWhereInput
+  pictures_some: PictureWhereInput
+  pictures_none: PictureWhereInput
+}
+
+type PlaceSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Place
+  updatedFields: [String!]
+  previousValues: PlacePreviousValues
 }
 
 input PlaceUpdateInput {
@@ -4884,14 +6551,14 @@ input PlaceWhereUniqueInput {
 
 type PoliciesConnection {
   pageInfo: PageInfo!
-  edges: [PoliciesEdge!]
+  edges: [PoliciesEdge]!
 }
 
 input PoliciesCreateInput {
   checkInStartTime: Float!
   checkInEndTime: Float!
   checkoutTime: Float!
-  place: PlaceCreateOneWithoutPoliciesInput
+  place: PlaceCreateOneWithoutPoliciesInput!
 }
 
 input PoliciesCreateOneWithoutPlaceInput {
@@ -4923,6 +6590,90 @@ enum PoliciesOrderByInput {
   checkInEndTime_DESC
   checkoutTime_ASC
   checkoutTime_DESC
+}
+
+type PoliciesPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  checkInStartTime: Float!
+  checkInEndTime: Float!
+  checkoutTime: Float!
+}
+
+input PoliciesSubscriptionFilter {
+  AND: [PoliciesSubscriptionFilter!]
+  OR: [PoliciesSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PoliciesSubscriptionFilterNode
+}
+
+input PoliciesSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  checkInStartTime: Float
+  checkInStartTime_not: Float
+  checkInStartTime_in: [Float!]
+  checkInStartTime_not_in: [Float!]
+  checkInStartTime_lt: Float
+  checkInStartTime_lte: Float
+  checkInStartTime_gt: Float
+  checkInStartTime_gte: Float
+  checkInEndTime: Float
+  checkInEndTime_not: Float
+  checkInEndTime_in: [Float!]
+  checkInEndTime_not_in: [Float!]
+  checkInEndTime_lt: Float
+  checkInEndTime_lte: Float
+  checkInEndTime_gt: Float
+  checkInEndTime_gte: Float
+  checkoutTime: Float
+  checkoutTime_not: Float
+  checkoutTime_in: [Float!]
+  checkoutTime_not_in: [Float!]
+  checkoutTime_lt: Float
+  checkoutTime_lte: Float
+  checkoutTime_gt: Float
+  checkoutTime_gte: Float
+  place: PlaceWhereInput
+}
+
+type PoliciesSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Policies
+  updatedFields: [String!]
+  previousValues: PoliciesPreviousValues
 }
 
 input PoliciesUpdateInput {
@@ -5024,7 +6775,7 @@ input PoliciesWhereUniqueInput {
 
 type PricingConnection {
   pageInfo: PageInfo!
-  edges: [PricingEdge!]
+  edges: [PricingEdge]!
 }
 
 input PricingCreateInput {
@@ -5040,7 +6791,7 @@ input PricingCreateInput {
   extraGuests: Int
   weekendPricing: Int
   currency: CURRENCY
-  place: PlaceCreateOneWithoutPricingInput
+  place: PlaceCreateOneWithoutPricingInput!
 }
 
 input PricingCreateOneWithoutPlaceInput {
@@ -5099,6 +6850,159 @@ enum PricingOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type PricingPreviousValues {
+  id: ID!
+  monthlyDiscount: Int
+  weeklyDiscount: Int
+  perNight: Int!
+  smartPricing: Boolean!
+  basePrice: Int!
+  averageWeekly: Int!
+  averageMonthly: Int!
+  cleaningFee: Int
+  securityDeposit: Int
+  extraGuests: Int
+  weekendPricing: Int
+  currency: CURRENCY
+}
+
+input PricingSubscriptionFilter {
+  AND: [PricingSubscriptionFilter!]
+  OR: [PricingSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PricingSubscriptionFilterNode
+}
+
+input PricingSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  monthlyDiscount: Int
+  monthlyDiscount_not: Int
+  monthlyDiscount_in: [Int!]
+  monthlyDiscount_not_in: [Int!]
+  monthlyDiscount_lt: Int
+  monthlyDiscount_lte: Int
+  monthlyDiscount_gt: Int
+  monthlyDiscount_gte: Int
+  weeklyDiscount: Int
+  weeklyDiscount_not: Int
+  weeklyDiscount_in: [Int!]
+  weeklyDiscount_not_in: [Int!]
+  weeklyDiscount_lt: Int
+  weeklyDiscount_lte: Int
+  weeklyDiscount_gt: Int
+  weeklyDiscount_gte: Int
+  perNight: Int
+  perNight_not: Int
+  perNight_in: [Int!]
+  perNight_not_in: [Int!]
+  perNight_lt: Int
+  perNight_lte: Int
+  perNight_gt: Int
+  perNight_gte: Int
+  smartPricing: Boolean
+  smartPricing_not: Boolean
+  basePrice: Int
+  basePrice_not: Int
+  basePrice_in: [Int!]
+  basePrice_not_in: [Int!]
+  basePrice_lt: Int
+  basePrice_lte: Int
+  basePrice_gt: Int
+  basePrice_gte: Int
+  averageWeekly: Int
+  averageWeekly_not: Int
+  averageWeekly_in: [Int!]
+  averageWeekly_not_in: [Int!]
+  averageWeekly_lt: Int
+  averageWeekly_lte: Int
+  averageWeekly_gt: Int
+  averageWeekly_gte: Int
+  averageMonthly: Int
+  averageMonthly_not: Int
+  averageMonthly_in: [Int!]
+  averageMonthly_not_in: [Int!]
+  averageMonthly_lt: Int
+  averageMonthly_lte: Int
+  averageMonthly_gt: Int
+  averageMonthly_gte: Int
+  cleaningFee: Int
+  cleaningFee_not: Int
+  cleaningFee_in: [Int!]
+  cleaningFee_not_in: [Int!]
+  cleaningFee_lt: Int
+  cleaningFee_lte: Int
+  cleaningFee_gt: Int
+  cleaningFee_gte: Int
+  securityDeposit: Int
+  securityDeposit_not: Int
+  securityDeposit_in: [Int!]
+  securityDeposit_not_in: [Int!]
+  securityDeposit_lt: Int
+  securityDeposit_lte: Int
+  securityDeposit_gt: Int
+  securityDeposit_gte: Int
+  extraGuests: Int
+  extraGuests_not: Int
+  extraGuests_in: [Int!]
+  extraGuests_not_in: [Int!]
+  extraGuests_lt: Int
+  extraGuests_lte: Int
+  extraGuests_gt: Int
+  extraGuests_gte: Int
+  weekendPricing: Int
+  weekendPricing_not: Int
+  weekendPricing_in: [Int!]
+  weekendPricing_not_in: [Int!]
+  weekendPricing_lt: Int
+  weekendPricing_lte: Int
+  weekendPricing_gt: Int
+  weekendPricing_gte: Int
+  currency: CURRENCY
+  currency_not: CURRENCY
+  currency_in: [CURRENCY!]
+  currency_not_in: [CURRENCY!]
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  place: PlaceWhereInput
+}
+
+type PricingSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Pricing
+  updatedFields: [String!]
+  previousValues: PricingPreviousValues
 }
 
 input PricingUpdateInput {
@@ -5337,7 +7241,7 @@ type Query {
 
 type RestaurantConnection {
   pageInfo: PageInfo!
-  edges: [RestaurantEdge!]
+  edges: [RestaurantEdge]!
 }
 
 input RestaurantCreateInput {
@@ -5347,7 +7251,7 @@ input RestaurantCreateInput {
   slug: String!
   popularity: Int!
   pictures: PictureCreateManyWithoutReservationInput
-  location: LocationCreateOneWithoutRestaurantInput
+  location: LocationCreateOneWithoutRestaurantInput!
 }
 
 input RestaurantCreateOneWithoutLocationInput {
@@ -5375,7 +7279,7 @@ input RestaurantCreateWithoutPicturesInput {
   isCurated: Boolean
   slug: String!
   popularity: Int!
-  location: LocationCreateOneWithoutRestaurantInput
+  location: LocationCreateOneWithoutRestaurantInput!
 }
 
 type RestaurantEdge {
@@ -5400,6 +7304,116 @@ enum RestaurantOrderByInput {
   popularity_DESC
   updatedAt_ASC
   updatedAt_DESC
+}
+
+type RestaurantPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  title: String!
+  avgPricePerPerson: Int!
+  isCurated: Boolean!
+  slug: String!
+  popularity: Int!
+}
+
+input RestaurantSubscriptionFilter {
+  AND: [RestaurantSubscriptionFilter!]
+  OR: [RestaurantSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: RestaurantSubscriptionFilterNode
+}
+
+input RestaurantSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  avgPricePerPerson: Int
+  avgPricePerPerson_not: Int
+  avgPricePerPerson_in: [Int!]
+  avgPricePerPerson_not_in: [Int!]
+  avgPricePerPerson_lt: Int
+  avgPricePerPerson_lte: Int
+  avgPricePerPerson_gt: Int
+  avgPricePerPerson_gte: Int
+  isCurated: Boolean
+  isCurated_not: Boolean
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  popularity: Int
+  popularity_not: Int
+  popularity_in: [Int!]
+  popularity_not_in: [Int!]
+  popularity_lt: Int
+  popularity_lte: Int
+  popularity_gt: Int
+  popularity_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  pictures_every: PictureWhereInput
+  pictures_some: PictureWhereInput
+  pictures_none: PictureWhereInput
+  location: LocationWhereInput
+}
+
+type RestaurantSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Restaurant
+  updatedFields: [String!]
+  previousValues: RestaurantPreviousValues
 }
 
 input RestaurantUpdateInput {
@@ -5553,7 +7567,7 @@ input RestaurantWhereUniqueInput {
 
 type ReviewConnection {
   pageInfo: PageInfo!
-  edges: [ReviewEdge!]
+  edges: [ReviewEdge]!
 }
 
 input ReviewCreateInput {
@@ -5565,7 +7579,7 @@ input ReviewCreateInput {
   value: Int!
   cleanliness: Int!
   communication: Int!
-  place: PlaceCreateOneWithoutReviewsInput
+  place: PlaceCreateOneWithoutReviewsInput!
   experience: ExperienceCreateOneWithoutReviewsInput
 }
 
@@ -5588,7 +7602,7 @@ input ReviewCreateWithoutExperienceInput {
   value: Int!
   cleanliness: Int!
   communication: Int!
-  place: PlaceCreateOneWithoutReviewsInput
+  place: PlaceCreateOneWithoutReviewsInput!
 }
 
 input ReviewCreateWithoutPlaceInput {
@@ -5631,6 +7645,141 @@ enum ReviewOrderByInput {
   communication_DESC
   updatedAt_ASC
   updatedAt_DESC
+}
+
+type ReviewPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  text: String!
+  stars: Int!
+  accuracy: Int!
+  location: Int!
+  checkIn: Int!
+  value: Int!
+  cleanliness: Int!
+  communication: Int!
+}
+
+input ReviewSubscriptionFilter {
+  AND: [ReviewSubscriptionFilter!]
+  OR: [ReviewSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ReviewSubscriptionFilterNode
+}
+
+input ReviewSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  text: String
+  text_not: String
+  text_in: [String!]
+  text_not_in: [String!]
+  text_lt: String
+  text_lte: String
+  text_gt: String
+  text_gte: String
+  text_contains: String
+  text_not_contains: String
+  text_starts_with: String
+  text_not_starts_with: String
+  text_ends_with: String
+  text_not_ends_with: String
+  stars: Int
+  stars_not: Int
+  stars_in: [Int!]
+  stars_not_in: [Int!]
+  stars_lt: Int
+  stars_lte: Int
+  stars_gt: Int
+  stars_gte: Int
+  accuracy: Int
+  accuracy_not: Int
+  accuracy_in: [Int!]
+  accuracy_not_in: [Int!]
+  accuracy_lt: Int
+  accuracy_lte: Int
+  accuracy_gt: Int
+  accuracy_gte: Int
+  location: Int
+  location_not: Int
+  location_in: [Int!]
+  location_not_in: [Int!]
+  location_lt: Int
+  location_lte: Int
+  location_gt: Int
+  location_gte: Int
+  checkIn: Int
+  checkIn_not: Int
+  checkIn_in: [Int!]
+  checkIn_not_in: [Int!]
+  checkIn_lt: Int
+  checkIn_lte: Int
+  checkIn_gt: Int
+  checkIn_gte: Int
+  value: Int
+  value_not: Int
+  value_in: [Int!]
+  value_not_in: [Int!]
+  value_lt: Int
+  value_lte: Int
+  value_gt: Int
+  value_gte: Int
+  cleanliness: Int
+  cleanliness_not: Int
+  cleanliness_in: [Int!]
+  cleanliness_not_in: [Int!]
+  cleanliness_lt: Int
+  cleanliness_lte: Int
+  cleanliness_gt: Int
+  cleanliness_gte: Int
+  communication: Int
+  communication_not: Int
+  communication_in: [Int!]
+  communication_not_in: [Int!]
+  communication_lt: Int
+  communication_lte: Int
+  communication_gt: Int
+  communication_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  place: PlaceWhereInput
+  experience: ExperienceWhereInput
+}
+
+type ReviewSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Review
+  updatedFields: [String!]
+  previousValues: ReviewPreviousValues
 }
 
 input ReviewUpdateInput {
@@ -5813,9 +7962,35 @@ input ReviewWhereUniqueInput {
   id: ID
 }
 
+type Subscription {
+  User(where: UserSubscriptionFilter): UserSubscriptionPayload
+  Place(where: PlaceSubscriptionFilter): PlaceSubscriptionPayload
+  Pricing(where: PricingSubscriptionFilter): PricingSubscriptionPayload
+  GuestRequirements(where: GuestRequirementsSubscriptionFilter): GuestRequirementsSubscriptionPayload
+  Policies(where: PoliciesSubscriptionFilter): PoliciesSubscriptionPayload
+  HouseRules(where: HouseRulesSubscriptionFilter): HouseRulesSubscriptionPayload
+  Views(where: ViewsSubscriptionFilter): ViewsSubscriptionPayload
+  Location(where: LocationSubscriptionFilter): LocationSubscriptionPayload
+  Neighbourhood(where: NeighbourhoodSubscriptionFilter): NeighbourhoodSubscriptionPayload
+  City(where: CitySubscriptionFilter): CitySubscriptionPayload
+  Picture(where: PictureSubscriptionFilter): PictureSubscriptionPayload
+  Experience(where: ExperienceSubscriptionFilter): ExperienceSubscriptionPayload
+  ExperienceCategory(where: ExperienceCategorySubscriptionFilter): ExperienceCategorySubscriptionPayload
+  Amenities(where: AmenitiesSubscriptionFilter): AmenitiesSubscriptionPayload
+  Review(where: ReviewSubscriptionFilter): ReviewSubscriptionPayload
+  Booking(where: BookingSubscriptionFilter): BookingSubscriptionPayload
+  Payment(where: PaymentSubscriptionFilter): PaymentSubscriptionPayload
+  PaymentAccount(where: PaymentAccountSubscriptionFilter): PaymentAccountSubscriptionPayload
+  PaypalInformation(where: PaypalInformationSubscriptionFilter): PaypalInformationSubscriptionPayload
+  CreditCardInformation(where: CreditCardInformationSubscriptionFilter): CreditCardInformationSubscriptionPayload
+  Message(where: MessageSubscriptionFilter): MessageSubscriptionPayload
+  Notification(where: NotificationSubscriptionFilter): NotificationSubscriptionPayload
+  Restaurant(where: RestaurantSubscriptionFilter): RestaurantSubscriptionPayload
+}
+
 type UserConnection {
   pageInfo: PageInfo!
-  edges: [UserEdge!]
+  edges: [UserEdge]!
 }
 
 input UserCreateInput {
@@ -6082,6 +8257,181 @@ enum UserOrderByInput {
   responseTime_DESC
   isSuperHost_ASC
   isSuperHost_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  phone: String!
+  responseRate: Float
+  responseTime: Int
+  isSuperHost: Boolean!
+}
+
+input UserSubscriptionFilter {
+  AND: [UserSubscriptionFilter!]
+  OR: [UserSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserSubscriptionFilterNode
+}
+
+input UserSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  firstName: String
+  firstName_not: String
+  firstName_in: [String!]
+  firstName_not_in: [String!]
+  firstName_lt: String
+  firstName_lte: String
+  firstName_gt: String
+  firstName_gte: String
+  firstName_contains: String
+  firstName_not_contains: String
+  firstName_starts_with: String
+  firstName_not_starts_with: String
+  firstName_ends_with: String
+  firstName_not_ends_with: String
+  lastName: String
+  lastName_not: String
+  lastName_in: [String!]
+  lastName_not_in: [String!]
+  lastName_lt: String
+  lastName_lte: String
+  lastName_gt: String
+  lastName_gte: String
+  lastName_contains: String
+  lastName_not_contains: String
+  lastName_starts_with: String
+  lastName_not_starts_with: String
+  lastName_ends_with: String
+  lastName_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  phone: String
+  phone_not: String
+  phone_in: [String!]
+  phone_not_in: [String!]
+  phone_lt: String
+  phone_lte: String
+  phone_gt: String
+  phone_gte: String
+  phone_contains: String
+  phone_not_contains: String
+  phone_starts_with: String
+  phone_not_starts_with: String
+  phone_ends_with: String
+  phone_not_ends_with: String
+  responseRate: Float
+  responseRate_not: Float
+  responseRate_in: [Float!]
+  responseRate_not_in: [Float!]
+  responseRate_lt: Float
+  responseRate_lte: Float
+  responseRate_gt: Float
+  responseRate_gte: Float
+  responseTime: Int
+  responseTime_not: Int
+  responseTime_in: [Int!]
+  responseTime_not_in: [Int!]
+  responseTime_lt: Int
+  responseTime_lte: Int
+  responseTime_gt: Int
+  responseTime_gte: Int
+  isSuperHost: Boolean
+  isSuperHost_not: Boolean
+  ownedPlaces_every: PlaceWhereInput
+  ownedPlaces_some: PlaceWhereInput
+  ownedPlaces_none: PlaceWhereInput
+  location: LocationWhereInput
+  bookings_every: BookingWhereInput
+  bookings_some: BookingWhereInput
+  bookings_none: BookingWhereInput
+  paymentAccount_every: PaymentAccountWhereInput
+  paymentAccount_some: PaymentAccountWhereInput
+  paymentAccount_none: PaymentAccountWhereInput
+  sentMessages_every: MessageWhereInput
+  sentMessages_some: MessageWhereInput
+  sentMessages_none: MessageWhereInput
+  receivedMessages_every: MessageWhereInput
+  receivedMessages_some: MessageWhereInput
+  receivedMessages_none: MessageWhereInput
+  notifications_every: NotificationWhereInput
+  notifications_some: NotificationWhereInput
+  notifications_none: NotificationWhereInput
+  profilePicture: PictureWhereInput
+  hostingExperiences_every: ExperienceWhereInput
+  hostingExperiences_some: ExperienceWhereInput
+  hostingExperiences_none: ExperienceWhereInput
+}
+
+type UserSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
 }
 
 input UserUpdateInput {
@@ -6608,12 +8958,12 @@ input UserWhereUniqueInput {
 
 type ViewsConnection {
   pageInfo: PageInfo!
-  edges: [ViewsEdge!]
+  edges: [ViewsEdge]!
 }
 
 input ViewsCreateInput {
   lastWeek: Int!
-  place: PlaceCreateOneWithoutViewsInput
+  place: PlaceCreateOneWithoutViewsInput!
 }
 
 input ViewsCreateOneWithoutPlaceInput {
@@ -6639,6 +8989,70 @@ enum ViewsOrderByInput {
   updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+}
+
+type ViewsPreviousValues {
+  id: ID!
+  lastWeek: Int!
+}
+
+input ViewsSubscriptionFilter {
+  AND: [ViewsSubscriptionFilter!]
+  OR: [ViewsSubscriptionFilter!]
+  mutation_in: [_ModelMutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ViewsSubscriptionFilterNode
+}
+
+input ViewsSubscriptionFilterNode {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  lastWeek: Int
+  lastWeek_not: Int
+  lastWeek_in: [Int!]
+  lastWeek_not_in: [Int!]
+  lastWeek_lt: Int
+  lastWeek_lte: Int
+  lastWeek_gt: Int
+  lastWeek_gte: Int
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  place: PlaceWhereInput
+}
+
+type ViewsSubscriptionPayload {
+  mutation: _ModelMutationType!
+  node: Views
+  updatedFields: [String!]
+  previousValues: ViewsPreviousValues
 }
 
 input ViewsUpdateInput {

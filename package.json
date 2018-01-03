@@ -3,25 +3,24 @@
   "version": "0.0.0",
   "scripts": {
     "start": "nodemon -x 'ts-node -r dotenv/config' -e ts,graphql src/index.ts",
-    "debug": "nodemon -x 'ts-node -r dotenv/config --inspect' -e ts,graphql src/index.ts",
+    "debug": "nodemon -x 'ts-node --inspect -r dotenv/config' -e ts,graphql src/index.ts",
     "prepare": "graphql prepare",
     "playground": "graphql playground",
     "build": "rm -rf dist && graphql prepare && tsc",
-    "deploy":
-      "now --public --dotenv .env.prod && now alias && now rm --yes --safe graphql-server-example",
+    "deploy": "now --public --dotenv .env.prod && now alias && now rm --yes --safe graphql-server-example",
     "now-start": "node dist",
     "seed": "graphql query database/seed.graphql --all -p database"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
-    "graphcool-binding": "1.0.0",
+    "graphcool-binding": "1.1.0",
     "graphql-yoga": "0.8.0",
     "jsonwebtoken": "8.1.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.1",
     "dotenv": "4.0.0",
-    "graphql-cli": "2.4.0",
+    "graphql-cli": "2.7.1",
     "nodemon": "1.14.7",
     "ts-node": "4.1.0",
     "typescript": "2.6.2"
