@@ -1,7 +1,6 @@
 # import CitySubscriptionPayload, PLACE_SIZES, DateTime, PAYMENT_PROVIDER, NOTIFICATION_TYPE, CURRENCY from "./generated/database.graphql"
 
 type Query {
-  hello: String
   topExperiences: [Experience!]!
   topHomes: [Home!]!
   topReservations: [Reservation!]!
