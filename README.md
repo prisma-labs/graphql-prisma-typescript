@@ -8,8 +8,7 @@
 # Install the beta version of Graphcool 1.0
 npm install -g graphcool@beta
 
-# Deploy Graphcool database services (recommended: Docker)
-# ... and copy the service endpoint to the `GRAPHCOOL_ENDPOINT` env var in .env
+# Deploy Graphcool database service
 graphcool deploy
 
 # Install node dependencies
