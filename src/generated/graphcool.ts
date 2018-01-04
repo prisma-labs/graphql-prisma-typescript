@@ -13284,29 +13284,29 @@ export type Mutation = {
 }
 
 export type Subscription = {
-  user: (args: { where?: UserSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<UserSubscriptionPayload | null>
-  place: (args: { where?: PlaceSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<PlaceSubscriptionPayload | null>
-  pricing: (args: { where?: PricingSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<PricingSubscriptionPayload | null>
-  guestRequirements: (args: { where?: GuestRequirementsSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<GuestRequirementsSubscriptionPayload | null>
-  policies: (args: { where?: PoliciesSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<PoliciesSubscriptionPayload | null>
-  houseRules: (args: { where?: HouseRulesSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<HouseRulesSubscriptionPayload | null>
-  views: (args: { where?: ViewsSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<ViewsSubscriptionPayload | null>
-  location: (args: { where?: LocationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<LocationSubscriptionPayload | null>
-  neighbourhood: (args: { where?: NeighbourhoodSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<NeighbourhoodSubscriptionPayload | null>
-  city: (args: { where?: CitySubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<CitySubscriptionPayload | null>
-  picture: (args: { where?: PictureSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<PictureSubscriptionPayload | null>
-  experience: (args: { where?: ExperienceSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<ExperienceSubscriptionPayload | null>
-  experienceCategory: (args: { where?: ExperienceCategorySubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<ExperienceCategorySubscriptionPayload | null>
-  amenities: (args: { where?: AmenitiesSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<AmenitiesSubscriptionPayload | null>
-  review: (args: { where?: ReviewSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<ReviewSubscriptionPayload | null>
-  booking: (args: { where?: BookingSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<BookingSubscriptionPayload | null>
-  payment: (args: { where?: PaymentSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<PaymentSubscriptionPayload | null>
-  paymentAccount: (args: { where?: PaymentAccountSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<PaymentAccountSubscriptionPayload | null>
-  paypalInformation: (args: { where?: PaypalInformationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<PaypalInformationSubscriptionPayload | null>
-  creditCardInformation: (args: { where?: CreditCardInformationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<CreditCardInformationSubscriptionPayload | null>
-  message: (args: { where?: MessageSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<MessageSubscriptionPayload | null>
-  notification: (args: { where?: NotificationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<NotificationSubscriptionPayload | null>
-  restaurant: (args: { where?: RestaurantSubscriptionWhereInput }, info?: GraphQLResolveInfo | string) => Promise<RestaurantSubscriptionPayload | null>
+  user: (args: { where?: UserSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<UserSubscriptionPayload>>
+  place: (args: { where?: PlaceSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<PlaceSubscriptionPayload>>
+  pricing: (args: { where?: PricingSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<PricingSubscriptionPayload>>
+  guestRequirements: (args: { where?: GuestRequirementsSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<GuestRequirementsSubscriptionPayload>>
+  policies: (args: { where?: PoliciesSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<PoliciesSubscriptionPayload>>
+  houseRules: (args: { where?: HouseRulesSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<HouseRulesSubscriptionPayload>>
+  views: (args: { where?: ViewsSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<ViewsSubscriptionPayload>>
+  location: (args: { where?: LocationSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<LocationSubscriptionPayload>>
+  neighbourhood: (args: { where?: NeighbourhoodSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<NeighbourhoodSubscriptionPayload>>
+  city: (args: { where?: CitySubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<CitySubscriptionPayload>>
+  picture: (args: { where?: PictureSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<PictureSubscriptionPayload>>
+  experience: (args: { where?: ExperienceSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<ExperienceSubscriptionPayload>>
+  experienceCategory: (args: { where?: ExperienceCategorySubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<ExperienceCategorySubscriptionPayload>>
+  amenities: (args: { where?: AmenitiesSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<AmenitiesSubscriptionPayload>>
+  review: (args: { where?: ReviewSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<ReviewSubscriptionPayload>>
+  booking: (args: { where?: BookingSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<BookingSubscriptionPayload>>
+  payment: (args: { where?: PaymentSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<PaymentSubscriptionPayload>>
+  paymentAccount: (args: { where?: PaymentAccountSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<PaymentAccountSubscriptionPayload>>
+  paypalInformation: (args: { where?: PaypalInformationSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<PaypalInformationSubscriptionPayload>>
+  creditCardInformation: (args: { where?: CreditCardInformationSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<CreditCardInformationSubscriptionPayload>>
+  message: (args: { where?: MessageSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<MessageSubscriptionPayload>>
+  notification: (args: { where?: NotificationSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<NotificationSubscriptionPayload>>
+  restaurant: (args: { where?: RestaurantSubscriptionWhereInput }, infoOrQuery?: GraphQLResolveInfo | string) => Promise<AsyncIterator<RestaurantSubscriptionPayload>>
 }
 
 export class Graphcool extends BaseGraphcool {
@@ -13340,7 +13340,7 @@ export class Graphcool extends BaseGraphcool {
     Notification: (where: NotificationWhereInput): Promise<boolean> => super.existsDelegate('query', 'notifications', { where }, {}, '{ id }'),
     Restaurant: (where: RestaurantWhereInput): Promise<boolean> => super.existsDelegate('query', 'restaurants', { where }, {}, '{ id }')
   }
-  
+
   query: Query = {
     users: (args, info): Promise<User[]> => super.delegate('query', 'users', args, {}, info),
     places: (args, info): Promise<Place[]> => super.delegate('query', 'places', args, {}, info),
@@ -13550,5 +13550,31 @@ export class Graphcool extends BaseGraphcool {
     deleteManyNotifications: (args, info): Promise<BatchPayload> => super.delegate('mutation', 'deleteManyNotifications', args, {}, info),
     deleteManyRestaurants: (args, info): Promise<BatchPayload> => super.delegate('mutation', 'deleteManyRestaurants', args, {}, info),
     resetData: (args, info): Promise<Boolean | null> => super.delegate('mutation', 'resetData', args, {}, info)
+  }
+
+  subscription: Subscription = {
+    user: (args, infoOrQuery): Promise<AsyncIterator<UserSubscriptionPayload>> => super.delegateSubscription('user', args, infoOrQuery),
+    place: (args, infoOrQuery): Promise<AsyncIterator<PlaceSubscriptionPayload>> => super.delegateSubscription('place', args, infoOrQuery),
+    pricing: (args, infoOrQuery): Promise<AsyncIterator<PricingSubscriptionPayload>> => super.delegateSubscription('pricing', args, infoOrQuery),
+    guestRequirements: (args, infoOrQuery): Promise<AsyncIterator<GuestRequirementsSubscriptionPayload>> => super.delegateSubscription('guestRequirements', args, infoOrQuery),
+    policies: (args, infoOrQuery): Promise<AsyncIterator<PoliciesSubscriptionPayload>> => super.delegateSubscription('policies', args, infoOrQuery),
+    houseRules: (args, infoOrQuery): Promise<AsyncIterator<HouseRulesSubscriptionPayload>> => super.delegateSubscription('houseRules', args, infoOrQuery),
+    views: (args, infoOrQuery): Promise<AsyncIterator<ViewsSubscriptionPayload>> => super.delegateSubscription('views', args, infoOrQuery),
+    location: (args, infoOrQuery): Promise<AsyncIterator<LocationSubscriptionPayload>> => super.delegateSubscription('location', args, infoOrQuery),
+    neighbourhood: (args, infoOrQuery): Promise<AsyncIterator<NeighbourhoodSubscriptionPayload>> => super.delegateSubscription('neighbourhood', args, infoOrQuery),
+    city: (args, infoOrQuery): Promise<AsyncIterator<CitySubscriptionPayload>> => super.delegateSubscription('city', args, infoOrQuery),
+    picture: (args, infoOrQuery): Promise<AsyncIterator<PictureSubscriptionPayload>> => super.delegateSubscription('picture', args, infoOrQuery),
+    experience: (args, infoOrQuery): Promise<AsyncIterator<ExperienceSubscriptionPayload>> => super.delegateSubscription('experience', args, infoOrQuery),
+    experienceCategory: (args, infoOrQuery): Promise<AsyncIterator<ExperienceCategorySubscriptionPayload>> => super.delegateSubscription('experienceCategory', args, infoOrQuery),
+    amenities: (args, infoOrQuery): Promise<AsyncIterator<AmenitiesSubscriptionPayload>> => super.delegateSubscription('amenities', args, infoOrQuery),
+    review: (args, infoOrQuery): Promise<AsyncIterator<ReviewSubscriptionPayload>> => super.delegateSubscription('review', args, infoOrQuery),
+    booking: (args, infoOrQuery): Promise<AsyncIterator<BookingSubscriptionPayload>> => super.delegateSubscription('booking', args, infoOrQuery),
+    payment: (args, infoOrQuery): Promise<AsyncIterator<PaymentSubscriptionPayload>> => super.delegateSubscription('payment', args, infoOrQuery),
+    paymentAccount: (args, infoOrQuery): Promise<AsyncIterator<PaymentAccountSubscriptionPayload>> => super.delegateSubscription('paymentAccount', args, infoOrQuery),
+    paypalInformation: (args, infoOrQuery): Promise<AsyncIterator<PaypalInformationSubscriptionPayload>> => super.delegateSubscription('paypalInformation', args, infoOrQuery),
+    creditCardInformation: (args, infoOrQuery): Promise<AsyncIterator<CreditCardInformationSubscriptionPayload>> => super.delegateSubscription('creditCardInformation', args, infoOrQuery),
+    message: (args, infoOrQuery): Promise<AsyncIterator<MessageSubscriptionPayload>> => super.delegateSubscription('message', args, infoOrQuery),
+    notification: (args, infoOrQuery): Promise<AsyncIterator<NotificationSubscriptionPayload>> => super.delegateSubscription('notification', args, infoOrQuery),
+    restaurant: (args, infoOrQuery): Promise<AsyncIterator<RestaurantSubscriptionPayload>> => super.delegateSubscription('restaurant', args, infoOrQuery)
   }
 }
