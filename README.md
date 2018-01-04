@@ -19,13 +19,6 @@ yarn start
 # Open http://localhost:5000/
 ```
 
-### Seeding some data
-
-```sh
-# Runs seed mutations in queries/seed.graphql
-yarn seed
-```
-
 ### Booking flow
 Look in `queries/booking.graphql` to see the booking flow.
 
