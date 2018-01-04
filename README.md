@@ -4,6 +4,8 @@
 
 ## Getting Started ([Hosted demo](https://airbnb.now.sh))
 
+> Requires Docker installed locally
+
 ```sh
 # Install the beta version of Graphcool 1.0
 npm install -g graphcool@beta
