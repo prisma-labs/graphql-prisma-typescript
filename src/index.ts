@@ -11,7 +11,6 @@ const server = new GraphQLServer({
       fragmentReplacements,
       endpoint: process.env.GRAPHCOOL_ENDPOINT,
       secret: process.env.GRAPHCOOL_SECRET,
-      debug: true,
     }),
   }),
 })
