@@ -11,6 +11,11 @@ export const Query = {
     return ctx.db.query.places({ orderBy: 'popularity_DESC' }, info)
   },
 
+  homesInPriceRange: async (parent, args, ctx: Context, info) => {
+    const where = {AND: [{pricing:{perNight_gte: args.min}}, {pricing:{perNight_lte: args.max}}]}
+    return ctx.db.query.places({ where }, info)
+  },
+
   topReservations: async (parent, args, ctx: Context, info) => {
     return ctx.db.query.restaurants({ orderBy: 'popularity_DESC' }, info)
   },
