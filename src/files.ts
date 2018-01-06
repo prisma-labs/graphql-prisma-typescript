@@ -1,42 +1,48 @@
 import { S3 } from 'aws-sdk'
 import { v4 as uuid } from 'uuid'
+import * as mime from 'mime-types'
 
-import { Context, getUserId } from './utils'
+export interface S3File {
+    name: string,
+    secret: string,
+    url: string,
+    bucket: string
+}
 
-const bucket = new S3({
+const client = new S3({
    accessKeyId: process.env.S3_ACCESS_KEY,
    secretAccessKey: process.env.S3_ACCESS_SECRET,
 })
 
-export const upload = async(file: File, ctx: Context) => {
-    const user = getUserId(ctx)
-
-    const name = file.filename
+export const upload = async(file: File): Promise<S3File> => {
+    const name = file.name
     const secret = uuid()
-    const size = file.byteCount
-    const contentType = file.contentType
+    const bucket = process.env.S3_UPLOAD_BUCKET
+    const contentType = mime(name)
 
-    if (contentType !== 'image') {
+    if (!name.endsWith('/image')) {
         throw new UploadError()
     }
 
-    const s3UploadResponse = await bucket.upload({
-        Bucket: process.env.S3_UPLOAD_BUCKET,
-        Key: secret,
-        ACL: 'public-read',
-        Body: file,
-        ContentLength: size,
-        ContentType: contentType
-    }).promise()
+    try {
+        const res = await client.upload({
+            Bucket: process.env.S3_UPLOAD_BUCKET,
+            Key: secret,
+            ACL: 'public-read',
+            Body: file,
+            ContentType: contentType
+        }).promise()
 
-    const gcUploadResponse = await ctx.db.mutation.createPicture({ data: {
-        name,
-        size,
-        secret,
-        contentType,
-    }})
-
-    return gcUploadResponse    
+        return {
+            name,
+            url: res.Location,
+            secret,
+            bucket
+        }
+    } catch(err) {
+        console.log(err);
+        throw new UploadError()
+    }
 }
 
 export class UploadError extends Error {

@@ -123,7 +123,7 @@ type Location {
 
 type Picture {
   id: ID!
-  url: String!
+  url(x: Int, y: Int, width: Int, height: Int): String!
 }
 
 type City {
