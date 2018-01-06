@@ -12,10 +12,14 @@
     "seed": "graphql query database/seed.graphql --all -p database"
   },
   "dependencies": {
+    "aws-sdk": "^2.177.0",
     "bcryptjs": "2.4.3",
     "graphcool-binding": "1.3.2",
     "graphql-yoga": "1.1.1",
-    "jsonwebtoken": "8.1.0"
+    "isomorphic-fetch": "^2.2.1",
+    "jsonwebtoken": "8.1.0",
+    "mime-types": "^2.1.17",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.1",

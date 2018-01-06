@@ -7,7 +7,7 @@ projects:
         default: "http://localhost:5000"
   database:
     schemaPath: "src/generated/database.graphql"
-    includes: ["database/seed.graphql"]
+    # includes: ["database/seed.graphql"]
     extensions:
       graphcool: graphcool.yml
       prepare-binding:
