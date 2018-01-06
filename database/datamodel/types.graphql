@@ -131,7 +131,11 @@ type City {
 }
 
 type Picture {
-  url: String!
+  id: ID! @unique
+  name: String!
+  size: Int
+  secret: String!
+  contentType: String!
 }
 
 type Experience {
