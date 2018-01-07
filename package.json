@@ -8,8 +8,7 @@
     "playground": "graphql playground",
     "build": "rm -rf dist && graphql prepare && tsc",
     "deploy": "now --public --dotenv .env.prod && now alias && now rm --yes --safe graphql-server-example",
-    "now-start": "node dist",
-    "seed": "graphql query database/seed.graphql --all -p database"
+    "now-start": "node dist"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
