@@ -4,8 +4,8 @@ cluster: ${env:GRAPHCOOL_CLUSTER}
 secret: ${env:GRAPHCOOL_SECRET}
 
 datamodel:
-- database/datamodel/types.graphql
-- database/datamodel/enums.graphql
+- datamodel/types.graphql
+- datamodel/enums.graphql
 
 seed:
-  import: database/seed.graphql
+  import: seed.graphql

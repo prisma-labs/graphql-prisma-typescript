@@ -2536,7 +2536,7 @@ input MessageCreateInput {
   deliveredAt: DateTime!
   readAt: DateTime!
   from: UserCreateOneWithoutSentMessagesInput!
-  to: UserCreateOneWithoutSentMessagesInput!
+  to: UserCreateOneWithoutReceivedMessagesInput!
 }
 
 input MessageCreateManyWithoutFromInput {
@@ -2544,9 +2544,21 @@ input MessageCreateManyWithoutFromInput {
   connect: [MessageWhereUniqueInput!]
 }
 
+input MessageCreateManyWithoutToInput {
+  create: [MessageCreateWithoutToInput!]
+  connect: [MessageWhereUniqueInput!]
+}
+
 input MessageCreateWithoutFromInput {
   deliveredAt: DateTime!
   readAt: DateTime!
+  to: UserCreateOneWithoutReceivedMessagesInput!
+}
+
+input MessageCreateWithoutToInput {
+  deliveredAt: DateTime!
+  readAt: DateTime!
+  from: UserCreateOneWithoutSentMessagesInput!
 }
 
 type MessageEdge {
@@ -2595,7 +2607,7 @@ input MessageUpdateInput {
   deliveredAt: DateTime
   readAt: DateTime
   from: UserUpdateOneWithoutSentMessagesInput
-  to: UserUpdateOneWithoutSentMessagesInput
+  to: UserUpdateOneWithoutReceivedMessagesInput
 }
 
 input MessageUpdateManyWithoutFromInput {
@@ -2607,9 +2619,19 @@ input MessageUpdateManyWithoutFromInput {
   upsert: [MessageUpsertWithoutFromInput!]
 }
 
+input MessageUpdateManyWithoutToInput {
+  create: [MessageCreateWithoutToInput!]
+  connect: [MessageWhereUniqueInput!]
+  disconnect: [MessageWhereUniqueInput!]
+  delete: [MessageWhereUniqueInput!]
+  update: [MessageUpdateWithoutToInput!]
+  upsert: [MessageUpsertWithoutToInput!]
+}
+
 input MessageUpdateWithoutFromDataInput {
   deliveredAt: DateTime
   readAt: DateTime
+  to: UserUpdateOneWithoutReceivedMessagesInput
 }
 
 input MessageUpdateWithoutFromInput {
@@ -2617,10 +2639,27 @@ input MessageUpdateWithoutFromInput {
   data: MessageUpdateWithoutFromDataInput!
 }
 
+input MessageUpdateWithoutToDataInput {
+  deliveredAt: DateTime
+  readAt: DateTime
+  from: UserUpdateOneWithoutSentMessagesInput
+}
+
+input MessageUpdateWithoutToInput {
+  where: MessageWhereUniqueInput!
+  data: MessageUpdateWithoutToDataInput!
+}
+
 input MessageUpsertWithoutFromInput {
   where: MessageWhereUniqueInput!
   update: MessageUpdateWithoutFromDataInput!
   create: MessageCreateWithoutFromInput!
+}
+
+input MessageUpsertWithoutToInput {
+  where: MessageWhereUniqueInput!
+  update: MessageUpdateWithoutToDataInput!
+  create: MessageCreateWithoutToInput!
 }
 
 input MessageWhereInput {
@@ -5860,7 +5899,7 @@ input UserCreateInput {
   bookings: BookingCreateManyWithoutBookeeInput
   paymentAccount: PaymentAccountCreateManyWithoutUserInput
   sentMessages: MessageCreateManyWithoutFromInput
-  receivedMessages: MessageCreateManyWithoutFromInput
+  receivedMessages: MessageCreateManyWithoutToInput
   notifications: NotificationCreateManyWithoutUserInput
   profilePicture: PictureCreateOneInput
   hostingExperiences: ExperienceCreateManyWithoutHostInput
@@ -5896,6 +5935,11 @@ input UserCreateOneWithoutPaymentAccountInput {
   connect: UserWhereUniqueInput
 }
 
+input UserCreateOneWithoutReceivedMessagesInput {
+  create: UserCreateWithoutReceivedMessagesInput
+  connect: UserWhereUniqueInput
+}
+
 input UserCreateOneWithoutSentMessagesInput {
   create: UserCreateWithoutSentMessagesInput
   connect: UserWhereUniqueInput
@@ -5914,7 +5958,7 @@ input UserCreateWithoutBookingsInput {
   location: LocationCreateOneWithoutUserInput
   paymentAccount: PaymentAccountCreateManyWithoutUserInput
   sentMessages: MessageCreateManyWithoutFromInput
-  receivedMessages: MessageCreateManyWithoutFromInput
+  receivedMessages: MessageCreateManyWithoutToInput
   notifications: NotificationCreateManyWithoutUserInput
   profilePicture: PictureCreateOneInput
   hostingExperiences: ExperienceCreateManyWithoutHostInput
@@ -5934,7 +5978,7 @@ input UserCreateWithoutHostingExperiencesInput {
   bookings: BookingCreateManyWithoutBookeeInput
   paymentAccount: PaymentAccountCreateManyWithoutUserInput
   sentMessages: MessageCreateManyWithoutFromInput
-  receivedMessages: MessageCreateManyWithoutFromInput
+  receivedMessages: MessageCreateManyWithoutToInput
   notifications: NotificationCreateManyWithoutUserInput
   profilePicture: PictureCreateOneInput
 }
@@ -5952,7 +5996,7 @@ input UserCreateWithoutLocationInput {
   bookings: BookingCreateManyWithoutBookeeInput
   paymentAccount: PaymentAccountCreateManyWithoutUserInput
   sentMessages: MessageCreateManyWithoutFromInput
-  receivedMessages: MessageCreateManyWithoutFromInput
+  receivedMessages: MessageCreateManyWithoutToInput
   notifications: NotificationCreateManyWithoutUserInput
   profilePicture: PictureCreateOneInput
   hostingExperiences: ExperienceCreateManyWithoutHostInput
@@ -5972,7 +6016,7 @@ input UserCreateWithoutNotificationsInput {
   bookings: BookingCreateManyWithoutBookeeInput
   paymentAccount: PaymentAccountCreateManyWithoutUserInput
   sentMessages: MessageCreateManyWithoutFromInput
-  receivedMessages: MessageCreateManyWithoutFromInput
+  receivedMessages: MessageCreateManyWithoutToInput
   profilePicture: PictureCreateOneInput
   hostingExperiences: ExperienceCreateManyWithoutHostInput
 }
@@ -5990,7 +6034,7 @@ input UserCreateWithoutOwnedPlacesInput {
   bookings: BookingCreateManyWithoutBookeeInput
   paymentAccount: PaymentAccountCreateManyWithoutUserInput
   sentMessages: MessageCreateManyWithoutFromInput
-  receivedMessages: MessageCreateManyWithoutFromInput
+  receivedMessages: MessageCreateManyWithoutToInput
   notifications: NotificationCreateManyWithoutUserInput
   profilePicture: PictureCreateOneInput
   hostingExperiences: ExperienceCreateManyWithoutHostInput
@@ -6009,7 +6053,26 @@ input UserCreateWithoutPaymentAccountInput {
   location: LocationCreateOneWithoutUserInput
   bookings: BookingCreateManyWithoutBookeeInput
   sentMessages: MessageCreateManyWithoutFromInput
-  receivedMessages: MessageCreateManyWithoutFromInput
+  receivedMessages: MessageCreateManyWithoutToInput
+  notifications: NotificationCreateManyWithoutUserInput
+  profilePicture: PictureCreateOneInput
+  hostingExperiences: ExperienceCreateManyWithoutHostInput
+}
+
+input UserCreateWithoutReceivedMessagesInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  phone: String!
+  responseRate: Float
+  responseTime: Int
+  isSuperHost: Boolean
+  ownedPlaces: PlaceCreateManyWithoutHostInput
+  location: LocationCreateOneWithoutUserInput
+  bookings: BookingCreateManyWithoutBookeeInput
+  paymentAccount: PaymentAccountCreateManyWithoutUserInput
+  sentMessages: MessageCreateManyWithoutFromInput
   notifications: NotificationCreateManyWithoutUserInput
   profilePicture: PictureCreateOneInput
   hostingExperiences: ExperienceCreateManyWithoutHostInput
@@ -6028,6 +6091,7 @@ input UserCreateWithoutSentMessagesInput {
   location: LocationCreateOneWithoutUserInput
   bookings: BookingCreateManyWithoutBookeeInput
   paymentAccount: PaymentAccountCreateManyWithoutUserInput
+  receivedMessages: MessageCreateManyWithoutToInput
   notifications: NotificationCreateManyWithoutUserInput
   profilePicture: PictureCreateOneInput
   hostingExperiences: ExperienceCreateManyWithoutHostInput
@@ -6108,7 +6172,7 @@ input UserUpdateInput {
   bookings: BookingUpdateManyWithoutBookeeInput
   paymentAccount: PaymentAccountUpdateManyWithoutUserInput
   sentMessages: MessageUpdateManyWithoutFromInput
-  receivedMessages: MessageUpdateManyWithoutFromInput
+  receivedMessages: MessageUpdateManyWithoutToInput
   notifications: NotificationUpdateManyWithoutUserInput
   profilePicture: PictureUpdateOneInput
   hostingExperiences: ExperienceUpdateManyWithoutHostInput
@@ -6168,6 +6232,15 @@ input UserUpdateOneWithoutPaymentAccountInput {
   upsert: UserUpsertWithoutPaymentAccountInput
 }
 
+input UserUpdateOneWithoutReceivedMessagesInput {
+  create: UserCreateWithoutReceivedMessagesInput
+  connect: UserWhereUniqueInput
+  disconnect: UserWhereUniqueInput
+  delete: UserWhereUniqueInput
+  update: UserUpdateWithoutReceivedMessagesInput
+  upsert: UserUpsertWithoutReceivedMessagesInput
+}
+
 input UserUpdateOneWithoutSentMessagesInput {
   create: UserCreateWithoutSentMessagesInput
   connect: UserWhereUniqueInput
@@ -6190,7 +6263,7 @@ input UserUpdateWithoutBookingsDataInput {
   location: LocationUpdateOneWithoutUserInput
   paymentAccount: PaymentAccountUpdateManyWithoutUserInput
   sentMessages: MessageUpdateManyWithoutFromInput
-  receivedMessages: MessageUpdateManyWithoutFromInput
+  receivedMessages: MessageUpdateManyWithoutToInput
   notifications: NotificationUpdateManyWithoutUserInput
   profilePicture: PictureUpdateOneInput
   hostingExperiences: ExperienceUpdateManyWithoutHostInput
@@ -6215,7 +6288,7 @@ input UserUpdateWithoutHostingExperiencesDataInput {
   bookings: BookingUpdateManyWithoutBookeeInput
   paymentAccount: PaymentAccountUpdateManyWithoutUserInput
   sentMessages: MessageUpdateManyWithoutFromInput
-  receivedMessages: MessageUpdateManyWithoutFromInput
+  receivedMessages: MessageUpdateManyWithoutToInput
   notifications: NotificationUpdateManyWithoutUserInput
   profilePicture: PictureUpdateOneInput
 }
@@ -6238,7 +6311,7 @@ input UserUpdateWithoutLocationDataInput {
   bookings: BookingUpdateManyWithoutBookeeInput
   paymentAccount: PaymentAccountUpdateManyWithoutUserInput
   sentMessages: MessageUpdateManyWithoutFromInput
-  receivedMessages: MessageUpdateManyWithoutFromInput
+  receivedMessages: MessageUpdateManyWithoutToInput
   notifications: NotificationUpdateManyWithoutUserInput
   profilePicture: PictureUpdateOneInput
   hostingExperiences: ExperienceUpdateManyWithoutHostInput
@@ -6263,7 +6336,7 @@ input UserUpdateWithoutNotificationsDataInput {
   bookings: BookingUpdateManyWithoutBookeeInput
   paymentAccount: PaymentAccountUpdateManyWithoutUserInput
   sentMessages: MessageUpdateManyWithoutFromInput
-  receivedMessages: MessageUpdateManyWithoutFromInput
+  receivedMessages: MessageUpdateManyWithoutToInput
   profilePicture: PictureUpdateOneInput
   hostingExperiences: ExperienceUpdateManyWithoutHostInput
 }
@@ -6286,7 +6359,7 @@ input UserUpdateWithoutOwnedPlacesDataInput {
   bookings: BookingUpdateManyWithoutBookeeInput
   paymentAccount: PaymentAccountUpdateManyWithoutUserInput
   sentMessages: MessageUpdateManyWithoutFromInput
-  receivedMessages: MessageUpdateManyWithoutFromInput
+  receivedMessages: MessageUpdateManyWithoutToInput
   notifications: NotificationUpdateManyWithoutUserInput
   profilePicture: PictureUpdateOneInput
   hostingExperiences: ExperienceUpdateManyWithoutHostInput
@@ -6310,7 +6383,7 @@ input UserUpdateWithoutPaymentAccountDataInput {
   location: LocationUpdateOneWithoutUserInput
   bookings: BookingUpdateManyWithoutBookeeInput
   sentMessages: MessageUpdateManyWithoutFromInput
-  receivedMessages: MessageUpdateManyWithoutFromInput
+  receivedMessages: MessageUpdateManyWithoutToInput
   notifications: NotificationUpdateManyWithoutUserInput
   profilePicture: PictureUpdateOneInput
   hostingExperiences: ExperienceUpdateManyWithoutHostInput
@@ -6319,6 +6392,30 @@ input UserUpdateWithoutPaymentAccountDataInput {
 input UserUpdateWithoutPaymentAccountInput {
   where: UserWhereUniqueInput!
   data: UserUpdateWithoutPaymentAccountDataInput!
+}
+
+input UserUpdateWithoutReceivedMessagesDataInput {
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  phone: String
+  responseRate: Float
+  responseTime: Int
+  isSuperHost: Boolean
+  ownedPlaces: PlaceUpdateManyWithoutHostInput
+  location: LocationUpdateOneWithoutUserInput
+  bookings: BookingUpdateManyWithoutBookeeInput
+  paymentAccount: PaymentAccountUpdateManyWithoutUserInput
+  sentMessages: MessageUpdateManyWithoutFromInput
+  notifications: NotificationUpdateManyWithoutUserInput
+  profilePicture: PictureUpdateOneInput
+  hostingExperiences: ExperienceUpdateManyWithoutHostInput
+}
+
+input UserUpdateWithoutReceivedMessagesInput {
+  where: UserWhereUniqueInput!
+  data: UserUpdateWithoutReceivedMessagesDataInput!
 }
 
 input UserUpdateWithoutSentMessagesDataInput {
@@ -6334,6 +6431,7 @@ input UserUpdateWithoutSentMessagesDataInput {
   location: LocationUpdateOneWithoutUserInput
   bookings: BookingUpdateManyWithoutBookeeInput
   paymentAccount: PaymentAccountUpdateManyWithoutUserInput
+  receivedMessages: MessageUpdateManyWithoutToInput
   notifications: NotificationUpdateManyWithoutUserInput
   profilePicture: PictureUpdateOneInput
   hostingExperiences: ExperienceUpdateManyWithoutHostInput
@@ -6378,6 +6476,12 @@ input UserUpsertWithoutPaymentAccountInput {
   where: UserWhereUniqueInput!
   update: UserUpdateWithoutPaymentAccountDataInput!
   create: UserCreateWithoutPaymentAccountInput!
+}
+
+input UserUpsertWithoutReceivedMessagesInput {
+  where: UserWhereUniqueInput!
+  update: UserUpdateWithoutReceivedMessagesDataInput!
+  create: UserCreateWithoutReceivedMessagesInput!
 }
 
 input UserUpsertWithoutSentMessagesInput {

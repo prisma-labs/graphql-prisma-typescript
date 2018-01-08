@@ -9,7 +9,7 @@ projects:
     schemaPath: "src/generated/database.graphql"
     includes: ["database/seed.graphql"]
     extensions:
-      graphcool: graphcool.yml
+      graphcool: database/graphcool.yml
       prepare-binding:
         output: src/generated/graphcool.ts
         generator: graphcool-ts
