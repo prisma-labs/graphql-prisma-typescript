@@ -4,9 +4,9 @@
   "scripts": {
     "start": "nodemon -e ts,graphql -x ts-node -r dotenv/config src/index.ts",
     "debug": "nodemon -e ts,graphql -x ts-node --inspect -r dotenv/config src/index.ts",
-    "playground": "graphql playground",
+    "playground": "graphcool playground",
     "build": "rm -rf dist && graphql prepare && tsc",
-    "deploy": "now --public --dotenv .env.prod && now alias && now rm --yes --safe graphql-server-example",
+    "deploy": "now --public --dotenv .env.prod && now alias && now rm --yes --safe graphcool-server-example",
     "now-start": "node dist"
   },
   "dependencies": {
