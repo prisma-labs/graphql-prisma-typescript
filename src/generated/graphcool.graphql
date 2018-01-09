@@ -2847,7 +2847,6 @@ type Mutation {
   deleteManyMessages(where: MessageWhereInput!): BatchPayload!
   deleteManyNotifications(where: NotificationWhereInput!): BatchPayload!
   deleteManyRestaurants(where: RestaurantWhereInput!): BatchPayload!
-  resetData: Boolean
 }
 
 enum MutationType {

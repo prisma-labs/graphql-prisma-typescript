@@ -192,4 +192,431 @@ mutation place {
   ) {
     id
   }
+
 }
+
+mutation placeA{
+
+  createPlace(
+    data: {
+      name: "Urban Farmhouse at Curtis Park"
+      shortDescription: "The Urban Farmhouse circa 1886 - meticulously converted in 2013. Situated adjacent to community garden. The updates afford you all the modern convenience you could ask for and charm you can only get from a building built in 1886. A true Charmer."
+      description: "The Urban Farmhouse circa 1886 - meticulously converted in 2013. Situated adjacent to community garden. The updates afford you all the modern convenience you could ask for and charm you can only get from a building built in 1886. A true Charmer."
+      maxGuests: 3
+      pictures: {
+        create: {
+          url: "https://a0.muscache.com/im/pictures/ff6b760d-8782-4ccb-9e03-50aa720e3783.jpg?aki_policy=xx_large"
+        }
+      }
+      numBedrooms: 1
+      numBeds: 3
+      numBaths: 1
+      size: ENTIRE_CABIN
+      slug: "mushroom-dome"
+      popularity: 1
+      host: {
+        create: {
+          email: "test12@test.com"
+          firstName: "Hans"
+          lastName: "Johanson"
+          isSuperHost: true
+          phone: "+1123455667"
+          password: "secret"
+          location: {
+            create: {
+              address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+              directions: "Follow the street to the end, then right"
+              lat: 36.805235
+              lng: 121.7892066
+              neighbourHood: {
+                create: {
+                  name: "Monterey Countey"
+                  slug: "monterey-countey"
+                  featured: true
+                  popularity: 1
+                  city: { create: { name: "Moss Landing" } }
+                }
+              }
+            }
+          }
+        }
+      }
+      amenities: { create: { airConditioning: false, essentials: true } }
+      views: { create: { lastWeek: 0 } }
+      guestRequirements: {
+        create: {
+          recommendationsFromOtherHosts: false
+          guestTripInformation: false
+        }
+      }
+      policies: {
+        create: {
+          checkInStartTime: 11.00
+          checkInEndTime: 20.00
+          checkoutTime: 10.00
+        }
+      }
+      pricing: {
+        create: {
+          averageMonthly: 1000
+          averageWeekly: 300
+          basePrice: 100
+          cleaningFee: 30
+          extraGuests: 80
+          perNight: 87
+          securityDeposit: 500
+          weeklyDiscount: 50
+          smartPricing: false
+          currency: USD
+        }
+      }
+      houseRules: {
+        create: {
+          smokingAllowed: false
+          petsAllowed: true
+          suitableForInfants: false
+        }
+      }
+      location: {
+        create: {
+          address: "W Crestline Ave, Littleton, CO 80120, USA"
+          directions: "Follow the street to the end, then right"
+          lat: 39.619115
+          lng: -105.016560
+          neighbourHood: {
+            create: {
+              name: "Denver"
+              slug: "denver"
+              featured: true
+              popularity: 1
+              city: { create: { name: "Denver" } }
+            }
+          }
+        }
+      }
+    }
+  ) {
+    id
+  }
+}
+
+mutation placeB {
+
+  createPlace(
+    data: {
+      name: "Underground Hygge"
+      shortDescription: "This inspired dwelling nestled right into the breathtaking Columbia River Gorge mountainside. Reverently framed by the iconic round doorway, the wondrous views will entrance your imagination and inspire an unforgettable journey. Every nook of this little habitation will warm your sole, every cranny will charm your expedition of repose. Up the pathway, tucked into the earth, an unbelievable adventure awaits!"
+      description: "This inspired dwelling nestled right into the breathtaking Columbia River Gorge mountainside. Reverently framed by the iconic round doorway, the wondrous views will entrance your imagination and inspire an unforgettable journey. Every nook of this little habitation will warm your sole, every cranny will charm your expedition of repose. Up the pathway, tucked into the earth, an unbelievable adventure awaits!"
+      maxGuests: 3
+      pictures: {
+        create: {
+          url: "https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=xx_large"
+        }
+      }
+      numBedrooms: 1
+      numBeds: 3
+      numBaths: 1
+      size: ENTIRE_CABIN
+      slug: "mushroom-dome"
+      popularity: 1
+      host: {
+        create: {
+          email: "test13@test.com"
+          firstName: "Leah"
+          lastName: "Dyer"
+          isSuperHost: true
+          phone: "+1123455667"
+          password: "secret"
+          location: {
+            create: {
+              address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+              directions: "Follow the street to the end, then right"
+              lat: 36.805235
+              lng: 121.7892066
+              neighbourHood: {
+                create: {
+                  name: "Monterey Countey"
+                  slug: "monterey-countey"
+                  featured: true
+                  popularity: 1
+                  city: { create: { name: "Moss Landing" } }
+                }
+              }
+            }
+          }
+        }
+      }
+      amenities: { create: { airConditioning: false, essentials: true } }
+      views: { create: { lastWeek: 0 } }
+      guestRequirements: {
+        create: {
+          recommendationsFromOtherHosts: false
+          guestTripInformation: false
+        }
+      }
+      policies: {
+        create: {
+          checkInStartTime: 11.00
+          checkInEndTime: 20.00
+          checkoutTime: 10.00
+        }
+      }
+      pricing: {
+        create: {
+          averageMonthly: 1000
+          averageWeekly: 300
+          basePrice: 100
+          cleaningFee: 30
+          extraGuests: 80
+          perNight: 69
+          securityDeposit: 500
+          weeklyDiscount: 50
+          smartPricing: false
+          currency: USD
+        }
+      }
+      houseRules: {
+        create: {
+          smokingAllowed: false
+          petsAllowed: true
+          suitableForInfants: false
+        }
+      }
+      location: {
+        create: {
+          address: "2600-2712 Entiat Way, Entiat, WA 98822, USA"
+          directions: "Follow the street to the end, then right"
+          lat: 47.631190
+          lng: -120.220822
+          neighbourHood: {
+            create: {
+              name: "Orondo"
+              slug: "orondo"
+              featured: true
+              popularity: 1
+              city: { create: { name: "Orondo" } }
+            }
+          }
+        }
+      }
+    }
+  ) {
+    id
+  }
+
+}
+
+mutation placeC {
+
+  createPlace(
+    data: {
+      name: "Romantic, Cozy Cottage Next to Downtown"
+      shortDescription: "Comfy, cozy and romantic cottage less than 3 miles from Downtown. The Cleveland Cottage provides a private oasis within city limits that includes full kitchen, Wifi, parking, electric fireplace & entrance through a private courtyard with fire pit."
+      description: "Comfy, cozy and romantic cottage less than 3 miles from Downtown. The Cleveland Cottage provides a private oasis within city limits that includes full kitchen, Wifi, parking, electric fireplace & entrance through a private courtyard with fire pit."
+      maxGuests: 3
+      pictures: {
+        create: {
+          url: "https://a0.muscache.com/im/pictures/100298057/ccd8c843_original.jpg?aki_policy=xx_large"
+        }
+      }
+      numBedrooms: 1
+      numBeds: 3
+      numBaths: 1
+      size: ENTIRE_CABIN
+      slug: "mushroom-dome"
+      popularity: 1
+      host: {
+        create: {
+          email: "test15@test.com"
+          firstName: "Kris"
+          lastName: "Mao"
+          isSuperHost: true
+          phone: "+1123455667"
+          password: "secret"
+          location: {
+            create: {
+              address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+              directions: "Follow the street to the end, then right"
+              lat: 36.805235
+              lng: 121.7892066
+              neighbourHood: {
+                create: {
+                  name: "Monterey Countey"
+                  slug: "monterey-countey"
+                  featured: true
+                  popularity: 1
+                  city: { create: { name: "Moss Landing" } }
+                }
+              }
+            }
+          }
+        }
+      }
+      amenities: { create: { airConditioning: false, essentials: true } }
+      views: { create: { lastWeek: 0 } }
+      guestRequirements: {
+        create: {
+          recommendationsFromOtherHosts: false
+          guestTripInformation: false
+        }
+      }
+      policies: {
+        create: {
+          checkInStartTime: 11.00
+          checkInEndTime: 20.00
+          checkoutTime: 10.00
+        }
+      }
+      pricing: {
+        create: {
+          averageMonthly: 1000
+          averageWeekly: 300
+          basePrice: 100
+          cleaningFee: 30
+          extraGuests: 80
+          perNight: 110
+          securityDeposit: 500
+          weeklyDiscount: 50
+          smartPricing: false
+          currency: USD
+        }
+      }
+      houseRules: {
+        create: {
+          smokingAllowed: false
+          petsAllowed: true
+          suitableForInfants: false
+        }
+      }
+      location: {
+        create: {
+          address: "Greenwood, Nashville, TN 37206, USA"
+          directions: "Follow the street to the end, then right"
+          lat: 36.187977
+          lng: -86.751635
+          neighbourHood: {
+            create: {
+              name: "Nashville"
+              slug: "nashville"
+              featured: true
+              popularity: 1
+              city: { create: { name: "Nashville" } }
+            }
+          }
+        }
+      }
+    }
+  ) {
+    id
+  }
+
+}
+
+mutation placeD {
+
+  createPlace(
+    data: {
+      name: "Apartment 1 of 4 with green terrace in Roma Norte"
+      shortDescription: "We offer other options with incredible terraces: Wonderful little loft with enjoyable terrace. Green and relaxing in the heart of the bustling city."
+      description: "We offer other options with incredible terraces: Wonderful little loft with enjoyable terrace. Green and relaxing in the heart of the bustling city."
+      maxGuests: 3
+      pictures: {
+        create: {
+          url: "https://a0.muscache.com/im/pictures/45880516/93bb5931_original.jpg?aki_policy=xx_large"
+        }
+      }
+      numBedrooms: 1
+      numBeds: 3
+      numBaths: 1
+      size: ENTIRE_CABIN
+      slug: "mushroom-dome"
+      popularity: 1
+      host: {
+        create: {
+          email: "test14@test.com"
+          firstName: "Jason"
+          lastName: "Padmakumara"
+          isSuperHost: true
+          phone: "+1123455667"
+          password: "secret"
+          location: {
+            create: {
+              address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+              directions: "Follow the street to the end, then right"
+              lat: 36.805235
+              lng: 121.7892066
+              neighbourHood: {
+                create: {
+                  name: "Monterey Countey"
+                  slug: "monterey-countey"
+                  featured: true
+                  popularity: 1
+                  city: { create: { name: "Moss Landing" } }
+                }
+              }
+            }
+          }
+        }
+      }
+      amenities: { create: { airConditioning: false, essentials: true } }
+      views: { create: { lastWeek: 0 } }
+      guestRequirements: {
+        create: {
+          recommendationsFromOtherHosts: false
+          guestTripInformation: false
+        }
+      }
+      policies: {
+        create: {
+          checkInStartTime: 11.00
+          checkInEndTime: 20.00
+          checkoutTime: 10.00
+        }
+      }
+      pricing: {
+        create: {
+          averageMonthly: 1000
+          averageWeekly: 300
+          basePrice: 100
+          cleaningFee: 30
+          extraGuests: 80
+          perNight: 110
+          securityDeposit: 500
+          weeklyDiscount: 50
+          smartPricing: false
+          currency: USD
+        }
+      }
+      houseRules: {
+        create: {
+          smokingAllowed: false
+          petsAllowed: true
+          suitableForInfants: false
+        }
+      }
+      location: {
+        create: {
+          address: "Narvarte Oriente, Mexico City, CDMX, Mexico"
+          directions: "Follow the street to the end, then right"
+          lat: 19.398095
+          lng: -99.149452
+          neighbourHood: {
+            create: {
+              name: "Mexico City"
+              slug: "mexico-city"
+              featured: true
+              popularity: 1
+              city: { create: { name: "Mexico City" } }
+            }
+          }
+        }
+      }
+    }
+  ) {
+    id
+  }
+
+}
+
+
+

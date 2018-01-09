@@ -6,7 +6,7 @@ projects:
       endpoints:
         default: "http://localhost:5000"
   database:
-    schemaPath: "src/generated/database.graphql"
+    schemaPath: "src/generated/graphcool.graphql"
     includes: ["database/seed.graphql"]
     extensions:
       graphcool: database/graphcool.yml

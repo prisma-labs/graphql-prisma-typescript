@@ -1,4 +1,4 @@
-# import CitySubscriptionPayload, PLACE_SIZES, DateTime, PAYMENT_PROVIDER, NOTIFICATION_TYPE, CURRENCY from "./generated/database.graphql"
+# import CitySubscriptionPayload, PLACE_SIZES, DateTime, PAYMENT_PROVIDER, NOTIFICATION_TYPE, CURRENCY from "./generated/graphcool.graphql"
 
 type Query {
   hello: String

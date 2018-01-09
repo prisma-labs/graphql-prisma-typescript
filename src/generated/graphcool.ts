@@ -2851,7 +2851,6 @@ type Mutation {
   deleteManyMessages(where: MessageWhereInput!): BatchPayload!
   deleteManyNotifications(where: NotificationWhereInput!): BatchPayload!
   deleteManyRestaurants(where: RestaurantWhereInput!): BatchPayload!
-  resetData: Boolean
 }
 
 enum MutationType {
@@ -13488,7 +13487,6 @@ export type Mutation = {
   deleteManyMessages: (args: { where: MessageWhereInput }, info?: GraphQLResolveInfo | string) => Promise<BatchPayload>
   deleteManyNotifications: (args: { where: NotificationWhereInput }, info?: GraphQLResolveInfo | string) => Promise<BatchPayload>
   deleteManyRestaurants: (args: { where: RestaurantWhereInput }, info?: GraphQLResolveInfo | string) => Promise<BatchPayload>
-  resetData: (args: {}, info?: GraphQLResolveInfo | string) => Promise<Boolean | null>
 }
 
 export type Subscription = {
@@ -13756,8 +13754,7 @@ export class Graphcool extends BaseGraphcool {
     deleteManyCreditCardInformations: (args, info): Promise<BatchPayload> => super.delegate('mutation', 'deleteManyCreditCardInformations', args, {}, info),
     deleteManyMessages: (args, info): Promise<BatchPayload> => super.delegate('mutation', 'deleteManyMessages', args, {}, info),
     deleteManyNotifications: (args, info): Promise<BatchPayload> => super.delegate('mutation', 'deleteManyNotifications', args, {}, info),
-    deleteManyRestaurants: (args, info): Promise<BatchPayload> => super.delegate('mutation', 'deleteManyRestaurants', args, {}, info),
-    resetData: (args, info): Promise<Boolean | null> => super.delegate('mutation', 'resetData', args, {}, info)
+    deleteManyRestaurants: (args, info): Promise<BatchPayload> => super.delegate('mutation', 'deleteManyRestaurants', args, {}, info)
   }
 
   subscription: Subscription = {
