@@ -7,14 +7,11 @@
 > Requires Docker installed locally
 
 ```sh
-# Install the beta version of Graphcool 1.0
-npm install -g graphcool@beta
-
-# Deploy Graphcool database service
-graphcool deploy
-
 # Install node dependencies
 yarn install
+
+# Deploy Graphcool database service
+yarn graphcool deploy
 
 # Start development server
 yarn start
