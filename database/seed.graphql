@@ -1,5 +1,98 @@
-mutation place {
-  createPlace(
+mutation {
+
+  experience: createExperience(
+    data: {
+      popularity: 3
+      pricePerPerson: 33
+      title: "Raise a glass to Prohibition"
+      host: {
+        create: {
+          email: "test2@test.com"
+          firstName: "Kitty"
+          lastName: "Miller"
+          isSuperHost: true
+          phone: "+1123455667"
+          password: "secret"
+          location: {
+            create: {
+              address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+              directions: "Follow the street to the end, then right"
+              lat: 36.805235
+              lng: 121.7892066
+              neighbourHood: {
+                create: {
+                  name: "Monterey Countey"
+                  slug: "monterey-countey"
+                  featured: true
+                  popularity: 1
+                  city: { create: { name: "Moss Landing" } }
+                }
+              }
+            }
+          }
+        }
+      }
+      preview: {
+        create: {
+          url: "https://a0.muscache.com/im/pictures/cb14d34d-65cf-401d-ba7f-585ec37b43ef.jpg"
+        }
+      }
+      location: {
+        create: {
+          address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+          directions: "Follow the street to the end, then right"
+          lat: 36.805235
+          lng: 121.7892066
+          neighbourHood: {
+            create: {
+              name: "Monterey Countey"
+              slug: "monterey-countey"
+              featured: true
+              popularity: 1
+              city: { create: { name: "Moss Landing" } }
+            }
+          }
+        }
+      }
+    }
+  ) {
+    id
+  }
+
+  restaurant: createRestaurant(
+    data: {
+      title: "Chumley's"
+      pictures: {
+        create: {
+          url: "https://a0.muscache.com/pictures/a9a1d433-bcde-4601-88a0-5f16871b8548.jpg"
+        }
+      }
+      slug: "chumleys"
+      popularity: 1
+      avgPricePerPerson: 30
+      location: {
+        create: {
+          address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+          directions: "Follow the street to the end, then right"
+          lat: 36.805235
+          lng: 121.7892066
+          neighbourHood: {
+            create: {
+              name: "Monterey Countey"
+              slug: "monterey-countey"
+              featured: true
+              popularity: 1
+              city: { create: { name: "Moss Landing" } }
+            }
+          }
+        }
+      }
+    }
+  ) {
+    id
+  }
+
+  firstPlace: createPlace(
     data: {
       name: "Mushroom Dome Cabin: #1 on airbnb in the world"
       shortDescription: "With a geodesic dome loft & a large deck in the trees, you'll feel like you're in a tree house in the woods. We are in a quiet yet convenient location. Shaded by Oak and Madrone trees and next to a Redwood grove, you can enjoy the outdoors from the deck. In the summer, it is cool and in the winter you might get to hear the creek running below."
@@ -101,16 +194,28 @@ mutation place {
     id
   }
 
-  createExperience(
+  secondPlace: createPlace(
     data: {
-      popularity: 3
-      pricePerPerson: 33
-      title: "Raise a glass to Prohibition"
+      name: "Apartment 1 of 4 with green terrace in Roma Norte"
+      shortDescription: "We offer other options with incredible terraces: Wonderful little loft with enjoyable terrace. Green and relaxing in the heart of the bustling city."
+      description: "We offer other options with incredible terraces: Wonderful little loft with enjoyable terrace. Green and relaxing in the heart of the bustling city."
+      maxGuests: 3
+      pictures: {
+        create: {
+          url: "https://a0.muscache.com/im/pictures/45880516/93bb5931_original.jpg?aki_policy=xx_large"
+        }
+      }
+      numBedrooms: 1
+      numBeds: 3
+      numBaths: 1
+      size: ENTIRE_CABIN
+      slug: "mushroom-dome"
+      popularity: 1
       host: {
         create: {
-          email: "test2@test.com"
-          firstName: "Kitty"
-          lastName: "Miller"
+          email: "test14@test.com"
+          firstName: "Jason"
+          lastName: "Padmakumara"
           isSuperHost: true
           phone: "+1123455667"
           password: "secret"
@@ -133,24 +238,55 @@ mutation place {
           }
         }
       }
-      preview: {
+      amenities: { create: { airConditioning: false, essentials: true } }
+      views: { create: { lastWeek: 0 } }
+      guestRequirements: {
         create: {
-          url: "https://a0.muscache.com/im/pictures/cb14d34d-65cf-401d-ba7f-585ec37b43ef.jpg"
+          recommendationsFromOtherHosts: false
+          guestTripInformation: false
+        }
+      }
+      policies: {
+        create: {
+          checkInStartTime: 11.00
+          checkInEndTime: 20.00
+          checkoutTime: 10.00
+        }
+      }
+      pricing: {
+        create: {
+          averageMonthly: 1000
+          averageWeekly: 300
+          basePrice: 100
+          cleaningFee: 30
+          extraGuests: 80
+          perNight: 110
+          securityDeposit: 500
+          weeklyDiscount: 50
+          smartPricing: false
+          currency: USD
+        }
+      }
+      houseRules: {
+        create: {
+          smokingAllowed: false
+          petsAllowed: true
+          suitableForInfants: false
         }
       }
       location: {
         create: {
-          address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
+          address: "Narvarte Oriente, Mexico City, CDMX, Mexico"
           directions: "Follow the street to the end, then right"
-          lat: 36.805235
-          lng: 121.7892066
+          lat: 19.398095
+          lng: -99.149452
           neighbourHood: {
             create: {
-              name: "Monterey Countey"
-              slug: "monterey-countey"
+              name: "Mexico City"
+              slug: "mexico-city"
               featured: true
               popularity: 1
-              city: { create: { name: "Moss Landing" } }
+              city: { create: { name: "Mexico City" } }
             }
           }
         }
@@ -160,44 +296,7 @@ mutation place {
     id
   }
 
-  createRestaurant(
-    data: {
-      title: "Chumley's"
-      pictures: {
-        create: {
-          url: "https://a0.muscache.com/pictures/a9a1d433-bcde-4601-88a0-5f16871b8548.jpg"
-        }
-      }
-      slug: "chumleys"
-      popularity: 1
-      avgPricePerPerson: 30
-      location: {
-        create: {
-          address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
-          directions: "Follow the street to the end, then right"
-          lat: 36.805235
-          lng: 121.7892066
-          neighbourHood: {
-            create: {
-              name: "Monterey Countey"
-              slug: "monterey-countey"
-              featured: true
-              popularity: 1
-              city: { create: { name: "Moss Landing" } }
-            }
-          }
-        }
-      }
-    }
-  ) {
-    id
-  }
-
-}
-
-mutation placeA{
-
-  createPlace(
+  thirdPlace: createPlace(
     data: {
       name: "Urban Farmhouse at Curtis Park"
       shortDescription: "The Urban Farmhouse circa 1886 - meticulously converted in 2013. Situated adjacent to community garden. The updates afford you all the modern convenience you could ask for and charm you can only get from a building built in 1886. A true Charmer."
@@ -298,11 +397,8 @@ mutation placeA{
   ) {
     id
   }
-}
 
-mutation placeB {
-
-  createPlace(
+  fourthPlace: createPlace(
     data: {
       name: "Underground Hygge"
       shortDescription: "This inspired dwelling nestled right into the breathtaking Columbia River Gorge mountainside. Reverently framed by the iconic round doorway, the wondrous views will entrance your imagination and inspire an unforgettable journey. Every nook of this little habitation will warm your sole, every cranny will charm your expedition of repose. Up the pathway, tucked into the earth, an unbelievable adventure awaits!"
@@ -404,11 +500,7 @@ mutation placeB {
     id
   }
 
-}
-
-mutation placeC {
-
-  createPlace(
+  fifthPlace: createPlace(
     data: {
       name: "Romantic, Cozy Cottage Next to Downtown"
       shortDescription: "Comfy, cozy and romantic cottage less than 3 miles from Downtown. The Cleveland Cottage provides a private oasis within city limits that includes full kitchen, Wifi, parking, electric fireplace & entrance through a private courtyard with fire pit."
@@ -511,112 +603,3 @@ mutation placeC {
   }
 
 }
-
-mutation placeD {
-
-  createPlace(
-    data: {
-      name: "Apartment 1 of 4 with green terrace in Roma Norte"
-      shortDescription: "We offer other options with incredible terraces: Wonderful little loft with enjoyable terrace. Green and relaxing in the heart of the bustling city."
-      description: "We offer other options with incredible terraces: Wonderful little loft with enjoyable terrace. Green and relaxing in the heart of the bustling city."
-      maxGuests: 3
-      pictures: {
-        create: {
-          url: "https://a0.muscache.com/im/pictures/45880516/93bb5931_original.jpg?aki_policy=xx_large"
-        }
-      }
-      numBedrooms: 1
-      numBeds: 3
-      numBaths: 1
-      size: ENTIRE_CABIN
-      slug: "mushroom-dome"
-      popularity: 1
-      host: {
-        create: {
-          email: "test14@test.com"
-          firstName: "Jason"
-          lastName: "Padmakumara"
-          isSuperHost: true
-          phone: "+1123455667"
-          password: "secret"
-          location: {
-            create: {
-              address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
-              directions: "Follow the street to the end, then right"
-              lat: 36.805235
-              lng: 121.7892066
-              neighbourHood: {
-                create: {
-                  name: "Monterey Countey"
-                  slug: "monterey-countey"
-                  featured: true
-                  popularity: 1
-                  city: { create: { name: "Moss Landing" } }
-                }
-              }
-            }
-          }
-        }
-      }
-      amenities: { create: { airConditioning: false, essentials: true } }
-      views: { create: { lastWeek: 0 } }
-      guestRequirements: {
-        create: {
-          recommendationsFromOtherHosts: false
-          guestTripInformation: false
-        }
-      }
-      policies: {
-        create: {
-          checkInStartTime: 11.00
-          checkInEndTime: 20.00
-          checkoutTime: 10.00
-        }
-      }
-      pricing: {
-        create: {
-          averageMonthly: 1000
-          averageWeekly: 300
-          basePrice: 100
-          cleaningFee: 30
-          extraGuests: 80
-          perNight: 110
-          securityDeposit: 500
-          weeklyDiscount: 50
-          smartPricing: false
-          currency: USD
-        }
-      }
-      houseRules: {
-        create: {
-          smokingAllowed: false
-          petsAllowed: true
-          suitableForInfants: false
-        }
-      }
-      location: {
-        create: {
-          address: "Narvarte Oriente, Mexico City, CDMX, Mexico"
-          directions: "Follow the street to the end, then right"
-          lat: 19.398095
-          lng: -99.149452
-          neighbourHood: {
-            create: {
-              name: "Mexico City"
-              slug: "mexico-city"
-              featured: true
-              popularity: 1
-              city: { create: { name: "Mexico City" } }
-            }
-          }
-        }
-      }
-    }
-  ) {
-    id
-  }
-
-}
-
-
-
