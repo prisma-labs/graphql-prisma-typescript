@@ -1,8 +1,8 @@
 import * as jwt from 'jsonwebtoken'
-import { Graphcool } from './generated/graphcool'
+import { Prisma } from './generated/prisma'
 
 export interface Context {
-  db: Graphcool
+  db: Prisma
   request: any
 }
 

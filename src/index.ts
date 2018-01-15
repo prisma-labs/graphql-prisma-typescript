@@ -1,5 +1,5 @@
 import { GraphQLServer } from 'graphql-yoga'
-import { Graphcool } from './generated/graphcool'
+import { Prisma } from './generated/prisma'
 import { resolvers, fragmentReplacements } from './resolvers'
 
 const server = new GraphQLServer({
@@ -7,10 +7,11 @@ const server = new GraphQLServer({
   resolvers,
   context: req => ({
     ...req,
-    db: new Graphcool({
+    db: new Prisma({
       fragmentReplacements,
-      endpoint: process.env.GRAPHCOOL_ENDPOINT,
-      secret: process.env.GRAPHCOOL_SECRET,
+      endpoint: process.env.PRISMA_ENDPOINT,
+      secret: process.env.PRISMA_SECRET,
+      debug: true,
     }),
   }),
 })

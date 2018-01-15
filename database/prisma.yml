@@ -1,7 +1,7 @@
 service: example-airbnb
-stage: ${env:GRAPHCOOL_STAGE}
-cluster: ${env:GRAPHCOOL_CLUSTER}
-secret: ${env:GRAPHCOOL_SECRET}
+stage: ${env:PRISMA_STAGE}
+cluster: ${env:PRISMA_CLUSTER}
+secret: ${env:PRISMA_SECRET}
 
 datamodel:
 - datamodel/types.graphql
