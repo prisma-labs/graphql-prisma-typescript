@@ -2,11 +2,11 @@
   "name": "graphql-server-example",
   "version": "0.0.0",
   "scripts": {
+    "dev": "npm-run-all --parallel start playground",
     "start": "nodemon -e ts,graphql -x ts-node -r dotenv/config src/index.ts",
-    "debug": "nodemon -e ts,graphql -x ts-node --inspect -r dotenv/config src/index.ts",
     "playground": "graphql playground",
     "build": "rm -rf dist && graphql prepare && tsc",
-    "deploy": "now --public --dotenv .env.prod && now alias && now rm --yes --safe graphcool-server-example",
+    "deploy": "prisma deploy -e .env.prod && now --public --dotenv .env.prod && now alias && now rm --yes --safe graphcool-server-example",
     "now-start": "node dist"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "dotenv": "4.0.0",
     "graphql-cli": "2.12.2",
     "nodemon": "1.14.11",
+    "npm-run-all": "^4.1.2",
     "prisma-cli": "beta",
     "ts-node": "4.1.0",
     "typescript": "2.6.2"

@@ -14,7 +14,7 @@ yarn install
 yarn graphcool deploy
 
 # Start development server
-yarn start
+yarn dev
 # Open http://localhost:5000/
 ```
 
