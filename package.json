@@ -27,5 +27,10 @@
   },
   "now": {
     "alias": "airbnb"
+  },
+  "prettier": {
+    "semi": false,
+    "trailingComma": "all",
+    "singleQuote": true
   }
 }
