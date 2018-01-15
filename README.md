@@ -1,22 +1,36 @@
 # GraphQL Server Example
 
-**Theme**: This is an example app implementing a minimal version of Airbnb.
+`graphcool-server-example` is an example app implementing a minimal version of Airbnb.
+To view a hosted version of the project visit [https://airbnb.now.sh](https://airbnb.now.sh)
 
-## Getting Started ([Hosted demo](https://airbnb.now.sh))
+## Getting Started
 
 > Requires Docker installed locally
 
 ```sh
-# Install node dependencies
+# Clone repository
+git clone git@github.com:graphcool/graphcool-server-example.git 
+
+# Navigate into project
+cd graphcool-server-example
+
+# Install dependencies
 yarn install
 
-# Deploy Graphcool database service
-yarn graphcool deploy
+# Deploy Prisma database service
+yarn prisma deploy
 
 # Start development server
 yarn dev
-# Open http://localhost:5000/
+
+# Open http://localhost:4000
 ```
+
+## Next Steps
+
+At this point you should have a functioning version of the project running. Navigate to [http://localhost:4000](http://localhost:4000) to explore the schema.
+
+To explore the source code, start at [`src/index.ts`](./src/index.ts)
 
 ### Booking flow
 Look in `queries/booking.graphql` to see the booking flow.
@@ -24,8 +38,8 @@ Look in `queries/booking.graphql` to see the booking flow.
 ## Stack
 
 * [`graphql-yoga`](https://github.com/graphcool/graphql-yoga): GraphQL HTTP & subscription server
-* [`graphcool`](https://github.com/graphcool/framework): GraphQL database (uses MySQL under the hood)
-* [`graphcool-binding`](https://github.com/graphcool/graphcool-binding): GraphQL database binding
+* [`prisma`](https://github.com/graphcool/prisma): GraphQL database (uses MySQL under the hood)
+* [`prima-binding`](https://github.com/graphcool/prisma-binding): GraphQL database binding
 * [`now`](https://zeit.co/now): Server deployment
 
 ## License
