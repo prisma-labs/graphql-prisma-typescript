@@ -1,6 +1,6 @@
 # GraphQL Server Example
 
-`graphcool-server-example` is an example app implementing a minimal version of Airbnb.
+`graphql-server-example` is an example app implementing a minimal version of Airbnb.
 To view a hosted version of the project visit [https://airbnb.now.sh](https://airbnb.now.sh)
 
 ## Getting Started
@@ -9,10 +9,10 @@ To view a hosted version of the project visit [https://airbnb.now.sh](https://ai
 
 ```sh
 # Clone repository
-git clone git@github.com:graphcool/graphcool-server-example.git 
+git clone git@github.com:graphcool/graphql-server-example.git 
 
 # Navigate into project
-cd graphcool-server-example
+cd graphql-server-example
 
 # Install dependencies
 yarn install
