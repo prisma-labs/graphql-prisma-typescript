@@ -39,7 +39,7 @@ Look in `queries/booking.graphql` to see the booking flow.
 
 * [`graphql-yoga`](https://github.com/graphcool/graphql-yoga): GraphQL HTTP & subscription server
 * [`prisma`](https://github.com/graphcool/prisma): GraphQL database (uses MySQL under the hood)
-* [`prima-binding`](https://github.com/graphcool/prisma-binding): GraphQL database binding
+* [`prisma-binding`](https://github.com/graphcool/prisma-binding): GraphQL database binding
 * [`now`](https://zeit.co/now): Server deployment
 
 ## License
