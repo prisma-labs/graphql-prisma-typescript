@@ -1,4 +1,3 @@
-
 ## possible queries
 {
   experiences {
@@ -43,24 +42,24 @@
   }
 
   cityExperiences: experiencesByCity(cities: [
-  "New York",
-  "Barcelona",
-  "Paris",
-  "Tokyo",
-  "Los Angeles",
-  "Lisbon",
-  "San Francisco",
-  "Sydney",
-  "London",
-  "Rome"
-]) {
-  city {
-    name
+    "New York",
+    "Barcelona",
+    "Paris",
+    "Tokyo",
+    "Los Angeles",
+    "Lisbon",
+    "San Francisco",
+    "Sydney",
+    "London",
+    "Rome"
+  ]) {
+    city {
+      name
+    }
+    experiences {
+      ...ExperienceFragment
+    }
   }
-  experiences {
-    ...ExperienceFragment
-  }
-}
 }
 
 fragment ExperienceFragment on Experience {
