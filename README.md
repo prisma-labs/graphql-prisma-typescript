@@ -55,16 +55,31 @@ The `dev` script starts the server (on `http://localhost:4000`) and opens a Grap
 
 Inside the Playground, you can start exploring the available operations by browsing the built-in documentation.
 
-### Booking flow
+## Testing the API
 
-Look in `queries/booking.graphql` to see the booking flow.
+Check [`queries/booking.graphql`](queries/booking.graphql) and [`queries/queries.graphql`](queries/queries.graphql) to see several example operations you can send to the API. To get an understanding of the booking flows, check the mutations in [`queries/booking.graphql`](queries/booking.graphql).
 
-## Stack
+## Deployment
 
-* [`graphql-yoga`](https://github.com/graphcool/graphql-yoga): GraphQL HTTP & subscription server
-* [`prisma`](https://github.com/graphcool/prisma): GraphQL database (uses MySQL under the hood)
-* [`prisma-binding`](https://github.com/graphcool/prisma-binding): GraphQL database binding
-* [`now`](https://zeit.co/now): Server deployment
+A quick and easy way to deploy the GraphQL server from this repository is with [Zeit Now](https://zeit.co/now). After you downloaded the [Now Desktop](https://zeit.co/download) app, you can deploy the server with the following command:
+
+```sh
+now --dotenv .env.prod
+```
+
+**Notice that you need to create the `.env.prod` file yourself before invoking the command.** It should list the same environment variables as [`.env`](.env) but with different values. In particular, you need to make sure that your Prisma service is deployed to a cluster that accessible over the web.
+
+Here is an example for what `.env.prod` might look like:
+
+```
+PRISMA_STAGE="prod"
+PRISMA_CLUSTER="public-tundrapiper-423/prisma-us1"
+PRISMA_ENDPOINT="http://u1s.prisma.sh/public-tundrapiper-423/prisma-airbnb-example/dev"
+PRISMA_SECRET="mysecret123"
+APP_SECRET="appsecret321"
+```
+
+To learn more about deploying GraphQL servers with Zeit Now, check out this [tutorial](https://www.prismagraphql.com/docs/tutorials/graphql-server-development/deployment-with-now-ahs1jahkee).
 
 ## Troubleshooting
 

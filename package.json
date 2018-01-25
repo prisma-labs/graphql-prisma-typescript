@@ -6,8 +6,7 @@
     "start": "nodemon -e ts,graphql -x ts-node -r dotenv/config src/index.ts",
     "playground": "graphql playground",
     "build": "rm -rf dist && graphql prepare && tsc",
-    "deploy": "prisma deploy -e .env.prod && now --public --dotenv .env.prod && now alias && now rm --yes --safe graphcool-server-example",
-    "now-start": "node dist"
+    "prisma": "prisma"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
@@ -24,9 +23,6 @@
     "prisma": "1.0.8",
     "ts-node": "4.1.0",
     "typescript": "2.6.2"
-  },
-  "now": {
-    "alias": "airbnb"
   },
   "prettier": {
     "semi": false,
