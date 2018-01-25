@@ -40,8 +40,9 @@ To deploy your service to a public cluster (rather than locally with Docker), yo
 1. Replace the [`endpoint`](./src/index.js#L23) in `index.ts` with the HTTP endpoint that was printed after the previous command.
 
 </details>
+<br>
 
-Notice that when deploying the Prisma service for the very first time, the CLI will execute the mutations from [`database/seed.graphql`](database/seed.graphql) to seed some initial data in the database. The CLI is aware of this file because it's listed in [`database/prisma.yml`](database/prisma.yml#L11) under the `seed` property.
+> Notice that when deploying the Prisma service for the very first time, the CLI will execute the mutations from [`database/seed.graphql`](database/seed.graphql) to seed some initial data in the database. The CLI is aware of this file because it's listed in [`database/prisma.yml`](database/prisma.yml#L11) under the `seed` property.
 
 ### 3. Start the GraphQL server
 
