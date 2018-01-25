@@ -75,7 +75,7 @@ Here is an example for what `.env.prod` might look like:
 ```
 PRISMA_STAGE="prod"
 PRISMA_CLUSTER="public-tundrapiper-423/prisma-us1"
-PRISMA_ENDPOINT="http://u1s.prisma.sh/public-tundrapiper-423/prisma-airbnb-example/dev"
+PRISMA_ENDPOINT="http://us1.prisma.sh/public-tundrapiper-423/prisma-airbnb-example/dev"
 PRISMA_SECRET="mysecret123"
 APP_SECRET="appsecret321"
 ```
