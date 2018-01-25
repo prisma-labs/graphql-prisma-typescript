@@ -112,8 +112,8 @@ mutation {
       host: {
         create: {
           email: "test@test.com"
-          firstName: "Kitty"
-          lastName: "Miller"
+          firstName: "John"
+          lastName: "Doe"
           isSuperHost: true
           phone: "+1123455667"
           password: "secret"
