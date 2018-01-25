@@ -53,7 +53,7 @@ yarn dev
 
 The `dev` script starts the server (on `http://localhost:4000`) and opens a GraphQL Playground where you get acces to the API of your GraphQL server (defined in the [application schema](./src/schema.graphql)) as well as the underlying Prisma API (defined in the auto-generated [Prisma database schema](./src/generated/prisma.ts)) directly.
 
-## Testing the API
+Inside the Playground, you can start exploring the available operations by browsing the built-in documentation.
 
 ### Booking flow
 
