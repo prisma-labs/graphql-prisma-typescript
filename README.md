@@ -1,4 +1,4 @@
-# AirBnB Clone - GraphQL Server Example with Prisma
+# Airbnb Clone - GraphQL Server Example with Prisma
 
 This project demonstrates how to build a production-ready application with Prisma and [`graphql-yoga`](https://github.com/graphcool/graphql-yoga). The API provided by the GraphQL server is the foundation for an application similar to [AirBnB](https://www.airbnb.com/).
 
