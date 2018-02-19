@@ -21,7 +21,7 @@
     "nodemon": "1.14.11",
     "npm-run-all": "4.1.2",
     "prisma": "1.2.4",
-    "ts-node": "4.1.0",
+    "ts-node": "5.0.0",
     "typescript": "2.7.1"
   },
   "prettier": {
