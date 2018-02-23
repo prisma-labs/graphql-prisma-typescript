@@ -1,3 +1,10 @@
 {
-  "extends": ["config:base"]
+  "extends": [
+    "config:base",
+    ":skipStatusChecks"
+  ],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  }
 }
