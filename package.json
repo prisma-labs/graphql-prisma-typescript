@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/bcryptjs": "2.4.1",
     "dotenv": "4.0.0",
-    "graphql-cli": "2.15.2",
+    "graphql-cli": "2.15.5",
     "nodemon": "1.14.11",
     "npm-run-all": "4.1.2",
     "prisma": "1.2.7",
