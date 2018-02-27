@@ -3245,9 +3245,9 @@ node-request-by-swagger@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/node-request-by-swagger/-/node-request-by-swagger-1.0.6.tgz#3129510e33232e4d37be4cce94c704670bc5b135"
 
-nodemon@1.15.1:
-  version "1.15.1"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.15.1.tgz#54daa72443d8d5a548f130866b92e65cded0ed58"
+nodemon@1.16.1:
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.16.1.tgz#371961c04cfd13f76631e689508e0f2a8f108cb2"
   dependencies:
     chokidar "^2.0.2"
     debug "^3.1.0"
@@ -3255,6 +3255,7 @@ nodemon@1.15.1:
     minimatch "^3.0.4"
     pstree.remy "^1.1.0"
     semver "^5.4.1"
+    supports-color "^5.2.0"
     touch "^3.1.0"
     undefsafe "^2.0.1"
     update-notifier "^2.3.0"
