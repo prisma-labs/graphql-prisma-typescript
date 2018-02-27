@@ -68,7 +68,7 @@ type Home {
   name: String
   description: String!
   numRatings: Int!
-  avgRating: Float!
+  avgRating: Float
   pictures(first: Int): [Picture!]!
   perNight: Int!
 }
