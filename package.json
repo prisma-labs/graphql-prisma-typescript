@@ -22,7 +22,7 @@
     "npm-run-all": "4.1.2",
     "prisma": "1.4.2",
     "ts-node": "5.0.1",
-    "typescript": "2.7.2"
+    "typescript": "2.8.1"
   },
   "prettier": {
     "semi": false,
