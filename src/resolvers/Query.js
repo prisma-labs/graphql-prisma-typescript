@@ -3,31 +3,36 @@ import { Context } from '../utils'
 export const Query = {
   viewer: () => ({}),
 
-  topExperiences: async (parent, args, ctx: Context, info) => {
+  topExperiences: async (parent, args, ctx, info) => {
     return ctx.db.query.experiences({ orderBy: 'popularity_DESC' }, info)
   },
 
-  topHomes: async (parent, args, ctx: Context, info) => {
+  topHomes: async (parent, args, ctx, info) => {
     return ctx.db.query.places({ orderBy: 'popularity_DESC' }, info)
   },
 
-  homesInPriceRange: async (parent, args, ctx: Context, info) => {
-    const where = {AND: [{pricing:{perNight_gte: args.min}}, {pricing:{perNight_lte: args.max}}]}
+  homesInPriceRange: async (parent, args, ctx, info) => {
+    const where = {
+      AND: [
+        { pricing: { perNight_gte: args.min } },
+        { pricing: { perNight_lte: args.max } },
+      ],
+    }
     return ctx.db.query.places({ where }, info)
   },
 
-  topReservations: async (parent, args, ctx: Context, info) => {
+  topReservations: async (parent, args, ctx, info) => {
     return ctx.db.query.restaurants({ orderBy: 'popularity_DESC' }, info)
   },
 
-  featuredDestinations: async (parent, args, ctx: Context, info) => {
+  featuredDestinations: async (parent, args, ctx, info) => {
     return ctx.db.query.neighbourhoods(
       { orderBy: 'popularity_DESC', where: { featured: true } },
       info,
     )
   },
 
-  experiencesByCity: async (parent, { cities }, ctx: Context, info) => {
+  experiencesByCity: async (parent, { cities }, ctx, info) => {
     return ctx.db.query.cities({
       where: {
         name_in: cities,

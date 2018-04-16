@@ -8,7 +8,6 @@ import { Viewer } from './Viewer'
 import { AuthPayload } from './AuthPayload'
 import { book } from './Mutation/book'
 import { addPaymentMethod } from './Mutation/addPaymentMethod'
-
 export const resolvers = {
   Query,
   Mutation: {

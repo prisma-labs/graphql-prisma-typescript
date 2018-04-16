@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "npm-run-all --parallel start playground",
-    "start": "nodemon -e ts,graphql -x ts-node -r dotenv/config src/index.ts",
+    "babel-node": "babel-node --presets=env",
+    "start": "nodemon -e js,graphql -x babel-node src/index.js",
     "playground": "graphql playground",
-    "build": "rm -rf dist && graphql prepare && tsc",
+    "build": "rm -rf dist && graphql prepare",
     "prisma": "prisma"
   },
   "dependencies": {
@@ -16,13 +17,18 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.1",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "dotenv": "5.0.1",
     "graphql-cli": "2.15.9",
-    "nodemon": "1.17.3",
+    "nodemon": "^1.17.3",
     "npm-run-all": "4.1.2",
-    "prisma": "1.6.0",
-    "ts-node": "5.0.1",
-    "typescript": "2.8.1"
+    "prisma": "1.6.0"
+  },
+  "babel": {
+    "presets": ["env"],
+    "plugins": ["transform-object-rest-spread"]
   },
   "prettier": {
     "semi": false,
