@@ -1,6 +1,6 @@
 import { getUserId, Context } from '../../utils'
 
-export async function book(parent, args, ctx: Context, info) {
+export async function book(parent, args, ctx, info) {
   const userId = getUserId(ctx)
 
   const paymentAccount = await getPaymentAccount(userId, ctx)
@@ -58,7 +58,7 @@ function payWithStripe() {
   return Promise.resolve()
 }
 
-async function getPaymentAccount(userId: string, ctx: Context) {
+async function getPaymentAccount(userId, ctx) {
   const paymentAccounts = await ctx.db.query.paymentAccounts(
     { where: { user: { id: userId } } },
     `{
@@ -80,7 +80,7 @@ async function getPaymentAccount(userId: string, ctx: Context) {
   return paymentAccounts[0]
 }
 
-function daysBetween(date1: Date, date2: Date): number {
+function daysBetween(date1, date2) {
   // The number of milliseconds in one day
   const ONE_DAY = 1000 * 60 * 60 * 24
 

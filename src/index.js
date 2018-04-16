@@ -1,3 +1,5 @@
+import _ from './env'
+
 import { GraphQLServer } from 'graphql-yoga'
 import { Prisma } from './generated/prisma'
 import { resolvers, fragmentReplacements } from './resolvers'
@@ -16,4 +18,6 @@ const server = new GraphQLServer({
   }),
 })
 
-server.start(({ port }) => console.log(`Server is running on http://localhost:${port}`))
+server.start(({ port }) =>
+  console.log(`Server is running on http://localhost:${port}`),
+)

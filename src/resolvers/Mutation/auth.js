@@ -3,7 +3,7 @@ import { AuthError, Context } from '../../utils'
 import * as jwt from 'jsonwebtoken'
 
 export const auth = {
-  async signup(parent, args, ctx: Context, info) {
+  async signup(parent, args, ctx, info) {
     const password = await bcrypt.hash(args.password, 10)
     const user = await ctx.db.mutation.createUser({
       data: { ...args, password },
@@ -15,7 +15,7 @@ export const auth = {
     }
   },
 
-  async login(parent, args, ctx: Context, info) {
+  async login(parent, args, ctx, info) {
     const user = await ctx.db.query.user({ where: { email: args.email } })
     if (!user) {
       throw new Error('No such user found')

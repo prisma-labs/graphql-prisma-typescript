@@ -4,7 +4,7 @@ export const Home = {
   // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/1312
   numRatings: {
     fragment: `fragment NumRatings on Place { id }`,
-    resolve: async ({ id }, args, ctx: Context, info) => {
+    resolve: async ({ id }, args, ctx, info) => {
       const reviews = await ctx.db.query.reviewsConnection(
         { where: { place: { id } } },
         `{ aggregate { count } }`,
