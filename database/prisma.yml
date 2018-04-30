@@ -1,11 +1,5 @@
-# The name for the service. It will be part of the service's HTTP endpoint,
-# e.g. http://localhost:4466/file-handling-s3-example/dev.
-service: prisma-airbnb-example
-
-# The stage to which the service is deployed. This is the last part
-# of the service's HTTP endpoint (e.g. `dev`, see example above).
-# Here, the cluster is loaded as an environment variable from .env.
-stage: ${env:PRISMA_STAGE}
+# The endpoint of your Prisma API (deployed to a Prisma Sandbox).
+endpoint: ${env:PRISMA_ENDPOINT}
 
 # Points to the files containing your data model.
 datamodel:
@@ -20,11 +14,12 @@ datamodel:
 # Here, the secret is loaded as an environment variable from .env.
 secret: ${env:PRISMA_SECRET}
 
-# The cluster your service is deployed to. Cluster information (such as
-# host and cluster secret) are stored in `~/.prisma/config.yml`.
-# Here, the cluster is loaded as an environment variable from .env.
-cluster: ${env:PRISMA_CLUSTER}
-
 # Defines how to seed data to the database upon the initial deploy.
 seed:
   import: seed.graphql
+
+# After each deploy, the schema gets downloaded and the bindings are being generated
+hooks:
+  post-deploy:
+    - graphql get-schema
+    - graphql codegen

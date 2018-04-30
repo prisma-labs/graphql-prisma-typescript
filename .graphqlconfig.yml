@@ -10,6 +10,7 @@ projects:
     includes: ["database/seed.graphql"]
     extensions:
       prisma: database/prisma.yml
-      prepare-binding:
+      codegen:
         output: src/generated/prisma.ts
-        generator: prisma-ts
+        generator: graphql-codegen-prisma-binding
+        language: typescript
