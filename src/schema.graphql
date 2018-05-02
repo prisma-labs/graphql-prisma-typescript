@@ -3,10 +3,7 @@
 type Query {
   topExperiences: [Experience!]!
   topHomes: [Home!]!
-  homesInPriceRange(
-    min: Int!
-    max: Int!
-  ): [Home!]!
+  homesInPriceRange(min: Int!, max: Int!): [Home!]!
   topReservations: [Reservation!]!
   featuredDestinations: [Neighbourhood!]!
   experiencesByCity(cities: [String!]!): [ExperiencesByCity!]!
@@ -41,7 +38,7 @@ type Mutation {
 }
 
 type Subscription {
-  city: CitySubscriptionPayload
+  city: City
 }
 
 type Viewer {
