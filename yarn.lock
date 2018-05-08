@@ -3431,9 +3431,9 @@ node-request-by-swagger@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/node-request-by-swagger/-/node-request-by-swagger-1.0.6.tgz#3129510e33232e4d37be4cce94c704670bc5b135"
 
-nodemon@1.17.3:
-  version "1.17.3"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.17.3.tgz#3b0bbc2ee05ccb43b1aef15ba05c63c7bc9b8530"
+nodemon@1.17.4:
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.17.4.tgz#243ff9c69ffbf1175f2460f9b023f35a072c15e9"
   dependencies:
     chokidar "^2.0.2"
     debug "^3.1.0"
@@ -3494,13 +3494,13 @@ npm-paths@^1.0.0:
     global-modules "^1.0.0"
     is-windows "^1.0.1"
 
-npm-run-all@4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/npm-run-all/-/npm-run-all-4.1.2.tgz#90d62d078792d20669139e718621186656cea056"
+npm-run-all@4.1.3:
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/npm-run-all/-/npm-run-all-4.1.3.tgz#49f15b55a66bb4101664ce270cb18e7103f8f185"
   dependencies:
     ansi-styles "^3.2.0"
     chalk "^2.1.0"
-    cross-spawn "^5.1.0"
+    cross-spawn "^6.0.4"
     memorystream "^0.3.1"
     minimatch "^3.0.4"
     ps-tree "^1.1.0"
@@ -3911,9 +3911,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prisma-binding@1.5.18:
-  version "1.5.18"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-1.5.18.tgz#cbdfb7bb8c1599542fc83c84fef51621cba376ca"
+prisma-binding@1.5.19:
+  version "1.5.19"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-1.5.19.tgz#4c6ba00dc6726fb62dc2cfe7050d47e0a60276c7"
   dependencies:
     apollo-link "1.2.1"
     apollo-link-error "1.0.7"
@@ -3924,7 +3924,7 @@ prisma-binding@1.5.18:
     graphql-tools "2.21.0"
     http-link-dataloader "^0.1.2"
     jsonwebtoken "^8.1.0"
-    subscriptions-transport-ws "0.9.6"
+    subscriptions-transport-ws "0.9.9"
 
 prisma-cli-core@1.0.40:
   version "1.0.40"
@@ -4921,9 +4921,9 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-subscriptions-transport-ws@0.9.6:
-  version "0.9.6"
-  resolved "https://registry.yarnpkg.com/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.6.tgz#5ff86a0746316ca3eb2423b118b8bc74a6793e1b"
+subscriptions-transport-ws@0.9.9:
+  version "0.9.9"
+  resolved "https://registry.yarnpkg.com/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.9.tgz#8a0bdc4c31df2e90e92901047fd8961deb138acc"
   dependencies:
     backo2 "^1.0.2"
     eventemitter3 "^2.0.3"
