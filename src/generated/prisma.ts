@@ -240,32 +240,32 @@ export interface Subscription {
   }
 
 export interface Exists {
-  User(where?: UserWhereInput): Promise<boolean>
-  Place(where?: PlaceWhereInput): Promise<boolean>
-  Pricing(where?: PricingWhereInput): Promise<boolean>
-  GuestRequirements(where?: GuestRequirementsWhereInput): Promise<boolean>
-  Policies(where?: PoliciesWhereInput): Promise<boolean>
-  HouseRules(where?: HouseRulesWhereInput): Promise<boolean>
-  Views(where?: ViewsWhereInput): Promise<boolean>
-  Location(where?: LocationWhereInput): Promise<boolean>
-  Neighbourhood(where?: NeighbourhoodWhereInput): Promise<boolean>
-  City(where?: CityWhereInput): Promise<boolean>
-  Picture(where?: PictureWhereInput): Promise<boolean>
-  Experience(where?: ExperienceWhereInput): Promise<boolean>
-  ExperienceCategory(where?: ExperienceCategoryWhereInput): Promise<boolean>
-  Amenities(where?: AmenitiesWhereInput): Promise<boolean>
-  Review(where?: ReviewWhereInput): Promise<boolean>
-  Booking(where?: BookingWhereInput): Promise<boolean>
-  Payment(where?: PaymentWhereInput): Promise<boolean>
-  PaymentAccount(where?: PaymentAccountWhereInput): Promise<boolean>
-  PaypalInformation(where?: PaypalInformationWhereInput): Promise<boolean>
-  CreditCardInformation(where?: CreditCardInformationWhereInput): Promise<boolean>
-  Message(where?: MessageWhereInput): Promise<boolean>
-  Notification(where?: NotificationWhereInput): Promise<boolean>
-  Restaurant(where?: RestaurantWhereInput): Promise<boolean>
+  User: (where?: UserWhereInput) => Promise<boolean>
+  Place: (where?: PlaceWhereInput) => Promise<boolean>
+  Pricing: (where?: PricingWhereInput) => Promise<boolean>
+  GuestRequirements: (where?: GuestRequirementsWhereInput) => Promise<boolean>
+  Policies: (where?: PoliciesWhereInput) => Promise<boolean>
+  HouseRules: (where?: HouseRulesWhereInput) => Promise<boolean>
+  Views: (where?: ViewsWhereInput) => Promise<boolean>
+  Location: (where?: LocationWhereInput) => Promise<boolean>
+  Neighbourhood: (where?: NeighbourhoodWhereInput) => Promise<boolean>
+  City: (where?: CityWhereInput) => Promise<boolean>
+  Picture: (where?: PictureWhereInput) => Promise<boolean>
+  Experience: (where?: ExperienceWhereInput) => Promise<boolean>
+  ExperienceCategory: (where?: ExperienceCategoryWhereInput) => Promise<boolean>
+  Amenities: (where?: AmenitiesWhereInput) => Promise<boolean>
+  Review: (where?: ReviewWhereInput) => Promise<boolean>
+  Booking: (where?: BookingWhereInput) => Promise<boolean>
+  Payment: (where?: PaymentWhereInput) => Promise<boolean>
+  PaymentAccount: (where?: PaymentAccountWhereInput) => Promise<boolean>
+  PaypalInformation: (where?: PaypalInformationWhereInput) => Promise<boolean>
+  CreditCardInformation: (where?: CreditCardInformationWhereInput) => Promise<boolean>
+  Message: (where?: MessageWhereInput) => Promise<boolean>
+  Notification: (where?: NotificationWhereInput) => Promise<boolean>
+  Restaurant: (where?: RestaurantWhereInput) => Promise<boolean>
 }
 
-export interface BindingInstance {
+export interface Prisma {
   query: Query
   mutation: Mutation
   subscription: Subscription
@@ -10089,7 +10089,7 @@ input ViewsWhereUniqueInput {
 }
 `
 
-export const Prisma = makePrismaBindingClass<BindingConstructor<BindingInstance>>({typeDefs})
+export const Prisma = makePrismaBindingClass<BindingConstructor<Prisma>>({typeDefs})
 
 /**
  * Types
