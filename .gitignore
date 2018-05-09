@@ -3,5 +3,6 @@ dist
 package-lock.json
 node_modules
 .idea
+*.log
 .graphcoolrc
 **/.DS_Store
