@@ -1,4 +1,4 @@
-# import CitySubscriptionPayload, PLACE_SIZES, DateTime, PAYMENT_PROVIDER, NOTIFICATION_TYPE, CURRENCY from "./generated/prisma.graphql"
+# import PLACE_SIZES, DateTime, PAYMENT_PROVIDER, NOTIFICATION_TYPE, CURRENCY from "./generated/prisma.graphql"
 
 type Query {
   topExperiences: [Experience!]!
@@ -41,7 +41,7 @@ type Mutation {
 }
 
 type Subscription {
-  city: CitySubscriptionPayload
+  city: City
 }
 
 type Viewer {
