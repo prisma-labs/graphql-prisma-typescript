@@ -24,3 +24,5 @@ export const resolvers = {
 }
 
 export const fragmentReplacements = extractFragmentReplacements(resolvers)
+
+console.log(fragmentReplacements)
