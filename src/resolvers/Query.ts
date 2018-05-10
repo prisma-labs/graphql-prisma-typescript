@@ -1,7 +1,34 @@
-import { Context } from '../utils'
+import { Context, getUserId } from '../utils'
+import { WrapQuery } from 'graphql-tools'
+import { SelectionSetNode, Kind } from 'graphql'
 
 export const Query = {
   viewer: () => ({}),
+
+  myLocation: async (parent, args, ctx, info) => {
+    const id = getUserId(ctx)
+    return ctx.db.query.user({ where: { id } }, info, {
+      transforms: [
+        new WrapQuery(
+          ['user'],
+          (subtree: SelectionSetNode) => ({
+            kind: Kind.FIELD,
+            name: {
+              kind: Kind.NAME,
+              value: 'location',
+            },
+            selectionSet: subtree,
+          }),
+          // result => result && result.node,
+          result => {
+            // TODO clean me up
+            console.log({ result })
+            return result && result.node
+          },
+        ),
+      ],
+    })
+  },
 
   topExperiences: async (parent, args, ctx: Context, info) => {
     return ctx.db.query.experiences({ orderBy: 'popularity_DESC' }, info)
@@ -12,7 +39,12 @@ export const Query = {
   },
 
   homesInPriceRange: async (parent, args, ctx: Context, info) => {
-    const where = {AND: [{pricing:{perNight_gte: args.min}}, {pricing:{perNight_lte: args.max}}]}
+    const where = {
+      AND: [
+        { pricing: { perNight_gte: args.min } },
+        { pricing: { perNight_lte: args.max } },
+      ],
+    }
     return ctx.db.query.places({ where }, info)
   },
 
