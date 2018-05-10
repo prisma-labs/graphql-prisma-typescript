@@ -26,6 +26,9 @@ yarn install
 You can now [deploy](https://www.prismagraphql.com/docs/reference/cli-command-reference/database-service/prisma-deploy-kee1iedaov) the Prisma service (note that this requires you to have [Docker](https://www.docker.com) installed on your machine - if that's not the case, follow the collapsed instructions below the code block):
 
 ```sh
+cd prisma
+docker-compose up -d
+cd ..
 yarn prisma deploy
 ```
 
