@@ -133,6 +133,10 @@ accepts@~1.3.5:
     mime-types "~2.1.18"
     negotiator "0.6.1"
 
+adm-zip@0.4.7:
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.4.7.tgz#8606c2cbf1c426ce8c8ec00174447fd49b6eafc1"
+
 adm-zip@^0.4.7:
   version "0.4.9"
   resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.4.9.tgz#1a574627d3aa4ea6b8b4948e066cbd6fed4ae2f6"
@@ -2049,11 +2053,11 @@ graphql-cli-prepare@1.4.19:
     graphql-static-binding "0.9.3"
     lodash "4.17.5"
 
-graphql-cli@2.16.0-beta.7:
-  version "2.16.0-beta.7"
-  resolved "https://registry.yarnpkg.com/graphql-cli/-/graphql-cli-2.16.0-beta.7.tgz#5d395f85c507a39ad23c627af8792f013feca6f7"
+graphql-cli@2.16.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/graphql-cli/-/graphql-cli-2.16.0.tgz#eb3cb7fefae0b818eab053c0a05d4f9b102d39aa"
   dependencies:
-    adm-zip "^0.4.7"
+    adm-zip "0.4.7"
     apollo-codegen "^0.19.1"
     chalk "^2.3.1"
     command-exists "^1.2.2"
@@ -2068,7 +2072,7 @@ graphql-cli@2.16.0-beta.7:
     graphql-config-extension-graphcool "1.0.8"
     graphql-config-extension-openapi "1.0.6"
     graphql-config-extension-prisma "0.0.11"
-    graphql-playground-middleware-express "1.6.1"
+    graphql-playground-middleware-express "1.6.2"
     graphql-schema-linter "0.1.1"
     inquirer "5.1.0"
     is-url-superb "2.0.0"
@@ -2187,7 +2191,7 @@ graphql-playground-middleware-express@1.6.1:
   dependencies:
     graphql-playground-html "1.5.5"
 
-graphql-playground-middleware-express@^1.6.1:
+graphql-playground-middleware-express@1.6.2, graphql-playground-middleware-express@^1.6.1:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.6.2.tgz#3efe103cd222d6cf39e71f70c48be550c47b7a9b"
   dependencies:
