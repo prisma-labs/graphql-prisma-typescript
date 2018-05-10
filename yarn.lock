@@ -2108,7 +2108,7 @@ graphql-cli@^2.16.0-beta.6:
     graphql-config-extension-graphcool "1.0.8"
     graphql-config-extension-openapi "1.0.6"
     graphql-config-extension-prisma "0.0.11"
-    graphql-playground-middleware-express "1.6.1"
+    graphql-playground-middleware-express "1.6.2"
     graphql-schema-linter "0.1.1"
     inquirer "5.1.0"
     is-url-superb "2.0.0"
@@ -2230,6 +2230,12 @@ graphql-playground-html@1.5.5:
 graphql-playground-middleware-express@1.6.1, graphql-playground-middleware-express@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.6.1.tgz#d6287d124a1c55845a52a7d727c371da99cdf0b0"
+  dependencies:
+    graphql-playground-html "1.5.5"
+
+graphql-playground-middleware-express@1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.6.2.tgz#3efe103cd222d6cf39e71f70c48be550c47b7a9b"
   dependencies:
     graphql-playground-html "1.5.5"
 
@@ -4053,7 +4059,7 @@ prisma-binding@^1.6.0-beta.21:
     graphql-tools "3.0.0"
     http-link-dataloader "^0.1.2"
     jsonwebtoken "^8.2.1"
-    subscriptions-transport-ws "0.9.8"
+    subscriptions-transport-ws "0.9.8
 
 prisma-cli-core@1.0.41:
   version "1.0.41"
