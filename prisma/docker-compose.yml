@@ -1,7 +1,7 @@
 version: '3'
 services:
   prisma:
-    image: prismagraphql/prisma:1.8
+    image: prismagraphql/prisma:1.8@sha256:0b549bf7e1539451cd501e94a2d49bbb0b91370fec2b7817d3a131f412fadd89
     restart: always
     ports:
     - "4466:4466"
@@ -19,7 +19,7 @@ services:
             password: prisma
             migrations: true
   postgres:
-    image: postgres
+    image: postgres:latest@sha256:4bee009f05db292e794d4c288b587be60c3a526cc3bf669100be981ef0551284
     restart: always
     environment:
       POSTGRES_USER: prisma
