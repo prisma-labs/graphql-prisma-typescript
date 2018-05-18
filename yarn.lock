@@ -2185,21 +2185,15 @@ graphql-playground-html@1.5.5:
   dependencies:
     graphql-config "2.0.0"
 
-graphql-playground-middleware-express@1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.6.1.tgz#d6287d124a1c55845a52a7d727c371da99cdf0b0"
-  dependencies:
-    graphql-playground-html "1.5.5"
-
-graphql-playground-middleware-express@1.6.2, graphql-playground-middleware-express@^1.6.1:
+graphql-playground-middleware-express@1.6.2, graphql-playground-middleware-express@^1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.6.2.tgz#3efe103cd222d6cf39e71f70c48be550c47b7a9b"
   dependencies:
     graphql-playground-html "1.5.5"
 
-graphql-playground-middleware-lambda@1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-lambda/-/graphql-playground-middleware-lambda-1.5.1.tgz#ebe48d421490e12ba27872fc1ffb275eade9c0a3"
+graphql-playground-middleware-lambda@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-lambda/-/graphql-playground-middleware-lambda-1.6.0.tgz#5d28c4f0318916fb77c09ee72374cfaeba7c1186"
   dependencies:
     graphql-playground-html "1.5.5"
 
@@ -2254,9 +2248,9 @@ graphql-tools@^2.23.1:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
-graphql-yoga@1.13.1:
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.13.1.tgz#3e0ff7253726542ce419b37a7e24148ed6653a35"
+graphql-yoga@1.14.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.14.0.tgz#60906d0c8cf34df44df0c3da9036eb13b4315530"
   dependencies:
     "@types/cors" "^2.8.4"
     "@types/express" "^4.11.1"
@@ -2274,8 +2268,8 @@ graphql-yoga@1.13.1:
     graphql-deduplicator "^2.0.1"
     graphql-import "^0.5.0"
     graphql-middleware "^1.1.0"
-    graphql-playground-middleware-express "1.6.1"
-    graphql-playground-middleware-lambda "1.5.1"
+    graphql-playground-middleware-express "1.6.2"
+    graphql-playground-middleware-lambda "1.6.0"
     graphql-subscriptions "^0.5.8"
     graphql-tools "^2.23.1"
     subscriptions-transport-ws "^0.9.8"
@@ -3976,9 +3970,9 @@ prisma-binding@2.0.0:
     jsonwebtoken "^8.2.1"
     subscriptions-transport-ws "0.9.8"
 
-prisma-cli-core@1.0.41:
-  version "1.0.41"
-  resolved "https://registry.yarnpkg.com/prisma-cli-core/-/prisma-cli-core-1.0.41.tgz#a3e7bd41f3be454fd29df2e189412ba2fe6e3cd8"
+prisma-cli-core@1.0.42:
+  version "1.0.42"
+  resolved "https://registry.yarnpkg.com/prisma-cli-core/-/prisma-cli-core-1.0.42.tgz#895f08b9718930c9d5789c9e1e72ccc074d55736"
   dependencies:
     adm-zip "^0.4.7"
     archiver "^2.0.3"
@@ -3998,7 +3992,7 @@ prisma-cli-core@1.0.41:
     graphql "^0.13.1"
     graphql-config "^2.0.1"
     graphql-config-extension-prisma "^0.0.12"
-    graphql-playground-middleware-express "^1.6.1"
+    graphql-playground-middleware-express "^1.6.2"
     inquirer "^5.2.0"
     isomorphic-fetch "^2.2.1"
     js-yaml "^3.9.1"
@@ -4011,9 +4005,9 @@ prisma-cli-core@1.0.41:
     opn "^5.1.0"
     pause "^0.1.0"
     portfinder "^1.0.13"
-    prisma-db-introspection "0.0.7"
+    prisma-db-introspection "0.0.10"
     prisma-json-schema "0.0.4"
-    prisma-yml "1.0.52"
+    prisma-yml "1.0.55"
     scuid "^1.0.2"
     semver "^5.4.1"
     sillyname "^0.1.0"
@@ -4022,9 +4016,9 @@ prisma-cli-core@1.0.41:
     util.promisify "^1.0.0"
     validator "^8.2.0"
 
-prisma-cli-engine@1.0.41:
-  version "1.0.41"
-  resolved "https://registry.yarnpkg.com/prisma-cli-engine/-/prisma-cli-engine-1.0.41.tgz#e6517b7e59c4d85b1f2e59b55861a0ced2fb83a6"
+prisma-cli-engine@1.0.44:
+  version "1.0.44"
+  resolved "https://registry.yarnpkg.com/prisma-cli-engine/-/prisma-cli-engine-1.0.44.tgz#cfd7a100a99c996d8ec17ad6e349245deb898b00"
   dependencies:
     "@heroku/linewrap" "^1.0.0"
     ajv "5"
@@ -4066,7 +4060,7 @@ prisma-cli-engine@1.0.41:
     memfs "^2.5.3"
     opn "^5.1.0"
     prisma-json-schema "0.0.4"
-    prisma-yml "1.0.52"
+    prisma-yml "1.0.55"
     raven "2.3.0"
     replaceall "^0.1.6"
     rwlockfile "^1.4.8"
@@ -4081,9 +4075,9 @@ prisma-cli-engine@1.0.41:
     update-notifier "^2.3.0"
     validator "^8.2.0"
 
-prisma-db-introspection@0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/prisma-db-introspection/-/prisma-db-introspection-0.0.7.tgz#0f529e059f5b563ece1fcb41870a0a89b24a426a"
+prisma-db-introspection@0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/prisma-db-introspection/-/prisma-db-introspection-0.0.10.tgz#5ed8d3bf99ec0f128fddd84a7dcec360ed1e3f3a"
   dependencies:
     ajv "5"
     bluebird "^3.5.1"
@@ -4134,9 +4128,9 @@ prisma-yml@1.0.50:
     scuid "^1.0.2"
     yaml-ast-parser "^0.0.40"
 
-prisma-yml@1.0.52:
-  version "1.0.52"
-  resolved "https://registry.yarnpkg.com/prisma-yml/-/prisma-yml-1.0.52.tgz#bab5c2adcf283d837bf442b61711bf5c4280745f"
+prisma-yml@1.0.55:
+  version "1.0.55"
+  resolved "https://registry.yarnpkg.com/prisma-yml/-/prisma-yml-1.0.55.tgz#726d1119fface263741929ee03aadec46ff792d5"
   dependencies:
     ajv "5"
     bluebird "^3.5.1"
@@ -4157,13 +4151,13 @@ prisma-yml@1.0.52:
     scuid "^1.0.2"
     yaml-ast-parser "^0.0.40"
 
-prisma@1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/prisma/-/prisma-1.8.0.tgz#6d5bd0a5223749ec14bc27454ee007d6a0912159"
+prisma@1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-1.8.3.tgz#28eb3ce0c63732542988a2aaa1effa1d91b5c60f"
   dependencies:
     fs-extra "^5.0.0"
-    prisma-cli-core "1.0.41"
-    prisma-cli-engine "1.0.41"
+    prisma-cli-core "1.0.42"
+    prisma-cli-engine "1.0.44"
     semver "^5.4.1"
     source-map-support "^0.4.18"
 
