@@ -1,4 +1,4 @@
-# import CitySubscriptionPayload, PLACE_SIZES, DateTime, PAYMENT_PROVIDER, NOTIFICATION_TYPE, CURRENCY from "./generated/prisma.graphql"
+# import * from "./generated/prisma.graphql"
 
 type Query {
   topExperiences: [Experience!]!

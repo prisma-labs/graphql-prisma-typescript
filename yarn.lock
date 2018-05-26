@@ -2167,17 +2167,23 @@ graphql-import@0.4.5, graphql-import@^0.4.0, graphql-import@^0.4.4:
   dependencies:
     lodash "^4.17.4"
 
-graphql-import@0.5.2, graphql-import@^0.5.0, graphql-import@^0.5.2:
+graphql-import@0.5.2, graphql-import@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/graphql-import/-/graphql-import-0.5.2.tgz#d7e05dc07d2d66e8d8c4bd408650f9fdaeddb8f8"
   dependencies:
     lodash "^4.17.4"
 
-graphql-middleware@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/graphql-middleware/-/graphql-middleware-1.2.1.tgz#e9b063268ae617e8ac41e0a4141b0b4ad7e95317"
+graphql-import@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/graphql-import/-/graphql-import-0.6.0.tgz#c00cb8a269ceea263e062922c8c81a2272d1ffcb"
   dependencies:
-    graphql-tools "^2.23.1"
+    lodash "^4.17.4"
+
+graphql-middleware@1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/graphql-middleware/-/graphql-middleware-1.2.4.tgz#bd333c47e07801689f515892c8e0426b60bf72c2"
+  dependencies:
+    graphql-tools "^3.0.2"
 
 graphql-playground-html@1.5.5:
   version "1.5.5"
@@ -2191,9 +2197,15 @@ graphql-playground-middleware-express@1.6.2, graphql-playground-middleware-expre
   dependencies:
     graphql-playground-html "1.5.5"
 
-graphql-playground-middleware-lambda@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-lambda/-/graphql-playground-middleware-lambda-1.6.0.tgz#5d28c4f0318916fb77c09ee72374cfaeba7c1186"
+graphql-playground-middleware-express@1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.6.3.tgz#0f75b5b139edb2d1079208af59d158caba2309d1"
+  dependencies:
+    graphql-playground-html "1.5.5"
+
+graphql-playground-middleware-lambda@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-lambda/-/graphql-playground-middleware-lambda-1.6.1.tgz#e0f1944558136dd3975570c92c702d6009cc779c"
   dependencies:
     graphql-playground-html "1.5.5"
 
@@ -2238,7 +2250,7 @@ graphql-tools@3.0.1:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
-graphql-tools@3.0.2:
+graphql-tools@3.0.2, graphql-tools@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-3.0.2.tgz#fb79821c23b0f5d11d842c4d0c15000d856c6c8c"
   dependencies:
@@ -2258,9 +2270,9 @@ graphql-tools@^2.23.1:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
-graphql-yoga@1.14.1:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.14.1.tgz#f7fd5357fa77cf83239e90675c0bf0d651d93bf7"
+graphql-yoga@1.14.5:
+  version "1.14.5"
+  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.14.5.tgz#a41e1786b195f55c875df44b7a24d9206ced89e7"
   dependencies:
     "@types/cors" "^2.8.4"
     "@types/express" "^4.11.1"
@@ -2276,10 +2288,10 @@ graphql-yoga@1.14.1:
     express "^4.16.3"
     graphql "^0.11.0 || ^0.12.0 || ^0.13.0"
     graphql-deduplicator "^2.0.1"
-    graphql-import "^0.5.0"
-    graphql-middleware "1.2.1"
-    graphql-playground-middleware-express "1.6.2"
-    graphql-playground-middleware-lambda "1.6.0"
+    graphql-import "^0.6.0"
+    graphql-middleware "1.2.4"
+    graphql-playground-middleware-express "1.6.3"
+    graphql-playground-middleware-lambda "1.6.1"
     graphql-subscriptions "^0.5.8"
     graphql-tools "^2.23.1"
     subscriptions-transport-ws "^0.9.8"
@@ -3965,9 +3977,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prisma-binding@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.0.1.tgz#5eb8cbc4996e158cf6c38744d36f04708085a093"
+prisma-binding@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.0.2.tgz#b938e21b554349524d6e43b93a4ae6e67905d8d3"
   dependencies:
     apollo-link "1.2.2"
     apollo-link-error "1.0.9"
@@ -5122,7 +5134,20 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
 
-ts-node@6.0.3, ts-node@^6.0.2:
+ts-node@6.0.5:
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-6.0.5.tgz#977c1c931da7a2b09ae2930101f0104a5c2271e9"
+  dependencies:
+    arrify "^1.0.0"
+    chalk "^2.3.0"
+    diff "^3.1.0"
+    make-error "^1.1.1"
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    source-map-support "^0.5.3"
+    yn "^2.0.0"
+
+ts-node@^6.0.2:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-6.0.3.tgz#28bf74bcad134fad17f7469dad04638ece03f0f4"
   dependencies:
