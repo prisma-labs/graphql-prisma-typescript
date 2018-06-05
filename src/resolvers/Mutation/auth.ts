@@ -17,12 +17,9 @@ export const auth = {
 
   async login(parent, args, ctx: Context, info) {
     const user = await ctx.db.query.user({ where: { email: args.email } })
-    if (!user) {
-      throw new Error('No such user found')
-    }
-
-    const valid = await bcrypt.compare(args.password, user.password)
-    if (!valid) {
+    const valid = await bcrypt.compare(args.password, user ? user.password : '')
+    
+    if (!valid || !user) {
       throw new AuthError()
     }
 
