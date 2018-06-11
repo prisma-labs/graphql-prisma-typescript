@@ -39,7 +39,7 @@ type Mutation {
 }
 
 type Subscription {
-  city: CitySubscriptionPayload
+  citie: CitySubscriptionPayload
 }
 
 type Viewer {
