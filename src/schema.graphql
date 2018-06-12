@@ -1,307 +1,5 @@
-# import * from "./generated/prisma.graphql"
-
-type Query {
-  topExperiences: [Experience!]!
-  topHomes: [Home!]!
-  homesInPriceRange(min: Int!, max: Int!): [Home!]!
-  topReservations: [Reservation!]!
-  featuredDestinations: [Neighbourhood!]!
-  experiencesByCity(cities: [String!]!): [ExperiencesByCity!]!
-  viewer: Viewer
-  myLocation: Location
-}
-
-type Mutation {
-  signup(
-    email: String!
-    password: String!
-    firstName: String!
-    lastName: String!
-    phone: String!
-  ): AuthPayload!
-  login(email: String!, password: String!): AuthPayload!
-  addPaymentMethod(
-    cardNumber: String!
-    expiresOnMonth: Int!
-    expiresOnYear: Int!
-    securityCode: String!
-    firstName: String!
-    lastName: String!
-    postalCode: String!
-    country: String!
-  ): MutationResult!
-  book(
-    placeId: ID!
-    checkIn: String!
-    checkOut: String!
-    numGuests: Int!
-  ): MutationResult!
-}
-
-type Subscription {
-  city: CitySubscriptionPayload
-}
-
-type Viewer {
-  me: User!
-  bookings: [Booking!]!
-}
-
-type AuthPayload {
-  token: String!
-  user: User!
-}
-
-type MutationResult {
-  success: Boolean!
-}
-
-type ExperiencesByCity {
-  experiences: [Experience!]!
-  city: City!
-}
-
-type Home {
-  id: ID!
-  name: String
-  description: String!
-  numRatings: Int!
-  avgRating: Float
-  pictures(first: Int): [Picture!]!
-  perNight: Int!
-}
-
-type Reservation {
-  id: ID!
-  title: String!
-  avgPricePerPerson: Int!
-  pictures: [Picture!]!
-  location: Location!
-  isCurated: Boolean!
-  slug: String!
-  popularity: Int!
-}
-
-type Experience {
-  id: ID!
-  category: ExperienceCategory
-  title: String!
-  location: Location!
-  pricePerPerson: Int!
-  reviews: [Review!]!
-  preview: Picture!
-  popularity: Int!
-}
-
-type Review {
-  accuracy: Int!
-  checkIn: Int!
-  cleanliness: Int!
-  communication: Int!
-  createdAt: DateTime!
-  id: ID!
-  location: Int!
-  stars: Int!
-  text: String!
-  value: Int!
-}
-
-type Neighbourhood {
-  id: ID!
-  name: String!
-  slug: String!
-  homePreview: Picture
-  city: City!
-  featured: Boolean!
-  popularity: Int!
-}
-
-type Location {
-  id: ID!
-  lat: Float!
-  lng: Float!
-  address: String
-  directions: String
-}
-
-type Picture {
-  id: ID!
-  url: String!
-}
-
-type City {
-  id: ID!
-  name: String!
-}
-
-type ExperienceCategory {
-  id: ID!
-  mainColor: String!
-  name: String!
-  experience: Experience
-}
-
-type User {
-  bookings: [Booking!]
-  createdAt: DateTime!
-  email: String!
-  firstName: String!
-  hostingExperiences: [Experience!]
-  id: ID!
-  isSuperHost: Boolean!
-  lastName: String!
-  location: Location!
-  notifications: [Notification!]
-  ownedPlaces: [Place!]
-  paymentAccount: [PaymentAccount!]
-  phone: String!
-  profilePicture: Picture
-  receivedMessages: [Message!]
-  responseRate: Float
-  responseTime: Int
-  sentMessages: [Message!]
-  updatedAt: DateTime!
-  token: String!
-}
-
-type PaymentAccount {
-  id: ID!
-  createdAt: DateTime!
-  type: PAYMENT_PROVIDER
-  user: User!
-  payments: [Payment!]!
-  paypal: PaypalInformation
-  creditcard: CreditCardInformation
-}
-
-type Place {
-  id: ID!
-  name: String
-  size: PLACE_SIZES
-  shortDescription: String!
-  description: String!
-  slug: String!
-  maxGuests: Int!
-  numBedrooms: Int!
-  numBeds: Int!
-  numBaths: Int!
-  reviews: [Review!]!
-  amenities: Amenities!
-  host: User!
-  pricing: Pricing!
-  location: Location!
-  views: PlaceViews!
-  guestRequirements: GuestRequirements
-  policies: Policies
-  houseRules: HouseRules
-  bookings: [Booking!]!
-  pictures: [Picture!]
-  popularity: Int!
-}
-
-type Booking {
-  id: ID!
-  createdAt: DateTime!
-  bookee: User!
-  place: Place!
-  startDate: DateTime!
-  endDate: DateTime!
-  payment: Payment!
-}
-
-type Notification {
-  createdAt: DateTime!
-  id: ID!
-  link: String!
-  readDate: DateTime!
-  type: NOTIFICATION_TYPE
-  user: User!
-}
-
-type Payment {
-  booking: Booking!
-  createdAt: DateTime!
-  id: ID!
-  paymentMethod: PaymentAccount!
-  serviceFee: Float!
-}
-
-type PaypalInformation {
-  createdAt: DateTime!
-  email: String!
-  id: ID!
-  paymentAccount: PaymentAccount!
-}
-
-type CreditCardInformation {
-  cardNumber: String!
-  country: String!
-  createdAt: DateTime!
-  expiresOnMonth: Int!
-  expiresOnYear: Int!
-  firstName: String!
-  id: ID!
-  lastName: String!
-  paymentAccount: PaymentAccount
-  postalCode: String!
-  securityCode: String!
-}
-
-type Message {
-  createdAt: DateTime!
-  deliveredAt: DateTime!
-  id: ID!
-  readAt: DateTime!
-}
-
-type Pricing {
-  averageMonthly: Int!
-  averageWeekly: Int!
-  basePrice: Int!
-  cleaningFee: Int
-  currency: CURRENCY
-  extraGuests: Int
-  id: ID!
-  monthlyDiscount: Int
-  perNight: Int!
-  securityDeposit: Int
-  smartPricing: Boolean!
-  weekendPricing: Int
-  weeklyDiscount: Int
-}
-
-type PlaceViews {
-  id: ID!
-  lastWeek: Int!
-}
-
-type GuestRequirements {
-  govIssuedId: Boolean!
-  guestTripInformation: Boolean!
-  id: ID!
-  recommendationsFromOtherHosts: Boolean!
-}
-
-type Policies {
-  checkInEndTime: Float!
-  checkInStartTime: Float!
-  checkoutTime: Float!
-  createdAt: DateTime!
-  id: ID!
-  updatedAt: DateTime!
-}
-
-type HouseRules {
-  additionalRules: String
-  createdAt: DateTime!
-  id: ID!
-  partiesAndEventsAllowed: Boolean
-  petsAllowed: Boolean
-  smokingAllowed: Boolean
-  suitableForChildren: Boolean
-  suitableForInfants: Boolean
-  updatedAt: DateTime!
-}
+# source: http://localhost:4000
+# timestamp: Tue Jun 12 2018 18:29:26 GMT+0200 (Central European Summer Time)
 
 type Amenities {
   airConditioning: Boolean!
@@ -345,4 +43,340 @@ type Amenities {
   washer: Boolean!
   wheelchairAccessible: Boolean!
   wirelessInternet: Boolean!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type Booking {
+  id: ID!
+  createdAt: DateTime!
+  bookee: User!
+  place: Place!
+  startDate: DateTime!
+  endDate: DateTime!
+  payment: Payment!
+}
+
+type City {
+  id: ID!
+  name: String!
+}
+
+type CityPreviousValues {
+  id: ID!
+  name: String!
+}
+
+type CitySubscriptionPayload {
+  mutation: MutationType!
+  node: City
+  updatedFields: [String!]
+  previousValues: CityPreviousValues
+}
+
+type CreditCardInformation {
+  cardNumber: String!
+  country: String!
+  createdAt: DateTime!
+  expiresOnMonth: Int!
+  expiresOnYear: Int!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  paymentAccount: PaymentAccount
+  postalCode: String!
+  securityCode: String!
+}
+
+enum CURRENCY {
+  CAD
+  CHF
+  EUR
+  JPY
+  USD
+  ZAR
+}
+
+scalar DateTime
+
+type Experience {
+  id: ID!
+  category: ExperienceCategory
+  title: String!
+  location: Location!
+  pricePerPerson: Int!
+  reviews: [Review!]!
+  preview: Picture!
+  popularity: Int!
+}
+
+type ExperienceCategory {
+  id: ID!
+  mainColor: String!
+  name: String!
+  experience: Experience
+}
+
+type ExperiencesByCity {
+  experiences: [Experience!]!
+  city: City!
+}
+
+type GuestRequirements {
+  govIssuedId: Boolean!
+  guestTripInformation: Boolean!
+  id: ID!
+  recommendationsFromOtherHosts: Boolean!
+}
+
+type Home {
+  id: ID!
+  name: String
+  description: String!
+  numRatings: Int!
+  avgRating: Float
+  pictures(first: Int): [Picture!]!
+  perNight: Int!
+}
+
+type HouseRules {
+  additionalRules: String
+  createdAt: DateTime!
+  id: ID!
+  partiesAndEventsAllowed: Boolean
+  petsAllowed: Boolean
+  smokingAllowed: Boolean
+  suitableForChildren: Boolean
+  suitableForInfants: Boolean
+  updatedAt: DateTime!
+}
+
+type Location {
+  id: ID!
+  lat: Float!
+  lng: Float!
+  address: String
+  directions: String
+}
+
+type Message {
+  createdAt: DateTime!
+  deliveredAt: DateTime!
+  id: ID!
+  readAt: DateTime!
+}
+
+type Mutation {
+  signup(email: String!, password: String!, firstName: String!, lastName: String!, phone: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+  addPaymentMethod(cardNumber: String!, expiresOnMonth: Int!, expiresOnYear: Int!, securityCode: String!, firstName: String!, lastName: String!, postalCode: String!, country: String!): MutationResult!
+  book(placeId: ID!, checkIn: String!, checkOut: String!, numGuests: Int!): MutationResult!
+}
+
+type MutationResult {
+  success: Boolean!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+type Neighbourhood {
+  id: ID!
+  name: String!
+  slug: String!
+  homePreview: Picture
+  city: City!
+  featured: Boolean!
+  popularity: Int!
+}
+
+type Notification {
+  createdAt: DateTime!
+  id: ID!
+  link: String!
+  readDate: DateTime!
+  type: NOTIFICATION_TYPE
+  user: User!
+}
+
+enum NOTIFICATION_TYPE {
+  OFFER
+  INSTANT_BOOK
+  RESPONSIVENESS
+  NEW_AMENITIES
+  HOUSE_RULES
+}
+
+type Payment {
+  booking: Booking!
+  createdAt: DateTime!
+  id: ID!
+  paymentMethod: PaymentAccount!
+  serviceFee: Float!
+}
+
+enum PAYMENT_PROVIDER {
+  PAYPAL
+  CREDIT_CARD
+}
+
+type PaymentAccount {
+  id: ID!
+  createdAt: DateTime!
+  type: PAYMENT_PROVIDER
+  user: User!
+  payments: [Payment!]!
+  paypal: PaypalInformation
+  creditcard: CreditCardInformation
+}
+
+type PaypalInformation {
+  createdAt: DateTime!
+  email: String!
+  id: ID!
+  paymentAccount: PaymentAccount!
+}
+
+type Picture {
+  id: ID!
+  url: String!
+}
+
+type Place {
+  id: ID!
+  name: String
+  size: PLACE_SIZES
+  shortDescription: String!
+  description: String!
+  slug: String!
+  maxGuests: Int!
+  numBedrooms: Int!
+  numBeds: Int!
+  numBaths: Int!
+  reviews: [Review!]!
+  amenities: Amenities!
+  host: User!
+  pricing: Pricing!
+  location: Location!
+  views: PlaceViews!
+  guestRequirements: GuestRequirements
+  policies: Policies
+  houseRules: HouseRules
+  bookings: [Booking!]!
+  pictures: [Picture!]
+  popularity: Int!
+}
+
+enum PLACE_SIZES {
+  ENTIRE_HOUSE
+  ENTIRE_APARTMENT
+  ENTIRE_EARTH_HOUSE
+  ENTIRE_CABIN
+  ENTIRE_VILLA
+  ENTIRE_PLACE
+  ENTIRE_BOAT
+  PRIVATE_ROOM
+}
+
+type PlaceViews {
+  id: ID!
+  lastWeek: Int!
+}
+
+type Policies {
+  checkInEndTime: Float!
+  checkInStartTime: Float!
+  checkoutTime: Float!
+  createdAt: DateTime!
+  id: ID!
+  updatedAt: DateTime!
+}
+
+type Pricing {
+  averageMonthly: Int!
+  averageWeekly: Int!
+  basePrice: Int!
+  cleaningFee: Int
+  currency: CURRENCY
+  extraGuests: Int
+  id: ID!
+  monthlyDiscount: Int
+  perNight: Int!
+  securityDeposit: Int
+  smartPricing: Boolean!
+  weekendPricing: Int
+  weeklyDiscount: Int
+}
+
+type Query {
+  topExperiences: [Experience!]!
+  topHomes: [Home!]!
+  homesInPriceRange(min: Int!, max: Int!): [Home!]!
+  topReservations: [Reservation!]!
+  featuredDestinations: [Neighbourhood!]!
+  experiencesByCity(cities: [String!]!): [ExperiencesByCity!]!
+  viewer: Viewer
+  myLocation: Location
+}
+
+type Reservation {
+  id: ID!
+  title: String!
+  avgPricePerPerson: Int!
+  pictures: [Picture!]!
+  location: Location!
+  isCurated: Boolean!
+  slug: String!
+  popularity: Int!
+}
+
+type Review {
+  accuracy: Int!
+  checkIn: Int!
+  cleanliness: Int!
+  communication: Int!
+  createdAt: DateTime!
+  id: ID!
+  location: Int!
+  stars: Int!
+  text: String!
+  value: Int!
+}
+
+type Subscription {
+  city: CitySubscriptionPayload
+}
+
+type User {
+  bookings: [Booking!]
+  createdAt: DateTime!
+  email: String!
+  firstName: String!
+  hostingExperiences: [Experience!]
+  id: ID!
+  isSuperHost: Boolean!
+  lastName: String!
+  location: Location!
+  notifications: [Notification!]
+  ownedPlaces: [Place!]
+  paymentAccount: [PaymentAccount!]
+  phone: String!
+  profilePicture: Picture
+  receivedMessages: [Message!]
+  responseRate: Float
+  responseTime: Int
+  sentMessages: [Message!]
+  updatedAt: DateTime!
+  token: String!
+}
+
+type Viewer {
+  me: User!
+  bookings: [Booking!]!
 }
