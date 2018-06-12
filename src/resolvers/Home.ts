@@ -1,5 +1,5 @@
 import { Context } from '../utils'
-const gql = s => s
+import gql from 'graphql-tag'
 
 export const Home = {
   // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/1312
