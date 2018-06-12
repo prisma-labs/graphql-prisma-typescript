@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Tue Jun 12 2018 18:28:49 GMT+0200 (Central European Summer Time)
+# timestamp: Tue Jun 12 2018 18:37:30 GMT+0200 (Central European Summer Time)
 
 type AggregateAmenities {
   count: Int!
