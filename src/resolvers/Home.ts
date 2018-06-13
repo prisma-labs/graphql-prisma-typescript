@@ -1,4 +1,5 @@
 import { Context } from '../utils'
+import gql from 'graphql-tag'
 
 export const Home = {
   // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/1312
@@ -7,7 +8,7 @@ export const Home = {
     resolve: async ({ id }, args, ctx: Context, info) => {
       const reviews = await ctx.db.query.reviewsConnection(
         { where: { place: { id } } },
-        `{ aggregate { count } }`,
+        gql`{ aggregate { count } }`,
       )
       return reviews.aggregate.count
     },

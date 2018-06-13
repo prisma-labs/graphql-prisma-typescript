@@ -1,5 +1,5 @@
-# source: https://eu1.prisma.sh/demo/airbnb/dev
-# timestamp: Fri May 04 2018 23:14:51 GMT+0200 (CEST)
+# source: http://localhost:4466
+# timestamp: Tue Jun 12 2018 18:37:30 GMT+0200 (Central European Summer Time)
 
 type AggregateAmenities {
   count: Int!
