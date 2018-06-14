@@ -3,7 +3,9 @@ projects:
     schemaPath: src/schema.graphql
     includes: [
       "schema.graphql", 
-      "prisma.graphql"
+      "prisma.graphql",
+      "booking.graphql",
+      "queries.graphql",
     ]
     extensions:
       endpoints:
@@ -13,7 +15,7 @@ projects:
     includes: [
       "prisma.graphql", 
       "seed.graphql", 
-      "datamodel.graphql"
+      "datamodel.graphql",
     ]
     extensions:
       prisma: prisma/prisma.yml
