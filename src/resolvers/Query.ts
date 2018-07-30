@@ -1,6 +1,7 @@
 import { Context } from '../utils'
 import { IQuery, Query_homesInPriceRange_arg } from '../generated/schema/Query'
 import { HomeScalars } from './Home'
+import { PlaceWhereInput } from '../generated/prisma';
 
 export const Query: IQuery<Context, {}, HomeScalars> = {
   topHomes: (root: {}, args: {}, ctx: Context) => {
@@ -12,7 +13,7 @@ export const Query: IQuery<Context, {}, HomeScalars> = {
     args: Query_homesInPriceRange_arg,
     ctx: Context,
   ) => {
-    const where = {
+    const where: PlaceWhereInput = {
       AND: [
         { pricing: { perNight_gte: args.min } },
         { pricing: { perNight_lte: args.max } },

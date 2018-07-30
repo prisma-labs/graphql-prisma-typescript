@@ -1,24 +1,27 @@
-import { QueryWithVariables } from './prisma'
+import { ReviewWhereInput, RequestParams } from './prisma'
 
-export interface picturesForPlaceQueryResult {
-  place: {
-    pictures: {
-      url: string
-    }[]
+export interface picturesForPlace extends RequestParams {
+  Result: {
+    place: {
+      pictures: {
+        url: string
+      }[]
+    }
+  }
+  Variables: {
+    id: string
   }
 }
-export interface picturesForPlaceQueryVariables {
-  id: string
-}
 
-export function picturesForPlaceQuery(
-  variables: picturesForPlaceQueryVariables,
-): QueryWithVariables<
-  picturesForPlaceQueryResult,
-  picturesForPlaceQueryVariables
-> {
-  return {
-    query: '...',
-    variables,
+export interface reviewsCountForPlace extends RequestParams {
+  Result: {
+    reviewsConnection: {
+      aggregate: {
+        count: number
+      }
+    }
+  }
+  Variables: {
+    where: ReviewWhereInput
   }
 }

@@ -23,4 +23,4 @@ export const resolvers = {
   AuthPayload,
 }
 
-export const fragmentReplacements = extractFragmentReplacements(resolvers)
+// export const fragmentReplacements = extractFragmentReplacements(resolvers)

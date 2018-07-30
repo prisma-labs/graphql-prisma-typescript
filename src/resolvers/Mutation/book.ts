@@ -1,5 +1,5 @@
 import { getUserId, Context } from '../../utils'
-import gql from 'graphql-tag'
+// import gql from 'graphql-tag'
 
 export async function book(parent, args, ctx: Context, info) {
   const userId = getUserId(ctx)
@@ -21,7 +21,7 @@ export async function book(parent, args, ctx: Context, info) {
   const days = daysBetween(new Date(args.checkIn), new Date(args.checkOut))
   const place = await ctx.db.query.place(
     { where: { id: args.placeId } },
-    gql`{ pricing { perNight } }`,
+    `{ pricing { perNight } }`,
   )
 
   if (!place) {
@@ -62,7 +62,7 @@ function payWithStripe() {
 async function getPaymentAccount(userId: string, ctx: Context) {
   const paymentAccounts = await ctx.db.query.paymentAccounts(
     { where: { user: { id: userId } } },
-    gql`{
+    `{
       id
       creditcard {
         id

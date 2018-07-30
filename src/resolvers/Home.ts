@@ -2,8 +2,9 @@ import { Context } from '../utils'
 import gql from 'graphql-tag'
 import { IHome } from '../generated/schema/Home'
 import { PictureScalars } from './Picture'
-import { picturesForPlaceQuery } from '../generated/equeries'
+import { picturesForPlace, reviewsCountForPlace } from '../generated/equeries'
 
+// TODO better naming convention (HomeRoot?)
 export interface HomeScalars {
   id: string
   name: string
@@ -17,17 +18,19 @@ export const Home: IHome<{}, HomeScalars, PictureScalars> = {
 
   // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/1312
   numRatings: async (root: HomeScalars, args: {}, ctx: Context) => {
-    const reviews = await ctx.db.query.reviewsConnection(
-      { where: { place: { id: root.id } } },
-      gql`
-        {
+    const query = gql`
+      query reviewsCountForPlace($where: ReviewWhereInput!) {
+        reviewsConnection(where: $where) {
           aggregate {
             count
           }
         }
-      `,
-    )
-    return reviews.aggregate.count
+      }
+    `
+    const result = await ctx.db.request<reviewsCountForPlace>(query, {
+      where: { place: { id: root.id } },
+    })
+    return result.reviewsConnection.aggregate.count
   },
 
   // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/1312
@@ -52,9 +55,9 @@ export const Home: IHome<{}, HomeScalars, PictureScalars> = {
     // TODO other approach
     // const place = await ctx.db.query.place({ where: { id: root.id } }, gql`{}`)
 
-    // TODO floating query
-    gql`
-      query picturesForPlaceQuery($id: String!) {
+    // SOLUTION add backrelation
+    const query = gql`
+      query picturesForPlace($id: String!) {
         place(where: { id: $id }) {
           pictures {
             url
@@ -62,14 +65,14 @@ export const Home: IHome<{}, HomeScalars, PictureScalars> = {
         }
       }
     `
-    const { place } = await ctx.db.execute(
-      picturesForPlaceQuery({ id: root.id }),
-    )
+    const { place } = await ctx.db.request<picturesForPlace>(query, {
+      id: root.id,
+    })
     return place.pictures
   },
 
   perNight: async (root: HomeScalars, args: {}, ctx: Context) => {
-    // TODO improve
+    // SOLUTION embedded types
     const pricings = await ctx.db.query.pricings({
       where: { place: { id: root.id } },
     })

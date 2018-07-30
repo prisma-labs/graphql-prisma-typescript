@@ -4,240 +4,1637 @@ import { Options } from 'graphql-binding'
 import { makePrismaBindingClass, BasePrismaOptions } from 'prisma-binding'
 
 export interface Query {
-    users: <T = User[]>(args: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    places: <T = Place[]>(args: { where?: PlaceWhereInput, orderBy?: PlaceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    pricings: <T = Pricing[]>(args: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    guestRequirementses: <T = GuestRequirements[]>(args: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    policieses: <T = Policies[]>(args: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    houseRuleses: <T = HouseRules[]>(args: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    viewses: <T = Views[]>(args: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    locations: <T = Location[]>(args: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    neighbourhoods: <T = Neighbourhood[]>(args: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    cities: <T = City[]>(args: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    pictures: <T = Picture[]>(args: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    experiences: <T = Experience[]>(args: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    experienceCategories: <T = ExperienceCategory[]>(args: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    amenitieses: <T = Amenities[]>(args: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    reviews: <T = Review[]>(args: { where?: ReviewWhereInput, orderBy?: ReviewOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    bookings: <T = Booking[]>(args: { where?: BookingWhereInput, orderBy?: BookingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    payments: <T = Payment[]>(args: { where?: PaymentWhereInput, orderBy?: PaymentOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    paymentAccounts: <T = PaymentAccount[]>(args: { where?: PaymentAccountWhereInput, orderBy?: PaymentAccountOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    paypalInformations: <T = PaypalInformation[]>(args: { where?: PaypalInformationWhereInput, orderBy?: PaypalInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    creditCardInformations: <T = CreditCardInformation[]>(args: { where?: CreditCardInformationWhereInput, orderBy?: CreditCardInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    messages: <T = Message[]>(args: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    notifications: <T = Notification[]>(args: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    restaurants: <T = Restaurant[]>(args: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    user: <T = User | null>(args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    place: <T = Place | null>(args: { where: PlaceWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    pricing: <T = Pricing | null>(args: { where: PricingWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    guestRequirements: <T = GuestRequirements | null>(args: { where: GuestRequirementsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    policies: <T = Policies | null>(args: { where: PoliciesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    houseRules: <T = HouseRules | null>(args: { where: HouseRulesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    views: <T = Views | null>(args: { where: ViewsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    location: <T = Location | null>(args: { where: LocationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    neighbourhood: <T = Neighbourhood | null>(args: { where: NeighbourhoodWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    city: <T = City | null>(args: { where: CityWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    experience: <T = Experience | null>(args: { where: ExperienceWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    experienceCategory: <T = ExperienceCategory | null>(args: { where: ExperienceCategoryWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    amenities: <T = Amenities | null>(args: { where: AmenitiesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    review: <T = Review | null>(args: { where: ReviewWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    booking: <T = Booking | null>(args: { where: BookingWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    payment: <T = Payment | null>(args: { where: PaymentWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    paymentAccount: <T = PaymentAccount | null>(args: { where: PaymentAccountWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    paypalInformation: <T = PaypalInformation | null>(args: { where: PaypalInformationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    creditCardInformation: <T = CreditCardInformation | null>(args: { where: CreditCardInformationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    message: <T = Message | null>(args: { where: MessageWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    notification: <T = Notification | null>(args: { where: NotificationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    restaurant: <T = Restaurant | null>(args: { where: RestaurantWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    usersConnection: <T = UserConnection>(args: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    placesConnection: <T = PlaceConnection>(args: { where?: PlaceWhereInput, orderBy?: PlaceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    pricingsConnection: <T = PricingConnection>(args: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    guestRequirementsesConnection: <T = GuestRequirementsConnection>(args: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    policiesesConnection: <T = PoliciesConnection>(args: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    houseRulesesConnection: <T = HouseRulesConnection>(args: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    viewsesConnection: <T = ViewsConnection>(args: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    locationsConnection: <T = LocationConnection>(args: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    neighbourhoodsConnection: <T = NeighbourhoodConnection>(args: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    citiesConnection: <T = CityConnection>(args: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    picturesConnection: <T = PictureConnection>(args: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    experiencesConnection: <T = ExperienceConnection>(args: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    experienceCategoriesConnection: <T = ExperienceCategoryConnection>(args: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    amenitiesesConnection: <T = AmenitiesConnection>(args: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    reviewsConnection: <T = ReviewConnection>(args: { where?: ReviewWhereInput, orderBy?: ReviewOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    bookingsConnection: <T = BookingConnection>(args: { where?: BookingWhereInput, orderBy?: BookingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    paymentsConnection: <T = PaymentConnection>(args: { where?: PaymentWhereInput, orderBy?: PaymentOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    paymentAccountsConnection: <T = PaymentAccountConnection>(args: { where?: PaymentAccountWhereInput, orderBy?: PaymentAccountOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    paypalInformationsConnection: <T = PaypalInformationConnection>(args: { where?: PaypalInformationWhereInput, orderBy?: PaypalInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    creditCardInformationsConnection: <T = CreditCardInformationConnection>(args: { where?: CreditCardInformationWhereInput, orderBy?: CreditCardInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    messagesConnection: <T = MessageConnection>(args: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    notificationsConnection: <T = NotificationConnection>(args: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    restaurantsConnection: <T = RestaurantConnection>(args: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    node: <T = Node | null>(args: { id: ID_Output }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
-  }
+  users: <T = User[]>(
+    args: {
+      where?: UserWhereInput
+      orderBy?: UserOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  places: <T = Place[]>(
+    args: {
+      where?: PlaceWhereInput
+      orderBy?: PlaceOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  pricings: <T = Pricing[]>(
+    args: {
+      where?: PricingWhereInput
+      orderBy?: PricingOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  guestRequirementses: <T = GuestRequirements[]>(
+    args: {
+      where?: GuestRequirementsWhereInput
+      orderBy?: GuestRequirementsOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  policieses: <T = Policies[]>(
+    args: {
+      where?: PoliciesWhereInput
+      orderBy?: PoliciesOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  houseRuleses: <T = HouseRules[]>(
+    args: {
+      where?: HouseRulesWhereInput
+      orderBy?: HouseRulesOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  viewses: <T = Views[]>(
+    args: {
+      where?: ViewsWhereInput
+      orderBy?: ViewsOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  locations: <T = Location[]>(
+    args: {
+      where?: LocationWhereInput
+      orderBy?: LocationOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  neighbourhoods: <T = Neighbourhood[]>(
+    args: {
+      where?: NeighbourhoodWhereInput
+      orderBy?: NeighbourhoodOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  cities: <T = City[]>(
+    args: {
+      where?: CityWhereInput
+      orderBy?: CityOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  pictures: <T = Picture[]>(
+    args: {
+      where?: PictureWhereInput
+      orderBy?: PictureOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  experiences: <T = Experience[]>(
+    args: {
+      where?: ExperienceWhereInput
+      orderBy?: ExperienceOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  experienceCategories: <T = ExperienceCategory[]>(
+    args: {
+      where?: ExperienceCategoryWhereInput
+      orderBy?: ExperienceCategoryOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  amenitieses: <T = Amenities[]>(
+    args: {
+      where?: AmenitiesWhereInput
+      orderBy?: AmenitiesOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  reviews: <T = Review[]>(
+    args: {
+      where?: ReviewWhereInput
+      orderBy?: ReviewOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  bookings: <T = Booking[]>(
+    args: {
+      where?: BookingWhereInput
+      orderBy?: BookingOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  payments: <T = Payment[]>(
+    args: {
+      where?: PaymentWhereInput
+      orderBy?: PaymentOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  paymentAccounts: <T = PaymentAccount[]>(
+    args: {
+      where?: PaymentAccountWhereInput
+      orderBy?: PaymentAccountOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  paypalInformations: <T = PaypalInformation[]>(
+    args: {
+      where?: PaypalInformationWhereInput
+      orderBy?: PaypalInformationOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  creditCardInformations: <T = CreditCardInformation[]>(
+    args: {
+      where?: CreditCardInformationWhereInput
+      orderBy?: CreditCardInformationOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  messages: <T = Message[]>(
+    args: {
+      where?: MessageWhereInput
+      orderBy?: MessageOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  notifications: <T = Notification[]>(
+    args: {
+      where?: NotificationWhereInput
+      orderBy?: NotificationOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  restaurants: <T = Restaurant[]>(
+    args: {
+      where?: RestaurantWhereInput
+      orderBy?: RestaurantOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  user: <T = User | null>(
+    args: { where: UserWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  place: <T = Place | null>(
+    args: { where: PlaceWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  pricing: <T = Pricing | null>(
+    args: { where: PricingWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  guestRequirements: <T = GuestRequirements | null>(
+    args: { where: GuestRequirementsWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  policies: <T = Policies | null>(
+    args: { where: PoliciesWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  houseRules: <T = HouseRules | null>(
+    args: { where: HouseRulesWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  views: <T = Views | null>(
+    args: { where: ViewsWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  location: <T = Location | null>(
+    args: { where: LocationWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  neighbourhood: <T = Neighbourhood | null>(
+    args: { where: NeighbourhoodWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  city: <T = City | null>(
+    args: { where: CityWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  experience: <T = Experience | null>(
+    args: { where: ExperienceWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  experienceCategory: <T = ExperienceCategory | null>(
+    args: { where: ExperienceCategoryWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  amenities: <T = Amenities | null>(
+    args: { where: AmenitiesWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  review: <T = Review | null>(
+    args: { where: ReviewWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  booking: <T = Booking | null>(
+    args: { where: BookingWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  payment: <T = Payment | null>(
+    args: { where: PaymentWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  paymentAccount: <T = PaymentAccount | null>(
+    args: { where: PaymentAccountWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  paypalInformation: <T = PaypalInformation | null>(
+    args: { where: PaypalInformationWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  creditCardInformation: <T = CreditCardInformation | null>(
+    args: { where: CreditCardInformationWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  message: <T = Message | null>(
+    args: { where: MessageWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  notification: <T = Notification | null>(
+    args: { where: NotificationWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  restaurant: <T = Restaurant | null>(
+    args: { where: RestaurantWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  usersConnection: <T = UserConnection>(
+    args: {
+      where?: UserWhereInput
+      orderBy?: UserOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  placesConnection: <T = PlaceConnection>(
+    args: {
+      where?: PlaceWhereInput
+      orderBy?: PlaceOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  pricingsConnection: <T = PricingConnection>(
+    args: {
+      where?: PricingWhereInput
+      orderBy?: PricingOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  guestRequirementsesConnection: <T = GuestRequirementsConnection>(
+    args: {
+      where?: GuestRequirementsWhereInput
+      orderBy?: GuestRequirementsOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  policiesesConnection: <T = PoliciesConnection>(
+    args: {
+      where?: PoliciesWhereInput
+      orderBy?: PoliciesOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  houseRulesesConnection: <T = HouseRulesConnection>(
+    args: {
+      where?: HouseRulesWhereInput
+      orderBy?: HouseRulesOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  viewsesConnection: <T = ViewsConnection>(
+    args: {
+      where?: ViewsWhereInput
+      orderBy?: ViewsOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  locationsConnection: <T = LocationConnection>(
+    args: {
+      where?: LocationWhereInput
+      orderBy?: LocationOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  neighbourhoodsConnection: <T = NeighbourhoodConnection>(
+    args: {
+      where?: NeighbourhoodWhereInput
+      orderBy?: NeighbourhoodOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  citiesConnection: <T = CityConnection>(
+    args: {
+      where?: CityWhereInput
+      orderBy?: CityOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  picturesConnection: <T = PictureConnection>(
+    args: {
+      where?: PictureWhereInput
+      orderBy?: PictureOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  experiencesConnection: <T = ExperienceConnection>(
+    args: {
+      where?: ExperienceWhereInput
+      orderBy?: ExperienceOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  experienceCategoriesConnection: <T = ExperienceCategoryConnection>(
+    args: {
+      where?: ExperienceCategoryWhereInput
+      orderBy?: ExperienceCategoryOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  amenitiesesConnection: <T = AmenitiesConnection>(
+    args: {
+      where?: AmenitiesWhereInput
+      orderBy?: AmenitiesOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  reviewsConnection: <T = ReviewConnection>(
+    args: {
+      where?: ReviewWhereInput
+      orderBy?: ReviewOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  bookingsConnection: <T = BookingConnection>(
+    args: {
+      where?: BookingWhereInput
+      orderBy?: BookingOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  paymentsConnection: <T = PaymentConnection>(
+    args: {
+      where?: PaymentWhereInput
+      orderBy?: PaymentOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  paymentAccountsConnection: <T = PaymentAccountConnection>(
+    args: {
+      where?: PaymentAccountWhereInput
+      orderBy?: PaymentAccountOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  paypalInformationsConnection: <T = PaypalInformationConnection>(
+    args: {
+      where?: PaypalInformationWhereInput
+      orderBy?: PaypalInformationOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  creditCardInformationsConnection: <T = CreditCardInformationConnection>(
+    args: {
+      where?: CreditCardInformationWhereInput
+      orderBy?: CreditCardInformationOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  messagesConnection: <T = MessageConnection>(
+    args: {
+      where?: MessageWhereInput
+      orderBy?: MessageOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  notificationsConnection: <T = NotificationConnection>(
+    args: {
+      where?: NotificationWhereInput
+      orderBy?: NotificationOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  restaurantsConnection: <T = RestaurantConnection>(
+    args: {
+      where?: RestaurantWhereInput
+      orderBy?: RestaurantOrderByInput
+      skip?: Int
+      after?: String
+      before?: String
+      first?: Int
+      last?: Int
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  node: <T = Node | null>(
+    args: { id: ID_Output },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+}
 
 export interface Mutation {
-    createUser: <T = User>(args: { data: UserCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createPlace: <T = Place>(args: { data: PlaceCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createPricing: <T = Pricing>(args: { data: PricingCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createGuestRequirements: <T = GuestRequirements>(args: { data: GuestRequirementsCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createPolicies: <T = Policies>(args: { data: PoliciesCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createHouseRules: <T = HouseRules>(args: { data: HouseRulesCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createViews: <T = Views>(args: { data: ViewsCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createLocation: <T = Location>(args: { data: LocationCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createNeighbourhood: <T = Neighbourhood>(args: { data: NeighbourhoodCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createCity: <T = City>(args: { data: CityCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createPicture: <T = Picture>(args: { data: PictureCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createExperience: <T = Experience>(args: { data: ExperienceCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createExperienceCategory: <T = ExperienceCategory>(args: { data: ExperienceCategoryCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createAmenities: <T = Amenities>(args: { data: AmenitiesCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createReview: <T = Review>(args: { data: ReviewCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createBooking: <T = Booking>(args: { data: BookingCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createPayment: <T = Payment>(args: { data: PaymentCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createPaymentAccount: <T = PaymentAccount>(args: { data: PaymentAccountCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createPaypalInformation: <T = PaypalInformation>(args: { data: PaypalInformationCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createCreditCardInformation: <T = CreditCardInformation>(args: { data: CreditCardInformationCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createMessage: <T = Message>(args: { data: MessageCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createNotification: <T = Notification>(args: { data: NotificationCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createRestaurant: <T = Restaurant>(args: { data: RestaurantCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateUser: <T = User | null>(args: { data: UserUpdateInput, where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updatePlace: <T = Place | null>(args: { data: PlaceUpdateInput, where: PlaceWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updatePricing: <T = Pricing | null>(args: { data: PricingUpdateInput, where: PricingWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateGuestRequirements: <T = GuestRequirements | null>(args: { data: GuestRequirementsUpdateInput, where: GuestRequirementsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updatePolicies: <T = Policies | null>(args: { data: PoliciesUpdateInput, where: PoliciesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateHouseRules: <T = HouseRules | null>(args: { data: HouseRulesUpdateInput, where: HouseRulesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateViews: <T = Views | null>(args: { data: ViewsUpdateInput, where: ViewsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateLocation: <T = Location | null>(args: { data: LocationUpdateInput, where: LocationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateNeighbourhood: <T = Neighbourhood | null>(args: { data: NeighbourhoodUpdateInput, where: NeighbourhoodWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateCity: <T = City | null>(args: { data: CityUpdateInput, where: CityWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateExperience: <T = Experience | null>(args: { data: ExperienceUpdateInput, where: ExperienceWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateExperienceCategory: <T = ExperienceCategory | null>(args: { data: ExperienceCategoryUpdateInput, where: ExperienceCategoryWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateAmenities: <T = Amenities | null>(args: { data: AmenitiesUpdateInput, where: AmenitiesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateReview: <T = Review | null>(args: { data: ReviewUpdateInput, where: ReviewWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateBooking: <T = Booking | null>(args: { data: BookingUpdateInput, where: BookingWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updatePayment: <T = Payment | null>(args: { data: PaymentUpdateInput, where: PaymentWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updatePaymentAccount: <T = PaymentAccount | null>(args: { data: PaymentAccountUpdateInput, where: PaymentAccountWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updatePaypalInformation: <T = PaypalInformation | null>(args: { data: PaypalInformationUpdateInput, where: PaypalInformationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateCreditCardInformation: <T = CreditCardInformation | null>(args: { data: CreditCardInformationUpdateInput, where: CreditCardInformationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateMessage: <T = Message | null>(args: { data: MessageUpdateInput, where: MessageWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateNotification: <T = Notification | null>(args: { data: NotificationUpdateInput, where: NotificationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateRestaurant: <T = Restaurant | null>(args: { data: RestaurantUpdateInput, where: RestaurantWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteUser: <T = User | null>(args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deletePlace: <T = Place | null>(args: { where: PlaceWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deletePricing: <T = Pricing | null>(args: { where: PricingWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteGuestRequirements: <T = GuestRequirements | null>(args: { where: GuestRequirementsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deletePolicies: <T = Policies | null>(args: { where: PoliciesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteHouseRules: <T = HouseRules | null>(args: { where: HouseRulesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteViews: <T = Views | null>(args: { where: ViewsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteLocation: <T = Location | null>(args: { where: LocationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteNeighbourhood: <T = Neighbourhood | null>(args: { where: NeighbourhoodWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteCity: <T = City | null>(args: { where: CityWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteExperience: <T = Experience | null>(args: { where: ExperienceWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteExperienceCategory: <T = ExperienceCategory | null>(args: { where: ExperienceCategoryWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteAmenities: <T = Amenities | null>(args: { where: AmenitiesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteReview: <T = Review | null>(args: { where: ReviewWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteBooking: <T = Booking | null>(args: { where: BookingWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deletePayment: <T = Payment | null>(args: { where: PaymentWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deletePaymentAccount: <T = PaymentAccount | null>(args: { where: PaymentAccountWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deletePaypalInformation: <T = PaypalInformation | null>(args: { where: PaypalInformationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteCreditCardInformation: <T = CreditCardInformation | null>(args: { where: CreditCardInformationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteMessage: <T = Message | null>(args: { where: MessageWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteNotification: <T = Notification | null>(args: { where: NotificationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteRestaurant: <T = Restaurant | null>(args: { where: RestaurantWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertUser: <T = User>(args: { where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertPlace: <T = Place>(args: { where: PlaceWhereUniqueInput, create: PlaceCreateInput, update: PlaceUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertPricing: <T = Pricing>(args: { where: PricingWhereUniqueInput, create: PricingCreateInput, update: PricingUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertGuestRequirements: <T = GuestRequirements>(args: { where: GuestRequirementsWhereUniqueInput, create: GuestRequirementsCreateInput, update: GuestRequirementsUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertPolicies: <T = Policies>(args: { where: PoliciesWhereUniqueInput, create: PoliciesCreateInput, update: PoliciesUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertHouseRules: <T = HouseRules>(args: { where: HouseRulesWhereUniqueInput, create: HouseRulesCreateInput, update: HouseRulesUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertViews: <T = Views>(args: { where: ViewsWhereUniqueInput, create: ViewsCreateInput, update: ViewsUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertLocation: <T = Location>(args: { where: LocationWhereUniqueInput, create: LocationCreateInput, update: LocationUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertNeighbourhood: <T = Neighbourhood>(args: { where: NeighbourhoodWhereUniqueInput, create: NeighbourhoodCreateInput, update: NeighbourhoodUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertCity: <T = City>(args: { where: CityWhereUniqueInput, create: CityCreateInput, update: CityUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertExperience: <T = Experience>(args: { where: ExperienceWhereUniqueInput, create: ExperienceCreateInput, update: ExperienceUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertExperienceCategory: <T = ExperienceCategory>(args: { where: ExperienceCategoryWhereUniqueInput, create: ExperienceCategoryCreateInput, update: ExperienceCategoryUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertAmenities: <T = Amenities>(args: { where: AmenitiesWhereUniqueInput, create: AmenitiesCreateInput, update: AmenitiesUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertReview: <T = Review>(args: { where: ReviewWhereUniqueInput, create: ReviewCreateInput, update: ReviewUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertBooking: <T = Booking>(args: { where: BookingWhereUniqueInput, create: BookingCreateInput, update: BookingUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertPayment: <T = Payment>(args: { where: PaymentWhereUniqueInput, create: PaymentCreateInput, update: PaymentUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertPaymentAccount: <T = PaymentAccount>(args: { where: PaymentAccountWhereUniqueInput, create: PaymentAccountCreateInput, update: PaymentAccountUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertPaypalInformation: <T = PaypalInformation>(args: { where: PaypalInformationWhereUniqueInput, create: PaypalInformationCreateInput, update: PaypalInformationUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertCreditCardInformation: <T = CreditCardInformation>(args: { where: CreditCardInformationWhereUniqueInput, create: CreditCardInformationCreateInput, update: CreditCardInformationUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertMessage: <T = Message>(args: { where: MessageWhereUniqueInput, create: MessageCreateInput, update: MessageUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertNotification: <T = Notification>(args: { where: NotificationWhereUniqueInput, create: NotificationCreateInput, update: NotificationUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertRestaurant: <T = Restaurant>(args: { where: RestaurantWhereUniqueInput, create: RestaurantCreateInput, update: RestaurantUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyUsers: <T = BatchPayload>(args: { data: UserUpdateInput, where?: UserWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyPlaces: <T = BatchPayload>(args: { data: PlaceUpdateInput, where?: PlaceWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyPricings: <T = BatchPayload>(args: { data: PricingUpdateInput, where?: PricingWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyGuestRequirementses: <T = BatchPayload>(args: { data: GuestRequirementsUpdateInput, where?: GuestRequirementsWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyPolicieses: <T = BatchPayload>(args: { data: PoliciesUpdateInput, where?: PoliciesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyHouseRuleses: <T = BatchPayload>(args: { data: HouseRulesUpdateInput, where?: HouseRulesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyViewses: <T = BatchPayload>(args: { data: ViewsUpdateInput, where?: ViewsWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyLocations: <T = BatchPayload>(args: { data: LocationUpdateInput, where?: LocationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyNeighbourhoods: <T = BatchPayload>(args: { data: NeighbourhoodUpdateInput, where?: NeighbourhoodWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyCities: <T = BatchPayload>(args: { data: CityUpdateInput, where?: CityWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyPictures: <T = BatchPayload>(args: { data: PictureUpdateInput, where?: PictureWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyExperiences: <T = BatchPayload>(args: { data: ExperienceUpdateInput, where?: ExperienceWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyExperienceCategories: <T = BatchPayload>(args: { data: ExperienceCategoryUpdateInput, where?: ExperienceCategoryWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyAmenitieses: <T = BatchPayload>(args: { data: AmenitiesUpdateInput, where?: AmenitiesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyReviews: <T = BatchPayload>(args: { data: ReviewUpdateInput, where?: ReviewWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyBookings: <T = BatchPayload>(args: { data: BookingUpdateInput, where?: BookingWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyPayments: <T = BatchPayload>(args: { data: PaymentUpdateInput, where?: PaymentWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyPaymentAccounts: <T = BatchPayload>(args: { data: PaymentAccountUpdateInput, where?: PaymentAccountWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyPaypalInformations: <T = BatchPayload>(args: { data: PaypalInformationUpdateInput, where?: PaypalInformationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyCreditCardInformations: <T = BatchPayload>(args: { data: CreditCardInformationUpdateInput, where?: CreditCardInformationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyMessages: <T = BatchPayload>(args: { data: MessageUpdateInput, where?: MessageWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyNotifications: <T = BatchPayload>(args: { data: NotificationUpdateInput, where?: NotificationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyRestaurants: <T = BatchPayload>(args: { data: RestaurantUpdateInput, where?: RestaurantWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyUsers: <T = BatchPayload>(args: { where?: UserWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyPlaces: <T = BatchPayload>(args: { where?: PlaceWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyPricings: <T = BatchPayload>(args: { where?: PricingWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyGuestRequirementses: <T = BatchPayload>(args: { where?: GuestRequirementsWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyPolicieses: <T = BatchPayload>(args: { where?: PoliciesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyHouseRuleses: <T = BatchPayload>(args: { where?: HouseRulesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyViewses: <T = BatchPayload>(args: { where?: ViewsWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyLocations: <T = BatchPayload>(args: { where?: LocationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyNeighbourhoods: <T = BatchPayload>(args: { where?: NeighbourhoodWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyCities: <T = BatchPayload>(args: { where?: CityWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyPictures: <T = BatchPayload>(args: { where?: PictureWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyExperiences: <T = BatchPayload>(args: { where?: ExperienceWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyExperienceCategories: <T = BatchPayload>(args: { where?: ExperienceCategoryWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyAmenitieses: <T = BatchPayload>(args: { where?: AmenitiesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyReviews: <T = BatchPayload>(args: { where?: ReviewWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyBookings: <T = BatchPayload>(args: { where?: BookingWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyPayments: <T = BatchPayload>(args: { where?: PaymentWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyPaymentAccounts: <T = BatchPayload>(args: { where?: PaymentAccountWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyPaypalInformations: <T = BatchPayload>(args: { where?: PaypalInformationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyCreditCardInformations: <T = BatchPayload>(args: { where?: CreditCardInformationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyMessages: <T = BatchPayload>(args: { where?: MessageWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyNotifications: <T = BatchPayload>(args: { where?: NotificationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyRestaurants: <T = BatchPayload>(args: { where?: RestaurantWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
-  }
+  createUser: <T = User>(
+    args: { data: UserCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createPlace: <T = Place>(
+    args: { data: PlaceCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createPricing: <T = Pricing>(
+    args: { data: PricingCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createGuestRequirements: <T = GuestRequirements>(
+    args: { data: GuestRequirementsCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createPolicies: <T = Policies>(
+    args: { data: PoliciesCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createHouseRules: <T = HouseRules>(
+    args: { data: HouseRulesCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createViews: <T = Views>(
+    args: { data: ViewsCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createLocation: <T = Location>(
+    args: { data: LocationCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createNeighbourhood: <T = Neighbourhood>(
+    args: { data: NeighbourhoodCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createCity: <T = City>(
+    args: { data: CityCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createPicture: <T = Picture>(
+    args: { data: PictureCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createExperience: <T = Experience>(
+    args: { data: ExperienceCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createExperienceCategory: <T = ExperienceCategory>(
+    args: { data: ExperienceCategoryCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createAmenities: <T = Amenities>(
+    args: { data: AmenitiesCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createReview: <T = Review>(
+    args: { data: ReviewCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createBooking: <T = Booking>(
+    args: { data: BookingCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createPayment: <T = Payment>(
+    args: { data: PaymentCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createPaymentAccount: <T = PaymentAccount>(
+    args: { data: PaymentAccountCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createPaypalInformation: <T = PaypalInformation>(
+    args: { data: PaypalInformationCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createCreditCardInformation: <T = CreditCardInformation>(
+    args: { data: CreditCardInformationCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createMessage: <T = Message>(
+    args: { data: MessageCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createNotification: <T = Notification>(
+    args: { data: NotificationCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  createRestaurant: <T = Restaurant>(
+    args: { data: RestaurantCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateUser: <T = User | null>(
+    args: { data: UserUpdateInput; where: UserWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updatePlace: <T = Place | null>(
+    args: { data: PlaceUpdateInput; where: PlaceWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updatePricing: <T = Pricing | null>(
+    args: { data: PricingUpdateInput; where: PricingWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateGuestRequirements: <T = GuestRequirements | null>(
+    args: {
+      data: GuestRequirementsUpdateInput
+      where: GuestRequirementsWhereUniqueInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updatePolicies: <T = Policies | null>(
+    args: { data: PoliciesUpdateInput; where: PoliciesWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateHouseRules: <T = HouseRules | null>(
+    args: { data: HouseRulesUpdateInput; where: HouseRulesWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateViews: <T = Views | null>(
+    args: { data: ViewsUpdateInput; where: ViewsWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateLocation: <T = Location | null>(
+    args: { data: LocationUpdateInput; where: LocationWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateNeighbourhood: <T = Neighbourhood | null>(
+    args: {
+      data: NeighbourhoodUpdateInput
+      where: NeighbourhoodWhereUniqueInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateCity: <T = City | null>(
+    args: { data: CityUpdateInput; where: CityWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateExperience: <T = Experience | null>(
+    args: { data: ExperienceUpdateInput; where: ExperienceWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateExperienceCategory: <T = ExperienceCategory | null>(
+    args: {
+      data: ExperienceCategoryUpdateInput
+      where: ExperienceCategoryWhereUniqueInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateAmenities: <T = Amenities | null>(
+    args: { data: AmenitiesUpdateInput; where: AmenitiesWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateReview: <T = Review | null>(
+    args: { data: ReviewUpdateInput; where: ReviewWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateBooking: <T = Booking | null>(
+    args: { data: BookingUpdateInput; where: BookingWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updatePayment: <T = Payment | null>(
+    args: { data: PaymentUpdateInput; where: PaymentWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updatePaymentAccount: <T = PaymentAccount | null>(
+    args: {
+      data: PaymentAccountUpdateInput
+      where: PaymentAccountWhereUniqueInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updatePaypalInformation: <T = PaypalInformation | null>(
+    args: {
+      data: PaypalInformationUpdateInput
+      where: PaypalInformationWhereUniqueInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateCreditCardInformation: <T = CreditCardInformation | null>(
+    args: {
+      data: CreditCardInformationUpdateInput
+      where: CreditCardInformationWhereUniqueInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateMessage: <T = Message | null>(
+    args: { data: MessageUpdateInput; where: MessageWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateNotification: <T = Notification | null>(
+    args: {
+      data: NotificationUpdateInput
+      where: NotificationWhereUniqueInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateRestaurant: <T = Restaurant | null>(
+    args: { data: RestaurantUpdateInput; where: RestaurantWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteUser: <T = User | null>(
+    args: { where: UserWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deletePlace: <T = Place | null>(
+    args: { where: PlaceWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deletePricing: <T = Pricing | null>(
+    args: { where: PricingWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteGuestRequirements: <T = GuestRequirements | null>(
+    args: { where: GuestRequirementsWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deletePolicies: <T = Policies | null>(
+    args: { where: PoliciesWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteHouseRules: <T = HouseRules | null>(
+    args: { where: HouseRulesWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteViews: <T = Views | null>(
+    args: { where: ViewsWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteLocation: <T = Location | null>(
+    args: { where: LocationWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteNeighbourhood: <T = Neighbourhood | null>(
+    args: { where: NeighbourhoodWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteCity: <T = City | null>(
+    args: { where: CityWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteExperience: <T = Experience | null>(
+    args: { where: ExperienceWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteExperienceCategory: <T = ExperienceCategory | null>(
+    args: { where: ExperienceCategoryWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteAmenities: <T = Amenities | null>(
+    args: { where: AmenitiesWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteReview: <T = Review | null>(
+    args: { where: ReviewWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteBooking: <T = Booking | null>(
+    args: { where: BookingWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deletePayment: <T = Payment | null>(
+    args: { where: PaymentWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deletePaymentAccount: <T = PaymentAccount | null>(
+    args: { where: PaymentAccountWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deletePaypalInformation: <T = PaypalInformation | null>(
+    args: { where: PaypalInformationWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteCreditCardInformation: <T = CreditCardInformation | null>(
+    args: { where: CreditCardInformationWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteMessage: <T = Message | null>(
+    args: { where: MessageWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteNotification: <T = Notification | null>(
+    args: { where: NotificationWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteRestaurant: <T = Restaurant | null>(
+    args: { where: RestaurantWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertUser: <T = User>(
+    args: {
+      where: UserWhereUniqueInput
+      create: UserCreateInput
+      update: UserUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertPlace: <T = Place>(
+    args: {
+      where: PlaceWhereUniqueInput
+      create: PlaceCreateInput
+      update: PlaceUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertPricing: <T = Pricing>(
+    args: {
+      where: PricingWhereUniqueInput
+      create: PricingCreateInput
+      update: PricingUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertGuestRequirements: <T = GuestRequirements>(
+    args: {
+      where: GuestRequirementsWhereUniqueInput
+      create: GuestRequirementsCreateInput
+      update: GuestRequirementsUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertPolicies: <T = Policies>(
+    args: {
+      where: PoliciesWhereUniqueInput
+      create: PoliciesCreateInput
+      update: PoliciesUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertHouseRules: <T = HouseRules>(
+    args: {
+      where: HouseRulesWhereUniqueInput
+      create: HouseRulesCreateInput
+      update: HouseRulesUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertViews: <T = Views>(
+    args: {
+      where: ViewsWhereUniqueInput
+      create: ViewsCreateInput
+      update: ViewsUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertLocation: <T = Location>(
+    args: {
+      where: LocationWhereUniqueInput
+      create: LocationCreateInput
+      update: LocationUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertNeighbourhood: <T = Neighbourhood>(
+    args: {
+      where: NeighbourhoodWhereUniqueInput
+      create: NeighbourhoodCreateInput
+      update: NeighbourhoodUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertCity: <T = City>(
+    args: {
+      where: CityWhereUniqueInput
+      create: CityCreateInput
+      update: CityUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertExperience: <T = Experience>(
+    args: {
+      where: ExperienceWhereUniqueInput
+      create: ExperienceCreateInput
+      update: ExperienceUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertExperienceCategory: <T = ExperienceCategory>(
+    args: {
+      where: ExperienceCategoryWhereUniqueInput
+      create: ExperienceCategoryCreateInput
+      update: ExperienceCategoryUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertAmenities: <T = Amenities>(
+    args: {
+      where: AmenitiesWhereUniqueInput
+      create: AmenitiesCreateInput
+      update: AmenitiesUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertReview: <T = Review>(
+    args: {
+      where: ReviewWhereUniqueInput
+      create: ReviewCreateInput
+      update: ReviewUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertBooking: <T = Booking>(
+    args: {
+      where: BookingWhereUniqueInput
+      create: BookingCreateInput
+      update: BookingUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertPayment: <T = Payment>(
+    args: {
+      where: PaymentWhereUniqueInput
+      create: PaymentCreateInput
+      update: PaymentUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertPaymentAccount: <T = PaymentAccount>(
+    args: {
+      where: PaymentAccountWhereUniqueInput
+      create: PaymentAccountCreateInput
+      update: PaymentAccountUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertPaypalInformation: <T = PaypalInformation>(
+    args: {
+      where: PaypalInformationWhereUniqueInput
+      create: PaypalInformationCreateInput
+      update: PaypalInformationUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertCreditCardInformation: <T = CreditCardInformation>(
+    args: {
+      where: CreditCardInformationWhereUniqueInput
+      create: CreditCardInformationCreateInput
+      update: CreditCardInformationUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertMessage: <T = Message>(
+    args: {
+      where: MessageWhereUniqueInput
+      create: MessageCreateInput
+      update: MessageUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertNotification: <T = Notification>(
+    args: {
+      where: NotificationWhereUniqueInput
+      create: NotificationCreateInput
+      update: NotificationUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  upsertRestaurant: <T = Restaurant>(
+    args: {
+      where: RestaurantWhereUniqueInput
+      create: RestaurantCreateInput
+      update: RestaurantUpdateInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyUsers: <T = BatchPayload>(
+    args: { data: UserUpdateInput; where?: UserWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyPlaces: <T = BatchPayload>(
+    args: { data: PlaceUpdateInput; where?: PlaceWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyPricings: <T = BatchPayload>(
+    args: { data: PricingUpdateInput; where?: PricingWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyGuestRequirementses: <T = BatchPayload>(
+    args: {
+      data: GuestRequirementsUpdateInput
+      where?: GuestRequirementsWhereInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyPolicieses: <T = BatchPayload>(
+    args: { data: PoliciesUpdateInput; where?: PoliciesWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyHouseRuleses: <T = BatchPayload>(
+    args: { data: HouseRulesUpdateInput; where?: HouseRulesWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyViewses: <T = BatchPayload>(
+    args: { data: ViewsUpdateInput; where?: ViewsWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyLocations: <T = BatchPayload>(
+    args: { data: LocationUpdateInput; where?: LocationWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyNeighbourhoods: <T = BatchPayload>(
+    args: { data: NeighbourhoodUpdateInput; where?: NeighbourhoodWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyCities: <T = BatchPayload>(
+    args: { data: CityUpdateInput; where?: CityWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyPictures: <T = BatchPayload>(
+    args: { data: PictureUpdateInput; where?: PictureWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyExperiences: <T = BatchPayload>(
+    args: { data: ExperienceUpdateInput; where?: ExperienceWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyExperienceCategories: <T = BatchPayload>(
+    args: {
+      data: ExperienceCategoryUpdateInput
+      where?: ExperienceCategoryWhereInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyAmenitieses: <T = BatchPayload>(
+    args: { data: AmenitiesUpdateInput; where?: AmenitiesWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyReviews: <T = BatchPayload>(
+    args: { data: ReviewUpdateInput; where?: ReviewWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyBookings: <T = BatchPayload>(
+    args: { data: BookingUpdateInput; where?: BookingWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyPayments: <T = BatchPayload>(
+    args: { data: PaymentUpdateInput; where?: PaymentWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyPaymentAccounts: <T = BatchPayload>(
+    args: { data: PaymentAccountUpdateInput; where?: PaymentAccountWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyPaypalInformations: <T = BatchPayload>(
+    args: {
+      data: PaypalInformationUpdateInput
+      where?: PaypalInformationWhereInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyCreditCardInformations: <T = BatchPayload>(
+    args: {
+      data: CreditCardInformationUpdateInput
+      where?: CreditCardInformationWhereInput
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyMessages: <T = BatchPayload>(
+    args: { data: MessageUpdateInput; where?: MessageWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyNotifications: <T = BatchPayload>(
+    args: { data: NotificationUpdateInput; where?: NotificationWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  updateManyRestaurants: <T = BatchPayload>(
+    args: { data: RestaurantUpdateInput; where?: RestaurantWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyUsers: <T = BatchPayload>(
+    args: { where?: UserWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyPlaces: <T = BatchPayload>(
+    args: { where?: PlaceWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyPricings: <T = BatchPayload>(
+    args: { where?: PricingWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyGuestRequirementses: <T = BatchPayload>(
+    args: { where?: GuestRequirementsWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyPolicieses: <T = BatchPayload>(
+    args: { where?: PoliciesWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyHouseRuleses: <T = BatchPayload>(
+    args: { where?: HouseRulesWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyViewses: <T = BatchPayload>(
+    args: { where?: ViewsWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyLocations: <T = BatchPayload>(
+    args: { where?: LocationWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyNeighbourhoods: <T = BatchPayload>(
+    args: { where?: NeighbourhoodWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyCities: <T = BatchPayload>(
+    args: { where?: CityWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyPictures: <T = BatchPayload>(
+    args: { where?: PictureWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyExperiences: <T = BatchPayload>(
+    args: { where?: ExperienceWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyExperienceCategories: <T = BatchPayload>(
+    args: { where?: ExperienceCategoryWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyAmenitieses: <T = BatchPayload>(
+    args: { where?: AmenitiesWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyReviews: <T = BatchPayload>(
+    args: { where?: ReviewWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyBookings: <T = BatchPayload>(
+    args: { where?: BookingWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyPayments: <T = BatchPayload>(
+    args: { where?: PaymentWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyPaymentAccounts: <T = BatchPayload>(
+    args: { where?: PaymentAccountWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyPaypalInformations: <T = BatchPayload>(
+    args: { where?: PaypalInformationWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyCreditCardInformations: <T = BatchPayload>(
+    args: { where?: CreditCardInformationWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyMessages: <T = BatchPayload>(
+    args: { where?: MessageWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyNotifications: <T = BatchPayload>(
+    args: { where?: NotificationWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+  deleteManyRestaurants: <T = BatchPayload>(
+    args: { where?: RestaurantWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>
+}
 
 export interface Subscription {
-    user: <T = UserSubscriptionPayload | null>(args: { where?: UserSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    place: <T = PlaceSubscriptionPayload | null>(args: { where?: PlaceSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    pricing: <T = PricingSubscriptionPayload | null>(args: { where?: PricingSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    guestRequirements: <T = GuestRequirementsSubscriptionPayload | null>(args: { where?: GuestRequirementsSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    policies: <T = PoliciesSubscriptionPayload | null>(args: { where?: PoliciesSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    houseRules: <T = HouseRulesSubscriptionPayload | null>(args: { where?: HouseRulesSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    views: <T = ViewsSubscriptionPayload | null>(args: { where?: ViewsSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    location: <T = LocationSubscriptionPayload | null>(args: { where?: LocationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    neighbourhood: <T = NeighbourhoodSubscriptionPayload | null>(args: { where?: NeighbourhoodSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    city: <T = CitySubscriptionPayload | null>(args: { where?: CitySubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    picture: <T = PictureSubscriptionPayload | null>(args: { where?: PictureSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    experience: <T = ExperienceSubscriptionPayload | null>(args: { where?: ExperienceSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    experienceCategory: <T = ExperienceCategorySubscriptionPayload | null>(args: { where?: ExperienceCategorySubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    amenities: <T = AmenitiesSubscriptionPayload | null>(args: { where?: AmenitiesSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    review: <T = ReviewSubscriptionPayload | null>(args: { where?: ReviewSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    booking: <T = BookingSubscriptionPayload | null>(args: { where?: BookingSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    payment: <T = PaymentSubscriptionPayload | null>(args: { where?: PaymentSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    paymentAccount: <T = PaymentAccountSubscriptionPayload | null>(args: { where?: PaymentAccountSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    paypalInformation: <T = PaypalInformationSubscriptionPayload | null>(args: { where?: PaypalInformationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    creditCardInformation: <T = CreditCardInformationSubscriptionPayload | null>(args: { where?: CreditCardInformationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    message: <T = MessageSubscriptionPayload | null>(args: { where?: MessageSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    notification: <T = NotificationSubscriptionPayload | null>(args: { where?: NotificationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    restaurant: <T = RestaurantSubscriptionPayload | null>(args: { where?: RestaurantSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> 
-  }
+  user: <T = UserSubscriptionPayload | null>(
+    args: { where?: UserSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  place: <T = PlaceSubscriptionPayload | null>(
+    args: { where?: PlaceSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  pricing: <T = PricingSubscriptionPayload | null>(
+    args: { where?: PricingSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  guestRequirements: <T = GuestRequirementsSubscriptionPayload | null>(
+    args: { where?: GuestRequirementsSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  policies: <T = PoliciesSubscriptionPayload | null>(
+    args: { where?: PoliciesSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  houseRules: <T = HouseRulesSubscriptionPayload | null>(
+    args: { where?: HouseRulesSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  views: <T = ViewsSubscriptionPayload | null>(
+    args: { where?: ViewsSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  location: <T = LocationSubscriptionPayload | null>(
+    args: { where?: LocationSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  neighbourhood: <T = NeighbourhoodSubscriptionPayload | null>(
+    args: { where?: NeighbourhoodSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  city: <T = CitySubscriptionPayload | null>(
+    args: { where?: CitySubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  picture: <T = PictureSubscriptionPayload | null>(
+    args: { where?: PictureSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  experience: <T = ExperienceSubscriptionPayload | null>(
+    args: { where?: ExperienceSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  experienceCategory: <T = ExperienceCategorySubscriptionPayload | null>(
+    args: { where?: ExperienceCategorySubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  amenities: <T = AmenitiesSubscriptionPayload | null>(
+    args: { where?: AmenitiesSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  review: <T = ReviewSubscriptionPayload | null>(
+    args: { where?: ReviewSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  booking: <T = BookingSubscriptionPayload | null>(
+    args: { where?: BookingSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  payment: <T = PaymentSubscriptionPayload | null>(
+    args: { where?: PaymentSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  paymentAccount: <T = PaymentAccountSubscriptionPayload | null>(
+    args: { where?: PaymentAccountSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  paypalInformation: <T = PaypalInformationSubscriptionPayload | null>(
+    args: { where?: PaypalInformationSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  creditCardInformation: <T = CreditCardInformationSubscriptionPayload | null>(
+    args: { where?: CreditCardInformationSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  message: <T = MessageSubscriptionPayload | null>(
+    args: { where?: MessageSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  notification: <T = NotificationSubscriptionPayload | null>(
+    args: { where?: NotificationSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+  restaurant: <T = RestaurantSubscriptionPayload | null>(
+    args: { where?: RestaurantSubscriptionWhereInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T>>
+}
 
 export interface Exists {
   User: (where?: UserWhereInput) => Promise<boolean>
@@ -259,7 +1656,9 @@ export interface Exists {
   Payment: (where?: PaymentWhereInput) => Promise<boolean>
   PaymentAccount: (where?: PaymentAccountWhereInput) => Promise<boolean>
   PaypalInformation: (where?: PaypalInformationWhereInput) => Promise<boolean>
-  CreditCardInformation: (where?: CreditCardInformationWhereInput) => Promise<boolean>
+  CreditCardInformation: (
+    where?: CreditCardInformationWhereInput,
+  ) => Promise<boolean>
   Message: (where?: MessageWhereInput) => Promise<boolean>
   Notification: (where?: NotificationWhereInput) => Promise<boolean>
   Restaurant: (where?: RestaurantWhereInput) => Promise<boolean>
@@ -270,30 +1669,51 @@ export interface QueryWithVariables<R, V> {
   variables: V
 }
 
+export interface RequestParams {
+  Result: any
+  Variables: { [key: string]: any }
+}
+
 export interface Prisma {
   query: Query
   mutation: Mutation
   subscription: Subscription
   exists: Exists
-  request: <T = any>(query: string, variables?: {[key: string]: any}) => Promise<T>
-  delegate(operation: 'query' | 'mutation', fieldName: string, args: {
-    [key: string]: any;
-}, infoOrQuery?: GraphQLResolveInfo | string, options?: Options): Promise<any>;
-delegateSubscription(fieldName: string, args?: {
-    [key: string]: any;
-}, infoOrQuery?: GraphQLResolveInfo | string, options?: Options): Promise<AsyncIterator<any>>;
-getAbstractResolvers(filterSchema?: GraphQLSchema | string): IResolvers;
-execute<R, V extends { [key: string]: any }>(
-  query: QueryWithVariables<R, V>,
-): Promise<R>
+
+  request: <P extends RequestParams = { Result: any; Variables: {} }>(
+    query: string,
+    variables?: P['Variables'],
+  ) => Promise<P['Result']>
+
+  delegate(
+    operation: 'query' | 'mutation',
+    fieldName: string,
+    args: {
+      [key: string]: any
+    },
+    infoOrQuery?: GraphQLResolveInfo | string,
+    options?: Options,
+  ): Promise<any>
+  delegateSubscription(
+    fieldName: string,
+    args?: {
+      [key: string]: any
+    },
+    infoOrQuery?: GraphQLResolveInfo | string,
+    options?: Options,
+  ): Promise<AsyncIterator<any>>
+  getAbstractResolvers(filterSchema?: GraphQLSchema | string): IResolvers
+  execute<R, V extends { [key: string]: any }>(
+    query: QueryWithVariables<R, V>,
+  ): Promise<R>
 }
 
 export interface BindingConstructor<T> {
-  new(options: BasePrismaOptions): T
+  new (options: BasePrismaOptions): T
 }
 /**
  * Type Defs
-*/
+ */
 
 const typeDefs = `type AggregateAmenities {
   count: Int!
@@ -10097,463 +11517,482 @@ input ViewsWhereUniqueInput {
 }
 `
 
-export const Prisma = makePrismaBindingClass<BindingConstructor<Prisma>>({typeDefs})
+export const Prisma = makePrismaBindingClass<BindingConstructor<Prisma>>({
+  typeDefs,
+})
 
 /**
  * Types
-*/
+ */
 
-export type ExperienceOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'title_ASC' |
-  'title_DESC' |
-  'pricePerPerson_ASC' |
-  'pricePerPerson_DESC' |
-  'popularity_ASC' |
-  'popularity_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type ExperienceOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'pricePerPerson_ASC'
+  | 'pricePerPerson_DESC'
+  | 'popularity_ASC'
+  | 'popularity_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
-export type NOTIFICATION_TYPE =   'OFFER' |
-  'INSTANT_BOOK' |
-  'RESPONSIVENESS' |
-  'NEW_AMENITIES' |
-  'HOUSE_RULES'
+export type NOTIFICATION_TYPE =
+  | 'OFFER'
+  | 'INSTANT_BOOK'
+  | 'RESPONSIVENESS'
+  | 'NEW_AMENITIES'
+  | 'HOUSE_RULES'
 
-export type NotificationOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'type_ASC' |
-  'type_DESC' |
-  'link_ASC' |
-  'link_DESC' |
-  'readDate_ASC' |
-  'readDate_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
+export type NotificationOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'type_ASC'
+  | 'type_DESC'
+  | 'link_ASC'
+  | 'link_DESC'
+  | 'readDate_ASC'
+  | 'readDate_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
 
-export type RestaurantOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'title_ASC' |
-  'title_DESC' |
-  'avgPricePerPerson_ASC' |
-  'avgPricePerPerson_DESC' |
-  'isCurated_ASC' |
-  'isCurated_DESC' |
-  'slug_ASC' |
-  'slug_DESC' |
-  'popularity_ASC' |
-  'popularity_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
+export type RestaurantOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'avgPricePerPerson_ASC'
+  | 'avgPricePerPerson_DESC'
+  | 'isCurated_ASC'
+  | 'isCurated_DESC'
+  | 'slug_ASC'
+  | 'slug_DESC'
+  | 'popularity_ASC'
+  | 'popularity_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
 
-export type MessageOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'deliveredAt_ASC' |
-  'deliveredAt_DESC' |
-  'readAt_ASC' |
-  'readAt_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
+export type MessageOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'deliveredAt_ASC'
+  | 'deliveredAt_DESC'
+  | 'readAt_ASC'
+  | 'readAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
 
-export type PaypalInformationOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'email_ASC' |
-  'email_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
+export type PaypalInformationOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'email_ASC'
+  | 'email_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
 
-export type PaymentAccountOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'type_ASC' |
-  'type_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
+export type PaymentAccountOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'type_ASC'
+  | 'type_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
 
-export type ExperienceCategoryOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'mainColor_ASC' |
-  'mainColor_DESC' |
-  'name_ASC' |
-  'name_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type ExperienceCategoryOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'mainColor_ASC'
+  | 'mainColor_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
-export type CURRENCY =   'CAD' |
-  'CHF' |
-  'EUR' |
-  'JPY' |
-  'USD' |
-  'ZAR'
+export type CURRENCY = 'CAD' | 'CHF' | 'EUR' | 'JPY' | 'USD' | 'ZAR'
 
-export type CityOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'name_ASC' |
-  'name_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type CityOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
-export type PaymentOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'serviceFee_ASC' |
-  'serviceFee_DESC' |
-  'placePrice_ASC' |
-  'placePrice_DESC' |
-  'totalPrice_ASC' |
-  'totalPrice_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
+export type PaymentOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'serviceFee_ASC'
+  | 'serviceFee_DESC'
+  | 'placePrice_ASC'
+  | 'placePrice_DESC'
+  | 'totalPrice_ASC'
+  | 'totalPrice_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
 
-export type HouseRulesOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'suitableForChildren_ASC' |
-  'suitableForChildren_DESC' |
-  'suitableForInfants_ASC' |
-  'suitableForInfants_DESC' |
-  'petsAllowed_ASC' |
-  'petsAllowed_DESC' |
-  'smokingAllowed_ASC' |
-  'smokingAllowed_DESC' |
-  'partiesAndEventsAllowed_ASC' |
-  'partiesAndEventsAllowed_DESC' |
-  'additionalRules_ASC' |
-  'additionalRules_DESC'
+export type HouseRulesOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'suitableForChildren_ASC'
+  | 'suitableForChildren_DESC'
+  | 'suitableForInfants_ASC'
+  | 'suitableForInfants_DESC'
+  | 'petsAllowed_ASC'
+  | 'petsAllowed_DESC'
+  | 'smokingAllowed_ASC'
+  | 'smokingAllowed_DESC'
+  | 'partiesAndEventsAllowed_ASC'
+  | 'partiesAndEventsAllowed_DESC'
+  | 'additionalRules_ASC'
+  | 'additionalRules_DESC'
 
-export type BookingOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'startDate_ASC' |
-  'startDate_DESC' |
-  'endDate_ASC' |
-  'endDate_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
+export type BookingOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'startDate_ASC'
+  | 'startDate_DESC'
+  | 'endDate_ASC'
+  | 'endDate_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
 
-export type GuestRequirementsOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'govIssuedId_ASC' |
-  'govIssuedId_DESC' |
-  'recommendationsFromOtherHosts_ASC' |
-  'recommendationsFromOtherHosts_DESC' |
-  'guestTripInformation_ASC' |
-  'guestTripInformation_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type GuestRequirementsOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'govIssuedId_ASC'
+  | 'govIssuedId_DESC'
+  | 'recommendationsFromOtherHosts_ASC'
+  | 'recommendationsFromOtherHosts_DESC'
+  | 'guestTripInformation_ASC'
+  | 'guestTripInformation_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
-export type PictureOrderByInput =   'url_ASC' |
-  'url_DESC' |
-  'id_ASC' |
-  'id_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type PictureOrderByInput =
+  | 'url_ASC'
+  | 'url_DESC'
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
-export type MutationType =   'CREATED' |
-  'UPDATED' |
-  'DELETED'
+export type MutationType = 'CREATED' | 'UPDATED' | 'DELETED'
 
-export type NeighbourhoodOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'name_ASC' |
-  'name_DESC' |
-  'slug_ASC' |
-  'slug_DESC' |
-  'featured_ASC' |
-  'featured_DESC' |
-  'popularity_ASC' |
-  'popularity_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type NeighbourhoodOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'slug_ASC'
+  | 'slug_DESC'
+  | 'featured_ASC'
+  | 'featured_DESC'
+  | 'popularity_ASC'
+  | 'popularity_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
-export type AmenitiesOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'elevator_ASC' |
-  'elevator_DESC' |
-  'petsAllowed_ASC' |
-  'petsAllowed_DESC' |
-  'internet_ASC' |
-  'internet_DESC' |
-  'kitchen_ASC' |
-  'kitchen_DESC' |
-  'wirelessInternet_ASC' |
-  'wirelessInternet_DESC' |
-  'familyKidFriendly_ASC' |
-  'familyKidFriendly_DESC' |
-  'freeParkingOnPremises_ASC' |
-  'freeParkingOnPremises_DESC' |
-  'hotTub_ASC' |
-  'hotTub_DESC' |
-  'pool_ASC' |
-  'pool_DESC' |
-  'smokingAllowed_ASC' |
-  'smokingAllowed_DESC' |
-  'wheelchairAccessible_ASC' |
-  'wheelchairAccessible_DESC' |
-  'breakfast_ASC' |
-  'breakfast_DESC' |
-  'cableTv_ASC' |
-  'cableTv_DESC' |
-  'suitableForEvents_ASC' |
-  'suitableForEvents_DESC' |
-  'dryer_ASC' |
-  'dryer_DESC' |
-  'washer_ASC' |
-  'washer_DESC' |
-  'indoorFireplace_ASC' |
-  'indoorFireplace_DESC' |
-  'tv_ASC' |
-  'tv_DESC' |
-  'heating_ASC' |
-  'heating_DESC' |
-  'hangers_ASC' |
-  'hangers_DESC' |
-  'iron_ASC' |
-  'iron_DESC' |
-  'hairDryer_ASC' |
-  'hairDryer_DESC' |
-  'doorman_ASC' |
-  'doorman_DESC' |
-  'paidParkingOffPremises_ASC' |
-  'paidParkingOffPremises_DESC' |
-  'freeParkingOnStreet_ASC' |
-  'freeParkingOnStreet_DESC' |
-  'gym_ASC' |
-  'gym_DESC' |
-  'airConditioning_ASC' |
-  'airConditioning_DESC' |
-  'shampoo_ASC' |
-  'shampoo_DESC' |
-  'essentials_ASC' |
-  'essentials_DESC' |
-  'laptopFriendlyWorkspace_ASC' |
-  'laptopFriendlyWorkspace_DESC' |
-  'privateEntrance_ASC' |
-  'privateEntrance_DESC' |
-  'buzzerWirelessIntercom_ASC' |
-  'buzzerWirelessIntercom_DESC' |
-  'babyBath_ASC' |
-  'babyBath_DESC' |
-  'babyMonitor_ASC' |
-  'babyMonitor_DESC' |
-  'babysitterRecommendations_ASC' |
-  'babysitterRecommendations_DESC' |
-  'bathtub_ASC' |
-  'bathtub_DESC' |
-  'changingTable_ASC' |
-  'changingTable_DESC' |
-  'childrensBooksAndToys_ASC' |
-  'childrensBooksAndToys_DESC' |
-  'childrensDinnerware_ASC' |
-  'childrensDinnerware_DESC' |
-  'crib_ASC' |
-  'crib_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type AmenitiesOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'elevator_ASC'
+  | 'elevator_DESC'
+  | 'petsAllowed_ASC'
+  | 'petsAllowed_DESC'
+  | 'internet_ASC'
+  | 'internet_DESC'
+  | 'kitchen_ASC'
+  | 'kitchen_DESC'
+  | 'wirelessInternet_ASC'
+  | 'wirelessInternet_DESC'
+  | 'familyKidFriendly_ASC'
+  | 'familyKidFriendly_DESC'
+  | 'freeParkingOnPremises_ASC'
+  | 'freeParkingOnPremises_DESC'
+  | 'hotTub_ASC'
+  | 'hotTub_DESC'
+  | 'pool_ASC'
+  | 'pool_DESC'
+  | 'smokingAllowed_ASC'
+  | 'smokingAllowed_DESC'
+  | 'wheelchairAccessible_ASC'
+  | 'wheelchairAccessible_DESC'
+  | 'breakfast_ASC'
+  | 'breakfast_DESC'
+  | 'cableTv_ASC'
+  | 'cableTv_DESC'
+  | 'suitableForEvents_ASC'
+  | 'suitableForEvents_DESC'
+  | 'dryer_ASC'
+  | 'dryer_DESC'
+  | 'washer_ASC'
+  | 'washer_DESC'
+  | 'indoorFireplace_ASC'
+  | 'indoorFireplace_DESC'
+  | 'tv_ASC'
+  | 'tv_DESC'
+  | 'heating_ASC'
+  | 'heating_DESC'
+  | 'hangers_ASC'
+  | 'hangers_DESC'
+  | 'iron_ASC'
+  | 'iron_DESC'
+  | 'hairDryer_ASC'
+  | 'hairDryer_DESC'
+  | 'doorman_ASC'
+  | 'doorman_DESC'
+  | 'paidParkingOffPremises_ASC'
+  | 'paidParkingOffPremises_DESC'
+  | 'freeParkingOnStreet_ASC'
+  | 'freeParkingOnStreet_DESC'
+  | 'gym_ASC'
+  | 'gym_DESC'
+  | 'airConditioning_ASC'
+  | 'airConditioning_DESC'
+  | 'shampoo_ASC'
+  | 'shampoo_DESC'
+  | 'essentials_ASC'
+  | 'essentials_DESC'
+  | 'laptopFriendlyWorkspace_ASC'
+  | 'laptopFriendlyWorkspace_DESC'
+  | 'privateEntrance_ASC'
+  | 'privateEntrance_DESC'
+  | 'buzzerWirelessIntercom_ASC'
+  | 'buzzerWirelessIntercom_DESC'
+  | 'babyBath_ASC'
+  | 'babyBath_DESC'
+  | 'babyMonitor_ASC'
+  | 'babyMonitor_DESC'
+  | 'babysitterRecommendations_ASC'
+  | 'babysitterRecommendations_DESC'
+  | 'bathtub_ASC'
+  | 'bathtub_DESC'
+  | 'changingTable_ASC'
+  | 'changingTable_DESC'
+  | 'childrensBooksAndToys_ASC'
+  | 'childrensBooksAndToys_DESC'
+  | 'childrensDinnerware_ASC'
+  | 'childrensDinnerware_DESC'
+  | 'crib_ASC'
+  | 'crib_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
-export type LocationOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'lat_ASC' |
-  'lat_DESC' |
-  'lng_ASC' |
-  'lng_DESC' |
-  'address_ASC' |
-  'address_DESC' |
-  'directions_ASC' |
-  'directions_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type LocationOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'lat_ASC'
+  | 'lat_DESC'
+  | 'lng_ASC'
+  | 'lng_DESC'
+  | 'address_ASC'
+  | 'address_DESC'
+  | 'directions_ASC'
+  | 'directions_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
-export type ViewsOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'lastWeek_ASC' |
-  'lastWeek_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type ViewsOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'lastWeek_ASC'
+  | 'lastWeek_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
-export type UserOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'firstName_ASC' |
-  'firstName_DESC' |
-  'lastName_ASC' |
-  'lastName_DESC' |
-  'email_ASC' |
-  'email_DESC' |
-  'password_ASC' |
-  'password_DESC' |
-  'phone_ASC' |
-  'phone_DESC' |
-  'responseRate_ASC' |
-  'responseRate_DESC' |
-  'responseTime_ASC' |
-  'responseTime_DESC' |
-  'isSuperHost_ASC' |
-  'isSuperHost_DESC'
+export type UserOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'firstName_ASC'
+  | 'firstName_DESC'
+  | 'lastName_ASC'
+  | 'lastName_DESC'
+  | 'email_ASC'
+  | 'email_DESC'
+  | 'password_ASC'
+  | 'password_DESC'
+  | 'phone_ASC'
+  | 'phone_DESC'
+  | 'responseRate_ASC'
+  | 'responseRate_DESC'
+  | 'responseTime_ASC'
+  | 'responseTime_DESC'
+  | 'isSuperHost_ASC'
+  | 'isSuperHost_DESC'
 
-export type PAYMENT_PROVIDER =   'PAYPAL' |
-  'CREDIT_CARD'
+export type PAYMENT_PROVIDER = 'PAYPAL' | 'CREDIT_CARD'
 
-export type PlaceOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'name_ASC' |
-  'name_DESC' |
-  'size_ASC' |
-  'size_DESC' |
-  'shortDescription_ASC' |
-  'shortDescription_DESC' |
-  'description_ASC' |
-  'description_DESC' |
-  'slug_ASC' |
-  'slug_DESC' |
-  'maxGuests_ASC' |
-  'maxGuests_DESC' |
-  'numBedrooms_ASC' |
-  'numBedrooms_DESC' |
-  'numBeds_ASC' |
-  'numBeds_DESC' |
-  'numBaths_ASC' |
-  'numBaths_DESC' |
-  'popularity_ASC' |
-  'popularity_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type PlaceOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'size_ASC'
+  | 'size_DESC'
+  | 'shortDescription_ASC'
+  | 'shortDescription_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'slug_ASC'
+  | 'slug_DESC'
+  | 'maxGuests_ASC'
+  | 'maxGuests_DESC'
+  | 'numBedrooms_ASC'
+  | 'numBedrooms_DESC'
+  | 'numBeds_ASC'
+  | 'numBeds_DESC'
+  | 'numBaths_ASC'
+  | 'numBaths_DESC'
+  | 'popularity_ASC'
+  | 'popularity_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
-export type ReviewOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'text_ASC' |
-  'text_DESC' |
-  'stars_ASC' |
-  'stars_DESC' |
-  'accuracy_ASC' |
-  'accuracy_DESC' |
-  'location_ASC' |
-  'location_DESC' |
-  'checkIn_ASC' |
-  'checkIn_DESC' |
-  'value_ASC' |
-  'value_DESC' |
-  'cleanliness_ASC' |
-  'cleanliness_DESC' |
-  'communication_ASC' |
-  'communication_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
+export type ReviewOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'text_ASC'
+  | 'text_DESC'
+  | 'stars_ASC'
+  | 'stars_DESC'
+  | 'accuracy_ASC'
+  | 'accuracy_DESC'
+  | 'location_ASC'
+  | 'location_DESC'
+  | 'checkIn_ASC'
+  | 'checkIn_DESC'
+  | 'value_ASC'
+  | 'value_DESC'
+  | 'cleanliness_ASC'
+  | 'cleanliness_DESC'
+  | 'communication_ASC'
+  | 'communication_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
 
-export type PoliciesOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'checkInStartTime_ASC' |
-  'checkInStartTime_DESC' |
-  'checkInEndTime_ASC' |
-  'checkInEndTime_DESC' |
-  'checkoutTime_ASC' |
-  'checkoutTime_DESC'
+export type PoliciesOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'checkInStartTime_ASC'
+  | 'checkInStartTime_DESC'
+  | 'checkInEndTime_ASC'
+  | 'checkInEndTime_DESC'
+  | 'checkoutTime_ASC'
+  | 'checkoutTime_DESC'
 
-export type PLACE_SIZES =   'ENTIRE_HOUSE' |
-  'ENTIRE_APARTMENT' |
-  'ENTIRE_EARTH_HOUSE' |
-  'ENTIRE_CABIN' |
-  'ENTIRE_VILLA' |
-  'ENTIRE_PLACE' |
-  'ENTIRE_BOAT' |
-  'PRIVATE_ROOM'
+export type PLACE_SIZES =
+  | 'ENTIRE_HOUSE'
+  | 'ENTIRE_APARTMENT'
+  | 'ENTIRE_EARTH_HOUSE'
+  | 'ENTIRE_CABIN'
+  | 'ENTIRE_VILLA'
+  | 'ENTIRE_PLACE'
+  | 'ENTIRE_BOAT'
+  | 'PRIVATE_ROOM'
 
-export type CreditCardInformationOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'cardNumber_ASC' |
-  'cardNumber_DESC' |
-  'expiresOnMonth_ASC' |
-  'expiresOnMonth_DESC' |
-  'expiresOnYear_ASC' |
-  'expiresOnYear_DESC' |
-  'securityCode_ASC' |
-  'securityCode_DESC' |
-  'firstName_ASC' |
-  'firstName_DESC' |
-  'lastName_ASC' |
-  'lastName_DESC' |
-  'postalCode_ASC' |
-  'postalCode_DESC' |
-  'country_ASC' |
-  'country_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
+export type CreditCardInformationOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'cardNumber_ASC'
+  | 'cardNumber_DESC'
+  | 'expiresOnMonth_ASC'
+  | 'expiresOnMonth_DESC'
+  | 'expiresOnYear_ASC'
+  | 'expiresOnYear_DESC'
+  | 'securityCode_ASC'
+  | 'securityCode_DESC'
+  | 'firstName_ASC'
+  | 'firstName_DESC'
+  | 'lastName_ASC'
+  | 'lastName_DESC'
+  | 'postalCode_ASC'
+  | 'postalCode_DESC'
+  | 'country_ASC'
+  | 'country_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
 
-export type PricingOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'monthlyDiscount_ASC' |
-  'monthlyDiscount_DESC' |
-  'weeklyDiscount_ASC' |
-  'weeklyDiscount_DESC' |
-  'perNight_ASC' |
-  'perNight_DESC' |
-  'smartPricing_ASC' |
-  'smartPricing_DESC' |
-  'basePrice_ASC' |
-  'basePrice_DESC' |
-  'averageWeekly_ASC' |
-  'averageWeekly_DESC' |
-  'averageMonthly_ASC' |
-  'averageMonthly_DESC' |
-  'cleaningFee_ASC' |
-  'cleaningFee_DESC' |
-  'securityDeposit_ASC' |
-  'securityDeposit_DESC' |
-  'extraGuests_ASC' |
-  'extraGuests_DESC' |
-  'weekendPricing_ASC' |
-  'weekendPricing_DESC' |
-  'currency_ASC' |
-  'currency_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type PricingOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'monthlyDiscount_ASC'
+  | 'monthlyDiscount_DESC'
+  | 'weeklyDiscount_ASC'
+  | 'weeklyDiscount_DESC'
+  | 'perNight_ASC'
+  | 'perNight_DESC'
+  | 'smartPricing_ASC'
+  | 'smartPricing_DESC'
+  | 'basePrice_ASC'
+  | 'basePrice_DESC'
+  | 'averageWeekly_ASC'
+  | 'averageWeekly_DESC'
+  | 'averageMonthly_ASC'
+  | 'averageMonthly_DESC'
+  | 'cleaningFee_ASC'
+  | 'cleaningFee_DESC'
+  | 'securityDeposit_ASC'
+  | 'securityDeposit_DESC'
+  | 'extraGuests_ASC'
+  | 'extraGuests_DESC'
+  | 'weekendPricing_ASC'
+  | 'weekendPricing_DESC'
+  | 'currency_ASC'
+  | 'currency_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
 
 export interface BookingCreateInput {
   startDate: DateTime
@@ -10955,8 +12394,12 @@ export interface PlaceUpdateManyWithoutHostInput {
   connect?: PlaceWhereUniqueInput[] | PlaceWhereUniqueInput
   disconnect?: PlaceWhereUniqueInput[] | PlaceWhereUniqueInput
   delete?: PlaceWhereUniqueInput[] | PlaceWhereUniqueInput
-  update?: PlaceUpdateWithWhereUniqueWithoutHostInput[] | PlaceUpdateWithWhereUniqueWithoutHostInput
-  upsert?: PlaceUpsertWithWhereUniqueWithoutHostInput[] | PlaceUpsertWithWhereUniqueWithoutHostInput
+  update?:
+    | PlaceUpdateWithWhereUniqueWithoutHostInput[]
+    | PlaceUpdateWithWhereUniqueWithoutHostInput
+  upsert?:
+    | PlaceUpsertWithWhereUniqueWithoutHostInput[]
+    | PlaceUpsertWithWhereUniqueWithoutHostInput
 }
 
 export interface ViewsCreateWithoutPlaceInput {
@@ -10980,9 +12423,13 @@ export interface GuestRequirementsCreateOneWithoutPlaceInput {
 }
 
 export interface NotificationSubscriptionWhereInput {
-  AND?: NotificationSubscriptionWhereInput[] | NotificationSubscriptionWhereInput
+  AND?:
+    | NotificationSubscriptionWhereInput[]
+    | NotificationSubscriptionWhereInput
   OR?: NotificationSubscriptionWhereInput[] | NotificationSubscriptionWhereInput
-  NOT?: NotificationSubscriptionWhereInput[] | NotificationSubscriptionWhereInput
+  NOT?:
+    | NotificationSubscriptionWhereInput[]
+    | NotificationSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
@@ -10997,9 +12444,15 @@ export interface GuestRequirementsCreateWithoutPlaceInput {
 }
 
 export interface CreditCardInformationSubscriptionWhereInput {
-  AND?: CreditCardInformationSubscriptionWhereInput[] | CreditCardInformationSubscriptionWhereInput
-  OR?: CreditCardInformationSubscriptionWhereInput[] | CreditCardInformationSubscriptionWhereInput
-  NOT?: CreditCardInformationSubscriptionWhereInput[] | CreditCardInformationSubscriptionWhereInput
+  AND?:
+    | CreditCardInformationSubscriptionWhereInput[]
+    | CreditCardInformationSubscriptionWhereInput
+  OR?:
+    | CreditCardInformationSubscriptionWhereInput[]
+    | CreditCardInformationSubscriptionWhereInput
+  NOT?:
+    | CreditCardInformationSubscriptionWhereInput[]
+    | CreditCardInformationSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
@@ -11013,9 +12466,15 @@ export interface PoliciesCreateOneWithoutPlaceInput {
 }
 
 export interface PaymentAccountSubscriptionWhereInput {
-  AND?: PaymentAccountSubscriptionWhereInput[] | PaymentAccountSubscriptionWhereInput
-  OR?: PaymentAccountSubscriptionWhereInput[] | PaymentAccountSubscriptionWhereInput
-  NOT?: PaymentAccountSubscriptionWhereInput[] | PaymentAccountSubscriptionWhereInput
+  AND?:
+    | PaymentAccountSubscriptionWhereInput[]
+    | PaymentAccountSubscriptionWhereInput
+  OR?:
+    | PaymentAccountSubscriptionWhereInput[]
+    | PaymentAccountSubscriptionWhereInput
+  NOT?:
+    | PaymentAccountSubscriptionWhereInput[]
+    | PaymentAccountSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
@@ -11181,9 +12640,15 @@ export interface BookingCreateManyWithoutPlaceInput {
 }
 
 export interface ExperienceCategorySubscriptionWhereInput {
-  AND?: ExperienceCategorySubscriptionWhereInput[] | ExperienceCategorySubscriptionWhereInput
-  OR?: ExperienceCategorySubscriptionWhereInput[] | ExperienceCategorySubscriptionWhereInput
-  NOT?: ExperienceCategorySubscriptionWhereInput[] | ExperienceCategorySubscriptionWhereInput
+  AND?:
+    | ExperienceCategorySubscriptionWhereInput[]
+    | ExperienceCategorySubscriptionWhereInput
+  OR?:
+    | ExperienceCategorySubscriptionWhereInput[]
+    | ExperienceCategorySubscriptionWhereInput
+  NOT?:
+    | ExperienceCategorySubscriptionWhereInput[]
+    | ExperienceCategorySubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
@@ -11215,9 +12680,15 @@ export interface PaymentCreateOneWithoutBookingInput {
 }
 
 export interface NeighbourhoodSubscriptionWhereInput {
-  AND?: NeighbourhoodSubscriptionWhereInput[] | NeighbourhoodSubscriptionWhereInput
-  OR?: NeighbourhoodSubscriptionWhereInput[] | NeighbourhoodSubscriptionWhereInput
-  NOT?: NeighbourhoodSubscriptionWhereInput[] | NeighbourhoodSubscriptionWhereInput
+  AND?:
+    | NeighbourhoodSubscriptionWhereInput[]
+    | NeighbourhoodSubscriptionWhereInput
+  OR?:
+    | NeighbourhoodSubscriptionWhereInput[]
+    | NeighbourhoodSubscriptionWhereInput
+  NOT?:
+    | NeighbourhoodSubscriptionWhereInput[]
+    | NeighbourhoodSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
@@ -12104,7 +13575,9 @@ export interface PaymentAccountUpdateOneWithoutPaypalInput {
 }
 
 export interface LocationCreateManyWithoutNeighbourHoodInput {
-  create?: LocationCreateWithoutNeighbourHoodInput[] | LocationCreateWithoutNeighbourHoodInput
+  create?:
+    | LocationCreateWithoutNeighbourHoodInput[]
+    | LocationCreateWithoutNeighbourHoodInput
   connect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
 }
 
@@ -12146,7 +13619,9 @@ export interface PlaceUpsertWithoutAmenitiesInput {
 }
 
 export interface NeighbourhoodCreateManyWithoutCityInput {
-  create?: NeighbourhoodCreateWithoutCityInput[] | NeighbourhoodCreateWithoutCityInput
+  create?:
+    | NeighbourhoodCreateWithoutCityInput[]
+    | NeighbourhoodCreateWithoutCityInput
   connect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
 }
 
@@ -12234,12 +13709,18 @@ export interface ExperienceCreateWithoutCategoryInput {
 }
 
 export interface NeighbourhoodUpdateManyWithoutCityInput {
-  create?: NeighbourhoodCreateWithoutCityInput[] | NeighbourhoodCreateWithoutCityInput
+  create?:
+    | NeighbourhoodCreateWithoutCityInput[]
+    | NeighbourhoodCreateWithoutCityInput
   connect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
   disconnect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
   delete?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
-  update?: NeighbourhoodUpdateWithWhereUniqueWithoutCityInput[] | NeighbourhoodUpdateWithWhereUniqueWithoutCityInput
-  upsert?: NeighbourhoodUpsertWithWhereUniqueWithoutCityInput[] | NeighbourhoodUpsertWithWhereUniqueWithoutCityInput
+  update?:
+    | NeighbourhoodUpdateWithWhereUniqueWithoutCityInput[]
+    | NeighbourhoodUpdateWithWhereUniqueWithoutCityInput
+  upsert?:
+    | NeighbourhoodUpsertWithWhereUniqueWithoutCityInput[]
+    | NeighbourhoodUpsertWithWhereUniqueWithoutCityInput
 }
 
 export interface AmenitiesCreateInput {
@@ -12785,8 +14266,12 @@ export interface ReviewUpdateManyWithoutPlaceInput {
   connect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
   disconnect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
   delete?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
-  update?: ReviewUpdateWithWhereUniqueWithoutPlaceInput[] | ReviewUpdateWithWhereUniqueWithoutPlaceInput
-  upsert?: ReviewUpsertWithWhereUniqueWithoutPlaceInput[] | ReviewUpsertWithWhereUniqueWithoutPlaceInput
+  update?:
+    | ReviewUpdateWithWhereUniqueWithoutPlaceInput[]
+    | ReviewUpdateWithWhereUniqueWithoutPlaceInput
+  upsert?:
+    | ReviewUpsertWithWhereUniqueWithoutPlaceInput[]
+    | ReviewUpsertWithWhereUniqueWithoutPlaceInput
 }
 
 export interface NeighbourhoodCreateOneWithoutLocationsInput {
@@ -12946,7 +14431,9 @@ export interface LocationUpdateWithoutUserDataInput {
 }
 
 export interface PaymentAccountCreateManyWithoutUserInput {
-  create?: PaymentAccountCreateWithoutUserInput[] | PaymentAccountCreateWithoutUserInput
+  create?:
+    | PaymentAccountCreateWithoutUserInput[]
+    | PaymentAccountCreateWithoutUserInput
   connect?: PaymentAccountWhereUniqueInput[] | PaymentAccountWhereUniqueInput
 }
 
@@ -12960,7 +14447,9 @@ export interface NeighbourhoodUpdateOneWithoutLocationsInput {
 }
 
 export interface PaymentCreateManyWithoutPaymentMethodInput {
-  create?: PaymentCreateWithoutPaymentMethodInput[] | PaymentCreateWithoutPaymentMethodInput
+  create?:
+    | PaymentCreateWithoutPaymentMethodInput[]
+    | PaymentCreateWithoutPaymentMethodInput
   connect?: PaymentWhereUniqueInput[] | PaymentWhereUniqueInput
 }
 
@@ -13019,7 +14508,9 @@ export interface CityUpdateOneWithoutNeighbourhoodsInput {
 }
 
 export interface NotificationCreateManyWithoutUserInput {
-  create?: NotificationCreateWithoutUserInput[] | NotificationCreateWithoutUserInput
+  create?:
+    | NotificationCreateWithoutUserInput[]
+    | NotificationCreateWithoutUserInput
   connect?: NotificationWhereUniqueInput[] | NotificationWhereUniqueInput
 }
 
@@ -13306,8 +14797,12 @@ export interface BookingUpdateManyWithoutBookeeInput {
   connect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
   disconnect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
   delete?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
-  update?: BookingUpdateWithWhereUniqueWithoutBookeeInput[] | BookingUpdateWithWhereUniqueWithoutBookeeInput
-  upsert?: BookingUpsertWithWhereUniqueWithoutBookeeInput[] | BookingUpsertWithWhereUniqueWithoutBookeeInput
+  update?:
+    | BookingUpdateWithWhereUniqueWithoutBookeeInput[]
+    | BookingUpdateWithWhereUniqueWithoutBookeeInput
+  upsert?:
+    | BookingUpsertWithWhereUniqueWithoutBookeeInput[]
+    | BookingUpsertWithWhereUniqueWithoutBookeeInput
 }
 
 export interface GuestRequirementsWhereInput {
@@ -13708,12 +15203,18 @@ export interface NotificationWhereUniqueInput {
 }
 
 export interface PaymentAccountUpdateManyWithoutUserInput {
-  create?: PaymentAccountCreateWithoutUserInput[] | PaymentAccountCreateWithoutUserInput
+  create?:
+    | PaymentAccountCreateWithoutUserInput[]
+    | PaymentAccountCreateWithoutUserInput
   connect?: PaymentAccountWhereUniqueInput[] | PaymentAccountWhereUniqueInput
   disconnect?: PaymentAccountWhereUniqueInput[] | PaymentAccountWhereUniqueInput
   delete?: PaymentAccountWhereUniqueInput[] | PaymentAccountWhereUniqueInput
-  update?: PaymentAccountUpdateWithWhereUniqueWithoutUserInput[] | PaymentAccountUpdateWithWhereUniqueWithoutUserInput
-  upsert?: PaymentAccountUpsertWithWhereUniqueWithoutUserInput[] | PaymentAccountUpsertWithWhereUniqueWithoutUserInput
+  update?:
+    | PaymentAccountUpdateWithWhereUniqueWithoutUserInput[]
+    | PaymentAccountUpdateWithWhereUniqueWithoutUserInput
+  upsert?:
+    | PaymentAccountUpsertWithWhereUniqueWithoutUserInput[]
+    | PaymentAccountUpsertWithWhereUniqueWithoutUserInput
 }
 
 export interface UserUpsertWithoutNotificationsInput {
@@ -13753,12 +15254,18 @@ export interface CreditCardInformationUpdateInput {
 }
 
 export interface PaymentUpdateManyWithoutPaymentMethodInput {
-  create?: PaymentCreateWithoutPaymentMethodInput[] | PaymentCreateWithoutPaymentMethodInput
+  create?:
+    | PaymentCreateWithoutPaymentMethodInput[]
+    | PaymentCreateWithoutPaymentMethodInput
   connect?: PaymentWhereUniqueInput[] | PaymentWhereUniqueInput
   disconnect?: PaymentWhereUniqueInput[] | PaymentWhereUniqueInput
   delete?: PaymentWhereUniqueInput[] | PaymentWhereUniqueInput
-  update?: PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput[] | PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput
-  upsert?: PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput[] | PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput
+  update?:
+    | PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput[]
+    | PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput
+  upsert?:
+    | PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput[]
+    | PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput
 }
 
 export interface PaypalInformationUpdateInput {
@@ -13916,8 +15423,12 @@ export interface MessageUpdateManyWithoutFromInput {
   connect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
   disconnect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
   delete?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
-  update?: MessageUpdateWithWhereUniqueWithoutFromInput[] | MessageUpdateWithWhereUniqueWithoutFromInput
-  upsert?: MessageUpsertWithWhereUniqueWithoutFromInput[] | MessageUpsertWithWhereUniqueWithoutFromInput
+  update?:
+    | MessageUpdateWithWhereUniqueWithoutFromInput[]
+    | MessageUpdateWithWhereUniqueWithoutFromInput
+  upsert?:
+    | MessageUpsertWithWhereUniqueWithoutFromInput[]
+    | MessageUpsertWithWhereUniqueWithoutFromInput
 }
 
 export interface ViewsUpdateInput {
@@ -13994,12 +15505,18 @@ export interface ReviewUpsertWithWhereUniqueWithoutPlaceInput {
 }
 
 export interface NotificationUpdateManyWithoutUserInput {
-  create?: NotificationCreateWithoutUserInput[] | NotificationCreateWithoutUserInput
+  create?:
+    | NotificationCreateWithoutUserInput[]
+    | NotificationCreateWithoutUserInput
   connect?: NotificationWhereUniqueInput[] | NotificationWhereUniqueInput
   disconnect?: NotificationWhereUniqueInput[] | NotificationWhereUniqueInput
   delete?: NotificationWhereUniqueInput[] | NotificationWhereUniqueInput
-  update?: NotificationUpdateWithWhereUniqueWithoutUserInput[] | NotificationUpdateWithWhereUniqueWithoutUserInput
-  upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput[] | NotificationUpsertWithWhereUniqueWithoutUserInput
+  update?:
+    | NotificationUpdateWithWhereUniqueWithoutUserInput[]
+    | NotificationUpdateWithWhereUniqueWithoutUserInput
+  upsert?:
+    | NotificationUpsertWithWhereUniqueWithoutUserInput[]
+    | NotificationUpsertWithWhereUniqueWithoutUserInput
 }
 
 export interface PlaceUpsertWithoutLocationInput {
@@ -14066,8 +15583,12 @@ export interface ExperienceUpdateManyWithoutHostInput {
   connect?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput
   disconnect?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput
   delete?: ExperienceWhereUniqueInput[] | ExperienceWhereUniqueInput
-  update?: ExperienceUpdateWithWhereUniqueWithoutHostInput[] | ExperienceUpdateWithWhereUniqueWithoutHostInput
-  upsert?: ExperienceUpsertWithWhereUniqueWithoutHostInput[] | ExperienceUpsertWithWhereUniqueWithoutHostInput
+  update?:
+    | ExperienceUpdateWithWhereUniqueWithoutHostInput[]
+    | ExperienceUpdateWithWhereUniqueWithoutHostInput
+  upsert?:
+    | ExperienceUpsertWithWhereUniqueWithoutHostInput[]
+    | ExperienceUpsertWithWhereUniqueWithoutHostInput
 }
 
 export interface ExperienceCategoryCreateWithoutExperienceInput {
@@ -14253,12 +15774,18 @@ export interface MessageCreateWithoutFromInput {
 }
 
 export interface ReviewUpdateManyWithoutExperienceInput {
-  create?: ReviewCreateWithoutExperienceInput[] | ReviewCreateWithoutExperienceInput
+  create?:
+    | ReviewCreateWithoutExperienceInput[]
+    | ReviewCreateWithoutExperienceInput
   connect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
   disconnect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
   delete?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
-  update?: ReviewUpdateWithWhereUniqueWithoutExperienceInput[] | ReviewUpdateWithWhereUniqueWithoutExperienceInput
-  upsert?: ReviewUpsertWithWhereUniqueWithoutExperienceInput[] | ReviewUpsertWithWhereUniqueWithoutExperienceInput
+  update?:
+    | ReviewUpdateWithWhereUniqueWithoutExperienceInput[]
+    | ReviewUpdateWithWhereUniqueWithoutExperienceInput
+  upsert?:
+    | ReviewUpsertWithWhereUniqueWithoutExperienceInput[]
+    | ReviewUpsertWithWhereUniqueWithoutExperienceInput
 }
 
 export interface NotificationCreateWithoutUserInput {
@@ -14296,7 +15823,9 @@ export interface ReviewUpdateWithoutExperienceDataInput {
 }
 
 export interface ReviewCreateManyWithoutExperienceInput {
-  create?: ReviewCreateWithoutExperienceInput[] | ReviewCreateWithoutExperienceInput
+  create?:
+    | ReviewCreateWithoutExperienceInput[]
+    | ReviewCreateWithoutExperienceInput
   connect?: ReviewWhereUniqueInput[] | ReviewWhereUniqueInput
 }
 
@@ -14420,9 +15949,15 @@ export interface ViewsUpdateWithoutPlaceDataInput {
 }
 
 export interface GuestRequirementsSubscriptionWhereInput {
-  AND?: GuestRequirementsSubscriptionWhereInput[] | GuestRequirementsSubscriptionWhereInput
-  OR?: GuestRequirementsSubscriptionWhereInput[] | GuestRequirementsSubscriptionWhereInput
-  NOT?: GuestRequirementsSubscriptionWhereInput[] | GuestRequirementsSubscriptionWhereInput
+  AND?:
+    | GuestRequirementsSubscriptionWhereInput[]
+    | GuestRequirementsSubscriptionWhereInput
+  OR?:
+    | GuestRequirementsSubscriptionWhereInput[]
+    | GuestRequirementsSubscriptionWhereInput
+  NOT?:
+    | GuestRequirementsSubscriptionWhereInput[]
+    | GuestRequirementsSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
@@ -14640,8 +16175,12 @@ export interface BookingUpdateManyWithoutPlaceInput {
   connect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
   disconnect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
   delete?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
-  update?: BookingUpdateWithWhereUniqueWithoutPlaceInput[] | BookingUpdateWithWhereUniqueWithoutPlaceInput
-  upsert?: BookingUpsertWithWhereUniqueWithoutPlaceInput[] | BookingUpsertWithWhereUniqueWithoutPlaceInput
+  update?:
+    | BookingUpdateWithWhereUniqueWithoutPlaceInput[]
+    | BookingUpdateWithWhereUniqueWithoutPlaceInput
+  upsert?:
+    | BookingUpsertWithWhereUniqueWithoutPlaceInput[]
+    | BookingUpsertWithWhereUniqueWithoutPlaceInput
 }
 
 export interface PlaceUpsertWithoutGuestRequirementsInput {
@@ -14844,8 +16383,12 @@ export interface MessageUpdateManyWithoutToInput {
   connect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
   disconnect?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
   delete?: MessageWhereUniqueInput[] | MessageWhereUniqueInput
-  update?: MessageUpdateWithWhereUniqueWithoutToInput[] | MessageUpdateWithWhereUniqueWithoutToInput
-  upsert?: MessageUpsertWithWhereUniqueWithoutToInput[] | MessageUpsertWithWhereUniqueWithoutToInput
+  update?:
+    | MessageUpdateWithWhereUniqueWithoutToInput[]
+    | MessageUpdateWithWhereUniqueWithoutToInput
+  upsert?:
+    | MessageUpsertWithWhereUniqueWithoutToInput[]
+    | MessageUpsertWithWhereUniqueWithoutToInput
 }
 
 export interface ExperienceCreateWithoutHostInput {
@@ -15389,9 +16932,15 @@ export interface UserUpdateOneWithoutNotificationsInput {
 }
 
 export interface PaypalInformationSubscriptionWhereInput {
-  AND?: PaypalInformationSubscriptionWhereInput[] | PaypalInformationSubscriptionWhereInput
-  OR?: PaypalInformationSubscriptionWhereInput[] | PaypalInformationSubscriptionWhereInput
-  NOT?: PaypalInformationSubscriptionWhereInput[] | PaypalInformationSubscriptionWhereInput
+  AND?:
+    | PaypalInformationSubscriptionWhereInput[]
+    | PaypalInformationSubscriptionWhereInput
+  OR?:
+    | PaypalInformationSubscriptionWhereInput[]
+    | PaypalInformationSubscriptionWhereInput
+  NOT?:
+    | PaypalInformationSubscriptionWhereInput[]
+    | PaypalInformationSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
@@ -15425,12 +16974,18 @@ export interface ExperienceUpdateWithoutLocationDataInput {
 }
 
 export interface LocationUpdateManyWithoutNeighbourHoodInput {
-  create?: LocationCreateWithoutNeighbourHoodInput[] | LocationCreateWithoutNeighbourHoodInput
+  create?:
+    | LocationCreateWithoutNeighbourHoodInput[]
+    | LocationCreateWithoutNeighbourHoodInput
   connect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
   disconnect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
   delete?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
-  update?: LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput[] | LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput
-  upsert?: LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput[] | LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput
+  update?:
+    | LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput[]
+    | LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput
+  upsert?:
+    | LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput[]
+    | LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput
 }
 
 /*

@@ -20,12 +20,11 @@ export interface IQuery<Ctx, QueryRoot, HomeRoot> {
     info: GraphQLResolveInfo,
   ) => HomeRoot[] | Promise<HomeRoot[]>
 
-  // topExperiences: [Experience!]!
-  // topHomes: [Home!]!
-  // homesInPriceRange(min: Int!, max: Int!): [Home!]!
-  // topReservations: [Reservation!]!
-  // featuredDestinations: [Neighbourhood!]!
-  // experiencesByCity(cities: [String!]!): [ExperiencesByCity!]!
-  // viewer: Viewer
-  // myLocation: Location
 }
+
+// topExperiences: [Experience!]!
+// topReservations: [Reservation!]!
+// featuredDestinations: [Neighbourhood!]!
+// experiencesByCity(cities: [String!]!): [ExperiencesByCity!]!
+// viewer: Viewer
+// myLocation: Location
