@@ -265,6 +265,11 @@ export interface Exists {
   Restaurant: (where?: RestaurantWhereInput) => Promise<boolean>
 }
 
+export interface QueryWithVariables<R, V> {
+  query: string
+  variables: V
+}
+
 export interface Prisma {
   query: Query
   mutation: Mutation
@@ -278,6 +283,9 @@ delegateSubscription(fieldName: string, args?: {
     [key: string]: any;
 }, infoOrQuery?: GraphQLResolveInfo | string, options?: Options): Promise<AsyncIterator<any>>;
 getAbstractResolvers(filterSchema?: GraphQLSchema | string): IResolvers;
+execute<R, V extends { [key: string]: any }>(
+  query: QueryWithVariables<R, V>,
+): Promise<R>
 }
 
 export interface BindingConstructor<T> {
