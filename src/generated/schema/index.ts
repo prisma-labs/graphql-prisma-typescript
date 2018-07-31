@@ -39,21 +39,26 @@ export interface IResolvers<
   UserRoot,
   ViewerRoot
 > {
-  AuthPayload: IAuthPayload<Ctx, AuthPayloadRoot, UserRoot>
-  Booking: IBooking<Ctx, BookingRoot>
-  City: ICity<Ctx, CityRoot>
-  Experience: IExperience<Ctx, ExperienceRoot>
-  ExperiencesByCity: IExperiencesByCity<
+  AuthPayload: IAuthPayload.Resolver<Ctx, AuthPayloadRoot, UserRoot>
+  Booking: IBooking.Resolver<Ctx, BookingRoot>
+  City: ICity.Resolver<Ctx, CityRoot>
+  Experience: IExperience.Resolver<Ctx, ExperienceRoot>
+  ExperiencesByCity: IExperiencesByCity.Resolver<
     Ctx,
     ExperienceByCityRoot,
     ExperienceRoot,
     CityRoot
   >
-  Home: IHome<Ctx, HomeRoot, PictureRoot>
-  Mutation: IMutation<Ctx, MutationRoot, AuthPayloadRoot, MutationResultRoot>
-  MutationResult: IMutationResult<Ctx, MutationResultRoot>
-  Picture: IPicture<Ctx, PictureRoot>
-  Query: IQuery<Ctx, QueryRoot, HomeRoot>
-  User: IUser<Ctx, UserRoot>
-  Viewer: IViewer<Ctx, ViewerRoot, UserRoot, BookingRoot>
+  Home: IHome.Resolver<Ctx, HomeRoot, PictureRoot>
+  Mutation: IMutation.Resolver<
+    Ctx,
+    MutationRoot,
+    AuthPayloadRoot,
+    MutationResultRoot
+  >
+  MutationResult: IMutationResult.Resolver<Ctx, MutationResultRoot>
+  Picture: IPicture.Resolver<Ctx, PictureRoot>
+  Query: IQuery.Resolver<Ctx, QueryRoot, HomeRoot>
+  User: IUser.Resolver<Ctx, UserRoot>
+  Viewer: IViewer.Resolver<Ctx, ViewerRoot, UserRoot, BookingRoot>
 }
