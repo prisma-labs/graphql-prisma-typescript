@@ -1,22 +1,24 @@
 import { GraphQLResolveInfo } from 'graphql'
 
-export interface IExperiencesByCity<
-  Ctx,
-  ExperiencesByCityRoot,
-  ExperienceRoot,
-  CityRoot
-> {
-  experiences: (
-    root: ExperiencesByCityRoot,
-    args: {},
-    ctx: Ctx,
-    info: GraphQLResolveInfo,
-  ) => ExperienceRoot[] | Promise<ExperienceRoot[]>
+export namespace IExperiencesByCity {
+  export interface Resolver<
+    Ctx,
+    ExperiencesByCityRoot,
+    ExperienceRoot,
+    CityRoot
+  > {
+    experiences: (
+      root: ExperiencesByCityRoot,
+      args: {},
+      ctx: Ctx,
+      info: GraphQLResolveInfo,
+    ) => ExperienceRoot[] | Promise<ExperienceRoot[]>
 
-  city: (
-    root: ExperiencesByCityRoot,
-    args: {},
-    ctx: Ctx,
-    info: GraphQLResolveInfo,
-  ) => CityRoot | Promise<CityRoot>
+    city: (
+      root: ExperiencesByCityRoot,
+      args: {},
+      ctx: Ctx,
+      info: GraphQLResolveInfo,
+    ) => CityRoot | Promise<CityRoot>
+  }
 }

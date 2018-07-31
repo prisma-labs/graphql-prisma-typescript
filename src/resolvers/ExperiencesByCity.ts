@@ -1,5 +1,5 @@
 import { Context } from '../utils'
-import { IExperiencesByCity } from '../generated/schema/ExperiencesByCity'
+import { IExperiencesByCity } from '../generated/schema'
 import { ExperienceRoot } from './Experience'
 import { CityRoot } from './City'
 
@@ -7,7 +7,7 @@ export interface ExperiencesByCityRoot {
   id: string
 }
 
-export const ExperiencesByCity: IExperiencesByCity<
+export const ExperiencesByCity: IExperiencesByCity.Resolver<
   Context,
   ExperiencesByCityRoot,
   ExperienceRoot,

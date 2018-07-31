@@ -1,20 +1,19 @@
 import { Context } from '../utils'
-import { IHome } from '../generated/schema/Home'
+import { IHome } from '../generated/schema'
 import { PictureRoot } from './Picture'
 
-// TODO better naming convention (HomeRoot?)
 export interface HomeRoot {
   id: string
   name: string
   description: string
 }
 
-export const Home: IHome<{}, HomeRoot, PictureRoot> = {
-  id: (root: HomeRoot) => root.id,
-  name: (root: HomeRoot) => root.name,
-  description: (root: HomeRoot) => root.description,
+export const Home: IHome.Resolver<Context, HomeRoot, PictureRoot> = {
+  id: root => root.id,
+  name: root => root.name,
+  description: root => root.description,
 
-  numRatings: async (root: HomeRoot, args: {}, ctx: Context) => {
+  numRatings: async (root, args, ctx) => {
     return ctx.db.query
       .reviewsConnection({ where: { place: { id: root.id } } })
       .aggregate()
@@ -22,7 +21,7 @@ export const Home: IHome<{}, HomeRoot, PictureRoot> = {
   },
 
   // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/1312
-  avgRating: async (root: HomeRoot, args: {}, ctx: Context) => {
+  avgRating: async (root, args, ctx) => {
     const reviews = await ctx.db.query.reviews({
       where: { place: { id: root.id } },
     })
@@ -32,15 +31,13 @@ export const Home: IHome<{}, HomeRoot, PictureRoot> = {
     return null
   },
 
-  pictures: async (
-    root: HomeRoot,
-    args: {},
-    ctx: Context,
-  ): Promise<PictureRoot[]> => {
-    return ctx.db.query.place({ where: { id: root.id } }).pictures()
+  pictures: async (root, args, ctx) => {
+    return ctx.db.query
+      .place({ where: { id: root.id } })
+      .pictures({ first: args.first })
   },
 
-  perNight: async (root: HomeRoot, args: {}, ctx: Context) => {
+  perNight: async (root, args, ctx) => {
     // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/2836
     const pricings = await ctx.db.query.pricings({
       where: { place: { id: root.id } },
@@ -50,11 +47,11 @@ export const Home: IHome<{}, HomeRoot, PictureRoot> = {
 }
 
 // export class Home implements IHome<{}, HomeRoot, PictureRoot> {
-//   id = (root: HomeRoot) => root.id
-//   name = (root: HomeRoot) => root.name
-//   description = (root: HomeRoot) => root.description
-//   numRatings = (root: HomeRoot) => root.numRatings
-//   avgRating = (root: HomeRoot) => root.avgRating
+//   id = root => root.id
+//   name = root => root.name
+//   description = root => root.description
+//   numRatings = root => root.numRatings
+//   avgRating = root => root.avgRating
 //   pictures = (): PictureRoot[] => []
-//   perNight = (root: HomeRoot) => root.perNight
+//   perNight = root => root.perNight
 // }

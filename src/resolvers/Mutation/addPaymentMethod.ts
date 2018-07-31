@@ -1,11 +1,12 @@
 import { getUserId, Context } from '../../utils'
-import { Mutation_addPaymentMethod_arg } from '../../generated/schema/Mutation'
+import { IMutation } from '../../generated/schema'
+import { MutationResultRoot } from '../MutationResult'
 
-export async function addPaymentMethod(
-  parent: {},
-  args: Mutation_addPaymentMethod_arg,
-  ctx: Context,
-) {
+export const addPaymentMethod: IMutation.AddPaymentMethodResolver<
+  Context,
+  {},
+  MutationResultRoot
+> = async (parent, args, ctx: Context) => {
   const userId = getUserId(ctx)
   await ctx.db.mutation.createPaymentAccount({
     data: {

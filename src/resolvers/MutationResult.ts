@@ -1,9 +1,12 @@
-import { IMutationResult } from '../generated/schema/MutationResult'
+import { IMutationResult } from '../generated/schema'
 
 export interface MutationResultRoot {
   success: boolean
 }
 
-export const MutationResult: IMutationResult<{}, MutationResultRoot> = {
-  success: (root: MutationResultRoot) => root.success,
+export const MutationResult: IMutationResult.Resolver<
+  {},
+  MutationResultRoot
+> = {
+  success: root => root.success,
 }

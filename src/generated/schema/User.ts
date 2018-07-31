@@ -1,4 +1,6 @@
 import { GraphQLResolveInfo } from 'graphql'
 
 // TODO
-export interface IUser<Ctx, UserRoot> {}
+export namespace IUser {
+  export interface Resolver<Ctx, UserRoot> {}
+}

@@ -1,18 +1,15 @@
 import { Context } from '../utils'
-import { IQuery, Query_homesInPriceRange_arg } from '../generated/schema/Query'
+import { IQuery } from '../generated/schema'
 import { HomeRoot } from './Home'
-import { PlaceWhereInput } from '../generated/prisma';
+import { PlaceWhereInput } from '../generated/prisma'
 
-export const Query: IQuery<Context, {}, HomeRoot> = {
-  topHomes: (root: {}, args: {}, ctx: Context) => {
+export const Query: IQuery.Resolver<Context, {}, HomeRoot> = {
+
+  topHomes: (root, args, ctx) => {
     return ctx.db.query.places({ orderBy: 'popularity_DESC' })
   },
 
-  homesInPriceRange: (
-    root: {},
-    args: Query_homesInPriceRange_arg,
-    ctx: Context,
-  ) => {
+  homesInPriceRange: (root, args, ctx) => {
     const where: PlaceWhereInput = {
       AND: [
         { pricing: { perNight_gte: args.min } },

@@ -1,5 +1,5 @@
 import { getUserId, Context } from '../utils'
-import { IViewer } from '../generated/schema/Viewer'
+import { IViewer } from '../generated/schema'
 import { UserRoot } from './User'
 import { BookingRoot } from './Booking'
 
@@ -8,13 +8,18 @@ export interface ViewerRoot {
   user: UserRoot
 }
 
-export const Viewer: IViewer<Context, ViewerRoot, UserRoot, BookingRoot> = {
-  bookings(root: ViewerRoot, args: {}, ctx: Context) {
+export const Viewer: IViewer.Resolver<
+  Context,
+  ViewerRoot,
+  UserRoot,
+  BookingRoot
+> = {
+  bookings: (root, args, ctx) => {
     const id = getUserId(ctx)
     return ctx.db.query.bookings({ where: { bookee: { id } } })
   },
 
-  me(root: ViewerRoot, args: {}, ctx: Context) {
+  me: (root, args, ctx) => {
     const id = getUserId(ctx)
     return ctx.db.query.user({ where: { id } })
   },

@@ -1,67 +1,82 @@
 import { GraphQLResolveInfo } from 'graphql'
 
-export interface Mutation_signup_arg {
-  email: string
-  password: string
-  firstName: string
-  lastName: string
-  phone: string
-}
+export namespace IMutation {
+  export interface SignupArgs {
+    email: string
+    password: string
+    firstName: string
+    lastName: string
+    phone: string
+  }
 
-export interface Mutation_login_arg {
-  email: string
-  password: string
-}
+  export interface LoginArgs {
+    email: string
+    password: string
+  }
 
-export interface Mutation_addPaymentMethod_arg {
-  cardNumber: string
-  expiresOnMonth: number
-  expiresOnYear: number
-  securityCode: string
-  firstName: string
-  lastName: string
-  postalCode: string
-  country: string
-}
+  export interface AddPaymentMethodArgs {
+    cardNumber: string
+    expiresOnMonth: number
+    expiresOnYear: number
+    securityCode: string
+    firstName: string
+    lastName: string
+    postalCode: string
+    country: string
+  }
 
-export interface Mutation_book_arg {
-  placeId: string
-  checkIn: string
-  checkOut: string
-  numGuests: number
-}
+  export interface BookArgs {
+    placeId: string
+    checkIn: string
+    checkOut: string
+    numGuests: number
+  }
 
-export interface IMutation<
-  Ctx,
-  MutationRoot,
-  AuthPayloadRoot,
-  MutationResultRoot
-> {
-  signup: (
+  export type SignupResolver<Ctx, MutationRoot, AuthPayloadRoot> = (
     root: MutationRoot,
-    args: Mutation_signup_arg,
+    args: SignupArgs,
     ctx: Ctx,
     info: GraphQLResolveInfo,
   ) => AuthPayloadRoot | Promise<AuthPayloadRoot>
 
-  login: (
+  export type LoginResolver<Ctx, MutationRoot, AuthPayloadRoot> = (
     root: MutationRoot,
-    args: Mutation_login_arg,
+    args: LoginArgs,
     ctx: Ctx,
     info: GraphQLResolveInfo,
   ) => AuthPayloadRoot | Promise<AuthPayloadRoot>
 
-  addPaymentMethod: (
+  export type AddPaymentMethodResolver<
+    Ctx,
+    MutationRoot,
+    MutationResultRoot
+  > = (
     root: MutationRoot,
-    args: Mutation_addPaymentMethod_arg,
+    args: AddPaymentMethodArgs,
     ctx: Ctx,
     info: GraphQLResolveInfo,
   ) => MutationResultRoot | Promise<MutationResultRoot>
 
-  book: (
+  export type BookResolver<Ctx, MutationRoot, MutationResultRoot> = (
     root: MutationRoot,
-    args: Mutation_book_arg,
+    args: BookArgs,
     ctx: Ctx,
     info: GraphQLResolveInfo,
   ) => MutationResultRoot | Promise<MutationResultRoot>
+
+  export interface Resolver<
+    Ctx,
+    MutationRoot,
+    AuthPayloadRoot,
+    MutationResultRoot
+  > {
+    signup: SignupResolver<Ctx, MutationRoot, AuthPayloadRoot>
+    login: LoginResolver<Ctx, MutationRoot, AuthPayloadRoot>
+    addPaymentMethod: AddPaymentMethodResolver<
+      Ctx,
+      MutationRoot,
+      MutationResultRoot
+    >
+    book: BookResolver<Ctx, MutationRoot, MutationResultRoot>
+  }
 }

@@ -1,9 +1,13 @@
 import { getUserId, Context } from '../../utils'
-import { Mutation_book_arg } from '../../generated/schema/Mutation'
+import { IMutation } from '../../generated/schema'
+import { MutationResultRoot } from '../MutationResult'
 
-export async function book(parent: {}, args: Mutation_book_arg, ctx: Context) {
+export const book: IMutation.BookResolver<
+  Context,
+  {},
+  MutationResultRoot
+> = async (parent, args, ctx) => {
   const userId = getUserId(ctx)
-
   const paymentAccount = await ctx.db.query
     .paymentAccounts({ where: { user: { id: userId } } })
     .then(ps => ps[0])

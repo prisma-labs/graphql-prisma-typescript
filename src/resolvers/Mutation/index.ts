@@ -1,18 +1,19 @@
-import { IMutation } from '../../generated/schema/Mutation'
-import { auth } from './auth'
+import { IMutation } from '../../generated/schema'
+import { signup, login } from './auth'
 import { book } from './book'
 import { addPaymentMethod } from './addPaymentMethod'
 import { Context } from '../../utils'
 import { AuthPayloadRoot } from '../AuthPayload'
 import { MutationResultRoot } from '../MutationResult'
 
-export const Mutation: IMutation<
+export const Mutation: IMutation.Resolver<
   Context,
   {},
   AuthPayloadRoot,
   MutationResultRoot
 > = {
-  ...auth,
+  signup,
+  login,
   book,
   addPaymentMethod,
 }

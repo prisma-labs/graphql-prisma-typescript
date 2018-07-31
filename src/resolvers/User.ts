@@ -15,4 +15,4 @@ export interface UserRoot {
   token: string
 }
 
-export const User: IUser<Context, UserRoot> = {}
+export const User: IUser.Resolver<Context, UserRoot> = {}

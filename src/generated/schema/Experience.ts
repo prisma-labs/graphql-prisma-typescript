@@ -1,4 +1,6 @@
 import { GraphQLResolveInfo } from 'graphql'
 
 // TODO
-export interface IExperience<Ctx, ExperienceRoot> {}
+export namespace IExperience {
+  export interface Resolver<Ctx, ExperienceRoot> {}
+}

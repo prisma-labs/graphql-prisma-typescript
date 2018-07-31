@@ -1,9 +1,9 @@
-import { IPicture } from '../generated/schema/Picture'
+import { IPicture } from '../generated/schema'
 
 export interface PictureRoot {
   url: string
 }
 
-export const Picture: IPicture<{}, PictureRoot> = {
-  url: (root: PictureRoot) => root.url,
+export const Picture: IPicture.Resolver<{}, PictureRoot> = {
+  url: root => root.url,
 }

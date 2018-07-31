@@ -1,4 +1,6 @@
 import { GraphQLResolveInfo } from 'graphql'
 
 // TODO
-export interface ICity<Ctx, CityRoot> {}
+export namespace ICity {
+  export interface Resolver<Ctx, CityRoot> {}
+}
