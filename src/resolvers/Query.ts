@@ -1,9 +1,9 @@
 import { Context } from '../utils'
 import { IQuery, Query_homesInPriceRange_arg } from '../generated/schema/Query'
-import { HomeScalars } from './Home'
+import { HomeRoot } from './Home'
 import { PlaceWhereInput } from '../generated/prisma';
 
-export const Query: IQuery<Context, {}, HomeScalars> = {
+export const Query: IQuery<Context, {}, HomeRoot> = {
   topHomes: (root: {}, args: {}, ctx: Context) => {
     return ctx.db.query.places({ orderBy: 'popularity_DESC' })
   },

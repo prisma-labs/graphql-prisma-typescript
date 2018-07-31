@@ -1,7 +1,13 @@
 import { Context } from '../utils'
+import { UserRoot } from './User'
+import { IAuthPayload } from '../generated/schema/AuthPayload'
 
-export const AuthPayload = {
-  user: async ({ user: { id } }, args, ctx: Context, info) => {
-    return ctx.db.query.user({ where: { id } }, info)
-  },
+export interface AuthPayloadRoot {
+  token: string
+  user: UserRoot
+}
+
+export const AuthPayload: IAuthPayload<Context, AuthPayloadRoot, UserRoot> = {
+  token: (root: AuthPayloadRoot) => root.token,
+  user: async (root: AuthPayloadRoot, args: {}, ctx: Context) => root.user,
 }

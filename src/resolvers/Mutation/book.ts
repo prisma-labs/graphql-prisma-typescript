@@ -1,10 +1,12 @@
 import { getUserId, Context } from '../../utils'
-// import gql from 'graphql-tag'
+import { Mutation_book_arg } from '../../generated/schema/Mutation'
 
-export async function book(parent, args, ctx: Context, info) {
+export async function book(parent: {}, args: Mutation_book_arg, ctx: Context) {
   const userId = getUserId(ctx)
 
-  const paymentAccount = await getPaymentAccount(userId, ctx)
+  const paymentAccount = await ctx.db.query
+    .paymentAccounts({ where: { user: { id: userId } } })
+    .then(ps => ps[0])
   if (!paymentAccount) {
     throw new Error(`You don't have a payment method yet`)
   }
@@ -19,16 +21,15 @@ export async function book(parent, args, ctx: Context, info) {
   }
 
   const days = daysBetween(new Date(args.checkIn), new Date(args.checkOut))
-  const place = await ctx.db.query.place(
-    { where: { id: args.placeId } },
-    `{ pricing { perNight } }`,
-  )
+  const { perNight } = await ctx.db.query
+    .place({ where: { id: args.placeId } })
+    .pricing()
 
-  if (!place) {
+  if (perNight === null) {
     throw new Error(`No such place found`)
   }
 
-  const placePrice = days * place.pricing.perNight
+  const placePrice = days * perNight
   const totalPrice = placePrice * 1.2
   const serviceFee = placePrice * 0.2
 
@@ -57,28 +58,6 @@ export async function book(parent, args, ctx: Context, info) {
 
 function payWithStripe() {
   return Promise.resolve()
-}
-
-async function getPaymentAccount(userId: string, ctx: Context) {
-  const paymentAccounts = await ctx.db.query.paymentAccounts(
-    { where: { user: { id: userId } } },
-    `{
-      id
-      creditcard {
-        id
-        cardNumber
-        country
-        expiresOnMonth
-        expiresOnYear
-        firstName
-        lastName
-        securityCode
-        postalCode
-      }
-    }`,
-  )
-
-  return paymentAccounts[0]
 }
 
 function daysBetween(date1: Date, date2: Date): number {

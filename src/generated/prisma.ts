@@ -17031,6 +17031,7 @@ export interface User extends Node {
   notifications?: Notification[]
   profilePicture?: Picture
   hostingExperiences?: Experience[]
+  token: String
 }
 
 export interface RestaurantSubscriptionPayload {

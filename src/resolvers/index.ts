@@ -1,26 +1,22 @@
 import { extractFragmentReplacements } from 'prisma-binding'
 import { Query } from './Query'
+import { Mutation } from './Mutation'
 import { Subscription } from './Subscription'
-import { auth } from './Mutation/auth'
 import { Home } from './Home'
 import { ExperiencesByCity } from './ExperiencesByCity'
 import { Viewer } from './Viewer'
+import { MutationResult } from './MutationResult'
 import { AuthPayload } from './AuthPayload'
-import { book } from './Mutation/book'
-import { addPaymentMethod } from './Mutation/addPaymentMethod'
 
 export const resolvers = {
   Query,
-  Mutation: {
-    ...auth,
-    book,
-    addPaymentMethod,
-  },
+  Mutation,
   Subscription,
   Viewer,
   ExperiencesByCity,
   Home,
   AuthPayload,
+  MutationResult,
 }
 
-// export const fragmentReplacements = extractFragmentReplacements(resolvers)
+export const fragmentReplacements = extractFragmentReplacements(resolvers)

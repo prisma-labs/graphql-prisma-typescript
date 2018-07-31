@@ -1,40 +1,28 @@
 import { Context } from '../utils'
-import gql from 'graphql-tag'
 import { IHome } from '../generated/schema/Home'
-import { PictureScalars } from './Picture'
-import { picturesForPlace, reviewsCountForPlace } from '../generated/equeries'
+import { PictureRoot } from './Picture'
 
 // TODO better naming convention (HomeRoot?)
-export interface HomeScalars {
+export interface HomeRoot {
   id: string
   name: string
   description: string
 }
 
-export const Home: IHome<{}, HomeScalars, PictureScalars> = {
-  id: (root: HomeScalars) => root.id,
-  name: (root: HomeScalars) => root.name,
-  description: (root: HomeScalars) => root.description,
+export const Home: IHome<{}, HomeRoot, PictureRoot> = {
+  id: (root: HomeRoot) => root.id,
+  name: (root: HomeRoot) => root.name,
+  description: (root: HomeRoot) => root.description,
 
-  // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/1312
-  numRatings: async (root: HomeScalars, args: {}, ctx: Context) => {
-    const query = gql`
-      query reviewsCountForPlace($where: ReviewWhereInput!) {
-        reviewsConnection(where: $where) {
-          aggregate {
-            count
-          }
-        }
-      }
-    `
-    const result = await ctx.db.request<reviewsCountForPlace>(query, {
-      where: { place: { id: root.id } },
-    })
-    return result.reviewsConnection.aggregate.count
+  numRatings: async (root: HomeRoot, args: {}, ctx: Context) => {
+    return ctx.db.query
+      .reviewsConnection({ where: { place: { id: root.id } } })
+      .aggregate()
+      .count()
   },
 
   // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/1312
-  avgRating: async (root: HomeScalars, args: {}, ctx: Context) => {
+  avgRating: async (root: HomeRoot, args: {}, ctx: Context) => {
     const reviews = await ctx.db.query.reviews({
       where: { place: { id: root.id } },
     })
@@ -45,34 +33,15 @@ export const Home: IHome<{}, HomeScalars, PictureScalars> = {
   },
 
   pictures: async (
-    root: HomeScalars,
+    root: HomeRoot,
     args: {},
     ctx: Context,
-  ): Promise<PictureScalars[]> => {
-    // TODO doesn't work
-    // return ctx.db.query.pictures({where: { place: { } }})
-
-    // TODO other approach
-    // const place = await ctx.db.query.place({ where: { id: root.id } }, gql`{}`)
-
-    // SOLUTION add backrelation
-    const query = gql`
-      query picturesForPlace($id: String!) {
-        place(where: { id: $id }) {
-          pictures {
-            url
-          }
-        }
-      }
-    `
-    const { place } = await ctx.db.request<picturesForPlace>(query, {
-      id: root.id,
-    })
-    return place.pictures
+  ): Promise<PictureRoot[]> => {
+    return ctx.db.query.place({ where: { id: root.id } }).pictures()
   },
 
-  perNight: async (root: HomeScalars, args: {}, ctx: Context) => {
-    // SOLUTION embedded types
+  perNight: async (root: HomeRoot, args: {}, ctx: Context) => {
+    // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/2836
     const pricings = await ctx.db.query.pricings({
       where: { place: { id: root.id } },
     })
@@ -80,12 +49,12 @@ export const Home: IHome<{}, HomeScalars, PictureScalars> = {
   },
 }
 
-// export class Home implements IHome<{}, HomeScalars, PictureScalars> {
-//   id = (root: HomeScalars) => root.id
-//   name = (root: HomeScalars) => root.name
-//   description = (root: HomeScalars) => root.description
-//   numRatings = (root: HomeScalars) => root.numRatings
-//   avgRating = (root: HomeScalars) => root.avgRating
-//   pictures = (): PictureScalars[] => []
-//   perNight = (root: HomeScalars) => root.perNight
+// export class Home implements IHome<{}, HomeRoot, PictureRoot> {
+//   id = (root: HomeRoot) => root.id
+//   name = (root: HomeRoot) => root.name
+//   description = (root: HomeRoot) => root.description
+//   numRatings = (root: HomeRoot) => root.numRatings
+//   avgRating = (root: HomeRoot) => root.avgRating
+//   pictures = (): PictureRoot[] => []
+//   perNight = (root: HomeRoot) => root.perNight
 // }
