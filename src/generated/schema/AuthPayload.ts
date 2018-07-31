@@ -1,10 +1,17 @@
 import { GraphQLResolveInfo } from 'graphql'
 
-export interface IMutationResult<Ctx, MutationResultRoot> {
-  success: (
-    root: MutationResultRoot,
+export interface IAuthPayload<Ctx, AuthPayloadRoot, UserRoot> {
+  token: (
+    root: AuthPayloadRoot,
     args: {},
     ctx: Ctx,
     info: GraphQLResolveInfo,
-  ) => boolean | Promise<boolean>
+  ) => string | Promise<string>
+  
+  user: (
+    root: AuthPayloadRoot,
+    args: {},
+    ctx: Ctx,
+    info: GraphQLResolveInfo,
+  ) => UserRoot | Promise<UserRoot>
 }
