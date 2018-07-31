@@ -7,16 +7,26 @@ import { ExperiencesByCity } from './ExperiencesByCity'
 import { Viewer } from './Viewer'
 import { MutationResult } from './MutationResult'
 import { AuthPayload } from './AuthPayload'
+import { City } from './City'
+import { Experience } from './Experience'
+import { User } from './User'
+import { Picture } from './Picture'
+import { Booking } from './Booking'
 
 export const resolvers = {
-  Query,
-  Mutation,
-  Subscription,
-  Viewer,
+  AuthPayload,
+  Booking,
+  City,
+  Experience,
   ExperiencesByCity,
   Home,
-  AuthPayload,
+  Mutation,
   MutationResult,
+  Picture,
+  Query,
+  Subscription,
+  Viewer,
+  User,
 }
 
 export const fragmentReplacements = extractFragmentReplacements(resolvers)

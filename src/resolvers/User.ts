@@ -1,3 +1,6 @@
+import { IUser } from '../generated/schema/User'
+import { Context } from '../utils'
+
 export interface UserRoot {
   id: string
   createdAt: Date | string
@@ -11,3 +14,5 @@ export interface UserRoot {
   updatedAt: Date | string
   token: string
 }
+
+export const User: IUser<Context, UserRoot> = {}
