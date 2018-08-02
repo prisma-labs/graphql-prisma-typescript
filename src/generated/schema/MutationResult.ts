@@ -1,12 +1,14 @@
-import { GraphQLResolveInfo } from 'graphql'
+import { ITypes, ResolverFn } from '.'
 
 export namespace IMutationResult {
-  export interface Resolver<Ctx, MutationResultRoot> {
-    success: (
-      root: MutationResultRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => boolean | Promise<boolean>
+  export type SuccessResolver<T extends ITypes> = ResolverFn<
+    T['MutationResultRoot'],
+    {},
+    T['Context'],
+    boolean
+  >
+
+  export interface Resolver<T extends ITypes> {
+    success: SuccessResolver<T>
   }
 }

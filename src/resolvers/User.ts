@@ -1,5 +1,5 @@
 import { IUser } from '../generated/schema/User'
-import { Context } from '../utils'
+import { Types } from './types'
 
 export interface UserRoot {
   id: string
@@ -15,4 +15,5 @@ export interface UserRoot {
   token: string
 }
 
-export const User: IUser.Resolver<Context, UserRoot> = {}
+// TODO
+export const User: IUser.Resolver<Types> = {}

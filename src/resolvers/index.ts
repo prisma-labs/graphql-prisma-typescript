@@ -1,7 +1,6 @@
-import { extractFragmentReplacements } from 'prisma-binding'
 import { Query } from './Query'
 import { Mutation } from './Mutation'
-import { Subscription } from './Subscription'
+// import { Subscription } from './Subscription'
 import { Home } from './Home'
 import { ExperiencesByCity } from './ExperiencesByCity'
 import { Viewer } from './Viewer'
@@ -12,8 +11,10 @@ import { Experience } from './Experience'
 import { User } from './User'
 import { Picture } from './Picture'
 import { Booking } from './Booking'
+import { IResolvers } from '../generated/schema'
+import { Types } from './types'
 
-export const resolvers = {
+export const resolvers: IResolvers<Types> = {
   AuthPayload,
   Booking,
   City,
@@ -24,9 +25,7 @@ export const resolvers = {
   MutationResult,
   Picture,
   Query,
-  Subscription,
+  // Subscription,
   Viewer,
   User,
 }
-
-export const fragmentReplacements = extractFragmentReplacements(resolvers)

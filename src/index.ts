@@ -1,9 +1,8 @@
 import { GraphQLServer } from 'graphql-yoga'
 import { Prisma } from './generated/prisma'
-import { resolvers, fragmentReplacements } from './resolvers'
+import { resolvers } from './resolvers'
 
 const db = new Prisma({
-  fragmentReplacements,
   endpoint: process.env.PRISMA_ENDPOINT,
   secret: process.env.PRISMA_SECRET,
   debug: true,

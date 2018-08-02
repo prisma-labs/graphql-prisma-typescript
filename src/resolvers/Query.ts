@@ -1,10 +1,8 @@
-import { Context } from '../utils'
 import { IQuery } from '../generated/schema'
-import { HomeRoot } from './Home'
 import { PlaceWhereInput } from '../generated/prisma'
+import { Types } from './types'
 
-export const Query: IQuery.Resolver<Context, {}, HomeRoot> = {
-
+export const Query: IQuery.Resolver<Types> = {
   topHomes: (root, args, ctx) => {
     return ctx.db.query.places({ orderBy: 'popularity_DESC' })
   },

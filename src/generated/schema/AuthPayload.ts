@@ -1,19 +1,22 @@
-import { GraphQLResolveInfo } from 'graphql'
+import { ITypes, ResolverFn } from '.'
 
 export namespace IAuthPayload {
-  export interface Resolver<Ctx, AuthPayloadRoot, UserRoot> {
-    token: (
-      root: AuthPayloadRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => string | Promise<string>
+  export type TokenResolver<T extends ITypes> = ResolverFn<
+    T['AuthPayloadRoot'],
+    {},
+    T['Context'],
+    string
+  >
 
-    user: (
-      root: AuthPayloadRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => UserRoot | Promise<UserRoot>
+  export type UserResolver<T extends ITypes> = ResolverFn<
+    T['AuthPayloadRoot'],
+    {},
+    T['Context'],
+    T['UserRoot']
+  >
+
+  export interface Resolver<T extends ITypes> {
+    token: TokenResolver<T>
+    user: UserResolver<T>
   }
 }

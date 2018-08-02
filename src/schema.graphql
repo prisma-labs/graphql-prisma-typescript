@@ -38,10 +38,6 @@ type Mutation {
   ): MutationResult!
 }
 
-type Subscription {
-  city: CitySubscriptionPayload
-}
-
 type Viewer {
   me: User!
   bookings: [Booking!]!

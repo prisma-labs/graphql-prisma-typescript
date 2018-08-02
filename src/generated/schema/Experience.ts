@@ -1,6 +1,6 @@
-import { GraphQLResolveInfo } from 'graphql'
+import { ITypes } from '.'
 
 // TODO
 export namespace IExperience {
-  export interface Resolver<Ctx, ExperienceRoot> {}
+  export interface Resolver<T extends ITypes> {}
 }

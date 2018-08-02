@@ -1,19 +1,22 @@
-import { GraphQLResolveInfo } from 'graphql'
+import { ITypes, ResolverFn } from '.'
 
 export namespace IViewer {
-  export interface Resolver<Ctx, ViewerRoot, UserRoot, BookingRoot> {
-    me: (
-      root: ViewerRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => UserRoot | Promise<UserRoot>
+  export type MeResolver<T extends ITypes> = ResolverFn<
+    T['ViewerRoot'],
+    {},
+    T['Context'],
+    T['UserRoot']
+  >
 
-    bookings: (
-      root: ViewerRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => BookingRoot[] | Promise<BookingRoot[]>
+  export type BookingsResolver<T extends ITypes> = ResolverFn<
+    T['ViewerRoot'],
+    {},
+    T['Context'],
+    T['BookingRoot'][]
+  >
+
+  export interface Resolver<T extends ITypes> {
+    me: MeResolver<T>
+    bookings: BookingsResolver<T>
   }
 }

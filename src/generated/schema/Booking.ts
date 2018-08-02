@@ -1,6 +1,6 @@
-import { GraphQLResolveInfo } from 'graphql'
+import { ITypes } from '.'
 
 // TODO
 export namespace IBooking {
-  export interface Resolver<Ctx, BookingRoot> {}
+  export interface Resolver<T extends ITypes> {}
 }

@@ -1,6 +1,6 @@
 import { Context } from '../utils'
 import { IHome } from '../generated/schema'
-import { PictureRoot } from './Picture'
+import { Types } from './types';
 
 export interface HomeRoot {
   id: string
@@ -8,7 +8,7 @@ export interface HomeRoot {
   description: string
 }
 
-export const Home: IHome.Resolver<Context, HomeRoot, PictureRoot> = {
+export const Home: IHome.Resolver<Types> = {
   id: root => root.id,
   name: root => root.name,
   description: root => root.description,

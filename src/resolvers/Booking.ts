@@ -1,7 +1,7 @@
 import { IBooking } from '../generated/schema'
-import { Context } from '../utils'
+import { Types } from './types'
 
 // TODO
 export interface BookingRoot {}
 
-export const Booking: IBooking.Resolver<Context, BookingRoot> = {}
+export const Booking: IBooking.Resolver<Types> = {}

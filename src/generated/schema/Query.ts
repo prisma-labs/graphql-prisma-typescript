@@ -1,4 +1,4 @@
-import { GraphQLResolveInfo } from 'graphql'
+import { ITypes, ResolverFn } from '.'
 
 export namespace IQuery {
   export interface ArgsHomesInPriceRange {
@@ -6,20 +6,23 @@ export namespace IQuery {
     max: number
   }
 
-  export interface Resolver<Ctx, QueryRoot, HomeRoot> {
-    topHomes: (
-      root: QueryRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => HomeRoot[] | Promise<HomeRoot[]>
+  export type TopHomesResolver<T extends ITypes> = ResolverFn<
+    T['QueryRoot'],
+    {},
+    T['Context'],
+    T['HomeRoot'][]
+  >
 
-    homesInPriceRange: (
-      root: QueryRoot,
-      args: ArgsHomesInPriceRange,
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => HomeRoot[] | Promise<HomeRoot[]>
+  export type HomesInPriceRangeResolver<T extends ITypes> = ResolverFn<
+    T['QueryRoot'],
+    ArgsHomesInPriceRange,
+    T['Context'],
+    T['HomeRoot'][]
+  >
+
+  export interface Resolver<T extends ITypes> {
+    topHomes: TopHomesResolver<T>
+    homesInPriceRange: HomesInPriceRangeResolver<T>
   }
 }
 

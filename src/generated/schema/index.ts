@@ -10,6 +10,7 @@ import { IPicture } from './Picture'
 import { IQuery } from './Query'
 import { IUser } from './User'
 import { IViewer } from './Viewer'
+import { GraphQLResolveInfo } from 'graphql'
 
 export * from './AuthPayload'
 export * from './Booking'
@@ -24,41 +25,39 @@ export * from './Query'
 export * from './User'
 export * from './Viewer'
 
-export interface IResolvers<
-  Ctx,
-  AuthPayloadRoot,
-  BookingRoot,
-  CityRoot,
-  ExperienceRoot,
-  ExperienceByCityRoot,
-  HomeRoot,
-  MutationRoot,
-  MutationResultRoot,
-  PictureRoot,
-  QueryRoot,
-  UserRoot,
-  ViewerRoot
-> {
-  AuthPayload: IAuthPayload.Resolver<Ctx, AuthPayloadRoot, UserRoot>
-  Booking: IBooking.Resolver<Ctx, BookingRoot>
-  City: ICity.Resolver<Ctx, CityRoot>
-  Experience: IExperience.Resolver<Ctx, ExperienceRoot>
-  ExperiencesByCity: IExperiencesByCity.Resolver<
-    Ctx,
-    ExperienceByCityRoot,
-    ExperienceRoot,
-    CityRoot
-  >
-  Home: IHome.Resolver<Ctx, HomeRoot, PictureRoot>
-  Mutation: IMutation.Resolver<
-    Ctx,
-    MutationRoot,
-    AuthPayloadRoot,
-    MutationResultRoot
-  >
-  MutationResult: IMutationResult.Resolver<Ctx, MutationResultRoot>
-  Picture: IPicture.Resolver<Ctx, PictureRoot>
-  Query: IQuery.Resolver<Ctx, QueryRoot, HomeRoot>
-  User: IUser.Resolver<Ctx, UserRoot>
-  Viewer: IViewer.Resolver<Ctx, ViewerRoot, UserRoot, BookingRoot>
+export interface ResolverFn<Root, Args, Ctx, Payload> {
+  (root: Root, args: Args, ctx: Ctx, info: GraphQLResolveInfo):
+    | Payload
+    | Promise<Payload>
+}
+
+export interface ITypes {
+  Context: any
+  AuthPayloadRoot: any
+  BookingRoot: any
+  CityRoot: any
+  ExperienceRoot: any
+  ExperiencesByCityRoot: any
+  HomeRoot: any
+  MutationRoot: any
+  MutationResultRoot: any
+  PictureRoot: any
+  QueryRoot: any
+  UserRoot: any
+  ViewerRoot: any
+}
+
+export interface IResolvers<T extends ITypes> {
+  AuthPayload: IAuthPayload.Resolver<T>
+  Booking: IBooking.Resolver<T>
+  City: ICity.Resolver<T>
+  Experience: IExperience.Resolver<T>
+  ExperiencesByCity: IExperiencesByCity.Resolver<T>
+  Home: IHome.Resolver<T>
+  Mutation: IMutation.Resolver<T>
+  MutationResult: IMutationResult.Resolver<T>
+  Picture: IPicture.Resolver<T>
+  Query: IQuery.Resolver<T>
+  User: IUser.Resolver<T>
+  Viewer: IViewer.Resolver<T>
 }

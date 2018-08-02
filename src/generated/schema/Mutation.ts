@@ -1,4 +1,4 @@
-import { GraphQLResolveInfo } from 'graphql'
+import { ITypes, ResolverFn } from '.'
 
 export namespace IMutation {
   export interface SignupArgs {
@@ -32,51 +32,38 @@ export namespace IMutation {
     numGuests: number
   }
 
-  export type SignupResolver<Ctx, MutationRoot, AuthPayloadRoot> = (
-    root: MutationRoot,
-    args: SignupArgs,
-    ctx: Ctx,
-    info: GraphQLResolveInfo,
-  ) => AuthPayloadRoot | Promise<AuthPayloadRoot>
+  export type SignupResolver<T extends ITypes> = ResolverFn<
+    T['MutationRoot'],
+    SignupArgs,
+    T['Context'],
+    T['AuthPayloadRoot']
+  >
 
-  export type LoginResolver<Ctx, MutationRoot, AuthPayloadRoot> = (
-    root: MutationRoot,
-    args: LoginArgs,
-    ctx: Ctx,
-    info: GraphQLResolveInfo,
-  ) => AuthPayloadRoot | Promise<AuthPayloadRoot>
+  export type LoginResolver<T extends ITypes> = ResolverFn<
+    T['MutationRoot'],
+    LoginArgs,
+    T['Context'],
+    T['AuthPayloadRoot']
+  >
 
-  export type AddPaymentMethodResolver<
-    Ctx,
-    MutationRoot,
-    MutationResultRoot
-  > = (
-    root: MutationRoot,
-    args: AddPaymentMethodArgs,
-    ctx: Ctx,
-    info: GraphQLResolveInfo,
-  ) => MutationResultRoot | Promise<MutationResultRoot>
+  export type AddPaymentMethodResolver<T extends ITypes> = ResolverFn<
+    T['MutationRoot'],
+    AddPaymentMethodArgs,
+    T['Context'],
+    T['MutationResultRoot']
+  >
 
-  export type BookResolver<Ctx, MutationRoot, MutationResultRoot> = (
-    root: MutationRoot,
-    args: BookArgs,
-    ctx: Ctx,
-    info: GraphQLResolveInfo,
-  ) => MutationResultRoot | Promise<MutationResultRoot>
+  export type BookResolver<T extends ITypes> = ResolverFn<
+    T['MutationRoot'],
+    BookArgs,
+    T['Context'],
+    T['MutationResultRoot']
+  >
 
-  export interface Resolver<
-    Ctx,
-    MutationRoot,
-    AuthPayloadRoot,
-    MutationResultRoot
-  > {
-    signup: SignupResolver<Ctx, MutationRoot, AuthPayloadRoot>
-    login: LoginResolver<Ctx, MutationRoot, AuthPayloadRoot>
-    addPaymentMethod: AddPaymentMethodResolver<
-      Ctx,
-      MutationRoot,
-      MutationResultRoot
-    >
-    book: BookResolver<Ctx, MutationRoot, MutationResultRoot>
+  export interface Resolver<T extends ITypes> {
+    signup: SignupResolver<T>
+    login: LoginResolver<T>
+    addPaymentMethod: AddPaymentMethodResolver<T>
+    book: BookResolver<T>
   }
 }

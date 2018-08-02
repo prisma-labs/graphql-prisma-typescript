@@ -1,52 +1,66 @@
-import { GraphQLResolveInfo } from 'graphql'
+import { ResolverFn, ITypes } from './'
 
 export namespace IHome {
   export interface PicturesArgs {
     first: number
   }
 
-  export interface Resolver<Ctx, HomeRoot, PictureRoot> {
-    id: (
-      root: HomeRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => string | Promise<string>
-    name: (
-      root: HomeRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => string | Promise<string>
-    description: (
-      root: HomeRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => string | Promise<string>
-    numRatings: (
-      root: HomeRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => number | Promise<number>
-    avgRating: (
-      root: HomeRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => number | Promise<number>
-    pictures: (
-      root: HomeRoot,
-      args: PicturesArgs,
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => PictureRoot[] | Promise<PictureRoot[]>
-    perNight: (
-      root: HomeRoot,
-      args: {},
-      ctx: Ctx,
-      info: GraphQLResolveInfo,
-    ) => number | Promise<number>
+  export type IdResolver<T extends ITypes> = ResolverFn<
+    T['HomeRoot'],
+    {},
+    T['Context'],
+    string
+  >
+
+  export type NameResolver<T extends ITypes> = ResolverFn<
+    T['HomeRoot'],
+    {},
+    T['Context'],
+    string
+  >
+
+  export type DescriptionResolver<T extends ITypes> = ResolverFn<
+    T['HomeRoot'],
+    {},
+    T['Context'],
+    string
+  >
+
+  export type NumRatingsResolver<T extends ITypes> = ResolverFn<
+    T['HomeRoot'],
+    {},
+    T['Context'],
+    number
+  >
+
+  export type AvgRatingResolver<T extends ITypes> = ResolverFn<
+    T['HomeRoot'],
+    {},
+    T['Context'],
+    number
+  >
+
+  export type PicturesResolver<T extends ITypes> = ResolverFn<
+    T['HomeRoot'],
+    PicturesArgs,
+    T['Context'],
+    T['PictureRoot'][]
+  >
+
+  export type PerNightResolver<T extends ITypes> = ResolverFn<
+    T['HomeRoot'],
+    {},
+    T['Context'],
+    number
+  >
+
+  export interface Resolver<T extends ITypes> {
+    id: IdResolver<T>
+    name: NameResolver<T>
+    description: DescriptionResolver<T>
+    numRatings: NumRatingsResolver<T>
+    avgRating: AvgRatingResolver<T>
+    pictures: PicturesResolver<T>
+    perNight: PerNightResolver<T>
   }
 }

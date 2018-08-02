@@ -1,18 +1,12 @@
 import { Context } from '../utils'
 import { IExperiencesByCity } from '../generated/schema'
-import { ExperienceRoot } from './Experience'
-import { CityRoot } from './City'
+import { Types } from './types'
 
 export interface ExperiencesByCityRoot {
   id: string
 }
 
-export const ExperiencesByCity: IExperiencesByCity.Resolver<
-  Context,
-  ExperiencesByCityRoot,
-  ExperienceRoot,
-  CityRoot
-> = {
+export const ExperiencesByCity: IExperiencesByCity.Resolver<Types> = {
   city: async ({ id }: ExperiencesByCityRoot, args: {}, ctx: Context) => {
     return ctx.db.query.city({ where: { id } })
   },
