@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcryptjs'
-import { AuthError, Context } from '../../utils'
+import { AuthError } from '../../utils'
 import * as jwt from 'jsonwebtoken'
 import { IMutation } from '../../generated/schema'
 import { Types } from '../types'
