@@ -1,4 +1,4 @@
-import { ResolverFn, ITypes } from './'
+import { ResolverFn, ITypes } from '.'
 
 export namespace IHome {
   export interface PicturesArgs {

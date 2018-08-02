@@ -2,7 +2,7 @@ import * as bcrypt from 'bcryptjs'
 import { AuthError } from '../../utils'
 import * as jwt from 'jsonwebtoken'
 import { IMutation } from '../../generated/schema'
-import { Types } from '../types'
+import { Types } from '../../types'
 
 export const signup: IMutation.SignupResolver<Types> = async (
   root,

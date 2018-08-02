@@ -12,7 +12,7 @@ import { User } from './User'
 import { Picture } from './Picture'
 import { Booking } from './Booking'
 import { IResolvers } from '../generated/schema'
-import { Types } from './types'
+import { Types } from '../types'
 
 export const resolvers: IResolvers<Types> = {
   AuthPayload,

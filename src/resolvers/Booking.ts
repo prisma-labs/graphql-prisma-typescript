@@ -1,5 +1,5 @@
 import { IBooking } from '../generated/schema'
-import { Types } from './types'
+import { Types } from '../types'
 
 // TODO
 export interface BookingRoot {}

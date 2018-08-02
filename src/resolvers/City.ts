@@ -1,5 +1,5 @@
 import { ICity } from '../generated/schema'
-import { Types } from './types'
+import { Types } from '../types'
 
 // TODO
 export interface CityRoot {}

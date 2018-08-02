@@ -1,7 +1,7 @@
 import { getUserId } from '../utils'
 import { IViewer } from '../generated/schema'
 import { UserRoot } from './User'
-import { Types } from './types'
+import { Types } from '../types'
 
 export interface ViewerRoot {
   token: string

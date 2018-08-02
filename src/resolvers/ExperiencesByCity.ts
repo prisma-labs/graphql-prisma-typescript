@@ -1,6 +1,6 @@
 import { Context } from '../utils'
 import { IExperiencesByCity } from '../generated/schema'
-import { Types } from './types'
+import { Types } from '../types'
 
 export interface ExperiencesByCityRoot {
   id: string

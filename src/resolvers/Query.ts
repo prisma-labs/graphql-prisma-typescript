@@ -1,6 +1,6 @@
 import { IQuery } from '../generated/schema'
 import { PlaceWhereInput } from '../generated/prisma'
-import { Types } from './types'
+import { Types } from '../types'
 
 export const Query: IQuery.Resolver<Types> = {
   topHomes: (root, args, ctx) => {

@@ -1,5 +1,5 @@
 import { IUser } from '../generated/schema/User'
-import { Types } from './types'
+import { Types } from '../types'
 
 export interface UserRoot {
   id: string
