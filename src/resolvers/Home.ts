@@ -1,4 +1,4 @@
-import { IHome } from './generated/interfaces.ts'
+import { IHome } from './generated/interfaces'
 import { Types } from './types'
 
 import { PictureRoot } from './Picture'

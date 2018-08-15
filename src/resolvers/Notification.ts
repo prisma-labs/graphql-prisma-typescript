@@ -1,4 +1,4 @@
-import { INotification } from './generated/interfaces.ts'
+import { INotification } from './generated/interfaces'
 import { Types } from './types'
 
 export type NOTIFICATION_TYPERoot =

@@ -1,4 +1,4 @@
-import { IPaymentAccount } from './generated/interfaces.ts'
+import { IPaymentAccount } from './generated/interfaces'
 import { Types } from './types'
 
 export type PAYMENT_PROVIDERRoot = 'PAYPAL' | 'CREDIT_CARD'

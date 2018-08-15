@@ -1,4 +1,4 @@
-import { IPlaceViews } from './generated/interfaces.ts'
+import { IPlaceViews } from './generated/interfaces'
 import { Types } from './types'
 
 export interface PlaceViewsRoot {

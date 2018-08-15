@@ -1,4 +1,4 @@
-import { IGuestRequirements } from './generated/interfaces.ts'
+import { IGuestRequirements } from './generated/interfaces'
 import { Types } from './types'
 
 export interface GuestRequirementsRoot {

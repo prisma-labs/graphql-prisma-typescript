@@ -1,4 +1,4 @@
-import { IAmenities } from './generated/interfaces.ts'
+import { IAmenities } from './generated/interfaces'
 import { Types } from './types'
 
 export interface AmenitiesRoot {

@@ -1,4 +1,4 @@
-import { IPlace } from './generated/interfaces.ts'
+import { IPlace } from './generated/interfaces'
 import { Types } from './types'
 
 export type PLACE_SIZESRoot =

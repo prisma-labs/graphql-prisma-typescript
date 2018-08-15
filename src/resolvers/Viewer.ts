@@ -1,4 +1,4 @@
-import { IViewer } from './generated/interfaces.ts'
+import { IViewer } from './generated/interfaces'
 import { Types } from './types'
 
 import { UserRoot } from './User'

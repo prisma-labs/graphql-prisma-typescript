@@ -1,4 +1,4 @@
-import { ITypes } from './generated/interfaces.ts'
+import { ITypes } from './generated/interfaces'
 
 import { QueryRoot } from './Query'
 

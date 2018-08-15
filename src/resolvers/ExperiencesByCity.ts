@@ -1,4 +1,4 @@
-import { IExperiencesByCity } from './generated/interfaces.ts'
+import { IExperiencesByCity } from './generated/interfaces'
 import { Types } from './types'
 
 import { ExperienceRoot } from './Experience'

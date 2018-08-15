@@ -1,4 +1,4 @@
-import { IMessage } from './generated/interfaces.ts'
+import { IMessage } from './generated/interfaces'
 import { Types } from './types'
 
 export interface MessageRoot {

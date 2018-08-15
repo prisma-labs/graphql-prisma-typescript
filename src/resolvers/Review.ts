@@ -1,4 +1,4 @@
-import { IReview } from './generated/interfaces.ts'
+import { IReview } from './generated/interfaces'
 import { Types } from './types'
 
 export interface ReviewRoot {

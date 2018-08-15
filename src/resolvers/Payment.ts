@@ -1,4 +1,4 @@
-import { IPayment } from './generated/interfaces.ts'
+import { IPayment } from './generated/interfaces'
 import { Types } from './types'
 
 import { BookingRoot } from './Booking'

@@ -1,4 +1,4 @@
-import { IHouseRules } from './generated/interfaces.ts'
+import { IHouseRules } from './generated/interfaces'
 import { Types } from './types'
 
 export interface HouseRulesRoot {

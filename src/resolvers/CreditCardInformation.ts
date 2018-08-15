@@ -1,4 +1,4 @@
-import { ICreditCardInformation } from './generated/interfaces.ts'
+import { ICreditCardInformation } from './generated/interfaces'
 import { Types } from './types'
 
 import { PaymentAccountRoot } from './PaymentAccount'

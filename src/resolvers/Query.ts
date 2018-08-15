@@ -1,4 +1,4 @@
-import { IQuery } from './generated/interfaces.ts'
+import { IQuery } from './generated/interfaces'
 import { Types } from './types'
 
 import { ExperienceRoot } from './Experience'
