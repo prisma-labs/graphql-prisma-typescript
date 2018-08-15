@@ -309,7 +309,7 @@ export namespace IHome {
 
   export type PicturesResolver<T extends ITypes> = ResolverFn<
     T['HomeRoot'],
-    {},
+    ArgsPictures,
     T['Context'],
     T['PictureRoot'][]
   >

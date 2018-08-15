@@ -1,4 +1,4 @@
-import { ITypes } from './src/generated/resolvers'
+import { ITypes } from '../generated/resolvers'
 
 import { QueryRoot } from './Query'
 
@@ -60,7 +60,7 @@ import { HouseRulesRoot } from './HouseRules'
 
 import { AmenitiesRoot } from './Amenities'
 
-export { Context } from './Context'
+import { Context } from './Context'
 
 export interface Types extends ITypes {
   Context: Context
