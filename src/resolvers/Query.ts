@@ -1,32 +1,95 @@
-import { IQuery } from './generated/interfaces.ts'
-import { Types } from './types'
-
-import { ExperienceRoot } from './Experience'
-import { HomeRoot } from './Home'
-import { ReservationRoot } from './Reservation'
-import { NeighbourhoodRoot } from './Neighbourhood'
-import { ExperiencesByCityRoot } from './ExperiencesByCity'
-import { ViewerRoot } from './Viewer'
-import { LocationRoot } from './Location'
-
-export interface QueryRoot {
-  topExperiences: ExperienceRoot[]
-  topHomes: HomeRoot[]
-  homesInPriceRange: HomeRoot[]
-  topReservations: ReservationRoot[]
-  featuredDestinations: NeighbourhoodRoot[]
-  experiencesByCity: ExperiencesByCityRoot[]
-  viewer: ViewerRoot
-  myLocation: LocationRoot
-}
+import { IQuery } from '../generated/schema'
+import { PlaceWhereInput } from '../generated/prisma'
+import { Types } from '../types'
 
 export const Query: IQuery.Resolver<Types> = {
-  topExperiences: async root => root.topExperiences,
-  topHomes: async root => root.topHomes,
-  homesInPriceRange: async (root, args) => root.homesInPriceRange,
-  topReservations: async root => root.topReservations,
-  featuredDestinations: async root => root.featuredDestinations,
-  experiencesByCity: async (root, args) => root.experiencesByCity,
-  viewer: async root => root.viewer,
-  myLocation: async root => root.myLocation,
+  topHomes: (root, args, ctx) => {
+    return ctx.db.query.places({ orderBy: 'popularity_DESC' })
+  },
+
+  homesInPriceRange: (root, args, ctx) => {
+    const where: PlaceWhereInput = {
+      AND: [
+        { pricing: { perNight_gte: args.min } },
+        { pricing: { perNight_lte: args.max } },
+      ],
+    }
+    return ctx.db.query.places({ where })
+  },
 }
+
+// import { Context, getUserId } from '../utils'
+// import { WrapQuery } from 'graphql-tools'
+// import { SelectionSetNode, Kind } from 'graphql'
+// export const Query = {
+//   viewer: () => ({}),
+
+//   myLocation: async (parent, args, ctx, info) => {
+//     const id = getUserId(ctx)
+//     return ctx.db.query.user({ where: { id } }, info, {
+//       transforms: [
+//         new WrapQuery(
+//           ['user'],
+//           (subtree: SelectionSetNode) => ({
+//             kind: Kind.FIELD,
+//             name: {
+//               kind: Kind.NAME,
+//               value: 'location',
+//             },
+//             selectionSet: subtree,
+//           }),
+//           // result => result && result.node,
+//           result => {
+//             // TODO clean me up
+//             console.log({ result })
+//             return result && result.node
+//           },
+//         ),
+//       ],
+//     })
+//   },
+
+//   topExperiences: async (parent, args, ctx: Context, info) => {
+//     return ctx.db.query.experiences({ orderBy: 'popularity_DESC' }, info)
+//   },
+
+//   topHomes: async (parent, args, ctx: Context, info) => {
+//     return ctx.db.query.places({ orderBy: 'popularity_DESC' }, info)
+//   },
+
+//   homesInPriceRange: async (parent, args, ctx: Context, info) => {
+//     const where = {
+//       AND: [
+//         { pricing: { perNight_gte: args.min } },
+//         { pricing: { perNight_lte: args.max } },
+//       ],
+//     }
+//     return ctx.db.query.places({ where }, info)
+//   },
+
+//   topReservations: async (parent, args, ctx: Context, info) => {
+//     return ctx.db.query.restaurants({ orderBy: 'popularity_DESC' }, info)
+//   },
+
+//   featuredDestinations: async (parent, args, ctx: Context, info) => {
+//     return ctx.db.query.neighbourhoods(
+//       { orderBy: 'popularity_DESC', where: { featured: true } },
+//       info,
+//     )
+//   },
+
+//   experiencesByCity: async (parent, { cities }, ctx: Context, info) => {
+//     return ctx.db.query.cities({
+//       where: {
+//         name_in: cities,
+//         neighbourhoods_every: {
+//           locations_every: {
+//             experience: {
+//               id_gt: '0',
+//             },
+//           },
+//         },
+//       },
+//     })
+//   },
+// }

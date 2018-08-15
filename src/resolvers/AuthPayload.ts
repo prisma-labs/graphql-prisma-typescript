@@ -1,7 +1,6 @@
-import { IAuthPayload } from './generated/interfaces.ts'
-import { Types } from './types'
-
 import { UserRoot } from './User'
+import { IAuthPayload } from '../generated/schema'
+import { Types } from '../types'
 
 export interface AuthPayloadRoot {
   token: string
@@ -9,6 +8,6 @@ export interface AuthPayloadRoot {
 }
 
 export const AuthPayload: IAuthPayload.Resolver<Types> = {
-  token: async root => root.token,
-  user: async root => root.user,
+  token: root => root.token,
+  user: async (root, args, ctx) => root.user,
 }
