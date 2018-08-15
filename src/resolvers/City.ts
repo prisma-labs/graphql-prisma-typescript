@@ -1,7 +1,12 @@
-import { ICity } from '../generated/schema'
-import { Types } from '../types'
+import { ICity } from './src/generated/resolvers'
+import { Types } from './types'
 
-// TODO
-export interface CityRoot {}
+export interface CityRoot {
+  id: string
+  name: string
+}
 
-export const City: ICity.Resolver<Types> = {}
+export const City: ICity.Resolver<Types> = {
+  id: root => root.id,
+  name: root => root.name,
+}
