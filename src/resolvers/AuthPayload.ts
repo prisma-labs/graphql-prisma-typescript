@@ -1,19 +1,13 @@
-import { IAuthPayload } from "./generated/interfaces.ts";
-import { Types } from "./types";
-
-import { UserRoot } from "./User";
+import { UserRoot } from './User'
+import { IAuthPayload } from '../generated/schema'
+import { Types } from '../types'
 
 export interface AuthPayloadRoot {
-  token: string;
-
-  user: UserRoot;
+  token: string
+  user: UserRoot
 }
 
 export const AuthPayload: IAuthPayload.Resolver<Types> = {
-  token: async (root, args, ctx, info) => {
-    return null;
-  },
-  user: async (root, args, ctx, info) => {
-    return null;
-  }
-};
+  token: root => root.token,
+  user: async (root, args, ctx) => root.user,
+}
