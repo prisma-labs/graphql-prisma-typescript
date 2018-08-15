@@ -1,6 +1,5 @@
 import { IAuthPayload } from './src/generated/resolvers'
 import { Types } from './types'
-
 import { UserRoot } from './User'
 
 export interface AuthPayloadRoot {

@@ -1,6 +1,5 @@
 import { IBooking } from './src/generated/resolvers'
 import { Types } from './types'
-
 import { UserRoot } from './User'
 import { PlaceRoot } from './Place'
 import { PaymentRoot } from './Payment'

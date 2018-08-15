@@ -1,6 +1,5 @@
 import { IPayment } from './src/generated/resolvers'
 import { Types } from './types'
-
 import { BookingRoot } from './Booking'
 import { PaymentAccountRoot } from './PaymentAccount'
 

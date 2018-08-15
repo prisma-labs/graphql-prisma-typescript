@@ -1,12 +1,11 @@
 import { IPaymentAccount } from './src/generated/resolvers'
 import { Types } from './types'
-
-export type PAYMENT_PROVIDERRoot = 'PAYPAL' | 'CREDIT_CARD'
-
 import { UserRoot } from './User'
 import { PaymentRoot } from './Payment'
 import { PaypalInformationRoot } from './PaypalInformation'
 import { CreditCardInformationRoot } from './CreditCardInformation'
+
+export type PAYMENT_PROVIDERRoot = 'PAYPAL' | 'CREDIT_CARD'
 
 export interface PaymentAccountRoot {
   id: string
