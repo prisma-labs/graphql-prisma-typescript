@@ -67,7 +67,7 @@ export namespace IQuery {
 
   export type HomesInPriceRangeResolver<T extends ITypes> = ResolverFn<
     T['QueryRoot'],
-    {},
+    ArgsHomesInPriceRange,
     T['Context'],
     T['HomeRoot'][]
   >
@@ -92,7 +92,7 @@ export namespace IQuery {
 
   export type ExperiencesByCityResolver<T extends ITypes> = ResolverFn<
     T['QueryRoot'],
-    {},
+    ArgsExperiencesByCity,
     T['Context'],
     T['ExperiencesByCityRoot'][]
   >
@@ -134,7 +134,7 @@ export namespace IMutation {
 
   export type SignupResolver<T extends ITypes> = ResolverFn<
     T['MutationRoot'],
-    {},
+    ArgsSignup,
     T['Context'],
     T['AuthPayloadRoot']
   >
@@ -146,7 +146,7 @@ export namespace IMutation {
 
   export type LoginResolver<T extends ITypes> = ResolverFn<
     T['MutationRoot'],
-    {},
+    ArgsLogin,
     T['Context'],
     T['AuthPayloadRoot']
   >
@@ -164,7 +164,7 @@ export namespace IMutation {
 
   export type AddPaymentMethodResolver<T extends ITypes> = ResolverFn<
     T['MutationRoot'],
-    {},
+    ArgsAddPaymentMethod,
     T['Context'],
     T['MutationResultRoot']
   >
@@ -178,7 +178,7 @@ export namespace IMutation {
 
   export type BookResolver<T extends ITypes> = ResolverFn<
     T['MutationRoot'],
-    {},
+    ArgsBook,
     T['Context'],
     T['MutationResultRoot']
   >
@@ -309,7 +309,7 @@ export namespace IHome {
 
   export type PicturesResolver<T extends ITypes> = ResolverFn<
     T['HomeRoot'],
-    {},
+    ArgsPictures,
     T['Context'],
     T['PictureRoot'][]
   >
