@@ -1,6 +1,5 @@
 import { IUser } from './src/generated/resolvers'
 import { Types } from './types'
-
 import { BookingRoot } from './Booking'
 import { ExperienceRoot } from './Experience'
 import { LocationRoot } from './Location'

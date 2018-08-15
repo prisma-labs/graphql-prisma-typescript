@@ -1,6 +1,5 @@
 import { IMutation } from './src/generated/resolvers'
 import { Types } from './types'
-
 import { AuthPayloadRoot } from './AuthPayload'
 import { MutationResultRoot } from './MutationResult'
 

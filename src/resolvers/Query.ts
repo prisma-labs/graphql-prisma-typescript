@@ -1,6 +1,5 @@
 import { IQuery } from './src/generated/resolvers'
 import { Types } from './types'
-
 import { ExperienceRoot } from './Experience'
 import { HomeRoot } from './Home'
 import { ReservationRoot } from './Reservation'

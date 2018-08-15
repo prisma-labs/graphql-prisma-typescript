@@ -1,16 +1,5 @@
 import { IPlace } from './src/generated/resolvers'
 import { Types } from './types'
-
-export type PLACE_SIZESRoot =
-  | 'ENTIRE_HOUSE'
-  | 'ENTIRE_APARTMENT'
-  | 'ENTIRE_EARTH_HOUSE'
-  | 'ENTIRE_CABIN'
-  | 'ENTIRE_VILLA'
-  | 'ENTIRE_PLACE'
-  | 'ENTIRE_BOAT'
-  | 'PRIVATE_ROOM'
-
 import { ReviewRoot } from './Review'
 import { AmenitiesRoot } from './Amenities'
 import { UserRoot } from './User'
@@ -22,6 +11,16 @@ import { PoliciesRoot } from './Policies'
 import { HouseRulesRoot } from './HouseRules'
 import { BookingRoot } from './Booking'
 import { PictureRoot } from './Picture'
+
+export type PLACE_SIZESRoot =
+  | 'ENTIRE_HOUSE'
+  | 'ENTIRE_APARTMENT'
+  | 'ENTIRE_EARTH_HOUSE'
+  | 'ENTIRE_CABIN'
+  | 'ENTIRE_VILLA'
+  | 'ENTIRE_PLACE'
+  | 'ENTIRE_BOAT'
+  | 'PRIVATE_ROOM'
 
 export interface PlaceRoot {
   id: string

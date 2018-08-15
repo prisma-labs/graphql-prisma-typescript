@@ -1,5 +1,6 @@
 import { INotification } from './src/generated/resolvers'
 import { Types } from './types'
+import { UserRoot } from './User'
 
 export type NOTIFICATION_TYPERoot =
   | 'OFFER'
@@ -7,8 +8,6 @@ export type NOTIFICATION_TYPERoot =
   | 'RESPONSIVENESS'
   | 'NEW_AMENITIES'
   | 'HOUSE_RULES'
-
-import { UserRoot } from './User'
 
 export interface NotificationRoot {
   createdAt: string
