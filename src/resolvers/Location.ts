@@ -1,4 +1,4 @@
-import { ILocation } from './src/generated/resolvers'
+import { ILocation } from '../generated/resolvers'
 import { Types } from './types'
 
 export interface LocationRoot {

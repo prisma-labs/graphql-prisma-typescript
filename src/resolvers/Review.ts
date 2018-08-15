@@ -1,4 +1,4 @@
-import { IReview } from './src/generated/resolvers'
+import { IReview } from '../generated/resolvers'
 import { Types } from './types'
 
 export interface ReviewRoot {

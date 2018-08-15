@@ -1,4 +1,4 @@
-import { IPaymentAccount } from './src/generated/resolvers'
+import { IPaymentAccount } from '../generated/resolvers'
 import { Types } from './types'
 import { UserRoot } from './User'
 import { PaymentRoot } from './Payment'

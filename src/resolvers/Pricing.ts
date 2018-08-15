@@ -1,4 +1,4 @@
-import { IPricing } from './src/generated/resolvers'
+import { IPricing } from '../generated/resolvers'
 import { Types } from './types'
 
 export type CURRENCYRoot = 'CAD' | 'CHF' | 'EUR' | 'JPY' | 'USD' | 'ZAR'

@@ -1,4 +1,4 @@
-import { IViewer } from './src/generated/resolvers'
+import { IViewer } from '../generated/resolvers'
 import { Types } from './types'
 import { UserRoot } from './User'
 import { BookingRoot } from './Booking'

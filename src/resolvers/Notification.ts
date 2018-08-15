@@ -1,4 +1,4 @@
-import { INotification } from './src/generated/resolvers'
+import { INotification } from '../generated/resolvers'
 import { Types } from './types'
 import { UserRoot } from './User'
 

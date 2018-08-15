@@ -1,4 +1,4 @@
-import { IMutation } from './src/generated/resolvers'
+import { IMutation } from '../generated/resolvers'
 import { Types } from './types'
 import { AuthPayloadRoot } from './AuthPayload'
 import { MutationResultRoot } from './MutationResult'
