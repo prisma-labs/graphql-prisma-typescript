@@ -7,9 +7,7 @@ import { PictureRoot } from './Picture'
 
 export interface ExperienceRoot {
   id: string
-  category: ExperienceCategoryRoot | null
   title: string
-  location: LocationRoot
   pricePerPerson: number
   reviews: ReviewRoot[]
   preview: PictureRoot
@@ -18,11 +16,17 @@ export interface ExperienceRoot {
 
 export const Experience: IExperience.Resolver<Types> = {
   id: root => root.id,
-  category: root => root.category,
+  category: (root, args, ctx) => {
+    return ctx.db.query.experience({ where: { id: root.id } }).category()
+  },
   title: root => root.title,
-  location: root => root.location,
+  location: (root, args, ctx) => {
+    return ctx.db.query.experience({ where: { id: root.id } }).location()
+  },
   pricePerPerson: root => root.pricePerPerson,
-  reviews: root => root.reviews,
+  reviews: (root, args, ctx) => {
+    return ctx.db.query.experience({ where: { id: root.id } }).reviews()
+  },
   preview: root => root.preview,
   popularity: root => root.popularity,
 }

@@ -4139,9 +4139,9 @@ prisma-binding@2.1.0:
     jsonwebtoken "8.2.1"
     subscriptions-transport-ws "0.9.8"
 
-prisma-cli-core@1.1.38-alpha.10:
-  version "1.1.38-alpha.10"
-  resolved "https://registry.yarnpkg.com/prisma-cli-core/-/prisma-cli-core-1.1.38-alpha.10.tgz#a391952ccb4dd68aaf9c4871f6f38ac59ca5523c"
+prisma-cli-core@1.1.38-alpha.12:
+  version "1.1.38-alpha.12"
+  resolved "https://registry.yarnpkg.com/prisma-cli-core/-/prisma-cli-core-1.1.38-alpha.12.tgz#97237feee6fdc5312b81f45d9227a97a15f40b7e"
   dependencies:
     adm-zip "^0.4.7"
     archiver "^2.0.3"
@@ -4176,7 +4176,7 @@ prisma-cli-core@1.1.38-alpha.10:
     portfinder "^1.0.13"
     prisma-db-introspection "0.0.6"
     prisma-json-schema "0.0.5-alpha.2"
-    prisma-lib "0.0.14"
+    prisma-lib "0.0.16"
     prisma-yml "1.1.48-alpha.1"
     scuid "^1.0.2"
     semver "^5.4.1"
@@ -4279,9 +4279,9 @@ prisma-json-schema@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/prisma-json-schema/-/prisma-json-schema-0.0.1.tgz#0802e156a293faefdf21e5e41beb8d3681f45cb1"
 
-prisma-lib@0.0.14:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/prisma-lib/-/prisma-lib-0.0.14.tgz#875b8dddad405ee3f138f63c1c0f2de438c0109d"
+prisma-lib@0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/prisma-lib/-/prisma-lib-0.0.16.tgz#b0409495d4b81564fda4497432c14e7e71f96e6b"
   dependencies:
     "@types/node" "^10.7.0"
     apollo-link-error "^1.1.0"
@@ -4355,12 +4355,12 @@ prisma-yml@1.1.48-alpha.1:
     scuid "^1.0.2"
     yaml-ast-parser "^0.0.40"
 
-prisma@^1.15.0-alpha.13:
-  version "1.15.0-alpha.13"
-  resolved "https://registry.yarnpkg.com/prisma/-/prisma-1.15.0-alpha.13.tgz#0cdf51cd37dedf06491d9d20a90a562c0508c5ab"
+prisma@^1.15.0-alpha.14:
+  version "1.15.0-alpha.14"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-1.15.0-alpha.14.tgz#e048ead3c982b0e52cfd379119e7fa1cc2758fdc"
   dependencies:
     fs-extra "^5.0.0"
-    prisma-cli-core "1.1.38-alpha.10"
+    prisma-cli-core "1.1.38-alpha.12"
     prisma-cli-engine "1.1.37-alpha.2"
     semver "^5.4.1"
     source-map-support "^0.4.18"

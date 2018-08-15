@@ -3,213 +3,213 @@ import { IResolvers } from 'graphql-tools/dist/Interfaces'
 import { makePrismaBindingClass, BasePrismaOptions, Options } from 'prisma-lib'
 
 export interface Query {
-    users: <T = Promise<UserNode[]>>(args?: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<UserNode[]> ,
-    places: <T = Promise<PlaceNode[]>>(args?: { where?: PlaceWhereInput, orderBy?: PlaceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<PlaceNode[]> ,
-    pricings: <T = Promise<PricingNode[]>>(args?: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<PricingNode[]> ,
-    guestRequirementses: <T = Promise<GuestRequirementsNode[]>>(args?: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<GuestRequirementsNode[]> ,
-    policieses: <T = Promise<PoliciesNode[]>>(args?: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<PoliciesNode[]> ,
-    viewses: <T = Promise<ViewsNode[]>>(args?: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<ViewsNode[]> ,
-    locations: <T = Promise<LocationNode[]>>(args?: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<LocationNode[]> ,
-    neighbourhoods: <T = Promise<NeighbourhoodNode[]>>(args?: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<NeighbourhoodNode[]> ,
-    cities: <T = Promise<CityNode[]>>(args?: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<CityNode[]> ,
-    experiences: <T = Promise<ExperienceNode[]>>(args?: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<ExperienceNode[]> ,
-    experienceCategories: <T = Promise<ExperienceCategoryNode[]>>(args?: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<ExperienceCategoryNode[]> ,
-    amenitieses: <T = Promise<AmenitiesNode[]>>(args?: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<AmenitiesNode[]> ,
-    reviews: <T = Promise<ReviewNode[]>>(args?: { where?: ReviewWhereInput, orderBy?: ReviewOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<ReviewNode[]> ,
-    bookings: <T = Promise<BookingNode[]>>(args?: { where?: BookingWhereInput, orderBy?: BookingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<BookingNode[]> ,
-    payments: <T = Promise<PaymentNode[]>>(args?: { where?: PaymentWhereInput, orderBy?: PaymentOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<PaymentNode[]> ,
-    paymentAccounts: <T = Promise<PaymentAccountNode[]>>(args?: { where?: PaymentAccountWhereInput, orderBy?: PaymentAccountOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<PaymentAccountNode[]> ,
-    paypalInformations: <T = Promise<PaypalInformationNode[]>>(args?: { where?: PaypalInformationWhereInput, orderBy?: PaypalInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<PaypalInformationNode[]> ,
-    creditCardInformations: <T = Promise<CreditCardInformationNode[]>>(args?: { where?: CreditCardInformationWhereInput, orderBy?: CreditCardInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<CreditCardInformationNode[]> ,
-    messages: <T = Promise<MessageNode[]>>(args?: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<MessageNode[]> ,
-    notifications: <T = Promise<NotificationNode[]>>(args?: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<NotificationNode[]> ,
-    restaurants: <T = Promise<RestaurantNode[]>>(args?: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<RestaurantNode[]> ,
-    pictures: <T = Promise<PictureNode[]>>(args?: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<PictureNode[]> ,
-    houseRuleses: <T = Promise<HouseRulesNode[]>>(args?: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => Promise<HouseRulesNode[]> ,
-    user: <T = Promise<UserNode | undefined> | null>(args: { where: UserWhereUniqueInput }) => (args: { where: UserWhereUniqueInput }) => User ,
-    place: <T = Promise<PlaceNode | undefined> | null>(args: { where: PlaceWhereUniqueInput }) => (args: { where: PlaceWhereUniqueInput }) => Place ,
-    pricing: <T = Promise<PricingNode | undefined> | null>(args: { where: PricingWhereUniqueInput }) => (args: { where: PricingWhereUniqueInput }) => Pricing ,
-    guestRequirements: <T = Promise<GuestRequirementsNode | undefined> | null>(args: { where: GuestRequirementsWhereUniqueInput }) => (args: { where: GuestRequirementsWhereUniqueInput }) => GuestRequirements ,
-    policies: <T = Promise<PoliciesNode | undefined> | null>(args: { where: PoliciesWhereUniqueInput }) => (args: { where: PoliciesWhereUniqueInput }) => Policies ,
-    views: <T = Promise<ViewsNode | undefined> | null>(args: { where: ViewsWhereUniqueInput }) => (args: { where: ViewsWhereUniqueInput }) => Views ,
-    location: <T = Promise<LocationNode | undefined> | null>(args: { where: LocationWhereUniqueInput }) => (args: { where: LocationWhereUniqueInput }) => Location ,
-    neighbourhood: <T = Promise<NeighbourhoodNode | undefined> | null>(args: { where: NeighbourhoodWhereUniqueInput }) => (args: { where: NeighbourhoodWhereUniqueInput }) => Neighbourhood ,
-    city: <T = Promise<CityNode | undefined> | null>(args: { where: CityWhereUniqueInput }) => (args: { where: CityWhereUniqueInput }) => City ,
-    experience: <T = Promise<ExperienceNode | undefined> | null>(args: { where: ExperienceWhereUniqueInput }) => (args: { where: ExperienceWhereUniqueInput }) => Experience ,
-    experienceCategory: <T = Promise<ExperienceCategoryNode | undefined> | null>(args: { where: ExperienceCategoryWhereUniqueInput }) => (args: { where: ExperienceCategoryWhereUniqueInput }) => ExperienceCategory ,
-    amenities: <T = Promise<AmenitiesNode | undefined> | null>(args: { where: AmenitiesWhereUniqueInput }) => (args: { where: AmenitiesWhereUniqueInput }) => Amenities ,
-    review: <T = Promise<ReviewNode | undefined> | null>(args: { where: ReviewWhereUniqueInput }) => (args: { where: ReviewWhereUniqueInput }) => Review ,
-    booking: <T = Promise<BookingNode | undefined> | null>(args: { where: BookingWhereUniqueInput }) => (args: { where: BookingWhereUniqueInput }) => Booking ,
-    payment: <T = Promise<PaymentNode | undefined> | null>(args: { where: PaymentWhereUniqueInput }) => (args: { where: PaymentWhereUniqueInput }) => Payment ,
-    paymentAccount: <T = Promise<PaymentAccountNode | undefined> | null>(args: { where: PaymentAccountWhereUniqueInput }) => (args: { where: PaymentAccountWhereUniqueInput }) => PaymentAccount ,
-    paypalInformation: <T = Promise<PaypalInformationNode | undefined> | null>(args: { where: PaypalInformationWhereUniqueInput }) => (args: { where: PaypalInformationWhereUniqueInput }) => PaypalInformation ,
-    creditCardInformation: <T = Promise<CreditCardInformationNode | undefined> | null>(args: { where: CreditCardInformationWhereUniqueInput }) => (args: { where: CreditCardInformationWhereUniqueInput }) => CreditCardInformation ,
-    message: <T = Promise<MessageNode | undefined> | null>(args: { where: MessageWhereUniqueInput }) => (args: { where: MessageWhereUniqueInput }) => Message ,
-    notification: <T = Promise<NotificationNode | undefined> | null>(args: { where: NotificationWhereUniqueInput }) => (args: { where: NotificationWhereUniqueInput }) => Notification ,
-    restaurant: <T = Promise<RestaurantNode | undefined> | null>(args: { where: RestaurantWhereUniqueInput }) => (args: { where: RestaurantWhereUniqueInput }) => Restaurant ,
-    houseRules: <T = Promise<HouseRulesNode | undefined> | null>(args: { where: HouseRulesWhereUniqueInput }) => (args: { where: HouseRulesWhereUniqueInput }) => HouseRules ,
-    usersConnection: <T = Promise<UserConnectionNode>>(args?: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => UserConnection ,
-    placesConnection: <T = Promise<PlaceConnectionNode>>(args?: { where?: PlaceWhereInput, orderBy?: PlaceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: PlaceWhereInput, orderBy?: PlaceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PlaceConnection ,
-    pricingsConnection: <T = Promise<PricingConnectionNode>>(args?: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PricingConnection ,
-    guestRequirementsesConnection: <T = Promise<GuestRequirementsConnectionNode>>(args?: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => GuestRequirementsConnection ,
-    policiesesConnection: <T = Promise<PoliciesConnectionNode>>(args?: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PoliciesConnection ,
-    viewsesConnection: <T = Promise<ViewsConnectionNode>>(args?: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ViewsConnection ,
-    locationsConnection: <T = Promise<LocationConnectionNode>>(args?: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => LocationConnection ,
-    neighbourhoodsConnection: <T = Promise<NeighbourhoodConnectionNode>>(args?: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => NeighbourhoodConnection ,
-    citiesConnection: <T = Promise<CityConnectionNode>>(args?: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => CityConnection ,
-    experiencesConnection: <T = Promise<ExperienceConnectionNode>>(args?: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ExperienceConnection ,
-    experienceCategoriesConnection: <T = Promise<ExperienceCategoryConnectionNode>>(args?: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ExperienceCategoryConnection ,
-    amenitiesesConnection: <T = Promise<AmenitiesConnectionNode>>(args?: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => AmenitiesConnection ,
-    reviewsConnection: <T = Promise<ReviewConnectionNode>>(args?: { where?: ReviewWhereInput, orderBy?: ReviewOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: ReviewWhereInput, orderBy?: ReviewOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ReviewConnection ,
-    bookingsConnection: <T = Promise<BookingConnectionNode>>(args?: { where?: BookingWhereInput, orderBy?: BookingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: BookingWhereInput, orderBy?: BookingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => BookingConnection ,
-    paymentsConnection: <T = Promise<PaymentConnectionNode>>(args?: { where?: PaymentWhereInput, orderBy?: PaymentOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: PaymentWhereInput, orderBy?: PaymentOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PaymentConnection ,
-    paymentAccountsConnection: <T = Promise<PaymentAccountConnectionNode>>(args?: { where?: PaymentAccountWhereInput, orderBy?: PaymentAccountOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: PaymentAccountWhereInput, orderBy?: PaymentAccountOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PaymentAccountConnection ,
-    paypalInformationsConnection: <T = Promise<PaypalInformationConnectionNode>>(args?: { where?: PaypalInformationWhereInput, orderBy?: PaypalInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: PaypalInformationWhereInput, orderBy?: PaypalInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PaypalInformationConnection ,
-    creditCardInformationsConnection: <T = Promise<CreditCardInformationConnectionNode>>(args?: { where?: CreditCardInformationWhereInput, orderBy?: CreditCardInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: CreditCardInformationWhereInput, orderBy?: CreditCardInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => CreditCardInformationConnection ,
-    messagesConnection: <T = Promise<MessageConnectionNode>>(args?: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => MessageConnection ,
-    notificationsConnection: <T = Promise<NotificationConnectionNode>>(args?: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => NotificationConnection ,
-    restaurantsConnection: <T = Promise<RestaurantConnectionNode>>(args?: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => RestaurantConnection ,
-    picturesConnection: <T = Promise<PictureConnectionNode>>(args?: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PictureConnection ,
-    houseRulesesConnection: <T = Promise<HouseRulesConnectionNode>>(args?: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => (args?: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => HouseRulesConnection ,
-    node: <T = Promise<NodeNode | undefined> | null>(args: { id: ID_Output }) => (args: { id: ID_Output }) => Node 
+    users: <T = Promise<UserNode[]>>(args?: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => UserNode ,
+    places: <T = Promise<PlaceNode[]>>(args?: { where?: PlaceWhereInput, orderBy?: PlaceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PlaceNode ,
+    pricings: <T = Promise<PricingNode[]>>(args?: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PricingNode ,
+    guestRequirementses: <T = Promise<GuestRequirementsNode[]>>(args?: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => GuestRequirementsNode ,
+    policieses: <T = Promise<PoliciesNode[]>>(args?: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PoliciesNode ,
+    viewses: <T = Promise<ViewsNode[]>>(args?: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ViewsNode ,
+    locations: <T = Promise<LocationNode[]>>(args?: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => LocationNode ,
+    neighbourhoods: <T = Promise<NeighbourhoodNode[]>>(args?: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => NeighbourhoodNode ,
+    cities: <T = Promise<CityNode[]>>(args?: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => CityNode ,
+    experiences: <T = Promise<ExperienceNode[]>>(args?: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ExperienceNode ,
+    experienceCategories: <T = Promise<ExperienceCategoryNode[]>>(args?: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ExperienceCategoryNode ,
+    amenitieses: <T = Promise<AmenitiesNode[]>>(args?: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => AmenitiesNode ,
+    reviews: <T = Promise<ReviewNode[]>>(args?: { where?: ReviewWhereInput, orderBy?: ReviewOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ReviewNode ,
+    bookings: <T = Promise<BookingNode[]>>(args?: { where?: BookingWhereInput, orderBy?: BookingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => BookingNode ,
+    payments: <T = Promise<PaymentNode[]>>(args?: { where?: PaymentWhereInput, orderBy?: PaymentOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PaymentNode ,
+    paymentAccounts: <T = Promise<PaymentAccountNode[]>>(args?: { where?: PaymentAccountWhereInput, orderBy?: PaymentAccountOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PaymentAccountNode ,
+    paypalInformations: <T = Promise<PaypalInformationNode[]>>(args?: { where?: PaypalInformationWhereInput, orderBy?: PaypalInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PaypalInformationNode ,
+    creditCardInformations: <T = Promise<CreditCardInformationNode[]>>(args?: { where?: CreditCardInformationWhereInput, orderBy?: CreditCardInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => CreditCardInformationNode ,
+    messages: <T = Promise<MessageNode[]>>(args?: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => MessageNode ,
+    notifications: <T = Promise<NotificationNode[]>>(args?: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => NotificationNode ,
+    restaurants: <T = Promise<RestaurantNode[]>>(args?: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => RestaurantNode ,
+    pictures: <T = Promise<PictureNode[]>>(args?: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PictureNode ,
+    houseRuleses: <T = Promise<HouseRulesNode[]>>(args?: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => HouseRulesNode ,
+    user: <T = Promise<UserNode | undefined> | null>(args: { where: UserWhereUniqueInput }) => User ,
+    place: <T = Promise<PlaceNode | undefined> | null>(args: { where: PlaceWhereUniqueInput }) => Place ,
+    pricing: <T = Promise<PricingNode | undefined> | null>(args: { where: PricingWhereUniqueInput }) => Pricing ,
+    guestRequirements: <T = Promise<GuestRequirementsNode | undefined> | null>(args: { where: GuestRequirementsWhereUniqueInput }) => GuestRequirements ,
+    policies: <T = Promise<PoliciesNode | undefined> | null>(args: { where: PoliciesWhereUniqueInput }) => Policies ,
+    views: <T = Promise<ViewsNode | undefined> | null>(args: { where: ViewsWhereUniqueInput }) => Views ,
+    location: <T = Promise<LocationNode | undefined> | null>(args: { where: LocationWhereUniqueInput }) => Location ,
+    neighbourhood: <T = Promise<NeighbourhoodNode | undefined> | null>(args: { where: NeighbourhoodWhereUniqueInput }) => Neighbourhood ,
+    city: <T = Promise<CityNode | undefined> | null>(args: { where: CityWhereUniqueInput }) => City ,
+    experience: <T = Promise<ExperienceNode | undefined> | null>(args: { where: ExperienceWhereUniqueInput }) => Experience ,
+    experienceCategory: <T = Promise<ExperienceCategoryNode | undefined> | null>(args: { where: ExperienceCategoryWhereUniqueInput }) => ExperienceCategory ,
+    amenities: <T = Promise<AmenitiesNode | undefined> | null>(args: { where: AmenitiesWhereUniqueInput }) => Amenities ,
+    review: <T = Promise<ReviewNode | undefined> | null>(args: { where: ReviewWhereUniqueInput }) => Review ,
+    booking: <T = Promise<BookingNode | undefined> | null>(args: { where: BookingWhereUniqueInput }) => Booking ,
+    payment: <T = Promise<PaymentNode | undefined> | null>(args: { where: PaymentWhereUniqueInput }) => Payment ,
+    paymentAccount: <T = Promise<PaymentAccountNode | undefined> | null>(args: { where: PaymentAccountWhereUniqueInput }) => PaymentAccount ,
+    paypalInformation: <T = Promise<PaypalInformationNode | undefined> | null>(args: { where: PaypalInformationWhereUniqueInput }) => PaypalInformation ,
+    creditCardInformation: <T = Promise<CreditCardInformationNode | undefined> | null>(args: { where: CreditCardInformationWhereUniqueInput }) => CreditCardInformation ,
+    message: <T = Promise<MessageNode | undefined> | null>(args: { where: MessageWhereUniqueInput }) => Message ,
+    notification: <T = Promise<NotificationNode | undefined> | null>(args: { where: NotificationWhereUniqueInput }) => Notification ,
+    restaurant: <T = Promise<RestaurantNode | undefined> | null>(args: { where: RestaurantWhereUniqueInput }) => Restaurant ,
+    houseRules: <T = Promise<HouseRulesNode | undefined> | null>(args: { where: HouseRulesWhereUniqueInput }) => HouseRules ,
+    usersConnection: <T = Promise<UserConnectionNode>>(args?: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => UserConnection ,
+    placesConnection: <T = Promise<PlaceConnectionNode>>(args?: { where?: PlaceWhereInput, orderBy?: PlaceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PlaceConnection ,
+    pricingsConnection: <T = Promise<PricingConnectionNode>>(args?: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PricingConnection ,
+    guestRequirementsesConnection: <T = Promise<GuestRequirementsConnectionNode>>(args?: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => GuestRequirementsConnection ,
+    policiesesConnection: <T = Promise<PoliciesConnectionNode>>(args?: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PoliciesConnection ,
+    viewsesConnection: <T = Promise<ViewsConnectionNode>>(args?: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ViewsConnection ,
+    locationsConnection: <T = Promise<LocationConnectionNode>>(args?: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => LocationConnection ,
+    neighbourhoodsConnection: <T = Promise<NeighbourhoodConnectionNode>>(args?: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => NeighbourhoodConnection ,
+    citiesConnection: <T = Promise<CityConnectionNode>>(args?: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => CityConnection ,
+    experiencesConnection: <T = Promise<ExperienceConnectionNode>>(args?: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ExperienceConnection ,
+    experienceCategoriesConnection: <T = Promise<ExperienceCategoryConnectionNode>>(args?: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ExperienceCategoryConnection ,
+    amenitiesesConnection: <T = Promise<AmenitiesConnectionNode>>(args?: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => AmenitiesConnection ,
+    reviewsConnection: <T = Promise<ReviewConnectionNode>>(args?: { where?: ReviewWhereInput, orderBy?: ReviewOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => ReviewConnection ,
+    bookingsConnection: <T = Promise<BookingConnectionNode>>(args?: { where?: BookingWhereInput, orderBy?: BookingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => BookingConnection ,
+    paymentsConnection: <T = Promise<PaymentConnectionNode>>(args?: { where?: PaymentWhereInput, orderBy?: PaymentOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PaymentConnection ,
+    paymentAccountsConnection: <T = Promise<PaymentAccountConnectionNode>>(args?: { where?: PaymentAccountWhereInput, orderBy?: PaymentAccountOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PaymentAccountConnection ,
+    paypalInformationsConnection: <T = Promise<PaypalInformationConnectionNode>>(args?: { where?: PaypalInformationWhereInput, orderBy?: PaypalInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PaypalInformationConnection ,
+    creditCardInformationsConnection: <T = Promise<CreditCardInformationConnectionNode>>(args?: { where?: CreditCardInformationWhereInput, orderBy?: CreditCardInformationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => CreditCardInformationConnection ,
+    messagesConnection: <T = Promise<MessageConnectionNode>>(args?: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => MessageConnection ,
+    notificationsConnection: <T = Promise<NotificationConnectionNode>>(args?: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => NotificationConnection ,
+    restaurantsConnection: <T = Promise<RestaurantConnectionNode>>(args?: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => RestaurantConnection ,
+    picturesConnection: <T = Promise<PictureConnectionNode>>(args?: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => PictureConnection ,
+    houseRulesesConnection: <T = Promise<HouseRulesConnectionNode>>(args?: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }) => HouseRulesConnection ,
+    node: <T = Promise<NodeNode | undefined> | null>(args: { id: ID_Output }) => Node 
   }
 
 export interface Mutation {
-    createUser: <T = Promise<UserNode>>(args: { data: UserCreateInput }) => (args: { data: UserCreateInput }) => User ,
-    createPlace: <T = Promise<PlaceNode>>(args: { data: PlaceCreateInput }) => (args: { data: PlaceCreateInput }) => Place ,
-    createPricing: <T = Promise<PricingNode>>(args: { data: PricingCreateInput }) => (args: { data: PricingCreateInput }) => Pricing ,
-    createGuestRequirements: <T = Promise<GuestRequirementsNode>>(args: { data: GuestRequirementsCreateInput }) => (args: { data: GuestRequirementsCreateInput }) => GuestRequirements ,
-    createPolicies: <T = Promise<PoliciesNode>>(args: { data: PoliciesCreateInput }) => (args: { data: PoliciesCreateInput }) => Policies ,
-    createViews: <T = Promise<ViewsNode>>(args: { data: ViewsCreateInput }) => (args: { data: ViewsCreateInput }) => Views ,
-    createLocation: <T = Promise<LocationNode>>(args: { data: LocationCreateInput }) => (args: { data: LocationCreateInput }) => Location ,
-    createNeighbourhood: <T = Promise<NeighbourhoodNode>>(args: { data: NeighbourhoodCreateInput }) => (args: { data: NeighbourhoodCreateInput }) => Neighbourhood ,
-    createCity: <T = Promise<CityNode>>(args: { data: CityCreateInput }) => (args: { data: CityCreateInput }) => City ,
-    createExperience: <T = Promise<ExperienceNode>>(args: { data: ExperienceCreateInput }) => (args: { data: ExperienceCreateInput }) => Experience ,
-    createExperienceCategory: <T = Promise<ExperienceCategoryNode>>(args: { data: ExperienceCategoryCreateInput }) => (args: { data: ExperienceCategoryCreateInput }) => ExperienceCategory ,
-    createAmenities: <T = Promise<AmenitiesNode>>(args: { data: AmenitiesCreateInput }) => (args: { data: AmenitiesCreateInput }) => Amenities ,
-    createReview: <T = Promise<ReviewNode>>(args: { data: ReviewCreateInput }) => (args: { data: ReviewCreateInput }) => Review ,
-    createBooking: <T = Promise<BookingNode>>(args: { data: BookingCreateInput }) => (args: { data: BookingCreateInput }) => Booking ,
-    createPayment: <T = Promise<PaymentNode>>(args: { data: PaymentCreateInput }) => (args: { data: PaymentCreateInput }) => Payment ,
-    createPaymentAccount: <T = Promise<PaymentAccountNode>>(args: { data: PaymentAccountCreateInput }) => (args: { data: PaymentAccountCreateInput }) => PaymentAccount ,
-    createPaypalInformation: <T = Promise<PaypalInformationNode>>(args: { data: PaypalInformationCreateInput }) => (args: { data: PaypalInformationCreateInput }) => PaypalInformation ,
-    createCreditCardInformation: <T = Promise<CreditCardInformationNode>>(args: { data: CreditCardInformationCreateInput }) => (args: { data: CreditCardInformationCreateInput }) => CreditCardInformation ,
-    createMessage: <T = Promise<MessageNode>>(args: { data: MessageCreateInput }) => (args: { data: MessageCreateInput }) => Message ,
-    createNotification: <T = Promise<NotificationNode>>(args: { data: NotificationCreateInput }) => (args: { data: NotificationCreateInput }) => Notification ,
-    createRestaurant: <T = Promise<RestaurantNode>>(args: { data: RestaurantCreateInput }) => (args: { data: RestaurantCreateInput }) => Restaurant ,
-    createPicture: <T = Promise<PictureNode>>(args: { data: PictureCreateInput }) => (args: { data: PictureCreateInput }) => Picture ,
-    createHouseRules: <T = Promise<HouseRulesNode>>(args: { data: HouseRulesCreateInput }) => (args: { data: HouseRulesCreateInput }) => HouseRules ,
-    updateUser: <T = Promise<UserNode | undefined> | null>(args: { data: UserUpdateInput, where: UserWhereUniqueInput }) => (args: { data: UserUpdateInput, where: UserWhereUniqueInput }) => User ,
-    updatePlace: <T = Promise<PlaceNode | undefined> | null>(args: { data: PlaceUpdateInput, where: PlaceWhereUniqueInput }) => (args: { data: PlaceUpdateInput, where: PlaceWhereUniqueInput }) => Place ,
-    updatePricing: <T = Promise<PricingNode | undefined> | null>(args: { data: PricingUpdateInput, where: PricingWhereUniqueInput }) => (args: { data: PricingUpdateInput, where: PricingWhereUniqueInput }) => Pricing ,
-    updateGuestRequirements: <T = Promise<GuestRequirementsNode | undefined> | null>(args: { data: GuestRequirementsUpdateInput, where: GuestRequirementsWhereUniqueInput }) => (args: { data: GuestRequirementsUpdateInput, where: GuestRequirementsWhereUniqueInput }) => GuestRequirements ,
-    updatePolicies: <T = Promise<PoliciesNode | undefined> | null>(args: { data: PoliciesUpdateInput, where: PoliciesWhereUniqueInput }) => (args: { data: PoliciesUpdateInput, where: PoliciesWhereUniqueInput }) => Policies ,
-    updateViews: <T = Promise<ViewsNode | undefined> | null>(args: { data: ViewsUpdateInput, where: ViewsWhereUniqueInput }) => (args: { data: ViewsUpdateInput, where: ViewsWhereUniqueInput }) => Views ,
-    updateLocation: <T = Promise<LocationNode | undefined> | null>(args: { data: LocationUpdateInput, where: LocationWhereUniqueInput }) => (args: { data: LocationUpdateInput, where: LocationWhereUniqueInput }) => Location ,
-    updateNeighbourhood: <T = Promise<NeighbourhoodNode | undefined> | null>(args: { data: NeighbourhoodUpdateInput, where: NeighbourhoodWhereUniqueInput }) => (args: { data: NeighbourhoodUpdateInput, where: NeighbourhoodWhereUniqueInput }) => Neighbourhood ,
-    updateCity: <T = Promise<CityNode | undefined> | null>(args: { data: CityUpdateInput, where: CityWhereUniqueInput }) => (args: { data: CityUpdateInput, where: CityWhereUniqueInput }) => City ,
-    updateExperience: <T = Promise<ExperienceNode | undefined> | null>(args: { data: ExperienceUpdateInput, where: ExperienceWhereUniqueInput }) => (args: { data: ExperienceUpdateInput, where: ExperienceWhereUniqueInput }) => Experience ,
-    updateExperienceCategory: <T = Promise<ExperienceCategoryNode | undefined> | null>(args: { data: ExperienceCategoryUpdateInput, where: ExperienceCategoryWhereUniqueInput }) => (args: { data: ExperienceCategoryUpdateInput, where: ExperienceCategoryWhereUniqueInput }) => ExperienceCategory ,
-    updateAmenities: <T = Promise<AmenitiesNode | undefined> | null>(args: { data: AmenitiesUpdateInput, where: AmenitiesWhereUniqueInput }) => (args: { data: AmenitiesUpdateInput, where: AmenitiesWhereUniqueInput }) => Amenities ,
-    updateReview: <T = Promise<ReviewNode | undefined> | null>(args: { data: ReviewUpdateInput, where: ReviewWhereUniqueInput }) => (args: { data: ReviewUpdateInput, where: ReviewWhereUniqueInput }) => Review ,
-    updateBooking: <T = Promise<BookingNode | undefined> | null>(args: { data: BookingUpdateInput, where: BookingWhereUniqueInput }) => (args: { data: BookingUpdateInput, where: BookingWhereUniqueInput }) => Booking ,
-    updatePayment: <T = Promise<PaymentNode | undefined> | null>(args: { data: PaymentUpdateInput, where: PaymentWhereUniqueInput }) => (args: { data: PaymentUpdateInput, where: PaymentWhereUniqueInput }) => Payment ,
-    updatePaymentAccount: <T = Promise<PaymentAccountNode | undefined> | null>(args: { data: PaymentAccountUpdateInput, where: PaymentAccountWhereUniqueInput }) => (args: { data: PaymentAccountUpdateInput, where: PaymentAccountWhereUniqueInput }) => PaymentAccount ,
-    updatePaypalInformation: <T = Promise<PaypalInformationNode | undefined> | null>(args: { data: PaypalInformationUpdateInput, where: PaypalInformationWhereUniqueInput }) => (args: { data: PaypalInformationUpdateInput, where: PaypalInformationWhereUniqueInput }) => PaypalInformation ,
-    updateCreditCardInformation: <T = Promise<CreditCardInformationNode | undefined> | null>(args: { data: CreditCardInformationUpdateInput, where: CreditCardInformationWhereUniqueInput }) => (args: { data: CreditCardInformationUpdateInput, where: CreditCardInformationWhereUniqueInput }) => CreditCardInformation ,
-    updateMessage: <T = Promise<MessageNode | undefined> | null>(args: { data: MessageUpdateInput, where: MessageWhereUniqueInput }) => (args: { data: MessageUpdateInput, where: MessageWhereUniqueInput }) => Message ,
-    updateNotification: <T = Promise<NotificationNode | undefined> | null>(args: { data: NotificationUpdateInput, where: NotificationWhereUniqueInput }) => (args: { data: NotificationUpdateInput, where: NotificationWhereUniqueInput }) => Notification ,
-    updateRestaurant: <T = Promise<RestaurantNode | undefined> | null>(args: { data: RestaurantUpdateInput, where: RestaurantWhereUniqueInput }) => (args: { data: RestaurantUpdateInput, where: RestaurantWhereUniqueInput }) => Restaurant ,
-    updateHouseRules: <T = Promise<HouseRulesNode | undefined> | null>(args: { data: HouseRulesUpdateInput, where: HouseRulesWhereUniqueInput }) => (args: { data: HouseRulesUpdateInput, where: HouseRulesWhereUniqueInput }) => HouseRules ,
-    deleteUser: <T = Promise<UserNode | undefined> | null>(args: { where: UserWhereUniqueInput }) => (args: { where: UserWhereUniqueInput }) => User ,
-    deletePlace: <T = Promise<PlaceNode | undefined> | null>(args: { where: PlaceWhereUniqueInput }) => (args: { where: PlaceWhereUniqueInput }) => Place ,
-    deletePricing: <T = Promise<PricingNode | undefined> | null>(args: { where: PricingWhereUniqueInput }) => (args: { where: PricingWhereUniqueInput }) => Pricing ,
-    deleteGuestRequirements: <T = Promise<GuestRequirementsNode | undefined> | null>(args: { where: GuestRequirementsWhereUniqueInput }) => (args: { where: GuestRequirementsWhereUniqueInput }) => GuestRequirements ,
-    deletePolicies: <T = Promise<PoliciesNode | undefined> | null>(args: { where: PoliciesWhereUniqueInput }) => (args: { where: PoliciesWhereUniqueInput }) => Policies ,
-    deleteViews: <T = Promise<ViewsNode | undefined> | null>(args: { where: ViewsWhereUniqueInput }) => (args: { where: ViewsWhereUniqueInput }) => Views ,
-    deleteLocation: <T = Promise<LocationNode | undefined> | null>(args: { where: LocationWhereUniqueInput }) => (args: { where: LocationWhereUniqueInput }) => Location ,
-    deleteNeighbourhood: <T = Promise<NeighbourhoodNode | undefined> | null>(args: { where: NeighbourhoodWhereUniqueInput }) => (args: { where: NeighbourhoodWhereUniqueInput }) => Neighbourhood ,
-    deleteCity: <T = Promise<CityNode | undefined> | null>(args: { where: CityWhereUniqueInput }) => (args: { where: CityWhereUniqueInput }) => City ,
-    deleteExperience: <T = Promise<ExperienceNode | undefined> | null>(args: { where: ExperienceWhereUniqueInput }) => (args: { where: ExperienceWhereUniqueInput }) => Experience ,
-    deleteExperienceCategory: <T = Promise<ExperienceCategoryNode | undefined> | null>(args: { where: ExperienceCategoryWhereUniqueInput }) => (args: { where: ExperienceCategoryWhereUniqueInput }) => ExperienceCategory ,
-    deleteAmenities: <T = Promise<AmenitiesNode | undefined> | null>(args: { where: AmenitiesWhereUniqueInput }) => (args: { where: AmenitiesWhereUniqueInput }) => Amenities ,
-    deleteReview: <T = Promise<ReviewNode | undefined> | null>(args: { where: ReviewWhereUniqueInput }) => (args: { where: ReviewWhereUniqueInput }) => Review ,
-    deleteBooking: <T = Promise<BookingNode | undefined> | null>(args: { where: BookingWhereUniqueInput }) => (args: { where: BookingWhereUniqueInput }) => Booking ,
-    deletePayment: <T = Promise<PaymentNode | undefined> | null>(args: { where: PaymentWhereUniqueInput }) => (args: { where: PaymentWhereUniqueInput }) => Payment ,
-    deletePaymentAccount: <T = Promise<PaymentAccountNode | undefined> | null>(args: { where: PaymentAccountWhereUniqueInput }) => (args: { where: PaymentAccountWhereUniqueInput }) => PaymentAccount ,
-    deletePaypalInformation: <T = Promise<PaypalInformationNode | undefined> | null>(args: { where: PaypalInformationWhereUniqueInput }) => (args: { where: PaypalInformationWhereUniqueInput }) => PaypalInformation ,
-    deleteCreditCardInformation: <T = Promise<CreditCardInformationNode | undefined> | null>(args: { where: CreditCardInformationWhereUniqueInput }) => (args: { where: CreditCardInformationWhereUniqueInput }) => CreditCardInformation ,
-    deleteMessage: <T = Promise<MessageNode | undefined> | null>(args: { where: MessageWhereUniqueInput }) => (args: { where: MessageWhereUniqueInput }) => Message ,
-    deleteNotification: <T = Promise<NotificationNode | undefined> | null>(args: { where: NotificationWhereUniqueInput }) => (args: { where: NotificationWhereUniqueInput }) => Notification ,
-    deleteRestaurant: <T = Promise<RestaurantNode | undefined> | null>(args: { where: RestaurantWhereUniqueInput }) => (args: { where: RestaurantWhereUniqueInput }) => Restaurant ,
-    deleteHouseRules: <T = Promise<HouseRulesNode | undefined> | null>(args: { where: HouseRulesWhereUniqueInput }) => (args: { where: HouseRulesWhereUniqueInput }) => HouseRules ,
-    upsertUser: <T = Promise<UserNode>>(args: { where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput }) => (args: { where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput }) => User ,
-    upsertPlace: <T = Promise<PlaceNode>>(args: { where: PlaceWhereUniqueInput, create: PlaceCreateInput, update: PlaceUpdateInput }) => (args: { where: PlaceWhereUniqueInput, create: PlaceCreateInput, update: PlaceUpdateInput }) => Place ,
-    upsertPricing: <T = Promise<PricingNode>>(args: { where: PricingWhereUniqueInput, create: PricingCreateInput, update: PricingUpdateInput }) => (args: { where: PricingWhereUniqueInput, create: PricingCreateInput, update: PricingUpdateInput }) => Pricing ,
-    upsertGuestRequirements: <T = Promise<GuestRequirementsNode>>(args: { where: GuestRequirementsWhereUniqueInput, create: GuestRequirementsCreateInput, update: GuestRequirementsUpdateInput }) => (args: { where: GuestRequirementsWhereUniqueInput, create: GuestRequirementsCreateInput, update: GuestRequirementsUpdateInput }) => GuestRequirements ,
-    upsertPolicies: <T = Promise<PoliciesNode>>(args: { where: PoliciesWhereUniqueInput, create: PoliciesCreateInput, update: PoliciesUpdateInput }) => (args: { where: PoliciesWhereUniqueInput, create: PoliciesCreateInput, update: PoliciesUpdateInput }) => Policies ,
-    upsertViews: <T = Promise<ViewsNode>>(args: { where: ViewsWhereUniqueInput, create: ViewsCreateInput, update: ViewsUpdateInput }) => (args: { where: ViewsWhereUniqueInput, create: ViewsCreateInput, update: ViewsUpdateInput }) => Views ,
-    upsertLocation: <T = Promise<LocationNode>>(args: { where: LocationWhereUniqueInput, create: LocationCreateInput, update: LocationUpdateInput }) => (args: { where: LocationWhereUniqueInput, create: LocationCreateInput, update: LocationUpdateInput }) => Location ,
-    upsertNeighbourhood: <T = Promise<NeighbourhoodNode>>(args: { where: NeighbourhoodWhereUniqueInput, create: NeighbourhoodCreateInput, update: NeighbourhoodUpdateInput }) => (args: { where: NeighbourhoodWhereUniqueInput, create: NeighbourhoodCreateInput, update: NeighbourhoodUpdateInput }) => Neighbourhood ,
-    upsertCity: <T = Promise<CityNode>>(args: { where: CityWhereUniqueInput, create: CityCreateInput, update: CityUpdateInput }) => (args: { where: CityWhereUniqueInput, create: CityCreateInput, update: CityUpdateInput }) => City ,
-    upsertExperience: <T = Promise<ExperienceNode>>(args: { where: ExperienceWhereUniqueInput, create: ExperienceCreateInput, update: ExperienceUpdateInput }) => (args: { where: ExperienceWhereUniqueInput, create: ExperienceCreateInput, update: ExperienceUpdateInput }) => Experience ,
-    upsertExperienceCategory: <T = Promise<ExperienceCategoryNode>>(args: { where: ExperienceCategoryWhereUniqueInput, create: ExperienceCategoryCreateInput, update: ExperienceCategoryUpdateInput }) => (args: { where: ExperienceCategoryWhereUniqueInput, create: ExperienceCategoryCreateInput, update: ExperienceCategoryUpdateInput }) => ExperienceCategory ,
-    upsertAmenities: <T = Promise<AmenitiesNode>>(args: { where: AmenitiesWhereUniqueInput, create: AmenitiesCreateInput, update: AmenitiesUpdateInput }) => (args: { where: AmenitiesWhereUniqueInput, create: AmenitiesCreateInput, update: AmenitiesUpdateInput }) => Amenities ,
-    upsertReview: <T = Promise<ReviewNode>>(args: { where: ReviewWhereUniqueInput, create: ReviewCreateInput, update: ReviewUpdateInput }) => (args: { where: ReviewWhereUniqueInput, create: ReviewCreateInput, update: ReviewUpdateInput }) => Review ,
-    upsertBooking: <T = Promise<BookingNode>>(args: { where: BookingWhereUniqueInput, create: BookingCreateInput, update: BookingUpdateInput }) => (args: { where: BookingWhereUniqueInput, create: BookingCreateInput, update: BookingUpdateInput }) => Booking ,
-    upsertPayment: <T = Promise<PaymentNode>>(args: { where: PaymentWhereUniqueInput, create: PaymentCreateInput, update: PaymentUpdateInput }) => (args: { where: PaymentWhereUniqueInput, create: PaymentCreateInput, update: PaymentUpdateInput }) => Payment ,
-    upsertPaymentAccount: <T = Promise<PaymentAccountNode>>(args: { where: PaymentAccountWhereUniqueInput, create: PaymentAccountCreateInput, update: PaymentAccountUpdateInput }) => (args: { where: PaymentAccountWhereUniqueInput, create: PaymentAccountCreateInput, update: PaymentAccountUpdateInput }) => PaymentAccount ,
-    upsertPaypalInformation: <T = Promise<PaypalInformationNode>>(args: { where: PaypalInformationWhereUniqueInput, create: PaypalInformationCreateInput, update: PaypalInformationUpdateInput }) => (args: { where: PaypalInformationWhereUniqueInput, create: PaypalInformationCreateInput, update: PaypalInformationUpdateInput }) => PaypalInformation ,
-    upsertCreditCardInformation: <T = Promise<CreditCardInformationNode>>(args: { where: CreditCardInformationWhereUniqueInput, create: CreditCardInformationCreateInput, update: CreditCardInformationUpdateInput }) => (args: { where: CreditCardInformationWhereUniqueInput, create: CreditCardInformationCreateInput, update: CreditCardInformationUpdateInput }) => CreditCardInformation ,
-    upsertMessage: <T = Promise<MessageNode>>(args: { where: MessageWhereUniqueInput, create: MessageCreateInput, update: MessageUpdateInput }) => (args: { where: MessageWhereUniqueInput, create: MessageCreateInput, update: MessageUpdateInput }) => Message ,
-    upsertNotification: <T = Promise<NotificationNode>>(args: { where: NotificationWhereUniqueInput, create: NotificationCreateInput, update: NotificationUpdateInput }) => (args: { where: NotificationWhereUniqueInput, create: NotificationCreateInput, update: NotificationUpdateInput }) => Notification ,
-    upsertRestaurant: <T = Promise<RestaurantNode>>(args: { where: RestaurantWhereUniqueInput, create: RestaurantCreateInput, update: RestaurantUpdateInput }) => (args: { where: RestaurantWhereUniqueInput, create: RestaurantCreateInput, update: RestaurantUpdateInput }) => Restaurant ,
-    upsertHouseRules: <T = Promise<HouseRulesNode>>(args: { where: HouseRulesWhereUniqueInput, create: HouseRulesCreateInput, update: HouseRulesUpdateInput }) => (args: { where: HouseRulesWhereUniqueInput, create: HouseRulesCreateInput, update: HouseRulesUpdateInput }) => HouseRules ,
-    updateManyUsers: <T = Promise<BatchPayloadNode>>(args: { data: UserUpdateInput, where?: UserWhereInput }) => (args: { data: UserUpdateInput, where?: UserWhereInput }) => BatchPayload ,
-    updateManyPlaces: <T = Promise<BatchPayloadNode>>(args: { data: PlaceUpdateInput, where?: PlaceWhereInput }) => (args: { data: PlaceUpdateInput, where?: PlaceWhereInput }) => BatchPayload ,
-    updateManyPricings: <T = Promise<BatchPayloadNode>>(args: { data: PricingUpdateInput, where?: PricingWhereInput }) => (args: { data: PricingUpdateInput, where?: PricingWhereInput }) => BatchPayload ,
-    updateManyGuestRequirementses: <T = Promise<BatchPayloadNode>>(args: { data: GuestRequirementsUpdateInput, where?: GuestRequirementsWhereInput }) => (args: { data: GuestRequirementsUpdateInput, where?: GuestRequirementsWhereInput }) => BatchPayload ,
-    updateManyPolicieses: <T = Promise<BatchPayloadNode>>(args: { data: PoliciesUpdateInput, where?: PoliciesWhereInput }) => (args: { data: PoliciesUpdateInput, where?: PoliciesWhereInput }) => BatchPayload ,
-    updateManyViewses: <T = Promise<BatchPayloadNode>>(args: { data: ViewsUpdateInput, where?: ViewsWhereInput }) => (args: { data: ViewsUpdateInput, where?: ViewsWhereInput }) => BatchPayload ,
-    updateManyLocations: <T = Promise<BatchPayloadNode>>(args: { data: LocationUpdateInput, where?: LocationWhereInput }) => (args: { data: LocationUpdateInput, where?: LocationWhereInput }) => BatchPayload ,
-    updateManyNeighbourhoods: <T = Promise<BatchPayloadNode>>(args: { data: NeighbourhoodUpdateInput, where?: NeighbourhoodWhereInput }) => (args: { data: NeighbourhoodUpdateInput, where?: NeighbourhoodWhereInput }) => BatchPayload ,
-    updateManyCities: <T = Promise<BatchPayloadNode>>(args: { data: CityUpdateInput, where?: CityWhereInput }) => (args: { data: CityUpdateInput, where?: CityWhereInput }) => BatchPayload ,
-    updateManyExperiences: <T = Promise<BatchPayloadNode>>(args: { data: ExperienceUpdateInput, where?: ExperienceWhereInput }) => (args: { data: ExperienceUpdateInput, where?: ExperienceWhereInput }) => BatchPayload ,
-    updateManyExperienceCategories: <T = Promise<BatchPayloadNode>>(args: { data: ExperienceCategoryUpdateInput, where?: ExperienceCategoryWhereInput }) => (args: { data: ExperienceCategoryUpdateInput, where?: ExperienceCategoryWhereInput }) => BatchPayload ,
-    updateManyAmenitieses: <T = Promise<BatchPayloadNode>>(args: { data: AmenitiesUpdateInput, where?: AmenitiesWhereInput }) => (args: { data: AmenitiesUpdateInput, where?: AmenitiesWhereInput }) => BatchPayload ,
-    updateManyReviews: <T = Promise<BatchPayloadNode>>(args: { data: ReviewUpdateInput, where?: ReviewWhereInput }) => (args: { data: ReviewUpdateInput, where?: ReviewWhereInput }) => BatchPayload ,
-    updateManyBookings: <T = Promise<BatchPayloadNode>>(args: { data: BookingUpdateInput, where?: BookingWhereInput }) => (args: { data: BookingUpdateInput, where?: BookingWhereInput }) => BatchPayload ,
-    updateManyPayments: <T = Promise<BatchPayloadNode>>(args: { data: PaymentUpdateInput, where?: PaymentWhereInput }) => (args: { data: PaymentUpdateInput, where?: PaymentWhereInput }) => BatchPayload ,
-    updateManyPaymentAccounts: <T = Promise<BatchPayloadNode>>(args: { data: PaymentAccountUpdateInput, where?: PaymentAccountWhereInput }) => (args: { data: PaymentAccountUpdateInput, where?: PaymentAccountWhereInput }) => BatchPayload ,
-    updateManyPaypalInformations: <T = Promise<BatchPayloadNode>>(args: { data: PaypalInformationUpdateInput, where?: PaypalInformationWhereInput }) => (args: { data: PaypalInformationUpdateInput, where?: PaypalInformationWhereInput }) => BatchPayload ,
-    updateManyCreditCardInformations: <T = Promise<BatchPayloadNode>>(args: { data: CreditCardInformationUpdateInput, where?: CreditCardInformationWhereInput }) => (args: { data: CreditCardInformationUpdateInput, where?: CreditCardInformationWhereInput }) => BatchPayload ,
-    updateManyMessages: <T = Promise<BatchPayloadNode>>(args: { data: MessageUpdateInput, where?: MessageWhereInput }) => (args: { data: MessageUpdateInput, where?: MessageWhereInput }) => BatchPayload ,
-    updateManyNotifications: <T = Promise<BatchPayloadNode>>(args: { data: NotificationUpdateInput, where?: NotificationWhereInput }) => (args: { data: NotificationUpdateInput, where?: NotificationWhereInput }) => BatchPayload ,
-    updateManyRestaurants: <T = Promise<BatchPayloadNode>>(args: { data: RestaurantUpdateInput, where?: RestaurantWhereInput }) => (args: { data: RestaurantUpdateInput, where?: RestaurantWhereInput }) => BatchPayload ,
-    updateManyPictures: <T = Promise<BatchPayloadNode>>(args: { data: PictureUpdateInput, where?: PictureWhereInput }) => (args: { data: PictureUpdateInput, where?: PictureWhereInput }) => BatchPayload ,
-    updateManyHouseRuleses: <T = Promise<BatchPayloadNode>>(args: { data: HouseRulesUpdateInput, where?: HouseRulesWhereInput }) => (args: { data: HouseRulesUpdateInput, where?: HouseRulesWhereInput }) => BatchPayload ,
-    deleteManyUsers: <T = Promise<BatchPayloadNode>>(args?: { where?: UserWhereInput }) => (args?: { where?: UserWhereInput }) => BatchPayload ,
-    deleteManyPlaces: <T = Promise<BatchPayloadNode>>(args?: { where?: PlaceWhereInput }) => (args?: { where?: PlaceWhereInput }) => BatchPayload ,
-    deleteManyPricings: <T = Promise<BatchPayloadNode>>(args?: { where?: PricingWhereInput }) => (args?: { where?: PricingWhereInput }) => BatchPayload ,
-    deleteManyGuestRequirementses: <T = Promise<BatchPayloadNode>>(args?: { where?: GuestRequirementsWhereInput }) => (args?: { where?: GuestRequirementsWhereInput }) => BatchPayload ,
-    deleteManyPolicieses: <T = Promise<BatchPayloadNode>>(args?: { where?: PoliciesWhereInput }) => (args?: { where?: PoliciesWhereInput }) => BatchPayload ,
-    deleteManyViewses: <T = Promise<BatchPayloadNode>>(args?: { where?: ViewsWhereInput }) => (args?: { where?: ViewsWhereInput }) => BatchPayload ,
-    deleteManyLocations: <T = Promise<BatchPayloadNode>>(args?: { where?: LocationWhereInput }) => (args?: { where?: LocationWhereInput }) => BatchPayload ,
-    deleteManyNeighbourhoods: <T = Promise<BatchPayloadNode>>(args?: { where?: NeighbourhoodWhereInput }) => (args?: { where?: NeighbourhoodWhereInput }) => BatchPayload ,
-    deleteManyCities: <T = Promise<BatchPayloadNode>>(args?: { where?: CityWhereInput }) => (args?: { where?: CityWhereInput }) => BatchPayload ,
-    deleteManyExperiences: <T = Promise<BatchPayloadNode>>(args?: { where?: ExperienceWhereInput }) => (args?: { where?: ExperienceWhereInput }) => BatchPayload ,
-    deleteManyExperienceCategories: <T = Promise<BatchPayloadNode>>(args?: { where?: ExperienceCategoryWhereInput }) => (args?: { where?: ExperienceCategoryWhereInput }) => BatchPayload ,
-    deleteManyAmenitieses: <T = Promise<BatchPayloadNode>>(args?: { where?: AmenitiesWhereInput }) => (args?: { where?: AmenitiesWhereInput }) => BatchPayload ,
-    deleteManyReviews: <T = Promise<BatchPayloadNode>>(args?: { where?: ReviewWhereInput }) => (args?: { where?: ReviewWhereInput }) => BatchPayload ,
-    deleteManyBookings: <T = Promise<BatchPayloadNode>>(args?: { where?: BookingWhereInput }) => (args?: { where?: BookingWhereInput }) => BatchPayload ,
-    deleteManyPayments: <T = Promise<BatchPayloadNode>>(args?: { where?: PaymentWhereInput }) => (args?: { where?: PaymentWhereInput }) => BatchPayload ,
-    deleteManyPaymentAccounts: <T = Promise<BatchPayloadNode>>(args?: { where?: PaymentAccountWhereInput }) => (args?: { where?: PaymentAccountWhereInput }) => BatchPayload ,
-    deleteManyPaypalInformations: <T = Promise<BatchPayloadNode>>(args?: { where?: PaypalInformationWhereInput }) => (args?: { where?: PaypalInformationWhereInput }) => BatchPayload ,
-    deleteManyCreditCardInformations: <T = Promise<BatchPayloadNode>>(args?: { where?: CreditCardInformationWhereInput }) => (args?: { where?: CreditCardInformationWhereInput }) => BatchPayload ,
-    deleteManyMessages: <T = Promise<BatchPayloadNode>>(args?: { where?: MessageWhereInput }) => (args?: { where?: MessageWhereInput }) => BatchPayload ,
-    deleteManyNotifications: <T = Promise<BatchPayloadNode>>(args?: { where?: NotificationWhereInput }) => (args?: { where?: NotificationWhereInput }) => BatchPayload ,
-    deleteManyRestaurants: <T = Promise<BatchPayloadNode>>(args?: { where?: RestaurantWhereInput }) => (args?: { where?: RestaurantWhereInput }) => BatchPayload ,
-    deleteManyPictures: <T = Promise<BatchPayloadNode>>(args?: { where?: PictureWhereInput }) => (args?: { where?: PictureWhereInput }) => BatchPayload ,
-    deleteManyHouseRuleses: <T = Promise<BatchPayloadNode>>(args?: { where?: HouseRulesWhereInput }) => (args?: { where?: HouseRulesWhereInput }) => BatchPayload 
+    createUser: <T = Promise<UserNode>>(args: { data: UserCreateInput }) => User ,
+    createPlace: <T = Promise<PlaceNode>>(args: { data: PlaceCreateInput }) => Place ,
+    createPricing: <T = Promise<PricingNode>>(args: { data: PricingCreateInput }) => Pricing ,
+    createGuestRequirements: <T = Promise<GuestRequirementsNode>>(args: { data: GuestRequirementsCreateInput }) => GuestRequirements ,
+    createPolicies: <T = Promise<PoliciesNode>>(args: { data: PoliciesCreateInput }) => Policies ,
+    createViews: <T = Promise<ViewsNode>>(args: { data: ViewsCreateInput }) => Views ,
+    createLocation: <T = Promise<LocationNode>>(args: { data: LocationCreateInput }) => Location ,
+    createNeighbourhood: <T = Promise<NeighbourhoodNode>>(args: { data: NeighbourhoodCreateInput }) => Neighbourhood ,
+    createCity: <T = Promise<CityNode>>(args: { data: CityCreateInput }) => City ,
+    createExperience: <T = Promise<ExperienceNode>>(args: { data: ExperienceCreateInput }) => Experience ,
+    createExperienceCategory: <T = Promise<ExperienceCategoryNode>>(args: { data: ExperienceCategoryCreateInput }) => ExperienceCategory ,
+    createAmenities: <T = Promise<AmenitiesNode>>(args: { data: AmenitiesCreateInput }) => Amenities ,
+    createReview: <T = Promise<ReviewNode>>(args: { data: ReviewCreateInput }) => Review ,
+    createBooking: <T = Promise<BookingNode>>(args: { data: BookingCreateInput }) => Booking ,
+    createPayment: <T = Promise<PaymentNode>>(args: { data: PaymentCreateInput }) => Payment ,
+    createPaymentAccount: <T = Promise<PaymentAccountNode>>(args: { data: PaymentAccountCreateInput }) => PaymentAccount ,
+    createPaypalInformation: <T = Promise<PaypalInformationNode>>(args: { data: PaypalInformationCreateInput }) => PaypalInformation ,
+    createCreditCardInformation: <T = Promise<CreditCardInformationNode>>(args: { data: CreditCardInformationCreateInput }) => CreditCardInformation ,
+    createMessage: <T = Promise<MessageNode>>(args: { data: MessageCreateInput }) => Message ,
+    createNotification: <T = Promise<NotificationNode>>(args: { data: NotificationCreateInput }) => Notification ,
+    createRestaurant: <T = Promise<RestaurantNode>>(args: { data: RestaurantCreateInput }) => Restaurant ,
+    createPicture: <T = Promise<PictureNode>>(args: { data: PictureCreateInput }) => Picture ,
+    createHouseRules: <T = Promise<HouseRulesNode>>(args: { data: HouseRulesCreateInput }) => HouseRules ,
+    updateUser: <T = Promise<UserNode | undefined> | null>(args: { data: UserUpdateInput, where: UserWhereUniqueInput }) => User ,
+    updatePlace: <T = Promise<PlaceNode | undefined> | null>(args: { data: PlaceUpdateInput, where: PlaceWhereUniqueInput }) => Place ,
+    updatePricing: <T = Promise<PricingNode | undefined> | null>(args: { data: PricingUpdateInput, where: PricingWhereUniqueInput }) => Pricing ,
+    updateGuestRequirements: <T = Promise<GuestRequirementsNode | undefined> | null>(args: { data: GuestRequirementsUpdateInput, where: GuestRequirementsWhereUniqueInput }) => GuestRequirements ,
+    updatePolicies: <T = Promise<PoliciesNode | undefined> | null>(args: { data: PoliciesUpdateInput, where: PoliciesWhereUniqueInput }) => Policies ,
+    updateViews: <T = Promise<ViewsNode | undefined> | null>(args: { data: ViewsUpdateInput, where: ViewsWhereUniqueInput }) => Views ,
+    updateLocation: <T = Promise<LocationNode | undefined> | null>(args: { data: LocationUpdateInput, where: LocationWhereUniqueInput }) => Location ,
+    updateNeighbourhood: <T = Promise<NeighbourhoodNode | undefined> | null>(args: { data: NeighbourhoodUpdateInput, where: NeighbourhoodWhereUniqueInput }) => Neighbourhood ,
+    updateCity: <T = Promise<CityNode | undefined> | null>(args: { data: CityUpdateInput, where: CityWhereUniqueInput }) => City ,
+    updateExperience: <T = Promise<ExperienceNode | undefined> | null>(args: { data: ExperienceUpdateInput, where: ExperienceWhereUniqueInput }) => Experience ,
+    updateExperienceCategory: <T = Promise<ExperienceCategoryNode | undefined> | null>(args: { data: ExperienceCategoryUpdateInput, where: ExperienceCategoryWhereUniqueInput }) => ExperienceCategory ,
+    updateAmenities: <T = Promise<AmenitiesNode | undefined> | null>(args: { data: AmenitiesUpdateInput, where: AmenitiesWhereUniqueInput }) => Amenities ,
+    updateReview: <T = Promise<ReviewNode | undefined> | null>(args: { data: ReviewUpdateInput, where: ReviewWhereUniqueInput }) => Review ,
+    updateBooking: <T = Promise<BookingNode | undefined> | null>(args: { data: BookingUpdateInput, where: BookingWhereUniqueInput }) => Booking ,
+    updatePayment: <T = Promise<PaymentNode | undefined> | null>(args: { data: PaymentUpdateInput, where: PaymentWhereUniqueInput }) => Payment ,
+    updatePaymentAccount: <T = Promise<PaymentAccountNode | undefined> | null>(args: { data: PaymentAccountUpdateInput, where: PaymentAccountWhereUniqueInput }) => PaymentAccount ,
+    updatePaypalInformation: <T = Promise<PaypalInformationNode | undefined> | null>(args: { data: PaypalInformationUpdateInput, where: PaypalInformationWhereUniqueInput }) => PaypalInformation ,
+    updateCreditCardInformation: <T = Promise<CreditCardInformationNode | undefined> | null>(args: { data: CreditCardInformationUpdateInput, where: CreditCardInformationWhereUniqueInput }) => CreditCardInformation ,
+    updateMessage: <T = Promise<MessageNode | undefined> | null>(args: { data: MessageUpdateInput, where: MessageWhereUniqueInput }) => Message ,
+    updateNotification: <T = Promise<NotificationNode | undefined> | null>(args: { data: NotificationUpdateInput, where: NotificationWhereUniqueInput }) => Notification ,
+    updateRestaurant: <T = Promise<RestaurantNode | undefined> | null>(args: { data: RestaurantUpdateInput, where: RestaurantWhereUniqueInput }) => Restaurant ,
+    updateHouseRules: <T = Promise<HouseRulesNode | undefined> | null>(args: { data: HouseRulesUpdateInput, where: HouseRulesWhereUniqueInput }) => HouseRules ,
+    deleteUser: <T = Promise<UserNode | undefined> | null>(args: { where: UserWhereUniqueInput }) => User ,
+    deletePlace: <T = Promise<PlaceNode | undefined> | null>(args: { where: PlaceWhereUniqueInput }) => Place ,
+    deletePricing: <T = Promise<PricingNode | undefined> | null>(args: { where: PricingWhereUniqueInput }) => Pricing ,
+    deleteGuestRequirements: <T = Promise<GuestRequirementsNode | undefined> | null>(args: { where: GuestRequirementsWhereUniqueInput }) => GuestRequirements ,
+    deletePolicies: <T = Promise<PoliciesNode | undefined> | null>(args: { where: PoliciesWhereUniqueInput }) => Policies ,
+    deleteViews: <T = Promise<ViewsNode | undefined> | null>(args: { where: ViewsWhereUniqueInput }) => Views ,
+    deleteLocation: <T = Promise<LocationNode | undefined> | null>(args: { where: LocationWhereUniqueInput }) => Location ,
+    deleteNeighbourhood: <T = Promise<NeighbourhoodNode | undefined> | null>(args: { where: NeighbourhoodWhereUniqueInput }) => Neighbourhood ,
+    deleteCity: <T = Promise<CityNode | undefined> | null>(args: { where: CityWhereUniqueInput }) => City ,
+    deleteExperience: <T = Promise<ExperienceNode | undefined> | null>(args: { where: ExperienceWhereUniqueInput }) => Experience ,
+    deleteExperienceCategory: <T = Promise<ExperienceCategoryNode | undefined> | null>(args: { where: ExperienceCategoryWhereUniqueInput }) => ExperienceCategory ,
+    deleteAmenities: <T = Promise<AmenitiesNode | undefined> | null>(args: { where: AmenitiesWhereUniqueInput }) => Amenities ,
+    deleteReview: <T = Promise<ReviewNode | undefined> | null>(args: { where: ReviewWhereUniqueInput }) => Review ,
+    deleteBooking: <T = Promise<BookingNode | undefined> | null>(args: { where: BookingWhereUniqueInput }) => Booking ,
+    deletePayment: <T = Promise<PaymentNode | undefined> | null>(args: { where: PaymentWhereUniqueInput }) => Payment ,
+    deletePaymentAccount: <T = Promise<PaymentAccountNode | undefined> | null>(args: { where: PaymentAccountWhereUniqueInput }) => PaymentAccount ,
+    deletePaypalInformation: <T = Promise<PaypalInformationNode | undefined> | null>(args: { where: PaypalInformationWhereUniqueInput }) => PaypalInformation ,
+    deleteCreditCardInformation: <T = Promise<CreditCardInformationNode | undefined> | null>(args: { where: CreditCardInformationWhereUniqueInput }) => CreditCardInformation ,
+    deleteMessage: <T = Promise<MessageNode | undefined> | null>(args: { where: MessageWhereUniqueInput }) => Message ,
+    deleteNotification: <T = Promise<NotificationNode | undefined> | null>(args: { where: NotificationWhereUniqueInput }) => Notification ,
+    deleteRestaurant: <T = Promise<RestaurantNode | undefined> | null>(args: { where: RestaurantWhereUniqueInput }) => Restaurant ,
+    deleteHouseRules: <T = Promise<HouseRulesNode | undefined> | null>(args: { where: HouseRulesWhereUniqueInput }) => HouseRules ,
+    upsertUser: <T = Promise<UserNode>>(args: { where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput }) => User ,
+    upsertPlace: <T = Promise<PlaceNode>>(args: { where: PlaceWhereUniqueInput, create: PlaceCreateInput, update: PlaceUpdateInput }) => Place ,
+    upsertPricing: <T = Promise<PricingNode>>(args: { where: PricingWhereUniqueInput, create: PricingCreateInput, update: PricingUpdateInput }) => Pricing ,
+    upsertGuestRequirements: <T = Promise<GuestRequirementsNode>>(args: { where: GuestRequirementsWhereUniqueInput, create: GuestRequirementsCreateInput, update: GuestRequirementsUpdateInput }) => GuestRequirements ,
+    upsertPolicies: <T = Promise<PoliciesNode>>(args: { where: PoliciesWhereUniqueInput, create: PoliciesCreateInput, update: PoliciesUpdateInput }) => Policies ,
+    upsertViews: <T = Promise<ViewsNode>>(args: { where: ViewsWhereUniqueInput, create: ViewsCreateInput, update: ViewsUpdateInput }) => Views ,
+    upsertLocation: <T = Promise<LocationNode>>(args: { where: LocationWhereUniqueInput, create: LocationCreateInput, update: LocationUpdateInput }) => Location ,
+    upsertNeighbourhood: <T = Promise<NeighbourhoodNode>>(args: { where: NeighbourhoodWhereUniqueInput, create: NeighbourhoodCreateInput, update: NeighbourhoodUpdateInput }) => Neighbourhood ,
+    upsertCity: <T = Promise<CityNode>>(args: { where: CityWhereUniqueInput, create: CityCreateInput, update: CityUpdateInput }) => City ,
+    upsertExperience: <T = Promise<ExperienceNode>>(args: { where: ExperienceWhereUniqueInput, create: ExperienceCreateInput, update: ExperienceUpdateInput }) => Experience ,
+    upsertExperienceCategory: <T = Promise<ExperienceCategoryNode>>(args: { where: ExperienceCategoryWhereUniqueInput, create: ExperienceCategoryCreateInput, update: ExperienceCategoryUpdateInput }) => ExperienceCategory ,
+    upsertAmenities: <T = Promise<AmenitiesNode>>(args: { where: AmenitiesWhereUniqueInput, create: AmenitiesCreateInput, update: AmenitiesUpdateInput }) => Amenities ,
+    upsertReview: <T = Promise<ReviewNode>>(args: { where: ReviewWhereUniqueInput, create: ReviewCreateInput, update: ReviewUpdateInput }) => Review ,
+    upsertBooking: <T = Promise<BookingNode>>(args: { where: BookingWhereUniqueInput, create: BookingCreateInput, update: BookingUpdateInput }) => Booking ,
+    upsertPayment: <T = Promise<PaymentNode>>(args: { where: PaymentWhereUniqueInput, create: PaymentCreateInput, update: PaymentUpdateInput }) => Payment ,
+    upsertPaymentAccount: <T = Promise<PaymentAccountNode>>(args: { where: PaymentAccountWhereUniqueInput, create: PaymentAccountCreateInput, update: PaymentAccountUpdateInput }) => PaymentAccount ,
+    upsertPaypalInformation: <T = Promise<PaypalInformationNode>>(args: { where: PaypalInformationWhereUniqueInput, create: PaypalInformationCreateInput, update: PaypalInformationUpdateInput }) => PaypalInformation ,
+    upsertCreditCardInformation: <T = Promise<CreditCardInformationNode>>(args: { where: CreditCardInformationWhereUniqueInput, create: CreditCardInformationCreateInput, update: CreditCardInformationUpdateInput }) => CreditCardInformation ,
+    upsertMessage: <T = Promise<MessageNode>>(args: { where: MessageWhereUniqueInput, create: MessageCreateInput, update: MessageUpdateInput }) => Message ,
+    upsertNotification: <T = Promise<NotificationNode>>(args: { where: NotificationWhereUniqueInput, create: NotificationCreateInput, update: NotificationUpdateInput }) => Notification ,
+    upsertRestaurant: <T = Promise<RestaurantNode>>(args: { where: RestaurantWhereUniqueInput, create: RestaurantCreateInput, update: RestaurantUpdateInput }) => Restaurant ,
+    upsertHouseRules: <T = Promise<HouseRulesNode>>(args: { where: HouseRulesWhereUniqueInput, create: HouseRulesCreateInput, update: HouseRulesUpdateInput }) => HouseRules ,
+    updateManyUsers: <T = Promise<BatchPayloadNode>>(args: { data: UserUpdateInput, where?: UserWhereInput }) => BatchPayload ,
+    updateManyPlaces: <T = Promise<BatchPayloadNode>>(args: { data: PlaceUpdateInput, where?: PlaceWhereInput }) => BatchPayload ,
+    updateManyPricings: <T = Promise<BatchPayloadNode>>(args: { data: PricingUpdateInput, where?: PricingWhereInput }) => BatchPayload ,
+    updateManyGuestRequirementses: <T = Promise<BatchPayloadNode>>(args: { data: GuestRequirementsUpdateInput, where?: GuestRequirementsWhereInput }) => BatchPayload ,
+    updateManyPolicieses: <T = Promise<BatchPayloadNode>>(args: { data: PoliciesUpdateInput, where?: PoliciesWhereInput }) => BatchPayload ,
+    updateManyViewses: <T = Promise<BatchPayloadNode>>(args: { data: ViewsUpdateInput, where?: ViewsWhereInput }) => BatchPayload ,
+    updateManyLocations: <T = Promise<BatchPayloadNode>>(args: { data: LocationUpdateInput, where?: LocationWhereInput }) => BatchPayload ,
+    updateManyNeighbourhoods: <T = Promise<BatchPayloadNode>>(args: { data: NeighbourhoodUpdateInput, where?: NeighbourhoodWhereInput }) => BatchPayload ,
+    updateManyCities: <T = Promise<BatchPayloadNode>>(args: { data: CityUpdateInput, where?: CityWhereInput }) => BatchPayload ,
+    updateManyExperiences: <T = Promise<BatchPayloadNode>>(args: { data: ExperienceUpdateInput, where?: ExperienceWhereInput }) => BatchPayload ,
+    updateManyExperienceCategories: <T = Promise<BatchPayloadNode>>(args: { data: ExperienceCategoryUpdateInput, where?: ExperienceCategoryWhereInput }) => BatchPayload ,
+    updateManyAmenitieses: <T = Promise<BatchPayloadNode>>(args: { data: AmenitiesUpdateInput, where?: AmenitiesWhereInput }) => BatchPayload ,
+    updateManyReviews: <T = Promise<BatchPayloadNode>>(args: { data: ReviewUpdateInput, where?: ReviewWhereInput }) => BatchPayload ,
+    updateManyBookings: <T = Promise<BatchPayloadNode>>(args: { data: BookingUpdateInput, where?: BookingWhereInput }) => BatchPayload ,
+    updateManyPayments: <T = Promise<BatchPayloadNode>>(args: { data: PaymentUpdateInput, where?: PaymentWhereInput }) => BatchPayload ,
+    updateManyPaymentAccounts: <T = Promise<BatchPayloadNode>>(args: { data: PaymentAccountUpdateInput, where?: PaymentAccountWhereInput }) => BatchPayload ,
+    updateManyPaypalInformations: <T = Promise<BatchPayloadNode>>(args: { data: PaypalInformationUpdateInput, where?: PaypalInformationWhereInput }) => BatchPayload ,
+    updateManyCreditCardInformations: <T = Promise<BatchPayloadNode>>(args: { data: CreditCardInformationUpdateInput, where?: CreditCardInformationWhereInput }) => BatchPayload ,
+    updateManyMessages: <T = Promise<BatchPayloadNode>>(args: { data: MessageUpdateInput, where?: MessageWhereInput }) => BatchPayload ,
+    updateManyNotifications: <T = Promise<BatchPayloadNode>>(args: { data: NotificationUpdateInput, where?: NotificationWhereInput }) => BatchPayload ,
+    updateManyRestaurants: <T = Promise<BatchPayloadNode>>(args: { data: RestaurantUpdateInput, where?: RestaurantWhereInput }) => BatchPayload ,
+    updateManyPictures: <T = Promise<BatchPayloadNode>>(args: { data: PictureUpdateInput, where?: PictureWhereInput }) => BatchPayload ,
+    updateManyHouseRuleses: <T = Promise<BatchPayloadNode>>(args: { data: HouseRulesUpdateInput, where?: HouseRulesWhereInput }) => BatchPayload ,
+    deleteManyUsers: <T = Promise<BatchPayloadNode>>(args?: { where?: UserWhereInput }) => BatchPayload ,
+    deleteManyPlaces: <T = Promise<BatchPayloadNode>>(args?: { where?: PlaceWhereInput }) => BatchPayload ,
+    deleteManyPricings: <T = Promise<BatchPayloadNode>>(args?: { where?: PricingWhereInput }) => BatchPayload ,
+    deleteManyGuestRequirementses: <T = Promise<BatchPayloadNode>>(args?: { where?: GuestRequirementsWhereInput }) => BatchPayload ,
+    deleteManyPolicieses: <T = Promise<BatchPayloadNode>>(args?: { where?: PoliciesWhereInput }) => BatchPayload ,
+    deleteManyViewses: <T = Promise<BatchPayloadNode>>(args?: { where?: ViewsWhereInput }) => BatchPayload ,
+    deleteManyLocations: <T = Promise<BatchPayloadNode>>(args?: { where?: LocationWhereInput }) => BatchPayload ,
+    deleteManyNeighbourhoods: <T = Promise<BatchPayloadNode>>(args?: { where?: NeighbourhoodWhereInput }) => BatchPayload ,
+    deleteManyCities: <T = Promise<BatchPayloadNode>>(args?: { where?: CityWhereInput }) => BatchPayload ,
+    deleteManyExperiences: <T = Promise<BatchPayloadNode>>(args?: { where?: ExperienceWhereInput }) => BatchPayload ,
+    deleteManyExperienceCategories: <T = Promise<BatchPayloadNode>>(args?: { where?: ExperienceCategoryWhereInput }) => BatchPayload ,
+    deleteManyAmenitieses: <T = Promise<BatchPayloadNode>>(args?: { where?: AmenitiesWhereInput }) => BatchPayload ,
+    deleteManyReviews: <T = Promise<BatchPayloadNode>>(args?: { where?: ReviewWhereInput }) => BatchPayload ,
+    deleteManyBookings: <T = Promise<BatchPayloadNode>>(args?: { where?: BookingWhereInput }) => BatchPayload ,
+    deleteManyPayments: <T = Promise<BatchPayloadNode>>(args?: { where?: PaymentWhereInput }) => BatchPayload ,
+    deleteManyPaymentAccounts: <T = Promise<BatchPayloadNode>>(args?: { where?: PaymentAccountWhereInput }) => BatchPayload ,
+    deleteManyPaypalInformations: <T = Promise<BatchPayloadNode>>(args?: { where?: PaypalInformationWhereInput }) => BatchPayload ,
+    deleteManyCreditCardInformations: <T = Promise<BatchPayloadNode>>(args?: { where?: CreditCardInformationWhereInput }) => BatchPayload ,
+    deleteManyMessages: <T = Promise<BatchPayloadNode>>(args?: { where?: MessageWhereInput }) => BatchPayload ,
+    deleteManyNotifications: <T = Promise<BatchPayloadNode>>(args?: { where?: NotificationWhereInput }) => BatchPayload ,
+    deleteManyRestaurants: <T = Promise<BatchPayloadNode>>(args?: { where?: RestaurantWhereInput }) => BatchPayload ,
+    deleteManyPictures: <T = Promise<BatchPayloadNode>>(args?: { where?: PictureWhereInput }) => BatchPayload ,
+    deleteManyHouseRuleses: <T = Promise<BatchPayloadNode>>(args?: { where?: HouseRulesWhereInput }) => BatchPayload 
   }
 
 export interface Subscription {
@@ -10791,11 +10791,11 @@ export type PricingOrderByInput =   'id_ASC' |
   'createdAt_DESC'
 
 export interface BookingCreateInput {
-  startDate: DateTime
-  endDate: DateTime
-  bookee: UserCreateOneWithoutBookingsInput
-  place: PlaceCreateOneWithoutBookingsInput
-  payment: PaymentCreateOneWithoutBookingInput
+  startDate?: DateTime
+  endDate?: DateTime
+  bookee?: UserCreateOneWithoutBookingsInput
+  place?: PlaceCreateOneWithoutBookingsInput
+  payment?: PaymentCreateOneWithoutBookingInput
 }
 
 export interface UserWhereInput {
@@ -10946,8 +10946,8 @@ export interface UserWhereInput {
 }
 
 export interface LocationCreateWithoutRestaurantInput {
-  lat: Float
-  lng: Float
+  lat?: Float
+  lng?: Float
   address: String
   directions: String
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
@@ -11154,19 +11154,19 @@ export interface CreditCardInformationWhereInput {
 export interface PlaceCreateWithoutReviewsInput {
   name: String
   size: PLACE_SIZES
-  shortDescription: String
-  description: String
-  slug: String
-  maxGuests: Int
-  numBedrooms: Int
-  numBeds: Int
-  numBaths: Int
-  popularity: Int
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
+  amenities?: AmenitiesCreateOneWithoutPlaceInput
+  host?: UserCreateOneWithoutOwnedPlacesInput
+  pricing?: PricingCreateOneWithoutPlaceInput
+  location?: LocationCreateOneWithoutPlaceInput
+  views?: ViewsCreateOneWithoutPlaceInput
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneInput
@@ -11175,9 +11175,9 @@ export interface PlaceCreateWithoutReviewsInput {
 }
 
 export interface PaymentAccountUpsertWithWhereUniqueWithoutUserInput {
-  where: PaymentAccountWhereUniqueInput
-  update: PaymentAccountUpdateWithoutUserDataInput
-  create: PaymentAccountCreateWithoutUserInput
+  where?: PaymentAccountWhereUniqueInput
+  update?: PaymentAccountUpdateWithoutUserDataInput
+  create?: PaymentAccountCreateWithoutUserInput
 }
 
 export interface ViewsCreateOneWithoutPlaceInput {
@@ -11195,7 +11195,7 @@ export interface PlaceUpdateManyWithoutHostInput {
 }
 
 export interface ViewsCreateWithoutPlaceInput {
-  lastWeek: Int
+  lastWeek?: Int
 }
 
 export interface HouseRulesSubscriptionWhereInput {
@@ -11259,9 +11259,9 @@ export interface CreditCardInformationSubscriptionWhereInput {
 }
 
 export interface PoliciesCreateWithoutPlaceInput {
-  checkInStartTime: Float
-  checkInEndTime: Float
-  checkoutTime: Float
+  checkInStartTime?: Float
+  checkInEndTime?: Float
+  checkoutTime?: Float
 }
 
 export interface PaypalInformationSubscriptionWhereInput {
@@ -11430,10 +11430,10 @@ export interface ReviewSubscriptionWhereInput {
 }
 
 export interface BookingCreateWithoutPlaceInput {
-  startDate: DateTime
-  endDate: DateTime
-  bookee: UserCreateOneWithoutBookingsInput
-  payment: PaymentCreateOneWithoutBookingInput
+  startDate?: DateTime
+  endDate?: DateTime
+  bookee?: UserCreateOneWithoutBookingsInput
+  payment?: PaymentCreateOneWithoutBookingInput
 }
 
 export interface ExperienceCategorySubscriptionWhereInput {
@@ -11464,10 +11464,10 @@ export interface CitySubscriptionWhereInput {
 }
 
 export interface PaymentCreateWithoutBookingInput {
-  serviceFee: Float
-  placePrice: Float
-  totalPrice: Float
-  paymentMethod: PaymentAccountCreateOneWithoutPaymentsInput
+  serviceFee?: Float
+  placePrice?: Float
+  totalPrice?: Float
+  paymentMethod?: PaymentAccountCreateOneWithoutPaymentsInput
 }
 
 export interface NeighbourhoodSubscriptionWhereInput {
@@ -11499,7 +11499,7 @@ export interface ViewsSubscriptionWhereInput {
 
 export interface PaymentAccountCreateWithoutPaymentsInput {
   type: PAYMENT_PROVIDER
-  user: UserCreateOneWithoutPaymentAccountInput
+  user?: UserCreateOneWithoutPaymentAccountInput
   paypal: PaypalInformationCreateOneWithoutPaymentAccountInput
   creditcard: CreditCardInformationCreateOneWithoutPaymentAccountInput
 }
@@ -11628,11 +11628,11 @@ export interface PricingWhereInput {
 }
 
 export interface UserCreateWithoutPaymentAccountInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  email?: String
+  password?: String
+  phone?: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -11674,9 +11674,9 @@ export interface PlaceSubscriptionWhereInput {
 }
 
 export interface MessageCreateWithoutToInput {
-  deliveredAt: DateTime
-  readAt: DateTime
-  from: UserCreateOneWithoutSentMessagesInput
+  deliveredAt?: DateTime
+  readAt?: DateTime
+  from?: UserCreateOneWithoutSentMessagesInput
 }
 
 export interface PictureWhereInput {
@@ -11789,11 +11789,11 @@ export interface LocationWhereInput {
 }
 
 export interface UserCreateWithoutSentMessagesInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  email?: String
+  password?: String
+  phone?: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -12007,7 +12007,7 @@ export interface PlaceWhereInput {
 }
 
 export interface PaypalInformationCreateWithoutPaymentAccountInput {
-  email: String
+  email?: String
 }
 
 export interface PictureUpdateInput {
@@ -12020,19 +12020,19 @@ export interface CreditCardInformationCreateOneWithoutPaymentAccountInput {
 }
 
 export interface LocationUpsertWithoutRestaurantInput {
-  update: LocationUpdateWithoutRestaurantDataInput
-  create: LocationCreateWithoutRestaurantInput
+  update?: LocationUpdateWithoutRestaurantDataInput
+  create?: LocationCreateWithoutRestaurantInput
 }
 
 export interface CreditCardInformationCreateWithoutPaymentAccountInput {
-  cardNumber: String
-  expiresOnMonth: Int
-  expiresOnYear: Int
-  securityCode: String
-  firstName: String
-  lastName: String
-  postalCode: String
-  country: String
+  cardNumber?: String
+  expiresOnMonth?: Int
+  expiresOnYear?: Int
+  securityCode?: String
+  firstName?: String
+  lastName?: String
+  postalCode?: String
+  country?: String
 }
 
 export interface PlaceWhereUniqueInput {
@@ -12049,13 +12049,13 @@ export interface GuestRequirementsWhereUniqueInput {
 }
 
 export interface ExperienceCreateWithoutLocationInput {
-  title: String
-  pricePerPerson: Int
-  popularity: Int
+  title?: String
+  pricePerPerson?: Int
+  popularity?: Int
   category: ExperienceCategoryCreateOneWithoutExperienceInput
-  host: UserCreateOneWithoutHostingExperiencesInput
+  host?: UserCreateOneWithoutHostingExperiencesInput
   reviews: ReviewCreateManyWithoutExperienceInput
-  preview: PictureCreateOneInput
+  preview?: PictureCreateOneInput
 }
 
 export interface ViewsWhereUniqueInput {
@@ -12065,20 +12065,20 @@ export interface ViewsWhereUniqueInput {
 export interface PlaceCreateInput {
   name: String
   size: PLACE_SIZES
-  shortDescription: String
-  description: String
-  slug: String
-  maxGuests: Int
-  numBedrooms: Int
-  numBeds: Int
-  numBaths: Int
-  popularity: Int
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities?: AmenitiesCreateOneWithoutPlaceInput
+  host?: UserCreateOneWithoutOwnedPlacesInput
+  pricing?: PricingCreateOneWithoutPlaceInput
+  location?: LocationCreateOneWithoutPlaceInput
+  views?: ViewsCreateOneWithoutPlaceInput
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneInput
@@ -12093,17 +12093,17 @@ export interface NeighbourhoodWhereUniqueInput {
 export interface PricingCreateInput {
   monthlyDiscount: Int
   weeklyDiscount: Int
-  perNight: Int
+  perNight?: Int
   smartPricing: Boolean
-  basePrice: Int
-  averageWeekly: Int
-  averageMonthly: Int
+  basePrice?: Int
+  averageWeekly?: Int
+  averageMonthly?: Int
   cleaningFee: Int
   securityDeposit: Int
   extraGuests: Int
   weekendPricing: Int
   currency: CURRENCY
-  place: PlaceCreateOneWithoutPricingInput
+  place?: PlaceCreateOneWithoutPricingInput
 }
 
 export interface ExperienceWhereUniqueInput {
@@ -12122,19 +12122,19 @@ export interface AmenitiesWhereUniqueInput {
 export interface PlaceCreateWithoutPricingInput {
   name: String
   size: PLACE_SIZES
-  shortDescription: String
-  description: String
-  slug: String
-  maxGuests: Int
-  numBedrooms: Int
-  numBeds: Int
-  numBaths: Int
-  popularity: Int
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities?: AmenitiesCreateOneWithoutPlaceInput
+  host?: UserCreateOneWithoutOwnedPlacesInput
+  location?: LocationCreateOneWithoutPlaceInput
+  views?: ViewsCreateOneWithoutPlaceInput
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneInput
@@ -12150,7 +12150,7 @@ export interface GuestRequirementsCreateInput {
   govIssuedId: Boolean
   recommendationsFromOtherHosts: Boolean
   guestTripInformation: Boolean
-  place: PlaceCreateOneWithoutGuestRequirementsInput
+  place?: PlaceCreateOneWithoutGuestRequirementsInput
 }
 
 export interface PaymentAccountWhereUniqueInput {
@@ -12169,20 +12169,20 @@ export interface CreditCardInformationWhereUniqueInput {
 export interface PlaceCreateWithoutGuestRequirementsInput {
   name: String
   size: PLACE_SIZES
-  shortDescription: String
-  description: String
-  slug: String
-  maxGuests: Int
-  numBedrooms: Int
-  numBeds: Int
-  numBaths: Int
-  popularity: Int
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities?: AmenitiesCreateOneWithoutPlaceInput
+  host?: UserCreateOneWithoutOwnedPlacesInput
+  pricing?: PricingCreateOneWithoutPlaceInput
+  location?: LocationCreateOneWithoutPlaceInput
+  views?: ViewsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneInput
   bookings: BookingCreateManyWithoutPlaceInput
@@ -12194,10 +12194,10 @@ export interface NotificationWhereUniqueInput {
 }
 
 export interface PoliciesCreateInput {
-  checkInStartTime: Float
-  checkInEndTime: Float
-  checkoutTime: Float
-  place: PlaceCreateOneWithoutPoliciesInput
+  checkInStartTime?: Float
+  checkInEndTime?: Float
+  checkoutTime?: Float
+  place?: PlaceCreateOneWithoutPoliciesInput
 }
 
 export interface HouseRulesWhereUniqueInput {
@@ -12220,20 +12220,20 @@ export interface LocationUpdateOneWithoutRestaurantInput {
 export interface PlaceCreateWithoutPoliciesInput {
   name: String
   size: PLACE_SIZES
-  shortDescription: String
-  description: String
-  slug: String
-  maxGuests: Int
-  numBedrooms: Int
-  numBeds: Int
-  numBaths: Int
-  popularity: Int
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities?: AmenitiesCreateOneWithoutPlaceInput
+  host?: UserCreateOneWithoutOwnedPlacesInput
+  pricing?: PricingCreateOneWithoutPlaceInput
+  location?: LocationCreateOneWithoutPlaceInput
+  views?: ViewsCreateOneWithoutPlaceInput
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneInput
   bookings: BookingCreateManyWithoutPlaceInput
@@ -12241,13 +12241,13 @@ export interface PlaceCreateWithoutPoliciesInput {
 }
 
 export interface UserUpsertWithoutNotificationsInput {
-  update: UserUpdateWithoutNotificationsDataInput
-  create: UserCreateWithoutNotificationsInput
+  update?: UserUpdateWithoutNotificationsDataInput
+  create?: UserCreateWithoutNotificationsInput
 }
 
 export interface ViewsCreateInput {
-  lastWeek: Int
-  place: PlaceCreateOneWithoutViewsInput
+  lastWeek?: Int
+  place?: PlaceCreateOneWithoutViewsInput
 }
 
 export interface UserUpdateOneWithoutNotificationsInput {
@@ -12273,19 +12273,19 @@ export interface MessageUpdateInput {
 export interface PlaceCreateWithoutViewsInput {
   name: String
   size: PLACE_SIZES
-  shortDescription: String
-  description: String
-  slug: String
-  maxGuests: Int
-  numBedrooms: Int
-  numBeds: Int
-  numBaths: Int
-  popularity: Int
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
+  amenities?: AmenitiesCreateOneWithoutPlaceInput
+  host?: UserCreateOneWithoutOwnedPlacesInput
+  pricing?: PricingCreateOneWithoutPlaceInput
+  location?: LocationCreateOneWithoutPlaceInput
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneInput
@@ -12301,8 +12301,8 @@ export interface PaymentAccountUpdateWithoutCreditcardDataInput {
 }
 
 export interface LocationCreateInput {
-  lat: Float
-  lng: Float
+  lat?: Float
+  lng?: Float
   address: String
   directions: String
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
@@ -12325,13 +12325,13 @@ export interface CreditCardInformationUpdateInput {
 }
 
 export interface NeighbourhoodCreateInput {
-  name: String
-  slug: String
-  featured: Boolean
-  popularity: Int
+  name?: String
+  slug?: String
+  featured?: Boolean
+  popularity?: Int
   locations: LocationCreateManyWithoutNeighbourHoodInput
   homePreview: PictureCreateOneInput
-  city: CityCreateOneWithoutNeighbourhoodsInput
+  city?: CityCreateOneWithoutNeighbourhoodsInput
 }
 
 export interface PaymentAccountUpdateWithoutPaypalDataInput {
@@ -12352,8 +12352,8 @@ export interface PaypalInformationUpdateInput {
 }
 
 export interface LocationCreateWithoutNeighbourHoodInput {
-  lat: Float
-  lng: Float
+  lat?: Float
+  lng?: Float
   address: String
   directions: String
   user: UserCreateOneWithoutLocationInput
@@ -12371,7 +12371,7 @@ export interface PaymentUpdateInput {
 }
 
 export interface CityCreateInput {
-  name: String
+  name?: String
   neighbourhoods: NeighbourhoodCreateManyWithoutCityInput
 }
 
@@ -12417,10 +12417,10 @@ export interface PlaceUpdateWithoutAmenitiesDataInput {
 }
 
 export interface NeighbourhoodCreateWithoutCityInput {
-  name: String
-  slug: String
-  featured: Boolean
-  popularity: Int
+  name?: String
+  slug?: String
+  featured?: Boolean
+  popularity?: Int
   locations: LocationCreateManyWithoutNeighbourHoodInput
   homePreview: PictureCreateOneInput
 }
@@ -12470,14 +12470,14 @@ export interface AmenitiesUpdateInput {
 }
 
 export interface ExperienceCreateInput {
-  title: String
-  pricePerPerson: Int
-  popularity: Int
+  title?: String
+  pricePerPerson?: Int
+  popularity?: Int
   category: ExperienceCategoryCreateOneWithoutExperienceInput
-  host: UserCreateOneWithoutHostingExperiencesInput
-  location: LocationCreateOneWithoutExperienceInput
+  host?: UserCreateOneWithoutHostingExperiencesInput
+  location?: LocationCreateOneWithoutExperienceInput
   reviews: ReviewCreateManyWithoutExperienceInput
-  preview: PictureCreateOneInput
+  preview?: PictureCreateOneInput
 }
 
 export interface ExperienceUpdateWithoutCategoryDataInput {
@@ -12492,7 +12492,7 @@ export interface ExperienceUpdateWithoutCategoryDataInput {
 
 export interface ExperienceCategoryCreateInput {
   mainColor: String
-  name: String
+  name?: String
   experience: ExperienceCreateOneWithoutCategoryInput
 }
 
@@ -12508,24 +12508,24 @@ export interface ExperienceCreateOneWithoutCategoryInput {
 }
 
 export interface NeighbourhoodUpsertWithWhereUniqueWithoutCityInput {
-  where: NeighbourhoodWhereUniqueInput
-  update: NeighbourhoodUpdateWithoutCityDataInput
-  create: NeighbourhoodCreateWithoutCityInput
+  where?: NeighbourhoodWhereUniqueInput
+  update?: NeighbourhoodUpdateWithoutCityDataInput
+  create?: NeighbourhoodCreateWithoutCityInput
 }
 
 export interface ExperienceCreateWithoutCategoryInput {
-  title: String
-  pricePerPerson: Int
-  popularity: Int
-  host: UserCreateOneWithoutHostingExperiencesInput
-  location: LocationCreateOneWithoutExperienceInput
+  title?: String
+  pricePerPerson?: Int
+  popularity?: Int
+  host?: UserCreateOneWithoutHostingExperiencesInput
+  location?: LocationCreateOneWithoutExperienceInput
   reviews: ReviewCreateManyWithoutExperienceInput
-  preview: PictureCreateOneInput
+  preview?: PictureCreateOneInput
 }
 
 export interface NeighbourhoodUpdateWithWhereUniqueWithoutCityInput {
-  where: NeighbourhoodWhereUniqueInput
-  data: NeighbourhoodUpdateWithoutCityDataInput
+  where?: NeighbourhoodWhereUniqueInput
+  data?: NeighbourhoodUpdateWithoutCityDataInput
 }
 
 export interface AmenitiesCreateInput {
@@ -12569,7 +12569,7 @@ export interface AmenitiesCreateInput {
   childrensBooksAndToys: Boolean
   childrensDinnerware: Boolean
   crib: Boolean
-  place: PlaceCreateOneWithoutAmenitiesInput
+  place?: PlaceCreateOneWithoutAmenitiesInput
 }
 
 export interface CityUpdateInput {
@@ -12596,19 +12596,19 @@ export interface LocationUpdateWithoutNeighbourHoodDataInput {
 export interface PlaceCreateWithoutAmenitiesInput {
   name: String
   size: PLACE_SIZES
-  shortDescription: String
-  description: String
-  slug: String
-  maxGuests: Int
-  numBedrooms: Int
-  numBeds: Int
-  numBaths: Int
-  popularity: Int
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
   reviews: ReviewCreateManyWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  host?: UserCreateOneWithoutOwnedPlacesInput
+  pricing?: PricingCreateOneWithoutPlaceInput
+  location?: LocationCreateOneWithoutPlaceInput
+  views?: ViewsCreateOneWithoutPlaceInput
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneInput
@@ -12626,15 +12626,15 @@ export interface LocationUpdateManyWithoutNeighbourHoodInput {
 }
 
 export interface ReviewCreateInput {
-  text: String
-  stars: Int
-  accuracy: Int
-  location: Int
-  checkIn: Int
-  value: Int
-  cleanliness: Int
-  communication: Int
-  place: PlaceCreateOneWithoutReviewsInput
+  text?: String
+  stars?: Int
+  accuracy?: Int
+  location?: Int
+  checkIn?: Int
+  value?: Int
+  cleanliness?: Int
+  communication?: Int
+  place?: PlaceCreateOneWithoutReviewsInput
   experience: ExperienceCreateOneWithoutReviewsInput
 }
 
@@ -12651,8 +12651,8 @@ export interface LocationUpdateInput {
 }
 
 export interface UserUpsertWithoutLocationInput {
-  update: UserUpdateWithoutLocationDataInput
-  create: UserCreateWithoutLocationInput
+  update?: UserUpdateWithoutLocationDataInput
+  create?: UserCreateWithoutLocationInput
 }
 
 export interface PlaceUpdateWithoutViewsDataInput {
@@ -12679,11 +12679,11 @@ export interface PlaceUpdateWithoutViewsDataInput {
 }
 
 export interface PaymentCreateInput {
-  serviceFee: Float
-  placePrice: Float
-  totalPrice: Float
-  booking: BookingCreateOneWithoutPaymentInput
-  paymentMethod: PaymentAccountCreateOneWithoutPaymentsInput
+  serviceFee?: Float
+  placePrice?: Float
+  totalPrice?: Float
+  booking?: BookingCreateOneWithoutPaymentInput
+  paymentMethod?: PaymentAccountCreateOneWithoutPaymentsInput
 }
 
 export interface ViewsUpdateInput {
@@ -12693,7 +12693,7 @@ export interface ViewsUpdateInput {
 
 export interface PaymentAccountCreateInput {
   type: PAYMENT_PROVIDER
-  user: UserCreateOneWithoutPaymentAccountInput
+  user?: UserCreateOneWithoutPaymentAccountInput
   payments: PaymentCreateManyWithoutPaymentMethodInput
   paypal: PaypalInformationCreateOneWithoutPaymentAccountInput
   creditcard: CreditCardInformationCreateOneWithoutPaymentAccountInput
@@ -12723,8 +12723,8 @@ export interface PlaceUpdateWithoutPoliciesDataInput {
 }
 
 export interface PaypalInformationCreateInput {
-  email: String
-  paymentAccount: PaymentAccountCreateOneWithoutPaypalInput
+  email?: String
+  paymentAccount?: PaymentAccountCreateOneWithoutPaypalInput
 }
 
 export interface PoliciesUpdateInput {
@@ -12764,7 +12764,7 @@ export interface PlaceUpdateWithoutGuestRequirementsDataInput {
 
 export interface PaymentAccountCreateWithoutPaypalInput {
   type: PAYMENT_PROVIDER
-  user: UserCreateOneWithoutPaymentAccountInput
+  user?: UserCreateOneWithoutPaymentAccountInput
   payments: PaymentCreateManyWithoutPaymentMethodInput
   creditcard: CreditCardInformationCreateOneWithoutPaymentAccountInput
 }
@@ -12777,14 +12777,14 @@ export interface GuestRequirementsUpdateInput {
 }
 
 export interface CreditCardInformationCreateInput {
-  cardNumber: String
-  expiresOnMonth: Int
-  expiresOnYear: Int
-  securityCode: String
-  firstName: String
-  lastName: String
-  postalCode: String
-  country: String
+  cardNumber?: String
+  expiresOnMonth?: Int
+  expiresOnYear?: Int
+  securityCode?: String
+  firstName?: String
+  lastName?: String
+  postalCode?: String
+  country?: String
   paymentAccount: PaymentAccountCreateOneWithoutCreditcardInput
 }
 
@@ -12834,39 +12834,39 @@ export interface PricingUpdateInput {
 
 export interface PaymentAccountCreateWithoutCreditcardInput {
   type: PAYMENT_PROVIDER
-  user: UserCreateOneWithoutPaymentAccountInput
+  user?: UserCreateOneWithoutPaymentAccountInput
   payments: PaymentCreateManyWithoutPaymentMethodInput
   paypal: PaypalInformationCreateOneWithoutPaymentAccountInput
 }
 
 export interface PlaceUpsertWithWhereUniqueWithoutHostInput {
-  where: PlaceWhereUniqueInput
-  update: PlaceUpdateWithoutHostDataInput
-  create: PlaceCreateWithoutHostInput
+  where?: PlaceWhereUniqueInput
+  update?: PlaceUpdateWithoutHostDataInput
+  create?: PlaceCreateWithoutHostInput
 }
 
 export interface MessageCreateInput {
-  deliveredAt: DateTime
-  readAt: DateTime
-  from: UserCreateOneWithoutSentMessagesInput
-  to: UserCreateOneWithoutReceivedMessagesInput
+  deliveredAt?: DateTime
+  readAt?: DateTime
+  from?: UserCreateOneWithoutSentMessagesInput
+  to?: UserCreateOneWithoutReceivedMessagesInput
 }
 
 export interface ExperienceUpsertWithoutReviewsInput {
-  update: ExperienceUpdateWithoutReviewsDataInput
-  create: ExperienceCreateWithoutReviewsInput
+  update?: ExperienceUpdateWithoutReviewsDataInput
+  create?: ExperienceCreateWithoutReviewsInput
 }
 
 export interface NotificationCreateInput {
   type: NOTIFICATION_TYPE
-  link: String
-  readDate: DateTime
-  user: UserCreateOneWithoutNotificationsInput
+  link?: String
+  readDate?: DateTime
+  user?: UserCreateOneWithoutNotificationsInput
 }
 
 export interface LocationUpsertWithoutUserInput {
-  update: LocationUpdateWithoutUserDataInput
-  create: LocationCreateWithoutUserInput
+  update?: LocationUpdateWithoutUserDataInput
+  create?: LocationCreateWithoutUserInput
 }
 
 export interface UserCreateOneWithoutNotificationsInput {
@@ -12875,16 +12875,16 @@ export interface UserCreateOneWithoutNotificationsInput {
 }
 
 export interface UserUpsertWithoutOwnedPlacesInput {
-  update: UserUpdateWithoutOwnedPlacesDataInput
-  create: UserCreateWithoutOwnedPlacesInput
+  update?: UserUpdateWithoutOwnedPlacesDataInput
+  create?: UserCreateWithoutOwnedPlacesInput
 }
 
 export interface UserCreateWithoutNotificationsInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  email?: String
+  password?: String
+  phone?: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -12899,23 +12899,23 @@ export interface UserCreateWithoutNotificationsInput {
 }
 
 export interface PlaceUpsertWithoutBookingsInput {
-  update: PlaceUpdateWithoutBookingsDataInput
-  create: PlaceCreateWithoutBookingsInput
+  update?: PlaceUpdateWithoutBookingsDataInput
+  create?: PlaceCreateWithoutBookingsInput
 }
 
 export interface RestaurantCreateInput {
-  title: String
-  avgPricePerPerson: Int
+  title?: String
+  avgPricePerPerson?: Int
   isCurated: Boolean
-  slug: String
-  popularity: Int
+  slug?: String
+  popularity?: Int
   pictures: PictureCreateManyInput
-  location: LocationCreateOneWithoutRestaurantInput
+  location?: LocationCreateOneWithoutRestaurantInput
 }
 
 export interface ExperienceUpsertWithoutLocationInput {
-  update: ExperienceUpdateWithoutLocationDataInput
-  create: ExperienceCreateWithoutLocationInput
+  update?: ExperienceUpdateWithoutLocationDataInput
+  create?: ExperienceCreateWithoutLocationInput
 }
 
 export interface LocationCreateOneWithoutRestaurantInput {
@@ -13051,8 +13051,8 @@ export interface ExperienceCategoryCreateOneWithoutExperienceInput {
 }
 
 export interface PlaceUpdateWithWhereUniqueWithoutHostInput {
-  where: PlaceWhereUniqueInput
-  data: PlaceUpdateWithoutHostDataInput
+  where?: PlaceWhereUniqueInput
+  data?: PlaceUpdateWithoutHostDataInput
 }
 
 export interface UserCreateOneWithoutHostingExperiencesInput {
@@ -13103,8 +13103,8 @@ export interface NeighbourhoodCreateOneWithoutLocationsInput {
 }
 
 export interface ReviewUpdateWithWhereUniqueWithoutPlaceInput {
-  where: ReviewWhereUniqueInput
-  data: ReviewUpdateWithoutPlaceDataInput
+  where?: ReviewWhereUniqueInput
+  data?: ReviewUpdateWithoutPlaceDataInput
 }
 
 export interface PictureCreateOneInput {
@@ -13182,8 +13182,8 @@ export interface BookingCreateManyWithoutBookeeInput {
 }
 
 export interface ExperienceCategoryUpsertWithoutExperienceInput {
-  update: ExperienceCategoryUpdateWithoutExperienceDataInput
-  create: ExperienceCategoryCreateWithoutExperienceInput
+  update?: ExperienceCategoryUpdateWithoutExperienceDataInput
+  create?: ExperienceCategoryCreateWithoutExperienceInput
 }
 
 export interface PlaceCreateOneWithoutBookingsInput {
@@ -13309,8 +13309,8 @@ export interface MessageCreateManyWithoutFromInput {
 }
 
 export interface PictureUpsertNestedInput {
-  update: PictureUpdateDataInput
-  create: PictureCreateInput
+  update?: PictureUpdateDataInput
+  create?: PictureCreateInput
 }
 
 export interface UserCreateOneWithoutReceivedMessagesInput {
@@ -13341,8 +13341,8 @@ export interface ExperienceCreateManyWithoutHostInput {
 }
 
 export interface CityUpsertWithoutNeighbourhoodsInput {
-  update: CityUpdateWithoutNeighbourhoodsDataInput
-  create: CityCreateWithoutNeighbourhoodsInput
+  update?: CityUpdateWithoutNeighbourhoodsDataInput
+  create?: CityCreateWithoutNeighbourhoodsInput
 }
 
 export interface LocationCreateOneWithoutExperienceInput {
@@ -13351,8 +13351,8 @@ export interface LocationCreateOneWithoutExperienceInput {
 }
 
 export interface NeighbourhoodUpsertWithoutLocationsInput {
-  update: NeighbourhoodUpdateWithoutLocationsDataInput
-  create: NeighbourhoodCreateWithoutLocationsInput
+  update?: NeighbourhoodUpdateWithoutLocationsDataInput
+  create?: NeighbourhoodCreateWithoutLocationsInput
 }
 
 export interface RestaurantCreateOneWithoutLocationInput {
@@ -13397,15 +13397,15 @@ export interface PlaceUpdateWithoutLocationDataInput {
 }
 
 export interface ReviewCreateWithoutExperienceInput {
-  text: String
-  stars: Int
-  accuracy: Int
-  location: Int
-  checkIn: Int
-  value: Int
-  cleanliness: Int
-  communication: Int
-  place: PlaceCreateOneWithoutReviewsInput
+  text?: String
+  stars?: Int
+  accuracy?: Int
+  location?: Int
+  checkIn?: Int
+  value?: Int
+  cleanliness?: Int
+  communication?: Int
+  place?: PlaceCreateOneWithoutReviewsInput
 }
 
 export interface AmenitiesUpdateOneWithoutPlaceInput {
@@ -13509,8 +13509,8 @@ export interface RestaurantSubscriptionWhereInput {
 }
 
 export interface AmenitiesUpsertWithoutPlaceInput {
-  update: AmenitiesUpdateWithoutPlaceDataInput
-  create: AmenitiesCreateWithoutPlaceInput
+  update?: AmenitiesUpdateWithoutPlaceDataInput
+  create?: AmenitiesCreateWithoutPlaceInput
 }
 
 export interface BookingWhereInput {
@@ -13646,8 +13646,8 @@ export interface GuestRequirementsWhereInput {
 }
 
 export interface BookingUpdateWithWhereUniqueWithoutBookeeInput {
-  where: BookingWhereUniqueInput
-  data: BookingUpdateWithoutBookeeDataInput
+  where?: BookingWhereUniqueInput
+  data?: BookingUpdateWithoutBookeeDataInput
 }
 
 export interface ViewsWhereInput {
@@ -13985,8 +13985,8 @@ export interface UserWhereUniqueInput {
 }
 
 export interface PricingUpsertWithoutPlaceInput {
-  update: PricingUpdateWithoutPlaceDataInput
-  create: PricingCreateWithoutPlaceInput
+  update?: PricingUpdateWithoutPlaceDataInput
+  create?: PricingCreateWithoutPlaceInput
 }
 
 export interface PoliciesWhereUniqueInput {
@@ -14076,8 +14076,8 @@ export interface RestaurantUpdateInput {
 }
 
 export interface PaymentAccountUpdateWithWhereUniqueWithoutUserInput {
-  where: PaymentAccountWhereUniqueInput
-  data: PaymentAccountUpdateWithoutUserDataInput
+  where?: PaymentAccountWhereUniqueInput
+  data?: PaymentAccountUpdateWithoutUserDataInput
 }
 
 export interface NotificationUpdateInput {
@@ -14121,8 +14121,8 @@ export interface PaymentAccountUpdateOneWithoutPaypalInput {
 }
 
 export interface PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput {
-  where: PaymentWhereUniqueInput
-  data: PaymentUpdateWithoutPaymentMethodDataInput
+  where?: PaymentWhereUniqueInput
+  data?: PaymentUpdateWithoutPaymentMethodDataInput
 }
 
 export interface BookingUpdateInput {
@@ -14190,9 +14190,9 @@ export interface UserUpdateOneWithoutBookingsInput {
 }
 
 export interface LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput {
-  where: LocationWhereUniqueInput
-  update: LocationUpdateWithoutNeighbourHoodDataInput
-  create: LocationCreateWithoutNeighbourHoodInput
+  where?: LocationWhereUniqueInput
+  update?: LocationUpdateWithoutNeighbourHoodDataInput
+  create?: LocationCreateWithoutNeighbourHoodInput
 }
 
 export interface UserUpdateWithoutBookingsDataInput {
@@ -14242,8 +14242,8 @@ export interface PlaceUpdateOneWithoutViewsInput {
 }
 
 export interface MessageUpdateWithWhereUniqueWithoutFromInput {
-  where: MessageWhereUniqueInput
-  data: MessageUpdateWithoutFromDataInput
+  where?: MessageWhereUniqueInput
+  data?: MessageUpdateWithoutFromDataInput
 }
 
 export interface PlaceUpdateOneWithoutPoliciesInput {
@@ -14304,9 +14304,9 @@ export interface UserUpdateWithoutReceivedMessagesDataInput {
 }
 
 export interface ReviewUpsertWithWhereUniqueWithoutPlaceInput {
-  where: ReviewWhereUniqueInput
-  update: ReviewUpdateWithoutPlaceDataInput
-  create: ReviewCreateWithoutPlaceInput
+  where?: ReviewWhereUniqueInput
+  update?: ReviewUpdateWithoutPlaceDataInput
+  create?: ReviewCreateWithoutPlaceInput
 }
 
 export interface NotificationUpdateManyWithoutUserInput {
@@ -14319,18 +14319,18 @@ export interface NotificationUpdateManyWithoutUserInput {
 }
 
 export interface PlaceUpsertWithoutLocationInput {
-  update: PlaceUpdateWithoutLocationDataInput
-  create: PlaceCreateWithoutLocationInput
+  update?: PlaceUpdateWithoutLocationDataInput
+  create?: PlaceCreateWithoutLocationInput
 }
 
 export interface NotificationUpdateWithWhereUniqueWithoutUserInput {
-  where: NotificationWhereUniqueInput
-  data: NotificationUpdateWithoutUserDataInput
+  where?: NotificationWhereUniqueInput
+  data?: NotificationUpdateWithoutUserDataInput
 }
 
 export interface LocationUpsertWithoutPlaceInput {
-  update: LocationUpdateWithoutPlaceDataInput
-  create: LocationCreateWithoutPlaceInput
+  update?: LocationUpdateWithoutPlaceDataInput
+  create?: LocationCreateWithoutPlaceInput
 }
 
 export interface NotificationUpdateWithoutUserDataInput {
@@ -14340,11 +14340,11 @@ export interface NotificationUpdateWithoutUserDataInput {
 }
 
 export interface UserCreateInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  email?: String
+  password?: String
+  phone?: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -14360,20 +14360,20 @@ export interface UserCreateInput {
 }
 
 export interface NotificationUpsertWithWhereUniqueWithoutUserInput {
-  where: NotificationWhereUniqueInput
-  update: NotificationUpdateWithoutUserDataInput
-  create: NotificationCreateWithoutUserInput
+  where?: NotificationWhereUniqueInput
+  update?: NotificationUpdateWithoutUserDataInput
+  create?: NotificationCreateWithoutUserInput
 }
 
 export interface ReviewCreateWithoutPlaceInput {
-  text: String
-  stars: Int
-  accuracy: Int
-  location: Int
-  checkIn: Int
-  value: Int
-  cleanliness: Int
-  communication: Int
+  text?: String
+  stars?: Int
+  accuracy?: Int
+  location?: Int
+  checkIn?: Int
+  value?: Int
+  cleanliness?: Int
+  communication?: Int
   experience: ExperienceCreateOneWithoutReviewsInput
 }
 
@@ -14388,17 +14388,17 @@ export interface ExperienceUpdateManyWithoutHostInput {
 
 export interface ExperienceCategoryCreateWithoutExperienceInput {
   mainColor: String
-  name: String
+  name?: String
 }
 
 export interface ExperienceUpdateWithWhereUniqueWithoutHostInput {
-  where: ExperienceWhereUniqueInput
-  data: ExperienceUpdateWithoutHostDataInput
+  where?: ExperienceWhereUniqueInput
+  data?: ExperienceUpdateWithoutHostDataInput
 }
 
 export interface LocationCreateWithoutUserInput {
-  lat: Float
-  lng: Float
+  lat?: Float
+  lng?: Float
   address: String
   directions: String
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
@@ -14418,7 +14418,7 @@ export interface ExperienceUpdateWithoutHostDataInput {
 }
 
 export interface PictureCreateInput {
-  url: String
+  url?: String
 }
 
 export interface LocationUpdateOneWithoutExperienceInput {
@@ -14432,19 +14432,19 @@ export interface LocationUpdateOneWithoutExperienceInput {
 export interface PlaceCreateWithoutLocationInput {
   name: String
   size: PLACE_SIZES
-  shortDescription: String
-  description: String
-  slug: String
-  maxGuests: Int
-  numBedrooms: Int
-  numBeds: Int
-  numBaths: Int
-  popularity: Int
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities?: AmenitiesCreateOneWithoutPlaceInput
+  host?: UserCreateOneWithoutOwnedPlacesInput
+  pricing?: PricingCreateOneWithoutPlaceInput
+  views?: ViewsCreateOneWithoutPlaceInput
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneInput
@@ -14464,11 +14464,11 @@ export interface LocationUpdateWithoutExperienceDataInput {
 }
 
 export interface UserCreateWithoutOwnedPlacesInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  email?: String
+  password?: String
+  phone?: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -14494,20 +14494,20 @@ export interface RestaurantUpdateOneWithoutLocationInput {
 export interface PlaceCreateWithoutBookingsInput {
   name: String
   size: PLACE_SIZES
-  shortDescription: String
-  description: String
-  slug: String
-  maxGuests: Int
-  numBedrooms: Int
-  numBeds: Int
-  numBaths: Int
-  popularity: Int
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  host: UserCreateOneWithoutOwnedPlacesInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities?: AmenitiesCreateOneWithoutPlaceInput
+  host?: UserCreateOneWithoutOwnedPlacesInput
+  pricing?: PricingCreateOneWithoutPlaceInput
+  location?: LocationCreateOneWithoutPlaceInput
+  views?: ViewsCreateOneWithoutPlaceInput
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneInput
@@ -14524,8 +14524,8 @@ export interface RestaurantUpdateWithoutLocationDataInput {
 }
 
 export interface LocationCreateWithoutPlaceInput {
-  lat: Float
-  lng: Float
+  lat?: Float
+  lng?: Float
   address: String
   directions: String
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
@@ -14546,26 +14546,26 @@ export interface PaymentAccountCreateWithoutUserInput {
 }
 
 export interface RestaurantUpsertWithoutLocationInput {
-  update: RestaurantUpdateWithoutLocationDataInput
-  create: RestaurantCreateWithoutLocationInput
+  update?: RestaurantUpdateWithoutLocationDataInput
+  create?: RestaurantCreateWithoutLocationInput
 }
 
 export interface BookingCreateWithoutPaymentInput {
-  startDate: DateTime
-  endDate: DateTime
-  bookee: UserCreateOneWithoutBookingsInput
-  place: PlaceCreateOneWithoutBookingsInput
+  startDate?: DateTime
+  endDate?: DateTime
+  bookee?: UserCreateOneWithoutBookingsInput
+  place?: PlaceCreateOneWithoutBookingsInput
 }
 
 export interface LocationUpsertWithoutExperienceInput {
-  update: LocationUpdateWithoutExperienceDataInput
-  create: LocationCreateWithoutExperienceInput
+  update?: LocationUpdateWithoutExperienceDataInput
+  create?: LocationCreateWithoutExperienceInput
 }
 
 export interface MessageCreateWithoutFromInput {
-  deliveredAt: DateTime
-  readAt: DateTime
-  to: UserCreateOneWithoutReceivedMessagesInput
+  deliveredAt?: DateTime
+  readAt?: DateTime
+  to?: UserCreateOneWithoutReceivedMessagesInput
 }
 
 export interface ReviewUpdateManyWithoutExperienceInput {
@@ -14579,18 +14579,18 @@ export interface ReviewUpdateManyWithoutExperienceInput {
 
 export interface NotificationCreateWithoutUserInput {
   type: NOTIFICATION_TYPE
-  link: String
-  readDate: DateTime
+  link?: String
+  readDate?: DateTime
 }
 
 export interface ReviewUpdateWithWhereUniqueWithoutExperienceInput {
-  where: ReviewWhereUniqueInput
-  data: ReviewUpdateWithoutExperienceDataInput
+  where?: ReviewWhereUniqueInput
+  data?: ReviewUpdateWithoutExperienceDataInput
 }
 
 export interface LocationCreateWithoutExperienceInput {
-  lat: Float
-  lng: Float
+  lat?: Float
+  lng?: Float
   address: String
   directions: String
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
@@ -14747,8 +14747,8 @@ export interface GuestRequirementsSubscriptionWhereInput {
 }
 
 export interface ViewsUpsertWithoutPlaceInput {
-  update: ViewsUpdateWithoutPlaceDataInput
-  create: ViewsCreateWithoutPlaceInput
+  update?: ViewsUpdateWithoutPlaceDataInput
+  create?: ViewsCreateWithoutPlaceInput
 }
 
 export interface NeighbourhoodWhereInput {
@@ -14843,8 +14843,8 @@ export interface LocationWhereUniqueInput {
 }
 
 export interface GuestRequirementsUpsertWithoutPlaceInput {
-  update: GuestRequirementsUpdateWithoutPlaceDataInput
-  create: GuestRequirementsCreateWithoutPlaceInput
+  update?: GuestRequirementsUpdateWithoutPlaceDataInput
+  create?: GuestRequirementsCreateWithoutPlaceInput
 }
 
 export interface PaymentWhereUniqueInput {
@@ -14878,13 +14878,13 @@ export interface PoliciesUpdateWithoutPlaceDataInput {
 }
 
 export interface PaymentAccountUpsertWithoutCreditcardInput {
-  update: PaymentAccountUpdateWithoutCreditcardDataInput
-  create: PaymentAccountCreateWithoutCreditcardInput
+  update?: PaymentAccountUpdateWithoutCreditcardDataInput
+  create?: PaymentAccountCreateWithoutCreditcardInput
 }
 
 export interface PoliciesUpsertWithoutPlaceInput {
-  update: PoliciesUpdateWithoutPlaceDataInput
-  create: PoliciesCreateWithoutPlaceInput
+  update?: PoliciesUpdateWithoutPlaceDataInput
+  create?: PoliciesCreateWithoutPlaceInput
 }
 
 export interface PaymentAccountUpdateInput {
@@ -14905,8 +14905,8 @@ export interface HouseRulesUpdateOneInput {
 }
 
 export interface ExperienceUpsertWithoutCategoryInput {
-  update: ExperienceUpdateWithoutCategoryDataInput
-  create: ExperienceCreateWithoutCategoryInput
+  update?: ExperienceUpdateWithoutCategoryDataInput
+  create?: ExperienceCreateWithoutCategoryInput
 }
 
 export interface HouseRulesUpdateDataInput {
@@ -14928,13 +14928,13 @@ export interface NeighbourhoodUpdateManyWithoutCityInput {
 }
 
 export interface HouseRulesUpsertNestedInput {
-  update: HouseRulesUpdateDataInput
-  create: HouseRulesCreateInput
+  update?: HouseRulesUpdateDataInput
+  create?: HouseRulesCreateInput
 }
 
 export interface PlaceUpsertWithoutViewsInput {
-  update: PlaceUpdateWithoutViewsDataInput
-  create: PlaceCreateWithoutViewsInput
+  update?: PlaceUpdateWithoutViewsDataInput
+  create?: PlaceCreateWithoutViewsInput
 }
 
 export interface BookingUpdateManyWithoutPlaceInput {
@@ -14947,13 +14947,13 @@ export interface BookingUpdateManyWithoutPlaceInput {
 }
 
 export interface PlaceUpsertWithoutGuestRequirementsInput {
-  update: PlaceUpdateWithoutGuestRequirementsDataInput
-  create: PlaceCreateWithoutGuestRequirementsInput
+  update?: PlaceUpdateWithoutGuestRequirementsDataInput
+  create?: PlaceCreateWithoutGuestRequirementsInput
 }
 
 export interface BookingUpdateWithWhereUniqueWithoutPlaceInput {
-  where: BookingWhereUniqueInput
-  data: BookingUpdateWithoutPlaceDataInput
+  where?: BookingWhereUniqueInput
+  data?: BookingUpdateWithoutPlaceDataInput
 }
 
 export interface PlaceUpdateInput {
@@ -14988,9 +14988,9 @@ export interface BookingUpdateWithoutPlaceDataInput {
 }
 
 export interface BookingUpsertWithWhereUniqueWithoutBookeeInput {
-  where: BookingWhereUniqueInput
-  update: BookingUpdateWithoutBookeeDataInput
-  create: BookingCreateWithoutBookeeInput
+  where?: BookingWhereUniqueInput
+  update?: BookingUpdateWithoutBookeeDataInput
+  create?: BookingCreateWithoutBookeeInput
 }
 
 export interface PaymentUpdateOneWithoutBookingInput {
@@ -15004,19 +15004,19 @@ export interface PaymentUpdateOneWithoutBookingInput {
 export interface PlaceCreateWithoutHostInput {
   name: String
   size: PLACE_SIZES
-  shortDescription: String
-  description: String
-  slug: String
-  maxGuests: Int
-  numBedrooms: Int
-  numBeds: Int
-  numBaths: Int
-  popularity: Int
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
   reviews: ReviewCreateManyWithoutPlaceInput
-  amenities: AmenitiesCreateOneWithoutPlaceInput
-  pricing: PricingCreateOneWithoutPlaceInput
-  location: LocationCreateOneWithoutPlaceInput
-  views: ViewsCreateOneWithoutPlaceInput
+  amenities?: AmenitiesCreateOneWithoutPlaceInput
+  pricing?: PricingCreateOneWithoutPlaceInput
+  location?: LocationCreateOneWithoutPlaceInput
+  views?: ViewsCreateOneWithoutPlaceInput
   guestRequirements: GuestRequirementsCreateOneWithoutPlaceInput
   policies: PoliciesCreateOneWithoutPlaceInput
   houseRules: HouseRulesCreateOneInput
@@ -15032,11 +15032,11 @@ export interface PaymentUpdateWithoutBookingDataInput {
 }
 
 export interface UserCreateWithoutHostingExperiencesInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  email?: String
+  password?: String
+  phone?: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -15059,7 +15059,7 @@ export interface PaymentAccountUpdateOneWithoutPaymentsInput {
 }
 
 export interface CityCreateWithoutNeighbourhoodsInput {
-  name: String
+  name?: String
 }
 
 export interface PaymentAccountUpdateWithoutPaymentsDataInput {
@@ -15070,10 +15070,10 @@ export interface PaymentAccountUpdateWithoutPaymentsDataInput {
 }
 
 export interface BookingCreateWithoutBookeeInput {
-  startDate: DateTime
-  endDate: DateTime
-  place: PlaceCreateOneWithoutBookingsInput
-  payment: PaymentCreateOneWithoutBookingInput
+  startDate?: DateTime
+  endDate?: DateTime
+  place?: PlaceCreateOneWithoutBookingsInput
+  payment?: PaymentCreateOneWithoutBookingInput
 }
 
 export interface UserUpdateOneWithoutPaymentAccountInput {
@@ -15085,11 +15085,11 @@ export interface UserUpdateOneWithoutPaymentAccountInput {
 }
 
 export interface UserCreateWithoutLocationInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  email?: String
+  password?: String
+  phone?: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -15123,11 +15123,11 @@ export interface UserUpdateWithoutPaymentAccountDataInput {
 }
 
 export interface UserCreateWithoutBookingsInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  email?: String
+  password?: String
+  phone?: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -15151,18 +15151,18 @@ export interface MessageUpdateManyWithoutToInput {
 }
 
 export interface ExperienceCreateWithoutHostInput {
-  title: String
-  pricePerPerson: Int
-  popularity: Int
+  title?: String
+  pricePerPerson?: Int
+  popularity?: Int
   category: ExperienceCategoryCreateOneWithoutExperienceInput
-  location: LocationCreateOneWithoutExperienceInput
+  location?: LocationCreateOneWithoutExperienceInput
   reviews: ReviewCreateManyWithoutExperienceInput
-  preview: PictureCreateOneInput
+  preview?: PictureCreateOneInput
 }
 
 export interface MessageUpdateWithWhereUniqueWithoutToInput {
-  where: MessageWhereUniqueInput
-  data: MessageUpdateWithoutToDataInput
+  where?: MessageWhereUniqueInput
+  data?: MessageUpdateWithoutToDataInput
 }
 
 export interface PlaceCreateOneWithoutReviewsInput {
@@ -15256,8 +15256,8 @@ export interface PricingWhereUniqueInput {
 }
 
 export interface UserUpsertWithoutSentMessagesInput {
-  update: UserUpdateWithoutSentMessagesDataInput
-  create: UserCreateWithoutSentMessagesInput
+  update?: UserUpdateWithoutSentMessagesDataInput
+  create?: UserCreateWithoutSentMessagesInput
 }
 
 export interface MessageWhereUniqueInput {
@@ -15265,19 +15265,19 @@ export interface MessageWhereUniqueInput {
 }
 
 export interface MessageUpsertWithWhereUniqueWithoutToInput {
-  where: MessageWhereUniqueInput
-  update: MessageUpdateWithoutToDataInput
-  create: MessageCreateWithoutToInput
+  where?: MessageWhereUniqueInput
+  update?: MessageUpdateWithoutToDataInput
+  create?: MessageCreateWithoutToInput
 }
 
 export interface PaymentAccountUpsertWithoutPaypalInput {
-  update: PaymentAccountUpdateWithoutPaypalDataInput
-  create: PaymentAccountCreateWithoutPaypalInput
+  update?: PaymentAccountUpdateWithoutPaypalDataInput
+  create?: PaymentAccountCreateWithoutPaypalInput
 }
 
 export interface UserUpsertWithoutPaymentAccountInput {
-  update: UserUpdateWithoutPaymentAccountDataInput
-  create: UserCreateWithoutPaymentAccountInput
+  update?: UserUpdateWithoutPaymentAccountDataInput
+  create?: UserCreateWithoutPaymentAccountInput
 }
 
 export interface ExperienceUpdateInput {
@@ -15301,8 +15301,8 @@ export interface PaypalInformationUpdateOneWithoutPaymentAccountInput {
 }
 
 export interface PlaceUpsertWithoutPoliciesInput {
-  update: PlaceUpdateWithoutPoliciesDataInput
-  create: PlaceCreateWithoutPoliciesInput
+  update?: PlaceUpdateWithoutPoliciesDataInput
+  create?: PlaceCreateWithoutPoliciesInput
 }
 
 export interface PaypalInformationUpdateWithoutPaymentAccountDataInput {
@@ -15310,23 +15310,23 @@ export interface PaypalInformationUpdateWithoutPaymentAccountDataInput {
 }
 
 export interface UserUpsertWithoutHostingExperiencesInput {
-  update: UserUpdateWithoutHostingExperiencesDataInput
-  create: UserCreateWithoutHostingExperiencesInput
+  update?: UserUpdateWithoutHostingExperiencesDataInput
+  create?: UserCreateWithoutHostingExperiencesInput
 }
 
 export interface PaypalInformationUpsertWithoutPaymentAccountInput {
-  update: PaypalInformationUpdateWithoutPaymentAccountDataInput
-  create: PaypalInformationCreateWithoutPaymentAccountInput
+  update?: PaypalInformationUpdateWithoutPaymentAccountDataInput
+  create?: PaypalInformationCreateWithoutPaymentAccountInput
 }
 
 export interface ExperienceCreateWithoutReviewsInput {
-  title: String
-  pricePerPerson: Int
-  popularity: Int
+  title?: String
+  pricePerPerson?: Int
+  popularity?: Int
   category: ExperienceCategoryCreateOneWithoutExperienceInput
-  host: UserCreateOneWithoutHostingExperiencesInput
-  location: LocationCreateOneWithoutExperienceInput
-  preview: PictureCreateOneInput
+  host?: UserCreateOneWithoutHostingExperiencesInput
+  location?: LocationCreateOneWithoutExperienceInput
+  preview?: PictureCreateOneInput
 }
 
 export interface CreditCardInformationUpdateOneWithoutPaymentAccountInput {
@@ -15393,29 +15393,29 @@ export interface CreditCardInformationUpdateWithoutPaymentAccountDataInput {
 }
 
 export interface PaymentCreateWithoutPaymentMethodInput {
-  serviceFee: Float
-  placePrice: Float
-  totalPrice: Float
-  booking: BookingCreateOneWithoutPaymentInput
+  serviceFee?: Float
+  placePrice?: Float
+  totalPrice?: Float
+  booking?: BookingCreateOneWithoutPaymentInput
 }
 
 export interface CreditCardInformationUpsertWithoutPaymentAccountInput {
-  update: CreditCardInformationUpdateWithoutPaymentAccountDataInput
-  create: CreditCardInformationCreateWithoutPaymentAccountInput
+  update?: CreditCardInformationUpdateWithoutPaymentAccountDataInput
+  create?: CreditCardInformationCreateWithoutPaymentAccountInput
 }
 
 export interface RestaurantCreateWithoutLocationInput {
-  title: String
-  avgPricePerPerson: Int
+  title?: String
+  avgPricePerPerson?: Int
   isCurated: Boolean
-  slug: String
-  popularity: Int
+  slug?: String
+  popularity?: Int
   pictures: PictureCreateManyInput
 }
 
 export interface PaymentAccountUpsertWithoutPaymentsInput {
-  update: PaymentAccountUpdateWithoutPaymentsDataInput
-  create: PaymentAccountCreateWithoutPaymentsInput
+  update?: PaymentAccountUpdateWithoutPaymentsDataInput
+  create?: PaymentAccountCreateWithoutPaymentsInput
 }
 
 export interface LocationSubscriptionWhereInput {
@@ -15430,8 +15430,8 @@ export interface LocationSubscriptionWhereInput {
 }
 
 export interface PaymentUpsertWithoutBookingInput {
-  update: PaymentUpdateWithoutBookingDataInput
-  create: PaymentCreateWithoutBookingInput
+  update?: PaymentUpdateWithoutBookingDataInput
+  create?: PaymentCreateWithoutBookingInput
 }
 
 export interface ExperienceCategoryWhereUniqueInput {
@@ -15439,53 +15439,53 @@ export interface ExperienceCategoryWhereUniqueInput {
 }
 
 export interface BookingUpsertWithWhereUniqueWithoutPlaceInput {
-  where: BookingWhereUniqueInput
-  update: BookingUpdateWithoutPlaceDataInput
-  create: BookingCreateWithoutPlaceInput
+  where?: BookingWhereUniqueInput
+  update?: BookingUpdateWithoutPlaceDataInput
+  create?: BookingCreateWithoutPlaceInput
 }
 
 export interface PlaceUpsertWithoutAmenitiesInput {
-  update: PlaceUpdateWithoutAmenitiesDataInput
-  create: PlaceCreateWithoutAmenitiesInput
+  update?: PlaceUpdateWithoutAmenitiesDataInput
+  create?: PlaceCreateWithoutAmenitiesInput
 }
 
 export interface PlaceUpsertWithoutReviewsInput {
-  update: PlaceUpdateWithoutReviewsDataInput
-  create: PlaceCreateWithoutReviewsInput
+  update?: PlaceUpdateWithoutReviewsDataInput
+  create?: PlaceCreateWithoutReviewsInput
 }
 
 export interface PlaceUpsertWithoutPricingInput {
-  update: PlaceUpdateWithoutPricingDataInput
-  create: PlaceCreateWithoutPricingInput
+  update?: PlaceUpdateWithoutPricingDataInput
+  create?: PlaceCreateWithoutPricingInput
 }
 
 export interface ReviewUpsertWithWhereUniqueWithoutExperienceInput {
-  where: ReviewWhereUniqueInput
-  update: ReviewUpdateWithoutExperienceDataInput
-  create: ReviewCreateWithoutExperienceInput
+  where?: ReviewWhereUniqueInput
+  update?: ReviewUpdateWithoutExperienceDataInput
+  create?: ReviewCreateWithoutExperienceInput
 }
 
 export interface NeighbourhoodCreateWithoutLocationsInput {
-  name: String
-  slug: String
-  featured: Boolean
-  popularity: Int
+  name?: String
+  slug?: String
+  featured?: Boolean
+  popularity?: Int
   homePreview: PictureCreateOneInput
-  city: CityCreateOneWithoutNeighbourhoodsInput
+  city?: CityCreateOneWithoutNeighbourhoodsInput
 }
 
 export interface ExperienceUpsertWithWhereUniqueWithoutHostInput {
-  where: ExperienceWhereUniqueInput
-  update: ExperienceUpdateWithoutHostDataInput
-  create: ExperienceCreateWithoutHostInput
+  where?: ExperienceWhereUniqueInput
+  update?: ExperienceUpdateWithoutHostDataInput
+  create?: ExperienceCreateWithoutHostInput
 }
 
 export interface UserCreateWithoutReceivedMessagesInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  email?: String
+  password?: String
+  phone?: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -15500,8 +15500,8 @@ export interface UserCreateWithoutReceivedMessagesInput {
 }
 
 export interface UserUpsertWithoutReceivedMessagesInput {
-  update: UserUpdateWithoutReceivedMessagesDataInput
-  create: UserCreateWithoutReceivedMessagesInput
+  update?: UserUpdateWithoutReceivedMessagesDataInput
+  create?: UserCreateWithoutReceivedMessagesInput
 }
 
 export interface ReviewWhereInput {
@@ -15605,25 +15605,25 @@ export interface ReviewWhereInput {
 }
 
 export interface PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput {
-  where: PaymentWhereUniqueInput
-  update: PaymentUpdateWithoutPaymentMethodDataInput
-  create: PaymentCreateWithoutPaymentMethodInput
+  where?: PaymentWhereUniqueInput
+  update?: PaymentUpdateWithoutPaymentMethodDataInput
+  create?: PaymentCreateWithoutPaymentMethodInput
 }
 
 export interface BookingUpsertWithoutPaymentInput {
-  update: BookingUpdateWithoutPaymentDataInput
-  create: BookingCreateWithoutPaymentInput
+  update?: BookingUpdateWithoutPaymentDataInput
+  create?: BookingCreateWithoutPaymentInput
 }
 
 export interface UserUpsertWithoutBookingsInput {
-  update: UserUpdateWithoutBookingsDataInput
-  create: UserCreateWithoutBookingsInput
+  update?: UserUpdateWithoutBookingsDataInput
+  create?: UserCreateWithoutBookingsInput
 }
 
 export interface MessageUpsertWithWhereUniqueWithoutFromInput {
-  where: MessageWhereUniqueInput
-  update: MessageUpdateWithoutFromDataInput
-  create: MessageCreateWithoutFromInput
+  where?: MessageWhereUniqueInput
+  update?: MessageUpdateWithoutFromDataInput
+  create?: MessageCreateWithoutFromInput
 }
 
 export interface UserUpdateWithoutNotificationsDataInput {
@@ -15659,11 +15659,11 @@ export interface MessageSubscriptionWhereInput {
 export interface PricingCreateWithoutPlaceInput {
   monthlyDiscount: Int
   weeklyDiscount: Int
-  perNight: Int
+  perNight?: Int
   smartPricing: Boolean
-  basePrice: Int
-  averageWeekly: Int
-  averageMonthly: Int
+  basePrice?: Int
+  averageWeekly?: Int
+  averageMonthly?: Int
   cleaningFee: Int
   securityDeposit: Int
   extraGuests: Int
@@ -15682,8 +15682,8 @@ export interface ExperienceUpdateWithoutLocationDataInput {
 }
 
 export interface LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput {
-  where: LocationWhereUniqueInput
-  data: LocationUpdateWithoutNeighbourHoodDataInput
+  where?: LocationWhereUniqueInput
+  data?: LocationUpdateWithoutNeighbourHoodDataInput
 }
 
 /*
