@@ -1,4 +1,4 @@
-import { IPlace } from './generated/interfaces'
+import { IPlace } from './src/generated/resolvers'
 import { Types } from './types'
 
 export type PLACE_SIZESRoot =

@@ -1,4 +1,4 @@
-import { IPaypalInformation } from './generated/interfaces'
+import { IPaypalInformation } from './src/generated/resolvers'
 import { Types } from './types'
 
 import { PaymentAccountRoot } from './PaymentAccount'

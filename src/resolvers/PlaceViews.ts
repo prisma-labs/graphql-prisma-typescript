@@ -1,4 +1,4 @@
-import { IPlaceViews } from './generated/interfaces'
+import { IPlaceViews } from './src/generated/resolvers'
 import { Types } from './types'
 
 export interface PlaceViewsRoot {

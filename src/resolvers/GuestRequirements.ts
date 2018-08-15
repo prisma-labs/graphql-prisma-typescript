@@ -1,4 +1,4 @@
-import { IGuestRequirements } from './generated/interfaces'
+import { IGuestRequirements } from './src/generated/resolvers'
 import { Types } from './types'
 
 export interface GuestRequirementsRoot {

@@ -1,4 +1,4 @@
-import { IMessage } from './generated/interfaces'
+import { IMessage } from './src/generated/resolvers'
 import { Types } from './types'
 
 export interface MessageRoot {

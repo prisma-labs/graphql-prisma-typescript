@@ -1,4 +1,4 @@
-import { ITypes } from './generated/interfaces'
+import { ITypes } from './src/generated/resolvers'
 
 import { QueryRoot } from './Query'
 

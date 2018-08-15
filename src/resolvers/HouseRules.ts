@@ -1,4 +1,4 @@
-import { IHouseRules } from './generated/interfaces'
+import { IHouseRules } from './src/generated/resolvers'
 import { Types } from './types'
 
 export interface HouseRulesRoot {

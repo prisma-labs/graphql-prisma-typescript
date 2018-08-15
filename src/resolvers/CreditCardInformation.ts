@@ -1,4 +1,4 @@
-import { ICreditCardInformation } from './generated/interfaces'
+import { ICreditCardInformation } from './src/generated/resolvers'
 import { Types } from './types'
 
 import { PaymentAccountRoot } from './PaymentAccount'

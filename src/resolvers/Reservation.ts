@@ -1,4 +1,4 @@
-import { IReservation } from './generated/interfaces'
+import { IReservation } from './src/generated/resolvers'
 import { Types } from './types'
 
 import { PictureRoot } from './Picture'

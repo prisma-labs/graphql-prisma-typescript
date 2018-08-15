@@ -1,4 +1,4 @@
-import { IBooking } from './generated/interfaces'
+import { IBooking } from './src/generated/resolvers'
 import { Types } from './types'
 
 import { UserRoot } from './User'

@@ -1,4 +1,4 @@
-import { IPaymentAccount } from './generated/interfaces'
+import { IPaymentAccount } from './src/generated/resolvers'
 import { Types } from './types'
 
 export type PAYMENT_PROVIDERRoot = 'PAYPAL' | 'CREDIT_CARD'

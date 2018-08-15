@@ -1,4 +1,4 @@
-import { IPolicies } from './generated/interfaces'
+import { IPolicies } from './src/generated/resolvers'
 import { Types } from './types'
 
 export interface PoliciesRoot {

@@ -1,4 +1,4 @@
-import { IAmenities } from './generated/interfaces'
+import { IAmenities } from './src/generated/resolvers'
 import { Types } from './types'
 
 export interface AmenitiesRoot {

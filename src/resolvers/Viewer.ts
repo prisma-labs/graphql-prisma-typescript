@@ -1,4 +1,4 @@
-import { IViewer } from './generated/interfaces'
+import { IViewer } from './src/generated/resolvers'
 import { Types } from './types'
 
 import { UserRoot } from './User'

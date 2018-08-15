@@ -1,4 +1,4 @@
-import { ICity } from './generated/interfaces'
+import { ICity } from './src/generated/resolvers'
 import { Types } from './types'
 
 export interface CityRoot {

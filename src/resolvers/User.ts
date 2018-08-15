@@ -1,4 +1,4 @@
-import { IUser } from './generated/interfaces'
+import { IUser } from './src/generated/resolvers'
 import { Types } from './types'
 
 import { BookingRoot } from './Booking'
