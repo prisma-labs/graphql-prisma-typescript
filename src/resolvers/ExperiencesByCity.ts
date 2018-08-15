@@ -1,4 +1,4 @@
-import { IExperiencesByCity } from './src/generated/resolvers'
+import { IExperiencesByCity } from '../generated/resolvers'
 import { Types } from './types'
 import { ExperienceRoot } from './Experience'
 import { CityRoot } from './City'
