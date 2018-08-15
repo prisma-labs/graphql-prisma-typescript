@@ -1,4 +1,4 @@
-import { INeighbourhood } from './src/generated/resolvers'
+import { INeighbourhood } from '../generated/resolvers'
 import { Types } from './types'
 import { PictureRoot } from './Picture'
 import { CityRoot } from './City'

@@ -1,4 +1,4 @@
-import { IExperience } from './src/generated/resolvers'
+import { IExperience } from '../generated/resolvers'
 import { Types } from './types'
 import { ExperienceCategoryRoot } from './ExperienceCategory'
 import { LocationRoot } from './Location'

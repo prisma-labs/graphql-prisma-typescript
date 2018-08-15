@@ -1,4 +1,4 @@
-import { IBooking } from './src/generated/resolvers'
+import { IBooking } from '../generated/resolvers'
 import { Types } from './types'
 import { UserRoot } from './User'
 import { PlaceRoot } from './Place'

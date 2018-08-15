@@ -1,4 +1,4 @@
-import { IPlace } from './src/generated/resolvers'
+import { IPlace } from '../generated/resolvers'
 import { Types } from './types'
 import { ReviewRoot } from './Review'
 import { AmenitiesRoot } from './Amenities'

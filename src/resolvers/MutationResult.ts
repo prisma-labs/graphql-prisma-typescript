@@ -1,4 +1,4 @@
-import { IMutationResult } from './src/generated/resolvers'
+import { IMutationResult } from '../generated/resolvers'
 import { Types } from './types'
 
 export interface MutationResultRoot {

@@ -1,4 +1,4 @@
-import { IAuthPayload } from './src/generated/resolvers'
+import { IAuthPayload } from '../generated/resolvers'
 import { Types } from './types'
 import { UserRoot } from './User'
 

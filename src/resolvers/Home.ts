@@ -1,4 +1,4 @@
-import { IHome } from './src/generated/resolvers'
+import { IHome } from '../generated/resolvers'
 import { Types } from './types'
 import { PictureRoot } from './Picture'
 

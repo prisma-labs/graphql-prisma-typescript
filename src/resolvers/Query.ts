@@ -1,4 +1,4 @@
-import { IQuery } from './src/generated/resolvers'
+import { IQuery } from '../generated/resolvers'
 import { Types } from './types'
 import { ExperienceRoot } from './Experience'
 import { HomeRoot } from './Home'

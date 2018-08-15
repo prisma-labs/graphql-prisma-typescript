@@ -1,4 +1,4 @@
-import { IReservation } from './src/generated/resolvers'
+import { IReservation } from '../generated/resolvers'
 import { Types } from './types'
 import { PictureRoot } from './Picture'
 import { LocationRoot } from './Location'

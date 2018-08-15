@@ -1,4 +1,4 @@
-import { IPicture } from './src/generated/resolvers'
+import { IPicture } from '../generated/resolvers'
 import { Types } from './types'
 
 export interface PictureRoot {
