@@ -1,7 +1,17 @@
-import { ICity } from '../generated/schema'
-import { Types } from '../types'
+import { ICity } from "./generated/interfaces.ts";
+import { Types } from "./types";
 
-// TODO
-export interface CityRoot {}
+export interface CityRoot {
+  id: string;
 
-export const City: ICity.Resolver<Types> = {}
+  name: string;
+}
+
+export const City: ICity.Resolver<Types> = {
+  id: async (root, args, ctx, info) => {
+    return null;
+  },
+  name: async (root, args, ctx, info) => {
+    return null;
+  }
+};

@@ -1,10 +1,17 @@
-import { IPicture } from '../generated/schema'
-import { Types } from '../types'
+import { IPicture } from "./generated/interfaces.ts";
+import { Types } from "./types";
 
 export interface PictureRoot {
-  url: string
+  id: string;
+
+  url: string;
 }
 
 export const Picture: IPicture.Resolver<Types> = {
-  url: root => root.url,
-}
+  id: async (root, args, ctx, info) => {
+    return null;
+  },
+  url: async (root, args, ctx, info) => {
+    return null;
+  }
+};

@@ -1,23 +1,21 @@
-import { Context } from '../utils'
-import { IExperiencesByCity } from '../generated/schema'
-import { Types } from '../types'
+import { IExperiencesByCity } from "./generated/interfaces.ts";
+import { Types } from "./types";
+
+import { ExperienceRoot } from "./Experience";
+
+import { CityRoot } from "./City";
 
 export interface ExperiencesByCityRoot {
-  id: string
+  experiences: ExperienceRoot[];
+
+  city: CityRoot;
 }
 
 export const ExperiencesByCity: IExperiencesByCity.Resolver<Types> = {
-  city: async ({ id }: ExperiencesByCityRoot, args: {}, ctx: Context) => {
-    return ctx.db.query.city({ where: { id } })
+  experiences: async (root, args, ctx, info) => {
+    return null;
   },
-
-  experiences: async (
-    { id }: ExperiencesByCityRoot,
-    args: {},
-    ctx: Context,
-  ) => {
-    return ctx.db.query.experiences({
-      where: { location: { neighbourHood: { city: { id } } } },
-    })
-  },
-}
+  city: async (root, args, ctx, info) => {
+    return null;
+  }
+};

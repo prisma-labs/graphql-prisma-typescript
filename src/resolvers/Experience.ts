@@ -1,7 +1,55 @@
-import { IExperience } from '../generated/schema'
-import { Types } from '../types'
+import { IExperience } from "./generated/interfaces.ts";
+import { Types } from "./types";
 
-// TODO
-export interface ExperienceRoot {}
+import { ExperienceCategoryRoot } from "./ExperienceCategory";
 
-export const Experience: IExperience.Resolver<Types> = {}
+import { LocationRoot } from "./Location";
+
+import { ReviewRoot } from "./Review";
+
+import { PictureRoot } from "./Picture";
+
+export interface ExperienceRoot {
+  id: string;
+
+  category: ExperienceCategoryRoot;
+
+  title: string;
+
+  location: LocationRoot;
+
+  pricePerPerson: number;
+
+  reviews: ReviewRoot[];
+
+  preview: PictureRoot;
+
+  popularity: number;
+}
+
+export const Experience: IExperience.Resolver<Types> = {
+  id: async (root, args, ctx, info) => {
+    return null;
+  },
+  category: async (root, args, ctx, info) => {
+    return null;
+  },
+  title: async (root, args, ctx, info) => {
+    return null;
+  },
+  location: async (root, args, ctx, info) => {
+    return null;
+  },
+  pricePerPerson: async (root, args, ctx, info) => {
+    return null;
+  },
+  reviews: async (root, args, ctx, info) => {
+    return null;
+  },
+  preview: async (root, args, ctx, info) => {
+    return null;
+  },
+  popularity: async (root, args, ctx, info) => {
+    return null;
+  }
+};
