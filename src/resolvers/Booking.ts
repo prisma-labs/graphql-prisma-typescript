@@ -1,7 +1,26 @@
-import { IBooking } from '../generated/schema'
-import { Types } from '../types'
+import { IBooking } from './generated/interfaces'
+import { Types } from './types'
 
-// TODO
-export interface BookingRoot {}
+import { UserRoot } from './User'
+import { PlaceRoot } from './Place'
+import { PaymentRoot } from './Payment'
 
-export const Booking: IBooking.Resolver<Types> = {}
+export interface BookingRoot {
+  id: string
+  createdAt: string
+  bookee: UserRoot
+  place: PlaceRoot
+  startDate: string
+  endDate: string
+  payment: PaymentRoot
+}
+
+export const Booking: IBooking.Resolver<Types> = {
+  id: root => root.id,
+  createdAt: root => root.createdAt,
+  bookee: root => root.bookee,
+  place: root => root.place,
+  startDate: root => root.startDate,
+  endDate: root => root.endDate,
+  payment: root => root.payment,
+}

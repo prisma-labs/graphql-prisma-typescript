@@ -1,21 +1,15 @@
-import { getUserId } from '../utils'
-import { IViewer } from '../generated/schema'
+import { IViewer } from './generated/interfaces'
+import { Types } from './types'
+
 import { UserRoot } from './User'
-import { Types } from '../types'
+import { BookingRoot } from './Booking'
 
 export interface ViewerRoot {
-  token: string
-  user: UserRoot
+  me: UserRoot
+  bookings: BookingRoot[]
 }
 
 export const Viewer: IViewer.Resolver<Types> = {
-  bookings: (root, args, ctx) => {
-    const id = getUserId(ctx)
-    return ctx.db.query.bookings({ where: { bookee: { id } } })
-  },
-
-  me: (root, args, ctx) => {
-    const id = getUserId(ctx)
-    return ctx.db.query.user({ where: { id } })
-  },
+  me: root => root.me,
+  bookings: root => root.bookings,
 }
