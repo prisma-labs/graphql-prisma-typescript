@@ -1,4 +1,4 @@
-import { IPaypalInformation } from './generated/interfaces'
+import { IPaypalInformation } from './generated/interfaces.ts'
 import { Types } from './types'
 
 import { PaymentAccountRoot } from './PaymentAccount'

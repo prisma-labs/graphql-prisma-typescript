@@ -1,4 +1,4 @@
-import { IBooking } from './generated/interfaces'
+import { IBooking } from './generated/interfaces.ts'
 import { Types } from './types'
 
 import { UserRoot } from './User'

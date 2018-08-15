@@ -1,4 +1,4 @@
-import { ICity } from './generated/interfaces'
+import { ICity } from './generated/interfaces.ts'
 import { Types } from './types'
 
 export interface CityRoot {

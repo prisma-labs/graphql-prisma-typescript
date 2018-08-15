@@ -1,4 +1,4 @@
-import { ILocation } from './generated/interfaces'
+import { ILocation } from './generated/interfaces.ts'
 import { Types } from './types'
 
 export interface LocationRoot {

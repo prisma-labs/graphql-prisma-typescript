@@ -1,4 +1,4 @@
-import { INeighbourhood } from './generated/interfaces'
+import { INeighbourhood } from './generated/interfaces.ts'
 import { Types } from './types'
 
 import { PictureRoot } from './Picture'

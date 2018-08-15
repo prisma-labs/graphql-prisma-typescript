@@ -1,4 +1,4 @@
-import { IPolicies } from './generated/interfaces'
+import { IPolicies } from './generated/interfaces.ts'
 import { Types } from './types'
 
 export interface PoliciesRoot {

@@ -1,4 +1,4 @@
-import { IPricing } from './generated/interfaces'
+import { IPricing } from './generated/interfaces.ts'
 import { Types } from './types'
 
 export type CURRENCYRoot = 'CAD' | 'CHF' | 'EUR' | 'JPY' | 'USD' | 'ZAR'

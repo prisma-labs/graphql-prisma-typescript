@@ -1,4 +1,4 @@
-import { IPicture } from './generated/interfaces'
+import { IPicture } from './generated/interfaces.ts'
 import { Types } from './types'
 
 export interface PictureRoot {

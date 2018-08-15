@@ -1,4 +1,4 @@
-import { IExperienceCategory } from './generated/interfaces'
+import { IExperienceCategory } from './generated/interfaces.ts'
 import { Types } from './types'
 
 import { ExperienceRoot } from './Experience'

@@ -1,4 +1,4 @@
-import { IMutation } from './generated/interfaces'
+import { IMutation } from './generated/interfaces.ts'
 import { Types } from './types'
 
 import { AuthPayloadRoot } from './AuthPayload'

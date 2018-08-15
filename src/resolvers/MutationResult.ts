@@ -1,4 +1,4 @@
-import { IMutationResult } from './generated/interfaces'
+import { IMutationResult } from './generated/interfaces.ts'
 import { Types } from './types'
 
 export interface MutationResultRoot {

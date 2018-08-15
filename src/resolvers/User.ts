@@ -1,4 +1,4 @@
-import { IUser } from './generated/interfaces'
+import { IUser } from './generated/interfaces.ts'
 import { Types } from './types'
 
 import { BookingRoot } from './Booking'

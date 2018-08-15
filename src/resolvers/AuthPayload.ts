@@ -1,4 +1,4 @@
-import { IAuthPayload } from './generated/interfaces'
+import { IAuthPayload } from './generated/interfaces.ts'
 import { Types } from './types'
 
 import { UserRoot } from './User'
