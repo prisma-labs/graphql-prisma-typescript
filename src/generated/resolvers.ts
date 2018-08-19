@@ -104,13 +104,6 @@ export namespace IQuery {
     T['ViewerRoot'] | null
   >
 
-  export type MyLocationResolver<T extends ITypes> = ResolverFn<
-    T['QueryRoot'],
-    {},
-    T['Context'],
-    T['LocationRoot'] | null
-  >
-
   export interface Resolver<T extends ITypes> {
     topExperiences: TopExperiencesResolver<T>
     topHomes: TopHomesResolver<T>
@@ -119,7 +112,6 @@ export namespace IQuery {
     featuredDestinations: FeaturedDestinationsResolver<T>
     experiencesByCity: ExperiencesByCityResolver<T>
     viewer: ViewerResolver<T>
-    myLocation: MyLocationResolver<T>
   }
 }
 
@@ -662,13 +654,6 @@ export namespace ILocation {
 }
 
 export namespace IPicture {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['PictureRoot'],
-    {},
-    T['Context'],
-    string
-  >
-
   export type UrlResolver<T extends ITypes> = ResolverFn<
     T['PictureRoot'],
     {},
@@ -677,7 +662,6 @@ export namespace IPicture {
   >
 
   export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
     url: UrlResolver<T>
   }
 }

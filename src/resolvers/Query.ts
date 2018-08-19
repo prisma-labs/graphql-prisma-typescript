@@ -20,10 +20,27 @@ export const Query: IQuery.Resolver<Types> = {
     }
     return ctx.db.query.places({ where })
   },
-
-  topReservations: root => [],
-  featuredDestinations: root => [],
-  experiencesByCity: (root, args) => [],
-  viewer: root => null,
-  myLocation: root => null,
+  topReservations: (root, args, ctx) => {
+    return ctx.db.query.restaurants({ orderBy: 'popularity_DESC' })
+  },
+  featuredDestinations: (root, args, ctx) => {
+    return ctx.db.query.neighbourhoods({
+      orderBy: 'popularity_DESC',
+      where: { featured: true },
+    })
+  },
+  experiencesByCity: (root, args, ctx) =>
+    ctx.db.query.cities({
+      where: {
+        name_in: args.cities,
+        neighbourhoods_every: {
+          locations_every: {
+            experience: {
+              id_gt: '0',
+            },
+          },
+        },
+      },
+    }),
+  viewer: root => ({}),
 }

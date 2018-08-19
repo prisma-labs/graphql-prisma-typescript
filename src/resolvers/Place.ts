@@ -1,18 +1,10 @@
 import { IPlace } from '../generated/resolvers'
 import { Types } from './types'
-import { ReviewRoot } from './Review'
-import { AmenitiesRoot } from './Amenities'
-import { UserRoot } from './User'
-import { PricingRoot } from './Pricing'
-import { LocationRoot } from './Location'
-import { PlaceViewsRoot } from './PlaceViews'
-import { GuestRequirementsRoot } from './GuestRequirements'
 import { PoliciesRoot } from './Policies'
 import { HouseRulesRoot } from './HouseRules'
 import { BookingRoot } from './Booking'
-import { PictureRoot } from './Picture'
 
-export type PLACE_SIZESRoot =
+export type PLACE_SIZES =
   | 'ENTIRE_HOUSE'
   | 'ENTIRE_APARTMENT'
   | 'ENTIRE_EARTH_HOUSE'
@@ -24,8 +16,8 @@ export type PLACE_SIZESRoot =
 
 export interface PlaceRoot {
   id: string
-  name: string | null
-  size: PLACE_SIZESRoot | null
+  name: string
+  size: PLACE_SIZES | null
   shortDescription: string
   description: string
   slug: string
@@ -33,17 +25,6 @@ export interface PlaceRoot {
   numBedrooms: number
   numBeds: number
   numBaths: number
-  reviews: ReviewRoot[]
-  amenities: AmenitiesRoot
-  host: UserRoot
-  pricing: PricingRoot
-  location: LocationRoot
-  views: PlaceViewsRoot
-  guestRequirements: GuestRequirementsRoot | null
-  policies: PoliciesRoot | null
-  houseRules: HouseRulesRoot | null
-  bookings: BookingRoot[]
-  pictures: PictureRoot[]
   popularity: number
 }
 
@@ -58,16 +39,27 @@ export const Place: IPlace.Resolver<Types> = {
   numBedrooms: root => root.numBedrooms,
   numBeds: root => root.numBeds,
   numBaths: root => root.numBaths,
-  reviews: root => root.reviews,
-  amenities: root => root.amenities,
-  host: root => root.host,
-  pricing: root => root.pricing,
-  location: root => root.location,
-  views: root => root.views,
-  guestRequirements: root => root.guestRequirements,
-  policies: root => root.policies,
-  houseRules: root => root.houseRules,
-  bookings: root => root.bookings,
-  pictures: root => root.pictures,
+  reviews: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).reviews(),
+  amenities: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).amenities(),
+  host: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).host(),
+  pricing: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).pricing(),
+  location: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).location(),
+  views: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).views(),
+  guestRequirements: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).guestRequirements(),
+  policies: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).policies(),
+  houseRules: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).houseRules(),
+  bookings: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).bookings(),
+  pictures: (root, args, ctx) =>
+    ctx.db.query.place({ where: { id: root.id } }).pictures(),
   popularity: root => root.popularity,
 }

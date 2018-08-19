@@ -1,6 +1,5 @@
 import { ICreditCardInformation } from '../generated/resolvers'
 import { Types } from './types'
-import { PaymentAccountRoot } from './PaymentAccount'
 
 export interface CreditCardInformationRoot {
   cardNumber: string
@@ -11,7 +10,6 @@ export interface CreditCardInformationRoot {
   firstName: string
   id: string
   lastName: string
-  paymentAccount: PaymentAccountRoot | null
   postalCode: string
   securityCode: string
 }
@@ -25,7 +23,10 @@ export const CreditCardInformation: ICreditCardInformation.Resolver<Types> = {
   firstName: root => root.firstName,
   id: root => root.id,
   lastName: root => root.lastName,
-  paymentAccount: root => root.paymentAccount,
+  paymentAccount: (root, args, ctx) =>
+    ctx.db.query
+      .creditCardInformation({ where: { id: root.id } })
+      .paymentAccount(),
   postalCode: root => root.postalCode,
   securityCode: root => root.securityCode,
 }

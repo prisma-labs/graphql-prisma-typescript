@@ -1,8 +1,7 @@
 import { INotification } from '../generated/resolvers'
 import { Types } from './types'
-import { UserRoot } from './User'
 
-export type NOTIFICATION_TYPERoot =
+export type NOTIFICATION_TYPE =
   | 'OFFER'
   | 'INSTANT_BOOK'
   | 'RESPONSIVENESS'
@@ -14,8 +13,7 @@ export interface NotificationRoot {
   id: string
   link: string
   readDate: string
-  type: NOTIFICATION_TYPERoot | null
-  user: UserRoot
+  type: NOTIFICATION_TYPE | null
 }
 
 export const Notification: INotification.Resolver<Types> = {
@@ -24,5 +22,6 @@ export const Notification: INotification.Resolver<Types> = {
   link: root => root.link,
   readDate: root => root.readDate,
   type: root => root.type,
-  user: root => root.user,
+  user: (root, args, ctx) =>
+    ctx.db.query.notification({ where: { id: root.id } }).user(),
 }

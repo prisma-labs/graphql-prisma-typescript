@@ -11,9 +11,6 @@ export const ExperienceCategory: IExperienceCategory.Resolver<Types> = {
   id: root => root.id,
   mainColor: root => root.mainColor,
   name: root => root.name,
-  experience: (root, args, ctx) => {
-    return ctx.db.query
-      .experienceCategory({ where: { id: root.id } })
-      .experience()
-  },
+  experience: (root, args, ctx) =>
+    ctx.db.query.experienceCategory({ where: { id: root.id } }).experience(),
 }

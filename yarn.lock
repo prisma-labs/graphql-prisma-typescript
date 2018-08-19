@@ -4139,9 +4139,9 @@ prisma-binding@2.1.0:
     jsonwebtoken "8.2.1"
     subscriptions-transport-ws "0.9.8"
 
-prisma-cli-core@1.1.38-alpha.12:
-  version "1.1.38-alpha.12"
-  resolved "https://registry.yarnpkg.com/prisma-cli-core/-/prisma-cli-core-1.1.38-alpha.12.tgz#97237feee6fdc5312b81f45d9227a97a15f40b7e"
+prisma-cli-core@1.1.38-alpha.21:
+  version "1.1.38-alpha.21"
+  resolved "https://registry.yarnpkg.com/prisma-cli-core/-/prisma-cli-core-1.1.38-alpha.21.tgz#a7d113df7e0af189b291641fcca3b3b0344276fb"
   dependencies:
     adm-zip "^0.4.7"
     archiver "^2.0.3"
@@ -4176,7 +4176,7 @@ prisma-cli-core@1.1.38-alpha.12:
     portfinder "^1.0.13"
     prisma-db-introspection "0.0.6"
     prisma-json-schema "0.0.5-alpha.2"
-    prisma-lib "0.0.16"
+    prisma-lib "0.1.13"
     prisma-yml "1.1.48-alpha.1"
     scuid "^1.0.2"
     semver "^5.4.1"
@@ -4279,28 +4279,14 @@ prisma-json-schema@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/prisma-json-schema/-/prisma-json-schema-0.0.1.tgz#0802e156a293faefdf21e5e41beb8d3681f45cb1"
 
-prisma-lib@0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/prisma-lib/-/prisma-lib-0.0.16.tgz#b0409495d4b81564fda4497432c14e7e71f96e6b"
+prisma-lib@0.1.13, prisma-lib@^0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/prisma-lib/-/prisma-lib-0.1.13.tgz#589ab4cb8705e5bb5281a27b4bf8f1850732cdee"
   dependencies:
     "@types/node" "^10.7.0"
     apollo-link-error "^1.1.0"
     apollo-link-ws "^1.0.8"
-    graphql-import "^0.6.0"
-    graphql-tools "3.1.1"
-    http-link-dataloader "^0.1.4"
-    jsonwebtoken "^8.3.0"
-    object-path-immutable "^3.0.0"
-    subscriptions-transport-ws "^0.9.14"
-    ws "^6.0.0"
-
-prisma-lib@^0.0.15:
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/prisma-lib/-/prisma-lib-0.0.15.tgz#64dbc9cbbf9d940622f5ae7489701df2445fee93"
-  dependencies:
-    "@types/node" "^10.7.0"
-    apollo-link-error "^1.1.0"
-    apollo-link-ws "^1.0.8"
+    debug "^3.1.0"
     graphql-import "^0.6.0"
     graphql-tools "3.1.1"
     http-link-dataloader "^0.1.4"
@@ -4355,13 +4341,14 @@ prisma-yml@1.1.48-alpha.1:
     scuid "^1.0.2"
     yaml-ast-parser "^0.0.40"
 
-prisma@^1.15.0-alpha.14:
-  version "1.15.0-alpha.14"
-  resolved "https://registry.yarnpkg.com/prisma/-/prisma-1.15.0-alpha.14.tgz#e048ead3c982b0e52cfd379119e7fa1cc2758fdc"
+prisma@^1.15.0-alpha.23:
+  version "1.15.0-alpha.23"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-1.15.0-alpha.23.tgz#e8b415bb9143d7d18bb4b677dc00fb93ee8b318a"
   dependencies:
     fs-extra "^5.0.0"
-    prisma-cli-core "1.1.38-alpha.12"
+    prisma-cli-core "1.1.38-alpha.21"
     prisma-cli-engine "1.1.37-alpha.2"
+    require-onct "0.0.1"
     semver "^5.4.1"
     source-map-support "^0.4.18"
 
@@ -4630,6 +4617,10 @@ require-from-string@^2.0.1:
 require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
+
+require-onct@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/require-onct/-/require-onct-0.0.1.tgz#734aed57d94e82f71922d5eb94a7a2a15d029bfa"
 
 resolve-cwd@^2.0.0:
   version "2.0.0"

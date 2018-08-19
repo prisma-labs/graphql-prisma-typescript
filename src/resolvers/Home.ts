@@ -3,7 +3,7 @@ import { Types } from './types'
 
 export interface HomeRoot {
   id: string
-  name: string | null
+  name: string
   description: string
 }
 

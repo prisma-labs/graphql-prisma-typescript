@@ -8,7 +8,6 @@ type Query {
   featuredDestinations: [Neighbourhood!]!
   experiencesByCity(cities: [String!]!): [ExperiencesByCity!]!
   viewer: Viewer
-  myLocation: Location
 }
 
 type Mutation {
@@ -121,7 +120,6 @@ type Location {
 }
 
 type Picture {
-  id: ID!
   url: String!
 }
 

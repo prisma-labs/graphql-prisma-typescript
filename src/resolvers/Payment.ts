@@ -1,20 +1,18 @@
 import { IPayment } from '../generated/resolvers'
 import { Types } from './types'
-import { BookingRoot } from './Booking'
-import { PaymentAccountRoot } from './PaymentAccount'
 
 export interface PaymentRoot {
-  booking: BookingRoot
   createdAt: string
   id: string
-  paymentMethod: PaymentAccountRoot
   serviceFee: number
 }
 
 export const Payment: IPayment.Resolver<Types> = {
-  booking: root => root.booking,
+  booking: (root, args, ctx) =>
+    ctx.db.query.payment({ where: { id: root.id } }).booking(),
   createdAt: root => root.createdAt,
   id: root => root.id,
-  paymentMethod: root => root.paymentMethod,
+  paymentMethod: (root, args, ctx) =>
+    ctx.db.query.payment({ where: { id: root.id } }).paymentMethod(),
   serviceFee: root => root.serviceFee,
 }
