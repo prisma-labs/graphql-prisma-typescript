@@ -19,8 +19,3 @@ projects:
     ]
     extensions:
       prisma: prisma/prisma.yml
-      codegen:
-      - generator: prisma-binding
-        language: typescript
-        output:
-          binding: src/generated/prisma.ts
