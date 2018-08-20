@@ -22,6 +22,5 @@ export const Notification: INotification.Resolver<Types> = {
   link: root => root.link,
   readDate: root => root.readDate,
   type: root => root.type,
-  user: (root, args, ctx) =>
-    ctx.db.query.notification({ where: { id: root.id } }).user(),
+  user: (root, args, ctx) => ctx.db.notification({ id: root.id }).user(),
 }

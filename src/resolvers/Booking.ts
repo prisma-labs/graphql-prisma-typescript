@@ -11,12 +11,9 @@ export interface BookingRoot {
 export const Booking: IBooking.Resolver<Types> = {
   id: root => root.id,
   createdAt: root => root.createdAt,
-  bookee: (root, args, ctx) =>
-    ctx.db.query.booking({ where: { id: root.id } }).bookee(),
-  place: (root, args, ctx) =>
-    ctx.db.query.booking({ where: { id: root.id } }).place(),
+  bookee: (root, args, ctx) => ctx.db.booking({ id: root.id }).bookee(),
+  place: (root, args, ctx) => ctx.db.booking({ id: root.id }).place(),
   startDate: root => root.startDate,
   endDate: root => root.endDate,
-  payment: (root, args, ctx) =>
-    ctx.db.query.booking({ where: { id: root.id } }).payment(),
+  payment: (root, args, ctx) => ctx.db.booking({ id: root.id }).payment(),
 }

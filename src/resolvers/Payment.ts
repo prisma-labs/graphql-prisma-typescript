@@ -8,11 +8,10 @@ export interface PaymentRoot {
 }
 
 export const Payment: IPayment.Resolver<Types> = {
-  booking: (root, args, ctx) =>
-    ctx.db.query.payment({ where: { id: root.id } }).booking(),
+  booking: (root, args, ctx) => ctx.db.payment({ id: root.id }).booking(),
   createdAt: root => root.createdAt,
   id: root => root.id,
   paymentMethod: (root, args, ctx) =>
-    ctx.db.query.payment({ where: { id: root.id } }).paymentMethod(),
+    ctx.db.payment({ id: root.id }).paymentMethod(),
   serviceFee: root => root.serviceFee,
 }

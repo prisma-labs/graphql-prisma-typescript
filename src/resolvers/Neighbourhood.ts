@@ -7,8 +7,6 @@ export interface NeighbourhoodRoot {
   id: string
   name: string
   slug: string
-  // homePreview: PictureRoot | null
-  // city: CityRoot
   featured: boolean
   popularity: number
 }
@@ -18,14 +16,7 @@ export const Neighbourhood: INeighbourhood.Resolver<Types> = {
   name: root => root.name,
   slug: root => root.slug,
   homePreview: (root, args, ctx) =>
-    ctx.db.query
-      .neighbourhood({
-        where: {
-          id: root.id,
-        },
-      })
-      .homePreview(),
-  // city: root => root.city,
+    ctx.db.neighbourhood({ id: root.id }).homePreview(),
   featured: root => root.featured,
   popularity: root => root.popularity,
 }

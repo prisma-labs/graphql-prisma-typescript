@@ -15,10 +15,10 @@ export const Reservation: IReservation.Resolver<Types> = {
   title: root => root.title,
   avgPricePerPerson: root => root.avgPricePerPerson,
   pictures: (root, args, ctx) => {
-    return ctx.db.query.restaurant({ where: { id: root.id } }).pictures()
+    return ctx.db.restaurant({ id: root.id }).pictures()
   },
   location: (root, args, ctx) => {
-    return ctx.db.query.restaurant({ where: { id: root.id } }).location()
+    return ctx.db.restaurant({ id: root.id }).location()
   },
   isCurated: root => root.isCurated,
   slug: root => root.slug,

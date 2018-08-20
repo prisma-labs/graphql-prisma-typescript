@@ -24,9 +24,7 @@ export const CreditCardInformation: ICreditCardInformation.Resolver<Types> = {
   id: root => root.id,
   lastName: root => root.lastName,
   paymentAccount: (root, args, ctx) =>
-    ctx.db.query
-      .creditCardInformation({ where: { id: root.id } })
-      .paymentAccount(),
+    ctx.db.creditCardInformation({ id: root.id }).paymentAccount(),
   postalCode: root => root.postalCode,
   securityCode: root => root.securityCode,
 }

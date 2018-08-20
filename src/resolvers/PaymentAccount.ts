@@ -13,12 +13,10 @@ export const PaymentAccount: IPaymentAccount.Resolver<Types> = {
   id: root => root.id,
   createdAt: root => root.createdAt,
   type: root => root.type,
-  user: (root, args, ctx) =>
-    ctx.db.query.paymentAccount({ where: { id: root.id } }).user(),
+  user: (root, args, ctx) => ctx.db.paymentAccount({ id: root.id }).user(),
   payments: (root, args, ctx) =>
-    ctx.db.query.paymentAccount({ where: { id: root.id } }).payments(),
-  paypal: (root, args, ctx) =>
-    ctx.db.query.paymentAccount({ where: { id: root.id } }).paypal(),
+    ctx.db.paymentAccount({ id: root.id }).payments(),
+  paypal: (root, args, ctx) => ctx.db.paymentAccount({ id: root.id }).paypal(),
   creditcard: (root, args, ctx) =>
-    ctx.db.query.paymentAccount({ where: { id: root.id } }).creditcard(),
+    ctx.db.paymentAccount({ id: root.id }).creditcard(),
 }

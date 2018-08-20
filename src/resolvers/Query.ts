@@ -6,12 +6,12 @@ export interface QueryRoot {}
 
 export const Query: IQuery.Resolver<Types> = {
   topExperiences: async (root, args, ctx) => {
-    return ctx.db.query.experiences({
+    return ctx.db.experiences({
       orderBy: 'popularity_DESC',
     })
   },
   topHomes: (root, args, ctx) => {
-    return ctx.db.query.places()
+    return ctx.db.places()
   },
   homesInPriceRange: (root, args, ctx) => {
     const where: PlaceWhereInput = {
@@ -20,19 +20,19 @@ export const Query: IQuery.Resolver<Types> = {
         { pricing: { perNight_lte: args.max } },
       ],
     }
-    return ctx.db.query.places({ where })
+    return ctx.db.places({ where })
   },
   topReservations: (root, args, ctx) => {
-    return ctx.db.query.restaurants({ orderBy: 'popularity_DESC' })
+    return ctx.db.restaurants({ orderBy: 'popularity_DESC' })
   },
   featuredDestinations: (root, args, ctx) => {
-    return ctx.db.query.neighbourhoods({
+    return ctx.db.neighbourhoods({
       orderBy: 'popularity_DESC',
       where: { featured: true },
     })
   },
   experiencesByCity: (root, args, ctx) => {
-    return ctx.db.query.cities({
+    return ctx.db.cities({
       where: {
         name_in: args.cities,
         neighbourhoods_every: {

@@ -1,21 +1,21 @@
-import { getUserId, Context } from '../../utils'
-import { IMutation } from '../../generated/schema'
-import { MutationResultRoot } from '../MutationResult'
+import { getUserId } from '../../utils'
+import { IMutation } from '../../generated/resolvers'
+import { Types } from '../types'
 
-export const book: IMutation.BookResolver<
-  Context,
-  {},
-  MutationResultRoot
-> = async (parent, args, ctx) => {
+export const book: IMutation.BookResolver<Types> = async (
+  parent,
+  args,
+  ctx,
+) => {
   const userId = getUserId(ctx)
-  const paymentAccount = await ctx.db.query
+  const paymentAccount = await ctx.db
     .paymentAccounts({ where: { user: { id: userId } } })
     .then(ps => ps[0])
   if (!paymentAccount) {
     throw new Error(`You don't have a payment method yet`)
   }
 
-  const alreadyBooked = await ctx.db.exists.Booking({
+  const alreadyBooked = await ctx.db.$exists.booking({
     place: { id: args.placeId },
     startDate_gte: args.checkIn,
     startDate_lte: args.checkOut,
@@ -25,9 +25,7 @@ export const book: IMutation.BookResolver<
   }
 
   const days = daysBetween(new Date(args.checkIn), new Date(args.checkOut))
-  const { perNight } = await ctx.db.query
-    .place({ where: { id: args.placeId } })
-    .pricing()
+  const { perNight } = await ctx.db.place({ id: args.placeId }).pricing()
 
   if (perNight === null) {
     throw new Error(`No such place found`)
@@ -40,19 +38,17 @@ export const book: IMutation.BookResolver<
   // TODO implement real stripe
   await payWithStripe()
 
-  await ctx.db.mutation.createBooking({
-    data: {
-      startDate: args.checkIn,
-      endDate: args.checkOut,
-      bookee: { connect: { id: userId } },
-      place: { connect: { id: args.placeId } },
-      payment: {
-        create: {
-          placePrice,
-          totalPrice,
-          serviceFee,
-          paymentMethod: { connect: { id: paymentAccount.id } },
-        },
+  await ctx.db.createBooking({
+    startDate: args.checkIn,
+    endDate: args.checkOut,
+    bookee: { connect: { id: userId } },
+    place: { connect: { id: args.placeId } },
+    payment: {
+      create: {
+        placePrice,
+        totalPrice,
+        serviceFee,
+        paymentMethod: { connect: { id: paymentAccount.id } },
       },
     },
   })

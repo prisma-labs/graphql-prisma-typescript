@@ -39,27 +39,17 @@ export const Place: IPlace.Resolver<Types> = {
   numBedrooms: root => root.numBedrooms,
   numBeds: root => root.numBeds,
   numBaths: root => root.numBaths,
-  reviews: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).reviews(),
-  amenities: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).amenities(),
-  host: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).host(),
-  pricing: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).pricing(),
-  location: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).location(),
-  views: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).views(),
+  reviews: (root, args, ctx) => ctx.db.place({ id: root.id }).reviews(),
+  amenities: (root, args, ctx) => ctx.db.place({ id: root.id }).amenities(),
+  host: (root, args, ctx) => ctx.db.place({ id: root.id }).host(),
+  pricing: (root, args, ctx) => ctx.db.place({ id: root.id }).pricing(),
+  location: (root, args, ctx) => ctx.db.place({ id: root.id }).location(),
+  views: (root, args, ctx) => ctx.db.place({ id: root.id }).views(),
   guestRequirements: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).guestRequirements(),
-  policies: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).policies(),
-  houseRules: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).houseRules(),
-  bookings: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).bookings(),
-  pictures: (root, args, ctx) =>
-    ctx.db.query.place({ where: { id: root.id } }).pictures(),
+    ctx.db.place({ id: root.id }).guestRequirements(),
+  policies: (root, args, ctx) => ctx.db.place({ id: root.id }).policies(),
+  houseRules: (root, args, ctx) => ctx.db.place({ id: root.id }).houseRules(),
+  bookings: (root, args, ctx) => ctx.db.place({ id: root.id }).bookings(),
+  pictures: (root, args, ctx) => ctx.db.place({ id: root.id }).pictures(),
   popularity: root => root.popularity,
 }

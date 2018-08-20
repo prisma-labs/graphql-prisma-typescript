@@ -12,5 +12,5 @@ export const PaypalInformation: IPaypalInformation.Resolver<Types> = {
   email: root => root.email,
   id: root => root.id,
   paymentAccount: (root, args, ctx) =>
-    ctx.db.query.paypalInformation({ where: { id: root.id } }).paymentAccount(),
+    ctx.db.paypalInformation({ id: root.id }).paymentAccount(),
 }

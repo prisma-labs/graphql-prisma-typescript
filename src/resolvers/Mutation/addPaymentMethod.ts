@@ -1,18 +1,14 @@
-import { getUserId, Context } from '../../utils'
-import { IMutation } from '../../generated/schema'
-import { MutationResultRoot } from '../MutationResult'
+import { getUserId } from '../../utils'
+import { IMutation } from '../../generated/resolvers'
+import { Types } from '../types'
 
 export const addPaymentMethod: IMutation.AddPaymentMethodResolver<
-  Context,
-  {},
-  MutationResultRoot
-> = async (parent, args, ctx: Context) => {
+  Types
+> = async (root, args, ctx) => {
   const userId = getUserId(ctx)
-  await ctx.db.mutation.createPaymentAccount({
-    data: {
-      creditcard: { create: args },
-      user: { connect: { id: userId } },
-    },
+  await ctx.db.createPaymentAccount({
+    creditcard: { create: args },
+    user: { connect: { id: userId } },
   })
 
   // TODO: send email to user

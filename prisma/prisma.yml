@@ -17,7 +17,5 @@ seed:
   import: seed.graphql
 
 generate:
-  - generator: schema
-    output: ../src/generated/prisma.graphql
   - generator: typescript
     output: ../src/generated/prisma.ts
