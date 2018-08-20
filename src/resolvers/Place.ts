@@ -1,8 +1,8 @@
 import { IPlace } from '../generated/resolvers'
 import { Types } from './types'
-import { PoliciesRoot } from './Policies'
-import { HouseRulesRoot } from './HouseRules'
-import { BookingRoot } from './Booking'
+// import { PoliciesRoot } from './Policies'
+// import { HouseRulesRoot } from './HouseRules'
+// import { BookingRoot } from './Booking'
 
 export type PLACE_SIZES =
   | 'ENTIRE_HOUSE'
@@ -17,7 +17,7 @@ export type PLACE_SIZES =
 export interface PlaceRoot {
   id: string
   name: string
-  size: PLACE_SIZES | null
+  size?: PLACE_SIZES | null
   shortDescription: string
   description: string
   slug: string

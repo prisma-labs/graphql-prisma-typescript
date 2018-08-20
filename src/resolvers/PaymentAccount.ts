@@ -6,7 +6,7 @@ export type PAYMENT_PROVIDER = 'PAYPAL' | 'CREDIT_CARD'
 export interface PaymentAccountRoot {
   id: string
   createdAt: string
-  type: PAYMENT_PROVIDER | null
+  type?: PAYMENT_PROVIDER | null
 }
 
 export const PaymentAccount: IPaymentAccount.Resolver<Types> = {

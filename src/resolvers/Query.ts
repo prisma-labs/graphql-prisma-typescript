@@ -5,8 +5,12 @@ import { PlaceWhereInput } from '../generated/prisma'
 export interface QueryRoot {}
 
 export const Query: IQuery.Resolver<Types> = {
-  topExperiences: (root, args, ctx) => {
-    return ctx.db.query.experiences({ orderBy: 'popularity_DESC' })
+  topExperiences: async (root, args, ctx) => {
+    const experiences = await ctx.db.query.experiences({
+      orderBy: 'popularity_DESC',
+    })
+    console.log(experiences)
+    return experiences
   },
   topHomes: (root, args, ctx) => {
     return ctx.db.query.places()
@@ -44,14 +48,3 @@ export const Query: IQuery.Resolver<Types> = {
     }),
   viewer: root => ({}),
 }
-
-// `
-//   {
-//     neighbourhoods(orderBy, where) {
-//       ...
-//       preview {
-//         url
-//       }
-//     }
-//   }
-// `

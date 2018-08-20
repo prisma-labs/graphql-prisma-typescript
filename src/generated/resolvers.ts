@@ -24,7 +24,7 @@ export interface ITypes {
   ExperienceRoot: any
   ReviewRoot: any
   NeighbourhoodRoot: any
-  LocationRoot: any
+  LocationRoot: LocationRoot
   PictureRoot: any
   CityRoot: any
   ExperienceCategoryRoot: any
@@ -569,6 +569,13 @@ export namespace INeighbourhood {
     string
   >
 
+  export type HomePreviewResolver<T extends ITypes> = ResolverFn<
+    T['NeighbourhoodRoot'],
+    {},
+    T['Context'],
+    T['PictureRoot'] | null
+  >
+
   export type FeaturedResolver<T extends ITypes> = ResolverFn<
     T['NeighbourhoodRoot'],
     {},
@@ -587,6 +594,7 @@ export namespace INeighbourhood {
     id: IdResolver<T>
     name: NameResolver<T>
     slug: SlugResolver<T>
+    homePreview: HomePreviewResolver<T>
     featured: FeaturedResolver<T>
     popularity: PopularityResolver<T>
   }

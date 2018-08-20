@@ -7,16 +7,16 @@ export interface PricingRoot {
   averageMonthly: number
   averageWeekly: number
   basePrice: number
-  cleaningFee: number | null
-  currency: CURRENCYRoot | null
-  extraGuests: number | null
+  cleaningFee?: number | null
+  currency?: CURRENCYRoot | null
+  extraGuests?: number | null
   id: string
-  monthlyDiscount: number | null
+  monthlyDiscount?: number | null
   perNight: number
-  securityDeposit: number | null
+  securityDeposit?: number | null
   smartPricing: boolean
-  weekendPricing: number | null
-  weeklyDiscount: number | null
+  weekendPricing?: number | null
+  weeklyDiscount?: number | null
 }
 
 export const Pricing: IPricing.Resolver<Types> = {

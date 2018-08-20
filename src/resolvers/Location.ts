@@ -5,8 +5,8 @@ export interface LocationRoot {
   id: string
   lat: number
   lng: number
-  address: string | null
-  directions: string | null
+  address?: string | null
+  directions?: string | null
 }
 
 export const Location: ILocation.Resolver<Types> = {

@@ -13,7 +13,7 @@ export interface NotificationRoot {
   id: string
   link: string
   readDate: string
-  type: NOTIFICATION_TYPE | null
+  type?: NOTIFICATION_TYPE | null
 }
 
 export const Notification: INotification.Resolver<Types> = {

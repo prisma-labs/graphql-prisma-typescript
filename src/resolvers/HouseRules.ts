@@ -2,14 +2,14 @@ import { IHouseRules } from '../generated/resolvers'
 import { Types } from './types'
 
 export interface HouseRulesRoot {
-  additionalRules: string | null
+  additionalRules?: string | null
   createdAt: string
   id: string
-  partiesAndEventsAllowed: boolean | null
-  petsAllowed: boolean | null
-  smokingAllowed: boolean | null
-  suitableForChildren: boolean | null
-  suitableForInfants: boolean | null
+  partiesAndEventsAllowed?: boolean | null
+  petsAllowed?: boolean | null
+  smokingAllowed?: boolean | null
+  suitableForChildren?: boolean | null
+  suitableForInfants?: boolean | null
   updatedAt: string
 }
 

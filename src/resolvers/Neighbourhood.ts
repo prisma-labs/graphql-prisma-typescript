@@ -17,7 +17,14 @@ export const Neighbourhood: INeighbourhood.Resolver<Types> = {
   id: root => root.id,
   name: root => root.name,
   slug: root => root.slug,
-  // homePreview: (root, args, ctx) => root.homePreview,
+  homePreview: (root, args, ctx) =>
+    ctx.db.query
+      .neighbourhood({
+        where: {
+          id: root.id,
+        },
+      })
+      .homePreview(),
   // city: root => root.city,
   featured: root => root.featured,
   popularity: root => root.popularity,
