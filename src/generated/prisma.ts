@@ -1326,7 +1326,7 @@ export interface CreditCardInformationWhereInput {
 }
 
 export interface PlaceCreateWithoutReviewsInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -1512,9 +1512,6 @@ export interface HouseRulesWhereInput {
   additionalRules_not_starts_with?: String
   additionalRules_ends_with?: String
   additionalRules_not_ends_with?: String
-  _MagicalBackRelation_HouseRulesToPlace_every?: PlaceWhereInput
-  _MagicalBackRelation_HouseRulesToPlace_some?: PlaceWhereInput
-  _MagicalBackRelation_HouseRulesToPlace_none?: PlaceWhereInput
 }
 
 export interface HouseRulesCreateInput {
@@ -1807,8 +1804,8 @@ export interface UserCreateWithoutPaymentAccountInput {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost?: Boolean
   ownedPlaces?: PlaceCreateManyWithoutHostInput
   location?: LocationCreateOneWithoutUserInput
@@ -1871,21 +1868,6 @@ export interface PictureWhereInput {
   url_not_starts_with?: String
   url_ends_with?: String
   url_not_ends_with?: String
-  _MagicalBackRelation_NeighbourhoodToPicture_every?: NeighbourhoodWhereInput
-  _MagicalBackRelation_NeighbourhoodToPicture_some?: NeighbourhoodWhereInput
-  _MagicalBackRelation_NeighbourhoodToPicture_none?: NeighbourhoodWhereInput
-  _MagicalBackRelation_ExperienceToPicture_every?: ExperienceWhereInput
-  _MagicalBackRelation_ExperienceToPicture_some?: ExperienceWhereInput
-  _MagicalBackRelation_ExperienceToPicture_none?: ExperienceWhereInput
-  _MagicalBackRelation_PictureToPlace_every?: PlaceWhereInput
-  _MagicalBackRelation_PictureToPlace_some?: PlaceWhereInput
-  _MagicalBackRelation_PictureToPlace_none?: PlaceWhereInput
-  _MagicalBackRelation_PictureToUser_every?: UserWhereInput
-  _MagicalBackRelation_PictureToUser_some?: UserWhereInput
-  _MagicalBackRelation_PictureToUser_none?: UserWhereInput
-  _MagicalBackRelation_PictureToRestaurant_every?: RestaurantWhereInput
-  _MagicalBackRelation_PictureToRestaurant_some?: RestaurantWhereInput
-  _MagicalBackRelation_PictureToRestaurant_none?: RestaurantWhereInput
 }
 
 export interface UserCreateOneWithoutSentMessagesInput {
@@ -1968,8 +1950,8 @@ export interface UserCreateWithoutSentMessagesInput {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost?: Boolean
   ownedPlaces?: PlaceCreateManyWithoutHostInput
   location?: LocationCreateOneWithoutUserInput
@@ -2237,7 +2219,7 @@ export interface ViewsWhereUniqueInput {
 }
 
 export interface PlaceCreateInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -2294,7 +2276,7 @@ export interface AmenitiesWhereUniqueInput {
 }
 
 export interface PlaceCreateWithoutPricingInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -2341,7 +2323,7 @@ export interface CreditCardInformationWhereUniqueInput {
 }
 
 export interface PlaceCreateWithoutGuestRequirementsInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -2392,7 +2374,7 @@ export interface LocationUpdateOneWithoutRestaurantInput {
 }
 
 export interface PlaceCreateWithoutPoliciesInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -2445,7 +2427,7 @@ export interface MessageUpdateInput {
 }
 
 export interface PlaceCreateWithoutViewsInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -2768,7 +2750,7 @@ export interface LocationUpdateWithoutNeighbourHoodDataInput {
 }
 
 export interface PlaceCreateWithoutAmenitiesInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -3059,8 +3041,8 @@ export interface UserCreateWithoutNotificationsInput {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost?: Boolean
   ownedPlaces?: PlaceCreateManyWithoutHostInput
   location?: LocationCreateOneWithoutUserInput
@@ -3969,10 +3951,10 @@ export interface PlaceUpdateOneWithoutBookingsInput {
   upsert?: PlaceUpsertWithoutBookingsInput
 }
 
-export interface RestaurantWhereInput {
-  AND?: RestaurantWhereInput[] | RestaurantWhereInput
-  OR?: RestaurantWhereInput[] | RestaurantWhereInput
-  NOT?: RestaurantWhereInput[] | RestaurantWhereInput
+export interface CityWhereInput {
+  AND?: CityWhereInput[] | CityWhereInput
+  OR?: CityWhereInput[] | CityWhereInput
+  NOT?: CityWhereInput[] | CityWhereInput
   id?: ID_Input
   id_not?: ID_Input
   id_in?: ID_Input[] | ID_Input
@@ -3987,64 +3969,23 @@ export interface RestaurantWhereInput {
   id_not_starts_with?: ID_Input
   id_ends_with?: ID_Input
   id_not_ends_with?: ID_Input
-  createdAt?: DateTime
-  createdAt_not?: DateTime
-  createdAt_in?: DateTime[] | DateTime
-  createdAt_not_in?: DateTime[] | DateTime
-  createdAt_lt?: DateTime
-  createdAt_lte?: DateTime
-  createdAt_gt?: DateTime
-  createdAt_gte?: DateTime
-  title?: String
-  title_not?: String
-  title_in?: String[] | String
-  title_not_in?: String[] | String
-  title_lt?: String
-  title_lte?: String
-  title_gt?: String
-  title_gte?: String
-  title_contains?: String
-  title_not_contains?: String
-  title_starts_with?: String
-  title_not_starts_with?: String
-  title_ends_with?: String
-  title_not_ends_with?: String
-  avgPricePerPerson?: Int
-  avgPricePerPerson_not?: Int
-  avgPricePerPerson_in?: Int[] | Int
-  avgPricePerPerson_not_in?: Int[] | Int
-  avgPricePerPerson_lt?: Int
-  avgPricePerPerson_lte?: Int
-  avgPricePerPerson_gt?: Int
-  avgPricePerPerson_gte?: Int
-  isCurated?: Boolean
-  isCurated_not?: Boolean
-  slug?: String
-  slug_not?: String
-  slug_in?: String[] | String
-  slug_not_in?: String[] | String
-  slug_lt?: String
-  slug_lte?: String
-  slug_gt?: String
-  slug_gte?: String
-  slug_contains?: String
-  slug_not_contains?: String
-  slug_starts_with?: String
-  slug_not_starts_with?: String
-  slug_ends_with?: String
-  slug_not_ends_with?: String
-  popularity?: Int
-  popularity_not?: Int
-  popularity_in?: Int[] | Int
-  popularity_not_in?: Int[] | Int
-  popularity_lt?: Int
-  popularity_lte?: Int
-  popularity_gt?: Int
-  popularity_gte?: Int
-  pictures_every?: PictureWhereInput
-  pictures_some?: PictureWhereInput
-  pictures_none?: PictureWhereInput
-  location?: LocationWhereInput
+  name?: String
+  name_not?: String
+  name_in?: String[] | String
+  name_not_in?: String[] | String
+  name_lt?: String
+  name_lte?: String
+  name_gt?: String
+  name_gte?: String
+  name_contains?: String
+  name_not_contains?: String
+  name_starts_with?: String
+  name_not_starts_with?: String
+  name_ends_with?: String
+  name_not_ends_with?: String
+  neighbourhoods_every?: NeighbourhoodWhereInput
+  neighbourhoods_some?: NeighbourhoodWhereInput
+  neighbourhoods_none?: NeighbourhoodWhereInput
 }
 
 export interface PlaceUpdateWithoutBookingsDataInput {
@@ -4519,8 +4460,8 @@ export interface UserCreateInput {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost?: Boolean
   ownedPlaces?: PlaceCreateManyWithoutHostInput
   location?: LocationCreateOneWithoutUserInput
@@ -4604,7 +4545,7 @@ export interface LocationUpdateOneWithoutExperienceInput {
 }
 
 export interface PlaceCreateWithoutLocationInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -4643,8 +4584,8 @@ export interface UserCreateWithoutOwnedPlacesInput {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost?: Boolean
   location?: LocationCreateOneWithoutUserInput
   bookings?: BookingCreateManyWithoutBookeeInput
@@ -4666,7 +4607,7 @@ export interface RestaurantUpdateOneWithoutLocationInput {
 }
 
 export interface PlaceCreateWithoutBookingsInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -5176,7 +5117,7 @@ export interface PaymentUpdateOneWithoutBookingInput {
 }
 
 export interface PlaceCreateWithoutHostInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -5211,8 +5152,8 @@ export interface UserCreateWithoutHostingExperiencesInput {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost?: Boolean
   ownedPlaces?: PlaceCreateManyWithoutHostInput
   location?: LocationCreateOneWithoutUserInput
@@ -5264,8 +5205,8 @@ export interface UserCreateWithoutLocationInput {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost?: Boolean
   ownedPlaces?: PlaceCreateManyWithoutHostInput
   bookings?: BookingCreateManyWithoutBookeeInput
@@ -5302,8 +5243,8 @@ export interface UserCreateWithoutBookingsInput {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost?: Boolean
   ownedPlaces?: PlaceCreateManyWithoutHostInput
   location?: LocationCreateOneWithoutUserInput
@@ -5369,10 +5310,10 @@ export interface UserUpdateOneWithoutSentMessagesInput {
   upsert?: UserUpsertWithoutSentMessagesInput
 }
 
-export interface CityWhereInput {
-  AND?: CityWhereInput[] | CityWhereInput
-  OR?: CityWhereInput[] | CityWhereInput
-  NOT?: CityWhereInput[] | CityWhereInput
+export interface RestaurantWhereInput {
+  AND?: RestaurantWhereInput[] | RestaurantWhereInput
+  OR?: RestaurantWhereInput[] | RestaurantWhereInput
+  NOT?: RestaurantWhereInput[] | RestaurantWhereInput
   id?: ID_Input
   id_not?: ID_Input
   id_in?: ID_Input[] | ID_Input
@@ -5387,23 +5328,64 @@ export interface CityWhereInput {
   id_not_starts_with?: ID_Input
   id_ends_with?: ID_Input
   id_not_ends_with?: ID_Input
-  name?: String
-  name_not?: String
-  name_in?: String[] | String
-  name_not_in?: String[] | String
-  name_lt?: String
-  name_lte?: String
-  name_gt?: String
-  name_gte?: String
-  name_contains?: String
-  name_not_contains?: String
-  name_starts_with?: String
-  name_not_starts_with?: String
-  name_ends_with?: String
-  name_not_ends_with?: String
-  neighbourhoods_every?: NeighbourhoodWhereInput
-  neighbourhoods_some?: NeighbourhoodWhereInput
-  neighbourhoods_none?: NeighbourhoodWhereInput
+  createdAt?: DateTime
+  createdAt_not?: DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
+  createdAt_lt?: DateTime
+  createdAt_lte?: DateTime
+  createdAt_gt?: DateTime
+  createdAt_gte?: DateTime
+  title?: String
+  title_not?: String
+  title_in?: String[] | String
+  title_not_in?: String[] | String
+  title_lt?: String
+  title_lte?: String
+  title_gt?: String
+  title_gte?: String
+  title_contains?: String
+  title_not_contains?: String
+  title_starts_with?: String
+  title_not_starts_with?: String
+  title_ends_with?: String
+  title_not_ends_with?: String
+  avgPricePerPerson?: Int
+  avgPricePerPerson_not?: Int
+  avgPricePerPerson_in?: Int[] | Int
+  avgPricePerPerson_not_in?: Int[] | Int
+  avgPricePerPerson_lt?: Int
+  avgPricePerPerson_lte?: Int
+  avgPricePerPerson_gt?: Int
+  avgPricePerPerson_gte?: Int
+  isCurated?: Boolean
+  isCurated_not?: Boolean
+  slug?: String
+  slug_not?: String
+  slug_in?: String[] | String
+  slug_not_in?: String[] | String
+  slug_lt?: String
+  slug_lte?: String
+  slug_gt?: String
+  slug_gte?: String
+  slug_contains?: String
+  slug_not_contains?: String
+  slug_starts_with?: String
+  slug_not_starts_with?: String
+  slug_ends_with?: String
+  slug_not_ends_with?: String
+  popularity?: Int
+  popularity_not?: Int
+  popularity_in?: Int[] | Int
+  popularity_not_in?: Int[] | Int
+  popularity_lt?: Int
+  popularity_lte?: Int
+  popularity_gt?: Int
+  popularity_gte?: Int
+  pictures_every?: PictureWhereInput
+  pictures_some?: PictureWhereInput
+  pictures_none?: PictureWhereInput
+  location?: LocationWhereInput
 }
 
 export interface UserUpdateWithoutSentMessagesDataInput {
@@ -5660,8 +5642,8 @@ export interface UserCreateWithoutReceivedMessagesInput {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost?: Boolean
   ownedPlaces?: PlaceCreateManyWithoutHostInput
   location?: LocationCreateOneWithoutUserInput
@@ -5909,8 +5891,8 @@ export interface UserNode extends Node {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost: Boolean
 }
 
@@ -5971,7 +5953,7 @@ export interface RestaurantPreviousValues extends Promise<RestaurantPreviousValu
 
 export interface PlaceNode extends Node {
   id: ID_Output
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -6206,8 +6188,8 @@ export interface UserPreviousValuesNode {
   email: String
   password: String
   phone: String
-  responseRate?: Float
-  responseTime?: Int
+  responseRate: Float
+  responseTime: Int
   isSuperHost: Boolean
 }
 
@@ -6299,7 +6281,7 @@ export interface PaypalInformationConnection extends Promise<PaypalInformationCo
 
 export interface PlacePreviousValuesNode {
   id: ID_Output
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -11234,9 +11216,6 @@ input HouseRulesWhereInput {
 
   """All values not ending with the given string."""
   additionalRules_not_ends_with: String
-  _MagicalBackRelation_HouseRulesToPlace_every: PlaceWhereInput
-  _MagicalBackRelation_HouseRulesToPlace_some: PlaceWhereInput
-  _MagicalBackRelation_HouseRulesToPlace_none: PlaceWhereInput
 }
 
 input HouseRulesWhereUniqueInput {
@@ -13941,26 +13920,11 @@ input PictureWhereInput {
 
   """All values not ending with the given string."""
   url_not_ends_with: String
-  _MagicalBackRelation_NeighbourhoodToPicture_every: NeighbourhoodWhereInput
-  _MagicalBackRelation_NeighbourhoodToPicture_some: NeighbourhoodWhereInput
-  _MagicalBackRelation_NeighbourhoodToPicture_none: NeighbourhoodWhereInput
-  _MagicalBackRelation_ExperienceToPicture_every: ExperienceWhereInput
-  _MagicalBackRelation_ExperienceToPicture_some: ExperienceWhereInput
-  _MagicalBackRelation_ExperienceToPicture_none: ExperienceWhereInput
-  _MagicalBackRelation_PictureToPlace_every: PlaceWhereInput
-  _MagicalBackRelation_PictureToPlace_some: PlaceWhereInput
-  _MagicalBackRelation_PictureToPlace_none: PlaceWhereInput
-  _MagicalBackRelation_PictureToUser_every: UserWhereInput
-  _MagicalBackRelation_PictureToUser_some: UserWhereInput
-  _MagicalBackRelation_PictureToUser_none: UserWhereInput
-  _MagicalBackRelation_PictureToRestaurant_every: RestaurantWhereInput
-  _MagicalBackRelation_PictureToRestaurant_some: RestaurantWhereInput
-  _MagicalBackRelation_PictureToRestaurant_none: RestaurantWhereInput
 }
 
 type Place implements Node {
   id: ID!
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14005,7 +13969,7 @@ type PlaceConnection {
 }
 
 input PlaceCreateInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14074,7 +14038,7 @@ input PlaceCreateOneWithoutViewsInput {
 }
 
 input PlaceCreateWithoutAmenitiesInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14097,7 +14061,7 @@ input PlaceCreateWithoutAmenitiesInput {
 }
 
 input PlaceCreateWithoutBookingsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14120,7 +14084,7 @@ input PlaceCreateWithoutBookingsInput {
 }
 
 input PlaceCreateWithoutGuestRequirementsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14143,7 +14107,7 @@ input PlaceCreateWithoutGuestRequirementsInput {
 }
 
 input PlaceCreateWithoutHostInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14166,7 +14130,7 @@ input PlaceCreateWithoutHostInput {
 }
 
 input PlaceCreateWithoutLocationInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14189,7 +14153,7 @@ input PlaceCreateWithoutLocationInput {
 }
 
 input PlaceCreateWithoutPoliciesInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14212,7 +14176,7 @@ input PlaceCreateWithoutPoliciesInput {
 }
 
 input PlaceCreateWithoutPricingInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14235,7 +14199,7 @@ input PlaceCreateWithoutPricingInput {
 }
 
 input PlaceCreateWithoutReviewsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14258,7 +14222,7 @@ input PlaceCreateWithoutReviewsInput {
 }
 
 input PlaceCreateWithoutViewsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -14320,7 +14284,7 @@ enum PlaceOrderByInput {
 
 type PlacePreviousValues {
   id: ID!
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -16861,8 +16825,8 @@ type User implements Node {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean!
   ownedPlaces(where: PlaceWhereInput, orderBy: PlaceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Place!]
   location(where: LocationWhereInput): Location
@@ -16891,8 +16855,8 @@ input UserCreateInput {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean
   ownedPlaces: PlaceCreateManyWithoutHostInput
   location: LocationCreateOneWithoutUserInput
@@ -16951,8 +16915,8 @@ input UserCreateWithoutBookingsInput {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean
   ownedPlaces: PlaceCreateManyWithoutHostInput
   location: LocationCreateOneWithoutUserInput
@@ -16970,8 +16934,8 @@ input UserCreateWithoutHostingExperiencesInput {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean
   ownedPlaces: PlaceCreateManyWithoutHostInput
   location: LocationCreateOneWithoutUserInput
@@ -16989,8 +16953,8 @@ input UserCreateWithoutLocationInput {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean
   ownedPlaces: PlaceCreateManyWithoutHostInput
   bookings: BookingCreateManyWithoutBookeeInput
@@ -17008,8 +16972,8 @@ input UserCreateWithoutNotificationsInput {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean
   ownedPlaces: PlaceCreateManyWithoutHostInput
   location: LocationCreateOneWithoutUserInput
@@ -17027,8 +16991,8 @@ input UserCreateWithoutOwnedPlacesInput {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean
   location: LocationCreateOneWithoutUserInput
   bookings: BookingCreateManyWithoutBookeeInput
@@ -17046,8 +17010,8 @@ input UserCreateWithoutPaymentAccountInput {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean
   ownedPlaces: PlaceCreateManyWithoutHostInput
   location: LocationCreateOneWithoutUserInput
@@ -17065,8 +17029,8 @@ input UserCreateWithoutReceivedMessagesInput {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean
   ownedPlaces: PlaceCreateManyWithoutHostInput
   location: LocationCreateOneWithoutUserInput
@@ -17084,8 +17048,8 @@ input UserCreateWithoutSentMessagesInput {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean
   ownedPlaces: PlaceCreateManyWithoutHostInput
   location: LocationCreateOneWithoutUserInput
@@ -17140,8 +17104,8 @@ type UserPreviousValues {
   email: String!
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
   isSuperHost: Boolean!
 }
 
@@ -18027,5 +17991,5 @@ input ViewsWhereUniqueInput {
 }
 `
 
-export const Prisma = makePrismaBindingClass<BindingConstructor<Prisma>>({typeDefs, endpoint: 'https://bucky-27701.herokuapp.com/delete-me-3/dev'})
+export const Prisma = makePrismaBindingClass<BindingConstructor<Prisma>>({typeDefs, endpoint: 'https://eu1.prisma.sh/public-demo/airbnb/dev'})
 export const prisma = new Prisma()

@@ -1,5 +1,6 @@
 # endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: https://bucky-27701.herokuapp.com/delete-me-3/dev
+# endpoint: https://bucky-27701.herokuapp.com/delete-me-3/dev
+endpoint: https://eu1.prisma.sh/public-demo/airbnb/dev
 
 datamodel: datamodel.graphql
 
