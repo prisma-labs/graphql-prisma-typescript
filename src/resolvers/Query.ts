@@ -6,11 +6,9 @@ export interface QueryRoot {}
 
 export const Query: IQuery.Resolver<Types> = {
   topExperiences: async (root, args, ctx) => {
-    const experiences = await ctx.db.query.experiences({
+    return ctx.db.query.experiences({
       orderBy: 'popularity_DESC',
     })
-    console.log(experiences)
-    return experiences
   },
   topHomes: (root, args, ctx) => {
     return ctx.db.query.places()
@@ -33,8 +31,8 @@ export const Query: IQuery.Resolver<Types> = {
       where: { featured: true },
     })
   },
-  experiencesByCity: (root, args, ctx) =>
-    ctx.db.query.cities({
+  experiencesByCity: (root, args, ctx) => {
+    return ctx.db.query.cities({
       where: {
         name_in: args.cities,
         neighbourhoods_every: {
@@ -45,6 +43,7 @@ export const Query: IQuery.Resolver<Types> = {
           },
         },
       },
-    }),
+    })
+  },
   viewer: root => ({}),
 }
