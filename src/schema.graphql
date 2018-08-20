@@ -105,8 +105,7 @@ type Neighbourhood {
   id: ID!
   name: String!
   slug: String!
-  homePreview: Picture
-  city: City!
+  # city: City!
   featured: Boolean!
   popularity: Int!
 }

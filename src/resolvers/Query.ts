@@ -44,3 +44,14 @@ export const Query: IQuery.Resolver<Types> = {
     }),
   viewer: root => ({}),
 }
+
+// `
+//   {
+//     neighbourhoods(orderBy, where) {
+//       ...
+//       preview {
+//         url
+//       }
+//     }
+//   }
+// `

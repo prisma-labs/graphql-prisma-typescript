@@ -8,10 +8,10 @@ export interface ResolverFn<Root, Args, Ctx, Payload> {
 
 export interface ITypes {
   Context: any
-  PAYMENT_PROVIDERRoot: any
-  PLACE_SIZESRoot: any
-  NOTIFICATION_TYPERoot: any
-  CURRENCYRoot: any
+  PAYMENT_PROVIDER: any
+  PLACE_SIZES: any
+  NOTIFICATION_TYPE: any
+  CURRENCY: any
 
   QueryRoot: any
   MutationRoot: any
@@ -495,7 +495,7 @@ export namespace IReview {
     T['ReviewRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type IdResolver<T extends ITypes> = ResolverFn<
@@ -569,20 +569,6 @@ export namespace INeighbourhood {
     string
   >
 
-  export type HomePreviewResolver<T extends ITypes> = ResolverFn<
-    T['NeighbourhoodRoot'],
-    {},
-    T['Context'],
-    T['PictureRoot'] | null
-  >
-
-  export type CityResolver<T extends ITypes> = ResolverFn<
-    T['NeighbourhoodRoot'],
-    {},
-    T['Context'],
-    T['CityRoot']
-  >
-
   export type FeaturedResolver<T extends ITypes> = ResolverFn<
     T['NeighbourhoodRoot'],
     {},
@@ -601,8 +587,6 @@ export namespace INeighbourhood {
     id: IdResolver<T>
     name: NameResolver<T>
     slug: SlugResolver<T>
-    homePreview: HomePreviewResolver<T>
-    city: CityResolver<T>
     featured: FeaturedResolver<T>
     popularity: PopularityResolver<T>
   }
@@ -736,7 +720,7 @@ export namespace IUser {
     T['UserRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type EmailResolver<T extends ITypes> = ResolverFn<
@@ -855,7 +839,7 @@ export namespace IUser {
     T['UserRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type TokenResolver<T extends ITypes> = ResolverFn<
@@ -901,14 +885,14 @@ export namespace IPaymentAccount {
     T['PaymentAccountRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type TypeResolver<T extends ITypes> = ResolverFn<
     T['PaymentAccountRoot'],
     {},
     T['Context'],
-    T['PAYMENT_PROVIDERRoot'] | null
+    T['PAYMENT_PROVIDER'] | null
   >
 
   export type UserResolver<T extends ITypes> = ResolverFn<
@@ -969,7 +953,7 @@ export namespace IPlace {
     T['PlaceRoot'],
     {},
     T['Context'],
-    T['PLACE_SIZESRoot'] | null
+    T['PLACE_SIZES'] | null
   >
 
   export type ShortDescriptionResolver<T extends ITypes> = ResolverFn<
@@ -1143,7 +1127,7 @@ export namespace IBooking {
     T['BookingRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type BookeeResolver<T extends ITypes> = ResolverFn<
@@ -1164,14 +1148,14 @@ export namespace IBooking {
     T['BookingRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type EndDateResolver<T extends ITypes> = ResolverFn<
     T['BookingRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type PaymentResolver<T extends ITypes> = ResolverFn<
@@ -1197,7 +1181,7 @@ export namespace INotification {
     T['NotificationRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type IdResolver<T extends ITypes> = ResolverFn<
@@ -1218,14 +1202,14 @@ export namespace INotification {
     T['NotificationRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type TypeResolver<T extends ITypes> = ResolverFn<
     T['NotificationRoot'],
     {},
     T['Context'],
-    T['NOTIFICATION_TYPERoot'] | null
+    T['NOTIFICATION_TYPE'] | null
   >
 
   export type UserResolver<T extends ITypes> = ResolverFn<
@@ -1257,7 +1241,7 @@ export namespace IPayment {
     T['PaymentRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type IdResolver<T extends ITypes> = ResolverFn<
@@ -1295,7 +1279,7 @@ export namespace IPaypalInformation {
     T['PaypalInformationRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type EmailResolver<T extends ITypes> = ResolverFn<
@@ -1346,7 +1330,7 @@ export namespace ICreditCardInformation {
     T['CreditCardInformationRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type ExpiresOnMonthResolver<T extends ITypes> = ResolverFn<
@@ -1425,14 +1409,14 @@ export namespace IMessage {
     T['MessageRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type DeliveredAtResolver<T extends ITypes> = ResolverFn<
     T['MessageRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type IdResolver<T extends ITypes> = ResolverFn<
@@ -1446,7 +1430,7 @@ export namespace IMessage {
     T['MessageRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export interface Resolver<T extends ITypes> {
@@ -1490,7 +1474,7 @@ export namespace IPricing {
     T['PricingRoot'],
     {},
     T['Context'],
-    T['CURRENCYRoot'] | null
+    T['CURRENCY'] | null
   >
 
   export type ExtraGuestsResolver<T extends ITypes> = ResolverFn<
@@ -1647,7 +1631,7 @@ export namespace IPolicies {
     T['PoliciesRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type IdResolver<T extends ITypes> = ResolverFn<
@@ -1661,7 +1645,7 @@ export namespace IPolicies {
     T['PoliciesRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export interface Resolver<T extends ITypes> {
@@ -1686,7 +1670,7 @@ export namespace IHouseRules {
     T['HouseRulesRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export type IdResolver<T extends ITypes> = ResolverFn<
@@ -1735,7 +1719,7 @@ export namespace IHouseRules {
     T['HouseRulesRoot'],
     {},
     T['Context'],
-    string
+    T['DateTimeRoot']
   >
 
   export interface Resolver<T extends ITypes> {

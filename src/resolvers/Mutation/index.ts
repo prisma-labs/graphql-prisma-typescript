@@ -4,7 +4,7 @@ import { book } from './book'
 import { addPaymentMethod } from './addPaymentMethod'
 import { Types } from '../types'
 
-export const Mutation: IMutation.Resolver<Types> = {
+export const MutationRoot: IMutation.Resolver<Types> = {
   signup,
   login,
   book,
