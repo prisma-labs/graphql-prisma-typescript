@@ -142,26 +142,32 @@ type ExperienceCategory {
 }
 
 type User {
-  bookings: [Booking!]
+  id: ID!
   createdAt: DateTime!
+  updatedAt: DateTime!
+
   email: String!
   firstName: String!
-  hostingExperiences: [Experience!]
-  id: ID!
-  isSuperHost: Boolean!
   lastName: String!
-  location: Location!
-  notifications: [Notification!]
-  ownedPlaces: [Place!]
-  paymentAccount: [PaymentAccount!]
   phone: String!
+  location: Location!
+
   profilePicture: Picture
-  receivedMessages: [Message!]
+  isSuperHost: Boolean!
+  paymentAccount: [PaymentAccount!]
+  token: String!
+
   responseRate: Float
   responseTime: Int
+
+  bookings: [Booking!]
+  hostingExperiences: [Experience!]
+  ownedPlaces: [Place!]
+
+  receivedMessages: [Message!]
   sentMessages: [Message!]
-  updatedAt: DateTime!
-  token: String!
+
+  notifications: [Notification!]
 }
 
 type PaymentAccount {
