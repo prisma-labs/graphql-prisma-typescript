@@ -9,12 +9,10 @@ export interface Query {
     pricings: <T = Pricing[]>(args: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     guestRequirementses: <T = GuestRequirements[]>(args: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     policieses: <T = Policies[]>(args: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    houseRuleses: <T = HouseRules[]>(args: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     viewses: <T = Views[]>(args: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     locations: <T = Location[]>(args: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     neighbourhoods: <T = Neighbourhood[]>(args: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     cities: <T = City[]>(args: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    pictures: <T = Picture[]>(args: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     experiences: <T = Experience[]>(args: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     experienceCategories: <T = ExperienceCategory[]>(args: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     amenitieses: <T = Amenities[]>(args: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
@@ -27,12 +25,13 @@ export interface Query {
     messages: <T = Message[]>(args: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     notifications: <T = Notification[]>(args: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     restaurants: <T = Restaurant[]>(args: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    pictures: <T = Picture[]>(args: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    houseRuleses: <T = HouseRules[]>(args: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     user: <T = User | null>(args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     place: <T = Place | null>(args: { where: PlaceWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     pricing: <T = Pricing | null>(args: { where: PricingWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     guestRequirements: <T = GuestRequirements | null>(args: { where: GuestRequirementsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     policies: <T = Policies | null>(args: { where: PoliciesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    houseRules: <T = HouseRules | null>(args: { where: HouseRulesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     views: <T = Views | null>(args: { where: ViewsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     location: <T = Location | null>(args: { where: LocationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     neighbourhood: <T = Neighbourhood | null>(args: { where: NeighbourhoodWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
@@ -49,17 +48,16 @@ export interface Query {
     message: <T = Message | null>(args: { where: MessageWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     notification: <T = Notification | null>(args: { where: NotificationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     restaurant: <T = Restaurant | null>(args: { where: RestaurantWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    houseRules: <T = HouseRules | null>(args: { where: HouseRulesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     usersConnection: <T = UserConnection>(args: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     placesConnection: <T = PlaceConnection>(args: { where?: PlaceWhereInput, orderBy?: PlaceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     pricingsConnection: <T = PricingConnection>(args: { where?: PricingWhereInput, orderBy?: PricingOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     guestRequirementsesConnection: <T = GuestRequirementsConnection>(args: { where?: GuestRequirementsWhereInput, orderBy?: GuestRequirementsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     policiesesConnection: <T = PoliciesConnection>(args: { where?: PoliciesWhereInput, orderBy?: PoliciesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    houseRulesesConnection: <T = HouseRulesConnection>(args: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     viewsesConnection: <T = ViewsConnection>(args: { where?: ViewsWhereInput, orderBy?: ViewsOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     locationsConnection: <T = LocationConnection>(args: { where?: LocationWhereInput, orderBy?: LocationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     neighbourhoodsConnection: <T = NeighbourhoodConnection>(args: { where?: NeighbourhoodWhereInput, orderBy?: NeighbourhoodOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     citiesConnection: <T = CityConnection>(args: { where?: CityWhereInput, orderBy?: CityOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    picturesConnection: <T = PictureConnection>(args: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     experiencesConnection: <T = ExperienceConnection>(args: { where?: ExperienceWhereInput, orderBy?: ExperienceOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     experienceCategoriesConnection: <T = ExperienceCategoryConnection>(args: { where?: ExperienceCategoryWhereInput, orderBy?: ExperienceCategoryOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     amenitiesesConnection: <T = AmenitiesConnection>(args: { where?: AmenitiesWhereInput, orderBy?: AmenitiesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
@@ -72,6 +70,8 @@ export interface Query {
     messagesConnection: <T = MessageConnection>(args: { where?: MessageWhereInput, orderBy?: MessageOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     notificationsConnection: <T = NotificationConnection>(args: { where?: NotificationWhereInput, orderBy?: NotificationOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     restaurantsConnection: <T = RestaurantConnection>(args: { where?: RestaurantWhereInput, orderBy?: RestaurantOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    picturesConnection: <T = PictureConnection>(args: { where?: PictureWhereInput, orderBy?: PictureOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    houseRulesesConnection: <T = HouseRulesConnection>(args: { where?: HouseRulesWhereInput, orderBy?: HouseRulesOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     node: <T = Node | null>(args: { id: ID_Output }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
   }
 
@@ -81,12 +81,10 @@ export interface Mutation {
     createPricing: <T = Pricing>(args: { data: PricingCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createGuestRequirements: <T = GuestRequirements>(args: { data: GuestRequirementsCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createPolicies: <T = Policies>(args: { data: PoliciesCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createHouseRules: <T = HouseRules>(args: { data: HouseRulesCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createViews: <T = Views>(args: { data: ViewsCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createLocation: <T = Location>(args: { data: LocationCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createNeighbourhood: <T = Neighbourhood>(args: { data: NeighbourhoodCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createCity: <T = City>(args: { data: CityCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    createPicture: <T = Picture>(args: { data: PictureCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createExperience: <T = Experience>(args: { data: ExperienceCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createExperienceCategory: <T = ExperienceCategory>(args: { data: ExperienceCategoryCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createAmenities: <T = Amenities>(args: { data: AmenitiesCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
@@ -99,12 +97,13 @@ export interface Mutation {
     createMessage: <T = Message>(args: { data: MessageCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createNotification: <T = Notification>(args: { data: NotificationCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createRestaurant: <T = Restaurant>(args: { data: RestaurantCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    createPicture: <T = Picture>(args: { data: PictureCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    createHouseRules: <T = HouseRules>(args: { data: HouseRulesCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateUser: <T = User | null>(args: { data: UserUpdateInput, where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updatePlace: <T = Place | null>(args: { data: PlaceUpdateInput, where: PlaceWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updatePricing: <T = Pricing | null>(args: { data: PricingUpdateInput, where: PricingWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateGuestRequirements: <T = GuestRequirements | null>(args: { data: GuestRequirementsUpdateInput, where: GuestRequirementsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updatePolicies: <T = Policies | null>(args: { data: PoliciesUpdateInput, where: PoliciesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateHouseRules: <T = HouseRules | null>(args: { data: HouseRulesUpdateInput, where: HouseRulesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateViews: <T = Views | null>(args: { data: ViewsUpdateInput, where: ViewsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateLocation: <T = Location | null>(args: { data: LocationUpdateInput, where: LocationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateNeighbourhood: <T = Neighbourhood | null>(args: { data: NeighbourhoodUpdateInput, where: NeighbourhoodWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
@@ -121,12 +120,12 @@ export interface Mutation {
     updateMessage: <T = Message | null>(args: { data: MessageUpdateInput, where: MessageWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateNotification: <T = Notification | null>(args: { data: NotificationUpdateInput, where: NotificationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateRestaurant: <T = Restaurant | null>(args: { data: RestaurantUpdateInput, where: RestaurantWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    updateHouseRules: <T = HouseRules | null>(args: { data: HouseRulesUpdateInput, where: HouseRulesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteUser: <T = User | null>(args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deletePlace: <T = Place | null>(args: { where: PlaceWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deletePricing: <T = Pricing | null>(args: { where: PricingWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteGuestRequirements: <T = GuestRequirements | null>(args: { where: GuestRequirementsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deletePolicies: <T = Policies | null>(args: { where: PoliciesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteHouseRules: <T = HouseRules | null>(args: { where: HouseRulesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteViews: <T = Views | null>(args: { where: ViewsWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteLocation: <T = Location | null>(args: { where: LocationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteNeighbourhood: <T = Neighbourhood | null>(args: { where: NeighbourhoodWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
@@ -143,12 +142,12 @@ export interface Mutation {
     deleteMessage: <T = Message | null>(args: { where: MessageWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteNotification: <T = Notification | null>(args: { where: NotificationWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteRestaurant: <T = Restaurant | null>(args: { where: RestaurantWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    deleteHouseRules: <T = HouseRules | null>(args: { where: HouseRulesWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertUser: <T = User>(args: { where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertPlace: <T = Place>(args: { where: PlaceWhereUniqueInput, create: PlaceCreateInput, update: PlaceUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertPricing: <T = Pricing>(args: { where: PricingWhereUniqueInput, create: PricingCreateInput, update: PricingUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertGuestRequirements: <T = GuestRequirements>(args: { where: GuestRequirementsWhereUniqueInput, create: GuestRequirementsCreateInput, update: GuestRequirementsUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertPolicies: <T = Policies>(args: { where: PoliciesWhereUniqueInput, create: PoliciesCreateInput, update: PoliciesUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertHouseRules: <T = HouseRules>(args: { where: HouseRulesWhereUniqueInput, create: HouseRulesCreateInput, update: HouseRulesUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertViews: <T = Views>(args: { where: ViewsWhereUniqueInput, create: ViewsCreateInput, update: ViewsUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertLocation: <T = Location>(args: { where: LocationWhereUniqueInput, create: LocationCreateInput, update: LocationUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertNeighbourhood: <T = Neighbourhood>(args: { where: NeighbourhoodWhereUniqueInput, create: NeighbourhoodCreateInput, update: NeighbourhoodUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
@@ -165,17 +164,16 @@ export interface Mutation {
     upsertMessage: <T = Message>(args: { where: MessageWhereUniqueInput, create: MessageCreateInput, update: MessageUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertNotification: <T = Notification>(args: { where: NotificationWhereUniqueInput, create: NotificationCreateInput, update: NotificationUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertRestaurant: <T = Restaurant>(args: { where: RestaurantWhereUniqueInput, create: RestaurantCreateInput, update: RestaurantUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    upsertHouseRules: <T = HouseRules>(args: { where: HouseRulesWhereUniqueInput, create: HouseRulesCreateInput, update: HouseRulesUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyUsers: <T = BatchPayload>(args: { data: UserUpdateInput, where?: UserWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyPlaces: <T = BatchPayload>(args: { data: PlaceUpdateInput, where?: PlaceWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyPricings: <T = BatchPayload>(args: { data: PricingUpdateInput, where?: PricingWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyGuestRequirementses: <T = BatchPayload>(args: { data: GuestRequirementsUpdateInput, where?: GuestRequirementsWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyPolicieses: <T = BatchPayload>(args: { data: PoliciesUpdateInput, where?: PoliciesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyHouseRuleses: <T = BatchPayload>(args: { data: HouseRulesUpdateInput, where?: HouseRulesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyViewses: <T = BatchPayload>(args: { data: ViewsUpdateInput, where?: ViewsWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyLocations: <T = BatchPayload>(args: { data: LocationUpdateInput, where?: LocationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyNeighbourhoods: <T = BatchPayload>(args: { data: NeighbourhoodUpdateInput, where?: NeighbourhoodWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyCities: <T = BatchPayload>(args: { data: CityUpdateInput, where?: CityWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyPictures: <T = BatchPayload>(args: { data: PictureUpdateInput, where?: PictureWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyExperiences: <T = BatchPayload>(args: { data: ExperienceUpdateInput, where?: ExperienceWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyExperienceCategories: <T = BatchPayload>(args: { data: ExperienceCategoryUpdateInput, where?: ExperienceCategoryWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyAmenitieses: <T = BatchPayload>(args: { data: AmenitiesUpdateInput, where?: AmenitiesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
@@ -188,17 +186,17 @@ export interface Mutation {
     updateManyMessages: <T = BatchPayload>(args: { data: MessageUpdateInput, where?: MessageWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyNotifications: <T = BatchPayload>(args: { data: NotificationUpdateInput, where?: NotificationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyRestaurants: <T = BatchPayload>(args: { data: RestaurantUpdateInput, where?: RestaurantWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    updateManyPictures: <T = BatchPayload>(args: { data: PictureUpdateInput, where?: PictureWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    updateManyHouseRuleses: <T = BatchPayload>(args: { data: HouseRulesUpdateInput, where?: HouseRulesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyUsers: <T = BatchPayload>(args: { where?: UserWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyPlaces: <T = BatchPayload>(args: { where?: PlaceWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyPricings: <T = BatchPayload>(args: { where?: PricingWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyGuestRequirementses: <T = BatchPayload>(args: { where?: GuestRequirementsWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyPolicieses: <T = BatchPayload>(args: { where?: PoliciesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyHouseRuleses: <T = BatchPayload>(args: { where?: HouseRulesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyViewses: <T = BatchPayload>(args: { where?: ViewsWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyLocations: <T = BatchPayload>(args: { where?: LocationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyNeighbourhoods: <T = BatchPayload>(args: { where?: NeighbourhoodWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyCities: <T = BatchPayload>(args: { where?: CityWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyPictures: <T = BatchPayload>(args: { where?: PictureWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyExperiences: <T = BatchPayload>(args: { where?: ExperienceWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyExperienceCategories: <T = BatchPayload>(args: { where?: ExperienceCategoryWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyAmenitieses: <T = BatchPayload>(args: { where?: AmenitiesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
@@ -210,7 +208,9 @@ export interface Mutation {
     deleteManyCreditCardInformations: <T = BatchPayload>(args: { where?: CreditCardInformationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyMessages: <T = BatchPayload>(args: { where?: MessageWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteManyNotifications: <T = BatchPayload>(args: { where?: NotificationWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyRestaurants: <T = BatchPayload>(args: { where?: RestaurantWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
+    deleteManyRestaurants: <T = BatchPayload>(args: { where?: RestaurantWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    deleteManyPictures: <T = BatchPayload>(args: { where?: PictureWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    deleteManyHouseRuleses: <T = BatchPayload>(args: { where?: HouseRulesWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
   }
 
 export interface Subscription {
@@ -219,12 +219,10 @@ export interface Subscription {
     pricing: <T = PricingSubscriptionPayload | null>(args: { where?: PricingSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     guestRequirements: <T = GuestRequirementsSubscriptionPayload | null>(args: { where?: GuestRequirementsSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     policies: <T = PoliciesSubscriptionPayload | null>(args: { where?: PoliciesSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    houseRules: <T = HouseRulesSubscriptionPayload | null>(args: { where?: HouseRulesSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     views: <T = ViewsSubscriptionPayload | null>(args: { where?: ViewsSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     location: <T = LocationSubscriptionPayload | null>(args: { where?: LocationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     neighbourhood: <T = NeighbourhoodSubscriptionPayload | null>(args: { where?: NeighbourhoodSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     city: <T = CitySubscriptionPayload | null>(args: { where?: CitySubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    picture: <T = PictureSubscriptionPayload | null>(args: { where?: PictureSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     experience: <T = ExperienceSubscriptionPayload | null>(args: { where?: ExperienceSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     experienceCategory: <T = ExperienceCategorySubscriptionPayload | null>(args: { where?: ExperienceCategorySubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     amenities: <T = AmenitiesSubscriptionPayload | null>(args: { where?: AmenitiesSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
@@ -236,7 +234,9 @@ export interface Subscription {
     creditCardInformation: <T = CreditCardInformationSubscriptionPayload | null>(args: { where?: CreditCardInformationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     message: <T = MessageSubscriptionPayload | null>(args: { where?: MessageSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
     notification: <T = NotificationSubscriptionPayload | null>(args: { where?: NotificationSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    restaurant: <T = RestaurantSubscriptionPayload | null>(args: { where?: RestaurantSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> 
+    restaurant: <T = RestaurantSubscriptionPayload | null>(args: { where?: RestaurantSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
+    picture: <T = PictureSubscriptionPayload | null>(args: { where?: PictureSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
+    houseRules: <T = HouseRulesSubscriptionPayload | null>(args: { where?: HouseRulesSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> 
   }
 
 export interface Exists {
@@ -245,12 +245,10 @@ export interface Exists {
   Pricing: (where?: PricingWhereInput) => Promise<boolean>
   GuestRequirements: (where?: GuestRequirementsWhereInput) => Promise<boolean>
   Policies: (where?: PoliciesWhereInput) => Promise<boolean>
-  HouseRules: (where?: HouseRulesWhereInput) => Promise<boolean>
   Views: (where?: ViewsWhereInput) => Promise<boolean>
   Location: (where?: LocationWhereInput) => Promise<boolean>
   Neighbourhood: (where?: NeighbourhoodWhereInput) => Promise<boolean>
   City: (where?: CityWhereInput) => Promise<boolean>
-  Picture: (where?: PictureWhereInput) => Promise<boolean>
   Experience: (where?: ExperienceWhereInput) => Promise<boolean>
   ExperienceCategory: (where?: ExperienceCategoryWhereInput) => Promise<boolean>
   Amenities: (where?: AmenitiesWhereInput) => Promise<boolean>
@@ -263,6 +261,8 @@ export interface Exists {
   Message: (where?: MessageWhereInput) => Promise<boolean>
   Notification: (where?: NotificationWhereInput) => Promise<boolean>
   Restaurant: (where?: RestaurantWhereInput) => Promise<boolean>
+  Picture: (where?: PictureWhereInput) => Promise<boolean>
+  HouseRules: (where?: HouseRulesWhereInput) => Promise<boolean>
 }
 
 export interface Prisma {
@@ -4142,12 +4142,10 @@ type Mutation {
   createPricing(data: PricingCreateInput!): Pricing!
   createGuestRequirements(data: GuestRequirementsCreateInput!): GuestRequirements!
   createPolicies(data: PoliciesCreateInput!): Policies!
-  createHouseRules(data: HouseRulesCreateInput!): HouseRules!
   createViews(data: ViewsCreateInput!): Views!
   createLocation(data: LocationCreateInput!): Location!
   createNeighbourhood(data: NeighbourhoodCreateInput!): Neighbourhood!
   createCity(data: CityCreateInput!): City!
-  createPicture(data: PictureCreateInput!): Picture!
   createExperience(data: ExperienceCreateInput!): Experience!
   createExperienceCategory(data: ExperienceCategoryCreateInput!): ExperienceCategory!
   createAmenities(data: AmenitiesCreateInput!): Amenities!
@@ -4160,12 +4158,13 @@ type Mutation {
   createMessage(data: MessageCreateInput!): Message!
   createNotification(data: NotificationCreateInput!): Notification!
   createRestaurant(data: RestaurantCreateInput!): Restaurant!
+  createPicture(data: PictureCreateInput!): Picture!
+  createHouseRules(data: HouseRulesCreateInput!): HouseRules!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updatePlace(data: PlaceUpdateInput!, where: PlaceWhereUniqueInput!): Place
   updatePricing(data: PricingUpdateInput!, where: PricingWhereUniqueInput!): Pricing
   updateGuestRequirements(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereUniqueInput!): GuestRequirements
   updatePolicies(data: PoliciesUpdateInput!, where: PoliciesWhereUniqueInput!): Policies
-  updateHouseRules(data: HouseRulesUpdateInput!, where: HouseRulesWhereUniqueInput!): HouseRules
   updateViews(data: ViewsUpdateInput!, where: ViewsWhereUniqueInput!): Views
   updateLocation(data: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location
   updateNeighbourhood(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereUniqueInput!): Neighbourhood
@@ -4182,12 +4181,12 @@ type Mutation {
   updateMessage(data: MessageUpdateInput!, where: MessageWhereUniqueInput!): Message
   updateNotification(data: NotificationUpdateInput!, where: NotificationWhereUniqueInput!): Notification
   updateRestaurant(data: RestaurantUpdateInput!, where: RestaurantWhereUniqueInput!): Restaurant
+  updateHouseRules(data: HouseRulesUpdateInput!, where: HouseRulesWhereUniqueInput!): HouseRules
   deleteUser(where: UserWhereUniqueInput!): User
   deletePlace(where: PlaceWhereUniqueInput!): Place
   deletePricing(where: PricingWhereUniqueInput!): Pricing
   deleteGuestRequirements(where: GuestRequirementsWhereUniqueInput!): GuestRequirements
   deletePolicies(where: PoliciesWhereUniqueInput!): Policies
-  deleteHouseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   deleteViews(where: ViewsWhereUniqueInput!): Views
   deleteLocation(where: LocationWhereUniqueInput!): Location
   deleteNeighbourhood(where: NeighbourhoodWhereUniqueInput!): Neighbourhood
@@ -4204,12 +4203,12 @@ type Mutation {
   deleteMessage(where: MessageWhereUniqueInput!): Message
   deleteNotification(where: NotificationWhereUniqueInput!): Notification
   deleteRestaurant(where: RestaurantWhereUniqueInput!): Restaurant
+  deleteHouseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
   upsertPlace(where: PlaceWhereUniqueInput!, create: PlaceCreateInput!, update: PlaceUpdateInput!): Place!
   upsertPricing(where: PricingWhereUniqueInput!, create: PricingCreateInput!, update: PricingUpdateInput!): Pricing!
   upsertGuestRequirements(where: GuestRequirementsWhereUniqueInput!, create: GuestRequirementsCreateInput!, update: GuestRequirementsUpdateInput!): GuestRequirements!
   upsertPolicies(where: PoliciesWhereUniqueInput!, create: PoliciesCreateInput!, update: PoliciesUpdateInput!): Policies!
-  upsertHouseRules(where: HouseRulesWhereUniqueInput!, create: HouseRulesCreateInput!, update: HouseRulesUpdateInput!): HouseRules!
   upsertViews(where: ViewsWhereUniqueInput!, create: ViewsCreateInput!, update: ViewsUpdateInput!): Views!
   upsertLocation(where: LocationWhereUniqueInput!, create: LocationCreateInput!, update: LocationUpdateInput!): Location!
   upsertNeighbourhood(where: NeighbourhoodWhereUniqueInput!, create: NeighbourhoodCreateInput!, update: NeighbourhoodUpdateInput!): Neighbourhood!
@@ -4226,17 +4225,16 @@ type Mutation {
   upsertMessage(where: MessageWhereUniqueInput!, create: MessageCreateInput!, update: MessageUpdateInput!): Message!
   upsertNotification(where: NotificationWhereUniqueInput!, create: NotificationCreateInput!, update: NotificationUpdateInput!): Notification!
   upsertRestaurant(where: RestaurantWhereUniqueInput!, create: RestaurantCreateInput!, update: RestaurantUpdateInput!): Restaurant!
+  upsertHouseRules(where: HouseRulesWhereUniqueInput!, create: HouseRulesCreateInput!, update: HouseRulesUpdateInput!): HouseRules!
   updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
   updateManyPlaces(data: PlaceUpdateInput!, where: PlaceWhereInput): BatchPayload!
   updateManyPricings(data: PricingUpdateInput!, where: PricingWhereInput): BatchPayload!
   updateManyGuestRequirementses(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereInput): BatchPayload!
   updateManyPolicieses(data: PoliciesUpdateInput!, where: PoliciesWhereInput): BatchPayload!
-  updateManyHouseRuleses(data: HouseRulesUpdateInput!, where: HouseRulesWhereInput): BatchPayload!
   updateManyViewses(data: ViewsUpdateInput!, where: ViewsWhereInput): BatchPayload!
   updateManyLocations(data: LocationUpdateInput!, where: LocationWhereInput): BatchPayload!
   updateManyNeighbourhoods(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereInput): BatchPayload!
   updateManyCities(data: CityUpdateInput!, where: CityWhereInput): BatchPayload!
-  updateManyPictures(data: PictureUpdateInput!, where: PictureWhereInput): BatchPayload!
   updateManyExperiences(data: ExperienceUpdateInput!, where: ExperienceWhereInput): BatchPayload!
   updateManyExperienceCategories(data: ExperienceCategoryUpdateInput!, where: ExperienceCategoryWhereInput): BatchPayload!
   updateManyAmenitieses(data: AmenitiesUpdateInput!, where: AmenitiesWhereInput): BatchPayload!
@@ -4249,17 +4247,17 @@ type Mutation {
   updateManyMessages(data: MessageUpdateInput!, where: MessageWhereInput): BatchPayload!
   updateManyNotifications(data: NotificationUpdateInput!, where: NotificationWhereInput): BatchPayload!
   updateManyRestaurants(data: RestaurantUpdateInput!, where: RestaurantWhereInput): BatchPayload!
+  updateManyPictures(data: PictureUpdateInput!, where: PictureWhereInput): BatchPayload!
+  updateManyHouseRuleses(data: HouseRulesUpdateInput!, where: HouseRulesWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
   deleteManyPlaces(where: PlaceWhereInput): BatchPayload!
   deleteManyPricings(where: PricingWhereInput): BatchPayload!
   deleteManyGuestRequirementses(where: GuestRequirementsWhereInput): BatchPayload!
   deleteManyPolicieses(where: PoliciesWhereInput): BatchPayload!
-  deleteManyHouseRuleses(where: HouseRulesWhereInput): BatchPayload!
   deleteManyViewses(where: ViewsWhereInput): BatchPayload!
   deleteManyLocations(where: LocationWhereInput): BatchPayload!
   deleteManyNeighbourhoods(where: NeighbourhoodWhereInput): BatchPayload!
   deleteManyCities(where: CityWhereInput): BatchPayload!
-  deleteManyPictures(where: PictureWhereInput): BatchPayload!
   deleteManyExperiences(where: ExperienceWhereInput): BatchPayload!
   deleteManyExperienceCategories(where: ExperienceCategoryWhereInput): BatchPayload!
   deleteManyAmenitieses(where: AmenitiesWhereInput): BatchPayload!
@@ -4272,6 +4270,8 @@ type Mutation {
   deleteManyMessages(where: MessageWhereInput): BatchPayload!
   deleteManyNotifications(where: NotificationWhereInput): BatchPayload!
   deleteManyRestaurants(where: RestaurantWhereInput): BatchPayload!
+  deleteManyPictures(where: PictureWhereInput): BatchPayload!
+  deleteManyHouseRuleses(where: HouseRulesWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -7944,12 +7944,10 @@ type Query {
   pricings(where: PricingWhereInput, orderBy: PricingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pricing]!
   guestRequirementses(where: GuestRequirementsWhereInput, orderBy: GuestRequirementsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [GuestRequirements]!
   policieses(where: PoliciesWhereInput, orderBy: PoliciesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Policies]!
-  houseRuleses(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [HouseRules]!
   viewses(where: ViewsWhereInput, orderBy: ViewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Views]!
   locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location]!
   neighbourhoods(where: NeighbourhoodWhereInput, orderBy: NeighbourhoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Neighbourhood]!
   cities(where: CityWhereInput, orderBy: CityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [City]!
-  pictures(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Picture]!
   experiences(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Experience]!
   experienceCategories(where: ExperienceCategoryWhereInput, orderBy: ExperienceCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ExperienceCategory]!
   amenitieses(where: AmenitiesWhereInput, orderBy: AmenitiesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Amenities]!
@@ -7962,12 +7960,13 @@ type Query {
   messages(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message]!
   notifications(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Notification]!
   restaurants(where: RestaurantWhereInput, orderBy: RestaurantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Restaurant]!
+  pictures(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Picture]!
+  houseRuleses(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [HouseRules]!
   user(where: UserWhereUniqueInput!): User
   place(where: PlaceWhereUniqueInput!): Place
   pricing(where: PricingWhereUniqueInput!): Pricing
   guestRequirements(where: GuestRequirementsWhereUniqueInput!): GuestRequirements
   policies(where: PoliciesWhereUniqueInput!): Policies
-  houseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   views(where: ViewsWhereUniqueInput!): Views
   location(where: LocationWhereUniqueInput!): Location
   neighbourhood(where: NeighbourhoodWhereUniqueInput!): Neighbourhood
@@ -7984,17 +7983,16 @@ type Query {
   message(where: MessageWhereUniqueInput!): Message
   notification(where: NotificationWhereUniqueInput!): Notification
   restaurant(where: RestaurantWhereUniqueInput!): Restaurant
+  houseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   placesConnection(where: PlaceWhereInput, orderBy: PlaceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PlaceConnection!
   pricingsConnection(where: PricingWhereInput, orderBy: PricingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PricingConnection!
   guestRequirementsesConnection(where: GuestRequirementsWhereInput, orderBy: GuestRequirementsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GuestRequirementsConnection!
   policiesesConnection(where: PoliciesWhereInput, orderBy: PoliciesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PoliciesConnection!
-  houseRulesesConnection(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HouseRulesConnection!
   viewsesConnection(where: ViewsWhereInput, orderBy: ViewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ViewsConnection!
   locationsConnection(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LocationConnection!
   neighbourhoodsConnection(where: NeighbourhoodWhereInput, orderBy: NeighbourhoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NeighbourhoodConnection!
   citiesConnection(where: CityWhereInput, orderBy: CityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CityConnection!
-  picturesConnection(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PictureConnection!
   experiencesConnection(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ExperienceConnection!
   experienceCategoriesConnection(where: ExperienceCategoryWhereInput, orderBy: ExperienceCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ExperienceCategoryConnection!
   amenitiesesConnection(where: AmenitiesWhereInput, orderBy: AmenitiesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AmenitiesConnection!
@@ -8007,6 +8005,8 @@ type Query {
   messagesConnection(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MessageConnection!
   notificationsConnection(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NotificationConnection!
   restaurantsConnection(where: RestaurantWhereInput, orderBy: RestaurantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RestaurantConnection!
+  picturesConnection(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PictureConnection!
+  houseRulesesConnection(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HouseRulesConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -8894,12 +8894,10 @@ type Subscription {
   pricing(where: PricingSubscriptionWhereInput): PricingSubscriptionPayload
   guestRequirements(where: GuestRequirementsSubscriptionWhereInput): GuestRequirementsSubscriptionPayload
   policies(where: PoliciesSubscriptionWhereInput): PoliciesSubscriptionPayload
-  houseRules(where: HouseRulesSubscriptionWhereInput): HouseRulesSubscriptionPayload
   views(where: ViewsSubscriptionWhereInput): ViewsSubscriptionPayload
   location(where: LocationSubscriptionWhereInput): LocationSubscriptionPayload
   neighbourhood(where: NeighbourhoodSubscriptionWhereInput): NeighbourhoodSubscriptionPayload
   city(where: CitySubscriptionWhereInput): CitySubscriptionPayload
-  picture(where: PictureSubscriptionWhereInput): PictureSubscriptionPayload
   experience(where: ExperienceSubscriptionWhereInput): ExperienceSubscriptionPayload
   experienceCategory(where: ExperienceCategorySubscriptionWhereInput): ExperienceCategorySubscriptionPayload
   amenities(where: AmenitiesSubscriptionWhereInput): AmenitiesSubscriptionPayload
@@ -8912,6 +8910,8 @@ type Subscription {
   message(where: MessageSubscriptionWhereInput): MessageSubscriptionPayload
   notification(where: NotificationSubscriptionWhereInput): NotificationSubscriptionPayload
   restaurant(where: RestaurantSubscriptionWhereInput): RestaurantSubscriptionPayload
+  picture(where: PictureSubscriptionWhereInput): PictureSubscriptionPayload
+  houseRules(where: HouseRulesSubscriptionWhereInput): HouseRulesSubscriptionPayload
 }
 
 type User implements Node {
@@ -10127,92 +10127,6 @@ export type NotificationOrderByInput =   'id_ASC' |
   'updatedAt_ASC' |
   'updatedAt_DESC'
 
-export type RestaurantOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'title_ASC' |
-  'title_DESC' |
-  'avgPricePerPerson_ASC' |
-  'avgPricePerPerson_DESC' |
-  'isCurated_ASC' |
-  'isCurated_DESC' |
-  'slug_ASC' |
-  'slug_DESC' |
-  'popularity_ASC' |
-  'popularity_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
-
-export type MessageOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'deliveredAt_ASC' |
-  'deliveredAt_DESC' |
-  'readAt_ASC' |
-  'readAt_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
-
-export type PaypalInformationOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'email_ASC' |
-  'email_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
-
-export type PaymentAccountOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'type_ASC' |
-  'type_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
-
-export type ExperienceCategoryOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'mainColor_ASC' |
-  'mainColor_DESC' |
-  'name_ASC' |
-  'name_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
-
-export type CURRENCY =   'CAD' |
-  'CHF' |
-  'EUR' |
-  'JPY' |
-  'USD' |
-  'ZAR'
-
-export type CityOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'name_ASC' |
-  'name_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
-
-export type PaymentOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'serviceFee_ASC' |
-  'serviceFee_DESC' |
-  'placePrice_ASC' |
-  'placePrice_DESC' |
-  'totalPrice_ASC' |
-  'totalPrice_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC'
-
 export type HouseRulesOrderByInput =   'id_ASC' |
   'id_DESC' |
   'createdAt_ASC' |
@@ -10232,57 +10146,48 @@ export type HouseRulesOrderByInput =   'id_ASC' |
   'additionalRules_ASC' |
   'additionalRules_DESC'
 
-export type BookingOrderByInput =   'id_ASC' |
+export type MessageOrderByInput =   'id_ASC' |
   'id_DESC' |
   'createdAt_ASC' |
   'createdAt_DESC' |
-  'startDate_ASC' |
-  'startDate_DESC' |
-  'endDate_ASC' |
-  'endDate_DESC' |
+  'deliveredAt_ASC' |
+  'deliveredAt_DESC' |
+  'readAt_ASC' |
+  'readAt_DESC' |
   'updatedAt_ASC' |
   'updatedAt_DESC'
 
-export type GuestRequirementsOrderByInput =   'id_ASC' |
+export type CreditCardInformationOrderByInput =   'id_ASC' |
   'id_DESC' |
-  'govIssuedId_ASC' |
-  'govIssuedId_DESC' |
-  'recommendationsFromOtherHosts_ASC' |
-  'recommendationsFromOtherHosts_DESC' |
-  'guestTripInformation_ASC' |
-  'guestTripInformation_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
   'createdAt_ASC' |
-  'createdAt_DESC'
+  'createdAt_DESC' |
+  'cardNumber_ASC' |
+  'cardNumber_DESC' |
+  'expiresOnMonth_ASC' |
+  'expiresOnMonth_DESC' |
+  'expiresOnYear_ASC' |
+  'expiresOnYear_DESC' |
+  'securityCode_ASC' |
+  'securityCode_DESC' |
+  'firstName_ASC' |
+  'firstName_DESC' |
+  'lastName_ASC' |
+  'lastName_DESC' |
+  'postalCode_ASC' |
+  'postalCode_DESC' |
+  'country_ASC' |
+  'country_DESC' |
+  'updatedAt_ASC' |
+  'updatedAt_DESC'
 
-export type PictureOrderByInput =   'url_ASC' |
-  'url_DESC' |
-  'id_ASC' |
+export type PaymentAccountOrderByInput =   'id_ASC' |
   'id_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
   'createdAt_ASC' |
-  'createdAt_DESC'
-
-export type MutationType =   'CREATED' |
-  'UPDATED' |
-  'DELETED'
-
-export type NeighbourhoodOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'name_ASC' |
-  'name_DESC' |
-  'slug_ASC' |
-  'slug_DESC' |
-  'featured_ASC' |
-  'featured_DESC' |
-  'popularity_ASC' |
-  'popularity_DESC' |
+  'createdAt_DESC' |
+  'type_ASC' |
+  'type_DESC' |
   'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+  'updatedAt_DESC'
 
 export type AmenitiesOrderByInput =   'id_ASC' |
   'id_DESC' |
@@ -10371,6 +10276,107 @@ export type AmenitiesOrderByInput =   'id_ASC' |
   'createdAt_ASC' |
   'createdAt_DESC'
 
+export type CURRENCY =   'CAD' |
+  'CHF' |
+  'EUR' |
+  'JPY' |
+  'USD' |
+  'ZAR'
+
+export type ExperienceCategoryOrderByInput =   'id_ASC' |
+  'id_DESC' |
+  'mainColor_ASC' |
+  'mainColor_DESC' |
+  'name_ASC' |
+  'name_DESC' |
+  'updatedAt_ASC' |
+  'updatedAt_DESC' |
+  'createdAt_ASC' |
+  'createdAt_DESC'
+
+export type PaymentOrderByInput =   'id_ASC' |
+  'id_DESC' |
+  'createdAt_ASC' |
+  'createdAt_DESC' |
+  'serviceFee_ASC' |
+  'serviceFee_DESC' |
+  'placePrice_ASC' |
+  'placePrice_DESC' |
+  'totalPrice_ASC' |
+  'totalPrice_DESC' |
+  'updatedAt_ASC' |
+  'updatedAt_DESC'
+
+export type ViewsOrderByInput =   'id_ASC' |
+  'id_DESC' |
+  'lastWeek_ASC' |
+  'lastWeek_DESC' |
+  'updatedAt_ASC' |
+  'updatedAt_DESC' |
+  'createdAt_ASC' |
+  'createdAt_DESC'
+
+export type BookingOrderByInput =   'id_ASC' |
+  'id_DESC' |
+  'createdAt_ASC' |
+  'createdAt_DESC' |
+  'startDate_ASC' |
+  'startDate_DESC' |
+  'endDate_ASC' |
+  'endDate_DESC' |
+  'updatedAt_ASC' |
+  'updatedAt_DESC'
+
+export type GuestRequirementsOrderByInput =   'id_ASC' |
+  'id_DESC' |
+  'govIssuedId_ASC' |
+  'govIssuedId_DESC' |
+  'recommendationsFromOtherHosts_ASC' |
+  'recommendationsFromOtherHosts_DESC' |
+  'guestTripInformation_ASC' |
+  'guestTripInformation_DESC' |
+  'updatedAt_ASC' |
+  'updatedAt_DESC' |
+  'createdAt_ASC' |
+  'createdAt_DESC'
+
+export type PictureOrderByInput =   'url_ASC' |
+  'url_DESC' |
+  'id_ASC' |
+  'id_DESC' |
+  'updatedAt_ASC' |
+  'updatedAt_DESC' |
+  'createdAt_ASC' |
+  'createdAt_DESC'
+
+export type MutationType =   'CREATED' |
+  'UPDATED' |
+  'DELETED'
+
+export type NeighbourhoodOrderByInput =   'id_ASC' |
+  'id_DESC' |
+  'name_ASC' |
+  'name_DESC' |
+  'slug_ASC' |
+  'slug_DESC' |
+  'featured_ASC' |
+  'featured_DESC' |
+  'popularity_ASC' |
+  'popularity_DESC' |
+  'updatedAt_ASC' |
+  'updatedAt_DESC' |
+  'createdAt_ASC' |
+  'createdAt_DESC'
+
+export type PaypalInformationOrderByInput =   'id_ASC' |
+  'id_DESC' |
+  'createdAt_ASC' |
+  'createdAt_DESC' |
+  'email_ASC' |
+  'email_DESC' |
+  'updatedAt_ASC' |
+  'updatedAt_DESC'
+
 export type LocationOrderByInput =   'id_ASC' |
   'id_DESC' |
   'lat_ASC' |
@@ -10386,10 +10392,10 @@ export type LocationOrderByInput =   'id_ASC' |
   'createdAt_ASC' |
   'createdAt_DESC'
 
-export type ViewsOrderByInput =   'id_ASC' |
+export type CityOrderByInput =   'id_ASC' |
   'id_DESC' |
-  'lastWeek_ASC' |
-  'lastWeek_DESC' |
+  'name_ASC' |
+  'name_DESC' |
   'updatedAt_ASC' |
   'updatedAt_DESC' |
   'createdAt_ASC' |
@@ -10493,26 +10499,20 @@ export type PLACE_SIZES =   'ENTIRE_HOUSE' |
   'ENTIRE_BOAT' |
   'PRIVATE_ROOM'
 
-export type CreditCardInformationOrderByInput =   'id_ASC' |
+export type RestaurantOrderByInput =   'id_ASC' |
   'id_DESC' |
   'createdAt_ASC' |
   'createdAt_DESC' |
-  'cardNumber_ASC' |
-  'cardNumber_DESC' |
-  'expiresOnMonth_ASC' |
-  'expiresOnMonth_DESC' |
-  'expiresOnYear_ASC' |
-  'expiresOnYear_DESC' |
-  'securityCode_ASC' |
-  'securityCode_DESC' |
-  'firstName_ASC' |
-  'firstName_DESC' |
-  'lastName_ASC' |
-  'lastName_DESC' |
-  'postalCode_ASC' |
-  'postalCode_DESC' |
-  'country_ASC' |
-  'country_DESC' |
+  'title_ASC' |
+  'title_DESC' |
+  'avgPricePerPerson_ASC' |
+  'avgPricePerPerson_DESC' |
+  'isCurated_ASC' |
+  'isCurated_DESC' |
+  'slug_ASC' |
+  'slug_DESC' |
+  'popularity_ASC' |
+  'popularity_DESC' |
   'updatedAt_ASC' |
   'updatedAt_DESC'
 
@@ -10955,20 +10955,37 @@ export interface ViewsCreateWithoutPlaceInput {
   lastWeek: Int
 }
 
-export interface RestaurantSubscriptionWhereInput {
-  AND?: RestaurantSubscriptionWhereInput[] | RestaurantSubscriptionWhereInput
-  OR?: RestaurantSubscriptionWhereInput[] | RestaurantSubscriptionWhereInput
-  NOT?: RestaurantSubscriptionWhereInput[] | RestaurantSubscriptionWhereInput
+export interface HouseRulesSubscriptionWhereInput {
+  AND?: HouseRulesSubscriptionWhereInput[] | HouseRulesSubscriptionWhereInput
+  OR?: HouseRulesSubscriptionWhereInput[] | HouseRulesSubscriptionWhereInput
+  NOT?: HouseRulesSubscriptionWhereInput[] | HouseRulesSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: RestaurantWhereInput
+  node?: HouseRulesWhereInput
 }
 
 export interface GuestRequirementsCreateOneWithoutPlaceInput {
   create?: GuestRequirementsCreateWithoutPlaceInput
   connect?: GuestRequirementsWhereUniqueInput
+}
+
+export interface PictureSubscriptionWhereInput {
+  AND?: PictureSubscriptionWhereInput[] | PictureSubscriptionWhereInput
+  OR?: PictureSubscriptionWhereInput[] | PictureSubscriptionWhereInput
+  NOT?: PictureSubscriptionWhereInput[] | PictureSubscriptionWhereInput
+  mutation_in?: MutationType[] | MutationType
+  updatedFields_contains?: String
+  updatedFields_contains_every?: String[] | String
+  updatedFields_contains_some?: String[] | String
+  node?: PictureWhereInput
+}
+
+export interface GuestRequirementsCreateWithoutPlaceInput {
+  govIssuedId?: Boolean
+  recommendationsFromOtherHosts?: Boolean
+  guestTripInformation?: Boolean
 }
 
 export interface NotificationSubscriptionWhereInput {
@@ -10982,10 +10999,9 @@ export interface NotificationSubscriptionWhereInput {
   node?: NotificationWhereInput
 }
 
-export interface GuestRequirementsCreateWithoutPlaceInput {
-  govIssuedId?: Boolean
-  recommendationsFromOtherHosts?: Boolean
-  guestTripInformation?: Boolean
+export interface PoliciesCreateOneWithoutPlaceInput {
+  create?: PoliciesCreateWithoutPlaceInput
+  connect?: PoliciesWhereUniqueInput
 }
 
 export interface CreditCardInformationSubscriptionWhereInput {
@@ -10999,37 +11015,21 @@ export interface CreditCardInformationSubscriptionWhereInput {
   node?: CreditCardInformationWhereInput
 }
 
-export interface PoliciesCreateOneWithoutPlaceInput {
-  create?: PoliciesCreateWithoutPlaceInput
-  connect?: PoliciesWhereUniqueInput
-}
-
-export interface PaymentAccountSubscriptionWhereInput {
-  AND?: PaymentAccountSubscriptionWhereInput[] | PaymentAccountSubscriptionWhereInput
-  OR?: PaymentAccountSubscriptionWhereInput[] | PaymentAccountSubscriptionWhereInput
-  NOT?: PaymentAccountSubscriptionWhereInput[] | PaymentAccountSubscriptionWhereInput
-  mutation_in?: MutationType[] | MutationType
-  updatedFields_contains?: String
-  updatedFields_contains_every?: String[] | String
-  updatedFields_contains_some?: String[] | String
-  node?: PaymentAccountWhereInput
-}
-
 export interface PoliciesCreateWithoutPlaceInput {
   checkInStartTime: Float
   checkInEndTime: Float
   checkoutTime: Float
 }
 
-export interface PaymentSubscriptionWhereInput {
-  AND?: PaymentSubscriptionWhereInput[] | PaymentSubscriptionWhereInput
-  OR?: PaymentSubscriptionWhereInput[] | PaymentSubscriptionWhereInput
-  NOT?: PaymentSubscriptionWhereInput[] | PaymentSubscriptionWhereInput
+export interface PaypalInformationSubscriptionWhereInput {
+  AND?: PaypalInformationSubscriptionWhereInput[] | PaypalInformationSubscriptionWhereInput
+  OR?: PaypalInformationSubscriptionWhereInput[] | PaypalInformationSubscriptionWhereInput
+  NOT?: PaypalInformationSubscriptionWhereInput[] | PaypalInformationSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: PaymentWhereInput
+  node?: PaypalInformationWhereInput
 }
 
 export interface HouseRulesCreateOneInput {
@@ -11172,6 +11172,24 @@ export interface BookingCreateManyWithoutPlaceInput {
   connect?: BookingWhereUniqueInput[] | BookingWhereUniqueInput
 }
 
+export interface ReviewSubscriptionWhereInput {
+  AND?: ReviewSubscriptionWhereInput[] | ReviewSubscriptionWhereInput
+  OR?: ReviewSubscriptionWhereInput[] | ReviewSubscriptionWhereInput
+  NOT?: ReviewSubscriptionWhereInput[] | ReviewSubscriptionWhereInput
+  mutation_in?: MutationType[] | MutationType
+  updatedFields_contains?: String
+  updatedFields_contains_every?: String[] | String
+  updatedFields_contains_some?: String[] | String
+  node?: ReviewWhereInput
+}
+
+export interface BookingCreateWithoutPlaceInput {
+  startDate: DateTime
+  endDate: DateTime
+  bookee: UserCreateOneWithoutBookingsInput
+  payment: PaymentCreateOneWithoutBookingInput
+}
+
 export interface ExperienceCategorySubscriptionWhereInput {
   AND?: ExperienceCategorySubscriptionWhereInput[] | ExperienceCategorySubscriptionWhereInput
   OR?: ExperienceCategorySubscriptionWhereInput[] | ExperienceCategorySubscriptionWhereInput
@@ -11183,27 +11201,27 @@ export interface ExperienceCategorySubscriptionWhereInput {
   node?: ExperienceCategoryWhereInput
 }
 
-export interface BookingCreateWithoutPlaceInput {
-  startDate: DateTime
-  endDate: DateTime
-  bookee: UserCreateOneWithoutBookingsInput
-  payment: PaymentCreateOneWithoutBookingInput
+export interface PaymentCreateOneWithoutBookingInput {
+  create?: PaymentCreateWithoutBookingInput
+  connect?: PaymentWhereUniqueInput
 }
 
-export interface PictureSubscriptionWhereInput {
-  AND?: PictureSubscriptionWhereInput[] | PictureSubscriptionWhereInput
-  OR?: PictureSubscriptionWhereInput[] | PictureSubscriptionWhereInput
-  NOT?: PictureSubscriptionWhereInput[] | PictureSubscriptionWhereInput
+export interface CitySubscriptionWhereInput {
+  AND?: CitySubscriptionWhereInput[] | CitySubscriptionWhereInput
+  OR?: CitySubscriptionWhereInput[] | CitySubscriptionWhereInput
+  NOT?: CitySubscriptionWhereInput[] | CitySubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: PictureWhereInput
+  node?: CityWhereInput
 }
 
-export interface PaymentCreateOneWithoutBookingInput {
-  create?: PaymentCreateWithoutBookingInput
-  connect?: PaymentWhereUniqueInput
+export interface PaymentCreateWithoutBookingInput {
+  serviceFee: Float
+  placePrice: Float
+  totalPrice: Float
+  paymentMethod: PaymentAccountCreateOneWithoutPaymentsInput
 }
 
 export interface NeighbourhoodSubscriptionWhereInput {
@@ -11217,38 +11235,20 @@ export interface NeighbourhoodSubscriptionWhereInput {
   node?: NeighbourhoodWhereInput
 }
 
-export interface PaymentCreateWithoutBookingInput {
-  serviceFee: Float
-  placePrice: Float
-  totalPrice: Float
-  paymentMethod: PaymentAccountCreateOneWithoutPaymentsInput
-}
-
-export interface LocationSubscriptionWhereInput {
-  AND?: LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
-  OR?: LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
-  NOT?: LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
-  mutation_in?: MutationType[] | MutationType
-  updatedFields_contains?: String
-  updatedFields_contains_every?: String[] | String
-  updatedFields_contains_some?: String[] | String
-  node?: LocationWhereInput
-}
-
 export interface PaymentAccountCreateOneWithoutPaymentsInput {
   create?: PaymentAccountCreateWithoutPaymentsInput
   connect?: PaymentAccountWhereUniqueInput
 }
 
-export interface HouseRulesSubscriptionWhereInput {
-  AND?: HouseRulesSubscriptionWhereInput[] | HouseRulesSubscriptionWhereInput
-  OR?: HouseRulesSubscriptionWhereInput[] | HouseRulesSubscriptionWhereInput
-  NOT?: HouseRulesSubscriptionWhereInput[] | HouseRulesSubscriptionWhereInput
+export interface ViewsSubscriptionWhereInput {
+  AND?: ViewsSubscriptionWhereInput[] | ViewsSubscriptionWhereInput
+  OR?: ViewsSubscriptionWhereInput[] | ViewsSubscriptionWhereInput
+  NOT?: ViewsSubscriptionWhereInput[] | ViewsSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: HouseRulesWhereInput
+  node?: ViewsWhereInput
 }
 
 export interface PaymentAccountCreateWithoutPaymentsInput {
@@ -11758,15 +11758,9 @@ export interface CreditCardInformationCreateOneWithoutPaymentAccountInput {
   connect?: CreditCardInformationWhereUniqueInput
 }
 
-export interface LocationUpdateWithoutRestaurantDataInput {
-  lat?: Float
-  lng?: Float
-  address?: String
-  directions?: String
-  neighbourHood?: NeighbourhoodUpdateOneWithoutLocationsInput
-  user?: UserUpdateOneWithoutLocationInput
-  place?: PlaceUpdateOneWithoutLocationInput
-  experience?: ExperienceUpdateOneWithoutLocationInput
+export interface LocationUpsertWithoutRestaurantInput {
+  update: LocationUpdateWithoutRestaurantDataInput
+  create: LocationCreateWithoutRestaurantInput
 }
 
 export interface CreditCardInformationCreateWithoutPaymentAccountInput {
@@ -11803,7 +11797,7 @@ export interface ExperienceCreateWithoutLocationInput {
   preview: PictureCreateOneInput
 }
 
-export interface HouseRulesWhereUniqueInput {
+export interface ViewsWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -11831,7 +11825,7 @@ export interface PlaceCreateInput {
   pictures?: PictureCreateManyInput
 }
 
-export interface LocationWhereUniqueInput {
+export interface NeighbourhoodWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -11851,7 +11845,7 @@ export interface PricingCreateInput {
   place: PlaceCreateOneWithoutPricingInput
 }
 
-export interface CityWhereUniqueInput {
+export interface ExperienceWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -11860,7 +11854,7 @@ export interface PlaceCreateOneWithoutPricingInput {
   connect?: PlaceWhereUniqueInput
 }
 
-export interface ExperienceCategoryWhereUniqueInput {
+export interface AmenitiesWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -11887,7 +11881,7 @@ export interface PlaceCreateWithoutPricingInput {
   pictures?: PictureCreateManyInput
 }
 
-export interface ReviewWhereUniqueInput {
+export interface BookingWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -11898,7 +11892,7 @@ export interface GuestRequirementsCreateInput {
   place: PlaceCreateOneWithoutGuestRequirementsInput
 }
 
-export interface PaymentWhereUniqueInput {
+export interface PaymentAccountWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -11907,7 +11901,7 @@ export interface PlaceCreateOneWithoutGuestRequirementsInput {
   connect?: PlaceWhereUniqueInput
 }
 
-export interface PaypalInformationWhereUniqueInput {
+export interface CreditCardInformationWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -11934,7 +11928,7 @@ export interface PlaceCreateWithoutGuestRequirementsInput {
   pictures?: PictureCreateManyInput
 }
 
-export interface MessageWhereUniqueInput {
+export interface NotificationWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -11945,7 +11939,7 @@ export interface PoliciesCreateInput {
   place: PlaceCreateOneWithoutPoliciesInput
 }
 
-export interface RestaurantWhereUniqueInput {
+export interface HouseRulesWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -11954,14 +11948,12 @@ export interface PlaceCreateOneWithoutPoliciesInput {
   connect?: PlaceWhereUniqueInput
 }
 
-export interface RestaurantUpdateInput {
-  title?: String
-  avgPricePerPerson?: Int
-  isCurated?: Boolean
-  slug?: String
-  popularity?: Int
-  pictures?: PictureUpdateManyInput
-  location?: LocationUpdateOneWithoutRestaurantInput
+export interface LocationUpdateOneWithoutRestaurantInput {
+  create?: LocationCreateWithoutRestaurantInput
+  connect?: LocationWhereUniqueInput
+  delete?: Boolean
+  update?: LocationUpdateWithoutRestaurantDataInput
+  upsert?: LocationUpsertWithoutRestaurantInput
 }
 
 export interface PlaceCreateWithoutPoliciesInput {
@@ -11987,23 +11979,9 @@ export interface PlaceCreateWithoutPoliciesInput {
   pictures?: PictureCreateManyInput
 }
 
-export interface UserUpdateWithoutNotificationsDataInput {
-  firstName?: String
-  lastName?: String
-  email?: String
-  password?: String
-  phone?: String
-  responseRate?: Float
-  responseTime?: Int
-  isSuperHost?: Boolean
-  ownedPlaces?: PlaceUpdateManyWithoutHostInput
-  location?: LocationUpdateOneWithoutUserInput
-  bookings?: BookingUpdateManyWithoutBookeeInput
-  paymentAccount?: PaymentAccountUpdateManyWithoutUserInput
-  sentMessages?: MessageUpdateManyWithoutFromInput
-  receivedMessages?: MessageUpdateManyWithoutToInput
-  profilePicture?: PictureUpdateOneInput
-  hostingExperiences?: ExperienceUpdateManyWithoutHostInput
+export interface UserUpsertWithoutNotificationsInput {
+  update: UserUpdateWithoutNotificationsDataInput
+  create: UserCreateWithoutNotificationsInput
 }
 
 export interface ViewsCreateInput {
@@ -12011,11 +11989,12 @@ export interface ViewsCreateInput {
   place: PlaceCreateOneWithoutViewsInput
 }
 
-export interface NotificationUpdateInput {
-  type?: NOTIFICATION_TYPE
-  link?: String
-  readDate?: DateTime
-  user?: UserUpdateOneWithoutNotificationsInput
+export interface UserUpdateOneWithoutNotificationsInput {
+  create?: UserCreateWithoutNotificationsInput
+  connect?: UserWhereUniqueInput
+  delete?: Boolean
+  update?: UserUpdateWithoutNotificationsDataInput
+  upsert?: UserUpsertWithoutNotificationsInput
 }
 
 export interface PlaceCreateOneWithoutViewsInput {
@@ -12023,9 +12002,11 @@ export interface PlaceCreateOneWithoutViewsInput {
   connect?: PlaceWhereUniqueInput
 }
 
-export interface PaymentAccountUpsertWithoutCreditcardInput {
-  update: PaymentAccountUpdateWithoutCreditcardDataInput
-  create: PaymentAccountCreateWithoutCreditcardInput
+export interface MessageUpdateInput {
+  deliveredAt?: DateTime
+  readAt?: DateTime
+  from?: UserUpdateOneWithoutSentMessagesInput
+  to?: UserUpdateOneWithoutReceivedMessagesInput
 }
 
 export interface PlaceCreateWithoutViewsInput {
@@ -12051,13 +12032,11 @@ export interface PlaceCreateWithoutViewsInput {
   pictures?: PictureCreateManyInput
 }
 
-export interface PaymentAccountUpdateOneWithoutCreditcardInput {
-  create?: PaymentAccountCreateWithoutCreditcardInput
-  connect?: PaymentAccountWhereUniqueInput
-  disconnect?: Boolean
-  delete?: Boolean
-  update?: PaymentAccountUpdateWithoutCreditcardDataInput
-  upsert?: PaymentAccountUpsertWithoutCreditcardInput
+export interface PaymentAccountUpdateWithoutCreditcardDataInput {
+  type?: PAYMENT_PROVIDER
+  user?: UserUpdateOneWithoutPaymentAccountInput
+  payments?: PaymentUpdateManyWithoutPaymentMethodInput
+  paypal?: PaypalInformationUpdateOneWithoutPaymentAccountInput
 }
 
 export interface LocationCreateInput {
@@ -12072,9 +12051,16 @@ export interface LocationCreateInput {
   restaurant?: RestaurantCreateOneWithoutLocationInput
 }
 
-export interface PaymentAccountUpsertWithoutPaypalInput {
-  update: PaymentAccountUpdateWithoutPaypalDataInput
-  create: PaymentAccountCreateWithoutPaypalInput
+export interface CreditCardInformationUpdateInput {
+  cardNumber?: String
+  expiresOnMonth?: Int
+  expiresOnYear?: Int
+  securityCode?: String
+  firstName?: String
+  lastName?: String
+  postalCode?: String
+  country?: String
+  paymentAccount?: PaymentAccountUpdateOneWithoutCreditcardInput
 }
 
 export interface NeighbourhoodCreateInput {
@@ -12087,12 +12073,11 @@ export interface NeighbourhoodCreateInput {
   city: CityCreateOneWithoutNeighbourhoodsInput
 }
 
-export interface PaymentAccountUpdateOneWithoutPaypalInput {
-  create?: PaymentAccountCreateWithoutPaypalInput
-  connect?: PaymentAccountWhereUniqueInput
-  delete?: Boolean
-  update?: PaymentAccountUpdateWithoutPaypalDataInput
-  upsert?: PaymentAccountUpsertWithoutPaypalInput
+export interface PaymentAccountUpdateWithoutPaypalDataInput {
+  type?: PAYMENT_PROVIDER
+  user?: UserUpdateOneWithoutPaymentAccountInput
+  payments?: PaymentUpdateManyWithoutPaymentMethodInput
+  creditcard?: CreditCardInformationUpdateOneWithoutPaymentAccountInput
 }
 
 export interface LocationCreateManyWithoutNeighbourHoodInput {
@@ -12100,12 +12085,9 @@ export interface LocationCreateManyWithoutNeighbourHoodInput {
   connect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
 }
 
-export interface PaymentAccountUpdateInput {
-  type?: PAYMENT_PROVIDER
-  user?: UserUpdateOneWithoutPaymentAccountInput
-  payments?: PaymentUpdateManyWithoutPaymentMethodInput
-  paypal?: PaypalInformationUpdateOneWithoutPaymentAccountInput
-  creditcard?: CreditCardInformationUpdateOneWithoutPaymentAccountInput
+export interface PaypalInformationUpdateInput {
+  email?: String
+  paymentAccount?: PaymentAccountUpdateOneWithoutPaypalInput
 }
 
 export interface LocationCreateWithoutNeighbourHoodInput {
@@ -12119,12 +12101,12 @@ export interface LocationCreateWithoutNeighbourHoodInput {
   restaurant?: RestaurantCreateOneWithoutLocationInput
 }
 
-export interface BookingUpdateInput {
-  startDate?: DateTime
-  endDate?: DateTime
-  bookee?: UserUpdateOneWithoutBookingsInput
-  place?: PlaceUpdateOneWithoutBookingsInput
-  payment?: PaymentUpdateOneWithoutBookingInput
+export interface PaymentUpdateInput {
+  serviceFee?: Float
+  placePrice?: Float
+  totalPrice?: Float
+  booking?: BookingUpdateOneWithoutPaymentInput
+  paymentMethod?: PaymentAccountUpdateOneWithoutPaymentsInput
 }
 
 export interface CityCreateInput {
@@ -12132,9 +12114,17 @@ export interface CityCreateInput {
   neighbourhoods?: NeighbourhoodCreateManyWithoutCityInput
 }
 
-export interface PlaceUpsertWithoutAmenitiesInput {
-  update: PlaceUpdateWithoutAmenitiesDataInput
-  create: PlaceCreateWithoutAmenitiesInput
+export interface ReviewUpdateInput {
+  text?: String
+  stars?: Int
+  accuracy?: Int
+  location?: Int
+  checkIn?: Int
+  value?: Int
+  cleanliness?: Int
+  communication?: Int
+  place?: PlaceUpdateOneWithoutReviewsInput
+  experience?: ExperienceUpdateOneWithoutReviewsInput
 }
 
 export interface NeighbourhoodCreateManyWithoutCityInput {
@@ -12142,12 +12132,27 @@ export interface NeighbourhoodCreateManyWithoutCityInput {
   connect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
 }
 
-export interface PlaceUpdateOneWithoutAmenitiesInput {
-  create?: PlaceCreateWithoutAmenitiesInput
-  connect?: PlaceWhereUniqueInput
-  delete?: Boolean
-  update?: PlaceUpdateWithoutAmenitiesDataInput
-  upsert?: PlaceUpsertWithoutAmenitiesInput
+export interface PlaceUpdateWithoutAmenitiesDataInput {
+  name?: String
+  size?: PLACE_SIZES
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
+  reviews?: ReviewUpdateManyWithoutPlaceInput
+  host?: UserUpdateOneWithoutOwnedPlacesInput
+  pricing?: PricingUpdateOneWithoutPlaceInput
+  location?: LocationUpdateOneWithoutPlaceInput
+  views?: ViewsUpdateOneWithoutPlaceInput
+  guestRequirements?: GuestRequirementsUpdateOneWithoutPlaceInput
+  policies?: PoliciesUpdateOneWithoutPlaceInput
+  houseRules?: HouseRulesUpdateOneInput
+  bookings?: BookingUpdateManyWithoutPlaceInput
+  pictures?: PictureUpdateManyInput
 }
 
 export interface NeighbourhoodCreateWithoutCityInput {
@@ -12159,9 +12164,48 @@ export interface NeighbourhoodCreateWithoutCityInput {
   homePreview?: PictureCreateOneInput
 }
 
-export interface ExperienceUpsertWithoutCategoryInput {
-  update: ExperienceUpdateWithoutCategoryDataInput
-  create: ExperienceCreateWithoutCategoryInput
+export interface AmenitiesUpdateInput {
+  elevator?: Boolean
+  petsAllowed?: Boolean
+  internet?: Boolean
+  kitchen?: Boolean
+  wirelessInternet?: Boolean
+  familyKidFriendly?: Boolean
+  freeParkingOnPremises?: Boolean
+  hotTub?: Boolean
+  pool?: Boolean
+  smokingAllowed?: Boolean
+  wheelchairAccessible?: Boolean
+  breakfast?: Boolean
+  cableTv?: Boolean
+  suitableForEvents?: Boolean
+  dryer?: Boolean
+  washer?: Boolean
+  indoorFireplace?: Boolean
+  tv?: Boolean
+  heating?: Boolean
+  hangers?: Boolean
+  iron?: Boolean
+  hairDryer?: Boolean
+  doorman?: Boolean
+  paidParkingOffPremises?: Boolean
+  freeParkingOnStreet?: Boolean
+  gym?: Boolean
+  airConditioning?: Boolean
+  shampoo?: Boolean
+  essentials?: Boolean
+  laptopFriendlyWorkspace?: Boolean
+  privateEntrance?: Boolean
+  buzzerWirelessIntercom?: Boolean
+  babyBath?: Boolean
+  babyMonitor?: Boolean
+  babysitterRecommendations?: Boolean
+  bathtub?: Boolean
+  changingTable?: Boolean
+  childrensBooksAndToys?: Boolean
+  childrensDinnerware?: Boolean
+  crib?: Boolean
+  place?: PlaceUpdateOneWithoutAmenitiesInput
 }
 
 export interface ExperienceCreateInput {
@@ -12175,13 +12219,14 @@ export interface ExperienceCreateInput {
   preview: PictureCreateOneInput
 }
 
-export interface ExperienceUpdateOneWithoutCategoryInput {
-  create?: ExperienceCreateWithoutCategoryInput
-  connect?: ExperienceWhereUniqueInput
-  disconnect?: Boolean
-  delete?: Boolean
-  update?: ExperienceUpdateWithoutCategoryDataInput
-  upsert?: ExperienceUpsertWithoutCategoryInput
+export interface ExperienceUpdateWithoutCategoryDataInput {
+  title?: String
+  pricePerPerson?: Int
+  popularity?: Int
+  host?: UserUpdateOneWithoutHostingExperiencesInput
+  location?: LocationUpdateOneWithoutExperienceInput
+  reviews?: ReviewUpdateManyWithoutExperienceInput
+  preview?: PictureUpdateOneInput
 }
 
 export interface ExperienceCategoryCreateInput {
@@ -12190,15 +12235,10 @@ export interface ExperienceCategoryCreateInput {
   experience?: ExperienceCreateOneWithoutCategoryInput
 }
 
-export interface ExperienceUpdateInput {
-  title?: String
-  pricePerPerson?: Int
-  popularity?: Int
-  category?: ExperienceCategoryUpdateOneWithoutExperienceInput
-  host?: UserUpdateOneWithoutHostingExperiencesInput
-  location?: LocationUpdateOneWithoutExperienceInput
-  reviews?: ReviewUpdateManyWithoutExperienceInput
-  preview?: PictureUpdateOneInput
+export interface ExperienceCategoryUpdateInput {
+  mainColor?: String
+  name?: String
+  experience?: ExperienceUpdateOneWithoutCategoryInput
 }
 
 export interface ExperienceCreateOneWithoutCategoryInput {
@@ -12206,13 +12246,10 @@ export interface ExperienceCreateOneWithoutCategoryInput {
   connect?: ExperienceWhereUniqueInput
 }
 
-export interface NeighbourhoodUpdateWithoutCityDataInput {
-  name?: String
-  slug?: String
-  featured?: Boolean
-  popularity?: Int
-  locations?: LocationUpdateManyWithoutNeighbourHoodInput
-  homePreview?: PictureUpdateOneInput
+export interface NeighbourhoodUpsertWithWhereUniqueWithoutCityInput {
+  where: NeighbourhoodWhereUniqueInput
+  update: NeighbourhoodUpdateWithoutCityDataInput
+  create: NeighbourhoodCreateWithoutCityInput
 }
 
 export interface ExperienceCreateWithoutCategoryInput {
@@ -12225,13 +12262,9 @@ export interface ExperienceCreateWithoutCategoryInput {
   preview: PictureCreateOneInput
 }
 
-export interface NeighbourhoodUpdateManyWithoutCityInput {
-  create?: NeighbourhoodCreateWithoutCityInput[] | NeighbourhoodCreateWithoutCityInput
-  connect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
-  disconnect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
-  delete?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
-  update?: NeighbourhoodUpdateWithWhereUniqueWithoutCityInput[] | NeighbourhoodUpdateWithWhereUniqueWithoutCityInput
-  upsert?: NeighbourhoodUpsertWithWhereUniqueWithoutCityInput[] | NeighbourhoodUpsertWithWhereUniqueWithoutCityInput
+export interface NeighbourhoodUpdateWithWhereUniqueWithoutCityInput {
+  where: NeighbourhoodWhereUniqueInput
+  data: NeighbourhoodUpdateWithoutCityDataInput
 }
 
 export interface AmenitiesCreateInput {
@@ -12278,10 +12311,9 @@ export interface AmenitiesCreateInput {
   place: PlaceCreateOneWithoutAmenitiesInput
 }
 
-export interface LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput {
-  where: LocationWhereUniqueInput
-  update: LocationUpdateWithoutNeighbourHoodDataInput
-  create: LocationCreateWithoutNeighbourHoodInput
+export interface CityUpdateInput {
+  name?: String
+  neighbourhoods?: NeighbourhoodUpdateManyWithoutCityInput
 }
 
 export interface PlaceCreateOneWithoutAmenitiesInput {
@@ -12289,9 +12321,15 @@ export interface PlaceCreateOneWithoutAmenitiesInput {
   connect?: PlaceWhereUniqueInput
 }
 
-export interface LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput {
-  where: LocationWhereUniqueInput
-  data: LocationUpdateWithoutNeighbourHoodDataInput
+export interface LocationUpdateWithoutNeighbourHoodDataInput {
+  lat?: Float
+  lng?: Float
+  address?: String
+  directions?: String
+  user?: UserUpdateOneWithoutLocationInput
+  place?: PlaceUpdateOneWithoutLocationInput
+  experience?: ExperienceUpdateOneWithoutLocationInput
+  restaurant?: RestaurantUpdateOneWithoutLocationInput
 }
 
 export interface PlaceCreateWithoutAmenitiesInput {
@@ -12317,14 +12355,13 @@ export interface PlaceCreateWithoutAmenitiesInput {
   pictures?: PictureCreateManyInput
 }
 
-export interface NeighbourhoodUpdateInput {
-  name?: String
-  slug?: String
-  featured?: Boolean
-  popularity?: Int
-  locations?: LocationUpdateManyWithoutNeighbourHoodInput
-  homePreview?: PictureUpdateOneInput
-  city?: CityUpdateOneWithoutNeighbourhoodsInput
+export interface LocationUpdateManyWithoutNeighbourHoodInput {
+  create?: LocationCreateWithoutNeighbourHoodInput[] | LocationCreateWithoutNeighbourHoodInput
+  connect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
+  disconnect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
+  delete?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
+  update?: LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput[] | LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput
+  upsert?: LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput[] | LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput
 }
 
 export interface ReviewCreateInput {
@@ -12340,9 +12377,16 @@ export interface ReviewCreateInput {
   experience?: ExperienceCreateOneWithoutReviewsInput
 }
 
-export interface PlaceUpsertWithoutViewsInput {
-  update: PlaceUpdateWithoutViewsDataInput
-  create: PlaceCreateWithoutViewsInput
+export interface LocationUpdateInput {
+  lat?: Float
+  lng?: Float
+  address?: String
+  directions?: String
+  neighbourHood?: NeighbourhoodUpdateOneWithoutLocationsInput
+  user?: UserUpdateOneWithoutLocationInput
+  place?: PlaceUpdateOneWithoutLocationInput
+  experience?: ExperienceUpdateOneWithoutLocationInput
+  restaurant?: RestaurantUpdateOneWithoutLocationInput
 }
 
 export interface UserUpsertWithoutLocationInput {
@@ -12350,12 +12394,27 @@ export interface UserUpsertWithoutLocationInput {
   create: UserCreateWithoutLocationInput
 }
 
-export interface PlaceUpdateOneWithoutViewsInput {
-  create?: PlaceCreateWithoutViewsInput
-  connect?: PlaceWhereUniqueInput
-  delete?: Boolean
-  update?: PlaceUpdateWithoutViewsDataInput
-  upsert?: PlaceUpsertWithoutViewsInput
+export interface PlaceUpdateWithoutViewsDataInput {
+  name?: String
+  size?: PLACE_SIZES
+  shortDescription?: String
+  description?: String
+  slug?: String
+  maxGuests?: Int
+  numBedrooms?: Int
+  numBeds?: Int
+  numBaths?: Int
+  popularity?: Int
+  reviews?: ReviewUpdateManyWithoutPlaceInput
+  amenities?: AmenitiesUpdateOneWithoutPlaceInput
+  host?: UserUpdateOneWithoutOwnedPlacesInput
+  pricing?: PricingUpdateOneWithoutPlaceInput
+  location?: LocationUpdateOneWithoutPlaceInput
+  guestRequirements?: GuestRequirementsUpdateOneWithoutPlaceInput
+  policies?: PoliciesUpdateOneWithoutPlaceInput
+  houseRules?: HouseRulesUpdateOneInput
+  bookings?: BookingUpdateManyWithoutPlaceInput
+  pictures?: PictureUpdateManyInput
 }
 
 export interface PaymentCreateInput {
@@ -12366,13 +12425,9 @@ export interface PaymentCreateInput {
   paymentMethod: PaymentAccountCreateOneWithoutPaymentsInput
 }
 
-export interface HouseRulesUpdateInput {
-  suitableForChildren?: Boolean
-  suitableForInfants?: Boolean
-  petsAllowed?: Boolean
-  smokingAllowed?: Boolean
-  partiesAndEventsAllowed?: Boolean
-  additionalRules?: String
+export interface ViewsUpdateInput {
+  lastWeek?: Int
+  place?: PlaceUpdateOneWithoutViewsInput
 }
 
 export interface PaymentAccountCreateInput {
@@ -13181,15 +13236,15 @@ export interface AmenitiesUpdateWithoutPlaceDataInput {
   crib?: Boolean
 }
 
-export interface MessageSubscriptionWhereInput {
-  AND?: MessageSubscriptionWhereInput[] | MessageSubscriptionWhereInput
-  OR?: MessageSubscriptionWhereInput[] | MessageSubscriptionWhereInput
-  NOT?: MessageSubscriptionWhereInput[] | MessageSubscriptionWhereInput
+export interface RestaurantSubscriptionWhereInput {
+  AND?: RestaurantSubscriptionWhereInput[] | RestaurantSubscriptionWhereInput
+  OR?: RestaurantSubscriptionWhereInput[] | RestaurantSubscriptionWhereInput
+  NOT?: RestaurantSubscriptionWhereInput[] | RestaurantSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: MessageWhereInput
+  node?: RestaurantWhereInput
 }
 
 export interface AmenitiesUpsertWithoutPlaceInput {
@@ -13252,15 +13307,15 @@ export interface UserUpdateOneWithoutOwnedPlacesInput {
   upsert?: UserUpsertWithoutOwnedPlacesInput
 }
 
-export interface ReviewSubscriptionWhereInput {
-  AND?: ReviewSubscriptionWhereInput[] | ReviewSubscriptionWhereInput
-  OR?: ReviewSubscriptionWhereInput[] | ReviewSubscriptionWhereInput
-  NOT?: ReviewSubscriptionWhereInput[] | ReviewSubscriptionWhereInput
+export interface PaymentSubscriptionWhereInput {
+  AND?: PaymentSubscriptionWhereInput[] | PaymentSubscriptionWhereInput
+  OR?: PaymentSubscriptionWhereInput[] | PaymentSubscriptionWhereInput
+  NOT?: PaymentSubscriptionWhereInput[] | PaymentSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: ReviewWhereInput
+  node?: PaymentWhereInput
 }
 
 export interface UserUpdateWithoutOwnedPlacesDataInput {
@@ -13282,15 +13337,15 @@ export interface UserUpdateWithoutOwnedPlacesDataInput {
   hostingExperiences?: ExperienceUpdateManyWithoutHostInput
 }
 
-export interface ExperienceSubscriptionWhereInput {
-  AND?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput
-  OR?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput
-  NOT?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput
+export interface AmenitiesSubscriptionWhereInput {
+  AND?: AmenitiesSubscriptionWhereInput[] | AmenitiesSubscriptionWhereInput
+  OR?: AmenitiesSubscriptionWhereInput[] | AmenitiesSubscriptionWhereInput
+  NOT?: AmenitiesSubscriptionWhereInput[] | AmenitiesSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: ExperienceWhereInput
+  node?: AmenitiesWhereInput
 }
 
 export interface BookingUpdateManyWithoutBookeeInput {
@@ -13644,7 +13699,7 @@ export interface LocationUpdateOneWithoutPlaceInput {
   upsert?: LocationUpsertWithoutPlaceInput
 }
 
-export interface NeighbourhoodWhereUniqueInput {
+export interface CityWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -13659,7 +13714,7 @@ export interface LocationUpdateWithoutPlaceDataInput {
   restaurant?: RestaurantUpdateOneWithoutLocationInput
 }
 
-export interface AmenitiesWhereUniqueInput {
+export interface ReviewWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -13672,7 +13727,7 @@ export interface UserUpdateOneWithoutLocationInput {
   upsert?: UserUpsertWithoutLocationInput
 }
 
-export interface PaymentAccountWhereUniqueInput {
+export interface PaypalInformationWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -13695,7 +13750,7 @@ export interface UserUpdateWithoutLocationDataInput {
   hostingExperiences?: ExperienceUpdateManyWithoutHostInput
 }
 
-export interface NotificationWhereUniqueInput {
+export interface RestaurantWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -13708,9 +13763,14 @@ export interface PaymentAccountUpdateManyWithoutUserInput {
   upsert?: PaymentAccountUpsertWithWhereUniqueWithoutUserInput[] | PaymentAccountUpsertWithWhereUniqueWithoutUserInput
 }
 
-export interface UserUpsertWithoutNotificationsInput {
-  update: UserUpdateWithoutNotificationsDataInput
-  create: UserCreateWithoutNotificationsInput
+export interface RestaurantUpdateInput {
+  title?: String
+  avgPricePerPerson?: Int
+  isCurated?: Boolean
+  slug?: String
+  popularity?: Int
+  pictures?: PictureUpdateManyInput
+  location?: LocationUpdateOneWithoutRestaurantInput
 }
 
 export interface PaymentAccountUpdateWithWhereUniqueWithoutUserInput {
@@ -13718,11 +13778,11 @@ export interface PaymentAccountUpdateWithWhereUniqueWithoutUserInput {
   data: PaymentAccountUpdateWithoutUserDataInput
 }
 
-export interface MessageUpdateInput {
-  deliveredAt?: DateTime
-  readAt?: DateTime
-  from?: UserUpdateOneWithoutSentMessagesInput
-  to?: UserUpdateOneWithoutReceivedMessagesInput
+export interface NotificationUpdateInput {
+  type?: NOTIFICATION_TYPE
+  link?: String
+  readDate?: DateTime
+  user?: UserUpdateOneWithoutNotificationsInput
 }
 
 export interface PaymentAccountUpdateWithoutUserDataInput {
@@ -13732,16 +13792,13 @@ export interface PaymentAccountUpdateWithoutUserDataInput {
   creditcard?: CreditCardInformationUpdateOneWithoutPaymentAccountInput
 }
 
-export interface CreditCardInformationUpdateInput {
-  cardNumber?: String
-  expiresOnMonth?: Int
-  expiresOnYear?: Int
-  securityCode?: String
-  firstName?: String
-  lastName?: String
-  postalCode?: String
-  country?: String
-  paymentAccount?: PaymentAccountUpdateOneWithoutCreditcardInput
+export interface PaymentAccountUpdateOneWithoutCreditcardInput {
+  create?: PaymentAccountCreateWithoutCreditcardInput
+  connect?: PaymentAccountWhereUniqueInput
+  disconnect?: Boolean
+  delete?: Boolean
+  update?: PaymentAccountUpdateWithoutCreditcardDataInput
+  upsert?: PaymentAccountUpsertWithoutCreditcardInput
 }
 
 export interface PaymentUpdateManyWithoutPaymentMethodInput {
@@ -13753,9 +13810,12 @@ export interface PaymentUpdateManyWithoutPaymentMethodInput {
   upsert?: PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput[] | PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput
 }
 
-export interface PaypalInformationUpdateInput {
-  email?: String
-  paymentAccount?: PaymentAccountUpdateOneWithoutPaypalInput
+export interface PaymentAccountUpdateOneWithoutPaypalInput {
+  create?: PaymentAccountCreateWithoutPaypalInput
+  connect?: PaymentAccountWhereUniqueInput
+  delete?: Boolean
+  update?: PaymentAccountUpdateWithoutPaypalDataInput
+  upsert?: PaymentAccountUpsertWithoutPaypalInput
 }
 
 export interface PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput {
@@ -13763,17 +13823,12 @@ export interface PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput {
   data: PaymentUpdateWithoutPaymentMethodDataInput
 }
 
-export interface ReviewUpdateInput {
-  text?: String
-  stars?: Int
-  accuracy?: Int
-  location?: Int
-  checkIn?: Int
-  value?: Int
-  cleanliness?: Int
-  communication?: Int
-  place?: PlaceUpdateOneWithoutReviewsInput
-  experience?: ExperienceUpdateOneWithoutReviewsInput
+export interface BookingUpdateInput {
+  startDate?: DateTime
+  endDate?: DateTime
+  bookee?: UserUpdateOneWithoutBookingsInput
+  place?: PlaceUpdateOneWithoutBookingsInput
+  payment?: PaymentUpdateOneWithoutBookingInput
 }
 
 export interface PaymentUpdateWithoutPaymentMethodDataInput {
@@ -13783,48 +13838,12 @@ export interface PaymentUpdateWithoutPaymentMethodDataInput {
   booking?: BookingUpdateOneWithoutPaymentInput
 }
 
-export interface AmenitiesUpdateInput {
-  elevator?: Boolean
-  petsAllowed?: Boolean
-  internet?: Boolean
-  kitchen?: Boolean
-  wirelessInternet?: Boolean
-  familyKidFriendly?: Boolean
-  freeParkingOnPremises?: Boolean
-  hotTub?: Boolean
-  pool?: Boolean
-  smokingAllowed?: Boolean
-  wheelchairAccessible?: Boolean
-  breakfast?: Boolean
-  cableTv?: Boolean
-  suitableForEvents?: Boolean
-  dryer?: Boolean
-  washer?: Boolean
-  indoorFireplace?: Boolean
-  tv?: Boolean
-  heating?: Boolean
-  hangers?: Boolean
-  iron?: Boolean
-  hairDryer?: Boolean
-  doorman?: Boolean
-  paidParkingOffPremises?: Boolean
-  freeParkingOnStreet?: Boolean
-  gym?: Boolean
-  airConditioning?: Boolean
-  shampoo?: Boolean
-  essentials?: Boolean
-  laptopFriendlyWorkspace?: Boolean
-  privateEntrance?: Boolean
-  buzzerWirelessIntercom?: Boolean
-  babyBath?: Boolean
-  babyMonitor?: Boolean
-  babysitterRecommendations?: Boolean
-  bathtub?: Boolean
-  changingTable?: Boolean
-  childrensBooksAndToys?: Boolean
-  childrensDinnerware?: Boolean
-  crib?: Boolean
-  place?: PlaceUpdateOneWithoutAmenitiesInput
+export interface PlaceUpdateOneWithoutAmenitiesInput {
+  create?: PlaceCreateWithoutAmenitiesInput
+  connect?: PlaceWhereUniqueInput
+  delete?: Boolean
+  update?: PlaceUpdateWithoutAmenitiesDataInput
+  upsert?: PlaceUpsertWithoutAmenitiesInput
 }
 
 export interface BookingUpdateOneWithoutPaymentInput {
@@ -13835,10 +13854,13 @@ export interface BookingUpdateOneWithoutPaymentInput {
   upsert?: BookingUpsertWithoutPaymentInput
 }
 
-export interface ExperienceCategoryUpdateInput {
-  mainColor?: String
-  name?: String
-  experience?: ExperienceUpdateOneWithoutCategoryInput
+export interface ExperienceUpdateOneWithoutCategoryInput {
+  create?: ExperienceCreateWithoutCategoryInput
+  connect?: ExperienceWhereUniqueInput
+  disconnect?: Boolean
+  delete?: Boolean
+  update?: ExperienceUpdateWithoutCategoryDataInput
+  upsert?: ExperienceUpsertWithoutCategoryInput
 }
 
 export interface BookingUpdateWithoutPaymentDataInput {
@@ -13848,9 +13870,13 @@ export interface BookingUpdateWithoutPaymentDataInput {
   place?: PlaceUpdateOneWithoutBookingsInput
 }
 
-export interface NeighbourhoodUpdateWithWhereUniqueWithoutCityInput {
-  where: NeighbourhoodWhereUniqueInput
-  data: NeighbourhoodUpdateWithoutCityDataInput
+export interface NeighbourhoodUpdateWithoutCityDataInput {
+  name?: String
+  slug?: String
+  featured?: Boolean
+  popularity?: Int
+  locations?: LocationUpdateManyWithoutNeighbourHoodInput
+  homePreview?: PictureUpdateOneInput
 }
 
 export interface UserUpdateOneWithoutBookingsInput {
@@ -13861,15 +13887,10 @@ export interface UserUpdateOneWithoutBookingsInput {
   upsert?: UserUpsertWithoutBookingsInput
 }
 
-export interface LocationUpdateWithoutNeighbourHoodDataInput {
-  lat?: Float
-  lng?: Float
-  address?: String
-  directions?: String
-  user?: UserUpdateOneWithoutLocationInput
-  place?: PlaceUpdateOneWithoutLocationInput
-  experience?: ExperienceUpdateOneWithoutLocationInput
-  restaurant?: RestaurantUpdateOneWithoutLocationInput
+export interface LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput {
+  where: LocationWhereUniqueInput
+  update: LocationUpdateWithoutNeighbourHoodDataInput
+  create: LocationCreateWithoutNeighbourHoodInput
 }
 
 export interface UserUpdateWithoutBookingsDataInput {
@@ -13891,16 +13912,14 @@ export interface UserUpdateWithoutBookingsDataInput {
   hostingExperiences?: ExperienceUpdateManyWithoutHostInput
 }
 
-export interface LocationUpdateInput {
-  lat?: Float
-  lng?: Float
-  address?: String
-  directions?: String
-  neighbourHood?: NeighbourhoodUpdateOneWithoutLocationsInput
-  user?: UserUpdateOneWithoutLocationInput
-  place?: PlaceUpdateOneWithoutLocationInput
-  experience?: ExperienceUpdateOneWithoutLocationInput
-  restaurant?: RestaurantUpdateOneWithoutLocationInput
+export interface NeighbourhoodUpdateInput {
+  name?: String
+  slug?: String
+  featured?: Boolean
+  popularity?: Int
+  locations?: LocationUpdateManyWithoutNeighbourHoodInput
+  homePreview?: PictureUpdateOneInput
+  city?: CityUpdateOneWithoutNeighbourhoodsInput
 }
 
 export interface MessageUpdateManyWithoutFromInput {
@@ -13912,9 +13931,12 @@ export interface MessageUpdateManyWithoutFromInput {
   upsert?: MessageUpsertWithWhereUniqueWithoutFromInput[] | MessageUpsertWithWhereUniqueWithoutFromInput
 }
 
-export interface ViewsUpdateInput {
-  lastWeek?: Int
-  place?: PlaceUpdateOneWithoutViewsInput
+export interface PlaceUpdateOneWithoutViewsInput {
+  create?: PlaceCreateWithoutViewsInput
+  connect?: PlaceWhereUniqueInput
+  delete?: Boolean
+  update?: PlaceUpdateWithoutViewsDataInput
+  upsert?: PlaceUpsertWithoutViewsInput
 }
 
 export interface MessageUpdateWithWhereUniqueWithoutFromInput {
@@ -14377,15 +14399,15 @@ export interface PlaceUpdateWithoutReviewsDataInput {
   pictures?: PictureUpdateManyInput
 }
 
-export interface BookingSubscriptionWhereInput {
-  AND?: BookingSubscriptionWhereInput[] | BookingSubscriptionWhereInput
-  OR?: BookingSubscriptionWhereInput[] | BookingSubscriptionWhereInput
-  NOT?: BookingSubscriptionWhereInput[] | BookingSubscriptionWhereInput
+export interface PaymentAccountSubscriptionWhereInput {
+  AND?: PaymentAccountSubscriptionWhereInput[] | PaymentAccountSubscriptionWhereInput
+  OR?: PaymentAccountSubscriptionWhereInput[] | PaymentAccountSubscriptionWhereInput
+  NOT?: PaymentAccountSubscriptionWhereInput[] | PaymentAccountSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: BookingWhereInput
+  node?: PaymentAccountWhereInput
 }
 
 export interface ViewsUpdateOneWithoutPlaceInput {
@@ -14396,15 +14418,15 @@ export interface ViewsUpdateOneWithoutPlaceInput {
   upsert?: ViewsUpsertWithoutPlaceInput
 }
 
-export interface CitySubscriptionWhereInput {
-  AND?: CitySubscriptionWhereInput[] | CitySubscriptionWhereInput
-  OR?: CitySubscriptionWhereInput[] | CitySubscriptionWhereInput
-  NOT?: CitySubscriptionWhereInput[] | CitySubscriptionWhereInput
+export interface ExperienceSubscriptionWhereInput {
+  AND?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput
+  OR?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput
+  NOT?: ExperienceSubscriptionWhereInput[] | ExperienceSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: CityWhereInput
+  node?: ExperienceWhereInput
 }
 
 export interface ViewsUpdateWithoutPlaceDataInput {
@@ -14499,9 +14521,13 @@ export interface GuestRequirementsUpdateOneWithoutPlaceInput {
   upsert?: GuestRequirementsUpsertWithoutPlaceInput
 }
 
-export interface LocationUpsertWithoutRestaurantInput {
-  update: LocationUpdateWithoutRestaurantDataInput
-  create: LocationCreateWithoutRestaurantInput
+export interface HouseRulesUpdateInput {
+  suitableForChildren?: Boolean
+  suitableForInfants?: Boolean
+  petsAllowed?: Boolean
+  smokingAllowed?: Boolean
+  partiesAndEventsAllowed?: Boolean
+  additionalRules?: String
 }
 
 export interface GuestRequirementsUpdateWithoutPlaceDataInput {
@@ -14510,7 +14536,7 @@ export interface GuestRequirementsUpdateWithoutPlaceDataInput {
   guestTripInformation?: Boolean
 }
 
-export interface ViewsWhereUniqueInput {
+export interface LocationWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -14519,7 +14545,7 @@ export interface GuestRequirementsUpsertWithoutPlaceInput {
   create: GuestRequirementsCreateWithoutPlaceInput
 }
 
-export interface BookingWhereUniqueInput {
+export interface PaymentWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -14532,12 +14558,15 @@ export interface PoliciesUpdateOneWithoutPlaceInput {
   upsert?: PoliciesUpsertWithoutPlaceInput
 }
 
-export interface LocationUpdateOneWithoutRestaurantInput {
-  create?: LocationCreateWithoutRestaurantInput
-  connect?: LocationWhereUniqueInput
-  delete?: Boolean
-  update?: LocationUpdateWithoutRestaurantDataInput
-  upsert?: LocationUpsertWithoutRestaurantInput
+export interface LocationUpdateWithoutRestaurantDataInput {
+  lat?: Float
+  lng?: Float
+  address?: String
+  directions?: String
+  neighbourHood?: NeighbourhoodUpdateOneWithoutLocationsInput
+  user?: UserUpdateOneWithoutLocationInput
+  place?: PlaceUpdateOneWithoutLocationInput
+  experience?: ExperienceUpdateOneWithoutLocationInput
 }
 
 export interface PoliciesUpdateWithoutPlaceDataInput {
@@ -14546,11 +14575,9 @@ export interface PoliciesUpdateWithoutPlaceDataInput {
   checkoutTime?: Float
 }
 
-export interface PaymentAccountUpdateWithoutCreditcardDataInput {
-  type?: PAYMENT_PROVIDER
-  user?: UserUpdateOneWithoutPaymentAccountInput
-  payments?: PaymentUpdateManyWithoutPaymentMethodInput
-  paypal?: PaypalInformationUpdateOneWithoutPaymentAccountInput
+export interface PaymentAccountUpsertWithoutCreditcardInput {
+  update: PaymentAccountUpdateWithoutCreditcardDataInput
+  create: PaymentAccountCreateWithoutCreditcardInput
 }
 
 export interface PoliciesUpsertWithoutPlaceInput {
@@ -14558,12 +14585,12 @@ export interface PoliciesUpsertWithoutPlaceInput {
   create: PoliciesCreateWithoutPlaceInput
 }
 
-export interface PaymentUpdateInput {
-  serviceFee?: Float
-  placePrice?: Float
-  totalPrice?: Float
-  booking?: BookingUpdateOneWithoutPaymentInput
-  paymentMethod?: PaymentAccountUpdateOneWithoutPaymentsInput
+export interface PaymentAccountUpdateInput {
+  type?: PAYMENT_PROVIDER
+  user?: UserUpdateOneWithoutPaymentAccountInput
+  payments?: PaymentUpdateManyWithoutPaymentMethodInput
+  paypal?: PaypalInformationUpdateOneWithoutPaymentAccountInput
+  creditcard?: CreditCardInformationUpdateOneWithoutPaymentAccountInput
 }
 
 export interface HouseRulesUpdateOneInput {
@@ -14575,14 +14602,9 @@ export interface HouseRulesUpdateOneInput {
   upsert?: HouseRulesUpsertNestedInput
 }
 
-export interface ExperienceUpdateWithoutCategoryDataInput {
-  title?: String
-  pricePerPerson?: Int
-  popularity?: Int
-  host?: UserUpdateOneWithoutHostingExperiencesInput
-  location?: LocationUpdateOneWithoutExperienceInput
-  reviews?: ReviewUpdateManyWithoutExperienceInput
-  preview?: PictureUpdateOneInput
+export interface ExperienceUpsertWithoutCategoryInput {
+  update: ExperienceUpdateWithoutCategoryDataInput
+  create: ExperienceCreateWithoutCategoryInput
 }
 
 export interface HouseRulesUpdateDataInput {
@@ -14594,9 +14616,13 @@ export interface HouseRulesUpdateDataInput {
   additionalRules?: String
 }
 
-export interface CityUpdateInput {
-  name?: String
-  neighbourhoods?: NeighbourhoodUpdateManyWithoutCityInput
+export interface NeighbourhoodUpdateManyWithoutCityInput {
+  create?: NeighbourhoodCreateWithoutCityInput[] | NeighbourhoodCreateWithoutCityInput
+  connect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
+  disconnect?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
+  delete?: NeighbourhoodWhereUniqueInput[] | NeighbourhoodWhereUniqueInput
+  update?: NeighbourhoodUpdateWithWhereUniqueWithoutCityInput[] | NeighbourhoodUpdateWithWhereUniqueWithoutCityInput
+  upsert?: NeighbourhoodUpsertWithWhereUniqueWithoutCityInput[] | NeighbourhoodUpsertWithWhereUniqueWithoutCityInput
 }
 
 export interface HouseRulesUpsertNestedInput {
@@ -14604,27 +14630,9 @@ export interface HouseRulesUpsertNestedInput {
   create: HouseRulesCreateInput
 }
 
-export interface PlaceUpdateWithoutViewsDataInput {
-  name?: String
-  size?: PLACE_SIZES
-  shortDescription?: String
-  description?: String
-  slug?: String
-  maxGuests?: Int
-  numBedrooms?: Int
-  numBeds?: Int
-  numBaths?: Int
-  popularity?: Int
-  reviews?: ReviewUpdateManyWithoutPlaceInput
-  amenities?: AmenitiesUpdateOneWithoutPlaceInput
-  host?: UserUpdateOneWithoutOwnedPlacesInput
-  pricing?: PricingUpdateOneWithoutPlaceInput
-  location?: LocationUpdateOneWithoutPlaceInput
-  guestRequirements?: GuestRequirementsUpdateOneWithoutPlaceInput
-  policies?: PoliciesUpdateOneWithoutPlaceInput
-  houseRules?: HouseRulesUpdateOneInput
-  bookings?: BookingUpdateManyWithoutPlaceInput
-  pictures?: PictureUpdateManyInput
+export interface PlaceUpsertWithoutViewsInput {
+  update: PlaceUpdateWithoutViewsDataInput
+  create: PlaceCreateWithoutViewsInput
 }
 
 export interface BookingUpdateManyWithoutPlaceInput {
@@ -14866,15 +14874,15 @@ export interface MessageUpdateWithoutToDataInput {
   from?: UserUpdateOneWithoutSentMessagesInput
 }
 
-export interface AmenitiesSubscriptionWhereInput {
-  AND?: AmenitiesSubscriptionWhereInput[] | AmenitiesSubscriptionWhereInput
-  OR?: AmenitiesSubscriptionWhereInput[] | AmenitiesSubscriptionWhereInput
-  NOT?: AmenitiesSubscriptionWhereInput[] | AmenitiesSubscriptionWhereInput
+export interface BookingSubscriptionWhereInput {
+  AND?: BookingSubscriptionWhereInput[] | BookingSubscriptionWhereInput
+  OR?: BookingSubscriptionWhereInput[] | BookingSubscriptionWhereInput
+  NOT?: BookingSubscriptionWhereInput[] | BookingSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: AmenitiesWhereInput
+  node?: BookingWhereInput
 }
 
 export interface UserUpdateOneWithoutSentMessagesInput {
@@ -14991,7 +14999,7 @@ export interface UserUpsertWithoutSentMessagesInput {
   create: UserCreateWithoutSentMessagesInput
 }
 
-export interface CreditCardInformationWhereUniqueInput {
+export interface MessageWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -15001,11 +15009,9 @@ export interface MessageUpsertWithWhereUniqueWithoutToInput {
   create: MessageCreateWithoutToInput
 }
 
-export interface PaymentAccountUpdateWithoutPaypalDataInput {
-  type?: PAYMENT_PROVIDER
-  user?: UserUpdateOneWithoutPaymentAccountInput
-  payments?: PaymentUpdateManyWithoutPaymentMethodInput
-  creditcard?: CreditCardInformationUpdateOneWithoutPaymentAccountInput
+export interface PaymentAccountUpsertWithoutPaypalInput {
+  update: PaymentAccountUpdateWithoutPaypalDataInput
+  create: PaymentAccountCreateWithoutPaypalInput
 }
 
 export interface UserUpsertWithoutPaymentAccountInput {
@@ -15013,10 +15019,15 @@ export interface UserUpsertWithoutPaymentAccountInput {
   create: UserCreateWithoutPaymentAccountInput
 }
 
-export interface NeighbourhoodUpsertWithWhereUniqueWithoutCityInput {
-  where: NeighbourhoodWhereUniqueInput
-  update: NeighbourhoodUpdateWithoutCityDataInput
-  create: NeighbourhoodCreateWithoutCityInput
+export interface ExperienceUpdateInput {
+  title?: String
+  pricePerPerson?: Int
+  popularity?: Int
+  category?: ExperienceCategoryUpdateOneWithoutExperienceInput
+  host?: UserUpdateOneWithoutHostingExperiencesInput
+  location?: LocationUpdateOneWithoutExperienceInput
+  reviews?: ReviewUpdateManyWithoutExperienceInput
+  preview?: PictureUpdateOneInput
 }
 
 export interface PaypalInformationUpdateOneWithoutPaymentAccountInput {
@@ -15146,15 +15157,15 @@ export interface PaymentAccountUpsertWithoutPaymentsInput {
   create: PaymentAccountCreateWithoutPaymentsInput
 }
 
-export interface ViewsSubscriptionWhereInput {
-  AND?: ViewsSubscriptionWhereInput[] | ViewsSubscriptionWhereInput
-  OR?: ViewsSubscriptionWhereInput[] | ViewsSubscriptionWhereInput
-  NOT?: ViewsSubscriptionWhereInput[] | ViewsSubscriptionWhereInput
+export interface LocationSubscriptionWhereInput {
+  AND?: LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
+  OR?: LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
+  NOT?: LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: ViewsWhereInput
+  node?: LocationWhereInput
 }
 
 export interface PaymentUpsertWithoutBookingInput {
@@ -15162,7 +15173,7 @@ export interface PaymentUpsertWithoutBookingInput {
   create: PaymentCreateWithoutBookingInput
 }
 
-export interface ExperienceWhereUniqueInput {
+export interface ExperienceCategoryWhereUniqueInput {
   id?: ID_Input
 }
 
@@ -15172,27 +15183,9 @@ export interface BookingUpsertWithWhereUniqueWithoutPlaceInput {
   create: BookingCreateWithoutPlaceInput
 }
 
-export interface PlaceUpdateWithoutAmenitiesDataInput {
-  name?: String
-  size?: PLACE_SIZES
-  shortDescription?: String
-  description?: String
-  slug?: String
-  maxGuests?: Int
-  numBedrooms?: Int
-  numBeds?: Int
-  numBaths?: Int
-  popularity?: Int
-  reviews?: ReviewUpdateManyWithoutPlaceInput
-  host?: UserUpdateOneWithoutOwnedPlacesInput
-  pricing?: PricingUpdateOneWithoutPlaceInput
-  location?: LocationUpdateOneWithoutPlaceInput
-  views?: ViewsUpdateOneWithoutPlaceInput
-  guestRequirements?: GuestRequirementsUpdateOneWithoutPlaceInput
-  policies?: PoliciesUpdateOneWithoutPlaceInput
-  houseRules?: HouseRulesUpdateOneInput
-  bookings?: BookingUpdateManyWithoutPlaceInput
-  pictures?: PictureUpdateManyInput
+export interface PlaceUpsertWithoutAmenitiesInput {
+  update: PlaceUpdateWithoutAmenitiesDataInput
+  create: PlaceCreateWithoutAmenitiesInput
 }
 
 export interface PlaceUpsertWithoutReviewsInput {
@@ -15372,23 +15365,34 @@ export interface MessageUpsertWithWhereUniqueWithoutFromInput {
   create: MessageCreateWithoutFromInput
 }
 
-export interface UserUpdateOneWithoutNotificationsInput {
-  create?: UserCreateWithoutNotificationsInput
-  connect?: UserWhereUniqueInput
-  delete?: Boolean
-  update?: UserUpdateWithoutNotificationsDataInput
-  upsert?: UserUpsertWithoutNotificationsInput
+export interface UserUpdateWithoutNotificationsDataInput {
+  firstName?: String
+  lastName?: String
+  email?: String
+  password?: String
+  phone?: String
+  responseRate?: Float
+  responseTime?: Int
+  isSuperHost?: Boolean
+  ownedPlaces?: PlaceUpdateManyWithoutHostInput
+  location?: LocationUpdateOneWithoutUserInput
+  bookings?: BookingUpdateManyWithoutBookeeInput
+  paymentAccount?: PaymentAccountUpdateManyWithoutUserInput
+  sentMessages?: MessageUpdateManyWithoutFromInput
+  receivedMessages?: MessageUpdateManyWithoutToInput
+  profilePicture?: PictureUpdateOneInput
+  hostingExperiences?: ExperienceUpdateManyWithoutHostInput
 }
 
-export interface PaypalInformationSubscriptionWhereInput {
-  AND?: PaypalInformationSubscriptionWhereInput[] | PaypalInformationSubscriptionWhereInput
-  OR?: PaypalInformationSubscriptionWhereInput[] | PaypalInformationSubscriptionWhereInput
-  NOT?: PaypalInformationSubscriptionWhereInput[] | PaypalInformationSubscriptionWhereInput
+export interface MessageSubscriptionWhereInput {
+  AND?: MessageSubscriptionWhereInput[] | MessageSubscriptionWhereInput
+  OR?: MessageSubscriptionWhereInput[] | MessageSubscriptionWhereInput
+  NOT?: MessageSubscriptionWhereInput[] | MessageSubscriptionWhereInput
   mutation_in?: MutationType[] | MutationType
   updatedFields_contains?: String
   updatedFields_contains_every?: String[] | String
   updatedFields_contains_some?: String[] | String
-  node?: PaypalInformationWhereInput
+  node?: MessageWhereInput
 }
 
 export interface PricingCreateWithoutPlaceInput {
@@ -15416,13 +15420,9 @@ export interface ExperienceUpdateWithoutLocationDataInput {
   preview?: PictureUpdateOneInput
 }
 
-export interface LocationUpdateManyWithoutNeighbourHoodInput {
-  create?: LocationCreateWithoutNeighbourHoodInput[] | LocationCreateWithoutNeighbourHoodInput
-  connect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
-  disconnect?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
-  delete?: LocationWhereUniqueInput[] | LocationWhereUniqueInput
-  update?: LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput[] | LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput
-  upsert?: LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput[] | LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput
+export interface LocationUpdateWithWhereUniqueWithoutNeighbourHoodInput {
+  where: LocationWhereUniqueInput
+  data: LocationUpdateWithoutNeighbourHoodDataInput
 }
 
 /*
@@ -15433,14 +15433,16 @@ export interface Node {
   id: ID_Output
 }
 
-export interface RestaurantPreviousValues {
+export interface HouseRulesPreviousValues {
   id: ID_Output
   createdAt: DateTime
-  title: String
-  avgPricePerPerson: Int
-  isCurated: Boolean
-  slug: String
-  popularity: Int
+  updatedAt: DateTime
+  suitableForChildren?: Boolean
+  suitableForInfants?: Boolean
+  petsAllowed?: Boolean
+  smokingAllowed?: Boolean
+  partiesAndEventsAllowed?: Boolean
+  additionalRules?: String
 }
 
 export interface BatchPayload {
@@ -15470,18 +15472,21 @@ export interface User extends Node {
   hostingExperiences?: Experience[]
 }
 
-export interface RestaurantSubscriptionPayload {
+export interface HouseRulesSubscriptionPayload {
   mutation: MutationType
-  node?: Restaurant
+  node?: HouseRules
   updatedFields?: String[]
-  previousValues?: RestaurantPreviousValues
+  previousValues?: HouseRulesPreviousValues
 }
 
-export interface MessagePreviousValues {
+export interface RestaurantPreviousValues {
   id: ID_Output
   createdAt: DateTime
-  deliveredAt: DateTime
-  readAt: DateTime
+  title: String
+  avgPricePerPerson: Int
+  isCurated: Boolean
+  slug: String
+  popularity: Int
 }
 
 export interface Place extends Node {
@@ -15513,12 +15518,12 @@ export interface Place extends Node {
  * An edge in a connection.
 
  */
-export interface RestaurantEdge {
-  node: Restaurant
+export interface HouseRulesEdge {
+  node: HouseRules
   cursor: String
 }
 
-export interface AggregateRestaurant {
+export interface AggregateHouseRules {
   count: Int
 }
 
@@ -15526,9 +15531,27 @@ export interface AggregateRestaurant {
  * An edge in a connection.
 
  */
-export interface NotificationEdge {
-  node: Notification
+export interface PictureEdge {
+  node: Picture
   cursor: String
+}
+
+/*
+ * A connection to a list of items.
+
+ */
+export interface HouseRulesConnection {
+  pageInfo: PageInfo
+  edges: HouseRulesEdge[]
+  aggregate: AggregateHouseRules
+}
+
+export interface AggregateRestaurant {
+  count: Int
+}
+
+export interface PicturePreviousValues {
+  url: String
 }
 
 /*
@@ -15541,41 +15564,19 @@ export interface RestaurantConnection {
   aggregate: AggregateRestaurant
 }
 
-export interface AggregateMessage {
-  count: Int
-}
-
-export interface NotificationPreviousValues {
-  id: ID_Output
-  createdAt: DateTime
-  type?: NOTIFICATION_TYPE
-  link: String
-  readDate: DateTime
-}
-
-/*
- * A connection to a list of items.
-
- */
-export interface MessageConnection {
-  pageInfo: PageInfo
-  edges: MessageEdge[]
-  aggregate: AggregateMessage
-}
-
-export interface NotificationSubscriptionPayload {
+export interface PictureSubscriptionPayload {
   mutation: MutationType
-  node?: Notification
+  node?: Picture
   updatedFields?: String[]
-  previousValues?: NotificationPreviousValues
+  previousValues?: PicturePreviousValues
 }
 
 /*
  * An edge in a connection.
 
  */
-export interface CreditCardInformationEdge {
-  node: CreditCardInformation
+export interface NotificationEdge {
+  node: Notification
   cursor: String
 }
 
@@ -15594,7 +15595,7 @@ export interface Review extends Node {
   experience?: Experience
 }
 
-export interface AggregatePaypalInformation {
+export interface AggregateMessage {
   count: Int
 }
 
@@ -15609,10 +15610,10 @@ export interface UserSubscriptionPayload {
  * A connection to a list of items.
 
  */
-export interface PaypalInformationConnection {
+export interface MessageConnection {
   pageInfo: PageInfo
-  edges: PaypalInformationEdge[]
-  aggregate: AggregatePaypalInformation
+  edges: MessageEdge[]
+  aggregate: AggregateMessage
 }
 
 export interface UserPreviousValues {
@@ -15633,8 +15634,8 @@ export interface UserPreviousValues {
  * An edge in a connection.
 
  */
-export interface PaymentAccountEdge {
-  node: PaymentAccount
+export interface CreditCardInformationEdge {
+  node: CreditCardInformation
   cursor: String
 }
 
@@ -15647,7 +15648,7 @@ export interface Notification extends Node {
   readDate: DateTime
 }
 
-export interface AggregatePayment {
+export interface AggregatePaypalInformation {
   count: Int
 }
 
@@ -15662,10 +15663,10 @@ export interface PlaceSubscriptionPayload {
  * A connection to a list of items.
 
  */
-export interface PaymentConnection {
+export interface PaypalInformationConnection {
   pageInfo: PageInfo
-  edges: PaymentEdge[]
-  aggregate: AggregatePayment
+  edges: PaypalInformationEdge[]
+  aggregate: AggregatePaypalInformation
 }
 
 export interface PlacePreviousValues {
@@ -15686,8 +15687,8 @@ export interface PlacePreviousValues {
  * An edge in a connection.
 
  */
-export interface BookingEdge {
-  node: Booking
+export interface PaymentAccountEdge {
+  node: PaymentAccount
   cursor: String
 }
 
@@ -15700,7 +15701,7 @@ export interface Message extends Node {
   readAt: DateTime
 }
 
-export interface AggregateReview {
+export interface AggregatePayment {
   count: Int
 }
 
@@ -15715,10 +15716,10 @@ export interface PricingSubscriptionPayload {
  * A connection to a list of items.
 
  */
-export interface ReviewConnection {
+export interface PaymentConnection {
   pageInfo: PageInfo
-  edges: ReviewEdge[]
-  aggregate: AggregateReview
+  edges: PaymentEdge[]
+  aggregate: AggregatePayment
 }
 
 export interface PricingPreviousValues {
@@ -15741,8 +15742,8 @@ export interface PricingPreviousValues {
  * An edge in a connection.
 
  */
-export interface AmenitiesEdge {
-  node: Amenities
+export interface BookingEdge {
+  node: Booking
   cursor: String
 }
 
@@ -15760,7 +15761,7 @@ export interface CreditCardInformation extends Node {
   paymentAccount?: PaymentAccount
 }
 
-export interface AggregateExperienceCategory {
+export interface AggregateReview {
   count: Int
 }
 
@@ -15775,10 +15776,10 @@ export interface GuestRequirementsSubscriptionPayload {
  * A connection to a list of items.
 
  */
-export interface ExperienceCategoryConnection {
+export interface ReviewConnection {
   pageInfo: PageInfo
-  edges: ExperienceCategoryEdge[]
-  aggregate: AggregateExperienceCategory
+  edges: ReviewEdge[]
+  aggregate: AggregateReview
 }
 
 export interface GuestRequirementsPreviousValues {
@@ -15792,8 +15793,8 @@ export interface GuestRequirementsPreviousValues {
  * An edge in a connection.
 
  */
-export interface ExperienceEdge {
-  node: Experience
+export interface AmenitiesEdge {
+  node: Amenities
   cursor: String
 }
 
@@ -15804,7 +15805,7 @@ export interface PaypalInformation extends Node {
   paymentAccount: PaymentAccount
 }
 
-export interface AggregatePicture {
+export interface AggregateExperienceCategory {
   count: Int
 }
 
@@ -15819,10 +15820,10 @@ export interface PoliciesSubscriptionPayload {
  * A connection to a list of items.
 
  */
-export interface PictureConnection {
+export interface ExperienceCategoryConnection {
   pageInfo: PageInfo
-  edges: PictureEdge[]
-  aggregate: AggregatePicture
+  edges: ExperienceCategoryEdge[]
+  aggregate: AggregateExperienceCategory
 }
 
 export interface PoliciesPreviousValues {
@@ -15838,8 +15839,8 @@ export interface PoliciesPreviousValues {
  * An edge in a connection.
 
  */
-export interface CityEdge {
-  node: City
+export interface ExperienceEdge {
+  node: Experience
   cursor: String
 }
 
@@ -15853,59 +15854,7 @@ export interface PaymentAccount extends Node {
   creditcard?: CreditCardInformation
 }
 
-export interface AggregateNeighbourhood {
-  count: Int
-}
-
-export interface HouseRulesSubscriptionPayload {
-  mutation: MutationType
-  node?: HouseRules
-  updatedFields?: String[]
-  previousValues?: HouseRulesPreviousValues
-}
-
-/*
- * A connection to a list of items.
-
- */
-export interface NeighbourhoodConnection {
-  pageInfo: PageInfo
-  edges: NeighbourhoodEdge[]
-  aggregate: AggregateNeighbourhood
-}
-
-export interface HouseRulesPreviousValues {
-  id: ID_Output
-  createdAt: DateTime
-  updatedAt: DateTime
-  suitableForChildren?: Boolean
-  suitableForInfants?: Boolean
-  petsAllowed?: Boolean
-  smokingAllowed?: Boolean
-  partiesAndEventsAllowed?: Boolean
-  additionalRules?: String
-}
-
-/*
- * An edge in a connection.
-
- */
-export interface LocationEdge {
-  node: Location
-  cursor: String
-}
-
-export interface Payment extends Node {
-  id: ID_Output
-  createdAt: DateTime
-  serviceFee: Float
-  placePrice: Float
-  totalPrice: Float
-  booking: Booking
-  paymentMethod: PaymentAccount
-}
-
-export interface AggregateViews {
+export interface AggregateCity {
   count: Int
 }
 
@@ -15920,10 +15869,10 @@ export interface ViewsSubscriptionPayload {
  * A connection to a list of items.
 
  */
-export interface ViewsConnection {
+export interface CityConnection {
   pageInfo: PageInfo
-  edges: ViewsEdge[]
-  aggregate: AggregateViews
+  edges: CityEdge[]
+  aggregate: AggregateCity
 }
 
 export interface ViewsPreviousValues {
@@ -15935,8 +15884,56 @@ export interface ViewsPreviousValues {
  * An edge in a connection.
 
  */
-export interface HouseRulesEdge {
-  node: HouseRules
+export interface NeighbourhoodEdge {
+  node: Neighbourhood
+  cursor: String
+}
+
+export interface Payment extends Node {
+  id: ID_Output
+  createdAt: DateTime
+  serviceFee: Float
+  placePrice: Float
+  totalPrice: Float
+  booking: Booking
+  paymentMethod: PaymentAccount
+}
+
+export interface AggregateLocation {
+  count: Int
+}
+
+export interface LocationSubscriptionPayload {
+  mutation: MutationType
+  node?: Location
+  updatedFields?: String[]
+  previousValues?: LocationPreviousValues
+}
+
+/*
+ * A connection to a list of items.
+
+ */
+export interface LocationConnection {
+  pageInfo: PageInfo
+  edges: LocationEdge[]
+  aggregate: AggregateLocation
+}
+
+export interface LocationPreviousValues {
+  id: ID_Output
+  lat: Float
+  lng: Float
+  address?: String
+  directions?: String
+}
+
+/*
+ * An edge in a connection.
+
+ */
+export interface ViewsEdge {
+  node: Views
   cursor: String
 }
 
@@ -15954,11 +15951,11 @@ export interface AggregatePolicies {
   count: Int
 }
 
-export interface LocationSubscriptionPayload {
+export interface NeighbourhoodSubscriptionPayload {
   mutation: MutationType
-  node?: Location
+  node?: Neighbourhood
   updatedFields?: String[]
-  previousValues?: LocationPreviousValues
+  previousValues?: NeighbourhoodPreviousValues
 }
 
 /*
@@ -15971,12 +15968,12 @@ export interface PoliciesConnection {
   aggregate: AggregatePolicies
 }
 
-export interface LocationPreviousValues {
+export interface NeighbourhoodPreviousValues {
   id: ID_Output
-  lat: Float
-  lng: Float
-  address?: String
-  directions?: String
+  name: String
+  slug: String
+  featured: Boolean
+  popularity: Int
 }
 
 /*
@@ -16004,11 +16001,11 @@ export interface AggregatePricing {
   count: Int
 }
 
-export interface NeighbourhoodSubscriptionPayload {
+export interface CitySubscriptionPayload {
   mutation: MutationType
-  node?: Neighbourhood
+  node?: City
   updatedFields?: String[]
-  previousValues?: NeighbourhoodPreviousValues
+  previousValues?: CityPreviousValues
 }
 
 /*
@@ -16021,12 +16018,9 @@ export interface PricingConnection {
   aggregate: AggregatePricing
 }
 
-export interface NeighbourhoodPreviousValues {
+export interface CityPreviousValues {
   id: ID_Output
   name: String
-  slug: String
-  featured: Boolean
-  popularity: Int
 }
 
 /*
@@ -16052,11 +16046,11 @@ export interface AggregateUser {
   count: Int
 }
 
-export interface CitySubscriptionPayload {
+export interface ExperienceSubscriptionPayload {
   mutation: MutationType
-  node?: City
+  node?: Experience
   updatedFields?: String[]
-  previousValues?: CityPreviousValues
+  previousValues?: ExperiencePreviousValues
 }
 
 /*
@@ -16070,12 +16064,14 @@ export interface PageInfo {
   endCursor?: String
 }
 
-export interface CityPreviousValues {
+export interface ExperiencePreviousValues {
   id: ID_Output
-  name: String
+  title: String
+  pricePerPerson: Int
+  popularity: Int
 }
 
-export interface AggregateNotification {
+export interface AggregatePicture {
   count: Int
 }
 
@@ -16091,33 +16087,35 @@ export interface GuestRequirements extends Node {
  * An edge in a connection.
 
  */
-export interface MessageEdge {
-  node: Message
+export interface RestaurantEdge {
+  node: Restaurant
   cursor: String
 }
 
-export interface PictureSubscriptionPayload {
+export interface ExperienceCategorySubscriptionPayload {
   mutation: MutationType
-  node?: Picture
+  node?: ExperienceCategory
   updatedFields?: String[]
-  previousValues?: PicturePreviousValues
+  previousValues?: ExperienceCategoryPreviousValues
 }
 
 /*
  * A connection to a list of items.
 
  */
-export interface CreditCardInformationConnection {
+export interface NotificationConnection {
   pageInfo: PageInfo
-  edges: CreditCardInformationEdge[]
-  aggregate: AggregateCreditCardInformation
+  edges: NotificationEdge[]
+  aggregate: AggregateNotification
 }
 
-export interface PicturePreviousValues {
-  url: String
+export interface ExperienceCategoryPreviousValues {
+  id: ID_Output
+  mainColor: String
+  name: String
 }
 
-export interface AggregatePaymentAccount {
+export interface AggregateCreditCardInformation {
   count: Int
 }
 
@@ -16131,36 +16129,73 @@ export interface Views extends Node {
  * An edge in a connection.
 
  */
-export interface PaymentEdge {
-  node: Payment
+export interface PaypalInformationEdge {
+  node: PaypalInformation
   cursor: String
 }
 
-export interface ExperienceSubscriptionPayload {
+export interface AmenitiesSubscriptionPayload {
   mutation: MutationType
-  node?: Experience
+  node?: Amenities
   updatedFields?: String[]
-  previousValues?: ExperiencePreviousValues
+  previousValues?: AmenitiesPreviousValues
 }
 
 /*
  * A connection to a list of items.
 
  */
-export interface BookingConnection {
+export interface PaymentAccountConnection {
   pageInfo: PageInfo
-  edges: BookingEdge[]
-  aggregate: AggregateBooking
+  edges: PaymentAccountEdge[]
+  aggregate: AggregatePaymentAccount
 }
 
-export interface ExperiencePreviousValues {
+export interface AmenitiesPreviousValues {
   id: ID_Output
-  title: String
-  pricePerPerson: Int
-  popularity: Int
+  elevator: Boolean
+  petsAllowed: Boolean
+  internet: Boolean
+  kitchen: Boolean
+  wirelessInternet: Boolean
+  familyKidFriendly: Boolean
+  freeParkingOnPremises: Boolean
+  hotTub: Boolean
+  pool: Boolean
+  smokingAllowed: Boolean
+  wheelchairAccessible: Boolean
+  breakfast: Boolean
+  cableTv: Boolean
+  suitableForEvents: Boolean
+  dryer: Boolean
+  washer: Boolean
+  indoorFireplace: Boolean
+  tv: Boolean
+  heating: Boolean
+  hangers: Boolean
+  iron: Boolean
+  hairDryer: Boolean
+  doorman: Boolean
+  paidParkingOffPremises: Boolean
+  freeParkingOnStreet: Boolean
+  gym: Boolean
+  airConditioning: Boolean
+  shampoo: Boolean
+  essentials: Boolean
+  laptopFriendlyWorkspace: Boolean
+  privateEntrance: Boolean
+  buzzerWirelessIntercom: Boolean
+  babyBath: Boolean
+  babyMonitor: Boolean
+  babysitterRecommendations: Boolean
+  bathtub: Boolean
+  changingTable: Boolean
+  childrensBooksAndToys: Boolean
+  childrensDinnerware: Boolean
+  crib: Boolean
 }
 
-export interface AggregateAmenities {
+export interface AggregateBooking {
   count: Int
 }
 
@@ -16185,35 +16220,42 @@ export interface Pricing extends Node {
  * An edge in a connection.
 
  */
-export interface ExperienceCategoryEdge {
-  node: ExperienceCategory
+export interface ReviewEdge {
+  node: Review
   cursor: String
 }
 
-export interface ExperienceCategorySubscriptionPayload {
+export interface ReviewSubscriptionPayload {
   mutation: MutationType
-  node?: ExperienceCategory
+  node?: Review
   updatedFields?: String[]
-  previousValues?: ExperienceCategoryPreviousValues
+  previousValues?: ReviewPreviousValues
 }
 
 /*
  * A connection to a list of items.
 
  */
-export interface ExperienceConnection {
+export interface AmenitiesConnection {
   pageInfo: PageInfo
-  edges: ExperienceEdge[]
-  aggregate: AggregateExperience
+  edges: AmenitiesEdge[]
+  aggregate: AggregateAmenities
 }
 
-export interface ExperienceCategoryPreviousValues {
+export interface ReviewPreviousValues {
   id: ID_Output
-  mainColor: String
-  name: String
+  createdAt: DateTime
+  text: String
+  stars: Int
+  accuracy: Int
+  location: Int
+  checkIn: Int
+  value: Int
+  cleanliness: Int
+  communication: Int
 }
 
-export interface AggregateCity {
+export interface AggregateExperience {
   count: Int
 }
 
@@ -16266,73 +16308,36 @@ export interface Amenities extends Node {
  * An edge in a connection.
 
  */
-export interface NeighbourhoodEdge {
-  node: Neighbourhood
+export interface CityEdge {
+  node: City
   cursor: String
 }
 
-export interface AmenitiesSubscriptionPayload {
+export interface BookingSubscriptionPayload {
   mutation: MutationType
-  node?: Amenities
+  node?: Booking
   updatedFields?: String[]
-  previousValues?: AmenitiesPreviousValues
+  previousValues?: BookingPreviousValues
 }
 
 /*
  * A connection to a list of items.
 
  */
-export interface LocationConnection {
+export interface NeighbourhoodConnection {
   pageInfo: PageInfo
-  edges: LocationEdge[]
-  aggregate: AggregateLocation
+  edges: NeighbourhoodEdge[]
+  aggregate: AggregateNeighbourhood
 }
 
-export interface AmenitiesPreviousValues {
+export interface BookingPreviousValues {
   id: ID_Output
-  elevator: Boolean
-  petsAllowed: Boolean
-  internet: Boolean
-  kitchen: Boolean
-  wirelessInternet: Boolean
-  familyKidFriendly: Boolean
-  freeParkingOnPremises: Boolean
-  hotTub: Boolean
-  pool: Boolean
-  smokingAllowed: Boolean
-  wheelchairAccessible: Boolean
-  breakfast: Boolean
-  cableTv: Boolean
-  suitableForEvents: Boolean
-  dryer: Boolean
-  washer: Boolean
-  indoorFireplace: Boolean
-  tv: Boolean
-  heating: Boolean
-  hangers: Boolean
-  iron: Boolean
-  hairDryer: Boolean
-  doorman: Boolean
-  paidParkingOffPremises: Boolean
-  freeParkingOnStreet: Boolean
-  gym: Boolean
-  airConditioning: Boolean
-  shampoo: Boolean
-  essentials: Boolean
-  laptopFriendlyWorkspace: Boolean
-  privateEntrance: Boolean
-  buzzerWirelessIntercom: Boolean
-  babyBath: Boolean
-  babyMonitor: Boolean
-  babysitterRecommendations: Boolean
-  bathtub: Boolean
-  changingTable: Boolean
-  childrensBooksAndToys: Boolean
-  childrensDinnerware: Boolean
-  crib: Boolean
+  createdAt: DateTime
+  startDate: DateTime
+  endDate: DateTime
 }
 
-export interface AggregateHouseRules {
+export interface AggregateViews {
   count: Int
 }
 
@@ -16357,11 +16362,11 @@ export interface PoliciesEdge {
   cursor: String
 }
 
-export interface ReviewSubscriptionPayload {
+export interface PaymentSubscriptionPayload {
   mutation: MutationType
-  node?: Review
+  node?: Payment
   updatedFields?: String[]
-  previousValues?: ReviewPreviousValues
+  previousValues?: PaymentPreviousValues
 }
 
 /*
@@ -16374,17 +16379,12 @@ export interface GuestRequirementsConnection {
   aggregate: AggregateGuestRequirements
 }
 
-export interface ReviewPreviousValues {
+export interface PaymentPreviousValues {
   id: ID_Output
   createdAt: DateTime
-  text: String
-  stars: Int
-  accuracy: Int
-  location: Int
-  checkIn: Int
-  value: Int
-  cleanliness: Int
-  communication: Int
+  serviceFee: Float
+  placePrice: Float
+  totalPrice: Float
 }
 
 export interface AggregatePlace {
@@ -16406,36 +16406,35 @@ export interface UserEdge {
   cursor: String
 }
 
-export interface BookingSubscriptionPayload {
+export interface PaymentAccountSubscriptionPayload {
   mutation: MutationType
-  node?: Booking
+  node?: PaymentAccount
   updatedFields?: String[]
-  previousValues?: BookingPreviousValues
+  previousValues?: PaymentAccountPreviousValues
 }
 
 /*
  * A connection to a list of items.
 
  */
-export interface NotificationConnection {
+export interface PictureConnection {
   pageInfo: PageInfo
-  edges: NotificationEdge[]
-  aggregate: AggregateNotification
+  edges: PictureEdge[]
+  aggregate: AggregatePicture
 }
 
-export interface BookingPreviousValues {
+export interface PaymentAccountPreviousValues {
   id: ID_Output
   createdAt: DateTime
-  startDate: DateTime
-  endDate: DateTime
+  type?: PAYMENT_PROVIDER
 }
 
 /*
  * An edge in a connection.
 
  */
-export interface PaypalInformationEdge {
-  node: PaypalInformation
+export interface MessageEdge {
+  node: Message
   cursor: String
 }
 
@@ -16443,41 +16442,39 @@ export interface Picture {
   url: String
 }
 
-export interface AggregateBooking {
+export interface AggregatePaymentAccount {
   count: Int
 }
 
-export interface PaymentSubscriptionPayload {
+export interface PaypalInformationSubscriptionPayload {
   mutation: MutationType
-  node?: Payment
+  node?: PaypalInformation
   updatedFields?: String[]
-  previousValues?: PaymentPreviousValues
+  previousValues?: PaypalInformationPreviousValues
 }
 
 /*
  * A connection to a list of items.
 
  */
-export interface AmenitiesConnection {
+export interface BookingConnection {
   pageInfo: PageInfo
-  edges: AmenitiesEdge[]
-  aggregate: AggregateAmenities
+  edges: BookingEdge[]
+  aggregate: AggregateBooking
 }
 
-export interface PaymentPreviousValues {
+export interface PaypalInformationPreviousValues {
   id: ID_Output
   createdAt: DateTime
-  serviceFee: Float
-  placePrice: Float
-  totalPrice: Float
+  email: String
 }
 
 /*
  * An edge in a connection.
 
  */
-export interface PictureEdge {
-  node: Picture
+export interface ExperienceCategoryEdge {
+  node: ExperienceCategory
   cursor: String
 }
 
@@ -16492,31 +16489,38 @@ export interface Neighbourhood extends Node {
   popularity: Int
 }
 
-export interface AggregateLocation {
+export interface AggregateNeighbourhood {
   count: Int
 }
 
-export interface PaymentAccountSubscriptionPayload {
+export interface CreditCardInformationSubscriptionPayload {
   mutation: MutationType
-  node?: PaymentAccount
+  node?: CreditCardInformation
   updatedFields?: String[]
-  previousValues?: PaymentAccountPreviousValues
+  previousValues?: CreditCardInformationPreviousValues
 }
 
 /*
  * A connection to a list of items.
 
  */
-export interface HouseRulesConnection {
+export interface ViewsConnection {
   pageInfo: PageInfo
-  edges: HouseRulesEdge[]
-  aggregate: AggregateHouseRules
+  edges: ViewsEdge[]
+  aggregate: AggregateViews
 }
 
-export interface PaymentAccountPreviousValues {
+export interface CreditCardInformationPreviousValues {
   id: ID_Output
   createdAt: DateTime
-  type?: PAYMENT_PROVIDER
+  cardNumber: String
+  expiresOnMonth: Int
+  expiresOnYear: Int
+  securityCode: String
+  firstName: String
+  lastName: String
+  postalCode: String
+  country: String
 }
 
 /*
@@ -16551,30 +16555,31 @@ export interface UserConnection {
   aggregate: AggregateUser
 }
 
-export interface PaypalInformationSubscriptionPayload {
+export interface MessageSubscriptionPayload {
   mutation: MutationType
-  node?: PaypalInformation
+  node?: Message
   updatedFields?: String[]
-  previousValues?: PaypalInformationPreviousValues
+  previousValues?: MessagePreviousValues
 }
 
 /*
  * A connection to a list of items.
 
  */
-export interface PaymentAccountConnection {
+export interface CreditCardInformationConnection {
   pageInfo: PageInfo
-  edges: PaymentAccountEdge[]
-  aggregate: AggregatePaymentAccount
+  edges: CreditCardInformationEdge[]
+  aggregate: AggregateCreditCardInformation
 }
 
-export interface PaypalInformationPreviousValues {
+export interface MessagePreviousValues {
   id: ID_Output
   createdAt: DateTime
-  email: String
+  deliveredAt: DateTime
+  readAt: DateTime
 }
 
-export interface AggregateExperience {
+export interface AggregateAmenities {
   count: Int
 }
 
@@ -16589,8 +16594,8 @@ export interface ExperienceCategory extends Node {
  * An edge in a connection.
 
  */
-export interface ViewsEdge {
-  node: Views
+export interface LocationEdge {
+  node: Location
   cursor: String
 }
 
@@ -16604,11 +16609,11 @@ export interface PlaceConnection {
   aggregate: AggregatePlace
 }
 
-export interface MessageSubscriptionPayload {
+export interface RestaurantSubscriptionPayload {
   mutation: MutationType
-  node?: Message
+  node?: Restaurant
   updatedFields?: String[]
-  previousValues?: MessagePreviousValues
+  previousValues?: RestaurantPreviousValues
 }
 
 export interface Experience extends Node {
@@ -16623,27 +16628,22 @@ export interface Experience extends Node {
   popularity: Int
 }
 
-export interface CreditCardInformationPreviousValues {
+export interface NotificationPreviousValues {
   id: ID_Output
   createdAt: DateTime
-  cardNumber: String
-  expiresOnMonth: Int
-  expiresOnYear: Int
-  securityCode: String
-  firstName: String
-  lastName: String
-  postalCode: String
-  country: String
+  type?: NOTIFICATION_TYPE
+  link: String
+  readDate: DateTime
 }
 
-export interface CreditCardInformationSubscriptionPayload {
+export interface NotificationSubscriptionPayload {
   mutation: MutationType
-  node?: CreditCardInformation
+  node?: Notification
   updatedFields?: String[]
-  previousValues?: CreditCardInformationPreviousValues
+  previousValues?: NotificationPreviousValues
 }
 
-export interface AggregateCreditCardInformation {
+export interface AggregateNotification {
   count: Int
 }
 
@@ -16655,18 +16655,18 @@ export interface AggregateGuestRequirements {
  * A connection to a list of items.
 
  */
-export interface CityConnection {
+export interface ExperienceConnection {
   pageInfo: PageInfo
-  edges: CityEdge[]
-  aggregate: AggregateCity
+  edges: ExperienceEdge[]
+  aggregate: AggregateExperience
 }
 
 /*
  * An edge in a connection.
 
  */
-export interface ReviewEdge {
-  node: Review
+export interface PaymentEdge {
+  node: Payment
   cursor: String
 }
 

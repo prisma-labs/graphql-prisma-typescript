@@ -1,24 +1,18 @@
 ## possible queries
 {
-  experiences {
+  topExperiences {
     ...ExperienceFragment
   }
 
   topHomes {
     id
-    size
-    numBeds
-    slug
-    pricing {
-      perNight
+    perNight
+    name
+    description
+    pictures(first: 1) {
+      url
     }
-    host {
-      isSuperHost
-    }
-    images(first: 1) {
-      url(width: 180 height: 270)
-    }
-    numReviews
+    numRatings
     avgRating
   }
 
@@ -27,32 +21,40 @@
     slug
     title
     avgPricePerPerson
-    pictures(first: 1) {
-      url(width: 340 height: 227)
+    pictures {
+      url
     }
     title
+    popularity
+    isCurated
+    location {
+      ...LocationFields
+    }
   }
 
   featuredDestinations {
     name
     homePreview {
-      url(width: 180 height: 270)
+      url(width: 180, height: 270)
     }
     slug
   }
 
-  cityExperiences: experiencesByCity(cities: [
-    "New York",
-    "Barcelona",
-    "Paris",
-    "Tokyo",
-    "Los Angeles",
-    "Lisbon",
-    "San Francisco",
-    "Sydney",
-    "London",
-    "Rome"
-  ]) {
+  cityExperiences: experiencesByCity(
+    cities: [
+      "New York"
+      "Barcelona"
+      "Paris"
+      "Tokyo"
+      "Los Angeles"
+      "Lisbon"
+      "San Francisco"
+      "Sydney"
+      "London"
+      "Rome",
+      "Moss Landing"
+    ]
+  ) {
     city {
       name
     }
@@ -64,13 +66,41 @@
 
 fragment ExperienceFragment on Experience {
   id
-  title
   category {
+    id
     mainColor
     name
+    experience {
+      id
+    }
   }
-  slug
-  numRatings
-  avgRating
+  title
+  location {
+    ...LocationFields
+  }
   pricePerPerson
+  reviews {
+    id
+    accuracy
+    checkIn
+    cleanliness
+    communication
+    createdAt
+    location
+    stars
+    text
+    value
+  }
+  preview {
+    url
+  }
+  popularity
+}
+
+fragment LocationFields on Location {
+  id
+  lat
+  lng
+  address
+  directions
 }

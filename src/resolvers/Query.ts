@@ -64,7 +64,9 @@ export const Query = {
       where: {
         name_in: cities,
         neighbourhoods_every: {
+          id_gt: "0",
           locations_every: {
+            id_gt: "0",
             experience: {
               id_gt: '0',
             },
