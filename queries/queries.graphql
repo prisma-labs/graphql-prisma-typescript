@@ -45,6 +45,21 @@
   }
 
   featuredDestinations {
+    id
+    name
+    slug
+    homePreview {
+      url
+    }
+    city {
+      id
+      name
+    }
+    featured
+    popularity
+  }
+
+  featuredDestinations {
     name
     homePreview {
       url(width: 180, height: 270)
