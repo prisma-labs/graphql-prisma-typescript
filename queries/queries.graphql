@@ -32,6 +32,18 @@
     }
   }
 
+  homesInPriceRange(min: 0, max: 100) {
+    id
+    perNight
+    name
+    description
+    pictures(first: 1) {
+      url
+    }
+    numRatings
+    avgRating
+  }
+
   featuredDestinations {
     name
     homePreview {
