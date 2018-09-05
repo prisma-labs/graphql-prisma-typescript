@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.1",
-    "dotenv": "5.0.1",
+    "dotenv": "6.0.0",
     "graphql-cli": "2.16.7",
     "nodemon": "1.18.4",
     "npm-run-all": "4.1.3",
