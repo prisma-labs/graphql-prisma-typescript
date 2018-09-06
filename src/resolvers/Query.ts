@@ -1,6 +1,4 @@
 import { Context, getUserId } from '../utils'
-// import { WrapQuery } from 'graphql-tools'
-// import { SelectionSetNode, Kind } from 'graphql'
 
 export const Query = {
   viewer: () => ({}),
