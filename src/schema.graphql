@@ -40,7 +40,7 @@ type Mutation {
     numGuests: Int!
   ): MutationResult!
   # Location
-  addLocation(location: LocationCreateInput): MutationResult
+  addLocationToUser(location: LocationCreateInput): MutationResult
 }
 
 type Subscription {
