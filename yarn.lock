@@ -4834,7 +4834,7 @@ prisma-yml@1.1.48-alpha.27:
     scuid "^1.0.2"
     yaml-ast-parser "^0.0.40"
 
-prisma@^1.17.0-alpha.26:
+prisma@1.17.0-alpha.32:
   version "1.17.0-alpha.32"
   resolved "https://registry.yarnpkg.com/prisma/-/prisma-1.17.0-alpha.32.tgz#8d0e7d7581bfc052ee876884cbfc896319cd66ce"
   dependencies:
