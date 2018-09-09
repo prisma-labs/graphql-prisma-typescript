@@ -12,6 +12,7 @@ type Query {
 }
 
 type Mutation {
+  # Authentication
   signup(
     email: String!
     password: String!
@@ -20,6 +21,7 @@ type Mutation {
     phone: String!
   ): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
+  # Payments
   addPaymentMethod(
     cardNumber: String!
     expiresOnMonth: Int!
@@ -30,12 +32,15 @@ type Mutation {
     postalCode: String!
     country: String!
   ): MutationResult!
+  # Booking
   book(
     placeId: ID!
     checkIn: String!
     checkOut: String!
     numGuests: Int!
   ): MutationResult!
+  # Location
+  addLocationToUser(location: LocationCreateInput): MutationResult
 }
 
 type Subscription {

@@ -7,7 +7,7 @@ export const ExperiencesByCity = {
 
   experiences: async ({ id }, args, ctx: Context, info) => {
     return ctx.db.query.experiences(
-      { where: { location: { neighbourHood: { city: { id } } } } },
+      { where: { location: { id_gt: '0', neighbourHood: { city: { id } } } } },
       info,
     )
   },

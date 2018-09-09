@@ -1,33 +1,23 @@
 import { Context, getUserId } from '../utils'
-import { WrapQuery } from 'graphql-tools'
-import { SelectionSetNode, Kind } from 'graphql'
 
 export const Query = {
   viewer: () => ({}),
 
   myLocation: async (parent, args, ctx, info) => {
     const id = getUserId(ctx)
-    return ctx.db.query.user({ where: { id } }, info, {
-      transforms: [
-        new WrapQuery(
-          ['user'],
-          (subtree: SelectionSetNode) => ({
-            kind: Kind.FIELD,
-            name: {
-              kind: Kind.NAME,
-              value: 'location',
-            },
-            selectionSet: subtree,
-          }),
-          // result => result && result.node,
-          result => {
-            // TODO clean me up
-            console.log({ result })
-            return result && result.node
+
+    const locations = await ctx.db.query.locations(
+      {
+        where: {
+          user: {
+            id,
           },
-        ),
-      ],
-    })
+        },
+      },
+      info,
+    )
+
+    return locations && locations[0]
   },
 
   topExperiences: async (parent, args, ctx: Context, info) => {
@@ -64,7 +54,9 @@ export const Query = {
       where: {
         name_in: cities,
         neighbourhoods_every: {
+          id_gt: '0',
           locations_every: {
+            id_gt: '0',
             experience: {
               id_gt: '0',
             },

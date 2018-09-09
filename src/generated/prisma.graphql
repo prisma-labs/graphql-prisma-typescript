@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Tue Jun 12 2018 18:37:30 GMT+0200 (Central European Summer Time)
+# timestamp: Wed Sep 05 2018 09:19:44 GMT-0700 (PDT)
 
 type AggregateAmenities {
   count: Int!
@@ -3856,12 +3856,10 @@ type Mutation {
   createPricing(data: PricingCreateInput!): Pricing!
   createGuestRequirements(data: GuestRequirementsCreateInput!): GuestRequirements!
   createPolicies(data: PoliciesCreateInput!): Policies!
-  createHouseRules(data: HouseRulesCreateInput!): HouseRules!
   createViews(data: ViewsCreateInput!): Views!
   createLocation(data: LocationCreateInput!): Location!
   createNeighbourhood(data: NeighbourhoodCreateInput!): Neighbourhood!
   createCity(data: CityCreateInput!): City!
-  createPicture(data: PictureCreateInput!): Picture!
   createExperience(data: ExperienceCreateInput!): Experience!
   createExperienceCategory(data: ExperienceCategoryCreateInput!): ExperienceCategory!
   createAmenities(data: AmenitiesCreateInput!): Amenities!
@@ -3874,12 +3872,13 @@ type Mutation {
   createMessage(data: MessageCreateInput!): Message!
   createNotification(data: NotificationCreateInput!): Notification!
   createRestaurant(data: RestaurantCreateInput!): Restaurant!
+  createPicture(data: PictureCreateInput!): Picture!
+  createHouseRules(data: HouseRulesCreateInput!): HouseRules!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updatePlace(data: PlaceUpdateInput!, where: PlaceWhereUniqueInput!): Place
   updatePricing(data: PricingUpdateInput!, where: PricingWhereUniqueInput!): Pricing
   updateGuestRequirements(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereUniqueInput!): GuestRequirements
   updatePolicies(data: PoliciesUpdateInput!, where: PoliciesWhereUniqueInput!): Policies
-  updateHouseRules(data: HouseRulesUpdateInput!, where: HouseRulesWhereUniqueInput!): HouseRules
   updateViews(data: ViewsUpdateInput!, where: ViewsWhereUniqueInput!): Views
   updateLocation(data: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location
   updateNeighbourhood(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereUniqueInput!): Neighbourhood
@@ -3896,12 +3895,12 @@ type Mutation {
   updateMessage(data: MessageUpdateInput!, where: MessageWhereUniqueInput!): Message
   updateNotification(data: NotificationUpdateInput!, where: NotificationWhereUniqueInput!): Notification
   updateRestaurant(data: RestaurantUpdateInput!, where: RestaurantWhereUniqueInput!): Restaurant
+  updateHouseRules(data: HouseRulesUpdateInput!, where: HouseRulesWhereUniqueInput!): HouseRules
   deleteUser(where: UserWhereUniqueInput!): User
   deletePlace(where: PlaceWhereUniqueInput!): Place
   deletePricing(where: PricingWhereUniqueInput!): Pricing
   deleteGuestRequirements(where: GuestRequirementsWhereUniqueInput!): GuestRequirements
   deletePolicies(where: PoliciesWhereUniqueInput!): Policies
-  deleteHouseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   deleteViews(where: ViewsWhereUniqueInput!): Views
   deleteLocation(where: LocationWhereUniqueInput!): Location
   deleteNeighbourhood(where: NeighbourhoodWhereUniqueInput!): Neighbourhood
@@ -3918,12 +3917,12 @@ type Mutation {
   deleteMessage(where: MessageWhereUniqueInput!): Message
   deleteNotification(where: NotificationWhereUniqueInput!): Notification
   deleteRestaurant(where: RestaurantWhereUniqueInput!): Restaurant
+  deleteHouseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
   upsertPlace(where: PlaceWhereUniqueInput!, create: PlaceCreateInput!, update: PlaceUpdateInput!): Place!
   upsertPricing(where: PricingWhereUniqueInput!, create: PricingCreateInput!, update: PricingUpdateInput!): Pricing!
   upsertGuestRequirements(where: GuestRequirementsWhereUniqueInput!, create: GuestRequirementsCreateInput!, update: GuestRequirementsUpdateInput!): GuestRequirements!
   upsertPolicies(where: PoliciesWhereUniqueInput!, create: PoliciesCreateInput!, update: PoliciesUpdateInput!): Policies!
-  upsertHouseRules(where: HouseRulesWhereUniqueInput!, create: HouseRulesCreateInput!, update: HouseRulesUpdateInput!): HouseRules!
   upsertViews(where: ViewsWhereUniqueInput!, create: ViewsCreateInput!, update: ViewsUpdateInput!): Views!
   upsertLocation(where: LocationWhereUniqueInput!, create: LocationCreateInput!, update: LocationUpdateInput!): Location!
   upsertNeighbourhood(where: NeighbourhoodWhereUniqueInput!, create: NeighbourhoodCreateInput!, update: NeighbourhoodUpdateInput!): Neighbourhood!
@@ -3940,17 +3939,16 @@ type Mutation {
   upsertMessage(where: MessageWhereUniqueInput!, create: MessageCreateInput!, update: MessageUpdateInput!): Message!
   upsertNotification(where: NotificationWhereUniqueInput!, create: NotificationCreateInput!, update: NotificationUpdateInput!): Notification!
   upsertRestaurant(where: RestaurantWhereUniqueInput!, create: RestaurantCreateInput!, update: RestaurantUpdateInput!): Restaurant!
+  upsertHouseRules(where: HouseRulesWhereUniqueInput!, create: HouseRulesCreateInput!, update: HouseRulesUpdateInput!): HouseRules!
   updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
   updateManyPlaces(data: PlaceUpdateInput!, where: PlaceWhereInput): BatchPayload!
   updateManyPricings(data: PricingUpdateInput!, where: PricingWhereInput): BatchPayload!
   updateManyGuestRequirementses(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereInput): BatchPayload!
   updateManyPolicieses(data: PoliciesUpdateInput!, where: PoliciesWhereInput): BatchPayload!
-  updateManyHouseRuleses(data: HouseRulesUpdateInput!, where: HouseRulesWhereInput): BatchPayload!
   updateManyViewses(data: ViewsUpdateInput!, where: ViewsWhereInput): BatchPayload!
   updateManyLocations(data: LocationUpdateInput!, where: LocationWhereInput): BatchPayload!
   updateManyNeighbourhoods(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereInput): BatchPayload!
   updateManyCities(data: CityUpdateInput!, where: CityWhereInput): BatchPayload!
-  updateManyPictures(data: PictureUpdateInput!, where: PictureWhereInput): BatchPayload!
   updateManyExperiences(data: ExperienceUpdateInput!, where: ExperienceWhereInput): BatchPayload!
   updateManyExperienceCategories(data: ExperienceCategoryUpdateInput!, where: ExperienceCategoryWhereInput): BatchPayload!
   updateManyAmenitieses(data: AmenitiesUpdateInput!, where: AmenitiesWhereInput): BatchPayload!
@@ -3963,17 +3961,17 @@ type Mutation {
   updateManyMessages(data: MessageUpdateInput!, where: MessageWhereInput): BatchPayload!
   updateManyNotifications(data: NotificationUpdateInput!, where: NotificationWhereInput): BatchPayload!
   updateManyRestaurants(data: RestaurantUpdateInput!, where: RestaurantWhereInput): BatchPayload!
+  updateManyPictures(data: PictureUpdateInput!, where: PictureWhereInput): BatchPayload!
+  updateManyHouseRuleses(data: HouseRulesUpdateInput!, where: HouseRulesWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
   deleteManyPlaces(where: PlaceWhereInput): BatchPayload!
   deleteManyPricings(where: PricingWhereInput): BatchPayload!
   deleteManyGuestRequirementses(where: GuestRequirementsWhereInput): BatchPayload!
   deleteManyPolicieses(where: PoliciesWhereInput): BatchPayload!
-  deleteManyHouseRuleses(where: HouseRulesWhereInput): BatchPayload!
   deleteManyViewses(where: ViewsWhereInput): BatchPayload!
   deleteManyLocations(where: LocationWhereInput): BatchPayload!
   deleteManyNeighbourhoods(where: NeighbourhoodWhereInput): BatchPayload!
   deleteManyCities(where: CityWhereInput): BatchPayload!
-  deleteManyPictures(where: PictureWhereInput): BatchPayload!
   deleteManyExperiences(where: ExperienceWhereInput): BatchPayload!
   deleteManyExperienceCategories(where: ExperienceCategoryWhereInput): BatchPayload!
   deleteManyAmenitieses(where: AmenitiesWhereInput): BatchPayload!
@@ -3986,6 +3984,8 @@ type Mutation {
   deleteManyMessages(where: MessageWhereInput): BatchPayload!
   deleteManyNotifications(where: NotificationWhereInput): BatchPayload!
   deleteManyRestaurants(where: RestaurantWhereInput): BatchPayload!
+  deleteManyPictures(where: PictureWhereInput): BatchPayload!
+  deleteManyHouseRuleses(where: HouseRulesWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -7658,12 +7658,10 @@ type Query {
   pricings(where: PricingWhereInput, orderBy: PricingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pricing]!
   guestRequirementses(where: GuestRequirementsWhereInput, orderBy: GuestRequirementsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [GuestRequirements]!
   policieses(where: PoliciesWhereInput, orderBy: PoliciesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Policies]!
-  houseRuleses(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [HouseRules]!
   viewses(where: ViewsWhereInput, orderBy: ViewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Views]!
   locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location]!
   neighbourhoods(where: NeighbourhoodWhereInput, orderBy: NeighbourhoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Neighbourhood]!
   cities(where: CityWhereInput, orderBy: CityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [City]!
-  pictures(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Picture]!
   experiences(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Experience]!
   experienceCategories(where: ExperienceCategoryWhereInput, orderBy: ExperienceCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ExperienceCategory]!
   amenitieses(where: AmenitiesWhereInput, orderBy: AmenitiesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Amenities]!
@@ -7676,12 +7674,13 @@ type Query {
   messages(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message]!
   notifications(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Notification]!
   restaurants(where: RestaurantWhereInput, orderBy: RestaurantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Restaurant]!
+  pictures(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Picture]!
+  houseRuleses(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [HouseRules]!
   user(where: UserWhereUniqueInput!): User
   place(where: PlaceWhereUniqueInput!): Place
   pricing(where: PricingWhereUniqueInput!): Pricing
   guestRequirements(where: GuestRequirementsWhereUniqueInput!): GuestRequirements
   policies(where: PoliciesWhereUniqueInput!): Policies
-  houseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   views(where: ViewsWhereUniqueInput!): Views
   location(where: LocationWhereUniqueInput!): Location
   neighbourhood(where: NeighbourhoodWhereUniqueInput!): Neighbourhood
@@ -7698,17 +7697,16 @@ type Query {
   message(where: MessageWhereUniqueInput!): Message
   notification(where: NotificationWhereUniqueInput!): Notification
   restaurant(where: RestaurantWhereUniqueInput!): Restaurant
+  houseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   placesConnection(where: PlaceWhereInput, orderBy: PlaceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PlaceConnection!
   pricingsConnection(where: PricingWhereInput, orderBy: PricingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PricingConnection!
   guestRequirementsesConnection(where: GuestRequirementsWhereInput, orderBy: GuestRequirementsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GuestRequirementsConnection!
   policiesesConnection(where: PoliciesWhereInput, orderBy: PoliciesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PoliciesConnection!
-  houseRulesesConnection(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HouseRulesConnection!
   viewsesConnection(where: ViewsWhereInput, orderBy: ViewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ViewsConnection!
   locationsConnection(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LocationConnection!
   neighbourhoodsConnection(where: NeighbourhoodWhereInput, orderBy: NeighbourhoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NeighbourhoodConnection!
   citiesConnection(where: CityWhereInput, orderBy: CityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CityConnection!
-  picturesConnection(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PictureConnection!
   experiencesConnection(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ExperienceConnection!
   experienceCategoriesConnection(where: ExperienceCategoryWhereInput, orderBy: ExperienceCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ExperienceCategoryConnection!
   amenitiesesConnection(where: AmenitiesWhereInput, orderBy: AmenitiesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AmenitiesConnection!
@@ -7721,6 +7719,8 @@ type Query {
   messagesConnection(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MessageConnection!
   notificationsConnection(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NotificationConnection!
   restaurantsConnection(where: RestaurantWhereInput, orderBy: RestaurantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RestaurantConnection!
+  picturesConnection(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PictureConnection!
+  houseRulesesConnection(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HouseRulesConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -8608,12 +8608,10 @@ type Subscription {
   pricing(where: PricingSubscriptionWhereInput): PricingSubscriptionPayload
   guestRequirements(where: GuestRequirementsSubscriptionWhereInput): GuestRequirementsSubscriptionPayload
   policies(where: PoliciesSubscriptionWhereInput): PoliciesSubscriptionPayload
-  houseRules(where: HouseRulesSubscriptionWhereInput): HouseRulesSubscriptionPayload
   views(where: ViewsSubscriptionWhereInput): ViewsSubscriptionPayload
   location(where: LocationSubscriptionWhereInput): LocationSubscriptionPayload
   neighbourhood(where: NeighbourhoodSubscriptionWhereInput): NeighbourhoodSubscriptionPayload
   city(where: CitySubscriptionWhereInput): CitySubscriptionPayload
-  picture(where: PictureSubscriptionWhereInput): PictureSubscriptionPayload
   experience(where: ExperienceSubscriptionWhereInput): ExperienceSubscriptionPayload
   experienceCategory(where: ExperienceCategorySubscriptionWhereInput): ExperienceCategorySubscriptionPayload
   amenities(where: AmenitiesSubscriptionWhereInput): AmenitiesSubscriptionPayload
@@ -8626,6 +8624,8 @@ type Subscription {
   message(where: MessageSubscriptionWhereInput): MessageSubscriptionPayload
   notification(where: NotificationSubscriptionWhereInput): NotificationSubscriptionPayload
   restaurant(where: RestaurantSubscriptionWhereInput): RestaurantSubscriptionPayload
+  picture(where: PictureSubscriptionWhereInput): PictureSubscriptionPayload
+  houseRules(where: HouseRulesSubscriptionWhereInput): HouseRulesSubscriptionPayload
 }
 
 type User implements Node {

@@ -7,6 +7,7 @@ import { ExperiencesByCity } from './ExperiencesByCity'
 import { Viewer } from './Viewer'
 import { AuthPayload } from './AuthPayload'
 import { book } from './Mutation/book'
+import { locations } from './Mutation/locations'
 import { addPaymentMethod } from './Mutation/addPaymentMethod'
 
 export const resolvers = {
@@ -14,6 +15,7 @@ export const resolvers = {
   Mutation: {
     ...auth,
     book,
+    ...locations,
     addPaymentMethod,
   },
   Subscription,
