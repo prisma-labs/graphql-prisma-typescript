@@ -13,7 +13,7 @@ mutation signup {
   }
 }
 
-mutation signin {
+mutation login {
   login(email: "a25@a.de", password: "pw") {
     user {
       id
@@ -22,20 +22,21 @@ mutation signin {
   }
 }
 
-mutation addPaymentMethod {
-  addPaymentMethod(
-    cardNumber: "4242424242424242"
-    expiresOnMonth: 12
-    expiresOnYear: 2020
-    securityCode: "232"
-    firstName: "Bob"
-    lastName: "der Meister"
-    postalCode: "12345"
-    country: "Germany"
-  ) {
-    success
-  }
-}
+# TODO: IMPLEMENT
+# mutation addPaymentMethod {
+#   addPaymentMethod(
+#     cardNumber: "4242424242424242"
+#     expiresOnMonth: 12
+#     expiresOnYear: 2020
+#     securityCode: "232"
+#     firstName: "Bob"
+#     lastName: "der Meister"
+#     postalCode: "12345"
+#     country: "Germany"
+#   ) {
+#     success
+#   }
+# }
 
 mutation book {
   book(

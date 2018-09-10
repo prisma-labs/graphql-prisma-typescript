@@ -2,9 +2,9 @@ endpoint: ${env:PRISMA_ENDPOINT}
 
 datamodel: datamodel.graphql
 
-# The secret is used to generate JTWs which allow to authenticate 
+# The secret is used to generate JTWs which allow to authenticate
 # against your Prisma service. You can use the `prisma token` command from the CLI
-# to generate a JWT based on the secret. When using the `prisma-binding` package, 
+# to generate a JWT based on the secret. When using the `prisma-binding` package,
 # you don't need to generate the JWTs manually as the library is doing that for you
 # (this is why you're passing it to the `Prisma` constructor).
 # Here, the secret is loaded as an environment variable from .env.
@@ -13,6 +13,10 @@ secret: ${env:PRISMA_SECRET}
 # Defines how to seed data to the database upon the initial deploy.
 seed:
   import: seed.graphql
+
+generate:
+  - generator: typescript-client
+    output: ../src/generated
 
 hooks:
   post-deploy:

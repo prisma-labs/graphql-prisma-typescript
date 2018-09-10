@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Wed Sep 05 2018 09:19:44 GMT-0700 (PDT)
+# timestamp: Mon Sep 10 2018 09:22:38 GMT-0700 (PDT)
 
 type AggregateAmenities {
   count: Int!
@@ -3895,6 +3895,7 @@ type Mutation {
   updateMessage(data: MessageUpdateInput!, where: MessageWhereUniqueInput!): Message
   updateNotification(data: NotificationUpdateInput!, where: NotificationWhereUniqueInput!): Notification
   updateRestaurant(data: RestaurantUpdateInput!, where: RestaurantWhereUniqueInput!): Restaurant
+  updatePicture(data: PictureUpdateInput!, where: PictureWhereUniqueInput!): Picture
   updateHouseRules(data: HouseRulesUpdateInput!, where: HouseRulesWhereUniqueInput!): HouseRules
   deleteUser(where: UserWhereUniqueInput!): User
   deletePlace(where: PlaceWhereUniqueInput!): Place
@@ -3917,6 +3918,7 @@ type Mutation {
   deleteMessage(where: MessageWhereUniqueInput!): Message
   deleteNotification(where: NotificationWhereUniqueInput!): Notification
   deleteRestaurant(where: RestaurantWhereUniqueInput!): Restaurant
+  deletePicture(where: PictureWhereUniqueInput!): Picture
   deleteHouseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
   upsertPlace(where: PlaceWhereUniqueInput!, create: PlaceCreateInput!, update: PlaceUpdateInput!): Place!
@@ -3939,6 +3941,7 @@ type Mutation {
   upsertMessage(where: MessageWhereUniqueInput!, create: MessageCreateInput!, update: MessageUpdateInput!): Message!
   upsertNotification(where: NotificationWhereUniqueInput!, create: NotificationCreateInput!, update: NotificationUpdateInput!): Notification!
   upsertRestaurant(where: RestaurantWhereUniqueInput!, create: RestaurantCreateInput!, update: RestaurantUpdateInput!): Restaurant!
+  upsertPicture(where: PictureWhereUniqueInput!, create: PictureCreateInput!, update: PictureUpdateInput!): Picture!
   upsertHouseRules(where: HouseRulesWhereUniqueInput!, create: HouseRulesCreateInput!, update: HouseRulesUpdateInput!): HouseRules!
   updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
   updateManyPlaces(data: PlaceUpdateInput!, where: PlaceWhereInput): BatchPayload!
@@ -5569,7 +5572,8 @@ input PaypalInformationWhereUniqueInput {
   id: ID
 }
 
-type Picture {
+type Picture implements Node {
+  id: ID!
   url: String!
 }
 
@@ -5589,10 +5593,12 @@ input PictureCreateInput {
 
 input PictureCreateManyInput {
   create: [PictureCreateInput!]
+  connect: [PictureWhereUniqueInput!]
 }
 
 input PictureCreateOneInput {
   create: PictureCreateInput
+  connect: PictureWhereUniqueInput
 }
 
 """An edge in a connection."""
@@ -5605,10 +5611,10 @@ type PictureEdge {
 }
 
 enum PictureOrderByInput {
-  url_ASC
-  url_DESC
   id_ASC
   id_DESC
+  url_ASC
+  url_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -5616,6 +5622,7 @@ enum PictureOrderByInput {
 }
 
 type PicturePreviousValues {
+  id: ID!
   url: String!
 }
 
@@ -5668,17 +5675,34 @@ input PictureUpdateInput {
 
 input PictureUpdateManyInput {
   create: [PictureCreateInput!]
+  connect: [PictureWhereUniqueInput!]
+  disconnect: [PictureWhereUniqueInput!]
+  delete: [PictureWhereUniqueInput!]
+  update: [PictureUpdateWithWhereUniqueNestedInput!]
+  upsert: [PictureUpsertWithWhereUniqueNestedInput!]
 }
 
 input PictureUpdateOneInput {
   create: PictureCreateInput
+  connect: PictureWhereUniqueInput
   disconnect: Boolean
   delete: Boolean
   update: PictureUpdateDataInput
   upsert: PictureUpsertNestedInput
 }
 
+input PictureUpdateWithWhereUniqueNestedInput {
+  where: PictureWhereUniqueInput!
+  data: PictureUpdateDataInput!
+}
+
 input PictureUpsertNestedInput {
+  update: PictureUpdateDataInput!
+  create: PictureCreateInput!
+}
+
+input PictureUpsertWithWhereUniqueNestedInput {
+  where: PictureWhereUniqueInput!
   update: PictureUpdateDataInput!
   create: PictureCreateInput!
 }
@@ -5692,6 +5716,46 @@ input PictureWhereInput {
 
   """Logical NOT on all given filters combined by AND."""
   NOT: [PictureWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
   url: String
 
   """All values that are not equal to given value."""
@@ -5732,6 +5796,10 @@ input PictureWhereInput {
 
   """All values not ending with the given string."""
   url_not_ends_with: String
+}
+
+input PictureWhereUniqueInput {
+  id: ID
 }
 
 type Place implements Node {
@@ -7697,6 +7765,7 @@ type Query {
   message(where: MessageWhereUniqueInput!): Message
   notification(where: NotificationWhereUniqueInput!): Notification
   restaurant(where: RestaurantWhereUniqueInput!): Restaurant
+  picture(where: PictureWhereUniqueInput!): Picture
   houseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   placesConnection(where: PlaceWhereInput, orderBy: PlaceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PlaceConnection!
