@@ -1,6 +1,6 @@
 import { GraphQLServer } from 'graphql-yoga'
 import { Prisma } from './generated'
-import { resolvers } from './resolvers-2'
+import { resolvers } from './resolvers'
 
 const db = new Prisma({
   endpoint: process.env.PRISMA_ENDPOINT,
