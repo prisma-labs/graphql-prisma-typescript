@@ -18,11 +18,11 @@ export interface ExperienceRoot {
 
 export const Experience: IExperience.Resolver<Types> = {
   id: root => root.id,
-  category: root => root.category,
+  category: (root, args, ctx) => ctx.db.experience({ id: root.id }).category(),
   title: root => root.title,
-  location: root => root.location,
+  location: (root, args, ctx) => ctx.db.experience({ id: root.id }).location(),
   pricePerPerson: root => root.pricePerPerson,
-  reviews: root => root.reviews,
-  preview: root => root.preview,
+  reviews: (root, args, ctx) => ctx.db.experience({ id: root.id }).reviews(),
+  preview: (root, args, ctx) => ctx.db.experience({ id: root.id }).preview(),
   popularity: root => root.popularity,
 }

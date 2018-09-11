@@ -7,9 +7,8 @@ type User {
   email: String! @unique
   password: String!
   phone: String!
-  responseRate: Float!
-  responseTime: Int!
-
+  responseRate: Float
+  responseTime: Int
   isSuperHost: Boolean! @default(value: "false")
   ownedPlaces: [Place!]!
   location: Location
@@ -221,7 +220,7 @@ type Booking {
   place: Place!
   startDate: DateTime!
   endDate: DateTime!
-  payment: Payment!
+  payment: Payment
 }
 
 type Payment {

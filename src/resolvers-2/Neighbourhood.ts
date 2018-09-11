@@ -17,8 +17,10 @@ export const Neighbourhood: INeighbourhood.Resolver<Types> = {
   id: root => root.id,
   name: root => root.name,
   slug: root => root.slug,
-  homePreview: root => root.homePreview,
-  city: root => root.city,
+  homePreview: (root, _args, ctx) =>
+    ctx.db.neighbourhood({ id: root.id }).homePreview(),
+  city: (root, _args, ctx) =>
+    ctx.db.neighbourhood({ id: root.id }).city(),
   featured: root => root.featured,
   popularity: root => root.popularity,
 }

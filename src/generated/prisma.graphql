@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Mon Sep 10 2018 09:22:38 GMT-0700 (PDT)
+# timestamp: Mon Sep 10 2018 21:49:41 GMT-0700 (PDT)
 
 type AggregateAmenities {
   count: Int!
@@ -749,7 +749,7 @@ type Booking implements Node {
   place(where: PlaceWhereInput): Place!
   startDate: DateTime!
   endDate: DateTime!
-  payment(where: PaymentWhereInput): Payment!
+  payment(where: PaymentWhereInput): Payment
 }
 
 """A connection to a list of items."""
@@ -767,7 +767,7 @@ input BookingCreateInput {
   endDate: DateTime!
   bookee: UserCreateOneWithoutBookingsInput!
   place: PlaceCreateOneWithoutBookingsInput!
-  payment: PaymentCreateOneWithoutBookingInput!
+  payment: PaymentCreateOneWithoutBookingInput
 }
 
 input BookingCreateManyWithoutBookeeInput {
@@ -789,7 +789,7 @@ input BookingCreateWithoutBookeeInput {
   startDate: DateTime!
   endDate: DateTime!
   place: PlaceCreateOneWithoutBookingsInput!
-  payment: PaymentCreateOneWithoutBookingInput!
+  payment: PaymentCreateOneWithoutBookingInput
 }
 
 input BookingCreateWithoutPaymentInput {
@@ -803,7 +803,7 @@ input BookingCreateWithoutPlaceInput {
   startDate: DateTime!
   endDate: DateTime!
   bookee: UserCreateOneWithoutBookingsInput!
-  payment: PaymentCreateOneWithoutBookingInput!
+  payment: PaymentCreateOneWithoutBookingInput
 }
 
 """An edge in a connection."""
@@ -5155,6 +5155,7 @@ input PaymentUpdateManyWithoutPaymentMethodInput {
 input PaymentUpdateOneWithoutBookingInput {
   create: PaymentCreateWithoutBookingInput
   connect: PaymentWhereUniqueInput
+  disconnect: Boolean
   delete: Boolean
   update: PaymentUpdateWithoutBookingDataInput
   upsert: PaymentUpsertWithoutBookingInput
@@ -5804,7 +5805,7 @@ input PictureWhereUniqueInput {
 
 type Place implements Node {
   id: ID!
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -5849,7 +5850,7 @@ type PlaceConnection {
 }
 
 input PlaceCreateInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -5918,7 +5919,7 @@ input PlaceCreateOneWithoutViewsInput {
 }
 
 input PlaceCreateWithoutAmenitiesInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -5941,7 +5942,7 @@ input PlaceCreateWithoutAmenitiesInput {
 }
 
 input PlaceCreateWithoutBookingsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -5964,7 +5965,7 @@ input PlaceCreateWithoutBookingsInput {
 }
 
 input PlaceCreateWithoutGuestRequirementsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -5987,7 +5988,7 @@ input PlaceCreateWithoutGuestRequirementsInput {
 }
 
 input PlaceCreateWithoutHostInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6010,7 +6011,7 @@ input PlaceCreateWithoutHostInput {
 }
 
 input PlaceCreateWithoutLocationInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6033,7 +6034,7 @@ input PlaceCreateWithoutLocationInput {
 }
 
 input PlaceCreateWithoutPoliciesInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6056,7 +6057,7 @@ input PlaceCreateWithoutPoliciesInput {
 }
 
 input PlaceCreateWithoutPricingInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6079,7 +6080,7 @@ input PlaceCreateWithoutPricingInput {
 }
 
 input PlaceCreateWithoutReviewsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6102,7 +6103,7 @@ input PlaceCreateWithoutReviewsInput {
 }
 
 input PlaceCreateWithoutViewsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6164,7 +6165,7 @@ enum PlaceOrderByInput {
 
 type PlacePreviousValues {
   id: ID!
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!

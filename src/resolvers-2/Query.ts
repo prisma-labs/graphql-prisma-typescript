@@ -5,23 +5,56 @@ import { Types } from './types'
 export interface QueryRoot {}
 
 export const Query: IQuery.Resolver<Types> = {
-  topExperiences: root => {
-    throw new Error('Resolver not implemented')
+  topExperiences: async (_root, _args, ctx) => {
+    const experiences =
+      (await ctx.db.experiences({ orderBy: 'popularity_DESC' })) || []
+
+    return experiences.map(exp => {
+      return {
+        ...exp,
+        location: null,
+        category: null,
+        reviews: null,
+        preview: null,
+      }
+    })
   },
-  topHomes: root => {
-    throw new Error('Resolver not implemented')
+  topHomes: (_root, _args, ctx) => {
+    return ctx.db.places({ orderBy: 'popularity_DESC' })
   },
-  homesInPriceRange: (root, args) => {
-    throw new Error('Resolver not implemented')
+  homesInPriceRange: (_root, { min, max }, ctx) => {
+    const where = {
+      AND: [
+        { pricing: { perNight_gte: min } },
+        { pricing: { perNight_lte: max } },
+      ],
+    }
+    return ctx.db.places({ where })
   },
-  topReservations: root => {
-    throw new Error('Resolver not implemented')
+  topReservations: (_root, _args, ctx) => {
+    return ctx.db.restaurants({ orderBy: 'popularity_DESC' })
   },
-  featuredDestinations: root => {
-    throw new Error('Resolver not implemented')
+  featuredDestinations: (_root, _args, ctx) => {
+    return ctx.db.neighbourhoods({
+      orderBy: 'popularity_DESC',
+      where: { featured: true },
+    })
   },
-  experiencesByCity: (root, args) => {
-    throw new Error('Resolver not implemented')
+  experiencesByCity: (root, { cities }, ctx) => {
+    return ctx.db.cities({
+      where: {
+        name_in: cities,
+        neighbourhoods_every: {
+          id_gt: '0',
+          locations_every: {
+            id_gt: '0',
+            experience: {
+              id_gt: '0',
+            },
+          },
+        },
+      },
+    })
   },
   viewer: () => ({
     me: null,

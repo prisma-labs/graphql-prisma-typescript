@@ -16,8 +16,29 @@ export const Home: IHome.Resolver<Types> = {
   id: root => root.id,
   name: root => root.name,
   description: root => root.description,
-  numRatings: root => root.numRatings,
-  avgRating: root => root.avgRating,
-  pictures: (root, args) => root.pictures,
-  perNight: root => root.perNight,
+  avgRating: async (root, _args, ctx) => {
+    const reviews = await ctx.db.reviews({
+      where: { place: { id: root.id } },
+    })
+    if (reviews.length > 0) {
+      return reviews.reduce((acc, { stars }) => acc + stars, 0) / reviews.length
+    }
+    return null
+  },
+  pictures: async (root, args, ctx) => {
+    return ctx.db.place({ id: root.id }).pictures({ first: args.first })
+  },
+  numRatings: async (root, _args, ctx) => {
+    return ctx.db
+      .reviewsConnection({ where: { place: { id: root.id } } })
+      .aggregate()
+      .count()
+  },
+  perNight: async (root, args, ctx) => {
+    // TODO rewrite this once this lands: https://github.com/graphcool/prisma/issues/2836
+    const pricings = await ctx.db.pricings({
+      where: { place: { id: root.id } },
+    })
+    return pricings[0].perNight
+  },
 }

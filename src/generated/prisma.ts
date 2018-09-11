@@ -1039,7 +1039,7 @@ type Booking implements Node {
   place(where: PlaceWhereInput): Place!
   startDate: DateTime!
   endDate: DateTime!
-  payment(where: PaymentWhereInput): Payment!
+  payment(where: PaymentWhereInput): Payment
 }
 
 """A connection to a list of items."""
@@ -1057,7 +1057,7 @@ input BookingCreateInput {
   endDate: DateTime!
   bookee: UserCreateOneWithoutBookingsInput!
   place: PlaceCreateOneWithoutBookingsInput!
-  payment: PaymentCreateOneWithoutBookingInput!
+  payment: PaymentCreateOneWithoutBookingInput
 }
 
 input BookingCreateManyWithoutBookeeInput {
@@ -1079,7 +1079,7 @@ input BookingCreateWithoutBookeeInput {
   startDate: DateTime!
   endDate: DateTime!
   place: PlaceCreateOneWithoutBookingsInput!
-  payment: PaymentCreateOneWithoutBookingInput!
+  payment: PaymentCreateOneWithoutBookingInput
 }
 
 input BookingCreateWithoutPaymentInput {
@@ -1093,7 +1093,7 @@ input BookingCreateWithoutPlaceInput {
   startDate: DateTime!
   endDate: DateTime!
   bookee: UserCreateOneWithoutBookingsInput!
-  payment: PaymentCreateOneWithoutBookingInput!
+  payment: PaymentCreateOneWithoutBookingInput
 }
 
 """An edge in a connection."""
@@ -5445,6 +5445,7 @@ input PaymentUpdateManyWithoutPaymentMethodInput {
 input PaymentUpdateOneWithoutBookingInput {
   create: PaymentCreateWithoutBookingInput
   connect: PaymentWhereUniqueInput
+  disconnect: Boolean
   delete: Boolean
   update: PaymentUpdateWithoutBookingDataInput
   upsert: PaymentUpsertWithoutBookingInput
@@ -6094,7 +6095,7 @@ input PictureWhereUniqueInput {
 
 type Place implements Node {
   id: ID!
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6139,7 +6140,7 @@ type PlaceConnection {
 }
 
 input PlaceCreateInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6208,7 +6209,7 @@ input PlaceCreateOneWithoutViewsInput {
 }
 
 input PlaceCreateWithoutAmenitiesInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6231,7 +6232,7 @@ input PlaceCreateWithoutAmenitiesInput {
 }
 
 input PlaceCreateWithoutBookingsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6254,7 +6255,7 @@ input PlaceCreateWithoutBookingsInput {
 }
 
 input PlaceCreateWithoutGuestRequirementsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6277,7 +6278,7 @@ input PlaceCreateWithoutGuestRequirementsInput {
 }
 
 input PlaceCreateWithoutHostInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6300,7 +6301,7 @@ input PlaceCreateWithoutHostInput {
 }
 
 input PlaceCreateWithoutLocationInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6323,7 +6324,7 @@ input PlaceCreateWithoutLocationInput {
 }
 
 input PlaceCreateWithoutPoliciesInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6346,7 +6347,7 @@ input PlaceCreateWithoutPoliciesInput {
 }
 
 input PlaceCreateWithoutPricingInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6369,7 +6370,7 @@ input PlaceCreateWithoutPricingInput {
 }
 
 input PlaceCreateWithoutReviewsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6392,7 +6393,7 @@ input PlaceCreateWithoutReviewsInput {
 }
 
 input PlaceCreateWithoutViewsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -6454,7 +6455,7 @@ enum PlaceOrderByInput {
 
 type PlacePreviousValues {
   id: ID!
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -10980,7 +10981,7 @@ export interface CreditCardInformationWhereInput {
 }
 
 export interface PlaceCreateWithoutReviewsInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -11254,7 +11255,7 @@ export interface BookingCreateWithoutPlaceInput {
   startDate: DateTime
   endDate: DateTime
   bookee: UserCreateOneWithoutBookingsInput
-  payment: PaymentCreateOneWithoutBookingInput
+  payment?: PaymentCreateOneWithoutBookingInput
 }
 
 export interface ExperienceCategorySubscriptionWhereInput {
@@ -11888,7 +11889,7 @@ export interface ViewsWhereUniqueInput {
 }
 
 export interface PlaceCreateInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -11945,7 +11946,7 @@ export interface AmenitiesWhereUniqueInput {
 }
 
 export interface PlaceCreateWithoutPricingInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -11992,7 +11993,7 @@ export interface CreditCardInformationWhereUniqueInput {
 }
 
 export interface PlaceCreateWithoutGuestRequirementsInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -12046,7 +12047,7 @@ export interface LocationUpdateWithoutRestaurantDataInput {
 }
 
 export interface PlaceCreateWithoutPoliciesInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -12115,7 +12116,7 @@ export interface NotificationUpdateInput {
 }
 
 export interface PlaceCreateWithoutViewsInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -12381,7 +12382,7 @@ export interface LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput {
 }
 
 export interface PlaceCreateWithoutAmenitiesInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -12436,7 +12437,7 @@ export interface BookingCreateInput {
   endDate: DateTime
   bookee: UserCreateOneWithoutBookingsInput
   place: PlaceCreateOneWithoutBookingsInput
-  payment: PaymentCreateOneWithoutBookingInput
+  payment?: PaymentCreateOneWithoutBookingInput
 }
 
 export interface PlaceUpsertWithoutViewsInput {
@@ -12746,7 +12747,7 @@ export interface NotificationWhereInput {
 }
 
 export interface PlaceCreateWithoutHostInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -12954,7 +12955,7 @@ export interface ExperienceUpdateWithoutReviewsDataInput {
 }
 
 export interface PlaceCreateWithoutLocationInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -13061,7 +13062,7 @@ export interface BookingCreateWithoutBookeeInput {
   startDate: DateTime
   endDate: DateTime
   place: PlaceCreateOneWithoutBookingsInput
-  payment: PaymentCreateOneWithoutBookingInput
+  payment?: PaymentCreateOneWithoutBookingInput
 }
 
 export interface UserUpdateOneWithoutHostingExperiencesInput {
@@ -13073,7 +13074,7 @@ export interface UserUpdateOneWithoutHostingExperiencesInput {
 }
 
 export interface PlaceCreateWithoutBookingsInput {
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -14952,6 +14953,7 @@ export interface ReviewCreateManyWithoutPlaceInput {
 export interface PaymentUpdateOneWithoutBookingInput {
   create?: PaymentCreateWithoutBookingInput
   connect?: PaymentWhereUniqueInput
+  disconnect?: Boolean
   delete?: Boolean
   update?: PaymentUpdateWithoutBookingDataInput
   upsert?: PaymentUpsertWithoutBookingInput
@@ -15607,7 +15609,7 @@ export interface User extends Node {
 
 export interface Place extends Node {
   id: ID_Output
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -15783,7 +15785,7 @@ export interface PaypalInformationConnection {
 
 export interface PlacePreviousValues {
   id: ID_Output
-  name?: String
+  name: String
   size?: PLACE_SIZES
   shortDescription: String
   description: String
@@ -16056,7 +16058,7 @@ export interface Booking extends Node {
   place: Place
   startDate: DateTime
   endDate: DateTime
-  payment: Payment
+  payment?: Payment
 }
 
 export interface AggregatePolicies {
