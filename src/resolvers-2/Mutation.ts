@@ -36,9 +36,33 @@ export const Mutation: IMutation.Resolver<Types> = {
     }
   },
 
-  login: (root, args) => {
-    throw new Error('Resolver not implemented')
+  login: async (_root, { email, password }, ctx) => {
+    const user = await ctx.db.user({ email })
+    const valid = await bcrypt.compare(password, user ? user.password : '')
+
+    if (!valid || !user) {
+      throw new Error('Invalid Credentials')
+    }
+
+    const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET)
+
+    return {
+      token,
+      user: {
+        ...user,
+        token,
+        sentMessages: null,
+        receivedMessages: null,
+        paymentAccount: null,
+        ownedPlaces: null,
+        notifications: null,
+        bookings: null,
+        hostingExperiences: null,
+        location: null,
+      },
+    }
   },
+
   addPaymentMethod: (root, args) => {
     throw new Error('Resolver not implemented')
   },

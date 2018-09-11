@@ -1,4 +1,5 @@
 import { IQuery } from '../generated/resolvers'
+import { getUserId } from '../utils'
 import { Types } from './types'
 
 export interface QueryRoot {}
@@ -26,5 +27,17 @@ export const Query: IQuery.Resolver<Types> = {
     me: null,
     bookings: null,
   }),
-  myLocation: root => null,
+  myLocation: async (_root, _args, ctx) => {
+    const id = getUserId(ctx)
+
+    const locations = await ctx.db.locations({
+      where: {
+        user: {
+          id,
+        },
+      },
+    })
+
+    return locations && locations[0]
+  },
 }

@@ -7,8 +7,8 @@ type User {
   email: String! @unique
   password: String!
   phone: String!
-  responseRate: Float
-  responseTime: Int
+  responseRate: Float!
+  responseTime: Int!
 
   isSuperHost: Boolean! @default(value: "false")
   ownedPlaces: [Place!]!
@@ -24,7 +24,7 @@ type User {
 
 type Place {
   id: ID! @unique
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
