@@ -1,9 +1,8 @@
-import { Context } from '../utils'
+import { ISubscription } from '../generated/resolvers'
+import { Types } from './types'
 
-export const Subscription = {
-  city: {
-    subscribe: async (parent, args, ctx: Context, info) => {
-      return ctx.db.subscription.city({}, info)
-    },
-  },
+export interface SubscriptionRoot {}
+
+export const Subscription: ISubscription.Resolver<Types> = {
+  city: root => null,
 }
