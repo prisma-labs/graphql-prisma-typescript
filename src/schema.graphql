@@ -155,10 +155,10 @@ type User {
   id: ID!
   isSuperHost: Boolean!
   lastName: String!
-  location: Location!
+  location: Location
   notifications: [Notification!]
   ownedPlaces: [Place!]
-  paymentAccount: [PaymentAccount!]
+  paymentAccount: [PaymentAccount]
   phone: String!
   profilePicture: Picture
   receivedMessages: [Message!]
