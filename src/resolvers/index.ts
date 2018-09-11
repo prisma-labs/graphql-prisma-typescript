@@ -1,28 +1,72 @@
-import { extractFragmentReplacements } from 'prisma-binding'
+import { IResolvers } from '../generated/resolvers'
+import { Types } from './types'
+
 import { Query } from './Query'
+import { Mutation } from './Mutation'
 import { Subscription } from './Subscription'
-import { auth } from './Mutation/auth'
-import { Home } from './Home'
-import { ExperiencesByCity } from './ExperiencesByCity'
 import { Viewer } from './Viewer'
 import { AuthPayload } from './AuthPayload'
-import { book } from './Mutation/book'
-import { locations } from './Mutation/locations'
-import { addPaymentMethod } from './Mutation/addPaymentMethod'
+import { MutationResult } from './MutationResult'
+import { ExperiencesByCity } from './ExperiencesByCity'
+import { Home } from './Home'
+import { Reservation } from './Reservation'
+import { Experience } from './Experience'
+import { Review } from './Review'
+import { Neighbourhood } from './Neighbourhood'
+import { Location } from './Location'
+import { Picture } from './Picture'
+import { City } from './City'
+import { ExperienceCategory } from './ExperienceCategory'
+import { User } from './User'
+import { PaymentAccount } from './PaymentAccount'
+import { Place } from './Place'
+import { Booking } from './Booking'
+import { Notification } from './Notification'
+import { Payment } from './Payment'
+import { PaypalInformation } from './PaypalInformation'
+import { CreditCardInformation } from './CreditCardInformation'
+import { Message } from './Message'
+import { Pricing } from './Pricing'
+import { PlaceViews } from './PlaceViews'
+import { GuestRequirements } from './GuestRequirements'
+import { Policies } from './Policies'
+import { HouseRules } from './HouseRules'
+import { Amenities } from './Amenities'
+import { CitySubscriptionPayload } from './CitySubscriptionPayload'
+import { CityPreviousValues } from './CityPreviousValues'
 
-export const resolvers = {
+export const resolvers: IResolvers<Types> = {
   Query,
-  Mutation: {
-    ...auth,
-    book,
-    ...locations,
-    addPaymentMethod,
-  },
+  Mutation,
   Subscription,
   Viewer,
+  AuthPayload,
+  MutationResult,
   ExperiencesByCity,
   Home,
-  AuthPayload,
+  Reservation,
+  Experience,
+  Review,
+  Neighbourhood,
+  Location,
+  Picture,
+  City,
+  ExperienceCategory,
+  User,
+  PaymentAccount,
+  Place,
+  Booking,
+  Notification,
+  Payment,
+  PaypalInformation,
+  CreditCardInformation,
+  Message,
+  Pricing,
+  PlaceViews,
+  GuestRequirements,
+  Policies,
+  HouseRules,
+  Amenities,
+  CitySubscriptionPayload,
+  CityPreviousValues,
 }
-
-export const fragmentReplacements = extractFragmentReplacements(resolvers)
