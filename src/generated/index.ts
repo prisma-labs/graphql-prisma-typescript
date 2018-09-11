@@ -4047,7 +4047,7 @@ export interface BookingCreateWithoutPlaceInput {
   bookee: UserCreateOneWithoutBookingsInput;
   startDate: DateTimeInput;
   endDate: DateTimeInput;
-  payment: PaymentCreateOneWithoutBookingInput;
+  payment?: PaymentCreateOneWithoutBookingInput;
 }
 
 export interface PictureSubscriptionWhereInput {
@@ -5762,7 +5762,7 @@ export interface ViewsWhereInput {
 }
 
 export interface PlaceCreateWithoutHostInput {
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -6130,7 +6130,7 @@ export interface UserUpdateWithoutBookingsDataInput {
 }
 
 export interface PlaceCreateWithoutLocationInput {
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -6242,7 +6242,7 @@ export interface BookingCreateWithoutBookeeInput {
   place: PlaceCreateOneWithoutBookingsInput;
   startDate: DateTimeInput;
   endDate: DateTimeInput;
-  payment: PaymentCreateOneWithoutBookingInput;
+  payment?: PaymentCreateOneWithoutBookingInput;
 }
 
 export interface UserUpdateOneWithoutReceivedMessagesInput {
@@ -6254,7 +6254,7 @@ export interface UserUpdateOneWithoutReceivedMessagesInput {
 }
 
 export interface PlaceCreateWithoutBookingsInput {
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -7251,6 +7251,7 @@ export interface PaymentUpdateOneWithoutBookingInput {
   update?: PaymentUpdateWithoutBookingDataInput;
   upsert?: PaymentUpsertWithoutBookingInput;
   delete?: Boolean;
+  disconnect?: Boolean;
   connect?: PaymentWhereUniqueInput;
 }
 
@@ -8013,7 +8014,7 @@ export interface PlaceCreateOneWithoutBookingsInput {
 }
 
 export interface PlaceCreateInput {
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -8099,7 +8100,7 @@ export interface PlaceCreateOneWithoutPricingInput {
 }
 
 export interface PlaceCreateWithoutReviewsInput {
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -8122,7 +8123,7 @@ export interface PlaceCreateWithoutReviewsInput {
 }
 
 export interface PlaceCreateWithoutPricingInput {
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -8311,7 +8312,7 @@ export interface GuestRequirementsCreateInput {
 }
 
 export interface PlaceCreateWithoutAmenitiesInput {
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -8343,7 +8344,7 @@ export interface PictureUpdateInput {
 }
 
 export interface PlaceCreateWithoutGuestRequirementsInput {
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -8471,7 +8472,7 @@ export type HouseRulesWhereUniqueInput = AtLeastOne<{
 }>;
 
 export interface PlaceCreateWithoutPoliciesInput {
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -8498,7 +8499,7 @@ export interface BookingCreateInput {
   place: PlaceCreateOneWithoutBookingsInput;
   startDate: DateTimeInput;
   endDate: DateTimeInput;
-  payment: PaymentCreateOneWithoutBookingInput;
+  payment?: PaymentCreateOneWithoutBookingInput;
 }
 
 export interface PoliciesUpdateInput {
@@ -8583,7 +8584,7 @@ export interface ExperienceCategoryUpdateInput {
 }
 
 export interface PlaceCreateWithoutViewsInput {
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -8706,7 +8707,7 @@ export interface PlaceConnectionSubscription
 
 export interface PlaceNode {
   id: ID_Output;
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;
@@ -9330,7 +9331,7 @@ export interface AggregatePaymentAccountSubscription
 
 export interface PlacePreviousValuesNode {
   id: ID_Output;
-  name?: String;
+  name: String;
   size?: PLACE_SIZES;
   shortDescription: String;
   description: String;

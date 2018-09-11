@@ -10,9 +10,17 @@ export interface ViewerRoot {
 }
 
 export const Viewer: IViewer.Resolver<Types> = {
-  bookings: (_, _args, ctx) => {
+  bookings: async (_, _args, ctx) => {
     const id = getUserId(ctx)
-    return ctx.db.bookings({ where: { bookee: { id } } })
+    const bookings = await ctx.db.bookings({ where: { bookee: { id } } }) || []
+    return bookings.map(booking => {
+      return {
+        ...booking,
+        bookee: null,
+        place: null,
+        payment: null,
+      }
+    })
   },
 
   me: (_, _args, ctx) => {

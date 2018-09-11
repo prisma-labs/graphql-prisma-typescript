@@ -68,19 +68,19 @@ export const Mutation: IMutation.Resolver<Types> = {
     throw new Error('Resolver not implemented')
   },
   book: async (_root, args, ctx) => {
-    function daysBetween(date1: Date, date2: Date): number {
-      // The number of milliseconds in one day
-      const ONE_DAY = 1000 * 60 * 60 * 24
-
-      // Convert both dates to milliseconds
-      const date1Ms = date1.getTime()
-      const date2Ms = date2.getTime()
-
-      // Calculate the difference in milliseconds
-      const difference_ms = Math.abs(date1Ms - date2Ms)
-
-      return Math.round(difference_ms / ONE_DAY)
-    }
+    // function daysBetween(date1: Date, date2: Date): number {
+    //   // The number of milliseconds in one day
+    //   const ONE_DAY = 1000 * 60 * 60 * 24
+    //
+    //   // Convert both dates to milliseconds
+    //   const date1Ms = date1.getTime()
+    //   const date2Ms = date2.getTime()
+    //
+    //   // Calculate the difference in milliseconds
+    //   const difference_ms = Math.abs(date1Ms - date2Ms)
+    //
+    //   return Math.round(difference_ms / ONE_DAY)
+    // }
 
     const userId = getUserId(ctx)
 
@@ -102,7 +102,7 @@ export const Mutation: IMutation.Resolver<Types> = {
       throw new Error(`The requested time is not free.`)
     }
 
-    const days = daysBetween(new Date(args.checkIn), new Date(args.checkOut))
+    // const days = daysBetween(new Date(args.checkIn), new Date(args.checkOut))
 
     const pricing = await ctx.db.place({ id: args.placeId }).pricing()
 
@@ -110,29 +110,20 @@ export const Mutation: IMutation.Resolver<Types> = {
       throw new Error(`No such place/pricing found`)
     }
 
-    const placePrice = days * pricing.perNight
-    const totalPrice = placePrice * 1.2
-    const serviceFee = placePrice * 0.2
+    // const placePrice = days * pricing.perNight
+    // const totalPrice = placePrice * 1.2
+    // const serviceFee = placePrice * 0.2
 
     // TODO implement real stripe
     // await payWithStripe()
 
-    const booking = await ctx.db.createBooking({
+    await ctx.db.createBooking({
       startDate: args.checkIn,
       endDate: args.checkOut,
       bookee: { connect: { id: userId } },
       place: { connect: { id: args.placeId } },
-      payment: {
-        create: {
-          placePrice,
-          totalPrice,
-          serviceFee,
-          paymentMethod: { connect: { id: userId } },
-        },
-      },
+      payment: null,
     })
-
-    console.log(booking)
 
     return { success: true }
   },

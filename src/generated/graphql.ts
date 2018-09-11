@@ -605,7 +605,7 @@ type Booking {
   place(where: PlaceWhereInput): Place!
   startDate: DateTime!
   endDate: DateTime!
-  payment(where: PaymentWhereInput): Payment!
+  payment(where: PaymentWhereInput): Payment
 }
 
 type BookingConnection {
@@ -619,7 +619,7 @@ input BookingCreateInput {
   place: PlaceCreateOneWithoutBookingsInput!
   startDate: DateTime!
   endDate: DateTime!
-  payment: PaymentCreateOneWithoutBookingInput!
+  payment: PaymentCreateOneWithoutBookingInput
 }
 
 input BookingCreateManyWithoutBookeeInput {
@@ -641,7 +641,7 @@ input BookingCreateWithoutBookeeInput {
   place: PlaceCreateOneWithoutBookingsInput!
   startDate: DateTime!
   endDate: DateTime!
-  payment: PaymentCreateOneWithoutBookingInput!
+  payment: PaymentCreateOneWithoutBookingInput
 }
 
 input BookingCreateWithoutPaymentInput {
@@ -655,7 +655,7 @@ input BookingCreateWithoutPlaceInput {
   bookee: UserCreateOneWithoutBookingsInput!
   startDate: DateTime!
   endDate: DateTime!
-  payment: PaymentCreateOneWithoutBookingInput!
+  payment: PaymentCreateOneWithoutBookingInput
 }
 
 type BookingEdge {
@@ -3538,6 +3538,7 @@ input PaymentUpdateOneWithoutBookingInput {
   update: PaymentUpdateWithoutBookingDataInput
   upsert: PaymentUpsertWithoutBookingInput
   delete: Boolean
+  disconnect: Boolean
   connect: PaymentWhereUniqueInput
 }
 
@@ -3912,7 +3913,7 @@ input PictureWhereUniqueInput {
 
 type Place {
   id: ID!
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -3953,7 +3954,7 @@ type PlaceConnection {
 }
 
 input PlaceCreateInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -4022,7 +4023,7 @@ input PlaceCreateOneWithoutViewsInput {
 }
 
 input PlaceCreateWithoutAmenitiesInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -4045,7 +4046,7 @@ input PlaceCreateWithoutAmenitiesInput {
 }
 
 input PlaceCreateWithoutBookingsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -4068,7 +4069,7 @@ input PlaceCreateWithoutBookingsInput {
 }
 
 input PlaceCreateWithoutGuestRequirementsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -4091,7 +4092,7 @@ input PlaceCreateWithoutGuestRequirementsInput {
 }
 
 input PlaceCreateWithoutHostInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -4114,7 +4115,7 @@ input PlaceCreateWithoutHostInput {
 }
 
 input PlaceCreateWithoutLocationInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -4137,7 +4138,7 @@ input PlaceCreateWithoutLocationInput {
 }
 
 input PlaceCreateWithoutPoliciesInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -4160,7 +4161,7 @@ input PlaceCreateWithoutPoliciesInput {
 }
 
 input PlaceCreateWithoutPricingInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -4183,7 +4184,7 @@ input PlaceCreateWithoutPricingInput {
 }
 
 input PlaceCreateWithoutReviewsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -4206,7 +4207,7 @@ input PlaceCreateWithoutReviewsInput {
 }
 
 input PlaceCreateWithoutViewsInput {
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -4264,7 +4265,7 @@ enum PlaceOrderByInput {
 
 type PlacePreviousValues {
   id: ID!
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!

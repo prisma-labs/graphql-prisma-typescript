@@ -830,7 +830,7 @@ export namespace IUser {
     T['UserRoot'],
     {},
     T['Context'],
-    T['LocationRoot']
+    T['LocationRoot'] | null
   >
 
   export type NotificationsResolver<T extends ITypes> = ResolverFn<
@@ -851,7 +851,7 @@ export namespace IUser {
     T['UserRoot'],
     {},
     T['Context'],
-    T['PaymentAccountRoot'][]
+    T['PaymentAccountRoot'][] | null
   >
 
   export type PhoneResolver<T extends ITypes> = ResolverFn<
