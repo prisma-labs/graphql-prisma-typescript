@@ -1,7 +1,13 @@
-import { Context } from '../utils'
+import { IAuthPayload } from '../generated/resolvers'
+import { Types } from './types'
+import { UserRoot } from './User'
 
-export const AuthPayload = {
-  user: async ({ user: { id } }, args, ctx: Context, info) => {
-    return ctx.db.query.user({ where: { id } }, info)
-  },
+export interface AuthPayloadRoot {
+  token: string
+  user: UserRoot
+}
+
+export const AuthPayload: IAuthPayload.Resolver<Types> = {
+  token: root => root.token,
+  user: root => root.user,
 }

@@ -1,5 +1,4 @@
 mutation {
-
   experience: createExperience(
     data: {
       popularity: 3
@@ -13,6 +12,8 @@ mutation {
           isSuperHost: true
           phone: "+1123455667"
           password: "secret"
+          responseRate: 1
+          responseTime: 5
           location: {
             create: {
               address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
@@ -117,6 +118,8 @@ mutation {
           isSuperHost: true
           phone: "+1123455667"
           password: "secret"
+          responseRate: 1
+          responseTime: 5
           location: {
             create: {
               address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
@@ -219,6 +222,8 @@ mutation {
           isSuperHost: true
           phone: "+1123455667"
           password: "secret"
+          responseRate: 1
+          responseTime: 5
           location: {
             create: {
               address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
@@ -321,6 +326,8 @@ mutation {
           isSuperHost: true
           phone: "+1123455667"
           password: "secret"
+          responseRate: 1
+          responseTime: 5
           location: {
             create: {
               address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
@@ -423,6 +430,8 @@ mutation {
           isSuperHost: true
           phone: "+1123455667"
           password: "secret"
+          responseRate: 1
+          responseTime: 5
           location: {
             create: {
               address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
@@ -525,6 +534,8 @@ mutation {
           isSuperHost: true
           phone: "+1123455667"
           password: "secret"
+          responseRate: 1
+          responseTime: 5
           location: {
             create: {
               address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
@@ -601,5 +612,4 @@ mutation {
   ) {
     id
   }
-
 }

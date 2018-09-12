@@ -9,7 +9,6 @@ type User {
   phone: String!
   responseRate: Float
   responseTime: Int
-
   isSuperHost: Boolean! @default(value: "false")
   ownedPlaces: [Place!]!
   location: Location
@@ -24,7 +23,7 @@ type User {
 
 type Place {
   id: ID! @unique
-  name: String
+  name: String!
   size: PLACE_SIZES
   shortDescription: String!
   description: String!
@@ -131,6 +130,7 @@ type City {
 }
 
 type Picture {
+  id: ID! @unique
   url: String!
 }
 
@@ -220,7 +220,7 @@ type Booking {
   place: Place!
   startDate: DateTime!
   endDate: DateTime!
-  payment: Payment!
+  payment: Payment
 }
 
 type Payment {

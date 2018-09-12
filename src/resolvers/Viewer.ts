@@ -1,13 +1,30 @@
-import { getUserId, Context } from '../utils'
+import { IViewer } from '../generated/resolvers'
+import { Types } from './types'
+import { UserRoot } from './User'
+import { BookingRoot } from './Booking'
+import { getUserId } from '../utils'
 
-export const Viewer = {
-  bookings(_, args, ctx: Context, info) {
+export interface ViewerRoot {
+  me: UserRoot
+  bookings: BookingRoot[]
+}
+
+export const Viewer: IViewer.Resolver<Types> = {
+  bookings: async (_, _args, ctx) => {
     const id = getUserId(ctx)
-    return ctx.db.query.bookings({ where: { bookee: { id } } }, info)
+    const bookings = await ctx.db.bookings({ where: { bookee: { id } } }) || []
+    return bookings.map(booking => {
+      return {
+        ...booking,
+        bookee: null,
+        place: null,
+        payment: null,
+      }
+    })
   },
 
-  me(_, args, ctx: Context, info) {
+  me: (_, _args, ctx) => {
     const id = getUserId(ctx)
-    return ctx.db.query.user({ where: { id } }, info)
+    return ctx.db.user({ id })
   },
 }
