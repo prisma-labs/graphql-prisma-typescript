@@ -6,7 +6,7 @@ export interface PictureParent {
   url: string
 }
 
-export const Picture: PictureResolvers.Type<TypeMap> = {
+export const Picture: PictureResolvers.Resolver<TypeMap> = {
   id: parent => parent.id,
   url: parent => parent.url,
 }

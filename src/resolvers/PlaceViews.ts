@@ -6,7 +6,7 @@ export interface PlaceViewsParent {
   lastWeek: number
 }
 
-export const PlaceViews: PlaceViewsResolvers.Type<TypeMap> = {
+export const PlaceViews: PlaceViewsResolvers.Resolver<TypeMap> = {
   id: parent => parent.id,
   lastWeek: parent => parent.lastWeek,
 }

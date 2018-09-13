@@ -6,7 +6,7 @@ export interface CityParent {
   name: string
 }
 
-export const City: CityResolvers.Type<TypeMap> = {
+export const City: CityResolvers.Resolver<TypeMap> = {
   id: parent => parent.id,
   name: parent => parent.name,
 }

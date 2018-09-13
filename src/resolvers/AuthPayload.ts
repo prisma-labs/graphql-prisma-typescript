@@ -7,7 +7,7 @@ export interface AuthPayloadParent {
   user: UserParent
 }
 
-export const AuthPayload: AuthPayloadResolvers.Type<TypeMap> = {
+export const AuthPayload: AuthPayloadResolvers.Resolver<TypeMap> = {
   token: parent => parent.token,
   user: parent => parent.user,
 }

@@ -8,7 +8,7 @@ export interface ExperiencesByCityParent {
   city: CityParent
 }
 
-export const ExperiencesByCity: ExperiencesByCityResolvers.Type<TypeMap> = {
+export const ExperiencesByCity: ExperiencesByCityResolvers.Resolver<TypeMap> = {
   experiences: parent => parent.experiences,
   city: parent => parent.city,
 }

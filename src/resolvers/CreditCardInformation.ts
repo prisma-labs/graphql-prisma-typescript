@@ -16,7 +16,7 @@ export interface CreditCardInformationParent {
   securityCode: string
 }
 
-export const CreditCardInformation: CreditCardInformationResolvers.Type<
+export const CreditCardInformation: CreditCardInformationResolvers.Resolver<
   TypeMap
 > = {
   cardNumber: parent => parent.cardNumber,

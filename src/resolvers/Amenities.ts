@@ -45,7 +45,7 @@ export interface AmenitiesParent {
   wirelessInternet: boolean
 }
 
-export const Amenities: AmenitiesResolvers.Type<TypeMap> = {
+export const Amenities: AmenitiesResolvers.Resolver<TypeMap> = {
   airConditioning: parent => parent.airConditioning,
   babyBath: parent => parent.babyBath,
   babyMonitor: parent => parent.babyMonitor,

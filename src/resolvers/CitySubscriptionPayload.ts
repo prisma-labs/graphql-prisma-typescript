@@ -12,7 +12,7 @@ export interface CitySubscriptionPayloadParent {
   previousValues?: CityPreviousValuesParent
 }
 
-export const CitySubscriptionPayload: CitySubscriptionPayloadResolvers.Type<
+export const CitySubscriptionPayload: CitySubscriptionPayloadResolvers.Resolver<
   TypeMap
 > = {
   mutation: parent => parent.mutation,

@@ -14,7 +14,7 @@ export interface ReservationParent {
   popularity: number
 }
 
-export const Reservation: ReservationResolvers.Type<TypeMap> = {
+export const Reservation: ReservationResolvers.Resolver<TypeMap> = {
   id: parent => parent.id,
   title: parent => parent.title,
   avgPricePerPerson: parent => parent.avgPricePerPerson,

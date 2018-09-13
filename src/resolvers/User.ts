@@ -32,7 +32,7 @@ export interface UserParent {
   token: string
 }
 
-export const User: UserResolvers.Type<TypeMap> = {
+export const User: UserResolvers.Resolver<TypeMap> = {
   bookings: parent => parent.bookings,
   createdAt: parent => parent.createdAt,
   email: parent => parent.email,
