@@ -1,5 +1,5 @@
 import { IPricing } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 
 export type CURRENCY = 'CAD' | 'CHF' | 'EUR' | 'JPY' | 'USD' | 'ZAR'
 

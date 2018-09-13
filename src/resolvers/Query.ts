@@ -1,6 +1,6 @@
 import { IQuery } from '../generated/resolvers'
 import { getUserId } from '../utils'
-import { Types } from './types'
+import { Types } from '../types/types'
 
 export interface QueryRoot {}
 

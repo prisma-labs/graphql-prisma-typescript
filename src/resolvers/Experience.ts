@@ -1,5 +1,5 @@
 import { IExperience } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { ExperienceCategoryRoot } from './ExperienceCategory'
 import { LocationRoot } from './Location'
 import { ReviewRoot } from './Review'

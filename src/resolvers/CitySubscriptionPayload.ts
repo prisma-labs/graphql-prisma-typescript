@@ -1,5 +1,5 @@
 import { ICitySubscriptionPayload } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { CityRoot } from './City'
 import { CityPreviousValuesRoot } from './CityPreviousValues'
 

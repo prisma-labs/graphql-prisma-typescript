@@ -1,5 +1,5 @@
 import { INeighbourhood } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { PictureRoot } from './Picture'
 import { CityRoot } from './City'
 

@@ -1,5 +1,5 @@
 import { INotification } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { UserRoot } from './User'
 
 export type NOTIFICATION_TYPE =

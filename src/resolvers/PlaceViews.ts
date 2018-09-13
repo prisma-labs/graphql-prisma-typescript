@@ -1,5 +1,5 @@
 import { IPlaceViews } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 
 export interface PlaceViewsRoot {
   id: string

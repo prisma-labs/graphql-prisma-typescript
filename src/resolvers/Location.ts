@@ -1,5 +1,5 @@
 import { ILocation } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 
 export interface LocationRoot {
   id: string

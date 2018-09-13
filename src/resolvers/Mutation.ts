@@ -2,8 +2,8 @@ import * as bcrypt from 'bcryptjs'
 import * as jwt from 'jsonwebtoken'
 import { IMutation } from '../generated/resolvers'
 import { getUserId } from '../utils'
-import { Types } from './types'
-import { Context } from './Context'
+import { Types } from '../types/types'
+import { Context } from '../types/Context'
 
 export interface MutationRoot {}
 

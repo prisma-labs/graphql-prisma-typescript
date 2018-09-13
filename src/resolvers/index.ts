@@ -1,5 +1,5 @@
 import { IResolvers } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 
 import { Query } from './Query'
 import { Mutation } from './Mutation'

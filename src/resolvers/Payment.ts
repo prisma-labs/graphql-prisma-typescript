@@ -1,5 +1,5 @@
 import { IPayment } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { BookingRoot } from './Booking'
 import { PaymentAccountRoot } from './PaymentAccount'
 

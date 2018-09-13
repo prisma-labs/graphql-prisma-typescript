@@ -1,5 +1,5 @@
 import { IPlace } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { ReviewRoot } from './Review'
 import { AmenitiesRoot } from './Amenities'
 import { UserRoot } from './User'

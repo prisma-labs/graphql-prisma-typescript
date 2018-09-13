@@ -1,5 +1,5 @@
 import { IMutationResult } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 
 export interface MutationResultRoot {
   success: boolean

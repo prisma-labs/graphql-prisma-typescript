@@ -1,5 +1,5 @@
 import { IPaymentAccount } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { UserRoot } from './User'
 import { PaymentRoot } from './Payment'
 import { PaypalInformationRoot } from './PaypalInformation'

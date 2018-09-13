@@ -1,5 +1,5 @@
 import { IMessage } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 
 export interface MessageRoot {
   createdAt: string

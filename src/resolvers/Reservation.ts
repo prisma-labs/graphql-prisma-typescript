@@ -1,5 +1,5 @@
 import { IReservation } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { PictureRoot } from './Picture'
 import { LocationRoot } from './Location'
 

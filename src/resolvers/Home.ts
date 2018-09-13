@@ -1,5 +1,5 @@
 import { IHome } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { PictureRoot } from './Picture'
 
 export interface HomeRoot {

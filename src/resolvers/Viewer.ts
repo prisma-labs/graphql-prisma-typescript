@@ -1,5 +1,5 @@
 import { IViewer } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { UserRoot } from './User'
 import { BookingRoot } from './Booking'
 import { getUserId } from '../utils'

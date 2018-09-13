@@ -1,5 +1,5 @@
 import { ICreditCardInformation } from '../generated/resolvers'
-import { Types } from './types'
+import { Types } from '../types/types'
 import { PaymentAccountRoot } from './PaymentAccount'
 
 export interface CreditCardInformationRoot {
