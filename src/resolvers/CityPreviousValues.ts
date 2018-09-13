@@ -1,12 +1,14 @@
-import { ICityPreviousValues } from '../generated/resolvers'
-import { Types } from '../types/types'
+import { CityPreviousValuesResolvers } from '../generated/resolvers'
+import { TypeMap } from './types/TypeMap'
 
-export interface CityPreviousValuesRoot {
+export interface CityPreviousValuesParent {
   id: string
   name: string
 }
 
-export const CityPreviousValues: ICityPreviousValues.Resolver<Types> = {
-  id: root => root.id,
-  name: root => root.name,
+export const CityPreviousValues: CityPreviousValuesResolvers.Resolver<
+  TypeMap
+> = {
+  id: parent => parent.id,
+  name: parent => parent.name,
 }

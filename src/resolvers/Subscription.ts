@@ -1,8 +1,8 @@
-import { ISubscription } from '../generated/resolvers'
-import { Types } from '../types/types'
+import { SubscriptionResolvers } from '../generated/resolvers'
+import { TypeMap } from './types/TypeMap'
 
-export interface SubscriptionRoot {}
+export interface SubscriptionParent {}
 
-export const Subscription: ISubscription.Resolver<Types> = {
-  city: root => null,
+export const Subscription: SubscriptionResolvers.Resolver<TypeMap> = {
+  city: parent => null,
 }
