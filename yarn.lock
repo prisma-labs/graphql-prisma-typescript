@@ -4692,9 +4692,9 @@ prisma-client-lib@0.2.56:
     ws "^6.0.0"
     zen-observable "^0.8.9"
 
-prisma-client-lib@0.2.57:
-  version "0.2.57"
-  resolved "https://registry.yarnpkg.com/prisma-client-lib/-/prisma-client-lib-0.2.57.tgz#b5d15797530ea3e8c5cf3e609a609a16ad605117"
+prisma-client-lib@0.2.58:
+  version "0.2.58"
+  resolved "https://registry.yarnpkg.com/prisma-client-lib/-/prisma-client-lib-0.2.58.tgz#08226917cd3959f4d1ae4624db6ed7b2cb366909"
   dependencies:
     "@types/node" "^10.9.4"
     debug "^4.0.1"
