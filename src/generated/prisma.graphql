@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Mon Sep 10 2018 21:49:41 GMT-0700 (PDT)
+# timestamp: Fri Sep 14 2018 08:17:22 GMT-0700 (PDT)
 
 type AggregateAmenities {
   count: Int!
@@ -462,13 +462,12 @@ input AmenitiesUpdateInput {
   childrensBooksAndToys: Boolean
   childrensDinnerware: Boolean
   crib: Boolean
-  place: PlaceUpdateOneWithoutAmenitiesInput
+  place: PlaceUpdateOneRequiredWithoutAmenitiesInput
 }
 
-input AmenitiesUpdateOneWithoutPlaceInput {
+input AmenitiesUpdateOneRequiredWithoutPlaceInput {
   create: AmenitiesCreateWithoutPlaceInput
   connect: AmenitiesWhereUniqueInput
-  delete: Boolean
   update: AmenitiesUpdateWithoutPlaceDataInput
   upsert: AmenitiesUpsertWithoutPlaceInput
 }
@@ -877,8 +876,8 @@ input BookingSubscriptionWhereInput {
 input BookingUpdateInput {
   startDate: DateTime
   endDate: DateTime
-  bookee: UserUpdateOneWithoutBookingsInput
-  place: PlaceUpdateOneWithoutBookingsInput
+  bookee: UserUpdateOneRequiredWithoutBookingsInput
+  place: PlaceUpdateOneRequiredWithoutBookingsInput
   payment: PaymentUpdateOneWithoutBookingInput
 }
 
@@ -900,10 +899,9 @@ input BookingUpdateManyWithoutPlaceInput {
   upsert: [BookingUpsertWithWhereUniqueWithoutPlaceInput!]
 }
 
-input BookingUpdateOneWithoutPaymentInput {
+input BookingUpdateOneRequiredWithoutPaymentInput {
   create: BookingCreateWithoutPaymentInput
   connect: BookingWhereUniqueInput
-  delete: Boolean
   update: BookingUpdateWithoutPaymentDataInput
   upsert: BookingUpsertWithoutPaymentInput
 }
@@ -911,21 +909,21 @@ input BookingUpdateOneWithoutPaymentInput {
 input BookingUpdateWithoutBookeeDataInput {
   startDate: DateTime
   endDate: DateTime
-  place: PlaceUpdateOneWithoutBookingsInput
+  place: PlaceUpdateOneRequiredWithoutBookingsInput
   payment: PaymentUpdateOneWithoutBookingInput
 }
 
 input BookingUpdateWithoutPaymentDataInput {
   startDate: DateTime
   endDate: DateTime
-  bookee: UserUpdateOneWithoutBookingsInput
-  place: PlaceUpdateOneWithoutBookingsInput
+  bookee: UserUpdateOneRequiredWithoutBookingsInput
+  place: PlaceUpdateOneRequiredWithoutBookingsInput
 }
 
 input BookingUpdateWithoutPlaceDataInput {
   startDate: DateTime
   endDate: DateTime
-  bookee: UserUpdateOneWithoutBookingsInput
+  bookee: UserUpdateOneRequiredWithoutBookingsInput
   payment: PaymentUpdateOneWithoutBookingInput
 }
 
@@ -1179,10 +1177,9 @@ input CityUpdateInput {
   neighbourhoods: NeighbourhoodUpdateManyWithoutCityInput
 }
 
-input CityUpdateOneWithoutNeighbourhoodsInput {
+input CityUpdateOneRequiredWithoutNeighbourhoodsInput {
   create: CityCreateWithoutNeighbourhoodsInput
   connect: CityWhereUniqueInput
-  delete: Boolean
   update: CityUpdateWithoutNeighbourhoodsDataInput
   upsert: CityUpsertWithoutNeighbourhoodsInput
 }
@@ -2271,10 +2268,10 @@ input ExperienceUpdateInput {
   pricePerPerson: Int
   popularity: Int
   category: ExperienceCategoryUpdateOneWithoutExperienceInput
-  host: UserUpdateOneWithoutHostingExperiencesInput
-  location: LocationUpdateOneWithoutExperienceInput
+  host: UserUpdateOneRequiredWithoutHostingExperiencesInput
+  location: LocationUpdateOneRequiredWithoutExperienceInput
   reviews: ReviewUpdateManyWithoutExperienceInput
-  preview: PictureUpdateOneInput
+  preview: PictureUpdateOneRequiredInput
 }
 
 input ExperienceUpdateManyWithoutHostInput {
@@ -2317,10 +2314,10 @@ input ExperienceUpdateWithoutCategoryDataInput {
   title: String
   pricePerPerson: Int
   popularity: Int
-  host: UserUpdateOneWithoutHostingExperiencesInput
-  location: LocationUpdateOneWithoutExperienceInput
+  host: UserUpdateOneRequiredWithoutHostingExperiencesInput
+  location: LocationUpdateOneRequiredWithoutExperienceInput
   reviews: ReviewUpdateManyWithoutExperienceInput
-  preview: PictureUpdateOneInput
+  preview: PictureUpdateOneRequiredInput
 }
 
 input ExperienceUpdateWithoutHostDataInput {
@@ -2328,9 +2325,9 @@ input ExperienceUpdateWithoutHostDataInput {
   pricePerPerson: Int
   popularity: Int
   category: ExperienceCategoryUpdateOneWithoutExperienceInput
-  location: LocationUpdateOneWithoutExperienceInput
+  location: LocationUpdateOneRequiredWithoutExperienceInput
   reviews: ReviewUpdateManyWithoutExperienceInput
-  preview: PictureUpdateOneInput
+  preview: PictureUpdateOneRequiredInput
 }
 
 input ExperienceUpdateWithoutLocationDataInput {
@@ -2338,9 +2335,9 @@ input ExperienceUpdateWithoutLocationDataInput {
   pricePerPerson: Int
   popularity: Int
   category: ExperienceCategoryUpdateOneWithoutExperienceInput
-  host: UserUpdateOneWithoutHostingExperiencesInput
+  host: UserUpdateOneRequiredWithoutHostingExperiencesInput
   reviews: ReviewUpdateManyWithoutExperienceInput
-  preview: PictureUpdateOneInput
+  preview: PictureUpdateOneRequiredInput
 }
 
 input ExperienceUpdateWithoutReviewsDataInput {
@@ -2348,9 +2345,9 @@ input ExperienceUpdateWithoutReviewsDataInput {
   pricePerPerson: Int
   popularity: Int
   category: ExperienceCategoryUpdateOneWithoutExperienceInput
-  host: UserUpdateOneWithoutHostingExperiencesInput
-  location: LocationUpdateOneWithoutExperienceInput
-  preview: PictureUpdateOneInput
+  host: UserUpdateOneRequiredWithoutHostingExperiencesInput
+  location: LocationUpdateOneRequiredWithoutExperienceInput
+  preview: PictureUpdateOneRequiredInput
 }
 
 input ExperienceUpdateWithWhereUniqueWithoutHostInput {
@@ -2635,7 +2632,7 @@ input GuestRequirementsUpdateInput {
   govIssuedId: Boolean
   recommendationsFromOtherHosts: Boolean
   guestTripInformation: Boolean
-  place: PlaceUpdateOneWithoutGuestRequirementsInput
+  place: PlaceUpdateOneRequiredWithoutGuestRequirementsInput
 }
 
 input GuestRequirementsUpdateOneWithoutPlaceInput {
@@ -3243,26 +3240,23 @@ input LocationUpdateManyWithoutNeighbourHoodInput {
   upsert: [LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput!]
 }
 
-input LocationUpdateOneWithoutExperienceInput {
+input LocationUpdateOneRequiredWithoutExperienceInput {
   create: LocationCreateWithoutExperienceInput
   connect: LocationWhereUniqueInput
-  delete: Boolean
   update: LocationUpdateWithoutExperienceDataInput
   upsert: LocationUpsertWithoutExperienceInput
 }
 
-input LocationUpdateOneWithoutPlaceInput {
+input LocationUpdateOneRequiredWithoutPlaceInput {
   create: LocationCreateWithoutPlaceInput
   connect: LocationWhereUniqueInput
-  delete: Boolean
   update: LocationUpdateWithoutPlaceDataInput
   upsert: LocationUpsertWithoutPlaceInput
 }
 
-input LocationUpdateOneWithoutRestaurantInput {
+input LocationUpdateOneRequiredWithoutRestaurantInput {
   create: LocationCreateWithoutRestaurantInput
   connect: LocationWhereUniqueInput
-  delete: Boolean
   update: LocationUpdateWithoutRestaurantDataInput
   upsert: LocationUpsertWithoutRestaurantInput
 }
@@ -3671,8 +3665,8 @@ input MessageSubscriptionWhereInput {
 input MessageUpdateInput {
   deliveredAt: DateTime
   readAt: DateTime
-  from: UserUpdateOneWithoutSentMessagesInput
-  to: UserUpdateOneWithoutReceivedMessagesInput
+  from: UserUpdateOneRequiredWithoutSentMessagesInput
+  to: UserUpdateOneRequiredWithoutReceivedMessagesInput
 }
 
 input MessageUpdateManyWithoutFromInput {
@@ -3696,13 +3690,13 @@ input MessageUpdateManyWithoutToInput {
 input MessageUpdateWithoutFromDataInput {
   deliveredAt: DateTime
   readAt: DateTime
-  to: UserUpdateOneWithoutReceivedMessagesInput
+  to: UserUpdateOneRequiredWithoutReceivedMessagesInput
 }
 
 input MessageUpdateWithoutToDataInput {
   deliveredAt: DateTime
   readAt: DateTime
-  from: UserUpdateOneWithoutSentMessagesInput
+  from: UserUpdateOneRequiredWithoutSentMessagesInput
 }
 
 input MessageUpdateWithWhereUniqueWithoutFromInput {
@@ -4136,7 +4130,7 @@ input NeighbourhoodUpdateInput {
   popularity: Int
   locations: LocationUpdateManyWithoutNeighbourHoodInput
   homePreview: PictureUpdateOneInput
-  city: CityUpdateOneWithoutNeighbourhoodsInput
+  city: CityUpdateOneRequiredWithoutNeighbourhoodsInput
 }
 
 input NeighbourhoodUpdateManyWithoutCityInput {
@@ -4172,7 +4166,7 @@ input NeighbourhoodUpdateWithoutLocationsDataInput {
   featured: Boolean
   popularity: Int
   homePreview: PictureUpdateOneInput
-  city: CityUpdateOneWithoutNeighbourhoodsInput
+  city: CityUpdateOneRequiredWithoutNeighbourhoodsInput
 }
 
 input NeighbourhoodUpdateWithWhereUniqueWithoutCityInput {
@@ -4483,7 +4477,7 @@ input NotificationUpdateInput {
   type: NOTIFICATION_TYPE
   link: String
   readDate: DateTime
-  user: UserUpdateOneWithoutNotificationsInput
+  user: UserUpdateOneRequiredWithoutNotificationsInput
 }
 
 input NotificationUpdateManyWithoutUserInput {
@@ -4835,7 +4829,7 @@ input PaymentAccountSubscriptionWhereInput {
 
 input PaymentAccountUpdateInput {
   type: PAYMENT_PROVIDER
-  user: UserUpdateOneWithoutPaymentAccountInput
+  user: UserUpdateOneRequiredWithoutPaymentAccountInput
   payments: PaymentUpdateManyWithoutPaymentMethodInput
   paypal: PaypalInformationUpdateOneWithoutPaymentAccountInput
   creditcard: CreditCardInformationUpdateOneWithoutPaymentAccountInput
@@ -4850,6 +4844,20 @@ input PaymentAccountUpdateManyWithoutUserInput {
   upsert: [PaymentAccountUpsertWithWhereUniqueWithoutUserInput!]
 }
 
+input PaymentAccountUpdateOneRequiredWithoutPaymentsInput {
+  create: PaymentAccountCreateWithoutPaymentsInput
+  connect: PaymentAccountWhereUniqueInput
+  update: PaymentAccountUpdateWithoutPaymentsDataInput
+  upsert: PaymentAccountUpsertWithoutPaymentsInput
+}
+
+input PaymentAccountUpdateOneRequiredWithoutPaypalInput {
+  create: PaymentAccountCreateWithoutPaypalInput
+  connect: PaymentAccountWhereUniqueInput
+  update: PaymentAccountUpdateWithoutPaypalDataInput
+  upsert: PaymentAccountUpsertWithoutPaypalInput
+}
+
 input PaymentAccountUpdateOneWithoutCreditcardInput {
   create: PaymentAccountCreateWithoutCreditcardInput
   connect: PaymentAccountWhereUniqueInput
@@ -4859,39 +4867,23 @@ input PaymentAccountUpdateOneWithoutCreditcardInput {
   upsert: PaymentAccountUpsertWithoutCreditcardInput
 }
 
-input PaymentAccountUpdateOneWithoutPaymentsInput {
-  create: PaymentAccountCreateWithoutPaymentsInput
-  connect: PaymentAccountWhereUniqueInput
-  delete: Boolean
-  update: PaymentAccountUpdateWithoutPaymentsDataInput
-  upsert: PaymentAccountUpsertWithoutPaymentsInput
-}
-
-input PaymentAccountUpdateOneWithoutPaypalInput {
-  create: PaymentAccountCreateWithoutPaypalInput
-  connect: PaymentAccountWhereUniqueInput
-  delete: Boolean
-  update: PaymentAccountUpdateWithoutPaypalDataInput
-  upsert: PaymentAccountUpsertWithoutPaypalInput
-}
-
 input PaymentAccountUpdateWithoutCreditcardDataInput {
   type: PAYMENT_PROVIDER
-  user: UserUpdateOneWithoutPaymentAccountInput
+  user: UserUpdateOneRequiredWithoutPaymentAccountInput
   payments: PaymentUpdateManyWithoutPaymentMethodInput
   paypal: PaypalInformationUpdateOneWithoutPaymentAccountInput
 }
 
 input PaymentAccountUpdateWithoutPaymentsDataInput {
   type: PAYMENT_PROVIDER
-  user: UserUpdateOneWithoutPaymentAccountInput
+  user: UserUpdateOneRequiredWithoutPaymentAccountInput
   paypal: PaypalInformationUpdateOneWithoutPaymentAccountInput
   creditcard: CreditCardInformationUpdateOneWithoutPaymentAccountInput
 }
 
 input PaymentAccountUpdateWithoutPaypalDataInput {
   type: PAYMENT_PROVIDER
-  user: UserUpdateOneWithoutPaymentAccountInput
+  user: UserUpdateOneRequiredWithoutPaymentAccountInput
   payments: PaymentUpdateManyWithoutPaymentMethodInput
   creditcard: CreditCardInformationUpdateOneWithoutPaymentAccountInput
 }
@@ -5139,8 +5131,8 @@ input PaymentUpdateInput {
   serviceFee: Float
   placePrice: Float
   totalPrice: Float
-  booking: BookingUpdateOneWithoutPaymentInput
-  paymentMethod: PaymentAccountUpdateOneWithoutPaymentsInput
+  booking: BookingUpdateOneRequiredWithoutPaymentInput
+  paymentMethod: PaymentAccountUpdateOneRequiredWithoutPaymentsInput
 }
 
 input PaymentUpdateManyWithoutPaymentMethodInput {
@@ -5165,14 +5157,14 @@ input PaymentUpdateWithoutBookingDataInput {
   serviceFee: Float
   placePrice: Float
   totalPrice: Float
-  paymentMethod: PaymentAccountUpdateOneWithoutPaymentsInput
+  paymentMethod: PaymentAccountUpdateOneRequiredWithoutPaymentsInput
 }
 
 input PaymentUpdateWithoutPaymentMethodDataInput {
   serviceFee: Float
   placePrice: Float
   totalPrice: Float
-  booking: BookingUpdateOneWithoutPaymentInput
+  booking: BookingUpdateOneRequiredWithoutPaymentInput
 }
 
 input PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput {
@@ -5434,7 +5426,7 @@ input PaypalInformationSubscriptionWhereInput {
 
 input PaypalInformationUpdateInput {
   email: String
-  paymentAccount: PaymentAccountUpdateOneWithoutPaypalInput
+  paymentAccount: PaymentAccountUpdateOneRequiredWithoutPaypalInput
 }
 
 input PaypalInformationUpdateOneWithoutPaymentAccountInput {
@@ -5688,6 +5680,13 @@ input PictureUpdateOneInput {
   connect: PictureWhereUniqueInput
   disconnect: Boolean
   delete: Boolean
+  update: PictureUpdateDataInput
+  upsert: PictureUpsertNestedInput
+}
+
+input PictureUpdateOneRequiredInput {
+  create: PictureCreateInput
+  connect: PictureWhereUniqueInput
   update: PictureUpdateDataInput
   upsert: PictureUpsertNestedInput
 }
@@ -6228,11 +6227,11 @@ input PlaceUpdateInput {
   numBaths: Int
   popularity: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -6249,28 +6248,53 @@ input PlaceUpdateManyWithoutHostInput {
   upsert: [PlaceUpsertWithWhereUniqueWithoutHostInput!]
 }
 
-input PlaceUpdateOneWithoutAmenitiesInput {
+input PlaceUpdateOneRequiredWithoutAmenitiesInput {
   create: PlaceCreateWithoutAmenitiesInput
   connect: PlaceWhereUniqueInput
-  delete: Boolean
   update: PlaceUpdateWithoutAmenitiesDataInput
   upsert: PlaceUpsertWithoutAmenitiesInput
 }
 
-input PlaceUpdateOneWithoutBookingsInput {
+input PlaceUpdateOneRequiredWithoutBookingsInput {
   create: PlaceCreateWithoutBookingsInput
   connect: PlaceWhereUniqueInput
-  delete: Boolean
   update: PlaceUpdateWithoutBookingsDataInput
   upsert: PlaceUpsertWithoutBookingsInput
 }
 
-input PlaceUpdateOneWithoutGuestRequirementsInput {
+input PlaceUpdateOneRequiredWithoutGuestRequirementsInput {
   create: PlaceCreateWithoutGuestRequirementsInput
   connect: PlaceWhereUniqueInput
-  delete: Boolean
   update: PlaceUpdateWithoutGuestRequirementsDataInput
   upsert: PlaceUpsertWithoutGuestRequirementsInput
+}
+
+input PlaceUpdateOneRequiredWithoutPoliciesInput {
+  create: PlaceCreateWithoutPoliciesInput
+  connect: PlaceWhereUniqueInput
+  update: PlaceUpdateWithoutPoliciesDataInput
+  upsert: PlaceUpsertWithoutPoliciesInput
+}
+
+input PlaceUpdateOneRequiredWithoutPricingInput {
+  create: PlaceCreateWithoutPricingInput
+  connect: PlaceWhereUniqueInput
+  update: PlaceUpdateWithoutPricingDataInput
+  upsert: PlaceUpsertWithoutPricingInput
+}
+
+input PlaceUpdateOneRequiredWithoutReviewsInput {
+  create: PlaceCreateWithoutReviewsInput
+  connect: PlaceWhereUniqueInput
+  update: PlaceUpdateWithoutReviewsDataInput
+  upsert: PlaceUpsertWithoutReviewsInput
+}
+
+input PlaceUpdateOneRequiredWithoutViewsInput {
+  create: PlaceCreateWithoutViewsInput
+  connect: PlaceWhereUniqueInput
+  update: PlaceUpdateWithoutViewsDataInput
+  upsert: PlaceUpsertWithoutViewsInput
 }
 
 input PlaceUpdateOneWithoutLocationInput {
@@ -6280,38 +6304,6 @@ input PlaceUpdateOneWithoutLocationInput {
   delete: Boolean
   update: PlaceUpdateWithoutLocationDataInput
   upsert: PlaceUpsertWithoutLocationInput
-}
-
-input PlaceUpdateOneWithoutPoliciesInput {
-  create: PlaceCreateWithoutPoliciesInput
-  connect: PlaceWhereUniqueInput
-  delete: Boolean
-  update: PlaceUpdateWithoutPoliciesDataInput
-  upsert: PlaceUpsertWithoutPoliciesInput
-}
-
-input PlaceUpdateOneWithoutPricingInput {
-  create: PlaceCreateWithoutPricingInput
-  connect: PlaceWhereUniqueInput
-  delete: Boolean
-  update: PlaceUpdateWithoutPricingDataInput
-  upsert: PlaceUpsertWithoutPricingInput
-}
-
-input PlaceUpdateOneWithoutReviewsInput {
-  create: PlaceCreateWithoutReviewsInput
-  connect: PlaceWhereUniqueInput
-  delete: Boolean
-  update: PlaceUpdateWithoutReviewsDataInput
-  upsert: PlaceUpsertWithoutReviewsInput
-}
-
-input PlaceUpdateOneWithoutViewsInput {
-  create: PlaceCreateWithoutViewsInput
-  connect: PlaceWhereUniqueInput
-  delete: Boolean
-  update: PlaceUpdateWithoutViewsDataInput
-  upsert: PlaceUpsertWithoutViewsInput
 }
 
 input PlaceUpdateWithoutAmenitiesDataInput {
@@ -6326,10 +6318,10 @@ input PlaceUpdateWithoutAmenitiesDataInput {
   numBaths: Int
   popularity: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -6349,11 +6341,11 @@ input PlaceUpdateWithoutBookingsDataInput {
   numBaths: Int
   popularity: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -6372,11 +6364,11 @@ input PlaceUpdateWithoutGuestRequirementsDataInput {
   numBaths: Int
   popularity: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
   bookings: BookingUpdateManyWithoutPlaceInput
@@ -6395,10 +6387,10 @@ input PlaceUpdateWithoutHostDataInput {
   numBaths: Int
   popularity: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -6418,10 +6410,10 @@ input PlaceUpdateWithoutLocationDataInput {
   numBaths: Int
   popularity: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -6441,11 +6433,11 @@ input PlaceUpdateWithoutPoliciesDataInput {
   numBaths: Int
   popularity: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
   bookings: BookingUpdateManyWithoutPlaceInput
@@ -6464,10 +6456,10 @@ input PlaceUpdateWithoutPricingDataInput {
   numBaths: Int
   popularity: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -6486,11 +6478,11 @@ input PlaceUpdateWithoutReviewsDataInput {
   numBeds: Int
   numBaths: Int
   popularity: Int
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -6510,10 +6502,10 @@ input PlaceUpdateWithoutViewsDataInput {
   numBaths: Int
   popularity: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -7038,7 +7030,7 @@ input PoliciesUpdateInput {
   checkInStartTime: Float
   checkInEndTime: Float
   checkoutTime: Float
-  place: PlaceUpdateOneWithoutPoliciesInput
+  place: PlaceUpdateOneRequiredWithoutPoliciesInput
 }
 
 input PoliciesUpdateOneWithoutPlaceInput {
@@ -7400,13 +7392,12 @@ input PricingUpdateInput {
   extraGuests: Int
   weekendPricing: Int
   currency: CURRENCY
-  place: PlaceUpdateOneWithoutPricingInput
+  place: PlaceUpdateOneRequiredWithoutPricingInput
 }
 
-input PricingUpdateOneWithoutPlaceInput {
+input PricingUpdateOneRequiredWithoutPlaceInput {
   create: PricingCreateWithoutPlaceInput
   connect: PricingWhereUniqueInput
-  delete: Boolean
   update: PricingUpdateWithoutPlaceDataInput
   upsert: PricingUpsertWithoutPlaceInput
 }
@@ -7929,7 +7920,7 @@ input RestaurantUpdateInput {
   slug: String
   popularity: Int
   pictures: PictureUpdateManyInput
-  location: LocationUpdateOneWithoutRestaurantInput
+  location: LocationUpdateOneRequiredWithoutRestaurantInput
 }
 
 input RestaurantUpdateOneWithoutLocationInput {
@@ -8331,7 +8322,7 @@ input ReviewUpdateInput {
   value: Int
   cleanliness: Int
   communication: Int
-  place: PlaceUpdateOneWithoutReviewsInput
+  place: PlaceUpdateOneRequiredWithoutReviewsInput
   experience: ExperienceUpdateOneWithoutReviewsInput
 }
 
@@ -8362,7 +8353,7 @@ input ReviewUpdateWithoutExperienceDataInput {
   value: Int
   cleanliness: Int
   communication: Int
-  place: PlaceUpdateOneWithoutReviewsInput
+  place: PlaceUpdateOneRequiredWithoutReviewsInput
 }
 
 input ReviewUpdateWithoutPlaceDataInput {
@@ -9050,20 +9041,53 @@ input UserUpdateInput {
   hostingExperiences: ExperienceUpdateManyWithoutHostInput
 }
 
-input UserUpdateOneWithoutBookingsInput {
+input UserUpdateOneRequiredWithoutBookingsInput {
   create: UserCreateWithoutBookingsInput
   connect: UserWhereUniqueInput
-  delete: Boolean
   update: UserUpdateWithoutBookingsDataInput
   upsert: UserUpsertWithoutBookingsInput
 }
 
-input UserUpdateOneWithoutHostingExperiencesInput {
+input UserUpdateOneRequiredWithoutHostingExperiencesInput {
   create: UserCreateWithoutHostingExperiencesInput
   connect: UserWhereUniqueInput
-  delete: Boolean
   update: UserUpdateWithoutHostingExperiencesDataInput
   upsert: UserUpsertWithoutHostingExperiencesInput
+}
+
+input UserUpdateOneRequiredWithoutNotificationsInput {
+  create: UserCreateWithoutNotificationsInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateWithoutNotificationsDataInput
+  upsert: UserUpsertWithoutNotificationsInput
+}
+
+input UserUpdateOneRequiredWithoutOwnedPlacesInput {
+  create: UserCreateWithoutOwnedPlacesInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateWithoutOwnedPlacesDataInput
+  upsert: UserUpsertWithoutOwnedPlacesInput
+}
+
+input UserUpdateOneRequiredWithoutPaymentAccountInput {
+  create: UserCreateWithoutPaymentAccountInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateWithoutPaymentAccountDataInput
+  upsert: UserUpsertWithoutPaymentAccountInput
+}
+
+input UserUpdateOneRequiredWithoutReceivedMessagesInput {
+  create: UserCreateWithoutReceivedMessagesInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateWithoutReceivedMessagesDataInput
+  upsert: UserUpsertWithoutReceivedMessagesInput
+}
+
+input UserUpdateOneRequiredWithoutSentMessagesInput {
+  create: UserCreateWithoutSentMessagesInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateWithoutSentMessagesDataInput
+  upsert: UserUpsertWithoutSentMessagesInput
 }
 
 input UserUpdateOneWithoutLocationInput {
@@ -9073,46 +9097,6 @@ input UserUpdateOneWithoutLocationInput {
   delete: Boolean
   update: UserUpdateWithoutLocationDataInput
   upsert: UserUpsertWithoutLocationInput
-}
-
-input UserUpdateOneWithoutNotificationsInput {
-  create: UserCreateWithoutNotificationsInput
-  connect: UserWhereUniqueInput
-  delete: Boolean
-  update: UserUpdateWithoutNotificationsDataInput
-  upsert: UserUpsertWithoutNotificationsInput
-}
-
-input UserUpdateOneWithoutOwnedPlacesInput {
-  create: UserCreateWithoutOwnedPlacesInput
-  connect: UserWhereUniqueInput
-  delete: Boolean
-  update: UserUpdateWithoutOwnedPlacesDataInput
-  upsert: UserUpsertWithoutOwnedPlacesInput
-}
-
-input UserUpdateOneWithoutPaymentAccountInput {
-  create: UserCreateWithoutPaymentAccountInput
-  connect: UserWhereUniqueInput
-  delete: Boolean
-  update: UserUpdateWithoutPaymentAccountDataInput
-  upsert: UserUpsertWithoutPaymentAccountInput
-}
-
-input UserUpdateOneWithoutReceivedMessagesInput {
-  create: UserCreateWithoutReceivedMessagesInput
-  connect: UserWhereUniqueInput
-  delete: Boolean
-  update: UserUpdateWithoutReceivedMessagesDataInput
-  upsert: UserUpsertWithoutReceivedMessagesInput
-}
-
-input UserUpdateOneWithoutSentMessagesInput {
-  create: UserCreateWithoutSentMessagesInput
-  connect: UserWhereUniqueInput
-  delete: Boolean
-  update: UserUpdateWithoutSentMessagesDataInput
-  upsert: UserUpsertWithoutSentMessagesInput
 }
 
 input UserUpdateWithoutBookingsDataInput {
@@ -9774,13 +9758,12 @@ input ViewsSubscriptionWhereInput {
 
 input ViewsUpdateInput {
   lastWeek: Int
-  place: PlaceUpdateOneWithoutViewsInput
+  place: PlaceUpdateOneRequiredWithoutViewsInput
 }
 
-input ViewsUpdateOneWithoutPlaceInput {
+input ViewsUpdateOneRequiredWithoutPlaceInput {
   create: ViewsCreateWithoutPlaceInput
   connect: ViewsWhereUniqueInput
-  delete: Boolean
   update: ViewsUpdateWithoutPlaceDataInput
   upsert: ViewsUpsertWithoutPlaceInput
 }

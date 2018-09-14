@@ -1,5 +1,5 @@
 import { PaymentResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 import { BookingParent } from './Booking'
 import { PaymentAccountParent } from './PaymentAccount'
 

@@ -1,5 +1,5 @@
 import { CreditCardInformationResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 import { PaymentAccountParent } from './PaymentAccount'
 
 export interface CreditCardInformationParent {
@@ -27,7 +27,8 @@ export const CreditCardInformation: CreditCardInformationResolvers.Type<
   firstName: parent => parent.firstName,
   id: parent => parent.id,
   lastName: parent => parent.lastName,
-  paymentAccount: parent => parent.paymentAccount,
+  paymentAccount: (parent, _args, ctx) =>
+    ctx.db.creditCardInformation({ id: parent.id }).paymentAccount(),
   postalCode: parent => parent.postalCode,
   securityCode: parent => parent.securityCode,
 }

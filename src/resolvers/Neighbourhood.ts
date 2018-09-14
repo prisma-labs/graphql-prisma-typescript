@@ -1,5 +1,5 @@
 import { NeighbourhoodResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 import { PictureParent } from './Picture'
 import { CityParent } from './City'
 
@@ -17,8 +17,9 @@ export const Neighbourhood: NeighbourhoodResolvers.Type<TypeMap> = {
   id: parent => parent.id,
   name: parent => parent.name,
   slug: parent => parent.slug,
-  homePreview: parent => parent.homePreview,
-  city: parent => parent.city,
+  homePreview: (parent, _args, ctx) =>
+    ctx.db.neighbourhood({ id: parent.id }).homePreview(),
+  city: (parent, _args, ctx) => ctx.db.neighbourhood({ id: parent.id }).city(),
   featured: parent => parent.featured,
   popularity: parent => parent.popularity,
 }

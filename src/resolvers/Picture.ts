@@ -1,5 +1,5 @@
 import { PictureResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 
 export interface PictureParent {
   id: string
