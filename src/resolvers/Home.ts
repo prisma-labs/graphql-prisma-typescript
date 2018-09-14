@@ -1,5 +1,5 @@
 import { HomeResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 import { PictureParent } from './Picture'
 
 export interface HomeParent {

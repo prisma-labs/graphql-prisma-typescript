@@ -1,6 +1,6 @@
 import { getUserId } from '../utils'
 import { QueryResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 
 export interface QueryParent {}
 
@@ -19,8 +19,7 @@ export const Query: QueryResolvers.Type<TypeMap> = {
       }
     })
   },
-  topHomes: (_parent, _args, ctx) =>
-    ctx.db.places({ orderBy: 'popularity_DESC' }),
+  topHomes: (_parent, _args, ctx) => ctx.db.places({ orderBy: 'popularity_DESC' }),
   homesInPriceRange: (_parent, { min, max }, ctx) =>
     ctx.db.places({
       where: {

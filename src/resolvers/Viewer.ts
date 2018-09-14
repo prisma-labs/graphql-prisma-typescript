@@ -1,5 +1,5 @@
 import { ViewerResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 import { UserParent } from './User'
 import { BookingParent } from './Booking'
 import { getUserId } from '../utils'

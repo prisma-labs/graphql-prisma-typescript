@@ -1,5 +1,5 @@
 import { MutationResultResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 
 export interface MutationResultParent {
   success: boolean

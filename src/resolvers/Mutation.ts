@@ -2,7 +2,7 @@ import * as bcrypt from 'bcryptjs'
 import * as jwt from 'jsonwebtoken'
 import { MutationResolvers } from '../generated/resolvers'
 import { getUserId } from '../utils'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 
 export interface MutationParent {}
 
