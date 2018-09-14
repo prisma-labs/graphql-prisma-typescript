@@ -1,74 +1,74 @@
-import { ITypes } from '../generated/resolvers'
+import { ITypeMap } from '../generated/resolvers'
 
-import { QueryRoot } from '../resolvers/Query'
-import { MutationRoot } from '../resolvers/Mutation'
-import { SubscriptionRoot } from '../resolvers/Subscription'
-import { ViewerRoot } from '../resolvers/Viewer'
-import { AuthPayloadRoot } from '../resolvers/AuthPayload'
-import { MutationResultRoot } from '../resolvers/MutationResult'
-import { ExperiencesByCityRoot } from '../resolvers/ExperiencesByCity'
-import { HomeRoot } from '../resolvers/Home'
-import { ReservationRoot } from '../resolvers/Reservation'
-import { ExperienceRoot } from '../resolvers/Experience'
-import { ReviewRoot } from '../resolvers/Review'
-import { NeighbourhoodRoot } from '../resolvers/Neighbourhood'
-import { LocationRoot } from '../resolvers/Location'
-import { PictureRoot } from '../resolvers/Picture'
-import { CityRoot } from '../resolvers/City'
-import { ExperienceCategoryRoot } from '../resolvers/ExperienceCategory'
-import { UserRoot } from '../resolvers/User'
-import { PaymentAccountRoot } from '../resolvers/PaymentAccount'
-import { PlaceRoot } from '../resolvers/Place'
-import { BookingRoot } from '../resolvers/Booking'
-import { NotificationRoot } from '../resolvers/Notification'
-import { PaymentRoot } from '../resolvers/Payment'
-import { PaypalInformationRoot } from '../resolvers/PaypalInformation'
-import { CreditCardInformationRoot } from '../resolvers/CreditCardInformation'
-import { MessageRoot } from '../resolvers/Message'
-import { PricingRoot } from '../resolvers/Pricing'
-import { PlaceViewsRoot } from '../resolvers/PlaceViews'
-import { GuestRequirementsRoot } from '../resolvers/GuestRequirements'
-import { PoliciesRoot } from '../resolvers/Policies'
-import { HouseRulesRoot } from '../resolvers/HouseRules'
-import { AmenitiesRoot } from '../resolvers/Amenities'
-import { CitySubscriptionPayloadRoot } from '../resolvers/CitySubscriptionPayload'
-import { CityPreviousValuesRoot } from '../resolvers/CityPreviousValues'
+import { QueryParent } from '../resolvers/Query'
+import { MutationParent } from '../resolvers/Mutation'
+import { SubscriptionParent } from '../resolvers/Subscription'
+import { ViewerParent } from '../resolvers/Viewer'
+import { AuthPayloadParent } from '../resolvers/AuthPayload'
+import { MutationResultParent } from '../resolvers/MutationResult'
+import { ExperiencesByCityParent } from '../resolvers/ExperiencesByCity'
+import { HomeParent } from '../resolvers/Home'
+import { ReservationParent } from '../resolvers/Reservation'
+import { ExperienceParent } from '../resolvers/Experience'
+import { ReviewParent } from '../resolvers/Review'
+import { NeighbourhoodParent } from '../resolvers/Neighbourhood'
+import { LocationParent } from '../resolvers/Location'
+import { PictureParent } from '../resolvers/Picture'
+import { CityParent } from '../resolvers/City'
+import { ExperienceCategoryParent } from '../resolvers/ExperienceCategory'
+import { UserParent } from '../resolvers/User'
+import { PaymentAccountParent } from '../resolvers/PaymentAccount'
+import { PlaceParent } from '../resolvers/Place'
+import { BookingParent } from '../resolvers/Booking'
+import { NotificationParent } from '../resolvers/Notification'
+import { PaymentParent } from '../resolvers/Payment'
+import { PaypalInformationParent } from '../resolvers/PaypalInformation'
+import { CreditCardInformationParent } from '../resolvers/CreditCardInformation'
+import { MessageParent } from '../resolvers/Message'
+import { PricingParent } from '../resolvers/Pricing'
+import { PlaceViewsParent } from '../resolvers/PlaceViews'
+import { GuestRequirementsParent } from '../resolvers/GuestRequirements'
+import { PoliciesParent } from '../resolvers/Policies'
+import { HouseRulesParent } from '../resolvers/HouseRules'
+import { AmenitiesParent } from '../resolvers/Amenities'
+import { CitySubscriptionPayloadParent } from '../resolvers/CitySubscriptionPayload'
+import { CityPreviousValuesParent } from '../resolvers/CityPreviousValues'
 
 import { Context } from './Context'
 
-export interface Types extends ITypes {
+export interface Types extends ITypeMap {
   Context: Context
-  QueryRoot: QueryRoot
-  MutationRoot: MutationRoot
-  SubscriptionRoot: SubscriptionRoot
-  ViewerRoot: ViewerRoot
-  AuthPayloadRoot: AuthPayloadRoot
-  MutationResultRoot: MutationResultRoot
-  ExperiencesByCityRoot: ExperiencesByCityRoot
-  HomeRoot: HomeRoot
-  ReservationRoot: ReservationRoot
-  ExperienceRoot: ExperienceRoot
-  ReviewRoot: ReviewRoot
-  NeighbourhoodRoot: NeighbourhoodRoot
-  LocationRoot: LocationRoot
-  PictureRoot: PictureRoot
-  CityRoot: CityRoot
-  ExperienceCategoryRoot: ExperienceCategoryRoot
-  UserRoot: UserRoot
-  PaymentAccountRoot: PaymentAccountRoot
-  PlaceRoot: PlaceRoot
-  BookingRoot: BookingRoot
-  NotificationRoot: NotificationRoot
-  PaymentRoot: PaymentRoot
-  PaypalInformationRoot: PaypalInformationRoot
-  CreditCardInformationRoot: CreditCardInformationRoot
-  MessageRoot: MessageRoot
-  PricingRoot: PricingRoot
-  PlaceViewsRoot: PlaceViewsRoot
-  GuestRequirementsRoot: GuestRequirementsRoot
-  PoliciesRoot: PoliciesRoot
-  HouseRulesRoot: HouseRulesRoot
-  AmenitiesRoot: AmenitiesRoot
-  CitySubscriptionPayloadRoot: CitySubscriptionPayloadRoot
-  CityPreviousValuesRoot: CityPreviousValuesRoot
+  QueryParent: QueryParent
+  MutationParent: MutationParent
+  SubscriptionParent: SubscriptionParent
+  ViewerParent: ViewerParent
+  AuthPayloadParent: AuthPayloadParent
+  MutationResultParent: MutationResultParent
+  ExperiencesByCityParent: ExperiencesByCityParent
+  HomeParent: HomeParent
+  ReservationParent: ReservationParent
+  ExperienceParent: ExperienceParent
+  ReviewParent: ReviewParent
+  NeighbourhoodParent: NeighbourhoodParent
+  LocationParent: LocationParent
+  PictureParent: PictureParent
+  CityParent: CityParent
+  ExperienceCategoryParent: ExperienceCategoryParent
+  UserParent: UserParent
+  PaymentAccountParent: PaymentAccountParent
+  PlaceParent: PlaceParent
+  BookingParent: BookingParent
+  NotificationParent: NotificationParent
+  PaymentParent: PaymentParent
+  PaypalInformationParent: PaypalInformationParent
+  CreditCardInformationParent: CreditCardInformationParent
+  MessageParent: MessageParent
+  PricingParent: PricingParent
+  PlaceViewsParent: PlaceViewsParent
+  GuestRequirementsParent: GuestRequirementsParent
+  PoliciesParent: PoliciesParent
+  HouseRulesParent: HouseRulesParent
+  AmenitiesParent: AmenitiesParent
+  CitySubscriptionPayloadParent: CitySubscriptionPayloadParent
+  CityPreviousValuesParent: CityPreviousValuesParent
 }

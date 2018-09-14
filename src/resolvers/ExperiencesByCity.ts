@@ -4,6 +4,7 @@ import { ExperienceParent } from './Experience'
 import { CityParent } from './City'
 
 export interface ExperiencesByCityParent {
+  id: string
   experiences: ExperienceParent[]
   city: CityParent
 }

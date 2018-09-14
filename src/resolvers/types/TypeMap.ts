@@ -34,7 +34,7 @@ import { AmenitiesParent } from '../Amenities'
 import { CitySubscriptionPayloadParent } from '../CitySubscriptionPayload'
 import { CityPreviousValuesParent } from '../CityPreviousValues'
 
-import { Context } from './context'
+import { Context } from './Context'
 
 export interface TypeMap extends ITypeMap {
   Context: Context
