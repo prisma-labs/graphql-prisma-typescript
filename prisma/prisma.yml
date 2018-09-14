@@ -16,7 +16,7 @@ seed:
 
 generate:
   - generator: typescript-client
-    output: ../src/generated
+    output: ../src/prisma-client
 
 hooks:
   post-deploy:

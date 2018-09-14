@@ -1,4 +1,4 @@
-export const typeDefs = `type AggregateAmenities {
+export const typeDefs = /* GraphQL */ `type AggregateAmenities {
   count: Int!
 }
 
@@ -92,7 +92,7 @@ type AggregateViews {
 
 type Amenities {
   id: ID!
-  place(where: PlaceWhereInput): Place!
+  place: Place!
   elevator: Boolean!
   petsAllowed: Boolean!
   internet: Boolean!
@@ -601,11 +601,11 @@ type BatchPayload {
 type Booking {
   id: ID!
   createdAt: DateTime!
-  bookee(where: UserWhereInput): User!
-  place(where: PlaceWhereInput): Place!
+  bookee: User!
+  place: Place!
   startDate: DateTime!
   endDate: DateTime!
-  payment(where: PaymentWhereInput): Payment
+  payment: Payment
 }
 
 type BookingConnection {
@@ -973,7 +973,7 @@ type CreditCardInformation {
   lastName: String!
   postalCode: String!
   country: String!
-  paymentAccount(where: PaymentAccountWhereInput): PaymentAccount
+  paymentAccount: PaymentAccount
 }
 
 type CreditCardInformationConnection {
@@ -1254,13 +1254,13 @@ scalar DateTime
 
 type Experience {
   id: ID!
-  category(where: ExperienceCategoryWhereInput): ExperienceCategory
+  category: ExperienceCategory
   title: String!
-  host(where: UserWhereInput): User!
-  location(where: LocationWhereInput): Location!
+  host: User!
+  location: Location!
   pricePerPerson: Int!
   reviews(where: ReviewWhereInput, orderBy: ReviewOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Review!]
-  preview(where: PictureWhereInput): Picture!
+  preview: Picture!
   popularity: Int!
 }
 
@@ -1268,7 +1268,7 @@ type ExperienceCategory {
   id: ID!
   mainColor: String!
   name: String!
-  experience(where: ExperienceWhereInput): Experience
+  experience: Experience
 }
 
 type ExperienceCategoryConnection {
@@ -1714,7 +1714,7 @@ type GuestRequirements {
   govIssuedId: Boolean!
   recommendationsFromOtherHosts: Boolean!
   guestTripInformation: Boolean!
-  place(where: PlaceWhereInput): Place!
+  place: Place!
 }
 
 type GuestRequirementsConnection {
@@ -2032,13 +2032,13 @@ type Location {
   id: ID!
   lat: Float!
   lng: Float!
-  neighbourHood(where: NeighbourhoodWhereInput): Neighbourhood
-  user(where: UserWhereInput): User
-  place(where: PlaceWhereInput): Place
+  neighbourHood: Neighbourhood
+  user: User
+  place: Place
   address: String
   directions: String
-  experience(where: ExperienceWhereInput): Experience
-  restaurant(where: RestaurantWhereInput): Restaurant
+  experience: Experience
+  restaurant: Restaurant
 }
 
 type LocationConnection {
@@ -2405,8 +2405,8 @@ scalar Long
 type Message {
   id: ID!
   createdAt: DateTime!
-  from(where: UserWhereInput): User!
-  to(where: UserWhereInput): User!
+  from: User!
+  to: User!
   deliveredAt: DateTime!
   readAt: DateTime!
 }
@@ -2750,8 +2750,8 @@ type Neighbourhood {
   locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location!]
   name: String!
   slug: String!
-  homePreview(where: PictureWhereInput): Picture
-  city(where: CityWhereInput): City!
+  homePreview: Picture
+  city: City!
   featured: Boolean!
   popularity: Int!
 }
@@ -2985,7 +2985,7 @@ type Notification {
   id: ID!
   createdAt: DateTime!
   type: NOTIFICATION_TYPE
-  user(where: UserWhereInput): User!
+  user: User!
   link: String!
   readDate: DateTime!
 }
@@ -3173,8 +3173,8 @@ type Payment {
   serviceFee: Float!
   placePrice: Float!
   totalPrice: Float!
-  booking(where: BookingWhereInput): Booking!
-  paymentMethod(where: PaymentAccountWhereInput): PaymentAccount!
+  booking: Booking!
+  paymentMethod: PaymentAccount!
 }
 
 enum PAYMENT_PROVIDER {
@@ -3186,10 +3186,10 @@ type PaymentAccount {
   id: ID!
   createdAt: DateTime!
   type: PAYMENT_PROVIDER
-  user(where: UserWhereInput): User!
+  user: User!
   payments(where: PaymentWhereInput, orderBy: PaymentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Payment!]
-  paypal(where: PaypalInformationWhereInput): PaypalInformation
-  creditcard(where: CreditCardInformationWhereInput): CreditCardInformation
+  paypal: PaypalInformation
+  creditcard: CreditCardInformation
 }
 
 type PaymentAccountConnection {
@@ -3634,7 +3634,7 @@ type PaypalInformation {
   id: ID!
   createdAt: DateTime!
   email: String!
-  paymentAccount(where: PaymentAccountWhereInput): PaymentAccount!
+  paymentAccount: PaymentAccount!
 }
 
 type PaypalInformationConnection {
@@ -3923,14 +3923,14 @@ type Place {
   numBeds: Int!
   numBaths: Int!
   reviews(where: ReviewWhereInput, orderBy: ReviewOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Review!]
-  amenities(where: AmenitiesWhereInput): Amenities!
-  host(where: UserWhereInput): User!
-  pricing(where: PricingWhereInput): Pricing!
-  location(where: LocationWhereInput): Location!
-  views(where: ViewsWhereInput): Views!
-  guestRequirements(where: GuestRequirementsWhereInput): GuestRequirements
-  policies(where: PoliciesWhereInput): Policies
-  houseRules(where: HouseRulesWhereInput): HouseRules
+  amenities: Amenities!
+  host: User!
+  pricing: Pricing!
+  location: Location!
+  views: Views!
+  guestRequirements: GuestRequirements
+  policies: Policies
+  houseRules: HouseRules
   bookings(where: BookingWhereInput, orderBy: BookingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Booking!]
   pictures(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Picture!]
   popularity: Int!
@@ -4799,7 +4799,7 @@ type Policies {
   checkInStartTime: Float!
   checkInEndTime: Float!
   checkoutTime: Float!
-  place(where: PlaceWhereInput): Place!
+  place: Place!
 }
 
 type PoliciesConnection {
@@ -4967,7 +4967,7 @@ input PoliciesWhereUniqueInput {
 
 type Pricing {
   id: ID!
-  place(where: PlaceWhereInput): Place!
+  place: Place!
   monthlyDiscount: Int
   weeklyDiscount: Int
   perNight: Int!
@@ -5330,7 +5330,7 @@ type Restaurant {
   title: String!
   avgPricePerPerson: Int!
   pictures(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Picture!]
-  location(where: LocationWhereInput): Location!
+  location: Location!
   isCurated: Boolean!
   slug: String!
   popularity: Int!
@@ -5544,8 +5544,8 @@ type Review {
   value: Int!
   cleanliness: Int!
   communication: Int!
-  place(where: PlaceWhereInput): Place!
-  experience(where: ExperienceWhereInput): Experience
+  place: Place!
+  experience: Experience
 }
 
 type ReviewConnection {
@@ -5882,13 +5882,13 @@ type User {
   responseTime: Int
   isSuperHost: Boolean!
   ownedPlaces(where: PlaceWhereInput, orderBy: PlaceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Place!]
-  location(where: LocationWhereInput): Location
+  location: Location
   bookings(where: BookingWhereInput, orderBy: BookingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Booking!]
   paymentAccount(where: PaymentAccountWhereInput, orderBy: PaymentAccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PaymentAccount!]
   sentMessages(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message!]
   receivedMessages(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message!]
   notifications(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Notification!]
-  profilePicture(where: PictureWhereInput): Picture
+  profilePicture: Picture
   hostingExperiences(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Experience!]
 }
 
@@ -6604,7 +6604,7 @@ input UserWhereUniqueInput {
 type Views {
   id: ID!
   lastWeek: Int!
-  place(where: PlaceWhereInput): Place!
+  place: Place!
 }
 
 type ViewsConnection {
