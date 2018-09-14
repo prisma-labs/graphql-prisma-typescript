@@ -1,5 +1,5 @@
 import { ExperienceResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 import { ExperienceCategoryParent } from './ExperienceCategory'
 import { LocationParent } from './Location'
 import { ReviewParent } from './Review'

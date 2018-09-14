@@ -1,5 +1,5 @@
 import { MessageResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 
 export interface MessageParent {
   createdAt: string

@@ -1,5 +1,5 @@
 import { CityPreviousValuesResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 
 export interface CityPreviousValuesParent {
   id: string

@@ -1,5 +1,5 @@
 import { UserResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 import { BookingParent } from './Booking'
 import { ExperienceParent } from './Experience'
 import { LocationParent } from './Location'

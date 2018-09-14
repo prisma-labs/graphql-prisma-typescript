@@ -1,5 +1,5 @@
 import { CitySubscriptionPayloadResolvers } from '../generated/resolvers'
-import { TypeMap } from './types/TypeMap'
+import { TypeMap } from '../types/TypeMap'
 import { CityParent } from './City'
 import { CityPreviousValuesParent } from './CityPreviousValues'
 
