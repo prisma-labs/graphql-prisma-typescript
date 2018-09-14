@@ -8,7 +8,30 @@ export interface ExperiencesByCityParent {
   city: CityParent
 }
 
-export const ExperiencesByCity: ExperiencesByCityResolvers.Resolver<TypeMap> = {
-  experiences: parent => parent.experiences,
-  city: parent => parent.city,
+export const ExperiencesByCity: ExperiencesByCityResolvers.Type<TypeMap> = {
+  experiences: async (parent, _args, ctx) => {
+    const exps = await ctx.db.experiences({
+      where: {
+        location: {
+          id_gt: '0',
+          neighbourHood: {
+            city: {
+              id: parent.id,
+            },
+          },
+        },
+      },
+    })
+
+    return exps.map(exp => {
+      return {
+        ...exp,
+        location: null,
+        category: null,
+        reviews: null,
+        preview: null,
+      }
+    })
+  },
+  city: (parent, _args, ctx) => ctx.db.city({ id: parent.id }),
 }

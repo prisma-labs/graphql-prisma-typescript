@@ -13,12 +13,13 @@ export interface NeighbourhoodParent {
   popularity: number
 }
 
-export const Neighbourhood: NeighbourhoodResolvers.Resolver<TypeMap> = {
+export const Neighbourhood: NeighbourhoodResolvers.Type<TypeMap> = {
   id: parent => parent.id,
   name: parent => parent.name,
   slug: parent => parent.slug,
-  homePreview: parent => parent.homePreview,
-  city: parent => parent.city,
+  homePreview: (parent, _args, ctx) =>
+    ctx.db.neighbourhood({ id: parent.id }).homePreview(),
+  city: (parent, _args, ctx) => ctx.db.neighbourhood({ id: parent.id }).city(),
   featured: parent => parent.featured,
   popularity: parent => parent.popularity,
 }

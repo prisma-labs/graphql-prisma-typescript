@@ -16,7 +16,7 @@ export interface CreditCardInformationParent {
   securityCode: string
 }
 
-export const CreditCardInformation: CreditCardInformationResolvers.Resolver<
+export const CreditCardInformation: CreditCardInformationResolvers.Type<
   TypeMap
 > = {
   cardNumber: parent => parent.cardNumber,
@@ -27,7 +27,8 @@ export const CreditCardInformation: CreditCardInformationResolvers.Resolver<
   firstName: parent => parent.firstName,
   id: parent => parent.id,
   lastName: parent => parent.lastName,
-  paymentAccount: parent => parent.paymentAccount,
+  paymentAccount: (parent, _args, ctx) =>
+    ctx.db.creditCardInformation({ id: parent.id }).paymentAccount(),
   postalCode: parent => parent.postalCode,
   securityCode: parent => parent.securityCode,
 }

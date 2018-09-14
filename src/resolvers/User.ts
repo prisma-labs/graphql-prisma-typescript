@@ -32,25 +32,31 @@ export interface UserParent {
   token: string
 }
 
-export const User: UserResolvers.Resolver<TypeMap> = {
-  bookings: parent => parent.bookings,
+export const User: UserResolvers.Type<TypeMap> = {
+  bookings: (parent, _args, ctx) => ctx.db.user({ id: parent.id }).bookings(),
   createdAt: parent => parent.createdAt,
   email: parent => parent.email,
   firstName: parent => parent.firstName,
-  hostingExperiences: parent => parent.hostingExperiences,
+  hostingExperiences: (parent, _args, ctx) =>
+    ctx.db.user({ id: parent.id }).hostingExperiences(),
   id: parent => parent.id,
   isSuperHost: parent => parent.isSuperHost,
   lastName: parent => parent.lastName,
-  location: parent => parent.location,
-  notifications: parent => parent.notifications,
-  ownedPlaces: parent => parent.ownedPlaces,
+  location: (parent, _args, ctx) => ctx.db.user({ id: parent.id }).location(),
+  notifications: (root, _args, ctx) =>
+    ctx.db.user({ id: root.id }).notifications(),
+  ownedPlaces: (parent, _args, ctx) =>
+    ctx.db.user({ id: parent.id }).ownedPlaces(),
   paymentAccount: parent => parent.paymentAccount,
   phone: parent => parent.phone,
-  profilePicture: parent => parent.profilePicture,
-  receivedMessages: parent => parent.receivedMessages,
+  profilePicture: (parent, _args, ctx) =>
+    ctx.db.user({ id: parent.id }).profilePicture(),
+  receivedMessages: (parent, _args, ctx) =>
+    ctx.db.user({ id: parent.id }).receivedMessages(),
   responseRate: parent => parent.responseRate,
   responseTime: parent => parent.responseTime,
-  sentMessages: parent => parent.sentMessages,
+  sentMessages: (parent, _args, ctx) =>
+    ctx.db.user({ id: parent.id }).sentMessages(),
   updatedAt: parent => parent.updatedAt,
   token: parent => parent.token,
 }
