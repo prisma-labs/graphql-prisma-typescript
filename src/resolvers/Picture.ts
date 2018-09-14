@@ -1,12 +1,12 @@
-import { IPicture } from '../generated/resolvers'
-import { Types } from '../types/types'
+import { PictureResolvers } from '../generated/resolvers'
+import { TypeMap } from './types/TypeMap'
 
-export interface PictureRoot {
+export interface PictureParent {
   id: string
   url: string
 }
 
-export const Picture: IPicture.Resolver<Types> = {
-  id: root => root.id,
-  url: root => root.url,
+export const Picture: PictureResolvers.Resolver<TypeMap> = {
+  id: parent => parent.id,
+  url: parent => parent.url,
 }

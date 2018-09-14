@@ -1,76 +1,27 @@
-import { IQuery } from '../generated/resolvers'
-import { getUserId } from '../utils'
-import { Types } from '../types/types'
+import { QueryResolvers } from '../generated/resolvers'
+import { TypeMap } from './types/TypeMap'
 
-export interface QueryRoot {}
+export interface QueryParent {}
 
-export const Query: IQuery.Resolver<Types> = {
-  topExperiences: async (_root, _args, ctx) => {
-    const experiences =
-      (await ctx.db.experiences({ orderBy: 'popularity_DESC' })) || []
-
-    return experiences.map(exp => {
-      return {
-        ...exp,
-        location: null,
-        category: null,
-        reviews: null,
-        preview: null,
-      }
-    })
+export const Query: QueryResolvers.Resolver<TypeMap> = {
+  topExperiences: parent => {
+    throw new Error('Resolver not implemented')
   },
-  topHomes: (_root, _args, ctx) => {
-    return ctx.db.places({ orderBy: 'popularity_DESC' })
+  topHomes: parent => {
+    throw new Error('Resolver not implemented')
   },
-  homesInPriceRange: (_root, { min, max }, ctx) => {
-    const where = {
-      AND: [
-        { pricing: { perNight_gte: min } },
-        { pricing: { perNight_lte: max } },
-      ],
-    }
-    return ctx.db.places({ where })
+  homesInPriceRange: (parent, args) => {
+    throw new Error('Resolver not implemented')
   },
-  topReservations: (_root, _args, ctx) => {
-    return ctx.db.restaurants({ orderBy: 'popularity_DESC' })
+  topReservations: parent => {
+    throw new Error('Resolver not implemented')
   },
-  featuredDestinations: (_root, _args, ctx) => {
-    return ctx.db.neighbourhoods({
-      orderBy: 'popularity_DESC',
-      where: { featured: true },
-    })
+  featuredDestinations: parent => {
+    throw new Error('Resolver not implemented')
   },
-  experiencesByCity: (root, { cities }, ctx) => {
-    return ctx.db.cities({
-      where: {
-        name_in: cities,
-        neighbourhoods_every: {
-          id_gt: '0',
-          locations_every: {
-            id_gt: '0',
-            experience: {
-              id_gt: '0',
-            },
-          },
-        },
-      },
-    })
+  experiencesByCity: (parent, args) => {
+    throw new Error('Resolver not implemented')
   },
-  viewer: () => ({
-    me: null,
-    bookings: null,
-  }),
-  myLocation: async (_root, _args, ctx) => {
-    const id = getUserId(ctx)
-
-    const locations = await ctx.db.locations({
-      where: {
-        user: {
-          id,
-        },
-      },
-    })
-
-    return locations && locations[0]
-  },
+  viewer: parent => null,
+  myLocation: parent => null,
 }

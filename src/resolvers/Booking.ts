@@ -1,25 +1,25 @@
-import { IBooking } from '../generated/resolvers'
-import { Types } from '../types/types'
-import { UserRoot } from './User'
-import { PlaceRoot } from './Place'
-import { PaymentRoot } from './Payment'
+import { BookingResolvers } from '../generated/resolvers'
+import { TypeMap } from './types/TypeMap'
+import { UserParent } from './User'
+import { PlaceParent } from './Place'
+import { PaymentParent } from './Payment'
 
-export interface BookingRoot {
+export interface BookingParent {
   id: string
   createdAt: string
-  bookee: UserRoot
-  place: PlaceRoot
+  bookee: UserParent
+  place: PlaceParent
   startDate: string
   endDate: string
-  payment: PaymentRoot
+  payment: PaymentParent
 }
 
-export const Booking: IBooking.Resolver<Types> = {
-  id: root => root.id,
-  createdAt: root => root.createdAt,
-  bookee: root => root.bookee,
-  place: root => root.place,
-  startDate: root => root.startDate,
-  endDate: root => root.endDate,
-  payment: root => root.payment,
+export const Booking: BookingResolvers.Resolver<TypeMap> = {
+  id: parent => parent.id,
+  createdAt: parent => parent.createdAt,
+  bookee: parent => parent.bookee,
+  place: parent => parent.place,
+  startDate: parent => parent.startDate,
+  endDate: parent => parent.endDate,
+  payment: parent => parent.payment,
 }

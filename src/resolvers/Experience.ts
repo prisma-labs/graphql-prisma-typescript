@@ -1,28 +1,28 @@
-import { IExperience } from '../generated/resolvers'
-import { Types } from '../types/types'
-import { ExperienceCategoryRoot } from './ExperienceCategory'
-import { LocationRoot } from './Location'
-import { ReviewRoot } from './Review'
-import { PictureRoot } from './Picture'
+import { ExperienceResolvers } from '../generated/resolvers'
+import { TypeMap } from './types/TypeMap'
+import { ExperienceCategoryParent } from './ExperienceCategory'
+import { LocationParent } from './Location'
+import { ReviewParent } from './Review'
+import { PictureParent } from './Picture'
 
-export interface ExperienceRoot {
+export interface ExperienceParent {
   id: string
-  category?: ExperienceCategoryRoot
+  category?: ExperienceCategoryParent
   title: string
-  location: LocationRoot
+  location: LocationParent
   pricePerPerson: number
-  reviews: ReviewRoot[]
-  preview: PictureRoot
+  reviews: ReviewParent[]
+  preview: PictureParent
   popularity: number
 }
 
-export const Experience: IExperience.Resolver<Types> = {
-  id: root => root.id,
-  category: (root, args, ctx) => ctx.db.experience({ id: root.id }).category(),
-  title: root => root.title,
-  location: (root, args, ctx) => ctx.db.experience({ id: root.id }).location(),
-  pricePerPerson: root => root.pricePerPerson,
-  reviews: (root, args, ctx) => ctx.db.experience({ id: root.id }).reviews(),
-  preview: (root, args, ctx) => ctx.db.experience({ id: root.id }).preview(),
-  popularity: root => root.popularity,
+export const Experience: ExperienceResolvers.Resolver<TypeMap> = {
+  id: parent => parent.id,
+  category: parent => parent.category,
+  title: parent => parent.title,
+  location: parent => parent.location,
+  pricePerPerson: parent => parent.pricePerPerson,
+  reviews: parent => parent.reviews,
+  preview: parent => parent.preview,
+  popularity: parent => parent.popularity,
 }

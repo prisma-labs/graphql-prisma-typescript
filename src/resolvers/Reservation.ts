@@ -1,30 +1,26 @@
-import { IReservation } from '../generated/resolvers'
-import { Types } from '../types/types'
-import { PictureRoot } from './Picture'
-import { LocationRoot } from './Location'
+import { ReservationResolvers } from '../generated/resolvers'
+import { TypeMap } from './types/TypeMap'
+import { PictureParent } from './Picture'
+import { LocationParent } from './Location'
 
-export interface ReservationRoot {
+export interface ReservationParent {
   id: string
   title: string
   avgPricePerPerson: number
-  pictures: PictureRoot[]
-  location: LocationRoot
+  pictures: PictureParent[]
+  location: LocationParent
   isCurated: boolean
   slug: string
   popularity: number
 }
 
-export const Reservation: IReservation.Resolver<Types> = {
-  id: root => root.id,
-  title: root => root.title,
-  avgPricePerPerson: root => root.avgPricePerPerson,
-  pictures: (root, _args, ctx) => {
-    return ctx.db.restaurant({ id: root.id }).pictures()
-  },
-  location: (root, _args, ctx) => {
-    return ctx.db.restaurant({ id: root.id }).location()
-  },
-  isCurated: root => root.isCurated,
-  slug: root => root.slug,
-  popularity: root => root.popularity,
+export const Reservation: ReservationResolvers.Resolver<TypeMap> = {
+  id: parent => parent.id,
+  title: parent => parent.title,
+  avgPricePerPerson: parent => parent.avgPricePerPerson,
+  pictures: parent => parent.pictures,
+  location: parent => parent.location,
+  isCurated: parent => parent.isCurated,
+  slug: parent => parent.slug,
+  popularity: parent => parent.popularity,
 }
