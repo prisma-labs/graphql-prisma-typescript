@@ -135,7 +135,4 @@ export const Mutation: MutationResolvers.Type<TypeMap> = {
       success: !!createdLocation,
     }
   },
-  addLocationToUser: (_parent, _args) => {
-    throw new Error('Resolver not implemented')
-  },
 }
