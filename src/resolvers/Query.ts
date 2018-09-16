@@ -1,11 +1,11 @@
-import { IQuery } from '../generated/resolvers'
 import { getUserId } from '../utils'
-import { Types } from './types'
+import { QueryResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
 
-export interface QueryRoot {}
+export interface QueryParent {}
 
-export const Query: IQuery.Resolver<Types> = {
-  topExperiences: async (_root, _args, ctx) => {
+export const Query: QueryResolvers.Type<TypeMap> = {
+  topExperiences: async (_parent, _args, ctx) => {
     const experiences =
       (await ctx.db.experiences({ orderBy: 'popularity_DESC' })) || []
 
@@ -19,29 +19,25 @@ export const Query: IQuery.Resolver<Types> = {
       }
     })
   },
-  topHomes: (_root, _args, ctx) => {
-    return ctx.db.places({ orderBy: 'popularity_DESC' })
-  },
-  homesInPriceRange: (_root, { min, max }, ctx) => {
-    const where = {
-      AND: [
-        { pricing: { perNight_gte: min } },
-        { pricing: { perNight_lte: max } },
-      ],
-    }
-    return ctx.db.places({ where })
-  },
-  topReservations: (_root, _args, ctx) => {
-    return ctx.db.restaurants({ orderBy: 'popularity_DESC' })
-  },
-  featuredDestinations: (_root, _args, ctx) => {
-    return ctx.db.neighbourhoods({
+  topHomes: (_parent, _args, ctx) => ctx.db.places({ orderBy: 'popularity_DESC' }),
+  homesInPriceRange: (_parent, { min, max }, ctx) =>
+    ctx.db.places({
+      where: {
+        AND: [
+          { pricing: { perNight_gte: min } },
+          { pricing: { perNight_lte: max } },
+        ],
+      },
+    }),
+  topReservations: (_parent, _args, ctx) =>
+    ctx.db.restaurants({ orderBy: 'popularity_DESC' }),
+  featuredDestinations: (_parent, _args, ctx) =>
+    ctx.db.neighbourhoods({
       orderBy: 'popularity_DESC',
       where: { featured: true },
-    })
-  },
-  experiencesByCity: (root, { cities }, ctx) => {
-    return ctx.db.cities({
+    }),
+  experiencesByCity: (_parent, { cities }, ctx) =>
+    ctx.db.cities({
       where: {
         name_in: cities,
         neighbourhoods_every: {
@@ -54,13 +50,12 @@ export const Query: IQuery.Resolver<Types> = {
           },
         },
       },
-    })
-  },
+    }),
   viewer: () => ({
     me: null,
     bookings: null,
   }),
-  myLocation: async (_root, _args, ctx) => {
+  myLocation: async (_parent, _args, ctx) => {
     const id = getUserId(ctx)
 
     const locations = await ctx.db.locations({

@@ -1,57 +1,62 @@
-import { IUser } from '../generated/resolvers'
-import { Types } from './types'
-import { BookingRoot } from './Booking'
-import { ExperienceRoot } from './Experience'
-import { LocationRoot } from './Location'
-import { NotificationRoot } from './Notification'
-import { PlaceRoot } from './Place'
-import { PaymentAccountRoot } from './PaymentAccount'
-import { PictureRoot } from './Picture'
-import { MessageRoot } from './Message'
+import { UserResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
+import { BookingParent } from './Booking'
+import { ExperienceParent } from './Experience'
+import { LocationParent } from './Location'
+import { NotificationParent } from './Notification'
+import { PlaceParent } from './Place'
+import { PaymentAccountParent } from './PaymentAccount'
+import { PictureParent } from './Picture'
+import { MessageParent } from './Message'
 
-export interface UserRoot {
-  bookings: BookingRoot[]
+export interface UserParent {
+  bookings: BookingParent[]
   createdAt: string
   email: string
   firstName: string
-  hostingExperiences: ExperienceRoot[]
+  hostingExperiences: ExperienceParent[]
   id: string
   isSuperHost: boolean
   lastName: string
-  location: LocationRoot
-  notifications: NotificationRoot[]
-  ownedPlaces: PlaceRoot[]
-  paymentAccount: PaymentAccountRoot[]
+  location?: LocationParent
+  notifications: NotificationParent[]
+  ownedPlaces: PlaceParent[]
+  paymentAccount?: PaymentAccountParent[]
   phone: string
-  profilePicture?: PictureRoot
-  receivedMessages: MessageRoot[]
+  profilePicture?: PictureParent
+  receivedMessages: MessageParent[]
   responseRate?: number
   responseTime?: number
-  sentMessages: MessageRoot[]
+  sentMessages: MessageParent[]
   updatedAt: string
   token: string
 }
 
-
-export const User: IUser.Resolver<Types> = {
-  bookings: (root, _args, ctx) => ctx.db.user({ id: root.id }).bookings(),
-  createdAt: root => root.createdAt,
-  email: root => root.email,
-  firstName: root => root.firstName,
-  hostingExperiences: (root, _args, ctx) => ctx.db.user({ id: root.id }).hostingExperiences(),
-  id: root => root.id,
-  isSuperHost: root => root.isSuperHost,
-  lastName: root => root.lastName,
-  location: (root, _args, ctx) => ctx.db.user({ id: root.id }).location(),
-  notifications: (root, _args, ctx) => ctx.db.user({ id: root.id }).notifications(),
-  ownedPlaces: (root, _args, ctx) => ctx.db.user({ id: root.id }).ownedPlaces(),
-  paymentAccount: root => root.paymentAccount,
-  phone: root => root.phone,
-  profilePicture: (root, _args, ctx) => ctx.db.user({ id: root.id }).profilePicture(),
-  receivedMessages: (root, _args, ctx) => ctx.db.user({ id: root.id }).receivedMessages(),
-  responseRate: root => root.responseRate,
-  responseTime: root => root.responseTime,
-  sentMessages: (root, _args, ctx) => ctx.db.user({ id: root.id }).sentMessages(),
-  updatedAt: root => root.updatedAt,
-  token: root => root.token,
+export const User: UserResolvers.Type<TypeMap> = {
+  bookings: (parent, _args, ctx) => ctx.db.user({ id: parent.id }).bookings(),
+  createdAt: parent => parent.createdAt,
+  email: parent => parent.email,
+  firstName: parent => parent.firstName,
+  hostingExperiences: (parent, _args, ctx) =>
+    ctx.db.user({ id: parent.id }).hostingExperiences(),
+  id: parent => parent.id,
+  isSuperHost: parent => parent.isSuperHost,
+  lastName: parent => parent.lastName,
+  location: (parent, _args, ctx) => ctx.db.user({ id: parent.id }).location(),
+  notifications: (root, _args, ctx) =>
+    ctx.db.user({ id: root.id }).notifications(),
+  ownedPlaces: (parent, _args, ctx) =>
+    ctx.db.user({ id: parent.id }).ownedPlaces(),
+  paymentAccount: parent => parent.paymentAccount,
+  phone: parent => parent.phone,
+  profilePicture: (parent, _args, ctx) =>
+    ctx.db.user({ id: parent.id }).profilePicture(),
+  receivedMessages: (parent, _args, ctx) =>
+    ctx.db.user({ id: parent.id }).receivedMessages(),
+  responseRate: parent => parent.responseRate,
+  responseTime: parent => parent.responseTime,
+  sentMessages: (parent, _args, ctx) =>
+    ctx.db.user({ id: parent.id }).sentMessages(),
+  updatedAt: parent => parent.updatedAt,
+  token: parent => parent.token,
 }

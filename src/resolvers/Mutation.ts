@@ -1,14 +1,13 @@
 import * as bcrypt from 'bcryptjs'
 import * as jwt from 'jsonwebtoken'
-import { IMutation } from '../generated/resolvers'
+import { MutationResolvers } from '../generated/resolvers'
 import { getUserId } from '../utils'
-import { Types } from './types'
-import { Context } from './Context'
+import { TypeMap } from '../types/TypeMap'
 
-export interface MutationRoot {}
+export interface MutationParent {}
 
-export const Mutation: IMutation.Resolver<Types> = {
-  signup: async (_, args, ctx: Context, _info) => {
+export const Mutation: MutationResolvers.Type<TypeMap> = {
+  signup: async (_, args, ctx, _info) => {
     const password = await bcrypt.hash(args.password, 10)
     const user = await ctx.db.createUser({
       ...args,
@@ -35,8 +34,7 @@ export const Mutation: IMutation.Resolver<Types> = {
       },
     }
   },
-
-  login: async (_root, { email, password }, ctx) => {
+  login: async (_parent, { email, password }, ctx) => {
     const user = await ctx.db.user({ email })
     const valid = await bcrypt.compare(password, user ? user.password : '')
 
@@ -62,12 +60,10 @@ export const Mutation: IMutation.Resolver<Types> = {
       },
     }
   },
-
-  // TODO: IMPLEMENT
-  addPaymentMethod: (root, args) => {
+  addPaymentMethod: (parent, args) => {
     throw new Error('Resolver not implemented')
   },
-  book: async (_root, args, ctx) => {
+  book: async (_parent, args, ctx) => {
     // function daysBetween(date1: Date, date2: Date): number {
     //   // The number of milliseconds in one day
     //   const ONE_DAY = 1000 * 60 * 60 * 24
@@ -127,7 +123,7 @@ export const Mutation: IMutation.Resolver<Types> = {
 
     return { success: true }
   },
-  addLocationToUser: async (root, { location }, ctx) => {
+  addLocationToUser: async (_parent, { location }, ctx) => {
     const id = getUserId(ctx)
 
     const createdLocation = await ctx.db.createLocation({

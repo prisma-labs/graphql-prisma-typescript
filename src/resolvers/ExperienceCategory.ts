@@ -1,17 +1,17 @@
-import { IExperienceCategory } from '../generated/resolvers'
-import { Types } from './types'
-import { ExperienceRoot } from './Experience'
+import { ExperienceCategoryResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
+import { ExperienceParent } from './Experience'
 
-export interface ExperienceCategoryRoot {
+export interface ExperienceCategoryParent {
   id: string
   mainColor: string
   name: string
-  experience?: ExperienceRoot
+  experience?: ExperienceParent
 }
 
-export const ExperienceCategory: IExperienceCategory.Resolver<Types> = {
-  id: root => root.id,
-  mainColor: root => root.mainColor,
-  name: root => root.name,
-  experience: root => root.experience,
+export const ExperienceCategory: ExperienceCategoryResolvers.Type<TypeMap> = {
+  id: parent => parent.id,
+  mainColor: parent => parent.mainColor,
+  name: parent => parent.name,
+  experience: parent => parent.experience,
 }

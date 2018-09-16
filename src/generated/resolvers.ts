@@ -1,12 +1,6 @@
 import { GraphQLResolveInfo } from 'graphql'
 
-export interface ResolverFn<Root, Args, Ctx, Payload> {
-  (root: Root, args: Args, ctx: Ctx, info: GraphQLResolveInfo):
-    | Payload
-    | Promise<Payload>
-}
-
-export interface ITypes {
+export interface ITypeMap {
   Context: any
   PAYMENT_PROVIDER: any
   PLACE_SIZES: any
@@ -14,120 +8,882 @@ export interface ITypes {
   CURRENCY: any
   MutationType: any
 
-  QueryRoot: any
-  MutationRoot: any
-  SubscriptionRoot: any
-  ViewerRoot: any
-  AuthPayloadRoot: any
-  MutationResultRoot: any
-  ExperiencesByCityRoot: any
-  HomeRoot: any
-  ReservationRoot: any
-  ExperienceRoot: any
-  ReviewRoot: any
-  NeighbourhoodRoot: any
-  LocationRoot: any
-  PictureRoot: any
-  CityRoot: any
-  ExperienceCategoryRoot: any
-  UserRoot: any
-  PaymentAccountRoot: any
-  PlaceRoot: any
-  BookingRoot: any
-  NotificationRoot: any
-  PaymentRoot: any
-  PaypalInformationRoot: any
-  CreditCardInformationRoot: any
-  MessageRoot: any
-  PricingRoot: any
-  PlaceViewsRoot: any
-  GuestRequirementsRoot: any
-  PoliciesRoot: any
-  HouseRulesRoot: any
-  AmenitiesRoot: any
-  CitySubscriptionPayloadRoot: any
-  CityPreviousValuesRoot: any
+  QueryParent: any
+  MutationParent: any
+  SubscriptionParent: any
+  ViewerParent: any
+  AuthPayloadParent: any
+  MutationResultParent: any
+  ExperiencesByCityParent: any
+  HomeParent: any
+  ReservationParent: any
+  ExperienceParent: any
+  ReviewParent: any
+  NeighbourhoodParent: any
+  LocationParent: any
+  PictureParent: any
+  CityParent: any
+  ExperienceCategoryParent: any
+  UserParent: any
+  PaymentAccountParent: any
+  PlaceParent: any
+  BookingParent: any
+  NotificationParent: any
+  PaymentParent: any
+  PaypalInformationParent: any
+  CreditCardInformationParent: any
+  MessageParent: any
+  PricingParent: any
+  PlaceViewsParent: any
+  GuestRequirementsParent: any
+  PoliciesParent: any
+  HouseRulesParent: any
+  AmenitiesParent: any
+  CitySubscriptionPayloadParent: any
+  CityPreviousValuesParent: any
 }
 
-export namespace IQuery {
-  export type TopExperiencesResolver<T extends ITypes> = ResolverFn<
-    T['QueryRoot'],
-    {},
-    T['Context'],
-    T['ExperienceRoot'][]
-  >
+export interface LocationCreateInput {
+  lat: number
+  lng: number
+  address: string
+  directions: string
+  neighbourHood: string
+  user: string
+  place: string
+  experience: string
+  restaurant: string
+}
+export interface NeighbourhoodCreateOneWithoutLocationsInput {
+  create: string
+  connect: string
+}
+export interface UserCreateOneWithoutLocationInput {
+  create: string
+  connect: string
+}
+export interface PlaceCreateOneWithoutLocationInput {
+  create: string
+  connect: string
+}
+export interface ExperienceCreateOneWithoutLocationInput {
+  create: string
+  connect: string
+}
+export interface RestaurantCreateOneWithoutLocationInput {
+  create: string
+  connect: string
+}
+export interface NeighbourhoodCreateWithoutLocationsInput {
+  name: string
+  slug: string
+  featured: boolean
+  popularity: number
+  homePreview: string
+  city: string
+}
+export interface NeighbourhoodWhereUniqueInput {
+  id: string
+}
+export interface UserCreateWithoutLocationInput {
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+  phone: string
+  responseRate: number
+  responseTime: number
+  isSuperHost: boolean
+  ownedPlaces: string
+  bookings: string
+  paymentAccount: string
+  sentMessages: string
+  receivedMessages: string
+  notifications: string
+  profilePicture: string
+  hostingExperiences: string
+}
+export interface UserWhereUniqueInput {
+  id: string
+  email: string
+}
+export interface PlaceCreateWithoutLocationInput {
+  name: string
+  size: string
+  shortDescription: string
+  description: string
+  slug: string
+  maxGuests: number
+  numBedrooms: number
+  numBeds: number
+  numBaths: number
+  popularity: number
+  reviews: string
+  amenities: string
+  host: string
+  pricing: string
+  views: string
+  guestRequirements: string
+  policies: string
+  houseRules: string
+  bookings: string
+  pictures: string
+}
+export interface PlaceWhereUniqueInput {
+  id: string
+}
+export interface ExperienceCreateWithoutLocationInput {
+  title: string
+  pricePerPerson: number
+  popularity: number
+  category: string
+  host: string
+  reviews: string
+  preview: string
+}
+export interface ExperienceWhereUniqueInput {
+  id: string
+}
+export interface RestaurantCreateWithoutLocationInput {
+  title: string
+  avgPricePerPerson: number
+  isCurated: boolean
+  slug: string
+  popularity: number
+  pictures: string
+}
+export interface RestaurantWhereUniqueInput {
+  id: string
+}
+export interface PictureCreateOneInput {
+  create: string
+  connect: string
+}
+export interface CityCreateOneWithoutNeighbourhoodsInput {
+  create: string
+  connect: string
+}
+export interface PlaceCreateManyWithoutHostInput {
+  create: string
+  connect: string
+}
+export interface BookingCreateManyWithoutBookeeInput {
+  create: string
+  connect: string
+}
+export interface PaymentAccountCreateManyWithoutUserInput {
+  create: string
+  connect: string
+}
+export interface MessageCreateManyWithoutFromInput {
+  create: string
+  connect: string
+}
+export interface MessageCreateManyWithoutToInput {
+  create: string
+  connect: string
+}
+export interface NotificationCreateManyWithoutUserInput {
+  create: string
+  connect: string
+}
+export interface ExperienceCreateManyWithoutHostInput {
+  create: string
+  connect: string
+}
+export interface ReviewCreateManyWithoutPlaceInput {
+  create: string
+  connect: string
+}
+export interface AmenitiesCreateOneWithoutPlaceInput {
+  create: string
+  connect: string
+}
+export interface UserCreateOneWithoutOwnedPlacesInput {
+  create: string
+  connect: string
+}
+export interface PricingCreateOneWithoutPlaceInput {
+  create: string
+  connect: string
+}
+export interface ViewsCreateOneWithoutPlaceInput {
+  create: string
+  connect: string
+}
+export interface GuestRequirementsCreateOneWithoutPlaceInput {
+  create: string
+  connect: string
+}
+export interface PoliciesCreateOneWithoutPlaceInput {
+  create: string
+  connect: string
+}
+export interface HouseRulesCreateOneInput {
+  create: string
+  connect: string
+}
+export interface BookingCreateManyWithoutPlaceInput {
+  create: string
+  connect: string
+}
+export interface PictureCreateManyInput {
+  create: string
+  connect: string
+}
+export interface ExperienceCategoryCreateOneWithoutExperienceInput {
+  create: string
+  connect: string
+}
+export interface UserCreateOneWithoutHostingExperiencesInput {
+  create: string
+  connect: string
+}
+export interface ReviewCreateManyWithoutExperienceInput {
+  create: string
+  connect: string
+}
+export interface PictureCreateInput {
+  url: string
+}
+export interface PictureWhereUniqueInput {
+  id: string
+}
+export interface CityCreateWithoutNeighbourhoodsInput {
+  name: string
+}
+export interface CityWhereUniqueInput {
+  id: string
+}
+export interface PlaceCreateWithoutHostInput {
+  name: string
+  size: string
+  shortDescription: string
+  description: string
+  slug: string
+  maxGuests: number
+  numBedrooms: number
+  numBeds: number
+  numBaths: number
+  popularity: number
+  reviews: string
+  amenities: string
+  pricing: string
+  location: string
+  views: string
+  guestRequirements: string
+  policies: string
+  houseRules: string
+  bookings: string
+  pictures: string
+}
+export interface BookingCreateWithoutBookeeInput {
+  startDate: string
+  endDate: string
+  place: string
+  payment: string
+}
+export interface BookingWhereUniqueInput {
+  id: string
+}
+export interface PaymentAccountCreateWithoutUserInput {
+  type: string
+  payments: string
+  paypal: string
+  creditcard: string
+}
+export interface PaymentAccountWhereUniqueInput {
+  id: string
+}
+export interface MessageCreateWithoutFromInput {
+  deliveredAt: string
+  readAt: string
+  to: string
+}
+export interface MessageWhereUniqueInput {
+  id: string
+}
+export interface MessageCreateWithoutToInput {
+  deliveredAt: string
+  readAt: string
+  from: string
+}
+export interface NotificationCreateWithoutUserInput {
+  type: string
+  link: string
+  readDate: string
+}
+export interface NotificationWhereUniqueInput {
+  id: string
+}
+export interface ExperienceCreateWithoutHostInput {
+  title: string
+  pricePerPerson: number
+  popularity: number
+  category: string
+  location: string
+  reviews: string
+  preview: string
+}
+export interface ReviewCreateWithoutPlaceInput {
+  text: string
+  stars: number
+  accuracy: number
+  location: number
+  checkIn: number
+  value: number
+  cleanliness: number
+  communication: number
+  experience: string
+}
+export interface ReviewWhereUniqueInput {
+  id: string
+}
+export interface AmenitiesCreateWithoutPlaceInput {
+  elevator: boolean
+  petsAllowed: boolean
+  internet: boolean
+  kitchen: boolean
+  wirelessInternet: boolean
+  familyKidFriendly: boolean
+  freeParkingOnPremises: boolean
+  hotTub: boolean
+  pool: boolean
+  smokingAllowed: boolean
+  wheelchairAccessible: boolean
+  breakfast: boolean
+  cableTv: boolean
+  suitableForEvents: boolean
+  dryer: boolean
+  washer: boolean
+  indoorFireplace: boolean
+  tv: boolean
+  heating: boolean
+  hangers: boolean
+  iron: boolean
+  hairDryer: boolean
+  doorman: boolean
+  paidParkingOffPremises: boolean
+  freeParkingOnStreet: boolean
+  gym: boolean
+  airConditioning: boolean
+  shampoo: boolean
+  essentials: boolean
+  laptopFriendlyWorkspace: boolean
+  privateEntrance: boolean
+  buzzerWirelessIntercom: boolean
+  babyBath: boolean
+  babyMonitor: boolean
+  babysitterRecommendations: boolean
+  bathtub: boolean
+  changingTable: boolean
+  childrensBooksAndToys: boolean
+  childrensDinnerware: boolean
+  crib: boolean
+}
+export interface AmenitiesWhereUniqueInput {
+  id: string
+}
+export interface UserCreateWithoutOwnedPlacesInput {
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+  phone: string
+  responseRate: number
+  responseTime: number
+  isSuperHost: boolean
+  location: string
+  bookings: string
+  paymentAccount: string
+  sentMessages: string
+  receivedMessages: string
+  notifications: string
+  profilePicture: string
+  hostingExperiences: string
+}
+export interface PricingCreateWithoutPlaceInput {
+  monthlyDiscount: number
+  weeklyDiscount: number
+  perNight: number
+  smartPricing: boolean
+  basePrice: number
+  averageWeekly: number
+  averageMonthly: number
+  cleaningFee: number
+  securityDeposit: number
+  extraGuests: number
+  weekendPricing: number
+  currency: string
+}
+export interface PricingWhereUniqueInput {
+  id: string
+}
+export interface ViewsCreateWithoutPlaceInput {
+  lastWeek: number
+}
+export interface ViewsWhereUniqueInput {
+  id: string
+}
+export interface GuestRequirementsCreateWithoutPlaceInput {
+  govIssuedId: boolean
+  recommendationsFromOtherHosts: boolean
+  guestTripInformation: boolean
+}
+export interface GuestRequirementsWhereUniqueInput {
+  id: string
+}
+export interface PoliciesCreateWithoutPlaceInput {
+  checkInStartTime: number
+  checkInEndTime: number
+  checkoutTime: number
+}
+export interface PoliciesWhereUniqueInput {
+  id: string
+}
+export interface HouseRulesCreateInput {
+  suitableForChildren: boolean
+  suitableForInfants: boolean
+  petsAllowed: boolean
+  smokingAllowed: boolean
+  partiesAndEventsAllowed: boolean
+  additionalRules: string
+}
+export interface HouseRulesWhereUniqueInput {
+  id: string
+}
+export interface BookingCreateWithoutPlaceInput {
+  startDate: string
+  endDate: string
+  bookee: string
+  payment: string
+}
+export interface ExperienceCategoryCreateWithoutExperienceInput {
+  mainColor: string
+  name: string
+}
+export interface ExperienceCategoryWhereUniqueInput {
+  id: string
+}
+export interface UserCreateWithoutHostingExperiencesInput {
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+  phone: string
+  responseRate: number
+  responseTime: number
+  isSuperHost: boolean
+  ownedPlaces: string
+  location: string
+  bookings: string
+  paymentAccount: string
+  sentMessages: string
+  receivedMessages: string
+  notifications: string
+  profilePicture: string
+}
+export interface ReviewCreateWithoutExperienceInput {
+  text: string
+  stars: number
+  accuracy: number
+  location: number
+  checkIn: number
+  value: number
+  cleanliness: number
+  communication: number
+  place: string
+}
+export interface LocationCreateOneWithoutPlaceInput {
+  create: string
+  connect: string
+}
+export interface PlaceCreateOneWithoutBookingsInput {
+  create: string
+  connect: string
+}
+export interface PaymentCreateOneWithoutBookingInput {
+  create: string
+  connect: string
+}
+export interface PaymentCreateManyWithoutPaymentMethodInput {
+  create: string
+  connect: string
+}
+export interface PaypalInformationCreateOneWithoutPaymentAccountInput {
+  create: string
+  connect: string
+}
+export interface CreditCardInformationCreateOneWithoutPaymentAccountInput {
+  create: string
+  connect: string
+}
+export interface UserCreateOneWithoutReceivedMessagesInput {
+  create: string
+  connect: string
+}
+export interface UserCreateOneWithoutSentMessagesInput {
+  create: string
+  connect: string
+}
+export interface LocationCreateOneWithoutExperienceInput {
+  create: string
+  connect: string
+}
+export interface ExperienceCreateOneWithoutReviewsInput {
+  create: string
+  connect: string
+}
+export interface LocationCreateOneWithoutUserInput {
+  create: string
+  connect: string
+}
+export interface UserCreateOneWithoutBookingsInput {
+  create: string
+  connect: string
+}
+export interface PlaceCreateOneWithoutReviewsInput {
+  create: string
+  connect: string
+}
+export interface LocationCreateWithoutPlaceInput {
+  lat: number
+  lng: number
+  address: string
+  directions: string
+  neighbourHood: string
+  user: string
+  experience: string
+  restaurant: string
+}
+export interface LocationWhereUniqueInput {
+  id: string
+}
+export interface PlaceCreateWithoutBookingsInput {
+  name: string
+  size: string
+  shortDescription: string
+  description: string
+  slug: string
+  maxGuests: number
+  numBedrooms: number
+  numBeds: number
+  numBaths: number
+  popularity: number
+  reviews: string
+  amenities: string
+  host: string
+  pricing: string
+  location: string
+  views: string
+  guestRequirements: string
+  policies: string
+  houseRules: string
+  pictures: string
+}
+export interface PaymentCreateWithoutBookingInput {
+  serviceFee: number
+  placePrice: number
+  totalPrice: number
+  paymentMethod: string
+}
+export interface PaymentWhereUniqueInput {
+  id: string
+}
+export interface PaymentCreateWithoutPaymentMethodInput {
+  serviceFee: number
+  placePrice: number
+  totalPrice: number
+  booking: string
+}
+export interface PaypalInformationCreateWithoutPaymentAccountInput {
+  email: string
+}
+export interface PaypalInformationWhereUniqueInput {
+  id: string
+}
+export interface CreditCardInformationCreateWithoutPaymentAccountInput {
+  cardNumber: string
+  expiresOnMonth: number
+  expiresOnYear: number
+  securityCode: string
+  firstName: string
+  lastName: string
+  postalCode: string
+  country: string
+}
+export interface CreditCardInformationWhereUniqueInput {
+  id: string
+}
+export interface UserCreateWithoutReceivedMessagesInput {
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+  phone: string
+  responseRate: number
+  responseTime: number
+  isSuperHost: boolean
+  ownedPlaces: string
+  location: string
+  bookings: string
+  paymentAccount: string
+  sentMessages: string
+  notifications: string
+  profilePicture: string
+  hostingExperiences: string
+}
+export interface UserCreateWithoutSentMessagesInput {
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+  phone: string
+  responseRate: number
+  responseTime: number
+  isSuperHost: boolean
+  ownedPlaces: string
+  location: string
+  bookings: string
+  paymentAccount: string
+  receivedMessages: string
+  notifications: string
+  profilePicture: string
+  hostingExperiences: string
+}
+export interface LocationCreateWithoutExperienceInput {
+  lat: number
+  lng: number
+  address: string
+  directions: string
+  neighbourHood: string
+  user: string
+  place: string
+  restaurant: string
+}
+export interface ExperienceCreateWithoutReviewsInput {
+  title: string
+  pricePerPerson: number
+  popularity: number
+  category: string
+  host: string
+  location: string
+  preview: string
+}
+export interface LocationCreateWithoutUserInput {
+  lat: number
+  lng: number
+  address: string
+  directions: string
+  neighbourHood: string
+  place: string
+  experience: string
+  restaurant: string
+}
+export interface UserCreateWithoutBookingsInput {
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+  phone: string
+  responseRate: number
+  responseTime: number
+  isSuperHost: boolean
+  ownedPlaces: string
+  location: string
+  paymentAccount: string
+  sentMessages: string
+  receivedMessages: string
+  notifications: string
+  profilePicture: string
+  hostingExperiences: string
+}
+export interface PlaceCreateWithoutReviewsInput {
+  name: string
+  size: string
+  shortDescription: string
+  description: string
+  slug: string
+  maxGuests: number
+  numBedrooms: number
+  numBeds: number
+  numBaths: number
+  popularity: number
+  amenities: string
+  host: string
+  pricing: string
+  location: string
+  views: string
+  guestRequirements: string
+  policies: string
+  houseRules: string
+  bookings: string
+  pictures: string
+}
+export interface PaymentAccountCreateOneWithoutPaymentsInput {
+  create: string
+  connect: string
+}
+export interface BookingCreateOneWithoutPaymentInput {
+  create: string
+  connect: string
+}
+export interface PaymentAccountCreateWithoutPaymentsInput {
+  type: string
+  user: string
+  paypal: string
+  creditcard: string
+}
+export interface BookingCreateWithoutPaymentInput {
+  startDate: string
+  endDate: string
+  bookee: string
+  place: string
+}
+export interface UserCreateOneWithoutPaymentAccountInput {
+  create: string
+  connect: string
+}
+export interface UserCreateWithoutPaymentAccountInput {
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+  phone: string
+  responseRate: number
+  responseTime: number
+  isSuperHost: boolean
+  ownedPlaces: string
+  location: string
+  bookings: string
+  sentMessages: string
+  receivedMessages: string
+  notifications: string
+  profilePicture: string
+  hostingExperiences: string
+}
 
-  export type TopHomesResolver<T extends ITypes> = ResolverFn<
-    T['QueryRoot'],
-    {},
-    T['Context'],
-    T['HomeRoot'][]
-  >
+export namespace QueryResolvers {
+  export type TopExperiencesType<T extends ITypeMap> = (
+    parent: T['QueryParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['ExperienceParent'][] | Promise<T['ExperienceParent'][]>
+
+  export type TopHomesType<T extends ITypeMap> = (
+    parent: T['QueryParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['HomeParent'][] | Promise<T['HomeParent'][]>
 
   export interface ArgsHomesInPriceRange {
     min: number
     max: number
   }
 
-  export type HomesInPriceRangeResolver<T extends ITypes> = ResolverFn<
-    T['QueryRoot'],
-    ArgsHomesInPriceRange,
-    T['Context'],
-    T['HomeRoot'][]
-  >
+  export type HomesInPriceRangeType<T extends ITypeMap> = (
+    parent: T['QueryParent'],
+    args: ArgsHomesInPriceRange,
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['HomeParent'][] | Promise<T['HomeParent'][]>
 
-  export type TopReservationsResolver<T extends ITypes> = ResolverFn<
-    T['QueryRoot'],
-    {},
-    T['Context'],
-    T['ReservationRoot'][]
-  >
+  export type TopReservationsType<T extends ITypeMap> = (
+    parent: T['QueryParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['ReservationParent'][] | Promise<T['ReservationParent'][]>
 
-  export type FeaturedDestinationsResolver<T extends ITypes> = ResolverFn<
-    T['QueryRoot'],
-    {},
-    T['Context'],
-    T['NeighbourhoodRoot'][]
-  >
+  export type FeaturedDestinationsType<T extends ITypeMap> = (
+    parent: T['QueryParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['NeighbourhoodParent'][] | Promise<T['NeighbourhoodParent'][]>
 
   export interface ArgsExperiencesByCity {
     cities: string[]
   }
 
-  export type ExperiencesByCityResolver<T extends ITypes> = ResolverFn<
-    T['QueryRoot'],
-    ArgsExperiencesByCity,
-    T['Context'],
-    T['ExperiencesByCityRoot'][]
-  >
+  export type ExperiencesByCityType<T extends ITypeMap> = (
+    parent: T['QueryParent'],
+    args: ArgsExperiencesByCity,
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['ExperiencesByCityParent'][] | Promise<T['ExperiencesByCityParent'][]>
 
-  export type ViewerResolver<T extends ITypes> = ResolverFn<
-    T['QueryRoot'],
-    {},
-    T['Context'],
-    T['ViewerRoot'] | null
-  >
+  export type ViewerType<T extends ITypeMap> = (
+    parent: T['QueryParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['ViewerParent'] | null | Promise<T['ViewerParent'] | null>
 
-  export type MyLocationResolver<T extends ITypes> = ResolverFn<
-    T['QueryRoot'],
-    {},
-    T['Context'],
-    T['LocationRoot'] | null
-  >
+  export type MyLocationType<T extends ITypeMap> = (
+    parent: T['QueryParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['LocationParent'] | null | Promise<T['LocationParent'] | null>
 
-  export interface Resolver<T extends ITypes> {
-    topExperiences: TopExperiencesResolver<T>
-    topHomes: TopHomesResolver<T>
-    homesInPriceRange: HomesInPriceRangeResolver<T>
-    topReservations: TopReservationsResolver<T>
-    featuredDestinations: FeaturedDestinationsResolver<T>
-    experiencesByCity: ExperiencesByCityResolver<T>
-    viewer: ViewerResolver<T>
-    myLocation: MyLocationResolver<T>
+  export interface Type<T extends ITypeMap> {
+    topExperiences: (
+      parent: T['QueryParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['ExperienceParent'][] | Promise<T['ExperienceParent'][]>
+    topHomes: (
+      parent: T['QueryParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['HomeParent'][] | Promise<T['HomeParent'][]>
+    homesInPriceRange: (
+      parent: T['QueryParent'],
+      args: ArgsHomesInPriceRange,
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['HomeParent'][] | Promise<T['HomeParent'][]>
+    topReservations: (
+      parent: T['QueryParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['ReservationParent'][] | Promise<T['ReservationParent'][]>
+    featuredDestinations: (
+      parent: T['QueryParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['NeighbourhoodParent'][] | Promise<T['NeighbourhoodParent'][]>
+    experiencesByCity: (
+      parent: T['QueryParent'],
+      args: ArgsExperiencesByCity,
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) =>
+      | T['ExperiencesByCityParent'][]
+      | Promise<T['ExperiencesByCityParent'][]>
+    viewer: (
+      parent: T['QueryParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['ViewerParent'] | null | Promise<T['ViewerParent'] | null>
+    myLocation: (
+      parent: T['QueryParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['LocationParent'] | null | Promise<T['LocationParent'] | null>
   }
 }
 
-export namespace IMutation {
+export namespace MutationResolvers {
   export interface ArgsSignup {
     email: string
     password: string
@@ -136,24 +892,24 @@ export namespace IMutation {
     phone: string
   }
 
-  export type SignupResolver<T extends ITypes> = ResolverFn<
-    T['MutationRoot'],
-    ArgsSignup,
-    T['Context'],
-    T['AuthPayloadRoot']
-  >
+  export type SignupType<T extends ITypeMap> = (
+    parent: T['MutationParent'],
+    args: ArgsSignup,
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['AuthPayloadParent'] | Promise<T['AuthPayloadParent']>
 
   export interface ArgsLogin {
     email: string
     password: string
   }
 
-  export type LoginResolver<T extends ITypes> = ResolverFn<
-    T['MutationRoot'],
-    ArgsLogin,
-    T['Context'],
-    T['AuthPayloadRoot']
-  >
+  export type LoginType<T extends ITypeMap> = (
+    parent: T['MutationParent'],
+    args: ArgsLogin,
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['AuthPayloadParent'] | Promise<T['AuthPayloadParent']>
 
   export interface ArgsAddPaymentMethod {
     cardNumber: string
@@ -166,12 +922,12 @@ export namespace IMutation {
     country: string
   }
 
-  export type AddPaymentMethodResolver<T extends ITypes> = ResolverFn<
-    T['MutationRoot'],
-    ArgsAddPaymentMethod,
-    T['Context'],
-    T['MutationResultRoot']
-  >
+  export type AddPaymentMethodType<T extends ITypeMap> = (
+    parent: T['MutationParent'],
+    args: ArgsAddPaymentMethod,
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['MutationResultParent'] | Promise<T['MutationResultParent']>
 
   export interface ArgsBook {
     placeId: string
@@ -180,2045 +936,3267 @@ export namespace IMutation {
     numGuests: number
   }
 
-  export type BookResolver<T extends ITypes> = ResolverFn<
-    T['MutationRoot'],
-    ArgsBook,
-    T['Context'],
-    T['MutationResultRoot']
-  >
+  export type BookType<T extends ITypeMap> = (
+    parent: T['MutationParent'],
+    args: ArgsBook,
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['MutationResultParent'] | Promise<T['MutationResultParent']>
 
   export interface ArgsAddLocationToUser {
-    location: T['LocationCreateInputRoot'] | null
+    location: LocationCreateInput | null
   }
 
-  export type AddLocationToUserResolver<T extends ITypes> = ResolverFn<
-    T['MutationRoot'],
-    ArgsAddLocationToUser,
-    T['Context'],
-    T['MutationResultRoot'] | null
-  >
+  export type AddLocationToUserType<T extends ITypeMap> = (
+    parent: T['MutationParent'],
+    args: ArgsAddLocationToUser,
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) =>
+    | T['MutationResultParent']
+    | null
+    | Promise<T['MutationResultParent'] | null>
 
-  export interface Resolver<T extends ITypes> {
-    signup: SignupResolver<T>
-    login: LoginResolver<T>
-    addPaymentMethod: AddPaymentMethodResolver<T>
-    book: BookResolver<T>
-    addLocationToUser: AddLocationToUserResolver<T>
-  }
-}
-
-export namespace ISubscription {
-  export type CityResolver<T extends ITypes> = ResolverFn<
-    T['SubscriptionRoot'],
-    {},
-    T['Context'],
-    T['CitySubscriptionPayloadRoot'] | null
-  >
-
-  export interface Resolver<T extends ITypes> {
-    city: CityResolver<T>
-  }
-}
-
-export namespace IViewer {
-  export type MeResolver<T extends ITypes> = ResolverFn<
-    T['ViewerRoot'],
-    {},
-    T['Context'],
-    T['UserRoot']
-  >
-
-  export type BookingsResolver<T extends ITypes> = ResolverFn<
-    T['ViewerRoot'],
-    {},
-    T['Context'],
-    T['BookingRoot'][]
-  >
-
-  export interface Resolver<T extends ITypes> {
-    me: MeResolver<T>
-    bookings: BookingsResolver<T>
+  export interface Type<T extends ITypeMap> {
+    signup: (
+      parent: T['MutationParent'],
+      args: ArgsSignup,
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['AuthPayloadParent'] | Promise<T['AuthPayloadParent']>
+    login: (
+      parent: T['MutationParent'],
+      args: ArgsLogin,
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['AuthPayloadParent'] | Promise<T['AuthPayloadParent']>
+    addPaymentMethod: (
+      parent: T['MutationParent'],
+      args: ArgsAddPaymentMethod,
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['MutationResultParent'] | Promise<T['MutationResultParent']>
+    book: (
+      parent: T['MutationParent'],
+      args: ArgsBook,
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['MutationResultParent'] | Promise<T['MutationResultParent']>
+    addLocationToUser: (
+      parent: T['MutationParent'],
+      args: ArgsAddLocationToUser,
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) =>
+      | T['MutationResultParent']
+      | null
+      | Promise<T['MutationResultParent'] | null>
   }
 }
 
-export namespace IAuthPayload {
-  export type TokenResolver<T extends ITypes> = ResolverFn<
-    T['AuthPayloadRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace SubscriptionResolvers {
+  export type CityType<T extends ITypeMap> = (
+    parent: T['SubscriptionParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) =>
+    | T['CitySubscriptionPayloadParent']
+    | null
+    | Promise<T['CitySubscriptionPayloadParent'] | null>
 
-  export type UserResolver<T extends ITypes> = ResolverFn<
-    T['AuthPayloadRoot'],
-    {},
-    T['Context'],
-    T['UserRoot']
-  >
-
-  export interface Resolver<T extends ITypes> {
-    token: TokenResolver<T>
-    user: UserResolver<T>
+  export interface Type<T extends ITypeMap> {
+    city: (
+      parent: T['SubscriptionParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) =>
+      | T['CitySubscriptionPayloadParent']
+      | null
+      | Promise<T['CitySubscriptionPayloadParent'] | null>
   }
 }
 
-export namespace IMutationResult {
-  export type SuccessResolver<T extends ITypes> = ResolverFn<
-    T['MutationResultRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+export namespace ViewerResolvers {
+  export type MeType<T extends ITypeMap> = (
+    parent: T['ViewerParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['UserParent'] | Promise<T['UserParent']>
 
-  export interface Resolver<T extends ITypes> {
-    success: SuccessResolver<T>
+  export type BookingsType<T extends ITypeMap> = (
+    parent: T['ViewerParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['BookingParent'][] | Promise<T['BookingParent'][]>
+
+  export interface Type<T extends ITypeMap> {
+    me: (
+      parent: T['ViewerParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['UserParent'] | Promise<T['UserParent']>
+    bookings: (
+      parent: T['ViewerParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['BookingParent'][] | Promise<T['BookingParent'][]>
   }
 }
 
-export namespace IExperiencesByCity {
-  export type ExperiencesResolver<T extends ITypes> = ResolverFn<
-    T['ExperiencesByCityRoot'],
-    {},
-    T['Context'],
-    T['ExperienceRoot'][]
-  >
+export namespace AuthPayloadResolvers {
+  export type TokenType<T extends ITypeMap> = (
+    parent: T['AuthPayloadParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type CityResolver<T extends ITypes> = ResolverFn<
-    T['ExperiencesByCityRoot'],
-    {},
-    T['Context'],
-    T['CityRoot']
-  >
+  export type UserType<T extends ITypeMap> = (
+    parent: T['AuthPayloadParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['UserParent'] | Promise<T['UserParent']>
 
-  export interface Resolver<T extends ITypes> {
-    experiences: ExperiencesResolver<T>
-    city: CityResolver<T>
+  export interface Type<T extends ITypeMap> {
+    token: (
+      parent: T['AuthPayloadParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    user: (
+      parent: T['AuthPayloadParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['UserParent'] | Promise<T['UserParent']>
   }
 }
 
-export namespace IHome {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['HomeRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace MutationResultResolvers {
+  export type SuccessType<T extends ITypeMap> = (
+    parent: T['MutationResultParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type NameResolver<T extends ITypes> = ResolverFn<
-    T['HomeRoot'],
-    {},
-    T['Context'],
-    string | null
-  >
+  export interface Type<T extends ITypeMap> {
+    success: (
+      parent: T['MutationResultParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+  }
+}
 
-  export type DescriptionResolver<T extends ITypes> = ResolverFn<
-    T['HomeRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace ExperiencesByCityResolvers {
+  export type ExperiencesType<T extends ITypeMap> = (
+    parent: T['ExperiencesByCityParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['ExperienceParent'][] | Promise<T['ExperienceParent'][]>
 
-  export type NumRatingsResolver<T extends ITypes> = ResolverFn<
-    T['HomeRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type CityType<T extends ITypeMap> = (
+    parent: T['ExperiencesByCityParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['CityParent'] | Promise<T['CityParent']>
 
-  export type AvgRatingResolver<T extends ITypes> = ResolverFn<
-    T['HomeRoot'],
-    {},
-    T['Context'],
-    number | null
-  >
+  export interface Type<T extends ITypeMap> {
+    experiences: (
+      parent: T['ExperiencesByCityParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['ExperienceParent'][] | Promise<T['ExperienceParent'][]>
+    city: (
+      parent: T['ExperiencesByCityParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['CityParent'] | Promise<T['CityParent']>
+  }
+}
+
+export namespace HomeResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['HomeParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
+
+  export type NameType<T extends ITypeMap> = (
+    parent: T['HomeParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | null | Promise<string | null>
+
+  export type DescriptionType<T extends ITypeMap> = (
+    parent: T['HomeParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
+
+  export type NumRatingsType<T extends ITypeMap> = (
+    parent: T['HomeParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
+
+  export type AvgRatingType<T extends ITypeMap> = (
+    parent: T['HomeParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | null | Promise<number | null>
 
   export interface ArgsPictures {
     first: number | null
   }
 
-  export type PicturesResolver<T extends ITypes> = ResolverFn<
-    T['HomeRoot'],
-    ArgsPictures,
-    T['Context'],
-    T['PictureRoot'][]
-  >
+  export type PicturesType<T extends ITypeMap> = (
+    parent: T['HomeParent'],
+    args: ArgsPictures,
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PictureParent'][] | Promise<T['PictureParent'][]>
 
-  export type PerNightResolver<T extends ITypes> = ResolverFn<
-    T['HomeRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type PerNightType<T extends ITypeMap> = (
+    parent: T['HomeParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    name: NameResolver<T>
-    description: DescriptionResolver<T>
-    numRatings: NumRatingsResolver<T>
-    avgRating: AvgRatingResolver<T>
-    pictures: PicturesResolver<T>
-    perNight: PerNightResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['HomeParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    name: (
+      parent: T['HomeParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | null | Promise<string | null>
+    description: (
+      parent: T['HomeParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    numRatings: (
+      parent: T['HomeParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    avgRating: (
+      parent: T['HomeParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | null | Promise<number | null>
+    pictures: (
+      parent: T['HomeParent'],
+      args: ArgsPictures,
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PictureParent'][] | Promise<T['PictureParent'][]>
+    perNight: (
+      parent: T['HomeParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
   }
 }
 
-export namespace IReservation {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['ReservationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace ReservationResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['ReservationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type TitleResolver<T extends ITypes> = ResolverFn<
-    T['ReservationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type TitleType<T extends ITypeMap> = (
+    parent: T['ReservationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type AvgPricePerPersonResolver<T extends ITypes> = ResolverFn<
-    T['ReservationRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type AvgPricePerPersonType<T extends ITypeMap> = (
+    parent: T['ReservationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type PicturesResolver<T extends ITypes> = ResolverFn<
-    T['ReservationRoot'],
-    {},
-    T['Context'],
-    T['PictureRoot'][]
-  >
+  export type PicturesType<T extends ITypeMap> = (
+    parent: T['ReservationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PictureParent'][] | Promise<T['PictureParent'][]>
 
-  export type LocationResolver<T extends ITypes> = ResolverFn<
-    T['ReservationRoot'],
-    {},
-    T['Context'],
-    T['LocationRoot']
-  >
+  export type LocationType<T extends ITypeMap> = (
+    parent: T['ReservationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['LocationParent'] | Promise<T['LocationParent']>
 
-  export type IsCuratedResolver<T extends ITypes> = ResolverFn<
-    T['ReservationRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type IsCuratedType<T extends ITypeMap> = (
+    parent: T['ReservationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type SlugResolver<T extends ITypes> = ResolverFn<
-    T['ReservationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type SlugType<T extends ITypeMap> = (
+    parent: T['ReservationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type PopularityResolver<T extends ITypes> = ResolverFn<
-    T['ReservationRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type PopularityType<T extends ITypeMap> = (
+    parent: T['ReservationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    title: TitleResolver<T>
-    avgPricePerPerson: AvgPricePerPersonResolver<T>
-    pictures: PicturesResolver<T>
-    location: LocationResolver<T>
-    isCurated: IsCuratedResolver<T>
-    slug: SlugResolver<T>
-    popularity: PopularityResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['ReservationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    title: (
+      parent: T['ReservationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    avgPricePerPerson: (
+      parent: T['ReservationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    pictures: (
+      parent: T['ReservationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PictureParent'][] | Promise<T['PictureParent'][]>
+    location: (
+      parent: T['ReservationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['LocationParent'] | Promise<T['LocationParent']>
+    isCurated: (
+      parent: T['ReservationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    slug: (
+      parent: T['ReservationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    popularity: (
+      parent: T['ReservationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
   }
 }
 
-export namespace IExperience {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace ExperienceResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['ExperienceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type CategoryResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceRoot'],
-    {},
-    T['Context'],
-    T['ExperienceCategoryRoot'] | null
-  >
+  export type CategoryType<T extends ITypeMap> = (
+    parent: T['ExperienceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) =>
+    | T['ExperienceCategoryParent']
+    | null
+    | Promise<T['ExperienceCategoryParent'] | null>
 
-  export type TitleResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type TitleType<T extends ITypeMap> = (
+    parent: T['ExperienceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type LocationResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceRoot'],
-    {},
-    T['Context'],
-    T['LocationRoot']
-  >
+  export type LocationType<T extends ITypeMap> = (
+    parent: T['ExperienceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['LocationParent'] | Promise<T['LocationParent']>
 
-  export type PricePerPersonResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type PricePerPersonType<T extends ITypeMap> = (
+    parent: T['ExperienceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type ReviewsResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceRoot'],
-    {},
-    T['Context'],
-    T['ReviewRoot'][]
-  >
+  export type ReviewsType<T extends ITypeMap> = (
+    parent: T['ExperienceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['ReviewParent'][] | Promise<T['ReviewParent'][]>
 
-  export type PreviewResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceRoot'],
-    {},
-    T['Context'],
-    T['PictureRoot']
-  >
+  export type PreviewType<T extends ITypeMap> = (
+    parent: T['ExperienceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PictureParent'] | Promise<T['PictureParent']>
 
-  export type PopularityResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type PopularityType<T extends ITypeMap> = (
+    parent: T['ExperienceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    category: CategoryResolver<T>
-    title: TitleResolver<T>
-    location: LocationResolver<T>
-    pricePerPerson: PricePerPersonResolver<T>
-    reviews: ReviewsResolver<T>
-    preview: PreviewResolver<T>
-    popularity: PopularityResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['ExperienceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    category: (
+      parent: T['ExperienceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) =>
+      | T['ExperienceCategoryParent']
+      | null
+      | Promise<T['ExperienceCategoryParent'] | null>
+    title: (
+      parent: T['ExperienceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    location: (
+      parent: T['ExperienceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['LocationParent'] | Promise<T['LocationParent']>
+    pricePerPerson: (
+      parent: T['ExperienceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    reviews: (
+      parent: T['ExperienceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['ReviewParent'][] | Promise<T['ReviewParent'][]>
+    preview: (
+      parent: T['ExperienceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PictureParent'] | Promise<T['PictureParent']>
+    popularity: (
+      parent: T['ExperienceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
   }
 }
 
-export namespace IReview {
-  export type AccuracyResolver<T extends ITypes> = ResolverFn<
-    T['ReviewRoot'],
-    {},
-    T['Context'],
-    number
-  >
+export namespace ReviewResolvers {
+  export type AccuracyType<T extends ITypeMap> = (
+    parent: T['ReviewParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type CheckInResolver<T extends ITypes> = ResolverFn<
-    T['ReviewRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type CheckInType<T extends ITypeMap> = (
+    parent: T['ReviewParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type CleanlinessResolver<T extends ITypes> = ResolverFn<
-    T['ReviewRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type CleanlinessType<T extends ITypeMap> = (
+    parent: T['ReviewParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type CommunicationResolver<T extends ITypes> = ResolverFn<
-    T['ReviewRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type CommunicationType<T extends ITypeMap> = (
+    parent: T['ReviewParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['ReviewRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['ReviewParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['ReviewRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['ReviewParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type LocationResolver<T extends ITypes> = ResolverFn<
-    T['ReviewRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type LocationType<T extends ITypeMap> = (
+    parent: T['ReviewParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type StarsResolver<T extends ITypes> = ResolverFn<
-    T['ReviewRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type StarsType<T extends ITypeMap> = (
+    parent: T['ReviewParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type TextResolver<T extends ITypes> = ResolverFn<
-    T['ReviewRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type TextType<T extends ITypeMap> = (
+    parent: T['ReviewParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type ValueResolver<T extends ITypes> = ResolverFn<
-    T['ReviewRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type ValueType<T extends ITypeMap> = (
+    parent: T['ReviewParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export interface Resolver<T extends ITypes> {
-    accuracy: AccuracyResolver<T>
-    checkIn: CheckInResolver<T>
-    cleanliness: CleanlinessResolver<T>
-    communication: CommunicationResolver<T>
-    createdAt: CreatedAtResolver<T>
-    id: IdResolver<T>
-    location: LocationResolver<T>
-    stars: StarsResolver<T>
-    text: TextResolver<T>
-    value: ValueResolver<T>
+  export interface Type<T extends ITypeMap> {
+    accuracy: (
+      parent: T['ReviewParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    checkIn: (
+      parent: T['ReviewParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    cleanliness: (
+      parent: T['ReviewParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    communication: (
+      parent: T['ReviewParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    createdAt: (
+      parent: T['ReviewParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    id: (
+      parent: T['ReviewParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    location: (
+      parent: T['ReviewParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    stars: (
+      parent: T['ReviewParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    text: (
+      parent: T['ReviewParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    value: (
+      parent: T['ReviewParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
   }
 }
 
-export namespace INeighbourhood {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['NeighbourhoodRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace NeighbourhoodResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['NeighbourhoodParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type NameResolver<T extends ITypes> = ResolverFn<
-    T['NeighbourhoodRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type NameType<T extends ITypeMap> = (
+    parent: T['NeighbourhoodParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type SlugResolver<T extends ITypes> = ResolverFn<
-    T['NeighbourhoodRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type SlugType<T extends ITypeMap> = (
+    parent: T['NeighbourhoodParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type HomePreviewResolver<T extends ITypes> = ResolverFn<
-    T['NeighbourhoodRoot'],
-    {},
-    T['Context'],
-    T['PictureRoot'] | null
-  >
+  export type HomePreviewType<T extends ITypeMap> = (
+    parent: T['NeighbourhoodParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PictureParent'] | null | Promise<T['PictureParent'] | null>
 
-  export type CityResolver<T extends ITypes> = ResolverFn<
-    T['NeighbourhoodRoot'],
-    {},
-    T['Context'],
-    T['CityRoot']
-  >
+  export type CityType<T extends ITypeMap> = (
+    parent: T['NeighbourhoodParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['CityParent'] | Promise<T['CityParent']>
 
-  export type FeaturedResolver<T extends ITypes> = ResolverFn<
-    T['NeighbourhoodRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type FeaturedType<T extends ITypeMap> = (
+    parent: T['NeighbourhoodParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type PopularityResolver<T extends ITypes> = ResolverFn<
-    T['NeighbourhoodRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type PopularityType<T extends ITypeMap> = (
+    parent: T['NeighbourhoodParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    name: NameResolver<T>
-    slug: SlugResolver<T>
-    homePreview: HomePreviewResolver<T>
-    city: CityResolver<T>
-    featured: FeaturedResolver<T>
-    popularity: PopularityResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['NeighbourhoodParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    name: (
+      parent: T['NeighbourhoodParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    slug: (
+      parent: T['NeighbourhoodParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    homePreview: (
+      parent: T['NeighbourhoodParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PictureParent'] | null | Promise<T['PictureParent'] | null>
+    city: (
+      parent: T['NeighbourhoodParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['CityParent'] | Promise<T['CityParent']>
+    featured: (
+      parent: T['NeighbourhoodParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    popularity: (
+      parent: T['NeighbourhoodParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
   }
 }
 
-export namespace ILocation {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['LocationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace LocationResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['LocationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type LatResolver<T extends ITypes> = ResolverFn<
-    T['LocationRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type LatType<T extends ITypeMap> = (
+    parent: T['LocationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type LngResolver<T extends ITypes> = ResolverFn<
-    T['LocationRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type LngType<T extends ITypeMap> = (
+    parent: T['LocationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type AddressResolver<T extends ITypes> = ResolverFn<
-    T['LocationRoot'],
-    {},
-    T['Context'],
-    string | null
-  >
+  export type AddressType<T extends ITypeMap> = (
+    parent: T['LocationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | null | Promise<string | null>
 
-  export type DirectionsResolver<T extends ITypes> = ResolverFn<
-    T['LocationRoot'],
-    {},
-    T['Context'],
-    string | null
-  >
+  export type DirectionsType<T extends ITypeMap> = (
+    parent: T['LocationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | null | Promise<string | null>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    lat: LatResolver<T>
-    lng: LngResolver<T>
-    address: AddressResolver<T>
-    directions: DirectionsResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['LocationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    lat: (
+      parent: T['LocationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    lng: (
+      parent: T['LocationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    address: (
+      parent: T['LocationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | null | Promise<string | null>
+    directions: (
+      parent: T['LocationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | null | Promise<string | null>
   }
 }
 
-export namespace IPicture {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['PictureRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace PictureResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['PictureParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type UrlResolver<T extends ITypes> = ResolverFn<
-    T['PictureRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type UrlType<T extends ITypeMap> = (
+    parent: T['PictureParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    url: UrlResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['PictureParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    url: (
+      parent: T['PictureParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
   }
 }
 
-export namespace ICity {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['CityRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace CityResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['CityParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type NameResolver<T extends ITypes> = ResolverFn<
-    T['CityRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type NameType<T extends ITypeMap> = (
+    parent: T['CityParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    name: NameResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['CityParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    name: (
+      parent: T['CityParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
   }
 }
 
-export namespace IExperienceCategory {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceCategoryRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace ExperienceCategoryResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['ExperienceCategoryParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type MainColorResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceCategoryRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type MainColorType<T extends ITypeMap> = (
+    parent: T['ExperienceCategoryParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type NameResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceCategoryRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type NameType<T extends ITypeMap> = (
+    parent: T['ExperienceCategoryParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type ExperienceResolver<T extends ITypes> = ResolverFn<
-    T['ExperienceCategoryRoot'],
-    {},
-    T['Context'],
-    T['ExperienceRoot'] | null
-  >
+  export type ExperienceType<T extends ITypeMap> = (
+    parent: T['ExperienceCategoryParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['ExperienceParent'] | null | Promise<T['ExperienceParent'] | null>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    mainColor: MainColorResolver<T>
-    name: NameResolver<T>
-    experience: ExperienceResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['ExperienceCategoryParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    mainColor: (
+      parent: T['ExperienceCategoryParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    name: (
+      parent: T['ExperienceCategoryParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    experience: (
+      parent: T['ExperienceCategoryParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['ExperienceParent'] | null | Promise<T['ExperienceParent'] | null>
   }
 }
 
-export namespace IUser {
-  export type BookingsResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    T['BookingRoot'][]
-  >
+export namespace UserResolvers {
+  export type BookingsType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['BookingParent'][] | Promise<T['BookingParent'][]>
 
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type EmailResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type EmailType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type FirstNameResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type FirstNameType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type HostingExperiencesResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    T['ExperienceRoot'][]
-  >
+  export type HostingExperiencesType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['ExperienceParent'][] | Promise<T['ExperienceParent'][]>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type IsSuperHostResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type IsSuperHostType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type LastNameResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type LastNameType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type LocationResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    T['LocationRoot'] | null
-  >
+  export type LocationType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['LocationParent'] | null | Promise<T['LocationParent'] | null>
 
-  export type NotificationsResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    T['NotificationRoot'][]
-  >
+  export type NotificationsType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['NotificationParent'][] | Promise<T['NotificationParent'][]>
 
-  export type OwnedPlacesResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    T['PlaceRoot'][]
-  >
+  export type OwnedPlacesType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PlaceParent'][] | Promise<T['PlaceParent'][]>
 
-  export type PaymentAccountResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    T['PaymentAccountRoot'][] | null
-  >
+  export type PaymentAccountType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) =>
+    | T['PaymentAccountParent'][]
+    | null
+    | Promise<T['PaymentAccountParent'][] | null>
 
-  export type PhoneResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type PhoneType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type ProfilePictureResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    T['PictureRoot'] | null
-  >
+  export type ProfilePictureType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PictureParent'] | null | Promise<T['PictureParent'] | null>
 
-  export type ReceivedMessagesResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    T['MessageRoot'][]
-  >
+  export type ReceivedMessagesType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['MessageParent'][] | Promise<T['MessageParent'][]>
 
-  export type ResponseRateResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    number | null
-  >
+  export type ResponseRateType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | null | Promise<number | null>
 
-  export type ResponseTimeResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    number | null
-  >
+  export type ResponseTimeType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | null | Promise<number | null>
 
-  export type SentMessagesResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    T['MessageRoot'][]
-  >
+  export type SentMessagesType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['MessageParent'][] | Promise<T['MessageParent'][]>
 
-  export type UpdatedAtResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type UpdatedAtType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type TokenResolver<T extends ITypes> = ResolverFn<
-    T['UserRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type TokenType<T extends ITypeMap> = (
+    parent: T['UserParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export interface Resolver<T extends ITypes> {
-    bookings: BookingsResolver<T>
-    createdAt: CreatedAtResolver<T>
-    email: EmailResolver<T>
-    firstName: FirstNameResolver<T>
-    hostingExperiences: HostingExperiencesResolver<T>
-    id: IdResolver<T>
-    isSuperHost: IsSuperHostResolver<T>
-    lastName: LastNameResolver<T>
-    location: LocationResolver<T>
-    notifications: NotificationsResolver<T>
-    ownedPlaces: OwnedPlacesResolver<T>
-    paymentAccount: PaymentAccountResolver<T>
-    phone: PhoneResolver<T>
-    profilePicture: ProfilePictureResolver<T>
-    receivedMessages: ReceivedMessagesResolver<T>
-    responseRate: ResponseRateResolver<T>
-    responseTime: ResponseTimeResolver<T>
-    sentMessages: SentMessagesResolver<T>
-    updatedAt: UpdatedAtResolver<T>
-    token: TokenResolver<T>
+  export interface Type<T extends ITypeMap> {
+    bookings: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['BookingParent'][] | Promise<T['BookingParent'][]>
+    createdAt: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    email: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    firstName: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    hostingExperiences: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['ExperienceParent'][] | Promise<T['ExperienceParent'][]>
+    id: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    isSuperHost: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    lastName: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    location: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['LocationParent'] | null | Promise<T['LocationParent'] | null>
+    notifications: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['NotificationParent'][] | Promise<T['NotificationParent'][]>
+    ownedPlaces: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PlaceParent'][] | Promise<T['PlaceParent'][]>
+    paymentAccount: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) =>
+      | T['PaymentAccountParent'][]
+      | null
+      | Promise<T['PaymentAccountParent'][] | null>
+    phone: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    profilePicture: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PictureParent'] | null | Promise<T['PictureParent'] | null>
+    receivedMessages: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['MessageParent'][] | Promise<T['MessageParent'][]>
+    responseRate: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | null | Promise<number | null>
+    responseTime: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | null | Promise<number | null>
+    sentMessages: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['MessageParent'][] | Promise<T['MessageParent'][]>
+    updatedAt: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    token: (
+      parent: T['UserParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
   }
 }
 
-export namespace IPaymentAccount {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['PaymentAccountRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace PaymentAccountResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['PaymentAccountParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['PaymentAccountRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['PaymentAccountParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type TypeResolver<T extends ITypes> = ResolverFn<
-    T['PaymentAccountRoot'],
-    {},
-    T['Context'],
-    T['PAYMENT_PROVIDER'] | null
-  >
+  export type TypeType<T extends ITypeMap> = (
+    parent: T['PaymentAccountParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PAYMENT_PROVIDER'] | null | Promise<T['PAYMENT_PROVIDER'] | null>
 
-  export type UserResolver<T extends ITypes> = ResolverFn<
-    T['PaymentAccountRoot'],
-    {},
-    T['Context'],
-    T['UserRoot']
-  >
+  export type UserType<T extends ITypeMap> = (
+    parent: T['PaymentAccountParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['UserParent'] | Promise<T['UserParent']>
 
-  export type PaymentsResolver<T extends ITypes> = ResolverFn<
-    T['PaymentAccountRoot'],
-    {},
-    T['Context'],
-    T['PaymentRoot'][]
-  >
+  export type PaymentsType<T extends ITypeMap> = (
+    parent: T['PaymentAccountParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PaymentParent'][] | Promise<T['PaymentParent'][]>
 
-  export type PaypalResolver<T extends ITypes> = ResolverFn<
-    T['PaymentAccountRoot'],
-    {},
-    T['Context'],
-    T['PaypalInformationRoot'] | null
-  >
+  export type PaypalType<T extends ITypeMap> = (
+    parent: T['PaymentAccountParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) =>
+    | T['PaypalInformationParent']
+    | null
+    | Promise<T['PaypalInformationParent'] | null>
 
-  export type CreditcardResolver<T extends ITypes> = ResolverFn<
-    T['PaymentAccountRoot'],
-    {},
-    T['Context'],
-    T['CreditCardInformationRoot'] | null
-  >
+  export type CreditcardType<T extends ITypeMap> = (
+    parent: T['PaymentAccountParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) =>
+    | T['CreditCardInformationParent']
+    | null
+    | Promise<T['CreditCardInformationParent'] | null>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    createdAt: CreatedAtResolver<T>
-    type: TypeResolver<T>
-    user: UserResolver<T>
-    payments: PaymentsResolver<T>
-    paypal: PaypalResolver<T>
-    creditcard: CreditcardResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['PaymentAccountParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    createdAt: (
+      parent: T['PaymentAccountParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    type: (
+      parent: T['PaymentAccountParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PAYMENT_PROVIDER'] | null | Promise<T['PAYMENT_PROVIDER'] | null>
+    user: (
+      parent: T['PaymentAccountParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['UserParent'] | Promise<T['UserParent']>
+    payments: (
+      parent: T['PaymentAccountParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PaymentParent'][] | Promise<T['PaymentParent'][]>
+    paypal: (
+      parent: T['PaymentAccountParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) =>
+      | T['PaypalInformationParent']
+      | null
+      | Promise<T['PaypalInformationParent'] | null>
+    creditcard: (
+      parent: T['PaymentAccountParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) =>
+      | T['CreditCardInformationParent']
+      | null
+      | Promise<T['CreditCardInformationParent'] | null>
   }
 }
 
-export namespace IPlace {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace PlaceResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type NameResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    string | null
-  >
+  export type NameType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | null | Promise<string | null>
 
-  export type SizeResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['PLACE_SIZES'] | null
-  >
+  export type SizeType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PLACE_SIZES'] | null | Promise<T['PLACE_SIZES'] | null>
 
-  export type ShortDescriptionResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type ShortDescriptionType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type DescriptionResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type DescriptionType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type SlugResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type SlugType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type MaxGuestsResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type MaxGuestsType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type NumBedroomsResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type NumBedroomsType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type NumBedsResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type NumBedsType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type NumBathsResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type NumBathsType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type ReviewsResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['ReviewRoot'][]
-  >
+  export type ReviewsType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['ReviewParent'][] | Promise<T['ReviewParent'][]>
 
-  export type AmenitiesResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['AmenitiesRoot']
-  >
+  export type AmenitiesType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['AmenitiesParent'] | Promise<T['AmenitiesParent']>
 
-  export type HostResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['UserRoot']
-  >
+  export type HostType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['UserParent'] | Promise<T['UserParent']>
 
-  export type PricingResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['PricingRoot']
-  >
+  export type PricingType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PricingParent'] | Promise<T['PricingParent']>
 
-  export type LocationResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['LocationRoot']
-  >
+  export type LocationType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['LocationParent'] | Promise<T['LocationParent']>
 
-  export type ViewsResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['PlaceViewsRoot']
-  >
+  export type ViewsType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PlaceViewsParent'] | Promise<T['PlaceViewsParent']>
 
-  export type GuestRequirementsResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['GuestRequirementsRoot'] | null
-  >
+  export type GuestRequirementsType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) =>
+    | T['GuestRequirementsParent']
+    | null
+    | Promise<T['GuestRequirementsParent'] | null>
 
-  export type PoliciesResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['PoliciesRoot'] | null
-  >
+  export type PoliciesType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PoliciesParent'] | null | Promise<T['PoliciesParent'] | null>
 
-  export type HouseRulesResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['HouseRulesRoot'] | null
-  >
+  export type HouseRulesType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['HouseRulesParent'] | null | Promise<T['HouseRulesParent'] | null>
 
-  export type BookingsResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['BookingRoot'][]
-  >
+  export type BookingsType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['BookingParent'][] | Promise<T['BookingParent'][]>
 
-  export type PicturesResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    T['PictureRoot'][]
-  >
+  export type PicturesType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PictureParent'][] | Promise<T['PictureParent'][]>
 
-  export type PopularityResolver<T extends ITypes> = ResolverFn<
-    T['PlaceRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type PopularityType<T extends ITypeMap> = (
+    parent: T['PlaceParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    name: NameResolver<T>
-    size: SizeResolver<T>
-    shortDescription: ShortDescriptionResolver<T>
-    description: DescriptionResolver<T>
-    slug: SlugResolver<T>
-    maxGuests: MaxGuestsResolver<T>
-    numBedrooms: NumBedroomsResolver<T>
-    numBeds: NumBedsResolver<T>
-    numBaths: NumBathsResolver<T>
-    reviews: ReviewsResolver<T>
-    amenities: AmenitiesResolver<T>
-    host: HostResolver<T>
-    pricing: PricingResolver<T>
-    location: LocationResolver<T>
-    views: ViewsResolver<T>
-    guestRequirements: GuestRequirementsResolver<T>
-    policies: PoliciesResolver<T>
-    houseRules: HouseRulesResolver<T>
-    bookings: BookingsResolver<T>
-    pictures: PicturesResolver<T>
-    popularity: PopularityResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    name: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | null | Promise<string | null>
+    size: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PLACE_SIZES'] | null | Promise<T['PLACE_SIZES'] | null>
+    shortDescription: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    description: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    slug: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    maxGuests: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    numBedrooms: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    numBeds: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    numBaths: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    reviews: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['ReviewParent'][] | Promise<T['ReviewParent'][]>
+    amenities: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['AmenitiesParent'] | Promise<T['AmenitiesParent']>
+    host: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['UserParent'] | Promise<T['UserParent']>
+    pricing: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PricingParent'] | Promise<T['PricingParent']>
+    location: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['LocationParent'] | Promise<T['LocationParent']>
+    views: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PlaceViewsParent'] | Promise<T['PlaceViewsParent']>
+    guestRequirements: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) =>
+      | T['GuestRequirementsParent']
+      | null
+      | Promise<T['GuestRequirementsParent'] | null>
+    policies: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PoliciesParent'] | null | Promise<T['PoliciesParent'] | null>
+    houseRules: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['HouseRulesParent'] | null | Promise<T['HouseRulesParent'] | null>
+    bookings: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['BookingParent'][] | Promise<T['BookingParent'][]>
+    pictures: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PictureParent'][] | Promise<T['PictureParent'][]>
+    popularity: (
+      parent: T['PlaceParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
   }
 }
 
-export namespace IBooking {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['BookingRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace BookingResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['BookingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['BookingRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['BookingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type BookeeResolver<T extends ITypes> = ResolverFn<
-    T['BookingRoot'],
-    {},
-    T['Context'],
-    T['UserRoot']
-  >
+  export type BookeeType<T extends ITypeMap> = (
+    parent: T['BookingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['UserParent'] | Promise<T['UserParent']>
 
-  export type PlaceResolver<T extends ITypes> = ResolverFn<
-    T['BookingRoot'],
-    {},
-    T['Context'],
-    T['PlaceRoot']
-  >
+  export type PlaceType<T extends ITypeMap> = (
+    parent: T['BookingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PlaceParent'] | Promise<T['PlaceParent']>
 
-  export type StartDateResolver<T extends ITypes> = ResolverFn<
-    T['BookingRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type StartDateType<T extends ITypeMap> = (
+    parent: T['BookingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type EndDateResolver<T extends ITypes> = ResolverFn<
-    T['BookingRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type EndDateType<T extends ITypeMap> = (
+    parent: T['BookingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type PaymentResolver<T extends ITypes> = ResolverFn<
-    T['BookingRoot'],
-    {},
-    T['Context'],
-    T['PaymentRoot']
-  >
+  export type PaymentType<T extends ITypeMap> = (
+    parent: T['BookingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PaymentParent'] | Promise<T['PaymentParent']>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    createdAt: CreatedAtResolver<T>
-    bookee: BookeeResolver<T>
-    place: PlaceResolver<T>
-    startDate: StartDateResolver<T>
-    endDate: EndDateResolver<T>
-    payment: PaymentResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['BookingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    createdAt: (
+      parent: T['BookingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    bookee: (
+      parent: T['BookingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['UserParent'] | Promise<T['UserParent']>
+    place: (
+      parent: T['BookingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PlaceParent'] | Promise<T['PlaceParent']>
+    startDate: (
+      parent: T['BookingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    endDate: (
+      parent: T['BookingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    payment: (
+      parent: T['BookingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PaymentParent'] | Promise<T['PaymentParent']>
   }
 }
 
-export namespace INotification {
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['NotificationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace NotificationResolvers {
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['NotificationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['NotificationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['NotificationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type LinkResolver<T extends ITypes> = ResolverFn<
-    T['NotificationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type LinkType<T extends ITypeMap> = (
+    parent: T['NotificationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type ReadDateResolver<T extends ITypes> = ResolverFn<
-    T['NotificationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type ReadDateType<T extends ITypeMap> = (
+    parent: T['NotificationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type TypeResolver<T extends ITypes> = ResolverFn<
-    T['NotificationRoot'],
-    {},
-    T['Context'],
-    T['NOTIFICATION_TYPE'] | null
-  >
+  export type TypeType<T extends ITypeMap> = (
+    parent: T['NotificationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['NOTIFICATION_TYPE'] | null | Promise<T['NOTIFICATION_TYPE'] | null>
 
-  export type UserResolver<T extends ITypes> = ResolverFn<
-    T['NotificationRoot'],
-    {},
-    T['Context'],
-    T['UserRoot']
-  >
+  export type UserType<T extends ITypeMap> = (
+    parent: T['NotificationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['UserParent'] | Promise<T['UserParent']>
 
-  export interface Resolver<T extends ITypes> {
-    createdAt: CreatedAtResolver<T>
-    id: IdResolver<T>
-    link: LinkResolver<T>
-    readDate: ReadDateResolver<T>
-    type: TypeResolver<T>
-    user: UserResolver<T>
+  export interface Type<T extends ITypeMap> {
+    createdAt: (
+      parent: T['NotificationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    id: (
+      parent: T['NotificationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    link: (
+      parent: T['NotificationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    readDate: (
+      parent: T['NotificationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    type: (
+      parent: T['NotificationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['NOTIFICATION_TYPE'] | null | Promise<T['NOTIFICATION_TYPE'] | null>
+    user: (
+      parent: T['NotificationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['UserParent'] | Promise<T['UserParent']>
   }
 }
 
-export namespace IPayment {
-  export type BookingResolver<T extends ITypes> = ResolverFn<
-    T['PaymentRoot'],
-    {},
-    T['Context'],
-    T['BookingRoot']
-  >
+export namespace PaymentResolvers {
+  export type BookingType<T extends ITypeMap> = (
+    parent: T['PaymentParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['BookingParent'] | Promise<T['BookingParent']>
 
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['PaymentRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['PaymentParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['PaymentRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['PaymentParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type PaymentMethodResolver<T extends ITypes> = ResolverFn<
-    T['PaymentRoot'],
-    {},
-    T['Context'],
-    T['PaymentAccountRoot']
-  >
+  export type PaymentMethodType<T extends ITypeMap> = (
+    parent: T['PaymentParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PaymentAccountParent'] | Promise<T['PaymentAccountParent']>
 
-  export type ServiceFeeResolver<T extends ITypes> = ResolverFn<
-    T['PaymentRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type ServiceFeeType<T extends ITypeMap> = (
+    parent: T['PaymentParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export interface Resolver<T extends ITypes> {
-    booking: BookingResolver<T>
-    createdAt: CreatedAtResolver<T>
-    id: IdResolver<T>
-    paymentMethod: PaymentMethodResolver<T>
-    serviceFee: ServiceFeeResolver<T>
+  export interface Type<T extends ITypeMap> {
+    booking: (
+      parent: T['PaymentParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['BookingParent'] | Promise<T['BookingParent']>
+    createdAt: (
+      parent: T['PaymentParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    id: (
+      parent: T['PaymentParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    paymentMethod: (
+      parent: T['PaymentParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PaymentAccountParent'] | Promise<T['PaymentAccountParent']>
+    serviceFee: (
+      parent: T['PaymentParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
   }
 }
 
-export namespace IPaypalInformation {
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['PaypalInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace PaypalInformationResolvers {
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['PaypalInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type EmailResolver<T extends ITypes> = ResolverFn<
-    T['PaypalInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type EmailType<T extends ITypeMap> = (
+    parent: T['PaypalInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['PaypalInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['PaypalInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type PaymentAccountResolver<T extends ITypes> = ResolverFn<
-    T['PaypalInformationRoot'],
-    {},
-    T['Context'],
-    T['PaymentAccountRoot']
-  >
+  export type PaymentAccountType<T extends ITypeMap> = (
+    parent: T['PaypalInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['PaymentAccountParent'] | Promise<T['PaymentAccountParent']>
 
-  export interface Resolver<T extends ITypes> {
-    createdAt: CreatedAtResolver<T>
-    email: EmailResolver<T>
-    id: IdResolver<T>
-    paymentAccount: PaymentAccountResolver<T>
+  export interface Type<T extends ITypeMap> {
+    createdAt: (
+      parent: T['PaypalInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    email: (
+      parent: T['PaypalInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    id: (
+      parent: T['PaypalInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    paymentAccount: (
+      parent: T['PaypalInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['PaymentAccountParent'] | Promise<T['PaymentAccountParent']>
   }
 }
 
-export namespace ICreditCardInformation {
-  export type CardNumberResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace CreditCardInformationResolvers {
+  export type CardNumberType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type CountryResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type CountryType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type ExpiresOnMonthResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type ExpiresOnMonthType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type ExpiresOnYearResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type ExpiresOnYearType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type FirstNameResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type FirstNameType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type LastNameResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type LastNameType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type PaymentAccountResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    T['PaymentAccountRoot'] | null
-  >
+  export type PaymentAccountType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) =>
+    | T['PaymentAccountParent']
+    | null
+    | Promise<T['PaymentAccountParent'] | null>
 
-  export type PostalCodeResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type PostalCodeType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type SecurityCodeResolver<T extends ITypes> = ResolverFn<
-    T['CreditCardInformationRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type SecurityCodeType<T extends ITypeMap> = (
+    parent: T['CreditCardInformationParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export interface Resolver<T extends ITypes> {
-    cardNumber: CardNumberResolver<T>
-    country: CountryResolver<T>
-    createdAt: CreatedAtResolver<T>
-    expiresOnMonth: ExpiresOnMonthResolver<T>
-    expiresOnYear: ExpiresOnYearResolver<T>
-    firstName: FirstNameResolver<T>
-    id: IdResolver<T>
-    lastName: LastNameResolver<T>
-    paymentAccount: PaymentAccountResolver<T>
-    postalCode: PostalCodeResolver<T>
-    securityCode: SecurityCodeResolver<T>
+  export interface Type<T extends ITypeMap> {
+    cardNumber: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    country: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    createdAt: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    expiresOnMonth: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    expiresOnYear: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    firstName: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    id: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    lastName: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    paymentAccount: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) =>
+      | T['PaymentAccountParent']
+      | null
+      | Promise<T['PaymentAccountParent'] | null>
+    postalCode: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    securityCode: (
+      parent: T['CreditCardInformationParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
   }
 }
 
-export namespace IMessage {
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['MessageRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace MessageResolvers {
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['MessageParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type DeliveredAtResolver<T extends ITypes> = ResolverFn<
-    T['MessageRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type DeliveredAtType<T extends ITypeMap> = (
+    parent: T['MessageParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['MessageRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['MessageParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type ReadAtResolver<T extends ITypes> = ResolverFn<
-    T['MessageRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type ReadAtType<T extends ITypeMap> = (
+    parent: T['MessageParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export interface Resolver<T extends ITypes> {
-    createdAt: CreatedAtResolver<T>
-    deliveredAt: DeliveredAtResolver<T>
-    id: IdResolver<T>
-    readAt: ReadAtResolver<T>
+  export interface Type<T extends ITypeMap> {
+    createdAt: (
+      parent: T['MessageParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    deliveredAt: (
+      parent: T['MessageParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    id: (
+      parent: T['MessageParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    readAt: (
+      parent: T['MessageParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
   }
 }
 
-export namespace IPricing {
-  export type AverageMonthlyResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    number
-  >
+export namespace PricingResolvers {
+  export type AverageMonthlyType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type AverageWeeklyResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type AverageWeeklyType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type BasePriceResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type BasePriceType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type CleaningFeeResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    number | null
-  >
+  export type CleaningFeeType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | null | Promise<number | null>
 
-  export type CurrencyResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    T['CURRENCY'] | null
-  >
+  export type CurrencyType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['CURRENCY'] | null | Promise<T['CURRENCY'] | null>
 
-  export type ExtraGuestsResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    number | null
-  >
+  export type ExtraGuestsType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | null | Promise<number | null>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type MonthlyDiscountResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    number | null
-  >
+  export type MonthlyDiscountType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | null | Promise<number | null>
 
-  export type PerNightResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type PerNightType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type SecurityDepositResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    number | null
-  >
+  export type SecurityDepositType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | null | Promise<number | null>
 
-  export type SmartPricingResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type SmartPricingType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type WeekendPricingResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    number | null
-  >
+  export type WeekendPricingType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | null | Promise<number | null>
 
-  export type WeeklyDiscountResolver<T extends ITypes> = ResolverFn<
-    T['PricingRoot'],
-    {},
-    T['Context'],
-    number | null
-  >
+  export type WeeklyDiscountType<T extends ITypeMap> = (
+    parent: T['PricingParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | null | Promise<number | null>
 
-  export interface Resolver<T extends ITypes> {
-    averageMonthly: AverageMonthlyResolver<T>
-    averageWeekly: AverageWeeklyResolver<T>
-    basePrice: BasePriceResolver<T>
-    cleaningFee: CleaningFeeResolver<T>
-    currency: CurrencyResolver<T>
-    extraGuests: ExtraGuestsResolver<T>
-    id: IdResolver<T>
-    monthlyDiscount: MonthlyDiscountResolver<T>
-    perNight: PerNightResolver<T>
-    securityDeposit: SecurityDepositResolver<T>
-    smartPricing: SmartPricingResolver<T>
-    weekendPricing: WeekendPricingResolver<T>
-    weeklyDiscount: WeeklyDiscountResolver<T>
+  export interface Type<T extends ITypeMap> {
+    averageMonthly: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    averageWeekly: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    basePrice: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    cleaningFee: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | null | Promise<number | null>
+    currency: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['CURRENCY'] | null | Promise<T['CURRENCY'] | null>
+    extraGuests: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | null | Promise<number | null>
+    id: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    monthlyDiscount: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | null | Promise<number | null>
+    perNight: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    securityDeposit: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | null | Promise<number | null>
+    smartPricing: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    weekendPricing: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | null | Promise<number | null>
+    weeklyDiscount: (
+      parent: T['PricingParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | null | Promise<number | null>
   }
 }
 
-export namespace IPlaceViews {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['PlaceViewsRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace PlaceViewsResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['PlaceViewsParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type LastWeekResolver<T extends ITypes> = ResolverFn<
-    T['PlaceViewsRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type LastWeekType<T extends ITypeMap> = (
+    parent: T['PlaceViewsParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    lastWeek: LastWeekResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['PlaceViewsParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    lastWeek: (
+      parent: T['PlaceViewsParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
   }
 }
 
-export namespace IGuestRequirements {
-  export type GovIssuedIdResolver<T extends ITypes> = ResolverFn<
-    T['GuestRequirementsRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+export namespace GuestRequirementsResolvers {
+  export type GovIssuedIdType<T extends ITypeMap> = (
+    parent: T['GuestRequirementsParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type GuestTripInformationResolver<T extends ITypes> = ResolverFn<
-    T['GuestRequirementsRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type GuestTripInformationType<T extends ITypeMap> = (
+    parent: T['GuestRequirementsParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['GuestRequirementsRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['GuestRequirementsParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type RecommendationsFromOtherHostsResolver<
-    T extends ITypes
-  > = ResolverFn<T['GuestRequirementsRoot'], {}, T['Context'], boolean>
+  export type RecommendationsFromOtherHostsType<T extends ITypeMap> = (
+    parent: T['GuestRequirementsParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export interface Resolver<T extends ITypes> {
-    govIssuedId: GovIssuedIdResolver<T>
-    guestTripInformation: GuestTripInformationResolver<T>
-    id: IdResolver<T>
-    recommendationsFromOtherHosts: RecommendationsFromOtherHostsResolver<T>
+  export interface Type<T extends ITypeMap> {
+    govIssuedId: (
+      parent: T['GuestRequirementsParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    guestTripInformation: (
+      parent: T['GuestRequirementsParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    id: (
+      parent: T['GuestRequirementsParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    recommendationsFromOtherHosts: (
+      parent: T['GuestRequirementsParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
   }
 }
 
-export namespace IPolicies {
-  export type CheckInEndTimeResolver<T extends ITypes> = ResolverFn<
-    T['PoliciesRoot'],
-    {},
-    T['Context'],
-    number
-  >
+export namespace PoliciesResolvers {
+  export type CheckInEndTimeType<T extends ITypeMap> = (
+    parent: T['PoliciesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type CheckInStartTimeResolver<T extends ITypes> = ResolverFn<
-    T['PoliciesRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type CheckInStartTimeType<T extends ITypeMap> = (
+    parent: T['PoliciesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type CheckoutTimeResolver<T extends ITypes> = ResolverFn<
-    T['PoliciesRoot'],
-    {},
-    T['Context'],
-    number
-  >
+  export type CheckoutTimeType<T extends ITypeMap> = (
+    parent: T['PoliciesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => number | Promise<number>
 
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['PoliciesRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['PoliciesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['PoliciesRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['PoliciesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type UpdatedAtResolver<T extends ITypes> = ResolverFn<
-    T['PoliciesRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type UpdatedAtType<T extends ITypeMap> = (
+    parent: T['PoliciesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export interface Resolver<T extends ITypes> {
-    checkInEndTime: CheckInEndTimeResolver<T>
-    checkInStartTime: CheckInStartTimeResolver<T>
-    checkoutTime: CheckoutTimeResolver<T>
-    createdAt: CreatedAtResolver<T>
-    id: IdResolver<T>
-    updatedAt: UpdatedAtResolver<T>
+  export interface Type<T extends ITypeMap> {
+    checkInEndTime: (
+      parent: T['PoliciesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    checkInStartTime: (
+      parent: T['PoliciesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    checkoutTime: (
+      parent: T['PoliciesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => number | Promise<number>
+    createdAt: (
+      parent: T['PoliciesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    id: (
+      parent: T['PoliciesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    updatedAt: (
+      parent: T['PoliciesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
   }
 }
 
-export namespace IHouseRules {
-  export type AdditionalRulesResolver<T extends ITypes> = ResolverFn<
-    T['HouseRulesRoot'],
-    {},
-    T['Context'],
-    string | null
-  >
+export namespace HouseRulesResolvers {
+  export type AdditionalRulesType<T extends ITypeMap> = (
+    parent: T['HouseRulesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | null | Promise<string | null>
 
-  export type CreatedAtResolver<T extends ITypes> = ResolverFn<
-    T['HouseRulesRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type CreatedAtType<T extends ITypeMap> = (
+    parent: T['HouseRulesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['HouseRulesRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['HouseRulesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type PartiesAndEventsAllowedResolver<T extends ITypes> = ResolverFn<
-    T['HouseRulesRoot'],
-    {},
-    T['Context'],
-    boolean | null
-  >
+  export type PartiesAndEventsAllowedType<T extends ITypeMap> = (
+    parent: T['HouseRulesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | null | Promise<boolean | null>
 
-  export type PetsAllowedResolver<T extends ITypes> = ResolverFn<
-    T['HouseRulesRoot'],
-    {},
-    T['Context'],
-    boolean | null
-  >
+  export type PetsAllowedType<T extends ITypeMap> = (
+    parent: T['HouseRulesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | null | Promise<boolean | null>
 
-  export type SmokingAllowedResolver<T extends ITypes> = ResolverFn<
-    T['HouseRulesRoot'],
-    {},
-    T['Context'],
-    boolean | null
-  >
+  export type SmokingAllowedType<T extends ITypeMap> = (
+    parent: T['HouseRulesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | null | Promise<boolean | null>
 
-  export type SuitableForChildrenResolver<T extends ITypes> = ResolverFn<
-    T['HouseRulesRoot'],
-    {},
-    T['Context'],
-    boolean | null
-  >
+  export type SuitableForChildrenType<T extends ITypeMap> = (
+    parent: T['HouseRulesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | null | Promise<boolean | null>
 
-  export type SuitableForInfantsResolver<T extends ITypes> = ResolverFn<
-    T['HouseRulesRoot'],
-    {},
-    T['Context'],
-    boolean | null
-  >
+  export type SuitableForInfantsType<T extends ITypeMap> = (
+    parent: T['HouseRulesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | null | Promise<boolean | null>
 
-  export type UpdatedAtResolver<T extends ITypes> = ResolverFn<
-    T['HouseRulesRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type UpdatedAtType<T extends ITypeMap> = (
+    parent: T['HouseRulesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export interface Resolver<T extends ITypes> {
-    additionalRules: AdditionalRulesResolver<T>
-    createdAt: CreatedAtResolver<T>
-    id: IdResolver<T>
-    partiesAndEventsAllowed: PartiesAndEventsAllowedResolver<T>
-    petsAllowed: PetsAllowedResolver<T>
-    smokingAllowed: SmokingAllowedResolver<T>
-    suitableForChildren: SuitableForChildrenResolver<T>
-    suitableForInfants: SuitableForInfantsResolver<T>
-    updatedAt: UpdatedAtResolver<T>
+  export interface Type<T extends ITypeMap> {
+    additionalRules: (
+      parent: T['HouseRulesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | null | Promise<string | null>
+    createdAt: (
+      parent: T['HouseRulesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    id: (
+      parent: T['HouseRulesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    partiesAndEventsAllowed: (
+      parent: T['HouseRulesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | null | Promise<boolean | null>
+    petsAllowed: (
+      parent: T['HouseRulesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | null | Promise<boolean | null>
+    smokingAllowed: (
+      parent: T['HouseRulesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | null | Promise<boolean | null>
+    suitableForChildren: (
+      parent: T['HouseRulesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | null | Promise<boolean | null>
+    suitableForInfants: (
+      parent: T['HouseRulesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | null | Promise<boolean | null>
+    updatedAt: (
+      parent: T['HouseRulesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
   }
 }
 
-export namespace IAmenities {
-  export type AirConditioningResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+export namespace AmenitiesResolvers {
+  export type AirConditioningType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type BabyBathResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type BabyBathType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type BabyMonitorResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type BabyMonitorType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type BabysitterRecommendationsResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type BabysitterRecommendationsType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type BathtubResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type BathtubType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type BreakfastResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type BreakfastType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type BuzzerWirelessIntercomResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type BuzzerWirelessIntercomType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type CableTvResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type CableTvType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type ChangingTableResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type ChangingTableType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type ChildrensBooksAndToysResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type ChildrensBooksAndToysType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type ChildrensDinnerwareResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type ChildrensDinnerwareType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type CribResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type CribType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type DoormanResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type DoormanType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type DryerResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type DryerType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type ElevatorResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type ElevatorType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type EssentialsResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type EssentialsType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type FamilyKidFriendlyResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type FamilyKidFriendlyType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type FreeParkingOnPremisesResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type FreeParkingOnPremisesType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type FreeParkingOnStreetResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type FreeParkingOnStreetType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type GymResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type GymType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type HairDryerResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type HairDryerType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type HangersResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type HangersType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type HeatingResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type HeatingType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type HotTubResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type HotTubType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type IdType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type IndoorFireplaceResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type IndoorFireplaceType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type InternetResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type InternetType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type IronResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type IronType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type KitchenResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type KitchenType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type LaptopFriendlyWorkspaceResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type LaptopFriendlyWorkspaceType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type PaidParkingOffPremisesResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type PaidParkingOffPremisesType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type PetsAllowedResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type PetsAllowedType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type PoolResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type PoolType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type PrivateEntranceResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type PrivateEntranceType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type ShampooResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type ShampooType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type SmokingAllowedResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type SmokingAllowedType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type SuitableForEventsResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type SuitableForEventsType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type TvResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type TvType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type WasherResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type WasherType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type WheelchairAccessibleResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type WheelchairAccessibleType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export type WirelessInternetResolver<T extends ITypes> = ResolverFn<
-    T['AmenitiesRoot'],
-    {},
-    T['Context'],
-    boolean
-  >
+  export type WirelessInternetType<T extends ITypeMap> = (
+    parent: T['AmenitiesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => boolean | Promise<boolean>
 
-  export interface Resolver<T extends ITypes> {
-    airConditioning: AirConditioningResolver<T>
-    babyBath: BabyBathResolver<T>
-    babyMonitor: BabyMonitorResolver<T>
-    babysitterRecommendations: BabysitterRecommendationsResolver<T>
-    bathtub: BathtubResolver<T>
-    breakfast: BreakfastResolver<T>
-    buzzerWirelessIntercom: BuzzerWirelessIntercomResolver<T>
-    cableTv: CableTvResolver<T>
-    changingTable: ChangingTableResolver<T>
-    childrensBooksAndToys: ChildrensBooksAndToysResolver<T>
-    childrensDinnerware: ChildrensDinnerwareResolver<T>
-    crib: CribResolver<T>
-    doorman: DoormanResolver<T>
-    dryer: DryerResolver<T>
-    elevator: ElevatorResolver<T>
-    essentials: EssentialsResolver<T>
-    familyKidFriendly: FamilyKidFriendlyResolver<T>
-    freeParkingOnPremises: FreeParkingOnPremisesResolver<T>
-    freeParkingOnStreet: FreeParkingOnStreetResolver<T>
-    gym: GymResolver<T>
-    hairDryer: HairDryerResolver<T>
-    hangers: HangersResolver<T>
-    heating: HeatingResolver<T>
-    hotTub: HotTubResolver<T>
-    id: IdResolver<T>
-    indoorFireplace: IndoorFireplaceResolver<T>
-    internet: InternetResolver<T>
-    iron: IronResolver<T>
-    kitchen: KitchenResolver<T>
-    laptopFriendlyWorkspace: LaptopFriendlyWorkspaceResolver<T>
-    paidParkingOffPremises: PaidParkingOffPremisesResolver<T>
-    petsAllowed: PetsAllowedResolver<T>
-    pool: PoolResolver<T>
-    privateEntrance: PrivateEntranceResolver<T>
-    shampoo: ShampooResolver<T>
-    smokingAllowed: SmokingAllowedResolver<T>
-    suitableForEvents: SuitableForEventsResolver<T>
-    tv: TvResolver<T>
-    washer: WasherResolver<T>
-    wheelchairAccessible: WheelchairAccessibleResolver<T>
-    wirelessInternet: WirelessInternetResolver<T>
+  export interface Type<T extends ITypeMap> {
+    airConditioning: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    babyBath: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    babyMonitor: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    babysitterRecommendations: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    bathtub: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    breakfast: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    buzzerWirelessIntercom: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    cableTv: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    changingTable: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    childrensBooksAndToys: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    childrensDinnerware: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    crib: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    doorman: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    dryer: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    elevator: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    essentials: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    familyKidFriendly: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    freeParkingOnPremises: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    freeParkingOnStreet: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    gym: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    hairDryer: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    hangers: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    heating: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    hotTub: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    id: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    indoorFireplace: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    internet: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    iron: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    kitchen: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    laptopFriendlyWorkspace: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    paidParkingOffPremises: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    petsAllowed: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    pool: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    privateEntrance: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    shampoo: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    smokingAllowed: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    suitableForEvents: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    tv: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    washer: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    wheelchairAccessible: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
+    wirelessInternet: (
+      parent: T['AmenitiesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => boolean | Promise<boolean>
   }
 }
 
-export namespace ICitySubscriptionPayload {
-  export type MutationResolver<T extends ITypes> = ResolverFn<
-    T['CitySubscriptionPayloadRoot'],
-    {},
-    T['Context'],
-    T['MutationType']
-  >
+export namespace CitySubscriptionPayloadResolvers {
+  export type MutationType<T extends ITypeMap> = (
+    parent: T['CitySubscriptionPayloadParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['MutationType'] | Promise<T['MutationType']>
 
-  export type NodeResolver<T extends ITypes> = ResolverFn<
-    T['CitySubscriptionPayloadRoot'],
-    {},
-    T['Context'],
-    T['CityRoot'] | null
-  >
+  export type NodeType<T extends ITypeMap> = (
+    parent: T['CitySubscriptionPayloadParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => T['CityParent'] | null | Promise<T['CityParent'] | null>
 
-  export type UpdatedFieldsResolver<T extends ITypes> = ResolverFn<
-    T['CitySubscriptionPayloadRoot'],
-    {},
-    T['Context'],
-    string[]
-  >
+  export type UpdatedFieldsType<T extends ITypeMap> = (
+    parent: T['CitySubscriptionPayloadParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string[] | Promise<string[]>
 
-  export type PreviousValuesResolver<T extends ITypes> = ResolverFn<
-    T['CitySubscriptionPayloadRoot'],
-    {},
-    T['Context'],
-    T['CityPreviousValuesRoot'] | null
-  >
+  export type PreviousValuesType<T extends ITypeMap> = (
+    parent: T['CitySubscriptionPayloadParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) =>
+    | T['CityPreviousValuesParent']
+    | null
+    | Promise<T['CityPreviousValuesParent'] | null>
 
-  export interface Resolver<T extends ITypes> {
-    mutation: MutationResolver<T>
-    node: NodeResolver<T>
-    updatedFields: UpdatedFieldsResolver<T>
-    previousValues: PreviousValuesResolver<T>
+  export interface Type<T extends ITypeMap> {
+    mutation: (
+      parent: T['CitySubscriptionPayloadParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['MutationType'] | Promise<T['MutationType']>
+    node: (
+      parent: T['CitySubscriptionPayloadParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => T['CityParent'] | null | Promise<T['CityParent'] | null>
+    updatedFields: (
+      parent: T['CitySubscriptionPayloadParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string[] | Promise<string[]>
+    previousValues: (
+      parent: T['CitySubscriptionPayloadParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) =>
+      | T['CityPreviousValuesParent']
+      | null
+      | Promise<T['CityPreviousValuesParent'] | null>
   }
 }
 
-export namespace ICityPreviousValues {
-  export type IdResolver<T extends ITypes> = ResolverFn<
-    T['CityPreviousValuesRoot'],
-    {},
-    T['Context'],
-    string
-  >
+export namespace CityPreviousValuesResolvers {
+  export type IdType<T extends ITypeMap> = (
+    parent: T['CityPreviousValuesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export type NameResolver<T extends ITypes> = ResolverFn<
-    T['CityPreviousValuesRoot'],
-    {},
-    T['Context'],
-    string
-  >
+  export type NameType<T extends ITypeMap> = (
+    parent: T['CityPreviousValuesParent'],
+    args: {},
+    ctx: T['Context'],
+    info: GraphQLResolveInfo,
+  ) => string | Promise<string>
 
-  export interface Resolver<T extends ITypes> {
-    id: IdResolver<T>
-    name: NameResolver<T>
+  export interface Type<T extends ITypeMap> {
+    id: (
+      parent: T['CityPreviousValuesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
+    name: (
+      parent: T['CityPreviousValuesParent'],
+      args: {},
+      ctx: T['Context'],
+      info: GraphQLResolveInfo,
+    ) => string | Promise<string>
   }
 }
 
-export interface IResolvers<T extends ITypes> {
-  Query: IQuery.Resolver<T>
-  Mutation: IMutation.Resolver<T>
-  Subscription: ISubscription.Resolver<T>
-  Viewer: IViewer.Resolver<T>
-  AuthPayload: IAuthPayload.Resolver<T>
-  MutationResult: IMutationResult.Resolver<T>
-  ExperiencesByCity: IExperiencesByCity.Resolver<T>
-  Home: IHome.Resolver<T>
-  Reservation: IReservation.Resolver<T>
-  Experience: IExperience.Resolver<T>
-  Review: IReview.Resolver<T>
-  Neighbourhood: INeighbourhood.Resolver<T>
-  Location: ILocation.Resolver<T>
-  Picture: IPicture.Resolver<T>
-  City: ICity.Resolver<T>
-  ExperienceCategory: IExperienceCategory.Resolver<T>
-  User: IUser.Resolver<T>
-  PaymentAccount: IPaymentAccount.Resolver<T>
-  Place: IPlace.Resolver<T>
-  Booking: IBooking.Resolver<T>
-  Notification: INotification.Resolver<T>
-  Payment: IPayment.Resolver<T>
-  PaypalInformation: IPaypalInformation.Resolver<T>
-  CreditCardInformation: ICreditCardInformation.Resolver<T>
-  Message: IMessage.Resolver<T>
-  Pricing: IPricing.Resolver<T>
-  PlaceViews: IPlaceViews.Resolver<T>
-  GuestRequirements: IGuestRequirements.Resolver<T>
-  Policies: IPolicies.Resolver<T>
-  HouseRules: IHouseRules.Resolver<T>
-  Amenities: IAmenities.Resolver<T>
-  CitySubscriptionPayload: ICitySubscriptionPayload.Resolver<T>
-  CityPreviousValues: ICityPreviousValues.Resolver<T>
+export interface IResolvers<T extends ITypeMap> {
+  Query: QueryResolvers.Type<T>
+  Mutation: MutationResolvers.Type<T>
+  Subscription: SubscriptionResolvers.Type<T>
+  Viewer: ViewerResolvers.Type<T>
+  AuthPayload: AuthPayloadResolvers.Type<T>
+  MutationResult: MutationResultResolvers.Type<T>
+  ExperiencesByCity: ExperiencesByCityResolvers.Type<T>
+  Home: HomeResolvers.Type<T>
+  Reservation: ReservationResolvers.Type<T>
+  Experience: ExperienceResolvers.Type<T>
+  Review: ReviewResolvers.Type<T>
+  Neighbourhood: NeighbourhoodResolvers.Type<T>
+  Location: LocationResolvers.Type<T>
+  Picture: PictureResolvers.Type<T>
+  City: CityResolvers.Type<T>
+  ExperienceCategory: ExperienceCategoryResolvers.Type<T>
+  User: UserResolvers.Type<T>
+  PaymentAccount: PaymentAccountResolvers.Type<T>
+  Place: PlaceResolvers.Type<T>
+  Booking: BookingResolvers.Type<T>
+  Notification: NotificationResolvers.Type<T>
+  Payment: PaymentResolvers.Type<T>
+  PaypalInformation: PaypalInformationResolvers.Type<T>
+  CreditCardInformation: CreditCardInformationResolvers.Type<T>
+  Message: MessageResolvers.Type<T>
+  Pricing: PricingResolvers.Type<T>
+  PlaceViews: PlaceViewsResolvers.Type<T>
+  GuestRequirements: GuestRequirementsResolvers.Type<T>
+  Policies: PoliciesResolvers.Type<T>
+  HouseRules: HouseRulesResolvers.Type<T>
+  Amenities: AmenitiesResolvers.Type<T>
+  CitySubscriptionPayload: CitySubscriptionPayloadResolvers.Type<T>
+  CityPreviousValues: CityPreviousValuesResolvers.Type<T>
 }

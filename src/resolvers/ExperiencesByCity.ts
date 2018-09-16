@@ -1,41 +1,28 @@
-import { IExperiencesByCity } from '../generated/resolvers'
-import { Types } from './types'
-import { ExperienceRoot } from './Experience'
-import { CityRoot } from './City'
+import { ExperiencesByCityResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
+import { ExperienceParent } from './Experience'
+import { CityParent } from './City'
 
-export interface ExperiencesByCityRoot {
-  id: string
-  experiences: ExperienceRoot[]
-  city: CityRoot
+export interface ExperiencesByCityParent {
+  id: string,
+  experiences: ExperienceParent[]
+  city: CityParent
 }
 
-export const ExperiencesByCity: IExperiencesByCity.Resolver<Types> = {
+export const ExperiencesByCity: ExperiencesByCityResolvers.Type<TypeMap> = {
   experiences: async (parent, _args, ctx) => {
-    const id = parent.id
-    const exps = await ctx.db.experiences({
+    return ctx.db.experiences({
       where: {
         location: {
           id_gt: '0',
           neighbourHood: {
             city: {
-              id,
+              id: parent.id,
             },
           },
         },
       },
     })
-
-    return exps.map(exp => {
-      return {
-        ...exp,
-        location: null,
-        category: null,
-        reviews: null,
-        preview: null,
-      }
-    })
   },
-  city: (root, _args, ctx) => {
-    return ctx.db.city({ id: root.id })
-  },
+  city: (parent, _args, ctx) => ctx.db.city({ id: parent.id }),
 }

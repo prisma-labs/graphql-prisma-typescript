@@ -1,22 +1,22 @@
-import { ICitySubscriptionPayload } from '../generated/resolvers'
-import { Types } from './types'
-import { CityRoot } from './City'
-import { CityPreviousValuesRoot } from './CityPreviousValues'
+import { CitySubscriptionPayloadResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
+import { CityParent } from './City'
+import { CityPreviousValuesParent } from './CityPreviousValues'
 
 export type MutationType = 'CREATED' | 'UPDATED' | 'DELETED'
 
-export interface CitySubscriptionPayloadRoot {
+export interface CitySubscriptionPayloadParent {
   mutation: MutationType
-  node?: CityRoot
+  node?: CityParent
   updatedFields: string[]
-  previousValues?: CityPreviousValuesRoot
+  previousValues?: CityPreviousValuesParent
 }
 
-export const CitySubscriptionPayload: ICitySubscriptionPayload.Resolver<
-  Types
+export const CitySubscriptionPayload: CitySubscriptionPayloadResolvers.Type<
+  TypeMap
 > = {
-  mutation: root => root.mutation,
-  node: root => root.node,
-  updatedFields: root => root.updatedFields,
-  previousValues: root => root.previousValues,
+  mutation: parent => parent.mutation,
+  node: parent => parent.node,
+  updatedFields: parent => parent.updatedFields,
+  previousValues: parent => parent.previousValues,
 }

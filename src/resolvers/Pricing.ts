@@ -1,9 +1,9 @@
-import { IPricing } from '../generated/resolvers'
-import { Types } from './types'
+import { PricingResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
 
 export type CURRENCY = 'CAD' | 'CHF' | 'EUR' | 'JPY' | 'USD' | 'ZAR'
 
-export interface PricingRoot {
+export interface PricingParent {
   averageMonthly: number
   averageWeekly: number
   basePrice: number
@@ -19,18 +19,18 @@ export interface PricingRoot {
   weeklyDiscount?: number
 }
 
-export const Pricing: IPricing.Resolver<Types> = {
-  averageMonthly: root => root.averageMonthly,
-  averageWeekly: root => root.averageWeekly,
-  basePrice: root => root.basePrice,
-  cleaningFee: root => root.cleaningFee,
-  currency: root => root.currency,
-  extraGuests: root => root.extraGuests,
-  id: root => root.id,
-  monthlyDiscount: root => root.monthlyDiscount,
-  perNight: root => root.perNight,
-  securityDeposit: root => root.securityDeposit,
-  smartPricing: root => root.smartPricing,
-  weekendPricing: root => root.weekendPricing,
-  weeklyDiscount: root => root.weeklyDiscount,
+export const Pricing: PricingResolvers.Type<TypeMap> = {
+  averageMonthly: parent => parent.averageMonthly,
+  averageWeekly: parent => parent.averageWeekly,
+  basePrice: parent => parent.basePrice,
+  cleaningFee: parent => parent.cleaningFee,
+  currency: parent => parent.currency,
+  extraGuests: parent => parent.extraGuests,
+  id: parent => parent.id,
+  monthlyDiscount: parent => parent.monthlyDiscount,
+  perNight: parent => parent.perNight,
+  securityDeposit: parent => parent.securityDeposit,
+  smartPricing: parent => parent.smartPricing,
+  weekendPricing: parent => parent.weekendPricing,
+  weeklyDiscount: parent => parent.weeklyDiscount,
 }

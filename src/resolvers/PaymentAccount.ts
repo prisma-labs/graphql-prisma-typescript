@@ -1,28 +1,28 @@
-import { IPaymentAccount } from '../generated/resolvers'
-import { Types } from './types'
-import { UserRoot } from './User'
-import { PaymentRoot } from './Payment'
-import { PaypalInformationRoot } from './PaypalInformation'
-import { CreditCardInformationRoot } from './CreditCardInformation'
+import { PaymentAccountResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
+import { UserParent } from './User'
+import { PaymentParent } from './Payment'
+import { PaypalInformationParent } from './PaypalInformation'
+import { CreditCardInformationParent } from './CreditCardInformation'
 
 export type PAYMENT_PROVIDER = 'PAYPAL' | 'CREDIT_CARD'
 
-export interface PaymentAccountRoot {
+export interface PaymentAccountParent {
   id: string
   createdAt: string
   type?: PAYMENT_PROVIDER
-  user: UserRoot
-  payments: PaymentRoot[]
-  paypal?: PaypalInformationRoot
-  creditcard?: CreditCardInformationRoot
+  user: UserParent
+  payments: PaymentParent[]
+  paypal?: PaypalInformationParent
+  creditcard?: CreditCardInformationParent
 }
 
-export const PaymentAccount: IPaymentAccount.Resolver<Types> = {
-  id: root => root.id,
-  createdAt: root => root.createdAt,
-  type: root => root.type,
-  user: root => root.user,
-  payments: root => root.payments,
-  paypal: root => root.paypal,
-  creditcard: root => root.creditcard,
+export const PaymentAccount: PaymentAccountResolvers.Type<TypeMap> = {
+  id: parent => parent.id,
+  createdAt: parent => parent.createdAt,
+  type: parent => parent.type,
+  user: parent => parent.user,
+  payments: parent => parent.payments,
+  paypal: parent => parent.paypal,
+  creditcard: parent => parent.creditcard,
 }

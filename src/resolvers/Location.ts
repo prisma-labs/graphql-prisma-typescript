@@ -1,7 +1,7 @@
-import { ILocation } from '../generated/resolvers'
-import { Types } from './types'
+import { LocationResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
 
-export interface LocationRoot {
+export interface LocationParent {
   id: string
   lat: number
   lng: number
@@ -9,10 +9,10 @@ export interface LocationRoot {
   directions?: string
 }
 
-export const Location: ILocation.Resolver<Types> = {
-  id: root => root.id,
-  lat: root => root.lat,
-  lng: root => root.lng,
-  address: root => root.address,
-  directions: root => root.directions,
+export const Location: LocationResolvers.Type<TypeMap> = {
+  id: parent => parent.id,
+  lat: parent => parent.lat,
+  lng: parent => parent.lng,
+  address: parent => parent.address,
+  directions: parent => parent.directions,
 }

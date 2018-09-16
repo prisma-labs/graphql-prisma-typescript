@@ -1,16 +1,16 @@
-import { IMessage } from '../generated/resolvers'
-import { Types } from './types'
+import { MessageResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
 
-export interface MessageRoot {
+export interface MessageParent {
   createdAt: string
   deliveredAt: string
   id: string
   readAt: string
 }
 
-export const Message: IMessage.Resolver<Types> = {
-  createdAt: root => root.createdAt,
-  deliveredAt: root => root.deliveredAt,
-  id: root => root.id,
-  readAt: root => root.readAt,
+export const Message: MessageResolvers.Type<TypeMap> = {
+  createdAt: parent => parent.createdAt,
+  deliveredAt: parent => parent.deliveredAt,
+  id: parent => parent.id,
+  readAt: parent => parent.readAt,
 }

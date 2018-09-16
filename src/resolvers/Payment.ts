@@ -1,20 +1,20 @@
-import { IPayment } from '../generated/resolvers'
-import { Types } from './types'
-import { BookingRoot } from './Booking'
-import { PaymentAccountRoot } from './PaymentAccount'
+import { PaymentResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
+import { BookingParent } from './Booking'
+import { PaymentAccountParent } from './PaymentAccount'
 
-export interface PaymentRoot {
-  booking: BookingRoot
+export interface PaymentParent {
+  booking: BookingParent
   createdAt: string
   id: string
-  paymentMethod: PaymentAccountRoot
+  paymentMethod: PaymentAccountParent
   serviceFee: number
 }
 
-export const Payment: IPayment.Resolver<Types> = {
-  booking: root => root.booking,
-  createdAt: root => root.createdAt,
-  id: root => root.id,
-  paymentMethod: root => root.paymentMethod,
-  serviceFee: root => root.serviceFee,
+export const Payment: PaymentResolvers.Type<TypeMap> = {
+  booking: parent => parent.booking,
+  createdAt: parent => parent.createdAt,
+  id: parent => parent.id,
+  paymentMethod: parent => parent.paymentMethod,
+  serviceFee: parent => parent.serviceFee,
 }

@@ -1,8 +1,8 @@
-import { ICreditCardInformation } from '../generated/resolvers'
-import { Types } from './types'
-import { PaymentAccountRoot } from './PaymentAccount'
+import { CreditCardInformationResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
+import { PaymentAccountParent } from './PaymentAccount'
 
-export interface CreditCardInformationRoot {
+export interface CreditCardInformationParent {
   cardNumber: string
   country: string
   createdAt: string
@@ -11,21 +11,24 @@ export interface CreditCardInformationRoot {
   firstName: string
   id: string
   lastName: string
-  paymentAccount?: PaymentAccountRoot
+  paymentAccount?: PaymentAccountParent
   postalCode: string
   securityCode: string
 }
 
-export const CreditCardInformation: ICreditCardInformation.Resolver<Types> = {
-  cardNumber: root => root.cardNumber,
-  country: root => root.country,
-  createdAt: root => root.createdAt,
-  expiresOnMonth: root => root.expiresOnMonth,
-  expiresOnYear: root => root.expiresOnYear,
-  firstName: root => root.firstName,
-  id: root => root.id,
-  lastName: root => root.lastName,
-  paymentAccount: (root, _args, ctx) => ctx.db.creditCardInformation({ id: root.id }).paymentAccount(),
-  postalCode: root => root.postalCode,
-  securityCode: root => root.securityCode,
+export const CreditCardInformation: CreditCardInformationResolvers.Type<
+  TypeMap
+> = {
+  cardNumber: parent => parent.cardNumber,
+  country: parent => parent.country,
+  createdAt: parent => parent.createdAt,
+  expiresOnMonth: parent => parent.expiresOnMonth,
+  expiresOnYear: parent => parent.expiresOnYear,
+  firstName: parent => parent.firstName,
+  id: parent => parent.id,
+  lastName: parent => parent.lastName,
+  paymentAccount: (parent, _args, ctx) =>
+    ctx.db.creditCardInformation({ id: parent.id }).paymentAccount(),
+  postalCode: parent => parent.postalCode,
+  securityCode: parent => parent.securityCode,
 }

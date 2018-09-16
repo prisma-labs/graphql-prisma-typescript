@@ -1,16 +1,16 @@
-import { IGuestRequirements } from '../generated/resolvers'
-import { Types } from './types'
+import { GuestRequirementsResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
 
-export interface GuestRequirementsRoot {
+export interface GuestRequirementsParent {
   govIssuedId: boolean
   guestTripInformation: boolean
   id: string
   recommendationsFromOtherHosts: boolean
 }
 
-export const GuestRequirements: IGuestRequirements.Resolver<Types> = {
-  govIssuedId: root => root.govIssuedId,
-  guestTripInformation: root => root.guestTripInformation,
-  id: root => root.id,
-  recommendationsFromOtherHosts: root => root.recommendationsFromOtherHosts,
+export const GuestRequirements: GuestRequirementsResolvers.Type<TypeMap> = {
+  govIssuedId: parent => parent.govIssuedId,
+  guestTripInformation: parent => parent.guestTripInformation,
+  id: parent => parent.id,
+  recommendationsFromOtherHosts: parent => parent.recommendationsFromOtherHosts,
 }

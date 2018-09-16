@@ -1,26 +1,25 @@
-import { INeighbourhood } from '../generated/resolvers'
-import { Types } from './types'
-import { PictureRoot } from './Picture'
-import { CityRoot } from './City'
+import { NeighbourhoodResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
+import { PictureParent } from './Picture'
+import { CityParent } from './City'
 
-export interface NeighbourhoodRoot {
+export interface NeighbourhoodParent {
   id: string
   name: string
   slug: string
-  homePreview?: PictureRoot
-  city: CityRoot
+  homePreview?: PictureParent
+  city: CityParent
   featured: boolean
   popularity: number
 }
 
-export const Neighbourhood: INeighbourhood.Resolver<Types> = {
-  id: root => root.id,
-  name: root => root.name,
-  slug: root => root.slug,
-  homePreview: (root, _args, ctx) =>
-    ctx.db.neighbourhood({ id: root.id }).homePreview(),
-  city: (root, _args, ctx) =>
-    ctx.db.neighbourhood({ id: root.id }).city(),
-  featured: root => root.featured,
-  popularity: root => root.popularity,
+export const Neighbourhood: NeighbourhoodResolvers.Type<TypeMap> = {
+  id: parent => parent.id,
+  name: parent => parent.name,
+  slug: parent => parent.slug,
+  homePreview: (parent, _args, ctx) =>
+    ctx.db.neighbourhood({ id: parent.id }).homePreview(),
+  city: (parent, _args, ctx) => ctx.db.neighbourhood({ id: parent.id }).city(),
+  featured: parent => parent.featured,
+  popularity: parent => parent.popularity,
 }

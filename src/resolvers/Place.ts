@@ -1,16 +1,16 @@
-import { IPlace } from '../generated/resolvers'
-import { Types } from './types'
-import { ReviewRoot } from './Review'
-import { AmenitiesRoot } from './Amenities'
-import { UserRoot } from './User'
-import { PricingRoot } from './Pricing'
-import { LocationRoot } from './Location'
-import { PlaceViewsRoot } from './PlaceViews'
-import { GuestRequirementsRoot } from './GuestRequirements'
-import { PoliciesRoot } from './Policies'
-import { HouseRulesRoot } from './HouseRules'
-import { BookingRoot } from './Booking'
-import { PictureRoot } from './Picture'
+import { PlaceResolvers } from '../generated/resolvers'
+import { TypeMap } from '../types/TypeMap'
+import { ReviewParent } from './Review'
+import { AmenitiesParent } from './Amenities'
+import { UserParent } from './User'
+import { PricingParent } from './Pricing'
+import { LocationParent } from './Location'
+import { PlaceViewsParent } from './PlaceViews'
+import { GuestRequirementsParent } from './GuestRequirements'
+import { PoliciesParent } from './Policies'
+import { HouseRulesParent } from './HouseRules'
+import { BookingParent } from './Booking'
+import { PictureParent } from './Picture'
 
 export type PLACE_SIZES =
   | 'ENTIRE_HOUSE'
@@ -22,7 +22,7 @@ export type PLACE_SIZES =
   | 'ENTIRE_BOAT'
   | 'PRIVATE_ROOM'
 
-export interface PlaceRoot {
+export interface PlaceParent {
   id: string
   name?: string
   size?: PLACE_SIZES
@@ -33,41 +33,41 @@ export interface PlaceRoot {
   numBedrooms: number
   numBeds: number
   numBaths: number
-  reviews: ReviewRoot[]
-  amenities: AmenitiesRoot
-  host: UserRoot
-  pricing: PricingRoot
-  location: LocationRoot
-  views: PlaceViewsRoot
-  guestRequirements?: GuestRequirementsRoot
-  policies?: PoliciesRoot
-  houseRules?: HouseRulesRoot
-  bookings: BookingRoot[]
-  pictures: PictureRoot[]
+  reviews: ReviewParent[]
+  amenities: AmenitiesParent
+  host: UserParent
+  pricing: PricingParent
+  location: LocationParent
+  views: PlaceViewsParent
+  guestRequirements?: GuestRequirementsParent
+  policies?: PoliciesParent
+  houseRules?: HouseRulesParent
+  bookings: BookingParent[]
+  pictures: PictureParent[]
   popularity: number
 }
 
-export const Place: IPlace.Resolver<Types> = {
-  id: root => root.id,
-  name: root => root.name,
-  size: root => root.size,
-  shortDescription: root => root.shortDescription,
-  description: root => root.description,
-  slug: root => root.slug,
-  maxGuests: root => root.maxGuests,
-  numBedrooms: root => root.numBedrooms,
-  numBeds: root => root.numBeds,
-  numBaths: root => root.numBaths,
-  reviews: root => root.reviews,
-  amenities: root => root.amenities,
-  host: root => root.host,
-  pricing: root => root.pricing,
-  location: root => root.location,
-  views: root => root.views,
-  guestRequirements: root => root.guestRequirements,
-  policies: root => root.policies,
-  houseRules: root => root.houseRules,
-  bookings: root => root.bookings,
-  pictures: root => root.pictures,
-  popularity: root => root.popularity,
+export const Place: PlaceResolvers.Type<TypeMap> = {
+  id: parent => parent.id,
+  name: parent => parent.name,
+  size: parent => parent.size,
+  shortDescription: parent => parent.shortDescription,
+  description: parent => parent.description,
+  slug: parent => parent.slug,
+  maxGuests: parent => parent.maxGuests,
+  numBedrooms: parent => parent.numBedrooms,
+  numBeds: parent => parent.numBeds,
+  numBaths: parent => parent.numBaths,
+  reviews: parent => parent.reviews,
+  amenities: parent => parent.amenities,
+  host: parent => parent.host,
+  pricing: parent => parent.pricing,
+  location: parent => parent.location,
+  views: parent => parent.views,
+  guestRequirements: parent => parent.guestRequirements,
+  policies: parent => parent.policies,
+  houseRules: parent => parent.houseRules,
+  bookings: parent => parent.bookings,
+  pictures: parent => parent.pictures,
+  popularity: parent => parent.popularity,
 }
