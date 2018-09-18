@@ -6,7 +6,7 @@ import { resolvers } from './resolvers'
 const server = new GraphQLServer({
   context,
   resolvers,
-  typeDefs: `${__dirname.replace('/dist', '/src')}/schema.graphql`,
+  typeDefs: './src/schema.graphql',
 } as any)
 
 server.start(({ port }) =>
