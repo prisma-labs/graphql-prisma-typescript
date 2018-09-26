@@ -1,5 +1,5 @@
 import { PlaceResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 import { ReviewParent } from './Review'
 import { AmenitiesParent } from './Amenities'
 import { UserParent } from './User'

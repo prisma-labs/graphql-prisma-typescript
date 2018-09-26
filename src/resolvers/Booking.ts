@@ -1,5 +1,5 @@
 import { BookingResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 import { UserParent } from './User'
 import { PlaceParent } from './Place'
 import { PaymentParent } from './Payment'

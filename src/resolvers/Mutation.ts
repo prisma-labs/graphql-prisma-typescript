@@ -1,8 +1,8 @@
 import * as bcrypt from 'bcryptjs'
 import * as jwt from 'jsonwebtoken'
+
 import { MutationResolvers } from '../generated/resolvers'
-import { getUserId } from '../utils'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 
 export interface MutationParent {}
 
@@ -78,7 +78,7 @@ export const Mutation: MutationResolvers.Type<TypeMap> = {
     //   return Math.round(difference_ms / ONE_DAY)
     // }
 
-    const userId = getUserId(ctx)
+    const userId = ctx.getUserId()
 
     // TODO: IMPLEMENT
     // const paymentAccount = await getPaymentAccount(userId, ctx)
@@ -124,7 +124,7 @@ export const Mutation: MutationResolvers.Type<TypeMap> = {
     return { success: true }
   },
   addLocationToUser: async (_parent, { location }, ctx) => {
-    const id = getUserId(ctx)
+    const id = ctx.getUserId()
 
     const createdLocation = await ctx.db.createLocation({
       ...location,

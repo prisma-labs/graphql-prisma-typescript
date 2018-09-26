@@ -1,17 +1,12 @@
 import { GraphQLServer } from 'graphql-yoga'
-import { Prisma } from './prisma-client'
+
+import { context } from './context'
 import { resolvers } from './resolvers'
 
-const db = new Prisma({
-  endpoint: process.env.PRISMA_ENDPOINT,
-  secret: process.env.PRISMA_SECRET,
-  // debug: true,
-})
-
 const server = new GraphQLServer({
-  typeDefs: './src/schema.graphql',
+  context,
   resolvers,
-  context: req => ({ ...req, db }),
+  typeDefs: './src/schema.graphql',
 } as any)
 
 server.start(({ port }) =>

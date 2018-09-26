@@ -1,5 +1,5 @@
 import { HouseRulesResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 
 export interface HouseRulesParent {
   additionalRules?: string

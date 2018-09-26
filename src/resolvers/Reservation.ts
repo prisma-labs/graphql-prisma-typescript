@@ -1,5 +1,5 @@
 import { ReservationResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 import { PictureParent } from './Picture'
 import { LocationParent } from './Location'
 
