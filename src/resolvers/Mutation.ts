@@ -21,18 +21,6 @@ export const Mutation: MutationResolvers.Type<TypeMap> = {
     return {
       token,
       user: ctx.db.user({ id: user.id }),
-      // user: {
-      //   ...user,
-      //   token,
-      //   sentMessages: null,
-      //   receivedMessages: null,
-      //   paymentAccount: null,
-      //   ownedPlaces: null,
-      //   notifications: null,
-      //   bookings: null,
-      //   hostingExperiences: null,
-      //   location: null,
-      // },
     }
   },
   login: async (_parent, { email, password }, ctx) => {
@@ -47,18 +35,7 @@ export const Mutation: MutationResolvers.Type<TypeMap> = {
 
     return {
       token,
-      user: {
-        ...user,
-        token,
-        sentMessages: null,
-        receivedMessages: null,
-        paymentAccount: null,
-        ownedPlaces: null,
-        notifications: null,
-        bookings: null,
-        hostingExperiences: null,
-        location: null,
-      },
+      user: ctx.db.user({ id: user.id }),
     }
   },
   addPaymentMethod: (parent, args) => {
