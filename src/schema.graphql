@@ -2,8 +2,8 @@
 
 type Query {
   topExperiences: [Experience!]!
-  topHomes: [Home!]!
-  homesInPriceRange(min: Int!, max: Int!): [Home!]!
+  topHomes: [Place!]!
+  homesInPriceRange(min: Int!, max: Int!): [Place!]!
   topReservations: [Reservation!]!
   featuredDestinations: [Neighbourhood!]!
   experiencesByCity(cities: [String!]!): [ExperiencesByCity!]!
@@ -64,16 +64,6 @@ type MutationResult {
 type ExperiencesByCity {
   experiences: [Experience!]!
   city: City!
-}
-
-type Home {
-  id: ID!
-  name: String
-  description: String!
-  numRatings: Int!
-  avgRating: Float
-  pictures(first: Int): [Picture!]!
-  perNight: Int!
 }
 
 type Reservation {
@@ -166,7 +156,6 @@ type User {
   responseTime: Int
   sentMessages: [Message!]
   updatedAt: DateTime!
-  token: String!
 }
 
 type PaymentAccount {
@@ -187,6 +176,8 @@ type Place {
   description: String!
   slug: String!
   maxGuests: Int!
+  numRatings: Int!
+  avgRating: Float
   numBedrooms: Int!
   numBeds: Int!
   numBaths: Int!

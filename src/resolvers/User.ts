@@ -1,5 +1,5 @@
 import { UserResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 import { BookingParent } from './Booking'
 import { ExperienceParent } from './Experience'
 import { LocationParent } from './Location'
@@ -29,7 +29,6 @@ export interface UserParent {
   responseTime?: number
   sentMessages: MessageParent[]
   updatedAt: string
-  token: string
 }
 
 export const User: UserResolvers.Type<TypeMap> = {
@@ -58,5 +57,4 @@ export const User: UserResolvers.Type<TypeMap> = {
   sentMessages: (parent, _args, ctx) =>
     ctx.db.user({ id: parent.id }).sentMessages(),
   updatedAt: parent => parent.updatedAt,
-  token: parent => parent.token,
 }

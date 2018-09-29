@@ -390,7 +390,7 @@ input AmenitiesSubscriptionWhereInput {
 }
 
 input AmenitiesUpdateInput {
-  place: PlaceUpdateOneWithoutAmenitiesInput
+  place: PlaceUpdateOneRequiredWithoutAmenitiesInput
   elevator: Boolean
   petsAllowed: Boolean
   internet: Boolean
@@ -433,11 +433,10 @@ input AmenitiesUpdateInput {
   crib: Boolean
 }
 
-input AmenitiesUpdateOneWithoutPlaceInput {
+input AmenitiesUpdateOneRequiredWithoutPlaceInput {
   create: AmenitiesCreateWithoutPlaceInput
   update: AmenitiesUpdateWithoutPlaceDataInput
   upsert: AmenitiesUpsertWithoutPlaceInput
-  delete: Boolean
   connect: AmenitiesWhereUniqueInput
 }
 
@@ -702,8 +701,8 @@ input BookingSubscriptionWhereInput {
 }
 
 input BookingUpdateInput {
-  bookee: UserUpdateOneWithoutBookingsInput
-  place: PlaceUpdateOneWithoutBookingsInput
+  bookee: UserUpdateOneRequiredWithoutBookingsInput
+  place: PlaceUpdateOneRequiredWithoutBookingsInput
   startDate: DateTime
   endDate: DateTime
   payment: PaymentUpdateOneWithoutBookingInput
@@ -727,30 +726,29 @@ input BookingUpdateManyWithoutPlaceInput {
   upsert: [BookingUpsertWithWhereUniqueWithoutPlaceInput!]
 }
 
-input BookingUpdateOneWithoutPaymentInput {
+input BookingUpdateOneRequiredWithoutPaymentInput {
   create: BookingCreateWithoutPaymentInput
   update: BookingUpdateWithoutPaymentDataInput
   upsert: BookingUpsertWithoutPaymentInput
-  delete: Boolean
   connect: BookingWhereUniqueInput
 }
 
 input BookingUpdateWithoutBookeeDataInput {
-  place: PlaceUpdateOneWithoutBookingsInput
+  place: PlaceUpdateOneRequiredWithoutBookingsInput
   startDate: DateTime
   endDate: DateTime
   payment: PaymentUpdateOneWithoutBookingInput
 }
 
 input BookingUpdateWithoutPaymentDataInput {
-  bookee: UserUpdateOneWithoutBookingsInput
-  place: PlaceUpdateOneWithoutBookingsInput
+  bookee: UserUpdateOneRequiredWithoutBookingsInput
+  place: PlaceUpdateOneRequiredWithoutBookingsInput
   startDate: DateTime
   endDate: DateTime
 }
 
 input BookingUpdateWithoutPlaceDataInput {
-  bookee: UserUpdateOneWithoutBookingsInput
+  bookee: UserUpdateOneRequiredWithoutBookingsInput
   startDate: DateTime
   endDate: DateTime
   payment: PaymentUpdateOneWithoutBookingInput
@@ -904,11 +902,10 @@ input CityUpdateInput {
   neighbourhoods: NeighbourhoodUpdateManyWithoutCityInput
 }
 
-input CityUpdateOneWithoutNeighbourhoodsInput {
+input CityUpdateOneRequiredWithoutNeighbourhoodsInput {
   create: CityCreateWithoutNeighbourhoodsInput
   update: CityUpdateWithoutNeighbourhoodsDataInput
   upsert: CityUpsertWithoutNeighbourhoodsInput
-  delete: Boolean
   connect: CityWhereUniqueInput
 }
 
@@ -1538,11 +1535,11 @@ input ExperienceSubscriptionWhereInput {
 input ExperienceUpdateInput {
   category: ExperienceCategoryUpdateOneWithoutExperienceInput
   title: String
-  host: UserUpdateOneWithoutHostingExperiencesInput
-  location: LocationUpdateOneWithoutExperienceInput
+  host: UserUpdateOneRequiredWithoutHostingExperiencesInput
+  location: LocationUpdateOneRequiredWithoutExperienceInput
   pricePerPerson: Int
   reviews: ReviewUpdateManyWithoutExperienceInput
-  preview: PictureUpdateOneInput
+  preview: PictureUpdateOneRequiredInput
   popularity: Int
 }
 
@@ -1584,41 +1581,41 @@ input ExperienceUpdateOneWithoutReviewsInput {
 
 input ExperienceUpdateWithoutCategoryDataInput {
   title: String
-  host: UserUpdateOneWithoutHostingExperiencesInput
-  location: LocationUpdateOneWithoutExperienceInput
+  host: UserUpdateOneRequiredWithoutHostingExperiencesInput
+  location: LocationUpdateOneRequiredWithoutExperienceInput
   pricePerPerson: Int
   reviews: ReviewUpdateManyWithoutExperienceInput
-  preview: PictureUpdateOneInput
+  preview: PictureUpdateOneRequiredInput
   popularity: Int
 }
 
 input ExperienceUpdateWithoutHostDataInput {
   category: ExperienceCategoryUpdateOneWithoutExperienceInput
   title: String
-  location: LocationUpdateOneWithoutExperienceInput
+  location: LocationUpdateOneRequiredWithoutExperienceInput
   pricePerPerson: Int
   reviews: ReviewUpdateManyWithoutExperienceInput
-  preview: PictureUpdateOneInput
+  preview: PictureUpdateOneRequiredInput
   popularity: Int
 }
 
 input ExperienceUpdateWithoutLocationDataInput {
   category: ExperienceCategoryUpdateOneWithoutExperienceInput
   title: String
-  host: UserUpdateOneWithoutHostingExperiencesInput
+  host: UserUpdateOneRequiredWithoutHostingExperiencesInput
   pricePerPerson: Int
   reviews: ReviewUpdateManyWithoutExperienceInput
-  preview: PictureUpdateOneInput
+  preview: PictureUpdateOneRequiredInput
   popularity: Int
 }
 
 input ExperienceUpdateWithoutReviewsDataInput {
   category: ExperienceCategoryUpdateOneWithoutExperienceInput
   title: String
-  host: UserUpdateOneWithoutHostingExperiencesInput
-  location: LocationUpdateOneWithoutExperienceInput
+  host: UserUpdateOneRequiredWithoutHostingExperiencesInput
+  location: LocationUpdateOneRequiredWithoutExperienceInput
   pricePerPerson: Int
-  preview: PictureUpdateOneInput
+  preview: PictureUpdateOneRequiredInput
   popularity: Int
 }
 
@@ -1790,7 +1787,7 @@ input GuestRequirementsUpdateInput {
   govIssuedId: Boolean
   recommendationsFromOtherHosts: Boolean
   guestTripInformation: Boolean
-  place: PlaceUpdateOneWithoutGuestRequirementsInput
+  place: PlaceUpdateOneRequiredWithoutGuestRequirementsInput
 }
 
 input GuestRequirementsUpdateOneWithoutPlaceInput {
@@ -2208,27 +2205,24 @@ input LocationUpdateManyWithoutNeighbourHoodInput {
   upsert: [LocationUpsertWithWhereUniqueWithoutNeighbourHoodInput!]
 }
 
-input LocationUpdateOneWithoutExperienceInput {
+input LocationUpdateOneRequiredWithoutExperienceInput {
   create: LocationCreateWithoutExperienceInput
   update: LocationUpdateWithoutExperienceDataInput
   upsert: LocationUpsertWithoutExperienceInput
-  delete: Boolean
   connect: LocationWhereUniqueInput
 }
 
-input LocationUpdateOneWithoutPlaceInput {
+input LocationUpdateOneRequiredWithoutPlaceInput {
   create: LocationCreateWithoutPlaceInput
   update: LocationUpdateWithoutPlaceDataInput
   upsert: LocationUpsertWithoutPlaceInput
-  delete: Boolean
   connect: LocationWhereUniqueInput
 }
 
-input LocationUpdateOneWithoutRestaurantInput {
+input LocationUpdateOneRequiredWithoutRestaurantInput {
   create: LocationCreateWithoutRestaurantInput
   update: LocationUpdateWithoutRestaurantDataInput
   upsert: LocationUpsertWithoutRestaurantInput
-  delete: Boolean
   connect: LocationWhereUniqueInput
 }
 
@@ -2490,8 +2484,8 @@ input MessageSubscriptionWhereInput {
 }
 
 input MessageUpdateInput {
-  from: UserUpdateOneWithoutSentMessagesInput
-  to: UserUpdateOneWithoutReceivedMessagesInput
+  from: UserUpdateOneRequiredWithoutSentMessagesInput
+  to: UserUpdateOneRequiredWithoutReceivedMessagesInput
   deliveredAt: DateTime
   readAt: DateTime
 }
@@ -2515,13 +2509,13 @@ input MessageUpdateManyWithoutToInput {
 }
 
 input MessageUpdateWithoutFromDataInput {
-  to: UserUpdateOneWithoutReceivedMessagesInput
+  to: UserUpdateOneRequiredWithoutReceivedMessagesInput
   deliveredAt: DateTime
   readAt: DateTime
 }
 
 input MessageUpdateWithoutToDataInput {
-  from: UserUpdateOneWithoutSentMessagesInput
+  from: UserUpdateOneRequiredWithoutSentMessagesInput
   deliveredAt: DateTime
   readAt: DateTime
 }
@@ -2599,72 +2593,30 @@ input MessageWhereUniqueInput {
 }
 
 type Mutation {
-  createUser(data: UserCreateInput!): User!
-  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-  updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
-  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
-  deleteUser(where: UserWhereUniqueInput!): User
-  deleteManyUsers(where: UserWhereInput): BatchPayload!
-  createPlace(data: PlaceCreateInput!): Place!
-  updatePlace(data: PlaceUpdateInput!, where: PlaceWhereUniqueInput!): Place
-  updateManyPlaces(data: PlaceUpdateInput!, where: PlaceWhereInput): BatchPayload!
-  upsertPlace(where: PlaceWhereUniqueInput!, create: PlaceCreateInput!, update: PlaceUpdateInput!): Place!
-  deletePlace(where: PlaceWhereUniqueInput!): Place
-  deleteManyPlaces(where: PlaceWhereInput): BatchPayload!
-  createPricing(data: PricingCreateInput!): Pricing!
-  updatePricing(data: PricingUpdateInput!, where: PricingWhereUniqueInput!): Pricing
-  updateManyPricings(data: PricingUpdateInput!, where: PricingWhereInput): BatchPayload!
-  upsertPricing(where: PricingWhereUniqueInput!, create: PricingCreateInput!, update: PricingUpdateInput!): Pricing!
-  deletePricing(where: PricingWhereUniqueInput!): Pricing
-  deleteManyPricings(where: PricingWhereInput): BatchPayload!
-  createGuestRequirements(data: GuestRequirementsCreateInput!): GuestRequirements!
-  updateGuestRequirements(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereUniqueInput!): GuestRequirements
-  updateManyGuestRequirementses(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereInput): BatchPayload!
-  upsertGuestRequirements(where: GuestRequirementsWhereUniqueInput!, create: GuestRequirementsCreateInput!, update: GuestRequirementsUpdateInput!): GuestRequirements!
-  deleteGuestRequirements(where: GuestRequirementsWhereUniqueInput!): GuestRequirements
-  deleteManyGuestRequirementses(where: GuestRequirementsWhereInput): BatchPayload!
-  createPolicies(data: PoliciesCreateInput!): Policies!
-  updatePolicies(data: PoliciesUpdateInput!, where: PoliciesWhereUniqueInput!): Policies
-  updateManyPolicieses(data: PoliciesUpdateInput!, where: PoliciesWhereInput): BatchPayload!
-  upsertPolicies(where: PoliciesWhereUniqueInput!, create: PoliciesCreateInput!, update: PoliciesUpdateInput!): Policies!
-  deletePolicies(where: PoliciesWhereUniqueInput!): Policies
-  deleteManyPolicieses(where: PoliciesWhereInput): BatchPayload!
-  createHouseRules(data: HouseRulesCreateInput!): HouseRules!
-  updateHouseRules(data: HouseRulesUpdateInput!, where: HouseRulesWhereUniqueInput!): HouseRules
-  updateManyHouseRuleses(data: HouseRulesUpdateInput!, where: HouseRulesWhereInput): BatchPayload!
-  upsertHouseRules(where: HouseRulesWhereUniqueInput!, create: HouseRulesCreateInput!, update: HouseRulesUpdateInput!): HouseRules!
-  deleteHouseRules(where: HouseRulesWhereUniqueInput!): HouseRules
-  deleteManyHouseRuleses(where: HouseRulesWhereInput): BatchPayload!
-  createViews(data: ViewsCreateInput!): Views!
-  updateViews(data: ViewsUpdateInput!, where: ViewsWhereUniqueInput!): Views
-  updateManyViewses(data: ViewsUpdateInput!, where: ViewsWhereInput): BatchPayload!
-  upsertViews(where: ViewsWhereUniqueInput!, create: ViewsCreateInput!, update: ViewsUpdateInput!): Views!
-  deleteViews(where: ViewsWhereUniqueInput!): Views
-  deleteManyViewses(where: ViewsWhereInput): BatchPayload!
-  createLocation(data: LocationCreateInput!): Location!
-  updateLocation(data: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location
-  updateManyLocations(data: LocationUpdateInput!, where: LocationWhereInput): BatchPayload!
-  upsertLocation(where: LocationWhereUniqueInput!, create: LocationCreateInput!, update: LocationUpdateInput!): Location!
-  deleteLocation(where: LocationWhereUniqueInput!): Location
-  deleteManyLocations(where: LocationWhereInput): BatchPayload!
-  createNeighbourhood(data: NeighbourhoodCreateInput!): Neighbourhood!
-  updateNeighbourhood(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereUniqueInput!): Neighbourhood
-  updateManyNeighbourhoods(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereInput): BatchPayload!
-  upsertNeighbourhood(where: NeighbourhoodWhereUniqueInput!, create: NeighbourhoodCreateInput!, update: NeighbourhoodUpdateInput!): Neighbourhood!
-  deleteNeighbourhood(where: NeighbourhoodWhereUniqueInput!): Neighbourhood
-  deleteManyNeighbourhoods(where: NeighbourhoodWhereInput): BatchPayload!
+  createAmenities(data: AmenitiesCreateInput!): Amenities!
+  updateAmenities(data: AmenitiesUpdateInput!, where: AmenitiesWhereUniqueInput!): Amenities
+  updateManyAmenitieses(data: AmenitiesUpdateInput!, where: AmenitiesWhereInput): BatchPayload!
+  upsertAmenities(where: AmenitiesWhereUniqueInput!, create: AmenitiesCreateInput!, update: AmenitiesUpdateInput!): Amenities!
+  deleteAmenities(where: AmenitiesWhereUniqueInput!): Amenities
+  deleteManyAmenitieses(where: AmenitiesWhereInput): BatchPayload!
+  createBooking(data: BookingCreateInput!): Booking!
+  updateBooking(data: BookingUpdateInput!, where: BookingWhereUniqueInput!): Booking
+  updateManyBookings(data: BookingUpdateInput!, where: BookingWhereInput): BatchPayload!
+  upsertBooking(where: BookingWhereUniqueInput!, create: BookingCreateInput!, update: BookingUpdateInput!): Booking!
+  deleteBooking(where: BookingWhereUniqueInput!): Booking
+  deleteManyBookings(where: BookingWhereInput): BatchPayload!
   createCity(data: CityCreateInput!): City!
   updateCity(data: CityUpdateInput!, where: CityWhereUniqueInput!): City
   updateManyCities(data: CityUpdateInput!, where: CityWhereInput): BatchPayload!
   upsertCity(where: CityWhereUniqueInput!, create: CityCreateInput!, update: CityUpdateInput!): City!
   deleteCity(where: CityWhereUniqueInput!): City
   deleteManyCities(where: CityWhereInput): BatchPayload!
-  createPicture(data: PictureCreateInput!): Picture!
-  updatePicture(data: PictureUpdateInput!, where: PictureWhereUniqueInput!): Picture
-  updateManyPictures(data: PictureUpdateInput!, where: PictureWhereInput): BatchPayload!
-  upsertPicture(where: PictureWhereUniqueInput!, create: PictureCreateInput!, update: PictureUpdateInput!): Picture!
-  deletePicture(where: PictureWhereUniqueInput!): Picture
-  deleteManyPictures(where: PictureWhereInput): BatchPayload!
+  createCreditCardInformation(data: CreditCardInformationCreateInput!): CreditCardInformation!
+  updateCreditCardInformation(data: CreditCardInformationUpdateInput!, where: CreditCardInformationWhereUniqueInput!): CreditCardInformation
+  updateManyCreditCardInformations(data: CreditCardInformationUpdateInput!, where: CreditCardInformationWhereInput): BatchPayload!
+  upsertCreditCardInformation(where: CreditCardInformationWhereUniqueInput!, create: CreditCardInformationCreateInput!, update: CreditCardInformationUpdateInput!): CreditCardInformation!
+  deleteCreditCardInformation(where: CreditCardInformationWhereUniqueInput!): CreditCardInformation
+  deleteManyCreditCardInformations(where: CreditCardInformationWhereInput): BatchPayload!
   createExperience(data: ExperienceCreateInput!): Experience!
   updateExperience(data: ExperienceUpdateInput!, where: ExperienceWhereUniqueInput!): Experience
   updateManyExperiences(data: ExperienceUpdateInput!, where: ExperienceWhereInput): BatchPayload!
@@ -2677,24 +2629,42 @@ type Mutation {
   upsertExperienceCategory(where: ExperienceCategoryWhereUniqueInput!, create: ExperienceCategoryCreateInput!, update: ExperienceCategoryUpdateInput!): ExperienceCategory!
   deleteExperienceCategory(where: ExperienceCategoryWhereUniqueInput!): ExperienceCategory
   deleteManyExperienceCategories(where: ExperienceCategoryWhereInput): BatchPayload!
-  createAmenities(data: AmenitiesCreateInput!): Amenities!
-  updateAmenities(data: AmenitiesUpdateInput!, where: AmenitiesWhereUniqueInput!): Amenities
-  updateManyAmenitieses(data: AmenitiesUpdateInput!, where: AmenitiesWhereInput): BatchPayload!
-  upsertAmenities(where: AmenitiesWhereUniqueInput!, create: AmenitiesCreateInput!, update: AmenitiesUpdateInput!): Amenities!
-  deleteAmenities(where: AmenitiesWhereUniqueInput!): Amenities
-  deleteManyAmenitieses(where: AmenitiesWhereInput): BatchPayload!
-  createReview(data: ReviewCreateInput!): Review!
-  updateReview(data: ReviewUpdateInput!, where: ReviewWhereUniqueInput!): Review
-  updateManyReviews(data: ReviewUpdateInput!, where: ReviewWhereInput): BatchPayload!
-  upsertReview(where: ReviewWhereUniqueInput!, create: ReviewCreateInput!, update: ReviewUpdateInput!): Review!
-  deleteReview(where: ReviewWhereUniqueInput!): Review
-  deleteManyReviews(where: ReviewWhereInput): BatchPayload!
-  createBooking(data: BookingCreateInput!): Booking!
-  updateBooking(data: BookingUpdateInput!, where: BookingWhereUniqueInput!): Booking
-  updateManyBookings(data: BookingUpdateInput!, where: BookingWhereInput): BatchPayload!
-  upsertBooking(where: BookingWhereUniqueInput!, create: BookingCreateInput!, update: BookingUpdateInput!): Booking!
-  deleteBooking(where: BookingWhereUniqueInput!): Booking
-  deleteManyBookings(where: BookingWhereInput): BatchPayload!
+  createGuestRequirements(data: GuestRequirementsCreateInput!): GuestRequirements!
+  updateGuestRequirements(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereUniqueInput!): GuestRequirements
+  updateManyGuestRequirementses(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereInput): BatchPayload!
+  upsertGuestRequirements(where: GuestRequirementsWhereUniqueInput!, create: GuestRequirementsCreateInput!, update: GuestRequirementsUpdateInput!): GuestRequirements!
+  deleteGuestRequirements(where: GuestRequirementsWhereUniqueInput!): GuestRequirements
+  deleteManyGuestRequirementses(where: GuestRequirementsWhereInput): BatchPayload!
+  createHouseRules(data: HouseRulesCreateInput!): HouseRules!
+  updateHouseRules(data: HouseRulesUpdateInput!, where: HouseRulesWhereUniqueInput!): HouseRules
+  updateManyHouseRuleses(data: HouseRulesUpdateInput!, where: HouseRulesWhereInput): BatchPayload!
+  upsertHouseRules(where: HouseRulesWhereUniqueInput!, create: HouseRulesCreateInput!, update: HouseRulesUpdateInput!): HouseRules!
+  deleteHouseRules(where: HouseRulesWhereUniqueInput!): HouseRules
+  deleteManyHouseRuleses(where: HouseRulesWhereInput): BatchPayload!
+  createLocation(data: LocationCreateInput!): Location!
+  updateLocation(data: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location
+  updateManyLocations(data: LocationUpdateInput!, where: LocationWhereInput): BatchPayload!
+  upsertLocation(where: LocationWhereUniqueInput!, create: LocationCreateInput!, update: LocationUpdateInput!): Location!
+  deleteLocation(where: LocationWhereUniqueInput!): Location
+  deleteManyLocations(where: LocationWhereInput): BatchPayload!
+  createMessage(data: MessageCreateInput!): Message!
+  updateMessage(data: MessageUpdateInput!, where: MessageWhereUniqueInput!): Message
+  updateManyMessages(data: MessageUpdateInput!, where: MessageWhereInput): BatchPayload!
+  upsertMessage(where: MessageWhereUniqueInput!, create: MessageCreateInput!, update: MessageUpdateInput!): Message!
+  deleteMessage(where: MessageWhereUniqueInput!): Message
+  deleteManyMessages(where: MessageWhereInput): BatchPayload!
+  createNeighbourhood(data: NeighbourhoodCreateInput!): Neighbourhood!
+  updateNeighbourhood(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereUniqueInput!): Neighbourhood
+  updateManyNeighbourhoods(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereInput): BatchPayload!
+  upsertNeighbourhood(where: NeighbourhoodWhereUniqueInput!, create: NeighbourhoodCreateInput!, update: NeighbourhoodUpdateInput!): Neighbourhood!
+  deleteNeighbourhood(where: NeighbourhoodWhereUniqueInput!): Neighbourhood
+  deleteManyNeighbourhoods(where: NeighbourhoodWhereInput): BatchPayload!
+  createNotification(data: NotificationCreateInput!): Notification!
+  updateNotification(data: NotificationUpdateInput!, where: NotificationWhereUniqueInput!): Notification
+  updateManyNotifications(data: NotificationUpdateInput!, where: NotificationWhereInput): BatchPayload!
+  upsertNotification(where: NotificationWhereUniqueInput!, create: NotificationCreateInput!, update: NotificationUpdateInput!): Notification!
+  deleteNotification(where: NotificationWhereUniqueInput!): Notification
+  deleteManyNotifications(where: NotificationWhereInput): BatchPayload!
   createPayment(data: PaymentCreateInput!): Payment!
   updatePayment(data: PaymentUpdateInput!, where: PaymentWhereUniqueInput!): Payment
   updateManyPayments(data: PaymentUpdateInput!, where: PaymentWhereInput): BatchPayload!
@@ -2713,30 +2683,54 @@ type Mutation {
   upsertPaypalInformation(where: PaypalInformationWhereUniqueInput!, create: PaypalInformationCreateInput!, update: PaypalInformationUpdateInput!): PaypalInformation!
   deletePaypalInformation(where: PaypalInformationWhereUniqueInput!): PaypalInformation
   deleteManyPaypalInformations(where: PaypalInformationWhereInput): BatchPayload!
-  createCreditCardInformation(data: CreditCardInformationCreateInput!): CreditCardInformation!
-  updateCreditCardInformation(data: CreditCardInformationUpdateInput!, where: CreditCardInformationWhereUniqueInput!): CreditCardInformation
-  updateManyCreditCardInformations(data: CreditCardInformationUpdateInput!, where: CreditCardInformationWhereInput): BatchPayload!
-  upsertCreditCardInformation(where: CreditCardInformationWhereUniqueInput!, create: CreditCardInformationCreateInput!, update: CreditCardInformationUpdateInput!): CreditCardInformation!
-  deleteCreditCardInformation(where: CreditCardInformationWhereUniqueInput!): CreditCardInformation
-  deleteManyCreditCardInformations(where: CreditCardInformationWhereInput): BatchPayload!
-  createMessage(data: MessageCreateInput!): Message!
-  updateMessage(data: MessageUpdateInput!, where: MessageWhereUniqueInput!): Message
-  updateManyMessages(data: MessageUpdateInput!, where: MessageWhereInput): BatchPayload!
-  upsertMessage(where: MessageWhereUniqueInput!, create: MessageCreateInput!, update: MessageUpdateInput!): Message!
-  deleteMessage(where: MessageWhereUniqueInput!): Message
-  deleteManyMessages(where: MessageWhereInput): BatchPayload!
-  createNotification(data: NotificationCreateInput!): Notification!
-  updateNotification(data: NotificationUpdateInput!, where: NotificationWhereUniqueInput!): Notification
-  updateManyNotifications(data: NotificationUpdateInput!, where: NotificationWhereInput): BatchPayload!
-  upsertNotification(where: NotificationWhereUniqueInput!, create: NotificationCreateInput!, update: NotificationUpdateInput!): Notification!
-  deleteNotification(where: NotificationWhereUniqueInput!): Notification
-  deleteManyNotifications(where: NotificationWhereInput): BatchPayload!
+  createPicture(data: PictureCreateInput!): Picture!
+  updatePicture(data: PictureUpdateInput!, where: PictureWhereUniqueInput!): Picture
+  updateManyPictures(data: PictureUpdateInput!, where: PictureWhereInput): BatchPayload!
+  upsertPicture(where: PictureWhereUniqueInput!, create: PictureCreateInput!, update: PictureUpdateInput!): Picture!
+  deletePicture(where: PictureWhereUniqueInput!): Picture
+  deleteManyPictures(where: PictureWhereInput): BatchPayload!
+  createPlace(data: PlaceCreateInput!): Place!
+  updatePlace(data: PlaceUpdateInput!, where: PlaceWhereUniqueInput!): Place
+  updateManyPlaces(data: PlaceUpdateInput!, where: PlaceWhereInput): BatchPayload!
+  upsertPlace(where: PlaceWhereUniqueInput!, create: PlaceCreateInput!, update: PlaceUpdateInput!): Place!
+  deletePlace(where: PlaceWhereUniqueInput!): Place
+  deleteManyPlaces(where: PlaceWhereInput): BatchPayload!
+  createPolicies(data: PoliciesCreateInput!): Policies!
+  updatePolicies(data: PoliciesUpdateInput!, where: PoliciesWhereUniqueInput!): Policies
+  updateManyPolicieses(data: PoliciesUpdateInput!, where: PoliciesWhereInput): BatchPayload!
+  upsertPolicies(where: PoliciesWhereUniqueInput!, create: PoliciesCreateInput!, update: PoliciesUpdateInput!): Policies!
+  deletePolicies(where: PoliciesWhereUniqueInput!): Policies
+  deleteManyPolicieses(where: PoliciesWhereInput): BatchPayload!
+  createPricing(data: PricingCreateInput!): Pricing!
+  updatePricing(data: PricingUpdateInput!, where: PricingWhereUniqueInput!): Pricing
+  updateManyPricings(data: PricingUpdateInput!, where: PricingWhereInput): BatchPayload!
+  upsertPricing(where: PricingWhereUniqueInput!, create: PricingCreateInput!, update: PricingUpdateInput!): Pricing!
+  deletePricing(where: PricingWhereUniqueInput!): Pricing
+  deleteManyPricings(where: PricingWhereInput): BatchPayload!
   createRestaurant(data: RestaurantCreateInput!): Restaurant!
   updateRestaurant(data: RestaurantUpdateInput!, where: RestaurantWhereUniqueInput!): Restaurant
   updateManyRestaurants(data: RestaurantUpdateInput!, where: RestaurantWhereInput): BatchPayload!
   upsertRestaurant(where: RestaurantWhereUniqueInput!, create: RestaurantCreateInput!, update: RestaurantUpdateInput!): Restaurant!
   deleteRestaurant(where: RestaurantWhereUniqueInput!): Restaurant
   deleteManyRestaurants(where: RestaurantWhereInput): BatchPayload!
+  createReview(data: ReviewCreateInput!): Review!
+  updateReview(data: ReviewUpdateInput!, where: ReviewWhereUniqueInput!): Review
+  updateManyReviews(data: ReviewUpdateInput!, where: ReviewWhereInput): BatchPayload!
+  upsertReview(where: ReviewWhereUniqueInput!, create: ReviewCreateInput!, update: ReviewUpdateInput!): Review!
+  deleteReview(where: ReviewWhereUniqueInput!): Review
+  deleteManyReviews(where: ReviewWhereInput): BatchPayload!
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+  createViews(data: ViewsCreateInput!): Views!
+  updateViews(data: ViewsUpdateInput!, where: ViewsWhereUniqueInput!): Views
+  updateManyViewses(data: ViewsUpdateInput!, where: ViewsWhereInput): BatchPayload!
+  upsertViews(where: ViewsWhereUniqueInput!, create: ViewsCreateInput!, update: ViewsUpdateInput!): Views!
+  deleteViews(where: ViewsWhereUniqueInput!): Views
+  deleteManyViewses(where: ViewsWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -2853,7 +2847,7 @@ input NeighbourhoodUpdateInput {
   name: String
   slug: String
   homePreview: PictureUpdateOneInput
-  city: CityUpdateOneWithoutNeighbourhoodsInput
+  city: CityUpdateOneRequiredWithoutNeighbourhoodsInput
   featured: Boolean
   popularity: Int
 }
@@ -2889,7 +2883,7 @@ input NeighbourhoodUpdateWithoutLocationsDataInput {
   name: String
   slug: String
   homePreview: PictureUpdateOneInput
-  city: CityUpdateOneWithoutNeighbourhoodsInput
+  city: CityUpdateOneRequiredWithoutNeighbourhoodsInput
   featured: Boolean
   popularity: Int
 }
@@ -3070,7 +3064,7 @@ input NotificationSubscriptionWhereInput {
 
 input NotificationUpdateInput {
   type: NOTIFICATION_TYPE
-  user: UserUpdateOneWithoutNotificationsInput
+  user: UserUpdateOneRequiredWithoutNotificationsInput
   link: String
   readDate: DateTime
 }
@@ -3296,7 +3290,7 @@ input PaymentAccountSubscriptionWhereInput {
 
 input PaymentAccountUpdateInput {
   type: PAYMENT_PROVIDER
-  user: UserUpdateOneWithoutPaymentAccountInput
+  user: UserUpdateOneRequiredWithoutPaymentAccountInput
   payments: PaymentUpdateManyWithoutPaymentMethodInput
   paypal: PaypalInformationUpdateOneWithoutPaymentAccountInput
   creditcard: CreditCardInformationUpdateOneWithoutPaymentAccountInput
@@ -3311,6 +3305,20 @@ input PaymentAccountUpdateManyWithoutUserInput {
   upsert: [PaymentAccountUpsertWithWhereUniqueWithoutUserInput!]
 }
 
+input PaymentAccountUpdateOneRequiredWithoutPaymentsInput {
+  create: PaymentAccountCreateWithoutPaymentsInput
+  update: PaymentAccountUpdateWithoutPaymentsDataInput
+  upsert: PaymentAccountUpsertWithoutPaymentsInput
+  connect: PaymentAccountWhereUniqueInput
+}
+
+input PaymentAccountUpdateOneRequiredWithoutPaypalInput {
+  create: PaymentAccountCreateWithoutPaypalInput
+  update: PaymentAccountUpdateWithoutPaypalDataInput
+  upsert: PaymentAccountUpsertWithoutPaypalInput
+  connect: PaymentAccountWhereUniqueInput
+}
+
 input PaymentAccountUpdateOneWithoutCreditcardInput {
   create: PaymentAccountCreateWithoutCreditcardInput
   update: PaymentAccountUpdateWithoutCreditcardDataInput
@@ -3320,39 +3328,23 @@ input PaymentAccountUpdateOneWithoutCreditcardInput {
   connect: PaymentAccountWhereUniqueInput
 }
 
-input PaymentAccountUpdateOneWithoutPaymentsInput {
-  create: PaymentAccountCreateWithoutPaymentsInput
-  update: PaymentAccountUpdateWithoutPaymentsDataInput
-  upsert: PaymentAccountUpsertWithoutPaymentsInput
-  delete: Boolean
-  connect: PaymentAccountWhereUniqueInput
-}
-
-input PaymentAccountUpdateOneWithoutPaypalInput {
-  create: PaymentAccountCreateWithoutPaypalInput
-  update: PaymentAccountUpdateWithoutPaypalDataInput
-  upsert: PaymentAccountUpsertWithoutPaypalInput
-  delete: Boolean
-  connect: PaymentAccountWhereUniqueInput
-}
-
 input PaymentAccountUpdateWithoutCreditcardDataInput {
   type: PAYMENT_PROVIDER
-  user: UserUpdateOneWithoutPaymentAccountInput
+  user: UserUpdateOneRequiredWithoutPaymentAccountInput
   payments: PaymentUpdateManyWithoutPaymentMethodInput
   paypal: PaypalInformationUpdateOneWithoutPaymentAccountInput
 }
 
 input PaymentAccountUpdateWithoutPaymentsDataInput {
   type: PAYMENT_PROVIDER
-  user: UserUpdateOneWithoutPaymentAccountInput
+  user: UserUpdateOneRequiredWithoutPaymentAccountInput
   paypal: PaypalInformationUpdateOneWithoutPaymentAccountInput
   creditcard: CreditCardInformationUpdateOneWithoutPaymentAccountInput
 }
 
 input PaymentAccountUpdateWithoutPaypalDataInput {
   type: PAYMENT_PROVIDER
-  user: UserUpdateOneWithoutPaymentAccountInput
+  user: UserUpdateOneRequiredWithoutPaymentAccountInput
   payments: PaymentUpdateManyWithoutPaymentMethodInput
   creditcard: CreditCardInformationUpdateOneWithoutPaymentAccountInput
 }
@@ -3520,8 +3512,8 @@ input PaymentUpdateInput {
   serviceFee: Float
   placePrice: Float
   totalPrice: Float
-  booking: BookingUpdateOneWithoutPaymentInput
-  paymentMethod: PaymentAccountUpdateOneWithoutPaymentsInput
+  booking: BookingUpdateOneRequiredWithoutPaymentInput
+  paymentMethod: PaymentAccountUpdateOneRequiredWithoutPaymentsInput
 }
 
 input PaymentUpdateManyWithoutPaymentMethodInput {
@@ -3546,14 +3538,14 @@ input PaymentUpdateWithoutBookingDataInput {
   serviceFee: Float
   placePrice: Float
   totalPrice: Float
-  paymentMethod: PaymentAccountUpdateOneWithoutPaymentsInput
+  paymentMethod: PaymentAccountUpdateOneRequiredWithoutPaymentsInput
 }
 
 input PaymentUpdateWithoutPaymentMethodDataInput {
   serviceFee: Float
   placePrice: Float
   totalPrice: Float
-  booking: BookingUpdateOneWithoutPaymentInput
+  booking: BookingUpdateOneRequiredWithoutPaymentInput
 }
 
 input PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput {
@@ -3699,7 +3691,7 @@ input PaypalInformationSubscriptionWhereInput {
 
 input PaypalInformationUpdateInput {
   email: String
-  paymentAccount: PaymentAccountUpdateOneWithoutPaypalInput
+  paymentAccount: PaymentAccountUpdateOneRequiredWithoutPaypalInput
 }
 
 input PaypalInformationUpdateOneWithoutPaymentAccountInput {
@@ -3854,6 +3846,13 @@ input PictureUpdateOneInput {
   upsert: PictureUpsertNestedInput
   delete: Boolean
   disconnect: Boolean
+  connect: PictureWhereUniqueInput
+}
+
+input PictureUpdateOneRequiredInput {
+  create: PictureCreateInput
+  update: PictureUpdateDataInput
+  upsert: PictureUpsertNestedInput
   connect: PictureWhereUniqueInput
 }
 
@@ -4306,11 +4305,11 @@ input PlaceUpdateInput {
   numBeds: Int
   numBaths: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -4328,27 +4327,52 @@ input PlaceUpdateManyWithoutHostInput {
   upsert: [PlaceUpsertWithWhereUniqueWithoutHostInput!]
 }
 
-input PlaceUpdateOneWithoutAmenitiesInput {
+input PlaceUpdateOneRequiredWithoutAmenitiesInput {
   create: PlaceCreateWithoutAmenitiesInput
   update: PlaceUpdateWithoutAmenitiesDataInput
   upsert: PlaceUpsertWithoutAmenitiesInput
-  delete: Boolean
   connect: PlaceWhereUniqueInput
 }
 
-input PlaceUpdateOneWithoutBookingsInput {
+input PlaceUpdateOneRequiredWithoutBookingsInput {
   create: PlaceCreateWithoutBookingsInput
   update: PlaceUpdateWithoutBookingsDataInput
   upsert: PlaceUpsertWithoutBookingsInput
-  delete: Boolean
   connect: PlaceWhereUniqueInput
 }
 
-input PlaceUpdateOneWithoutGuestRequirementsInput {
+input PlaceUpdateOneRequiredWithoutGuestRequirementsInput {
   create: PlaceCreateWithoutGuestRequirementsInput
   update: PlaceUpdateWithoutGuestRequirementsDataInput
   upsert: PlaceUpsertWithoutGuestRequirementsInput
-  delete: Boolean
+  connect: PlaceWhereUniqueInput
+}
+
+input PlaceUpdateOneRequiredWithoutPoliciesInput {
+  create: PlaceCreateWithoutPoliciesInput
+  update: PlaceUpdateWithoutPoliciesDataInput
+  upsert: PlaceUpsertWithoutPoliciesInput
+  connect: PlaceWhereUniqueInput
+}
+
+input PlaceUpdateOneRequiredWithoutPricingInput {
+  create: PlaceCreateWithoutPricingInput
+  update: PlaceUpdateWithoutPricingDataInput
+  upsert: PlaceUpsertWithoutPricingInput
+  connect: PlaceWhereUniqueInput
+}
+
+input PlaceUpdateOneRequiredWithoutReviewsInput {
+  create: PlaceCreateWithoutReviewsInput
+  update: PlaceUpdateWithoutReviewsDataInput
+  upsert: PlaceUpsertWithoutReviewsInput
+  connect: PlaceWhereUniqueInput
+}
+
+input PlaceUpdateOneRequiredWithoutViewsInput {
+  create: PlaceCreateWithoutViewsInput
+  update: PlaceUpdateWithoutViewsDataInput
+  upsert: PlaceUpsertWithoutViewsInput
   connect: PlaceWhereUniqueInput
 }
 
@@ -4358,38 +4382,6 @@ input PlaceUpdateOneWithoutLocationInput {
   upsert: PlaceUpsertWithoutLocationInput
   delete: Boolean
   disconnect: Boolean
-  connect: PlaceWhereUniqueInput
-}
-
-input PlaceUpdateOneWithoutPoliciesInput {
-  create: PlaceCreateWithoutPoliciesInput
-  update: PlaceUpdateWithoutPoliciesDataInput
-  upsert: PlaceUpsertWithoutPoliciesInput
-  delete: Boolean
-  connect: PlaceWhereUniqueInput
-}
-
-input PlaceUpdateOneWithoutPricingInput {
-  create: PlaceCreateWithoutPricingInput
-  update: PlaceUpdateWithoutPricingDataInput
-  upsert: PlaceUpsertWithoutPricingInput
-  delete: Boolean
-  connect: PlaceWhereUniqueInput
-}
-
-input PlaceUpdateOneWithoutReviewsInput {
-  create: PlaceCreateWithoutReviewsInput
-  update: PlaceUpdateWithoutReviewsDataInput
-  upsert: PlaceUpsertWithoutReviewsInput
-  delete: Boolean
-  connect: PlaceWhereUniqueInput
-}
-
-input PlaceUpdateOneWithoutViewsInput {
-  create: PlaceCreateWithoutViewsInput
-  update: PlaceUpdateWithoutViewsDataInput
-  upsert: PlaceUpsertWithoutViewsInput
-  delete: Boolean
   connect: PlaceWhereUniqueInput
 }
 
@@ -4404,10 +4396,10 @@ input PlaceUpdateWithoutAmenitiesDataInput {
   numBeds: Int
   numBaths: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -4427,11 +4419,11 @@ input PlaceUpdateWithoutBookingsDataInput {
   numBeds: Int
   numBaths: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -4450,11 +4442,11 @@ input PlaceUpdateWithoutGuestRequirementsDataInput {
   numBeds: Int
   numBaths: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
   bookings: BookingUpdateManyWithoutPlaceInput
@@ -4473,10 +4465,10 @@ input PlaceUpdateWithoutHostDataInput {
   numBeds: Int
   numBaths: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -4496,10 +4488,10 @@ input PlaceUpdateWithoutLocationDataInput {
   numBeds: Int
   numBaths: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -4519,11 +4511,11 @@ input PlaceUpdateWithoutPoliciesDataInput {
   numBeds: Int
   numBaths: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
   bookings: BookingUpdateManyWithoutPlaceInput
@@ -4542,10 +4534,10 @@ input PlaceUpdateWithoutPricingDataInput {
   numBeds: Int
   numBaths: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -4564,11 +4556,11 @@ input PlaceUpdateWithoutReviewsDataInput {
   numBedrooms: Int
   numBeds: Int
   numBaths: Int
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
-  views: ViewsUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
+  views: ViewsUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -4588,10 +4580,10 @@ input PlaceUpdateWithoutViewsDataInput {
   numBeds: Int
   numBaths: Int
   reviews: ReviewUpdateManyWithoutPlaceInput
-  amenities: AmenitiesUpdateOneWithoutPlaceInput
-  host: UserUpdateOneWithoutOwnedPlacesInput
-  pricing: PricingUpdateOneWithoutPlaceInput
-  location: LocationUpdateOneWithoutPlaceInput
+  amenities: AmenitiesUpdateOneRequiredWithoutPlaceInput
+  host: UserUpdateOneRequiredWithoutOwnedPlacesInput
+  pricing: PricingUpdateOneRequiredWithoutPlaceInput
+  location: LocationUpdateOneRequiredWithoutPlaceInput
   guestRequirements: GuestRequirementsUpdateOneWithoutPlaceInput
   policies: PoliciesUpdateOneWithoutPlaceInput
   houseRules: HouseRulesUpdateOneInput
@@ -4877,7 +4869,7 @@ input PoliciesUpdateInput {
   checkInStartTime: Float
   checkInEndTime: Float
   checkoutTime: Float
-  place: PlaceUpdateOneWithoutPoliciesInput
+  place: PlaceUpdateOneRequiredWithoutPoliciesInput
 }
 
 input PoliciesUpdateOneWithoutPlaceInput {
@@ -5097,7 +5089,7 @@ input PricingSubscriptionWhereInput {
 }
 
 input PricingUpdateInput {
-  place: PlaceUpdateOneWithoutPricingInput
+  place: PlaceUpdateOneRequiredWithoutPricingInput
   monthlyDiscount: Int
   weeklyDiscount: Int
   perNight: Int
@@ -5112,11 +5104,10 @@ input PricingUpdateInput {
   currency: CURRENCY
 }
 
-input PricingUpdateOneWithoutPlaceInput {
+input PricingUpdateOneRequiredWithoutPlaceInput {
   create: PricingCreateWithoutPlaceInput
   update: PricingUpdateWithoutPlaceDataInput
   upsert: PricingUpsertWithoutPlaceInput
-  delete: Boolean
   connect: PricingWhereUniqueInput
 }
 
@@ -5252,54 +5243,42 @@ input PricingWhereUniqueInput {
 }
 
 type Query {
-  user(where: UserWhereUniqueInput!): User
-  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
-  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
-  place(where: PlaceWhereUniqueInput!): Place
-  places(where: PlaceWhereInput, orderBy: PlaceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Place]!
-  placesConnection(where: PlaceWhereInput, orderBy: PlaceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PlaceConnection!
-  pricing(where: PricingWhereUniqueInput!): Pricing
-  pricings(where: PricingWhereInput, orderBy: PricingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pricing]!
-  pricingsConnection(where: PricingWhereInput, orderBy: PricingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PricingConnection!
-  guestRequirements(where: GuestRequirementsWhereUniqueInput!): GuestRequirements
-  guestRequirementses(where: GuestRequirementsWhereInput, orderBy: GuestRequirementsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [GuestRequirements]!
-  guestRequirementsesConnection(where: GuestRequirementsWhereInput, orderBy: GuestRequirementsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GuestRequirementsConnection!
-  policies(where: PoliciesWhereUniqueInput!): Policies
-  policieses(where: PoliciesWhereInput, orderBy: PoliciesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Policies]!
-  policiesesConnection(where: PoliciesWhereInput, orderBy: PoliciesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PoliciesConnection!
-  houseRules(where: HouseRulesWhereUniqueInput!): HouseRules
-  houseRuleses(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [HouseRules]!
-  houseRulesesConnection(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HouseRulesConnection!
-  views(where: ViewsWhereUniqueInput!): Views
-  viewses(where: ViewsWhereInput, orderBy: ViewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Views]!
-  viewsesConnection(where: ViewsWhereInput, orderBy: ViewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ViewsConnection!
-  location(where: LocationWhereUniqueInput!): Location
-  locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location]!
-  locationsConnection(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LocationConnection!
-  neighbourhood(where: NeighbourhoodWhereUniqueInput!): Neighbourhood
-  neighbourhoods(where: NeighbourhoodWhereInput, orderBy: NeighbourhoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Neighbourhood]!
-  neighbourhoodsConnection(where: NeighbourhoodWhereInput, orderBy: NeighbourhoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NeighbourhoodConnection!
+  amenities(where: AmenitiesWhereUniqueInput!): Amenities
+  amenitieses(where: AmenitiesWhereInput, orderBy: AmenitiesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Amenities]!
+  amenitiesesConnection(where: AmenitiesWhereInput, orderBy: AmenitiesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AmenitiesConnection!
+  booking(where: BookingWhereUniqueInput!): Booking
+  bookings(where: BookingWhereInput, orderBy: BookingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Booking]!
+  bookingsConnection(where: BookingWhereInput, orderBy: BookingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BookingConnection!
   city(where: CityWhereUniqueInput!): City
   cities(where: CityWhereInput, orderBy: CityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [City]!
   citiesConnection(where: CityWhereInput, orderBy: CityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CityConnection!
-  picture(where: PictureWhereUniqueInput!): Picture
-  pictures(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Picture]!
-  picturesConnection(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PictureConnection!
+  creditCardInformation(where: CreditCardInformationWhereUniqueInput!): CreditCardInformation
+  creditCardInformations(where: CreditCardInformationWhereInput, orderBy: CreditCardInformationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [CreditCardInformation]!
+  creditCardInformationsConnection(where: CreditCardInformationWhereInput, orderBy: CreditCardInformationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CreditCardInformationConnection!
   experience(where: ExperienceWhereUniqueInput!): Experience
   experiences(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Experience]!
   experiencesConnection(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ExperienceConnection!
   experienceCategory(where: ExperienceCategoryWhereUniqueInput!): ExperienceCategory
   experienceCategories(where: ExperienceCategoryWhereInput, orderBy: ExperienceCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ExperienceCategory]!
   experienceCategoriesConnection(where: ExperienceCategoryWhereInput, orderBy: ExperienceCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ExperienceCategoryConnection!
-  amenities(where: AmenitiesWhereUniqueInput!): Amenities
-  amenitieses(where: AmenitiesWhereInput, orderBy: AmenitiesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Amenities]!
-  amenitiesesConnection(where: AmenitiesWhereInput, orderBy: AmenitiesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AmenitiesConnection!
-  review(where: ReviewWhereUniqueInput!): Review
-  reviews(where: ReviewWhereInput, orderBy: ReviewOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Review]!
-  reviewsConnection(where: ReviewWhereInput, orderBy: ReviewOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ReviewConnection!
-  booking(where: BookingWhereUniqueInput!): Booking
-  bookings(where: BookingWhereInput, orderBy: BookingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Booking]!
-  bookingsConnection(where: BookingWhereInput, orderBy: BookingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BookingConnection!
+  guestRequirements(where: GuestRequirementsWhereUniqueInput!): GuestRequirements
+  guestRequirementses(where: GuestRequirementsWhereInput, orderBy: GuestRequirementsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [GuestRequirements]!
+  guestRequirementsesConnection(where: GuestRequirementsWhereInput, orderBy: GuestRequirementsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GuestRequirementsConnection!
+  houseRules(where: HouseRulesWhereUniqueInput!): HouseRules
+  houseRuleses(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [HouseRules]!
+  houseRulesesConnection(where: HouseRulesWhereInput, orderBy: HouseRulesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): HouseRulesConnection!
+  location(where: LocationWhereUniqueInput!): Location
+  locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location]!
+  locationsConnection(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LocationConnection!
+  message(where: MessageWhereUniqueInput!): Message
+  messages(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message]!
+  messagesConnection(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MessageConnection!
+  neighbourhood(where: NeighbourhoodWhereUniqueInput!): Neighbourhood
+  neighbourhoods(where: NeighbourhoodWhereInput, orderBy: NeighbourhoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Neighbourhood]!
+  neighbourhoodsConnection(where: NeighbourhoodWhereInput, orderBy: NeighbourhoodOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NeighbourhoodConnection!
+  notification(where: NotificationWhereUniqueInput!): Notification
+  notifications(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Notification]!
+  notificationsConnection(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NotificationConnection!
   payment(where: PaymentWhereUniqueInput!): Payment
   payments(where: PaymentWhereInput, orderBy: PaymentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Payment]!
   paymentsConnection(where: PaymentWhereInput, orderBy: PaymentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PaymentConnection!
@@ -5309,18 +5288,30 @@ type Query {
   paypalInformation(where: PaypalInformationWhereUniqueInput!): PaypalInformation
   paypalInformations(where: PaypalInformationWhereInput, orderBy: PaypalInformationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PaypalInformation]!
   paypalInformationsConnection(where: PaypalInformationWhereInput, orderBy: PaypalInformationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PaypalInformationConnection!
-  creditCardInformation(where: CreditCardInformationWhereUniqueInput!): CreditCardInformation
-  creditCardInformations(where: CreditCardInformationWhereInput, orderBy: CreditCardInformationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [CreditCardInformation]!
-  creditCardInformationsConnection(where: CreditCardInformationWhereInput, orderBy: CreditCardInformationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CreditCardInformationConnection!
-  message(where: MessageWhereUniqueInput!): Message
-  messages(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message]!
-  messagesConnection(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MessageConnection!
-  notification(where: NotificationWhereUniqueInput!): Notification
-  notifications(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Notification]!
-  notificationsConnection(where: NotificationWhereInput, orderBy: NotificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): NotificationConnection!
+  picture(where: PictureWhereUniqueInput!): Picture
+  pictures(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Picture]!
+  picturesConnection(where: PictureWhereInput, orderBy: PictureOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PictureConnection!
+  place(where: PlaceWhereUniqueInput!): Place
+  places(where: PlaceWhereInput, orderBy: PlaceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Place]!
+  placesConnection(where: PlaceWhereInput, orderBy: PlaceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PlaceConnection!
+  policies(where: PoliciesWhereUniqueInput!): Policies
+  policieses(where: PoliciesWhereInput, orderBy: PoliciesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Policies]!
+  policiesesConnection(where: PoliciesWhereInput, orderBy: PoliciesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PoliciesConnection!
+  pricing(where: PricingWhereUniqueInput!): Pricing
+  pricings(where: PricingWhereInput, orderBy: PricingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pricing]!
+  pricingsConnection(where: PricingWhereInput, orderBy: PricingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PricingConnection!
   restaurant(where: RestaurantWhereUniqueInput!): Restaurant
   restaurants(where: RestaurantWhereInput, orderBy: RestaurantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Restaurant]!
   restaurantsConnection(where: RestaurantWhereInput, orderBy: RestaurantOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RestaurantConnection!
+  review(where: ReviewWhereUniqueInput!): Review
+  reviews(where: ReviewWhereInput, orderBy: ReviewOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Review]!
+  reviewsConnection(where: ReviewWhereInput, orderBy: ReviewOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ReviewConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  views(where: ViewsWhereUniqueInput!): Views
+  viewses(where: ViewsWhereInput, orderBy: ViewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Views]!
+  viewsesConnection(where: ViewsWhereInput, orderBy: ViewsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ViewsConnection!
   node(id: ID!): Node
 }
 
@@ -5422,7 +5413,7 @@ input RestaurantUpdateInput {
   title: String
   avgPricePerPerson: Int
   pictures: PictureUpdateManyInput
-  location: LocationUpdateOneWithoutRestaurantInput
+  location: LocationUpdateOneRequiredWithoutRestaurantInput
   isCurated: Boolean
   slug: String
   popularity: Int
@@ -5671,7 +5662,7 @@ input ReviewUpdateInput {
   value: Int
   cleanliness: Int
   communication: Int
-  place: PlaceUpdateOneWithoutReviewsInput
+  place: PlaceUpdateOneRequiredWithoutReviewsInput
   experience: ExperienceUpdateOneWithoutReviewsInput
 }
 
@@ -5702,7 +5693,7 @@ input ReviewUpdateWithoutExperienceDataInput {
   value: Int
   cleanliness: Int
   communication: Int
-  place: PlaceUpdateOneWithoutReviewsInput
+  place: PlaceUpdateOneRequiredWithoutReviewsInput
 }
 
 input ReviewUpdateWithoutPlaceDataInput {
@@ -5844,29 +5835,29 @@ input ReviewWhereUniqueInput {
 }
 
 type Subscription {
-  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
-  place(where: PlaceSubscriptionWhereInput): PlaceSubscriptionPayload
-  pricing(where: PricingSubscriptionWhereInput): PricingSubscriptionPayload
-  guestRequirements(where: GuestRequirementsSubscriptionWhereInput): GuestRequirementsSubscriptionPayload
-  policies(where: PoliciesSubscriptionWhereInput): PoliciesSubscriptionPayload
-  houseRules(where: HouseRulesSubscriptionWhereInput): HouseRulesSubscriptionPayload
-  views(where: ViewsSubscriptionWhereInput): ViewsSubscriptionPayload
-  location(where: LocationSubscriptionWhereInput): LocationSubscriptionPayload
-  neighbourhood(where: NeighbourhoodSubscriptionWhereInput): NeighbourhoodSubscriptionPayload
+  amenities(where: AmenitiesSubscriptionWhereInput): AmenitiesSubscriptionPayload
+  booking(where: BookingSubscriptionWhereInput): BookingSubscriptionPayload
   city(where: CitySubscriptionWhereInput): CitySubscriptionPayload
-  picture(where: PictureSubscriptionWhereInput): PictureSubscriptionPayload
+  creditCardInformation(where: CreditCardInformationSubscriptionWhereInput): CreditCardInformationSubscriptionPayload
   experience(where: ExperienceSubscriptionWhereInput): ExperienceSubscriptionPayload
   experienceCategory(where: ExperienceCategorySubscriptionWhereInput): ExperienceCategorySubscriptionPayload
-  amenities(where: AmenitiesSubscriptionWhereInput): AmenitiesSubscriptionPayload
-  review(where: ReviewSubscriptionWhereInput): ReviewSubscriptionPayload
-  booking(where: BookingSubscriptionWhereInput): BookingSubscriptionPayload
+  guestRequirements(where: GuestRequirementsSubscriptionWhereInput): GuestRequirementsSubscriptionPayload
+  houseRules(where: HouseRulesSubscriptionWhereInput): HouseRulesSubscriptionPayload
+  location(where: LocationSubscriptionWhereInput): LocationSubscriptionPayload
+  message(where: MessageSubscriptionWhereInput): MessageSubscriptionPayload
+  neighbourhood(where: NeighbourhoodSubscriptionWhereInput): NeighbourhoodSubscriptionPayload
+  notification(where: NotificationSubscriptionWhereInput): NotificationSubscriptionPayload
   payment(where: PaymentSubscriptionWhereInput): PaymentSubscriptionPayload
   paymentAccount(where: PaymentAccountSubscriptionWhereInput): PaymentAccountSubscriptionPayload
   paypalInformation(where: PaypalInformationSubscriptionWhereInput): PaypalInformationSubscriptionPayload
-  creditCardInformation(where: CreditCardInformationSubscriptionWhereInput): CreditCardInformationSubscriptionPayload
-  message(where: MessageSubscriptionWhereInput): MessageSubscriptionPayload
-  notification(where: NotificationSubscriptionWhereInput): NotificationSubscriptionPayload
+  picture(where: PictureSubscriptionWhereInput): PictureSubscriptionPayload
+  place(where: PlaceSubscriptionWhereInput): PlaceSubscriptionPayload
+  policies(where: PoliciesSubscriptionWhereInput): PoliciesSubscriptionPayload
+  pricing(where: PricingSubscriptionWhereInput): PricingSubscriptionPayload
   restaurant(where: RestaurantSubscriptionWhereInput): RestaurantSubscriptionPayload
+  review(where: ReviewSubscriptionWhereInput): ReviewSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+  views(where: ViewsSubscriptionWhereInput): ViewsSubscriptionPayload
 }
 
 type User {
@@ -6192,19 +6183,52 @@ input UserUpdateInput {
   hostingExperiences: ExperienceUpdateManyWithoutHostInput
 }
 
-input UserUpdateOneWithoutBookingsInput {
+input UserUpdateOneRequiredWithoutBookingsInput {
   create: UserCreateWithoutBookingsInput
   update: UserUpdateWithoutBookingsDataInput
   upsert: UserUpsertWithoutBookingsInput
-  delete: Boolean
   connect: UserWhereUniqueInput
 }
 
-input UserUpdateOneWithoutHostingExperiencesInput {
+input UserUpdateOneRequiredWithoutHostingExperiencesInput {
   create: UserCreateWithoutHostingExperiencesInput
   update: UserUpdateWithoutHostingExperiencesDataInput
   upsert: UserUpsertWithoutHostingExperiencesInput
-  delete: Boolean
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutNotificationsInput {
+  create: UserCreateWithoutNotificationsInput
+  update: UserUpdateWithoutNotificationsDataInput
+  upsert: UserUpsertWithoutNotificationsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutOwnedPlacesInput {
+  create: UserCreateWithoutOwnedPlacesInput
+  update: UserUpdateWithoutOwnedPlacesDataInput
+  upsert: UserUpsertWithoutOwnedPlacesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutPaymentAccountInput {
+  create: UserCreateWithoutPaymentAccountInput
+  update: UserUpdateWithoutPaymentAccountDataInput
+  upsert: UserUpsertWithoutPaymentAccountInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutReceivedMessagesInput {
+  create: UserCreateWithoutReceivedMessagesInput
+  update: UserUpdateWithoutReceivedMessagesDataInput
+  upsert: UserUpsertWithoutReceivedMessagesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutSentMessagesInput {
+  create: UserCreateWithoutSentMessagesInput
+  update: UserUpdateWithoutSentMessagesDataInput
+  upsert: UserUpsertWithoutSentMessagesInput
   connect: UserWhereUniqueInput
 }
 
@@ -6214,46 +6238,6 @@ input UserUpdateOneWithoutLocationInput {
   upsert: UserUpsertWithoutLocationInput
   delete: Boolean
   disconnect: Boolean
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateOneWithoutNotificationsInput {
-  create: UserCreateWithoutNotificationsInput
-  update: UserUpdateWithoutNotificationsDataInput
-  upsert: UserUpsertWithoutNotificationsInput
-  delete: Boolean
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateOneWithoutOwnedPlacesInput {
-  create: UserCreateWithoutOwnedPlacesInput
-  update: UserUpdateWithoutOwnedPlacesDataInput
-  upsert: UserUpsertWithoutOwnedPlacesInput
-  delete: Boolean
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateOneWithoutPaymentAccountInput {
-  create: UserCreateWithoutPaymentAccountInput
-  update: UserUpdateWithoutPaymentAccountDataInput
-  upsert: UserUpsertWithoutPaymentAccountInput
-  delete: Boolean
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateOneWithoutReceivedMessagesInput {
-  create: UserCreateWithoutReceivedMessagesInput
-  update: UserUpdateWithoutReceivedMessagesDataInput
-  upsert: UserUpsertWithoutReceivedMessagesInput
-  delete: Boolean
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateOneWithoutSentMessagesInput {
-  create: UserCreateWithoutSentMessagesInput
-  update: UserUpdateWithoutSentMessagesDataInput
-  upsert: UserUpsertWithoutSentMessagesInput
-  delete: Boolean
   connect: UserWhereUniqueInput
 }
 
@@ -6668,14 +6652,13 @@ input ViewsSubscriptionWhereInput {
 
 input ViewsUpdateInput {
   lastWeek: Int
-  place: PlaceUpdateOneWithoutViewsInput
+  place: PlaceUpdateOneRequiredWithoutViewsInput
 }
 
-input ViewsUpdateOneWithoutPlaceInput {
+input ViewsUpdateOneRequiredWithoutPlaceInput {
   create: ViewsCreateWithoutPlaceInput
   update: ViewsUpdateWithoutPlaceDataInput
   upsert: ViewsUpsertWithoutPlaceInput
-  delete: Boolean
   connect: ViewsWhereUniqueInput
 }
 

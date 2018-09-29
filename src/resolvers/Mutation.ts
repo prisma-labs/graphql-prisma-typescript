@@ -2,7 +2,7 @@ import * as bcrypt from 'bcryptjs'
 import * as jwt from 'jsonwebtoken'
 import { MutationResolvers } from '../generated/resolvers'
 import { getUserId } from '../utils'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 
 export interface MutationParent {}
 
@@ -20,18 +20,19 @@ export const Mutation: MutationResolvers.Type<TypeMap> = {
 
     return {
       token,
-      user: {
-        ...user,
-        token,
-        sentMessages: null,
-        receivedMessages: null,
-        paymentAccount: null,
-        ownedPlaces: null,
-        notifications: null,
-        bookings: null,
-        hostingExperiences: null,
-        location: null,
-      },
+      user: ctx.db.user({ id: user.id }),
+      // user: {
+      //   ...user,
+      //   token,
+      //   sentMessages: null,
+      //   receivedMessages: null,
+      //   paymentAccount: null,
+      //   ownedPlaces: null,
+      //   notifications: null,
+      //   bookings: null,
+      //   hostingExperiences: null,
+      //   location: null,
+      // },
     }
   },
   login: async (_parent, { email, password }, ctx) => {

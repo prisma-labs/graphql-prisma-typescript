@@ -8,7 +8,7 @@
     "build": "rm -rf dist && graphql codegen && tsc",
     "prisma": "prisma",
     "resolver-interfaces": "graphql-resolver-codegen interfaces -s src/schema.graphql -o ./src/generated/resolvers.ts",
-    "resolver-scaffold": "graphql-resolver-codegen scaffold -s src/schema.graphql -o ./src/resolvers-2/ -i ../generated/resolvers",
+    "resolver-scaffold": "graphql-resolver-codegen scaffold -s src/schema.graphql -o ./src/resolvers/ -i ../generated/resolvers",
     "resolver-codegen": "npm-run-all resolver-interfaces resolver-scaffold"
   },
   "dependencies": {

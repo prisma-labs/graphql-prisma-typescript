@@ -1,5 +1,5 @@
 import { PlaceResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 import { ReviewParent } from './Review'
 import { AmenitiesParent } from './Amenities'
 import { UserParent } from './User'
@@ -60,14 +60,32 @@ export const Place: PlaceResolvers.Type<TypeMap> = {
   numBaths: parent => parent.numBaths,
   reviews: parent => parent.reviews,
   amenities: parent => parent.amenities,
+  numRatings: (parent, _args, ctx) =>
+    ctx.db
+      .reviewsConnection({ where: { place: { id: parent.id } } })
+      .aggregate()
+      .count(),
+  avgRating: async (parent, _args, ctx) => {
+    const reviews = await ctx.db.reviews({
+      where: { place: { id: parent.id } },
+    })
+    if (reviews.length > 0) {
+      return reviews.reduce((acc, { stars }) => acc + stars, 0) / reviews.length
+    }
+    return null
+  },
   host: parent => parent.host,
-  pricing: parent => parent.pricing,
+  pricing: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).pricing();
+  },
   location: parent => parent.location,
   views: parent => parent.views,
   guestRequirements: parent => parent.guestRequirements,
   policies: parent => parent.policies,
   houseRules: parent => parent.houseRules,
   bookings: parent => parent.bookings,
-  pictures: parent => parent.pictures,
+  pictures: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).pictures();
+  },
   popularity: parent => parent.popularity,
 }
