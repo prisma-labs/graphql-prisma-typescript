@@ -1,5 +1,5 @@
 import { PricingResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 
 export type CURRENCY = 'CAD' | 'CHF' | 'EUR' | 'JPY' | 'USD' | 'ZAR'
 

@@ -1,5 +1,5 @@
 import { IResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 
 import { Query } from './Query'
 import { Mutation } from './Mutation'
@@ -8,7 +8,6 @@ import { Viewer } from './Viewer'
 import { AuthPayload } from './AuthPayload'
 import { MutationResult } from './MutationResult'
 import { ExperiencesByCity } from './ExperiencesByCity'
-import { Home } from './Home'
 import { Reservation } from './Reservation'
 import { Experience } from './Experience'
 import { Review } from './Review'
@@ -43,7 +42,6 @@ export const resolvers: IResolvers<TypeMap> = {
   AuthPayload,
   MutationResult,
   ExperiencesByCity,
-  Home,
   Reservation,
   Experience,
   Review,

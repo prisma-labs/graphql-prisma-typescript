@@ -1,5 +1,5 @@
 import { ExperienceCategoryResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 import { ExperienceParent } from './Experience'
 
 export interface ExperienceCategoryParent {

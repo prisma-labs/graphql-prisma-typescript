@@ -1,5 +1,5 @@
 import { PlaceViewsResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 
 export interface PlaceViewsParent {
   id: string
