@@ -163,6 +163,18 @@ export namespace QueryResolvers {
 }
 
 export namespace MutationResolvers {
+  export interface LocationCreateInput {
+    lat: number
+    lng: number
+    address: string
+    directions: string
+    neighbourHood: string
+    user: string
+    place: string
+    experience: string
+    restaurant: string
+  }
+
   export interface ArgsSignup {
     email: string
     password: string
