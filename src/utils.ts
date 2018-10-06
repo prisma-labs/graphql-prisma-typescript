@@ -1,9 +1,4 @@
 import * as jwt from 'jsonwebtoken'
-import { Prisma } from './prisma-client'
-
-export interface Context {
-  db: Prisma
-}
 
 export function getUserId(context) {
   const Authorization = context.request.get('Authorization')

@@ -6,10 +6,13 @@
 
   topHomes {
     id
-    perNight
+    pricing {
+      id
+      perNight
+    }
     name
     description
-    pictures(first: 1) {
+    pictures {
       url
     }
     numRatings
@@ -34,10 +37,13 @@
 
   homesInPriceRange(min: 0, max: 100) {
     id
-    perNight
+    pricing {
+      id
+      perNight
+    }
     name
     description
-    pictures(first: 1) {
+    pictures {
       url
     }
     numRatings
@@ -57,14 +63,6 @@
     }
     featured
     popularity
-  }
-
-  featuredDestinations {
-    name
-    homePreview {
-      url(width: 180, height: 270)
-    }
-    slug
   }
 
   cityExperiences: experiencesByCity(

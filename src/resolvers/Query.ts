@@ -1,23 +1,12 @@
 import { getUserId } from '../utils'
 import { QueryResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 
 export interface QueryParent {}
 
 export const Query: QueryResolvers.Type<TypeMap> = {
   topExperiences: async (_parent, _args, ctx) => {
-    const experiences =
-      (await ctx.db.experiences({ orderBy: 'popularity_DESC' })) || []
-
-    return experiences.map(exp => {
-      return {
-        ...exp,
-        location: null,
-        category: null,
-        reviews: null,
-        preview: null,
-      }
-    })
+    return ctx.db.experiences({ orderBy: 'popularity_DESC' });
   },
   topHomes: (_parent, _args, ctx) => ctx.db.places({ orderBy: 'popularity_DESC' }),
   homesInPriceRange: (_parent, { min, max }, ctx) =>

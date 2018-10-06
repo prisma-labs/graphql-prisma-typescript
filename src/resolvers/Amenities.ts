@@ -1,5 +1,5 @@
 import { AmenitiesResolvers } from '../generated/resolvers'
-import { TypeMap } from '../types/TypeMap'
+import { TypeMap } from './types/TypeMap'
 
 export interface AmenitiesParent {
   airConditioning: boolean
