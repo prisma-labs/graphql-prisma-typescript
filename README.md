@@ -1,3 +1,33 @@
+# Note to self:
+
+## To read:
+https://www.prisma.io/blog/how-to-wrap-a-rest-api-with-graphql-8bf3fb17547d/
+https://medium.freecodecamp.org/five-common-problems-in-graphql-apps-and-how-to-fix-them-ac74d37a293c
+
+### Getting Started
+
+```
+cd prisma
+docker-compose up -d
+cd .. 
+yarn prisma deploy
+yarn dev
+```
+
+Closing:
+```
+docker stop $(docker ps -q)
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -q)
+```
+
+## Todo
+ - set up basic prisma/db schema
+ - figure out how to serve over HTTP; GET request, POST(mutation) request
+
+
+
+
 # Airbnb Clone - GraphQL Server Example with Prisma
 
 This project demonstrates how to build a production-ready application with Prisma and [`graphql-yoga`](https://github.com/graphcool/graphql-yoga). The API provided by the GraphQL server is the foundation for an application similar to [AirBnB](https://www.airbnb.com/).
