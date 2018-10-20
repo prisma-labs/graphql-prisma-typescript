@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "npm-run-all --parallel start playground",
-    "start": "nodemon -e ts,graphql -x ts-node -r dotenv/config src/index.ts",
+    "start": "nodemon -e ts,graphql -x ts-node --no-cache -r dotenv/config src/index.ts",
     "playground": "graphql playground",
     "build": "rm -rf dist && graphql codegen && tsc",
     "prisma": "prisma",
