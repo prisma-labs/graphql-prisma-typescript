@@ -2032,8 +2032,8 @@ type Location {
   neighbourHood: Neighbourhood
   user: User
   place: Place
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: Experience
   restaurant: Restaurant
 }
@@ -2050,8 +2050,8 @@ input LocationCreateInput {
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
   user: UserCreateOneWithoutLocationInput
   place: PlaceCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: ExperienceCreateOneWithoutLocationInput
   restaurant: RestaurantCreateOneWithoutLocationInput
 }
@@ -2087,8 +2087,8 @@ input LocationCreateWithoutExperienceInput {
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
   user: UserCreateOneWithoutLocationInput
   place: PlaceCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   restaurant: RestaurantCreateOneWithoutLocationInput
 }
 
@@ -2097,8 +2097,8 @@ input LocationCreateWithoutNeighbourHoodInput {
   lng: Float!
   user: UserCreateOneWithoutLocationInput
   place: PlaceCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: ExperienceCreateOneWithoutLocationInput
   restaurant: RestaurantCreateOneWithoutLocationInput
 }
@@ -2108,8 +2108,8 @@ input LocationCreateWithoutPlaceInput {
   lng: Float!
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
   user: UserCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: ExperienceCreateOneWithoutLocationInput
   restaurant: RestaurantCreateOneWithoutLocationInput
 }
@@ -2120,8 +2120,8 @@ input LocationCreateWithoutRestaurantInput {
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
   user: UserCreateOneWithoutLocationInput
   place: PlaceCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: ExperienceCreateOneWithoutLocationInput
 }
 
@@ -2130,8 +2130,8 @@ input LocationCreateWithoutUserInput {
   lng: Float!
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
   place: PlaceCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: ExperienceCreateOneWithoutLocationInput
   restaurant: RestaurantCreateOneWithoutLocationInput
 }
@@ -2162,8 +2162,8 @@ type LocationPreviousValues {
   id: ID!
   lat: Float!
   lng: Float!
-  address: String
-  directions: String
+  address: String!
+  directions: String!
 }
 
 type LocationSubscriptionPayload {
@@ -3833,11 +3833,11 @@ input PictureUpdateInput {
 
 input PictureUpdateManyInput {
   create: [PictureCreateInput!]
+  update: [PictureUpdateWithWhereUniqueNestedInput!]
+  upsert: [PictureUpsertWithWhereUniqueNestedInput!]
   delete: [PictureWhereUniqueInput!]
   connect: [PictureWhereUniqueInput!]
   disconnect: [PictureWhereUniqueInput!]
-  update: [PictureUpdateWithWhereUniqueNestedInput!]
-  upsert: [PictureUpsertWithWhereUniqueNestedInput!]
 }
 
 input PictureUpdateOneInput {

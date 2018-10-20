@@ -1,6 +1,10 @@
 import * as jwt from 'jsonwebtoken'
 
-export function getUserId(context) {
+interface Context {
+  request: any
+}
+
+export function getUserId(context: Context) {
   const Authorization = context.request.get('Authorization')
   if (Authorization) {
     const token = Authorization.replace('Bearer ', '')

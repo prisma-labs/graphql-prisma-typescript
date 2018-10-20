@@ -7,9 +7,9 @@ export type MutationType = 'CREATED' | 'UPDATED' | 'DELETED'
 
 export interface CitySubscriptionPayloadParent {
   mutation: MutationType
-  node?: CityParent
+  node: CityParent
   updatedFields: string[]
-  previousValues?: CityPreviousValuesParent
+  previousValues: CityPreviousValuesParent
 }
 
 export const CitySubscriptionPayload: CitySubscriptionPayloadResolvers.Type<

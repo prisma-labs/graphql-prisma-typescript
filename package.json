@@ -13,16 +13,17 @@
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
-    "graphql": "0.13.2",
+    "graphql": "^14.0.2",
     "graphql-tag": "2.10.0",
     "graphql-tools": "3.1.1",
-    "graphql-yoga": "1.16.7",
+    "graphql-yoga": "^1.16.7",
     "jsonwebtoken": "8.3.0",
     "prisma-binding": "2.1.6",
     "prisma-client-lib": "1.18.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.2",
+    "@types/jsonwebtoken": "^7.2.8",
     "dotenv": "6.1.0",
     "graphql-cli": "2.16.7",
     "graphql-resolver-codegen": "0.3.1",

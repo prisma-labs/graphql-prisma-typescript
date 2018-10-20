@@ -1,3 +1,4 @@
+/* DO NOT EDIT! */
 import { GraphQLResolveInfo } from 'graphql'
 
 export interface ITypeMap {
@@ -57,14 +58,14 @@ export namespace QueryResolvers {
     info: GraphQLResolveInfo,
   ) => T['PlaceParent'][] | Promise<T['PlaceParent'][]>
 
-  export interface ArgsHomesInPriceRange {
+  export interface ArgsHomesInPriceRange<T extends ITypeMap> {
     min: number
     max: number
   }
 
   export type HomesInPriceRangeResolver<T extends ITypeMap> = (
     parent: T['QueryParent'],
-    args: ArgsHomesInPriceRange,
+    args: ArgsHomesInPriceRange<T>,
     ctx: T['Context'],
     info: GraphQLResolveInfo,
   ) => T['PlaceParent'][] | Promise<T['PlaceParent'][]>
@@ -83,13 +84,13 @@ export namespace QueryResolvers {
     info: GraphQLResolveInfo,
   ) => T['NeighbourhoodParent'][] | Promise<T['NeighbourhoodParent'][]>
 
-  export interface ArgsExperiencesByCity {
+  export interface ArgsExperiencesByCity<T extends ITypeMap> {
     cities: string[]
   }
 
   export type ExperiencesByCityResolver<T extends ITypeMap> = (
     parent: T['QueryParent'],
-    args: ArgsExperiencesByCity,
+    args: ArgsExperiencesByCity<T>,
     ctx: T['Context'],
     info: GraphQLResolveInfo,
   ) => T['ExperiencesByCityParent'][] | Promise<T['ExperiencesByCityParent'][]>
@@ -123,7 +124,7 @@ export namespace QueryResolvers {
     ) => T['PlaceParent'][] | Promise<T['PlaceParent'][]>
     homesInPriceRange: (
       parent: T['QueryParent'],
-      args: ArgsHomesInPriceRange,
+      args: ArgsHomesInPriceRange<T>,
       ctx: T['Context'],
       info: GraphQLResolveInfo,
     ) => T['PlaceParent'][] | Promise<T['PlaceParent'][]>
@@ -141,7 +142,7 @@ export namespace QueryResolvers {
     ) => T['NeighbourhoodParent'][] | Promise<T['NeighbourhoodParent'][]>
     experiencesByCity: (
       parent: T['QueryParent'],
-      args: ArgsExperiencesByCity,
+      args: ArgsExperiencesByCity<T>,
       ctx: T['Context'],
       info: GraphQLResolveInfo,
     ) =>
@@ -163,19 +164,7 @@ export namespace QueryResolvers {
 }
 
 export namespace MutationResolvers {
-  export interface LocationCreateInput {
-    lat: number
-    lng: number
-    address: string
-    directions: string
-    neighbourHood: string
-    user: string
-    place: string
-    experience: string
-    restaurant: string
-  }
-
-  export interface ArgsSignup {
+  export interface ArgsSignup<T extends ITypeMap> {
     email: string
     password: string
     firstName: string
@@ -185,24 +174,24 @@ export namespace MutationResolvers {
 
   export type SignupResolver<T extends ITypeMap> = (
     parent: T['MutationParent'],
-    args: ArgsSignup,
+    args: ArgsSignup<T>,
     ctx: T['Context'],
     info: GraphQLResolveInfo,
   ) => T['AuthPayloadParent'] | Promise<T['AuthPayloadParent']>
 
-  export interface ArgsLogin {
+  export interface ArgsLogin<T extends ITypeMap> {
     email: string
     password: string
   }
 
   export type LoginResolver<T extends ITypeMap> = (
     parent: T['MutationParent'],
-    args: ArgsLogin,
+    args: ArgsLogin<T>,
     ctx: T['Context'],
     info: GraphQLResolveInfo,
   ) => T['AuthPayloadParent'] | Promise<T['AuthPayloadParent']>
 
-  export interface ArgsAddPaymentMethod {
+  export interface ArgsAddPaymentMethod<T extends ITypeMap> {
     cardNumber: string
     expiresOnMonth: number
     expiresOnYear: number
@@ -215,12 +204,12 @@ export namespace MutationResolvers {
 
   export type AddPaymentMethodResolver<T extends ITypeMap> = (
     parent: T['MutationParent'],
-    args: ArgsAddPaymentMethod,
+    args: ArgsAddPaymentMethod<T>,
     ctx: T['Context'],
     info: GraphQLResolveInfo,
   ) => T['MutationResultParent'] | Promise<T['MutationResultParent']>
 
-  export interface ArgsBook {
+  export interface ArgsBook<T extends ITypeMap> {
     placeId: string
     checkIn: string
     checkOut: string
@@ -229,59 +218,36 @@ export namespace MutationResolvers {
 
   export type BookResolver<T extends ITypeMap> = (
     parent: T['MutationParent'],
-    args: ArgsBook,
+    args: ArgsBook<T>,
     ctx: T['Context'],
     info: GraphQLResolveInfo,
   ) => T['MutationResultParent'] | Promise<T['MutationResultParent']>
 
-  export interface ArgsAddLocationToUser {
-    location: LocationCreateInput | null
-  }
-
-  export type AddLocationToUserResolver<T extends ITypeMap> = (
-    parent: T['MutationParent'],
-    args: ArgsAddLocationToUser,
-    ctx: T['Context'],
-    info: GraphQLResolveInfo,
-  ) =>
-    | T['MutationResultParent']
-    | null
-    | Promise<T['MutationResultParent'] | null>
-
   export interface Type<T extends ITypeMap> {
     signup: (
       parent: T['MutationParent'],
-      args: ArgsSignup,
+      args: ArgsSignup<T>,
       ctx: T['Context'],
       info: GraphQLResolveInfo,
     ) => T['AuthPayloadParent'] | Promise<T['AuthPayloadParent']>
     login: (
       parent: T['MutationParent'],
-      args: ArgsLogin,
+      args: ArgsLogin<T>,
       ctx: T['Context'],
       info: GraphQLResolveInfo,
     ) => T['AuthPayloadParent'] | Promise<T['AuthPayloadParent']>
     addPaymentMethod: (
       parent: T['MutationParent'],
-      args: ArgsAddPaymentMethod,
+      args: ArgsAddPaymentMethod<T>,
       ctx: T['Context'],
       info: GraphQLResolveInfo,
     ) => T['MutationResultParent'] | Promise<T['MutationResultParent']>
     book: (
       parent: T['MutationParent'],
-      args: ArgsBook,
+      args: ArgsBook<T>,
       ctx: T['Context'],
       info: GraphQLResolveInfo,
     ) => T['MutationResultParent'] | Promise<T['MutationResultParent']>
-    addLocationToUser: (
-      parent: T['MutationParent'],
-      args: ArgsAddLocationToUser,
-      ctx: T['Context'],
-      info: GraphQLResolveInfo,
-    ) =>
-      | T['MutationResultParent']
-      | null
-      | Promise<T['MutationResultParent'] | null>
   }
 }
 
@@ -902,14 +868,14 @@ export namespace LocationResolvers {
     args: {},
     ctx: T['Context'],
     info: GraphQLResolveInfo,
-  ) => string | null | Promise<string | null>
+  ) => string | Promise<string>
 
   export type DirectionsResolver<T extends ITypeMap> = (
     parent: T['LocationParent'],
     args: {},
     ctx: T['Context'],
     info: GraphQLResolveInfo,
-  ) => string | null | Promise<string | null>
+  ) => string | Promise<string>
 
   export interface Type<T extends ITypeMap> {
     id: (
@@ -935,13 +901,13 @@ export namespace LocationResolvers {
       args: {},
       ctx: T['Context'],
       info: GraphQLResolveInfo,
-    ) => string | null | Promise<string | null>
+    ) => string | Promise<string>
     directions: (
       parent: T['LocationParent'],
       args: {},
       ctx: T['Context'],
       info: GraphQLResolveInfo,
-    ) => string | null | Promise<string | null>
+    ) => string | Promise<string>
   }
 }
 
