@@ -4353,9 +4353,9 @@ prisma-client-lib@1.19.1:
     ws "^6.1.0"
     zen-observable "^0.8.10"
 
-prisma-client-lib@1.19.2:
-  version "1.19.2"
-  resolved "https://registry.yarnpkg.com/prisma-client-lib/-/prisma-client-lib-1.19.2.tgz#67c96386efa28c865fc111db71214941256bfbc5"
+prisma-client-lib@1.19.3:
+  version "1.19.3"
+  resolved "https://registry.yarnpkg.com/prisma-client-lib/-/prisma-client-lib-1.19.3.tgz#34af4a9eee653ba2407cfc3c84f1385423cff2ed"
   dependencies:
     "@types/node" "^10.12.0"
     "@types/prettier" "^1.13.2"
