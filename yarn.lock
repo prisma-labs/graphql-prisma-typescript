@@ -3559,6 +3559,10 @@ node-fetch@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.2.0.tgz#4ee79bde909262f9775f731e3656d0db55ced5b5"
 
+node-fetch@^2.2.1:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.3.0.tgz#1a1d940bbfb916a1d3e0219f037e89e71f8c5fa5"
+
 node-forge@^0.7.1:
   version "0.7.6"
   resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.7.6.tgz#fdf3b418aee1f94f0ef642cd63486c77ca9724ac"
@@ -4260,9 +4264,9 @@ prisma-client-lib@1.20.1:
     ws "^6.1.0"
     zen-observable "^0.8.10"
 
-prisma-client-lib@1.20.2:
-  version "1.20.2"
-  resolved "https://registry.yarnpkg.com/prisma-client-lib/-/prisma-client-lib-1.20.2.tgz#d2076f409dbffe77579f8a9616b5afcfc9bf43c1"
+prisma-client-lib@1.20.3:
+  version "1.20.3"
+  resolved "https://registry.yarnpkg.com/prisma-client-lib/-/prisma-client-lib-1.20.3.tgz#a97bd1f94ea9e923718844aea8f634ec0a37544b"
   dependencies:
     "@types/node" "^10.12.0"
     "@types/prettier" "^1.13.2"
@@ -4272,6 +4276,7 @@ prisma-client-lib@1.20.2:
     jsonwebtoken "^8.3.0"
     lodash.flatten "^4.4.0"
     prettier "^1.14.3"
+    prisma-generate-schema "1.22.0-alpha.0.1"
     subscriptions-transport-ws "^0.9.15"
     uppercamelcase "^3.0.0"
     ws "^6.1.0"
@@ -4307,6 +4312,17 @@ prisma-generate-schema@1.20.1:
   resolved "https://registry.yarnpkg.com/prisma-generate-schema/-/prisma-generate-schema-1.20.1.tgz#ff60e3d00b59cf634bd263aeedf020152e0c14a9"
   dependencies:
     graphql "^14.0.2"
+    pluralize "^7.0.0"
+    popsicle "10"
+    tslint-config-prettier "^1.15.0"
+    tslint-eslint-rules "^5.4.0"
+
+prisma-generate-schema@1.22.0-alpha.0.1:
+  version "1.22.0-alpha.0.1"
+  resolved "https://registry.yarnpkg.com/prisma-generate-schema/-/prisma-generate-schema-1.22.0-alpha.0.1.tgz#44ab29bd4e9d9213ffdd297069ec966523ead32a"
+  dependencies:
+    graphql "^14.0.2"
+    node-fetch "^2.2.1"
     pluralize "^7.0.0"
     popsicle "10"
     tslint-config-prettier "^1.15.0"
