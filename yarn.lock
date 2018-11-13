@@ -4260,6 +4260,23 @@ prisma-client-lib@1.20.1:
     ws "^6.1.0"
     zen-observable "^0.8.10"
 
+prisma-client-lib@1.20.2:
+  version "1.20.2"
+  resolved "https://registry.yarnpkg.com/prisma-client-lib/-/prisma-client-lib-1.20.2.tgz#d2076f409dbffe77579f8a9616b5afcfc9bf43c1"
+  dependencies:
+    "@types/node" "^10.12.0"
+    "@types/prettier" "^1.13.2"
+    debug "^4.1.0"
+    graphql-tag "^2.10.0"
+    http-link-dataloader "^0.1.6"
+    jsonwebtoken "^8.3.0"
+    lodash.flatten "^4.4.0"
+    prettier "^1.14.3"
+    subscriptions-transport-ws "^0.9.15"
+    uppercamelcase "^3.0.0"
+    ws "^6.1.0"
+    zen-observable "^0.8.10"
+
 prisma-db-introspection@1.20.1:
   version "1.20.1"
   resolved "https://registry.yarnpkg.com/prisma-db-introspection/-/prisma-db-introspection-1.20.1.tgz#25979c8043200f9db7e94df240444d3b5d60ed85"
