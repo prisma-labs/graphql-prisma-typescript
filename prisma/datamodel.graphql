@@ -106,8 +106,8 @@ type Location {
   neighbourHood: Neighbourhood
   user: User
   place: Place
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: Experience
   restaurant: Restaurant
 }

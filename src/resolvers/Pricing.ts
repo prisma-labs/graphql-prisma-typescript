@@ -7,16 +7,16 @@ export interface PricingParent {
   averageMonthly: number
   averageWeekly: number
   basePrice: number
-  cleaningFee?: number
+  cleaningFee: number
   currency?: CURRENCY
-  extraGuests?: number
+  extraGuests: number
   id: string
-  monthlyDiscount?: number
+  monthlyDiscount: number
   perNight: number
-  securityDeposit?: number
+  securityDeposit: number
   smartPricing: boolean
-  weekendPricing?: number
-  weeklyDiscount?: number
+  weekendPricing: number
+  weeklyDiscount: number
 }
 
 export const Pricing: PricingResolvers.Type<TypeMap> = {

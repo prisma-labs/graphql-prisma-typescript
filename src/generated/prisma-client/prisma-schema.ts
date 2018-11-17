@@ -433,6 +433,49 @@ input AmenitiesUpdateInput {
   crib: Boolean
 }
 
+input AmenitiesUpdateManyMutationInput {
+  elevator: Boolean
+  petsAllowed: Boolean
+  internet: Boolean
+  kitchen: Boolean
+  wirelessInternet: Boolean
+  familyKidFriendly: Boolean
+  freeParkingOnPremises: Boolean
+  hotTub: Boolean
+  pool: Boolean
+  smokingAllowed: Boolean
+  wheelchairAccessible: Boolean
+  breakfast: Boolean
+  cableTv: Boolean
+  suitableForEvents: Boolean
+  dryer: Boolean
+  washer: Boolean
+  indoorFireplace: Boolean
+  tv: Boolean
+  heating: Boolean
+  hangers: Boolean
+  iron: Boolean
+  hairDryer: Boolean
+  doorman: Boolean
+  paidParkingOffPremises: Boolean
+  freeParkingOnStreet: Boolean
+  gym: Boolean
+  airConditioning: Boolean
+  shampoo: Boolean
+  essentials: Boolean
+  laptopFriendlyWorkspace: Boolean
+  privateEntrance: Boolean
+  buzzerWirelessIntercom: Boolean
+  babyBath: Boolean
+  babyMonitor: Boolean
+  babysitterRecommendations: Boolean
+  bathtub: Boolean
+  changingTable: Boolean
+  childrensBooksAndToys: Boolean
+  childrensDinnerware: Boolean
+  crib: Boolean
+}
+
 input AmenitiesUpdateOneRequiredWithoutPlaceInput {
   create: AmenitiesCreateWithoutPlaceInput
   update: AmenitiesUpdateWithoutPlaceDataInput
@@ -708,6 +751,11 @@ input BookingUpdateInput {
   payment: PaymentUpdateOneWithoutBookingInput
 }
 
+input BookingUpdateManyMutationInput {
+  startDate: DateTime
+  endDate: DateTime
+}
+
 input BookingUpdateManyWithoutBookeeInput {
   create: [BookingCreateWithoutBookeeInput!]
   delete: [BookingWhereUniqueInput!]
@@ -902,6 +950,10 @@ input CityUpdateInput {
   neighbourhoods: NeighbourhoodUpdateManyWithoutCityInput
 }
 
+input CityUpdateManyMutationInput {
+  name: String
+}
+
 input CityUpdateOneRequiredWithoutNeighbourhoodsInput {
   create: CityCreateWithoutNeighbourhoodsInput
   update: CityUpdateWithoutNeighbourhoodsDataInput
@@ -1078,6 +1130,17 @@ input CreditCardInformationUpdateInput {
   postalCode: String
   country: String
   paymentAccount: PaymentAccountUpdateOneWithoutCreditcardInput
+}
+
+input CreditCardInformationUpdateManyMutationInput {
+  cardNumber: String
+  expiresOnMonth: Int
+  expiresOnYear: Int
+  securityCode: String
+  firstName: String
+  lastName: String
+  postalCode: String
+  country: String
 }
 
 input CreditCardInformationUpdateOneWithoutPaymentAccountInput {
@@ -1338,6 +1401,11 @@ input ExperienceCategoryUpdateInput {
   experience: ExperienceUpdateOneWithoutCategoryInput
 }
 
+input ExperienceCategoryUpdateManyMutationInput {
+  mainColor: String
+  name: String
+}
+
 input ExperienceCategoryUpdateOneWithoutExperienceInput {
   create: ExperienceCategoryCreateWithoutExperienceInput
   update: ExperienceCategoryUpdateWithoutExperienceDataInput
@@ -1540,6 +1608,12 @@ input ExperienceUpdateInput {
   pricePerPerson: Int
   reviews: ReviewUpdateManyWithoutExperienceInput
   preview: PictureUpdateOneRequiredInput
+  popularity: Int
+}
+
+input ExperienceUpdateManyMutationInput {
+  title: String
+  pricePerPerson: Int
   popularity: Int
 }
 
@@ -1790,6 +1864,12 @@ input GuestRequirementsUpdateInput {
   place: PlaceUpdateOneRequiredWithoutGuestRequirementsInput
 }
 
+input GuestRequirementsUpdateManyMutationInput {
+  govIssuedId: Boolean
+  recommendationsFromOtherHosts: Boolean
+  guestTripInformation: Boolean
+}
+
 input GuestRequirementsUpdateOneWithoutPlaceInput {
   create: GuestRequirementsCreateWithoutPlaceInput
   update: GuestRequirementsUpdateWithoutPlaceDataInput
@@ -1947,6 +2027,15 @@ input HouseRulesUpdateInput {
   additionalRules: String
 }
 
+input HouseRulesUpdateManyMutationInput {
+  suitableForChildren: Boolean
+  suitableForInfants: Boolean
+  petsAllowed: Boolean
+  smokingAllowed: Boolean
+  partiesAndEventsAllowed: Boolean
+  additionalRules: String
+}
+
 input HouseRulesUpdateOneInput {
   create: HouseRulesCreateInput
   update: HouseRulesUpdateDataInput
@@ -2032,8 +2121,8 @@ type Location {
   neighbourHood: Neighbourhood
   user: User
   place: Place
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: Experience
   restaurant: Restaurant
 }
@@ -2050,8 +2139,8 @@ input LocationCreateInput {
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
   user: UserCreateOneWithoutLocationInput
   place: PlaceCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: ExperienceCreateOneWithoutLocationInput
   restaurant: RestaurantCreateOneWithoutLocationInput
 }
@@ -2087,8 +2176,8 @@ input LocationCreateWithoutExperienceInput {
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
   user: UserCreateOneWithoutLocationInput
   place: PlaceCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   restaurant: RestaurantCreateOneWithoutLocationInput
 }
 
@@ -2097,8 +2186,8 @@ input LocationCreateWithoutNeighbourHoodInput {
   lng: Float!
   user: UserCreateOneWithoutLocationInput
   place: PlaceCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: ExperienceCreateOneWithoutLocationInput
   restaurant: RestaurantCreateOneWithoutLocationInput
 }
@@ -2108,8 +2197,8 @@ input LocationCreateWithoutPlaceInput {
   lng: Float!
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
   user: UserCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: ExperienceCreateOneWithoutLocationInput
   restaurant: RestaurantCreateOneWithoutLocationInput
 }
@@ -2120,8 +2209,8 @@ input LocationCreateWithoutRestaurantInput {
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
   user: UserCreateOneWithoutLocationInput
   place: PlaceCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: ExperienceCreateOneWithoutLocationInput
 }
 
@@ -2130,8 +2219,8 @@ input LocationCreateWithoutUserInput {
   lng: Float!
   neighbourHood: NeighbourhoodCreateOneWithoutLocationsInput
   place: PlaceCreateOneWithoutLocationInput
-  address: String
-  directions: String
+  address: String!
+  directions: String!
   experience: ExperienceCreateOneWithoutLocationInput
   restaurant: RestaurantCreateOneWithoutLocationInput
 }
@@ -2162,8 +2251,8 @@ type LocationPreviousValues {
   id: ID!
   lat: Float!
   lng: Float!
-  address: String
-  directions: String
+  address: String!
+  directions: String!
 }
 
 type LocationSubscriptionPayload {
@@ -2194,6 +2283,13 @@ input LocationUpdateInput {
   directions: String
   experience: ExperienceUpdateOneWithoutLocationInput
   restaurant: RestaurantUpdateOneWithoutLocationInput
+}
+
+input LocationUpdateManyMutationInput {
+  lat: Float
+  lng: Float
+  address: String
+  directions: String
 }
 
 input LocationUpdateManyWithoutNeighbourHoodInput {
@@ -2490,6 +2586,11 @@ input MessageUpdateInput {
   readAt: DateTime
 }
 
+input MessageUpdateManyMutationInput {
+  deliveredAt: DateTime
+  readAt: DateTime
+}
+
 input MessageUpdateManyWithoutFromInput {
   create: [MessageCreateWithoutFromInput!]
   delete: [MessageWhereUniqueInput!]
@@ -2595,139 +2696,139 @@ input MessageWhereUniqueInput {
 type Mutation {
   createAmenities(data: AmenitiesCreateInput!): Amenities!
   updateAmenities(data: AmenitiesUpdateInput!, where: AmenitiesWhereUniqueInput!): Amenities
-  updateManyAmenitieses(data: AmenitiesUpdateInput!, where: AmenitiesWhereInput): BatchPayload!
+  updateManyAmenitieses(data: AmenitiesUpdateManyMutationInput!, where: AmenitiesWhereInput): BatchPayload!
   upsertAmenities(where: AmenitiesWhereUniqueInput!, create: AmenitiesCreateInput!, update: AmenitiesUpdateInput!): Amenities!
   deleteAmenities(where: AmenitiesWhereUniqueInput!): Amenities
   deleteManyAmenitieses(where: AmenitiesWhereInput): BatchPayload!
   createBooking(data: BookingCreateInput!): Booking!
   updateBooking(data: BookingUpdateInput!, where: BookingWhereUniqueInput!): Booking
-  updateManyBookings(data: BookingUpdateInput!, where: BookingWhereInput): BatchPayload!
+  updateManyBookings(data: BookingUpdateManyMutationInput!, where: BookingWhereInput): BatchPayload!
   upsertBooking(where: BookingWhereUniqueInput!, create: BookingCreateInput!, update: BookingUpdateInput!): Booking!
   deleteBooking(where: BookingWhereUniqueInput!): Booking
   deleteManyBookings(where: BookingWhereInput): BatchPayload!
   createCity(data: CityCreateInput!): City!
   updateCity(data: CityUpdateInput!, where: CityWhereUniqueInput!): City
-  updateManyCities(data: CityUpdateInput!, where: CityWhereInput): BatchPayload!
+  updateManyCities(data: CityUpdateManyMutationInput!, where: CityWhereInput): BatchPayload!
   upsertCity(where: CityWhereUniqueInput!, create: CityCreateInput!, update: CityUpdateInput!): City!
   deleteCity(where: CityWhereUniqueInput!): City
   deleteManyCities(where: CityWhereInput): BatchPayload!
   createCreditCardInformation(data: CreditCardInformationCreateInput!): CreditCardInformation!
   updateCreditCardInformation(data: CreditCardInformationUpdateInput!, where: CreditCardInformationWhereUniqueInput!): CreditCardInformation
-  updateManyCreditCardInformations(data: CreditCardInformationUpdateInput!, where: CreditCardInformationWhereInput): BatchPayload!
+  updateManyCreditCardInformations(data: CreditCardInformationUpdateManyMutationInput!, where: CreditCardInformationWhereInput): BatchPayload!
   upsertCreditCardInformation(where: CreditCardInformationWhereUniqueInput!, create: CreditCardInformationCreateInput!, update: CreditCardInformationUpdateInput!): CreditCardInformation!
   deleteCreditCardInformation(where: CreditCardInformationWhereUniqueInput!): CreditCardInformation
   deleteManyCreditCardInformations(where: CreditCardInformationWhereInput): BatchPayload!
   createExperience(data: ExperienceCreateInput!): Experience!
   updateExperience(data: ExperienceUpdateInput!, where: ExperienceWhereUniqueInput!): Experience
-  updateManyExperiences(data: ExperienceUpdateInput!, where: ExperienceWhereInput): BatchPayload!
+  updateManyExperiences(data: ExperienceUpdateManyMutationInput!, where: ExperienceWhereInput): BatchPayload!
   upsertExperience(where: ExperienceWhereUniqueInput!, create: ExperienceCreateInput!, update: ExperienceUpdateInput!): Experience!
   deleteExperience(where: ExperienceWhereUniqueInput!): Experience
   deleteManyExperiences(where: ExperienceWhereInput): BatchPayload!
   createExperienceCategory(data: ExperienceCategoryCreateInput!): ExperienceCategory!
   updateExperienceCategory(data: ExperienceCategoryUpdateInput!, where: ExperienceCategoryWhereUniqueInput!): ExperienceCategory
-  updateManyExperienceCategories(data: ExperienceCategoryUpdateInput!, where: ExperienceCategoryWhereInput): BatchPayload!
+  updateManyExperienceCategories(data: ExperienceCategoryUpdateManyMutationInput!, where: ExperienceCategoryWhereInput): BatchPayload!
   upsertExperienceCategory(where: ExperienceCategoryWhereUniqueInput!, create: ExperienceCategoryCreateInput!, update: ExperienceCategoryUpdateInput!): ExperienceCategory!
   deleteExperienceCategory(where: ExperienceCategoryWhereUniqueInput!): ExperienceCategory
   deleteManyExperienceCategories(where: ExperienceCategoryWhereInput): BatchPayload!
   createGuestRequirements(data: GuestRequirementsCreateInput!): GuestRequirements!
   updateGuestRequirements(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereUniqueInput!): GuestRequirements
-  updateManyGuestRequirementses(data: GuestRequirementsUpdateInput!, where: GuestRequirementsWhereInput): BatchPayload!
+  updateManyGuestRequirementses(data: GuestRequirementsUpdateManyMutationInput!, where: GuestRequirementsWhereInput): BatchPayload!
   upsertGuestRequirements(where: GuestRequirementsWhereUniqueInput!, create: GuestRequirementsCreateInput!, update: GuestRequirementsUpdateInput!): GuestRequirements!
   deleteGuestRequirements(where: GuestRequirementsWhereUniqueInput!): GuestRequirements
   deleteManyGuestRequirementses(where: GuestRequirementsWhereInput): BatchPayload!
   createHouseRules(data: HouseRulesCreateInput!): HouseRules!
   updateHouseRules(data: HouseRulesUpdateInput!, where: HouseRulesWhereUniqueInput!): HouseRules
-  updateManyHouseRuleses(data: HouseRulesUpdateInput!, where: HouseRulesWhereInput): BatchPayload!
+  updateManyHouseRuleses(data: HouseRulesUpdateManyMutationInput!, where: HouseRulesWhereInput): BatchPayload!
   upsertHouseRules(where: HouseRulesWhereUniqueInput!, create: HouseRulesCreateInput!, update: HouseRulesUpdateInput!): HouseRules!
   deleteHouseRules(where: HouseRulesWhereUniqueInput!): HouseRules
   deleteManyHouseRuleses(where: HouseRulesWhereInput): BatchPayload!
   createLocation(data: LocationCreateInput!): Location!
   updateLocation(data: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location
-  updateManyLocations(data: LocationUpdateInput!, where: LocationWhereInput): BatchPayload!
+  updateManyLocations(data: LocationUpdateManyMutationInput!, where: LocationWhereInput): BatchPayload!
   upsertLocation(where: LocationWhereUniqueInput!, create: LocationCreateInput!, update: LocationUpdateInput!): Location!
   deleteLocation(where: LocationWhereUniqueInput!): Location
   deleteManyLocations(where: LocationWhereInput): BatchPayload!
   createMessage(data: MessageCreateInput!): Message!
   updateMessage(data: MessageUpdateInput!, where: MessageWhereUniqueInput!): Message
-  updateManyMessages(data: MessageUpdateInput!, where: MessageWhereInput): BatchPayload!
+  updateManyMessages(data: MessageUpdateManyMutationInput!, where: MessageWhereInput): BatchPayload!
   upsertMessage(where: MessageWhereUniqueInput!, create: MessageCreateInput!, update: MessageUpdateInput!): Message!
   deleteMessage(where: MessageWhereUniqueInput!): Message
   deleteManyMessages(where: MessageWhereInput): BatchPayload!
   createNeighbourhood(data: NeighbourhoodCreateInput!): Neighbourhood!
   updateNeighbourhood(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereUniqueInput!): Neighbourhood
-  updateManyNeighbourhoods(data: NeighbourhoodUpdateInput!, where: NeighbourhoodWhereInput): BatchPayload!
+  updateManyNeighbourhoods(data: NeighbourhoodUpdateManyMutationInput!, where: NeighbourhoodWhereInput): BatchPayload!
   upsertNeighbourhood(where: NeighbourhoodWhereUniqueInput!, create: NeighbourhoodCreateInput!, update: NeighbourhoodUpdateInput!): Neighbourhood!
   deleteNeighbourhood(where: NeighbourhoodWhereUniqueInput!): Neighbourhood
   deleteManyNeighbourhoods(where: NeighbourhoodWhereInput): BatchPayload!
   createNotification(data: NotificationCreateInput!): Notification!
   updateNotification(data: NotificationUpdateInput!, where: NotificationWhereUniqueInput!): Notification
-  updateManyNotifications(data: NotificationUpdateInput!, where: NotificationWhereInput): BatchPayload!
+  updateManyNotifications(data: NotificationUpdateManyMutationInput!, where: NotificationWhereInput): BatchPayload!
   upsertNotification(where: NotificationWhereUniqueInput!, create: NotificationCreateInput!, update: NotificationUpdateInput!): Notification!
   deleteNotification(where: NotificationWhereUniqueInput!): Notification
   deleteManyNotifications(where: NotificationWhereInput): BatchPayload!
   createPayment(data: PaymentCreateInput!): Payment!
   updatePayment(data: PaymentUpdateInput!, where: PaymentWhereUniqueInput!): Payment
-  updateManyPayments(data: PaymentUpdateInput!, where: PaymentWhereInput): BatchPayload!
+  updateManyPayments(data: PaymentUpdateManyMutationInput!, where: PaymentWhereInput): BatchPayload!
   upsertPayment(where: PaymentWhereUniqueInput!, create: PaymentCreateInput!, update: PaymentUpdateInput!): Payment!
   deletePayment(where: PaymentWhereUniqueInput!): Payment
   deleteManyPayments(where: PaymentWhereInput): BatchPayload!
   createPaymentAccount(data: PaymentAccountCreateInput!): PaymentAccount!
   updatePaymentAccount(data: PaymentAccountUpdateInput!, where: PaymentAccountWhereUniqueInput!): PaymentAccount
-  updateManyPaymentAccounts(data: PaymentAccountUpdateInput!, where: PaymentAccountWhereInput): BatchPayload!
+  updateManyPaymentAccounts(data: PaymentAccountUpdateManyMutationInput!, where: PaymentAccountWhereInput): BatchPayload!
   upsertPaymentAccount(where: PaymentAccountWhereUniqueInput!, create: PaymentAccountCreateInput!, update: PaymentAccountUpdateInput!): PaymentAccount!
   deletePaymentAccount(where: PaymentAccountWhereUniqueInput!): PaymentAccount
   deleteManyPaymentAccounts(where: PaymentAccountWhereInput): BatchPayload!
   createPaypalInformation(data: PaypalInformationCreateInput!): PaypalInformation!
   updatePaypalInformation(data: PaypalInformationUpdateInput!, where: PaypalInformationWhereUniqueInput!): PaypalInformation
-  updateManyPaypalInformations(data: PaypalInformationUpdateInput!, where: PaypalInformationWhereInput): BatchPayload!
+  updateManyPaypalInformations(data: PaypalInformationUpdateManyMutationInput!, where: PaypalInformationWhereInput): BatchPayload!
   upsertPaypalInformation(where: PaypalInformationWhereUniqueInput!, create: PaypalInformationCreateInput!, update: PaypalInformationUpdateInput!): PaypalInformation!
   deletePaypalInformation(where: PaypalInformationWhereUniqueInput!): PaypalInformation
   deleteManyPaypalInformations(where: PaypalInformationWhereInput): BatchPayload!
   createPicture(data: PictureCreateInput!): Picture!
   updatePicture(data: PictureUpdateInput!, where: PictureWhereUniqueInput!): Picture
-  updateManyPictures(data: PictureUpdateInput!, where: PictureWhereInput): BatchPayload!
+  updateManyPictures(data: PictureUpdateManyMutationInput!, where: PictureWhereInput): BatchPayload!
   upsertPicture(where: PictureWhereUniqueInput!, create: PictureCreateInput!, update: PictureUpdateInput!): Picture!
   deletePicture(where: PictureWhereUniqueInput!): Picture
   deleteManyPictures(where: PictureWhereInput): BatchPayload!
   createPlace(data: PlaceCreateInput!): Place!
   updatePlace(data: PlaceUpdateInput!, where: PlaceWhereUniqueInput!): Place
-  updateManyPlaces(data: PlaceUpdateInput!, where: PlaceWhereInput): BatchPayload!
+  updateManyPlaces(data: PlaceUpdateManyMutationInput!, where: PlaceWhereInput): BatchPayload!
   upsertPlace(where: PlaceWhereUniqueInput!, create: PlaceCreateInput!, update: PlaceUpdateInput!): Place!
   deletePlace(where: PlaceWhereUniqueInput!): Place
   deleteManyPlaces(where: PlaceWhereInput): BatchPayload!
   createPolicies(data: PoliciesCreateInput!): Policies!
   updatePolicies(data: PoliciesUpdateInput!, where: PoliciesWhereUniqueInput!): Policies
-  updateManyPolicieses(data: PoliciesUpdateInput!, where: PoliciesWhereInput): BatchPayload!
+  updateManyPolicieses(data: PoliciesUpdateManyMutationInput!, where: PoliciesWhereInput): BatchPayload!
   upsertPolicies(where: PoliciesWhereUniqueInput!, create: PoliciesCreateInput!, update: PoliciesUpdateInput!): Policies!
   deletePolicies(where: PoliciesWhereUniqueInput!): Policies
   deleteManyPolicieses(where: PoliciesWhereInput): BatchPayload!
   createPricing(data: PricingCreateInput!): Pricing!
   updatePricing(data: PricingUpdateInput!, where: PricingWhereUniqueInput!): Pricing
-  updateManyPricings(data: PricingUpdateInput!, where: PricingWhereInput): BatchPayload!
+  updateManyPricings(data: PricingUpdateManyMutationInput!, where: PricingWhereInput): BatchPayload!
   upsertPricing(where: PricingWhereUniqueInput!, create: PricingCreateInput!, update: PricingUpdateInput!): Pricing!
   deletePricing(where: PricingWhereUniqueInput!): Pricing
   deleteManyPricings(where: PricingWhereInput): BatchPayload!
   createRestaurant(data: RestaurantCreateInput!): Restaurant!
   updateRestaurant(data: RestaurantUpdateInput!, where: RestaurantWhereUniqueInput!): Restaurant
-  updateManyRestaurants(data: RestaurantUpdateInput!, where: RestaurantWhereInput): BatchPayload!
+  updateManyRestaurants(data: RestaurantUpdateManyMutationInput!, where: RestaurantWhereInput): BatchPayload!
   upsertRestaurant(where: RestaurantWhereUniqueInput!, create: RestaurantCreateInput!, update: RestaurantUpdateInput!): Restaurant!
   deleteRestaurant(where: RestaurantWhereUniqueInput!): Restaurant
   deleteManyRestaurants(where: RestaurantWhereInput): BatchPayload!
   createReview(data: ReviewCreateInput!): Review!
   updateReview(data: ReviewUpdateInput!, where: ReviewWhereUniqueInput!): Review
-  updateManyReviews(data: ReviewUpdateInput!, where: ReviewWhereInput): BatchPayload!
+  updateManyReviews(data: ReviewUpdateManyMutationInput!, where: ReviewWhereInput): BatchPayload!
   upsertReview(where: ReviewWhereUniqueInput!, create: ReviewCreateInput!, update: ReviewUpdateInput!): Review!
   deleteReview(where: ReviewWhereUniqueInput!): Review
   deleteManyReviews(where: ReviewWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-  updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
   deleteUser(where: UserWhereUniqueInput!): User
   deleteManyUsers(where: UserWhereInput): BatchPayload!
   createViews(data: ViewsCreateInput!): Views!
   updateViews(data: ViewsUpdateInput!, where: ViewsWhereUniqueInput!): Views
-  updateManyViewses(data: ViewsUpdateInput!, where: ViewsWhereInput): BatchPayload!
+  updateManyViewses(data: ViewsUpdateManyMutationInput!, where: ViewsWhereInput): BatchPayload!
   upsertViews(where: ViewsWhereUniqueInput!, create: ViewsCreateInput!, update: ViewsUpdateInput!): Views!
   deleteViews(where: ViewsWhereUniqueInput!): Views
   deleteManyViewses(where: ViewsWhereInput): BatchPayload!
@@ -2848,6 +2949,13 @@ input NeighbourhoodUpdateInput {
   slug: String
   homePreview: PictureUpdateOneInput
   city: CityUpdateOneRequiredWithoutNeighbourhoodsInput
+  featured: Boolean
+  popularity: Int
+}
+
+input NeighbourhoodUpdateManyMutationInput {
+  name: String
+  slug: String
   featured: Boolean
   popularity: Int
 }
@@ -3065,6 +3173,12 @@ input NotificationSubscriptionWhereInput {
 input NotificationUpdateInput {
   type: NOTIFICATION_TYPE
   user: UserUpdateOneRequiredWithoutNotificationsInput
+  link: String
+  readDate: DateTime
+}
+
+input NotificationUpdateManyMutationInput {
+  type: NOTIFICATION_TYPE
   link: String
   readDate: DateTime
 }
@@ -3296,6 +3410,10 @@ input PaymentAccountUpdateInput {
   creditcard: CreditCardInformationUpdateOneWithoutPaymentAccountInput
 }
 
+input PaymentAccountUpdateManyMutationInput {
+  type: PAYMENT_PROVIDER
+}
+
 input PaymentAccountUpdateManyWithoutUserInput {
   create: [PaymentAccountCreateWithoutUserInput!]
   delete: [PaymentAccountWhereUniqueInput!]
@@ -3516,6 +3634,12 @@ input PaymentUpdateInput {
   paymentMethod: PaymentAccountUpdateOneRequiredWithoutPaymentsInput
 }
 
+input PaymentUpdateManyMutationInput {
+  serviceFee: Float
+  placePrice: Float
+  totalPrice: Float
+}
+
 input PaymentUpdateManyWithoutPaymentMethodInput {
   create: [PaymentCreateWithoutPaymentMethodInput!]
   delete: [PaymentWhereUniqueInput!]
@@ -3694,6 +3818,10 @@ input PaypalInformationUpdateInput {
   paymentAccount: PaymentAccountUpdateOneRequiredWithoutPaypalInput
 }
 
+input PaypalInformationUpdateManyMutationInput {
+  email: String
+}
+
 input PaypalInformationUpdateOneWithoutPaymentAccountInput {
   create: PaypalInformationCreateWithoutPaymentAccountInput
   update: PaypalInformationUpdateWithoutPaymentAccountDataInput
@@ -3833,11 +3961,15 @@ input PictureUpdateInput {
 
 input PictureUpdateManyInput {
   create: [PictureCreateInput!]
+  update: [PictureUpdateWithWhereUniqueNestedInput!]
+  upsert: [PictureUpsertWithWhereUniqueNestedInput!]
   delete: [PictureWhereUniqueInput!]
   connect: [PictureWhereUniqueInput!]
   disconnect: [PictureWhereUniqueInput!]
-  update: [PictureUpdateWithWhereUniqueNestedInput!]
-  upsert: [PictureUpsertWithWhereUniqueNestedInput!]
+}
+
+input PictureUpdateManyMutationInput {
+  url: String
 }
 
 input PictureUpdateOneInput {
@@ -4315,6 +4447,19 @@ input PlaceUpdateInput {
   houseRules: HouseRulesUpdateOneInput
   bookings: BookingUpdateManyWithoutPlaceInput
   pictures: PictureUpdateManyInput
+  popularity: Int
+}
+
+input PlaceUpdateManyMutationInput {
+  name: String
+  size: PLACE_SIZES
+  shortDescription: String
+  description: String
+  slug: String
+  maxGuests: Int
+  numBedrooms: Int
+  numBeds: Int
+  numBaths: Int
   popularity: Int
 }
 
@@ -4872,6 +5017,12 @@ input PoliciesUpdateInput {
   place: PlaceUpdateOneRequiredWithoutPoliciesInput
 }
 
+input PoliciesUpdateManyMutationInput {
+  checkInStartTime: Float
+  checkInEndTime: Float
+  checkoutTime: Float
+}
+
 input PoliciesUpdateOneWithoutPlaceInput {
   create: PoliciesCreateWithoutPlaceInput
   update: PoliciesUpdateWithoutPlaceDataInput
@@ -5090,6 +5241,21 @@ input PricingSubscriptionWhereInput {
 
 input PricingUpdateInput {
   place: PlaceUpdateOneRequiredWithoutPricingInput
+  monthlyDiscount: Int
+  weeklyDiscount: Int
+  perNight: Int
+  smartPricing: Boolean
+  basePrice: Int
+  averageWeekly: Int
+  averageMonthly: Int
+  cleaningFee: Int
+  securityDeposit: Int
+  extraGuests: Int
+  weekendPricing: Int
+  currency: CURRENCY
+}
+
+input PricingUpdateManyMutationInput {
   monthlyDiscount: Int
   weeklyDiscount: Int
   perNight: Int
@@ -5419,6 +5585,14 @@ input RestaurantUpdateInput {
   popularity: Int
 }
 
+input RestaurantUpdateManyMutationInput {
+  title: String
+  avgPricePerPerson: Int
+  isCurated: Boolean
+  slug: String
+  popularity: Int
+}
+
 input RestaurantUpdateOneWithoutLocationInput {
   create: RestaurantCreateWithoutLocationInput
   update: RestaurantUpdateWithoutLocationDataInput
@@ -5664,6 +5838,17 @@ input ReviewUpdateInput {
   communication: Int
   place: PlaceUpdateOneRequiredWithoutReviewsInput
   experience: ExperienceUpdateOneWithoutReviewsInput
+}
+
+input ReviewUpdateManyMutationInput {
+  text: String
+  stars: Int
+  accuracy: Int
+  location: Int
+  checkIn: Int
+  value: Int
+  cleanliness: Int
+  communication: Int
 }
 
 input ReviewUpdateManyWithoutExperienceInput {
@@ -6183,6 +6368,17 @@ input UserUpdateInput {
   hostingExperiences: ExperienceUpdateManyWithoutHostInput
 }
 
+input UserUpdateManyMutationInput {
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  phone: String
+  responseRate: Float
+  responseTime: Int
+  isSuperHost: Boolean
+}
+
 input UserUpdateOneRequiredWithoutBookingsInput {
   create: UserCreateWithoutBookingsInput
   update: UserUpdateWithoutBookingsDataInput
@@ -6653,6 +6849,10 @@ input ViewsSubscriptionWhereInput {
 input ViewsUpdateInput {
   lastWeek: Int
   place: PlaceUpdateOneRequiredWithoutViewsInput
+}
+
+input ViewsUpdateManyMutationInput {
+  lastWeek: Int
 }
 
 input ViewsUpdateOneRequiredWithoutPlaceInput {

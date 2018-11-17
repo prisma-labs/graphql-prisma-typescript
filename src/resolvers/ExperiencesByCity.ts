@@ -1,12 +1,8 @@
 import { ExperiencesByCityResolvers } from '../generated/resolvers'
 import { TypeMap } from './types/TypeMap'
-import { ExperienceParent } from './Experience'
-import { CityParent } from './City'
 
 export interface ExperiencesByCityParent {
   id: string,
-  experiences: ExperienceParent[]
-  city: CityParent
 }
 
 export const ExperiencesByCity: ExperiencesByCityResolvers.Type<TypeMap> = {

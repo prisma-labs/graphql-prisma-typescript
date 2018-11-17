@@ -1,33 +1,16 @@
 import { UserResolvers } from '../generated/resolvers'
 import { TypeMap } from './types/TypeMap'
-import { BookingParent } from './Booking'
-import { ExperienceParent } from './Experience'
-import { LocationParent } from './Location'
-import { NotificationParent } from './Notification'
-import { PlaceParent } from './Place'
-import { PaymentAccountParent } from './PaymentAccount'
-import { PictureParent } from './Picture'
-import { MessageParent } from './Message'
 
 export interface UserParent {
-  bookings: BookingParent[]
   createdAt: string
   email: string
   firstName: string
-  hostingExperiences: ExperienceParent[]
   id: string
   isSuperHost: boolean
   lastName: string
-  location?: LocationParent
-  notifications: NotificationParent[]
-  ownedPlaces: PlaceParent[]
-  paymentAccount?: PaymentAccountParent[]
   phone: string
-  profilePicture?: PictureParent
-  receivedMessages: MessageParent[]
   responseRate?: number
   responseTime?: number
-  sentMessages: MessageParent[]
   updatedAt: string
 }
 
@@ -46,14 +29,17 @@ export const User: UserResolvers.Type<TypeMap> = {
     ctx.db.user({ id: root.id }).notifications(),
   ownedPlaces: (parent, _args, ctx) =>
     ctx.db.user({ id: parent.id }).ownedPlaces(),
-  paymentAccount: parent => parent.paymentAccount,
+  paymentAccount: (root, _args, ctx) =>
+  ctx.db.user({ id: root.id }).paymentAccount(),
   phone: parent => parent.phone,
   profilePicture: (parent, _args, ctx) =>
     ctx.db.user({ id: parent.id }).profilePicture(),
   receivedMessages: (parent, _args, ctx) =>
     ctx.db.user({ id: parent.id }).receivedMessages(),
-  responseRate: parent => parent.responseRate,
-  responseTime: parent => parent.responseTime,
+  responseRate: (parent, _args, ctx) =>
+  ctx.db.user({ id: parent.id }).responseRate(),
+  responseTime: (parent, _args, ctx) =>
+  ctx.db.user({ id: parent.id }).responseTime(),
   sentMessages: (parent, _args, ctx) =>
     ctx.db.user({ id: parent.id }).sentMessages(),
   updatedAt: parent => parent.updatedAt,
