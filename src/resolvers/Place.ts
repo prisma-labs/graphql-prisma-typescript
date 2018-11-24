@@ -1,16 +1,5 @@
 import { PlaceResolvers } from '../generated/resolvers'
 import { TypeMap } from './types/TypeMap'
-import { ReviewParent } from './Review'
-import { AmenitiesParent } from './Amenities'
-import { UserParent } from './User'
-import { PricingParent } from './Pricing'
-import { LocationParent } from './Location'
-import { PlaceViewsParent } from './PlaceViews'
-import { GuestRequirementsParent } from './GuestRequirements'
-import { PoliciesParent } from './Policies'
-import { HouseRulesParent } from './HouseRules'
-import { BookingParent } from './Booking'
-import { PictureParent } from './Picture'
 
 export type PLACE_SIZES =
   | 'ENTIRE_HOUSE'
@@ -24,7 +13,7 @@ export type PLACE_SIZES =
 
 export interface PlaceParent {
   id: string
-  name?: string
+  name: string
   size?: PLACE_SIZES
   shortDescription: string
   description: string
@@ -33,17 +22,6 @@ export interface PlaceParent {
   numBedrooms: number
   numBeds: number
   numBaths: number
-  reviews: ReviewParent[]
-  amenities: AmenitiesParent
-  host: UserParent
-  pricing: PricingParent
-  location: LocationParent
-  views: PlaceViewsParent
-  guestRequirements?: GuestRequirementsParent
-  policies?: PoliciesParent
-  houseRules?: HouseRulesParent
-  bookings: BookingParent[]
-  pictures: PictureParent[]
   popularity: number
 }
 
@@ -58,8 +36,12 @@ export const Place: PlaceResolvers.Type<TypeMap> = {
   numBedrooms: parent => parent.numBedrooms,
   numBeds: parent => parent.numBeds,
   numBaths: parent => parent.numBaths,
-  reviews: parent => parent.reviews,
-  amenities: parent => parent.amenities,
+  reviews: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).reviews();
+  },
+  amenities: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).amenities();
+  },
   numRatings: (parent, _args, ctx) =>
     ctx.db
       .reviewsConnection({ where: { place: { id: parent.id } } })
@@ -74,16 +56,30 @@ export const Place: PlaceResolvers.Type<TypeMap> = {
     }
     return null
   },
-  host: parent => parent.host,
+  host: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).host();
+  },
   pricing: (parent, _args, ctx) => {
     return ctx.db.place({ id: parent.id }).pricing();
   },
-  location: parent => parent.location,
-  views: parent => parent.views,
-  guestRequirements: parent => parent.guestRequirements,
-  policies: parent => parent.policies,
-  houseRules: parent => parent.houseRules,
-  bookings: parent => parent.bookings,
+  location: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).location();
+  },
+  views: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).views();
+  },
+  guestRequirements: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).guestRequirements();
+  },
+  policies: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).policies();
+  },
+  houseRules: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).houseRules();
+  },
+  bookings: (parent, _args, ctx) => {
+    return ctx.db.place({ id: parent.id }).bookings();
+  },
   pictures: (parent, _args, ctx) => {
     return ctx.db.place({ id: parent.id }).pictures();
   },

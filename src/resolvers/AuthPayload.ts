@@ -3,11 +3,11 @@ import { TypeMap } from './types/TypeMap'
 import { UserParent } from './User'
 
 export interface AuthPayloadParent {
+  id: string
   token: string
-  user: UserParent
 }
 
 export const AuthPayload: AuthPayloadResolvers.Type<TypeMap> = {
   token: parent => parent.token,
-  user: parent => parent.user,
+  user: (parent, _args, ctx) => ctx.db.user({ id: parent.id })
 }

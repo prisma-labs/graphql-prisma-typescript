@@ -2,14 +2,14 @@ import { HouseRulesResolvers } from '../generated/resolvers'
 import { TypeMap } from './types/TypeMap'
 
 export interface HouseRulesParent {
-  additionalRules?: string
+  additionalRules: string
   createdAt: string
   id: string
-  partiesAndEventsAllowed?: boolean
-  petsAllowed?: boolean
-  smokingAllowed?: boolean
-  suitableForChildren?: boolean
-  suitableForInfants?: boolean
+  partiesAndEventsAllowed: boolean
+  petsAllowed: boolean
+  smokingAllowed: boolean
+  suitableForChildren: boolean
+  suitableForInfants: boolean
   updatedAt: string
 }
 

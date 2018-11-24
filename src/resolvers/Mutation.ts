@@ -16,11 +16,11 @@ export const Mutation: MutationResolvers.Type<TypeMap> = {
       responseTime: 0,
     })
 
-    const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET)
+    const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET as jwt.Secret)
 
     return {
+      id: user.id,
       token,
-      user: ctx.db.user({ id: user.id }),
     }
   },
   login: async (_parent, { email, password }, ctx) => {
@@ -31,11 +31,11 @@ export const Mutation: MutationResolvers.Type<TypeMap> = {
       throw new Error('Invalid Credentials')
     }
 
-    const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET)
+    const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET as jwt.Secret)
 
     return {
+      id: user.id,
       token,
-      user: ctx.db.user({ id: user.id }),
     }
   },
   addPaymentMethod: (parent, args) => {
@@ -96,21 +96,8 @@ export const Mutation: MutationResolvers.Type<TypeMap> = {
       endDate: args.checkOut,
       bookee: { connect: { id: userId } },
       place: { connect: { id: args.placeId } },
-      payment: null,
     })
 
     return { success: true }
-  },
-  addLocationToUser: async (_parent, { location }, ctx) => {
-    const id = getUserId(ctx)
-
-    const createdLocation = await ctx.db.createLocation({
-      ...location,
-      user: { connect: { id } },
-    })
-
-    return {
-      success: !!createdLocation,
-    }
   },
 }

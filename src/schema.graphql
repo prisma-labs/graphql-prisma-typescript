@@ -39,8 +39,6 @@ type Mutation {
     checkOut: String!
     numGuests: Int!
   ): MutationResult!
-  # Location
-  addLocationToUser(location: LocationCreateInput): MutationResult
 }
 
 type Subscription {
@@ -115,8 +113,8 @@ type Location {
   id: ID!
   lat: Float!
   lng: Float!
-  address: String
-  directions: String
+  address: String!
+  directions: String!
 }
 
 type Picture {

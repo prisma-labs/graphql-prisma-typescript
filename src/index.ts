@@ -5,7 +5,7 @@ import { resolvers } from './resolvers'
 const db = new Prisma({
   endpoint: process.env.PRISMA_ENDPOINT!,
   secret: process.env.PRISMA_SECRET!,
-  // debug: true,
+  debug: true,
 })
 
 const server = new GraphQLServer({
