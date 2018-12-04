@@ -2039,6 +2039,11 @@ find@^0.2.7:
   dependencies:
     traverse-chain "~0.1.0"
 
+flow-bin@^0.87.0:
+  version "0.87.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.87.0.tgz#fab7f984d8cc767e93fa9eb01cf7d57ed744f19d"
+  integrity sha512-mnvBXXZkUp4y6A96bR5BHa3q1ioIIN2L10w5osxJqagAakTXFYZwjl0t9cT3y2aCEf1wnK6n91xgYypQS/Dqbw==
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -4789,6 +4794,26 @@ prisma-client-lib@1.21.1:
     ws "^6.1.0"
     zen-observable "^0.8.10"
 
+prisma-client-lib@1.22.0:
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/prisma-client-lib/-/prisma-client-lib-1.22.0.tgz#d43a33653e4a0dd6e67b4bc82773dfa871ce967b"
+  integrity sha512-rx+iTveCl8wIXbbJA4wbepUG3EnZFP1PoLc1maI93a3HEHnJdfxbYtzHRDpMh82pGY9pkAS3gRFjl5AyyYZYDw==
+  dependencies:
+    "@types/node" "^10.12.0"
+    "@types/prettier" "^1.13.2"
+    debug "^4.1.0"
+    flow-bin "^0.87.0"
+    graphql-tag "^2.10.0"
+    http-link-dataloader "^0.1.6"
+    jsonwebtoken "^8.3.0"
+    lodash.flatten "^4.4.0"
+    prettier "^1.14.3"
+    prisma-generate-schema "1.22.0"
+    subscriptions-transport-ws "^0.9.15"
+    uppercamelcase "^3.0.0"
+    ws "^6.1.0"
+    zen-observable "^0.8.10"
+
 prisma-db-introspection@1.21.1:
   version "1.21.1"
   resolved "https://registry.yarnpkg.com/prisma-db-introspection/-/prisma-db-introspection-1.21.1.tgz#66112d82bf64cbea24f5c70c6a47d624f7836356"
@@ -4822,6 +4847,15 @@ prisma-generate-schema@1.21.1:
   dependencies:
     graphql "^14.0.2"
     node-fetch "^2.2.1"
+    pluralize "^7.0.0"
+    popsicle "10"
+
+prisma-generate-schema@1.22.0:
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/prisma-generate-schema/-/prisma-generate-schema-1.22.0.tgz#f35bfb707650ecfff89ba57adeece3f0491573f6"
+  integrity sha512-PMRcv3Af19hhfMiZqeMYMhQ9B/K/aYvfyckhHrXLNSIntvDgc70bSFC6i1b+eHY394Pkx33WfxAuZsHJIQrbJA==
+  dependencies:
+    graphql "^14.0.2"
     pluralize "^7.0.0"
     popsicle "10"
 
