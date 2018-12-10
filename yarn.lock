@@ -1238,13 +1238,13 @@ cross-fetch@2.2.2:
     node-fetch "2.1.2"
     whatwg-fetch "2.0.4"
 
-cross-fetch@2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-2.2.3.tgz#e8a0b3c54598136e037f8650f8e823ccdfac198e"
-  integrity sha512-PrWWNH3yL2NYIb/7WF/5vFG3DCQiXDOVf8k3ijatbrtnwNuhMWLC7YF7uqf53tbTFDzHIUD8oITw4Bxt8ST3Nw==
+cross-fetch@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.0.tgz#fb7fa6906f39c7233aa7ab8de1785e980532b899"
+  integrity sha512-P8HyKlMwT1ed9LqEWlJu+zfcxfn0KI4Nl4nxyvu1a8sg4vgtHdwhElZOgSNzoar44zQMdliZcve4QG/04AUi9Q==
   dependencies:
-    node-fetch "2.1.2"
-    whatwg-fetch "2.0.4"
+    node-fetch "2.3.0"
+    whatwg-fetch "3.0.0"
 
 cross-spawn@^5.0.1, cross-spawn@^5.1.0:
   version "5.1.0"
@@ -2132,10 +2132,10 @@ graphcool-yml@0.4.15:
     scuid "^1.0.2"
     yaml-ast-parser "^0.0.40"
 
-graphql-binding@2.3.5:
-  version "2.3.5"
-  resolved "https://registry.yarnpkg.com/graphql-binding/-/graphql-binding-2.3.5.tgz#b3a7ee91f82f94f044c9902b08f888ef4bf0c6a9"
-  integrity sha512-COtcQzRIJU3MLJ+NOiVtN0UrLS/ZknZRbAqPIRmK4oAQlvBhY4M903m6RoS4kRW1uk/aFuQyEqyj4lbzHoLjfw==
+graphql-binding@2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/graphql-binding/-/graphql-binding-2.3.6.tgz#37546f038567d56ea4f3ee3ec9e6629d078d9545"
+  integrity sha512-khQsAuGjAceZB8oLBIIIo7eomrqwICmxiDvaMz0bIhEUsyBr109CauFamkSBXxQKh71uf5e8MihCsW50gLfQEQ==
   dependencies:
     graphql-import "^0.7.1"
     graphql-tools "4.0.3"
@@ -3690,6 +3690,11 @@ node-fetch@2.1.2:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
   integrity sha1-q4hOjn5X44qUR1POxwb3iNF2i7U=
 
+node-fetch@2.3.0, node-fetch@^2.0.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.3.0.tgz#1a1d940bbfb916a1d3e0219f037e89e71f8c5fa5"
+  integrity sha512-MOd8pV3fxENbryESLgVIeaGKrdl+uaYhCSSVkjeOb/31/njTpcis5aWfdqgNlHIrKOLRbMnfPINPOML2CIFeXA==
+
 node-fetch@^1.0.1, node-fetch@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
@@ -3697,11 +3702,6 @@ node-fetch@^1.0.1, node-fetch@^1.7.3:
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
-
-node-fetch@^2.0.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.3.0.tgz#1a1d940bbfb916a1d3e0219f037e89e71f8c5fa5"
-  integrity sha512-MOd8pV3fxENbryESLgVIeaGKrdl+uaYhCSSVkjeOb/31/njTpcis5aWfdqgNlHIrKOLRbMnfPINPOML2CIFeXA==
 
 node-forge@^0.7.1:
   version "0.7.6"
@@ -4303,16 +4303,16 @@ prettier@^1.14.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.15.2.tgz#d31abe22afa4351efa14c7f8b94b58bb7452205e"
   integrity sha512-YgPLFFA0CdKL4Eg2IHtUSjzj/BWgszDHiNQAe0VAIBse34148whfdzLagRL+QiKS+YfK5ftB6X4v/MBw8yCoug==
 
-prisma-binding@2.2.8:
-  version "2.2.8"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.2.8.tgz#e4c6d194a3b504b232c203d4832ebacada659b91"
-  integrity sha512-TTT+1bJx4swwJTIINevc7PxodbgWiL3C8iYbIvxvwYGfrK83J/kM7chBpPC3Hnk4a6bIfm7gnP1g/q2Jug+uSw==
+prisma-binding@2.2.9:
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.2.9.tgz#03f9fb3e3bb6336364afb2eacfdbf58a67ea8740"
+  integrity sha512-sq2tYZut1rXY6YJkltyJAlZT1Rs0id9PK6gGCYYzva5FyjIBj6LNu1s1iClmxfhgO++Xq4FHZ9pXy7+nL7WFKQ==
   dependencies:
     apollo-link "1.2.4"
     apollo-link-error "1.1.2"
     apollo-link-ws "1.0.10"
-    cross-fetch "2.2.3"
-    graphql-binding "2.3.5"
+    cross-fetch "3.0.0"
+    graphql-binding "2.3.6"
     graphql-import "0.7.1"
     graphql-tools "4.0.3"
     http-link-dataloader "^0.1.6"
@@ -5772,7 +5772,7 @@ whatwg-fetch@2.0.4:
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
   integrity sha512-dcQ1GWpOD/eEQ97k66aiEVpNnapVj90/+R+SXTPYGHpYBBypfKJEQjLrvMZ7YXbKm21gXd4NcuxUTjiv1YtLng==
 
-whatwg-fetch@>=0.10.0:
+whatwg-fetch@3.0.0, whatwg-fetch@>=0.10.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#fc804e458cc460009b1a2b966bc8817d2578aefb"
   integrity sha512-9GSJUgz1D4MfyKU7KRqwOjXCXTqWdFNvEr7eUBYchQiVc744mqK/MzXPNR2WsPkmkOa4ywfg8C2n8h+13Bey1Q==
