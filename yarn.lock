@@ -2132,11 +2132,12 @@ graphcool-yml@0.4.15:
     scuid "^1.0.2"
     yaml-ast-parser "^0.0.40"
 
-graphql-binding@2.3.6:
-  version "2.3.6"
-  resolved "https://registry.yarnpkg.com/graphql-binding/-/graphql-binding-2.3.6.tgz#37546f038567d56ea4f3ee3ec9e6629d078d9545"
-  integrity sha512-khQsAuGjAceZB8oLBIIIo7eomrqwICmxiDvaMz0bIhEUsyBr109CauFamkSBXxQKh71uf5e8MihCsW50gLfQEQ==
+graphql-binding@2.3.7:
+  version "2.3.7"
+  resolved "https://registry.yarnpkg.com/graphql-binding/-/graphql-binding-2.3.7.tgz#2480d9ae4582ab1fbedb3ab1ae67963f82a8b028"
+  integrity sha512-fhvNySzmPHdqyjS73Rrr12RfJ2IehhFz7Ql7qYkls5KHwdktCg2E3MZroLiLkNQOx9uKIPq9AfibgIM7wecYKw==
   dependencies:
+    graphql "^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0"
     graphql-import "^0.7.1"
     graphql-tools "4.0.3"
     iterall "1.2.2"
@@ -4303,16 +4304,17 @@ prettier@^1.14.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.15.2.tgz#d31abe22afa4351efa14c7f8b94b58bb7452205e"
   integrity sha512-YgPLFFA0CdKL4Eg2IHtUSjzj/BWgszDHiNQAe0VAIBse34148whfdzLagRL+QiKS+YfK5ftB6X4v/MBw8yCoug==
 
-prisma-binding@2.2.9:
-  version "2.2.9"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.2.9.tgz#03f9fb3e3bb6336364afb2eacfdbf58a67ea8740"
-  integrity sha512-sq2tYZut1rXY6YJkltyJAlZT1Rs0id9PK6gGCYYzva5FyjIBj6LNu1s1iClmxfhgO++Xq4FHZ9pXy7+nL7WFKQ==
+prisma-binding@2.2.10:
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.2.10.tgz#c8af90ea14bdb5f76146699b6e7e1186f723779e"
+  integrity sha512-s89xmkbQUqXsA4rTepXMNtxNqfzAVnIvsXB7tYlQp/UnZVeTyZNT80IYggadPzNJ1PfsGUbgMae0YRiP9G+N0Q==
   dependencies:
     apollo-link "1.2.4"
     apollo-link-error "1.1.2"
     apollo-link-ws "1.0.10"
     cross-fetch "3.0.0"
-    graphql-binding "2.3.6"
+    graphql "^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0"
+    graphql-binding "2.3.7"
     graphql-import "0.7.1"
     graphql-tools "4.0.3"
     http-link-dataloader "^0.1.6"
