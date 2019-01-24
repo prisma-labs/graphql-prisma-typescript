@@ -4360,10 +4360,10 @@ prettier@^1.14.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.15.2.tgz#d31abe22afa4351efa14c7f8b94b58bb7452205e"
   integrity sha512-YgPLFFA0CdKL4Eg2IHtUSjzj/BWgszDHiNQAe0VAIBse34148whfdzLagRL+QiKS+YfK5ftB6X4v/MBw8yCoug==
 
-prisma-binding@2.2.14:
-  version "2.2.14"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.2.14.tgz#f21ce8e4fb0034c9dec8b39919cec241bbdf74df"
-  integrity sha512-CQLSwfk7QU9ruyQEWmJ0KmDBeFK1ppYBrggLbYJ3zz1qGahrsVGD0+hzrSnfyItGE2AqfASL0LaPj3isaTgbvw==
+prisma-binding@2.2.15:
+  version "2.2.15"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.2.15.tgz#56b3e47e4eea3200c458635c9dbfec8bed27af8f"
+  integrity sha512-Zgly0Qhu1y9pr7kKYVECKwSOaBNlKifQWiuolLXxvQ8D4dB17WVYny/PO/Qat9zemU+ipTTtxf+wDSQChJ16+g==
   dependencies:
     apollo-link "1.2.6"
     apollo-link-error "1.1.5"
@@ -4372,7 +4372,7 @@ prisma-binding@2.2.14:
     graphql "^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0"
     graphql-binding "2.4.1"
     graphql-import "0.7.1"
-    graphql-tools "4.0.3"
+    graphql-tools "4.0.4"
     http-link-dataloader "^0.1.6"
     jsonwebtoken "8.4.0"
     subscriptions-transport-ws "0.9.15"
