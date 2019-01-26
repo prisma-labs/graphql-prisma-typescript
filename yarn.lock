@@ -4360,10 +4360,10 @@ prettier@^1.14.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.15.2.tgz#d31abe22afa4351efa14c7f8b94b58bb7452205e"
   integrity sha512-YgPLFFA0CdKL4Eg2IHtUSjzj/BWgszDHiNQAe0VAIBse34148whfdzLagRL+QiKS+YfK5ftB6X4v/MBw8yCoug==
 
-prisma-binding@2.2.17:
-  version "2.2.17"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.2.17.tgz#e98092eaaad9ba17e273d9ba5c64b6556d9e7ea1"
-  integrity sha512-Wxun4xrXh5ijE8rko6W0te7by6d5lRRq8XaBXhvGuf/DBD5lodNOX1L34na/NtS/GIWI2kldXzhV78QN2Ea7Bg==
+prisma-binding@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.3.0.tgz#0001c7b02bb28c16449b2dbbf2fa931e6250e6c8"
+  integrity sha512-qqhpQGwPzd3vYJsTJwh7oFHHYnfUj+KIHn7vfNHY9j51BBc+2Z1eGyOY4T2ilsB7koAqdriF2vF0m7Ctgc8Mfw==
   dependencies:
     apollo-link "1.2.6"
     apollo-link-error "1.1.5"
