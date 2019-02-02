@@ -29,7 +29,7 @@
     "graphql-resolver-codegen": "0.3.1",
     "nodemon": "1.18.9",
     "npm-run-all": "4.1.5",
-    "prisma": "1.25.6",
+    "prisma": "1.25.7",
     "ts-node": "7.0.1",
     "typescript": "3.3.1"
   },
