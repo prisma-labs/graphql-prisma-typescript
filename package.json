@@ -16,7 +16,7 @@
     "graphql": "14.1.1",
     "graphql-tag": "2.10.1",
     "graphql-tools": "4.0.4",
-    "graphql-yoga": "1.17.1",
+    "graphql-yoga": "1.17.2",
     "jsonwebtoken": "8.4.0",
     "prisma-binding": "2.3.2",
     "prisma-client-lib": "1.25.7"
