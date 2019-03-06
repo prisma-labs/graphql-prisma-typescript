@@ -136,10 +136,10 @@
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-14.0.3.tgz#389e2e5b83ecdb376d9f98fae2094297bc112c1c"
   integrity sha512-TcFkpEjcQK7w8OcrQcd7iIBPjU0rdyi3ldj6d0iJ4PPSzbWqPBvXj9KSwO14hTOX2dm9RoiH7VuxksJLNYdXUQ==
 
-"@types/jsonwebtoken@8.3.0":
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.3.0.tgz#1fe79489df97b49273401ac3c8019cbf1dae4578"
-  integrity sha512-YKnUTR4VxwljbPORPrRon9E3uel1aD8nUdvzqArCCdMTWPvo0gnI2UZkwIHN2QATdj6HYXV/Iq3/KcecAO42Ww==
+"@types/jsonwebtoken@8.3.1":
+  version "8.3.1"
+  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.3.1.tgz#c2d5b6df37fef64692445e04c07b59883542dd28"
+  integrity sha512-/ll9KWnKf6qvTtMTdBto5QgKS83pxvxRqRUnmHMpMVab3lOIyfMXNeuvP6t4SQ1aKhv3zuphPUVGRX4vi0pt2g==
   dependencies:
     "@types/node" "*"
 
