@@ -4441,10 +4441,10 @@ prettier@1.14.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.14.3.tgz#90238dd4c0684b7edce5f83b0fb7328e48bd0895"
   integrity sha512-qZDVnCrnpsRJJq5nSsiHCE3BYMED2OtsI+cmzIzF1QIfqm5ALf8tEJcO27zV1gKNKRPdhjO0dNWnrzssDQ1tFg==
 
-prisma-binding@2.3.5:
-  version "2.3.5"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.3.5.tgz#5dbda74335a2c09528b9d07028d674e4af1827ae"
-  integrity sha512-PMzv+tiMMZcOvbcxB+e9n3sE2et/D05rt3A7ytIiAaf3jNpcJez37DOoJUNecs0tuqtW4flkHkD1mvVOmo2IeA==
+prisma-binding@2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.3.6.tgz#0bce78d0f1bbde634d0986b09db33bba2291db92"
+  integrity sha512-4e6gwnUThDR7AxY9cmUeMCRKIN5RNc0DqnfIDNxWWr19+WF/WrF4NpQF2L2xSI++/cdbkweKyuHZ2sA+99lwPQ==
   dependencies:
     apollo-link "1.2.9"
     apollo-link-error "1.1.8"
@@ -4456,7 +4456,7 @@ prisma-binding@2.3.5:
     graphql-tools "4.0.4"
     http-link-dataloader "^0.1.6"
     jsonwebtoken "8.5.0"
-    subscriptions-transport-ws "0.9.15"
+    subscriptions-transport-ws "0.9.16"
     yargs "12.0.5"
 
 prisma-cli-core@1.28.3:
@@ -5492,7 +5492,18 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
-subscriptions-transport-ws@0.9.15, subscriptions-transport-ws@^0.9.15, subscriptions-transport-ws@^0.9.8:
+subscriptions-transport-ws@0.9.16:
+  version "0.9.16"
+  resolved "https://registry.yarnpkg.com/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.16.tgz#90a422f0771d9c32069294c08608af2d47f596ec"
+  integrity sha512-pQdoU7nC+EpStXnCfh/+ho0zE0Z+ma+i7xvj7bkXKb1dvYHSZxgRPaU6spRP+Bjzow67c/rRDoix5RT0uU9omw==
+  dependencies:
+    backo2 "^1.0.2"
+    eventemitter3 "^3.1.0"
+    iterall "^1.2.1"
+    symbol-observable "^1.0.4"
+    ws "^5.2.0"
+
+subscriptions-transport-ws@^0.9.15, subscriptions-transport-ws@^0.9.8:
   version "0.9.15"
   resolved "https://registry.yarnpkg.com/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.15.tgz#68a8b7ba0037d8c489fb2f5a102d1494db297d0d"
   integrity sha512-f9eBfWdHsePQV67QIX+VRhf++dn1adyC/PZHP6XI5AfKnZ4n0FW+v5omxwdHVpd4xq2ZijaHEcmlQrhBY79ZWQ==
