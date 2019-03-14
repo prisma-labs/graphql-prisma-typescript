@@ -334,41 +334,41 @@ apollo-codegen@^0.19.1:
     source-map-support "^0.5.0"
     yargs "^10.0.3"
 
-apollo-link-error@1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/apollo-link-error/-/apollo-link-error-1.1.8.tgz#3a957b22b843cf6c307d516709cdc42371c9aafe"
-  integrity sha512-5hbMIBaINWOsZapWgTF8H2X0q3NjrQD/y4HlqDnUeLmT12OqejLasNh+EFE6q37/l28UHQu1/AuyRn15J7gvCA==
+apollo-link-error@1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/apollo-link-error/-/apollo-link-error-1.1.9.tgz#9da680368b2e0f0c4878d6bd7519552a9bc0236c"
+  integrity sha512-2VwuweTyMxK0HutGUtfPG9l8Bf2EAxT1ZGS7c8n7cvj3vH14s2bd1lFkGHDcNT1MYnvu+QgmO87PZ8jLUuOFvg==
   dependencies:
-    apollo-link "^1.2.9"
-    apollo-link-http-common "^0.2.11"
+    apollo-link "^1.2.10"
+    apollo-link-http-common "^0.2.12"
     tslib "^1.9.3"
 
-apollo-link-http-common@^0.2.11:
-  version "0.2.11"
-  resolved "https://registry.yarnpkg.com/apollo-link-http-common/-/apollo-link-http-common-0.2.11.tgz#d4e494ed1e45ea0e0c0ed60f3df64541d0de682d"
-  integrity sha512-FjtzEDiG6blH/2MR4fpVNoxdZUFmddP0sez34qnoLaYz6ABFbTDlmRE/dVN79nPExM4Spfs/DtW7KRqyjJ3tOg==
+apollo-link-http-common@^0.2.12:
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/apollo-link-http-common/-/apollo-link-http-common-0.2.12.tgz#30cb42b6417076872d3e9e7699dbf79a9c9d7bee"
+  integrity sha512-jMgvp8ZURiaSivKLsB7J0uVKLNit5nPeFaxr85r6CsdS0HQB0tH+aqzblPQeMQ0zpR/EqX8YrogXFZ08y9kjYQ==
   dependencies:
-    apollo-link "^1.2.9"
+    apollo-link "^1.2.10"
     ts-invariant "^0.3.2"
     tslib "^1.9.3"
 
-apollo-link-ws@1.0.15:
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/apollo-link-ws/-/apollo-link-ws-1.0.15.tgz#1a0132ee3c700640d64c5b00ad8cff5cb974ff62"
-  integrity sha512-zXYfvKBpgf7QXIIEO11qgKLYyodo1mDkJr2IojcvOqbGGtqi7+DtOxX21/mrM2pzcwczYGCSDrtFhas4A7RnNA==
+apollo-link-ws@1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/apollo-link-ws/-/apollo-link-ws-1.0.16.tgz#f4075c0913b287ad79c73b7339395e43de19c406"
+  integrity sha512-uiR44CypjGMGza91t1q+XhWKOw6U7F9lPu47cQDDPrfyNG73pYX6MbE/9tZFAIl3eWnAO17TTpxzNTWfpIhODA==
   dependencies:
-    apollo-link "^1.2.9"
+    apollo-link "^1.2.10"
     tslib "^1.9.3"
 
-apollo-link@1.2.9, apollo-link@^1.2.9:
-  version "1.2.9"
-  resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.9.tgz#40a8f0b90716ce3fd6beb27b7eae1108b92e0054"
-  integrity sha512-ZLUwthOFZq4lxchQ2jeBfVqS/UDdcVmmh8aUw6Ar9awZH4r+RgkcDeu2ooFLUfodWE3mZr7wIZuYsBas/MaNVA==
+apollo-link@1.2.10, apollo-link@^1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.10.tgz#98cf24c46c0d75cb878804143e39dcf9813f0c20"
+  integrity sha512-vQ5u+jEHyLJaV+eUoVKFYYiJcCY9dBNSNhf7Ve9YxeFf84ZDt5NNOPXQEygF39qdoqFRYJb7OkAOJptydteOvw==
   dependencies:
     apollo-utilities "^1.2.1"
     ts-invariant "^0.3.2"
     tslib "^1.9.3"
-    zen-observable-ts "^0.8.16"
+    zen-observable-ts "^0.8.17"
 
 apollo-link@^1.2.3:
   version "1.2.3"
@@ -4441,14 +4441,14 @@ prettier@1.14.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.14.3.tgz#90238dd4c0684b7edce5f83b0fb7328e48bd0895"
   integrity sha512-qZDVnCrnpsRJJq5nSsiHCE3BYMED2OtsI+cmzIzF1QIfqm5ALf8tEJcO27zV1gKNKRPdhjO0dNWnrzssDQ1tFg==
 
-prisma-binding@2.3.6:
-  version "2.3.6"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.3.6.tgz#0bce78d0f1bbde634d0986b09db33bba2291db92"
-  integrity sha512-4e6gwnUThDR7AxY9cmUeMCRKIN5RNc0DqnfIDNxWWr19+WF/WrF4NpQF2L2xSI++/cdbkweKyuHZ2sA+99lwPQ==
+prisma-binding@2.3.7:
+  version "2.3.7"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.3.7.tgz#0bfd385d941bdd0603da401eb46468e5628e00ca"
+  integrity sha512-SRrzYMTp7CBM1Cw6T2nTgOfBSyYknHECunFS3pRWazgiI6Cbr3umv7FZJ9LRIxMjIvk6MmaMMsdkOWGFFythvQ==
   dependencies:
-    apollo-link "1.2.9"
-    apollo-link-error "1.1.8"
-    apollo-link-ws "1.0.15"
+    apollo-link "1.2.10"
+    apollo-link-error "1.1.9"
+    apollo-link-ws "1.0.16"
     cross-fetch "3.0.1"
     graphql "^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0"
     graphql-binding "2.5.1"
@@ -6257,10 +6257,10 @@ zen-observable-ts@^0.8.10:
   dependencies:
     zen-observable "^0.8.0"
 
-zen-observable-ts@^0.8.16:
-  version "0.8.16"
-  resolved "https://registry.yarnpkg.com/zen-observable-ts/-/zen-observable-ts-0.8.16.tgz#969367299074fe17422fe2f46ee417e9a30cf3fa"
-  integrity sha512-pQl75N7qwgybKVsh6WFO+WwPRijeQ52Gn1vSf4uvPFXald9CbVQXLa5QrOPEJhdZiC+CD4quqOVqSG+Ptz5XLA==
+zen-observable-ts@^0.8.17:
+  version "0.8.17"
+  resolved "https://registry.yarnpkg.com/zen-observable-ts/-/zen-observable-ts-0.8.17.tgz#b3183625fa55d3960c829e3a90061f82ec2d7863"
+  integrity sha512-eVQH3UG5h4lMlD9HMMIsiMk3vsCW66QVOPJQMCSJhP4THswDW7r/BPHO6oCZbA/LZzntv2t8W/bv3vYO9NYh/g==
   dependencies:
     tslib "^1.9.3"
     zen-observable "^0.8.0"
