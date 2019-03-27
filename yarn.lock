@@ -1290,10 +1290,10 @@ cross-fetch@2.2.2:
     node-fetch "2.1.2"
     whatwg-fetch "2.0.4"
 
-cross-fetch@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.1.tgz#3f207bbd829a76e9aa2a953348bd1f2a3cf388a7"
-  integrity sha512-qWtpgBAF8ioqBOddRD+pHhrdzm/UWOArkrlIU7c08DlNbOxo5GfUbSY2vr90ZypWf0raW+HNN1F38pi5CEOjiQ==
+cross-fetch@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.2.tgz#b7136491967031949c7f86b15903aef4fa3f1768"
+  integrity sha512-a4Z0EJ5Nck6QtMy9ZqloLfpvu2uMV3sBfMCR+CgSBCZc6z5KR4bfEiD3dkepH8iZgJMXQpTqf8FjMmvu/GMFkg==
   dependencies:
     node-fetch "2.3.0"
     whatwg-fetch "3.0.0"
@@ -4457,15 +4457,15 @@ prettier@1.14.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.14.3.tgz#90238dd4c0684b7edce5f83b0fb7328e48bd0895"
   integrity sha512-qZDVnCrnpsRJJq5nSsiHCE3BYMED2OtsI+cmzIzF1QIfqm5ALf8tEJcO27zV1gKNKRPdhjO0dNWnrzssDQ1tFg==
 
-prisma-binding@2.3.9:
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.3.9.tgz#0b2f805240160a7ab1e7ea1569a3722ee76522de"
-  integrity sha512-HhjeBW86IB9jbgF+V4Y95LY+piUlT96V2tun4dN8wg3fg2wk1cjXUiGJE+f94AQKc1nFTrPPfTp5EsJvhidRsg==
+prisma-binding@2.3.10:
+  version "2.3.10"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.3.10.tgz#5b45a5ba10d2ee77ba22238dc7b374bcf135094f"
+  integrity sha512-muDleL1exsDttHE8WXciOKbsIfCsyh3UrCNwgl18CS6t5TuhUhatEJqLfkT57BLYycEZBBo1ou4cLVTp+3S9dQ==
   dependencies:
     apollo-link "1.2.11"
     apollo-link-error "1.1.10"
     apollo-link-ws "1.0.17"
-    cross-fetch "3.0.1"
+    cross-fetch "3.0.2"
     graphql "^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0"
     graphql-binding "2.5.1"
     graphql-import "0.7.1"
