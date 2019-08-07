@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.2",
-    "@types/jsonwebtoken": "8.3.2",
+    "@types/jsonwebtoken": "8.3.3",
     "dotenv": "6.2.0",
     "graphql-cli": "2.17.0",
     "graphql-resolver-codegen": "0.3.1",
